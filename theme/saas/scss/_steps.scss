@@ -1,0 +1,14 @@
+/*
+Work process
+*/
+.step-box{
+    position: relative;
+    overflow: hidden;
+    h1{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        font-size: 90px;
+        opacity: 0.05;
+    }
+}

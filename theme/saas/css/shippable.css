@@ -1,0 +1,144 @@
+
+/*
+
+Project      : SAAS - For Saas Startups
+Version      : v1.0
+Author       : Design_mylife (Rakesh Sharma)
+Support email: mylifedesign143@gmail.com
+*/
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+/*
+Shippable style csss
+*/
+
+.red-color {
+  color : red;
+}
+
+.green-color {
+  color: green;
+}
+
+.blue-color {
+  color: #4aa3df;
+}
+
+fbold {
+  font-weight:600;
+}
+
+.partners-list img {
+  opacity: 1;
+}
+
+.white-color {
+  color: #fff;
+}
+
+.dgrey-color {
+  color: #333333;
+}
+
+/*Button overrides*/
+.btn-primary {
+ background: #DA5A5B;
+ border: 2px solid #DA5A5B;
+}
+
+.btn-primary:focus {
+ background: #DA5A5B;
+ border: 2px solid #DA5A5B;
+}
+
+.btn-primary:hover {
+ background: #DA5A5B;
+ color: #000;
+ border: 2px solid #DA5A5B;
+}
+
+.navbar-default.navbar-transparent .navbar-nav > li > a.btn-primary:hover {
+  color: #DA5A5B;
+}
+.navbar-default.navbar-transparent .navbar-nav > li > a:hover {
+  color: #DA5A5B;
+}
+
+.navbar-default.navbar-transparent.shrink .navbar-nav > li > a.btn-primary:hover {
+  color: #DA5A5B;
+}
+.navbar-default.navbar-transparent.shrink .navbar-nav > li > a:hover {
+  color: #DA5A5B;
+}
+
+.navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar-default.navbar-transparent .navbar-nav > .open > a:focus, .navbar-default.navbar-transparent .navbar-nav > .open > a:hover, .navbar-default.navbar-transparent .navbar-nav > .active > a, .navbar-default.navbar-transparent .navbar-nav > .active > a:focus, .navbar-default.navbar-transparent .navbar-nav > .active > a:hover {
+  color: #DA5A5B;
+}
+
+.navbar-default.navbar-transparent.shrink .navbar-nav > .open > a, .navbar-default.navbar-transparent.shrink .navbar-nav > .open > a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav > .open > a:hover, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a:hover {
+  color: #DA5A5B;
+}
+
+.skin-bg {
+background-color: #064052;
+}
+
+.cta-skin {
+background-color: #064052;
+}
+
+.lemon-bg {
+  background: #F2EAD5;
+}
+
+p {
+  color: #333333;
+  font-size: 15px;
+}
+
+.list li {
+  color: #333333;
+}
+
+.price-box.best-plan .price-header, .price-box.best-plan .price-footer {
+  background: #DA5A5B;
+}
+
+.sidebar-widget .list-unstyled > li > a {
+  color: #4aa3df;
+}
+
+.feature-box-center i {
+  color: #333333;
+}
+
+.icon-040 {
+    height: 40px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #header-item-more {
+    display: none;
+  }
+}
+
+.post .blog-desc h3 {
+  margin: 8px 0;
+  text-transform: capitalize;
+}
+.post .blog-desc h3 a {
+  color: #253340;
+}
+.post .blog-desc h3 a:hover {
+  color: #4aa3df;
+}
+
+blockquote {
+  color: #333;
+  border-left: 5px solid #ddd;
+}

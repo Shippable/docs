@@ -1,0 +1,37 @@
+/**footer style **/
+.footer{
+    background: #333;
+    color: #fff;
+    ul{
+        li{
+            a{
+                color: #fff;
+                font-weight: 300;
+            }
+        }
+    }
+    span{
+        font-size: 12px;
+    }
+    h4{
+        color: #fff;
+    }
+    .navbar-form{
+    padding-left:0px;
+    padding-right:0px;
+    @include box-shadow(none);
+    border:0px;
+    .form-control{
+        width: 270px;
+    }
+}
+}
+.social{
+    margin-bottom:20px;
+    >li>a{
+        font-size: 20px;
+        &:hover{
+            color: $skin-color;
+        }
+    }
+}
