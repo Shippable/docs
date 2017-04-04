@@ -1,2 +1,2 @@
 # docs
-Documentation for Shippable's Automated DevOps platform
+Documentation for [Shippable's Automated DevOps platform](https://www.shippable.com)
