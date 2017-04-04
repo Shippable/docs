@@ -1,0 +1,13 @@
+# General
+site_name: Shippable Docs
+repo_url: https://github.com/Shippable/docs
+
+# Paths
+docs_dir: sources
+theme_dir: theme/saas
+
+#detect broken links and break the build
+strict: true
+
+#Google Analytics
+google_analytics: ['UA-50610279-1', 'auto']
