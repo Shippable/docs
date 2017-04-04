@@ -1,0 +1,26 @@
+/*
+Cta and quotes css
+*/
+.cta-skin{
+    padding: 60px 0;
+    background: $skin-dark;
+    h2{
+        color: #fff;
+        letter-spacing: 0px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    p{
+        color: #fff;
+        margin-bottom: 20px;
+    }
+}
+.cta-bg{
+    background: url(../images/bg2.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding:40px 15px ;
+    h3{
+        color: #fff;
+    }
+}

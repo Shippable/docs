@@ -1,0 +1,33 @@
+/*
+Bootstrap collapsed
+*/
+.panel{
+    .panel-heading{
+        padding: 0px;
+    }
+    .panel-title{
+        a{
+            display: block;
+            position: relative;
+            padding: 10px 15px;
+            color:#fff;
+            background-color:$skin-color;
+            &:after{
+                   content: "\f2d7";
+                display: inline-block;
+                font-family: "Ionicons";
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                font-size: 15px;
+            }
+            &.collapsed{
+                color:#333;
+                background:transparent;
+                &:after{
+                        content: "\f2c7";
+                }
+            }
+        }
+    }
+}

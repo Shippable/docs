@@ -1,0 +1,55 @@
+/*
+Features and service icon boxes
+*/
+.features-section{
+    padding-top: 90px;
+    padding-bottom: 60px;
+}
+.feature-box-center{
+    i{
+        font-size: 50px;
+        margin-bottom: 15px;
+        color: $skin-color;
+        display: block;
+    }
+}
+
+.features-bg{
+    background: url(../images/bg2.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 90px;
+    padding-bottom: 50px;
+    .center-title{
+        h2,p{
+            color: #fff;
+        }
+        &:after{
+            background: #fff;
+        }
+    }
+}
+.feature-icon-left{
+    margin-bottom: 40px;
+    .icon{
+        float: left;
+        margin-right: 20px;
+        color: #fff;
+        width: 60px;
+        text-align: center;
+        font-size: 50px;
+    }
+    .content{
+        overflow: hidden;
+        h4,p{
+            color: #fff;
+        }
+        h4{
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        p{
+            opacity: 0.9;
+        }
+    }
+}

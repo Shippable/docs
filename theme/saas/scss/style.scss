@@ -1,0 +1,226 @@
+/*
+
+Project      : SAAS - For Saas Startups
+Version      : v1.0
+Author       : Design_mylife (Rakesh Sharma)
+Support email: mylifedesign143@gmail.com
+*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700');
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_base.scss";
+@import "_buttons.scss";
+@import "_menu.scss";
+@import "_dropdown.scss";
+@import "_team.scss";
+@import "_blog.scss";
+@import "_sidebar.scss";
+@import "_pagination.scss";
+@import "_cta.scss";
+@import "_pricing.scss";
+@import "_testimonials.scss";
+@import "_steps.scss";
+@import "_features-service-box.scss";
+@import "_accordoins.scss";
+@import "_misc-pages.scss";
+@import "_tabs.scss";
+@import "_footer.scss";
+
+
+.hero-parallax {
+    height: 100%;
+    width: 100%;
+    .hero-inner {
+        display: table;
+        width: 100%;
+        height: 100%;
+        .hero-content {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            h1{
+                font-weight:500;
+                color: #fff;
+                font-size: 55px;
+                line-height: 70px;
+                text-transform: capitalize;
+                letter-spacing: 0px; 
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            }
+            p{
+                color: #fff;
+            }
+        }
+    }
+}
+.buttons{
+    a{
+        margin: 5px;
+    }
+}
+/**home hero items**/
+.hero-video{
+    background: url(../images/bg2.jpg) no-repeat;
+    background-size: cover;
+    padding-top: 160px;
+    padding-bottom: 100px;
+    h1{
+        font-size: 50px;
+        line-height: 65px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+    h1,p{
+        color: #fff;
+    }
+    p{
+        opacity: 0.8;
+    }
+}
+.full-wid{
+    width: 100%;
+    text-align: center;
+}
+.slider-title{
+    color: #fff;
+    top: 230px;
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 100px;
+    text-transform: capitalize;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+.caption-text{
+    color: #fff;
+    font-size: 18px;
+    bottom: 150px;
+    text-align: center;
+    width: 100%;
+}
+.hero-static-image{
+    background: url(../images/bg2.jpg) no-repeat;
+    background-size: cover;
+    padding-top: 160px;
+    padding-bottom: 0px;
+    h1,p{
+        color: #fff;
+    }
+    h1{
+        font-size: 60px;
+        font-weight: 600;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+    .buttons{
+        margin-bottom: 50px;
+    }
+}
+.partners-list{
+    img{
+        opacity: 0.3;
+        @include transition(all 0.3s);
+        display: block;
+        margin:0 auto;
+    }
+    >li>a{
+        display:block;
+        border:1px solid #eee;
+        margin-top:20px;
+        padding:0px 15px;
+        &:hover{
+            img{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+/***responsive style**/
+@media(max-width:991px){
+    .hero-parallax .hero-inner .hero-content h1{
+        font-size: 27px;
+        line-height: 37px;
+    }
+    .hero-video,.hero-static-image{
+        text-align: center;
+        padding-bottom:0px;
+        padding-top:100px;
+        h1{
+            font-size: 27px;
+            line-height: 40px;
+        }
+        .buttons{
+            margin-bottom: 30px;
+        }
+    }
+}
+@media(max-width:767px){
+    .navbar-default .navbar-toggle{
+        border-color: $skin-color;
+        &:focus,&:hover{
+            border-color: $skin-color;   
+        }
+    }
+    .navbar-toggle,.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+        background: $skin-color;
+    }
+    .navbar-default .navbar-toggle .icon-bar{
+        background: #fff;
+        &:focus,&:hover{
+            background: #fff;
+        }
+    }
+    .navbar-default.navbar-transparent{
+        .navbar-nav {
+            margin: 0px -15px;
+            background: #333;
+        }
+        .navbar-nav .open .dropdown-menu>li>a {
+            color: #eee;
+            &:hover{
+                color: $skin-color;
+            }
+        }
+        &.shrink{
+            .navbar-nav {
+                margin: 0px -15px;
+                background: #fff;
+            } 
+             .navbar-nav .open .dropdown-menu>li>a {
+            color: #777;
+            &:hover{
+                color: $skin-color;
+            }
+        }
+        }
+    }
+    .navbar-default.navbar-transparent,.navbar-default.navbar-transparent.shrink{
+        padding: 0px;
+    }
+    .footer .navbar-form{
+        padding-left: 15px;
+        padding-right:15px;
+        .form-control{
+            width: 100%;
+        }
+        .btn-primary{
+            display: block;
+            width: 100%;
+        }
+    }
+      .hero-parallax .hero-inner .hero-content p.lead{
+        font-size: 13px;
+    }
+    .btn-xl{
+        padding: 12px 25px;
+    }
+    .btn-lg{
+        padding: 8px 20px;
+    }
+    .page-title h1{
+        font-size: 24px;
+        line-height: 32px;
+    }
+}

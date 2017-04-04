@@ -1,0 +1,116 @@
+.navbar-nav>li>a{
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    font-family: $title-font;
+    &.btn-primary{
+        padding: 7px 20px 4px;
+        margin-top:6px;
+    }
+}
+.navbar-default.navbar-transparent{
+    background: transparent;
+    border: 0px;
+    padding: 10px 0;
+    margin: 0px;
+    @include transition(all 0.3s);
+    .search-nav a{
+        color: #fff;
+    }
+    .navbar-nav>li>a{
+        color: #fff;
+        &.btn-primary{
+            color: #fff;
+            &:hover{
+                color: $skin-color;
+            }
+        }
+         &:hover{
+                color: $skin-color;
+            }
+    }
+    .navbar-brand{
+        img{
+            position: absolute;
+            &.logo-scroll{
+                opacity: 0;
+            }
+        }
+    }
+    &.shrink{
+        background-color:#fff;
+        padding:0px 0;
+        @include box-shadow(0px 0px 12px rgba(0,0,0,0.1));
+        .search-nav a{
+            color: #333;
+        }
+        .navbar-nav>li>a{
+            color: #333;
+            &.btn-primary{
+                color: #fff;
+                &:hover{
+                    color: $skin-color;
+                }
+            }
+            &:hover{
+                color: $skin-color;
+            }
+        }
+        .navbar-brand{
+            img{
+                &.logo-scroll{
+                    opacity: 1;
+                }
+                &.logo-default{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+.navbar-default.navbar-transparent .navbar-nav>.open>a, .navbar-default.navbar-transparent .navbar-nav>.open>a:focus, .navbar-default.navbar-transparent .navbar-nav>.open>a:hover,.navbar-default.navbar-transparent .navbar-nav>.active>a, .navbar-default.navbar-transparent .navbar-nav>.active>a:focus, .navbar-default.navbar-transparent .navbar-nav>.active>a:hover {
+    color:$skin-color;
+    background-color: transparent;
+}
+.navbar-default.navbar-transparent.shrink .navbar-nav>.open>a, .navbar-default.navbar-transparent.shrink .navbar-nav>.open>a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav>.open>a:hover,.navbar-default.navbar-transparent.shrink .navbar-nav>.active>a, .navbar-default.navbar-transparent.shrink .navbar-nav>.active>a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav>.active>a:hover {
+    color:$skin-color;
+    background-color: transparent;
+}
+.top-search {
+    background-color: #fff;
+    padding: 10px 0;
+    margin-top:-10px;
+    display:none;
+
+    .input-group-addon {
+        background-color: transparent;
+        border: none;
+        color: #333;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 10px;
+    }
+    input.form-control {
+        background-color: transparent;
+        border: none;
+        -moz-box-shadow: 0px 0px 0px;
+        -webkit-box-shadow: 0px 0px 0px;
+        -o-box-shadow: 0px 0px 0px;
+        box-shadow: 0px 0px 0px;
+        color: #333;
+        height: 40px;
+        padding: 0 15px;
+    }
+    .input-group-addon.close-search {
+        cursor: pointer;
+    }
+}
+.search-nav {
+    float: right;
+    margin-left: 30px;
+    margin-top: 12px;
+    a{
+        font-size: 20px;
+    }
+}

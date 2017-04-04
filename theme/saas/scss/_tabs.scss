@@ -1,0 +1,26 @@
+/*
+Features tabs style
+*/
+
+.features-tabs{
+    border-bottom: 2px solid #eee;
+    padding:0px;
+    margin-bottom:40px;
+    >li{
+        >a{
+            display: block;
+            margin-bottom: -2px;
+            padding: 10px 15px;
+            color: #999;
+            border-bottom: 2px solid transparent;
+            font-family: $title-font;
+            font-weight: 400;
+        }
+        &.active{
+            a{
+                border-bottom-color: $skin-color;
+                color: $skin-color;
+            }
+        }
+    }
+}
