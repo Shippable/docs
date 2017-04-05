@@ -1,4 +1,4 @@
-FROM shipimg/microbase:master.50994
+FROM drydock/microbase:v5.4.1
 
 ADD . /home/shippable/docs
 
