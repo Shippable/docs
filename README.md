@@ -33,6 +33,5 @@ To start documentation server at `localhost:5555`:
 ```bash
 (venv)$ mkdocs serve --dev-addr=localhost:5555
 ```
-It uses livereload there is no need to restart the server after changes have been made. Also it automatically reloads pages in the browser.
-
+This uses livereload to monitors changes to the files. Therefore as soon as you save a file, the browser is refreshed.
 
