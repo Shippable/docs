@@ -1,0 +1,9 @@
+venv
+theme
+sources
+site
+.git
+base
+*.sh
+*.yml
+*.md
