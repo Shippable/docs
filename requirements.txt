@@ -1,0 +1,16 @@
+appdirs==1.4.3
+backports-abc==0.5
+backports.ssl-match-hostname==3.5.0.1
+certifi==2017.1.23
+click==6.7
+Jinja2==2.9.6
+livereload==2.5.1
+Markdown==2.6.8
+MarkupSafe==1.0
+mkdocs==0.16.3
+packaging==16.8
+pyparsing==2.2.0
+PyYAML==3.12
+singledispatch==3.4.0.3
+six==1.10.0
+tornado==4.4.3
