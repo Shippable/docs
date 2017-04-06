@@ -4,9 +4,7 @@ repo_url: https://github.com/Shippable/docs
 
 # Paths
 docs_dir: sources
-# this is breaking the mkdocs build.
-# commentimg this to get docs working with default theme
-#theme_dir: theme/saas
+theme_dir: theme/saas
 
 #detect broken links and break the build
 strict: true
