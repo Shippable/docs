@@ -1,0 +1,25 @@
+
+<div class="ship-sidebar">
+  <form class="ship-docs-nav-search-form">
+    <i class="ship-docs-nav-search-icon"></i>
+    <input type="search" class="ship-docs-nav-search-input st-search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off">
+  </form>
+  <ul class="ship-nav">
+    {% for section in nav %}
+      {% if section.children %}
+        <li class="ship-nav-item">
+            {% for first_item in section.children[:1] %}
+              <a class="ship-nav-item-header ship-nav-item-header--hasChildren"> {{ section.title }} </a>
+              <nav class="ship-nav-item-nav">
+                {% for section in section.children %}
+                  <a class="ship-nav-item-link" href="{{ section.url }}">
+                    {{ section.title }}
+                  </a>
+                {% endfor %}
+              </nav>
+          {% endfor %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  <ul>
+</div>

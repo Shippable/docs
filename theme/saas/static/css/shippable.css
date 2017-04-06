@@ -142,3 +142,257 @@ blockquote {
   color: #333;
   border-left: 5px solid #ddd;
 }
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+menu,ol,p,small,ul {
+    margin: 0;
+    padding: 0
+}
+
+menu,ol,ul {
+    list-style: none
+}
+
+.ship {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    height: calc(100vh - 63px)
+}
+
+.ship,.ship-body {
+    overflow-y: auto;
+    overflow-x: hidden
+}
+
+.ship-body {
+    -ms-flex: 1;
+    flex: 1
+}
+
+.ship-sidebar {
+    width: 350px;
+    padding: 2rem;
+    background: #fafbfc;
+    border-right: 1px solid #e4edf5;
+    overflow-y: auto;
+    overflow-x: hidden
+}
+
+.ship-sidebar-title {
+    font-size: 16px;
+    font-feature-settings: "smcp","c2sc";
+    font-variant: all-small-caps;
+    color: #425e78;
+    border-bottom: 1px solid #fbfaf9;
+    padding-bottom: 1rem
+}
+
+.ship-sidebar-title:empty {
+    display: none
+}
+
+.ship-main {
+    max-width: 640px;
+    padding: 4rem 4rem 8rem 96px
+}
+
+.ship-contents-description {
+    margin-top: 2rem
+}
+
+.ship-title {
+    font-size: 31px;
+    font-weight: 400;
+    letter-spacing: -.645;
+    line-height: 46px;
+    color: #00386c;
+    margin-bottom: 2rem
+}
+
+.ship-footer {
+    margin-top: 2rem
+}
+
+.ship-docs-nav {
+    position: relative;
+    text-align: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.ship-docs-nav-tab {
+    display: inline-block;
+    font-size: 16px;
+    transition: all .3s;
+    white-space: nowrap;
+    padding: 1rem 0
+}
+
+.ship-docs-nav-tab+.ship-docs-nav-tab {
+    margin-left: 2rem
+}
+
+.ship-docs-nav-tab:focus,.ship-docs-nav-tab:hover {
+    color: #54d194
+}
+
+.ship-docs-nav-tab.active {
+    color: #006cd1;
+    border-bottom: 1px solid #006cd1;
+    margin-bottom: -1px
+}
+
+.ship-docs-nav-search-form {
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative
+}
+
+.ship-docs-nav-search-icon {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url(/docs/search.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    top: 13px;
+    left: 16px
+}
+
+.ship-docs-nav-search-input {
+    font-size: 16px;
+    padding: 0 1rem 0 40px;
+    line-height: 40px;
+    transition: border-color .2s;
+    width: 100%;
+    outline: none;
+    font-family: inherit;
+    background: #fff;
+    border: 1px solid #e4edf5;
+    border-radius: 100px;
+    color: #425e78
+}
+
+.ship-docs-nav-search-input::-webkit-input-placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input:-ms-input-placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input::placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input:focus::-webkit-input-placeholder {
+    opacity: .5
+}
+
+.ship-docs-nav-search-input:focus:-ms-input-placeholder {
+    opacity: .5
+}
+
+.ship-docs-nav-search-input:focus::placeholder {
+    opacity: .5
+}
+
+.ship-nav {
+    position: relative;
+    margin-bottom: 20px
+}
+
+.ship-nav-item {
+    margin-bottom: .5rem
+}
+
+.ship-nav-item.active {
+    z-index: 100
+}
+
+.ship-nav-item-header {
+    color: #425e78;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ship-nav-item-header:before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: .5em;
+    background: no-repeat 50%;
+    background-size: contain
+}
+
+.ship-nav-item-header:empty,.ship-nav-item-nav {
+    display: none
+}
+
+.ship-nav-item-link {
+    display: block;
+    cursor: pointer;
+    line-height: 21px;
+    padding-left: 2rem;
+    color: #7999b8;
+    transition: opacity .2s;
+    margin-bottom: .5rem
+}
+
+.ship-nav-item-link:focus,.ship-nav-item-link:hover {
+    color: #49b882
+}
+
+.ship-nav-item.active .ship-nav-item-header {
+    color: #006cd1
+}
+
+.ship-nav-item.active .ship-nav-item-header:before {
+    transform: rotate(90deg)
+}
+
+.ship-nav-item.active .ship-nav-item-nav {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: .5rem
+}
+
+.ship-nav-item.active .ship-nav-item-nav::empty {
+    display: none
+}
+
+.ship-nav-item-link.active {
+    color: #00386c;
+    opacity: 1
+}
+
+.ship-nav-item.active .ship-nav-item-nav:empty {
+    display: none
+}
+
+html {
+    font: 16px/27px Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #425e78;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased
+}
+
