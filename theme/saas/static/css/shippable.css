@@ -142,3 +142,228 @@ blockquote {
   color: #333;
   border-left: 5px solid #ddd;
 }
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+body,html,.row-offcanvas {
+  height:100%;
+}
+
+body {
+  padding-top: 50px;
+}
+
+menu,ol,p,small,ul {
+    margin: 0;
+    padding: 0
+}
+
+menu,ol,ul {
+    list-style: none
+}
+
+#sidebar {
+  width: inherit;
+  min-width: 220px;
+  background-color:#f5f5f5;
+  float: left;
+  height:100%;
+  position:relative;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#main {
+    height:100%;
+    overflow:auto;
+    margin-left: 350px;
+}
+
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    width:calc(100% + 220px);
+  }
+
+  .row-offcanvas-left
+  {
+    left: -220px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+.footer {
+    position: relative;
+}
+
+.ship-sidebar {
+    width: 300px;
+    padding: 2rem;
+    background: #fafbfc;
+    border-right: 1px solid #e4edf5;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:100vh;
+    position: fixed;
+}
+
+.ship-docs-nav-search-form {
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative
+}
+
+.ship-docs-nav-search-icon {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url(../ionicons/css/search.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    top: 13px;
+    left: 16px
+}
+
+.navbar-default.navbar-transparent {
+  background-image: url("/static/images/shippable-logos/bg-crop.png")
+}
+
+.ship-docs-nav-search-input {
+    font-size: 16px;
+    padding: 0 1rem 0 40px;
+    line-height: 40px;
+    transition: border-color .2s;
+    width: 100%;
+    outline: none;
+    font-family: inherit;
+    background: #fff;
+    border: 1px solid #e4edf5;
+    border-radius: 100px;
+    color: #425e78
+}
+
+.ship-docs-nav-search-input::-webkit-input-placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input:-ms-input-placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input::placeholder {
+    color: #aec3d6;
+    transition: opacity .2s
+}
+
+.ship-docs-nav-search-input:focus::-webkit-input-placeholder {
+    opacity: .5
+}
+
+.ship-docs-nav-search-input:focus:-ms-input-placeholder {
+    opacity: .5
+}
+
+.ship-docs-nav-search-input:focus::placeholder {
+    opacity: .5
+}
+
+.ship-nav {
+    position: relative;
+    margin-bottom: 20px
+}
+
+.ship-nav-item {
+    margin-bottom: .5rem
+}
+
+.ship-nav-item.active {
+    z-index: 100
+}
+
+.ship-nav-item-header {
+    color: #425e78;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ship-nav-item-header:before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: .5em;
+    background: no-repeat 50%;
+    background-size: contain
+}
+
+.ship-nav-item-header--hasChildren:before {
+    background-image: url(../ionicons/css/caret-closed.svg)
+}
+
+.ship-nav-item-header:empty,.ship-nav-item-nav {
+    display: none
+}
+
+.ship-nav-item-link {
+    display: block;
+    cursor: pointer;
+    line-height: 21px;
+    padding-left: 2rem;
+    color: #7999b8;
+    transition: opacity .2s;
+    margin-bottom: .5rem
+}
+
+
+.ship-nav-item.active .ship-nav-item-header {
+    color: #006cd1
+}
+
+.ship-nav-item.active .ship-nav-item-header:before {
+    transform: rotate(90deg)
+}
+
+.ship-nav-item.active .ship-nav-item-nav {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: .5rem
+}
+
+.ship-nav-item.active .ship-nav-item-nav::empty {
+    display: none
+}
+
+.ship-nav-item-link.active {
+    color: #00386c;
+    opacity: 1
+}
+
+.ship-nav-item.active .ship-nav-item-nav:empty {
+    display: none
+}
+
+html {
+    font: 16px/27px Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #425e78;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased
+}
