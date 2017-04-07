@@ -143,11 +143,13 @@ blockquote {
   border-left: 5px solid #ddd;
 }
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-html {
-    font-family: sans-serif;
-    line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+
+body,html,.row-offcanvas {
+  height:100%;
+}
+
+body {
+  padding-top: 50px;
 }
 
 menu,ol,p,small,ul {
@@ -159,99 +161,64 @@ menu,ol,ul {
     list-style: none
 }
 
-.ship {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    height: calc(100vh - 63px)
+#sidebar {
+  width: inherit;
+  min-width: 220px;
+  background-color:#f5f5f5;
+  float: left;
+  height:100%;
+  position:relative;
+  overflow-y:auto;
+  overflow-x:hidden;
 }
 
-.ship,.ship-body {
-    overflow-y: auto;
-    overflow-x: hidden
+#main {
+    height:100%;
+    overflow:auto;
+    margin-left: 350px;
 }
 
-.ship-body {
-    -ms-flex: 1;
-    flex: 1
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    width:calc(100% + 220px);
+  }
+
+  .row-offcanvas-left
+  {
+    left: -220px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+.footer {
+    position: relative;
 }
 
 .ship-sidebar {
-    width: 350px;
+    width: 300px;
     padding: 2rem;
     background: #fafbfc;
     border-right: 1px solid #e4edf5;
     overflow-y: auto;
-    overflow-x: hidden
-}
-
-.ship-sidebar-title {
-    font-size: 16px;
-    font-feature-settings: "smcp","c2sc";
-    font-variant: all-small-caps;
-    color: #425e78;
-    border-bottom: 1px solid #fbfaf9;
-    padding-bottom: 1rem
-}
-
-.ship-sidebar-title:empty {
-    display: none
-}
-
-.ship-main {
-    max-width: 640px;
-    padding: 4rem 4rem 8rem 96px
-}
-
-.ship-contents-description {
-    margin-top: 2rem
-}
-
-.ship-title {
-    font-size: 31px;
-    font-weight: 400;
-    letter-spacing: -.645;
-    line-height: 46px;
-    color: #00386c;
-    margin-bottom: 2rem
-}
-
-.ship-footer {
-    margin-top: 2rem
-}
-
-.ship-docs-nav {
-    position: relative;
-    text-align: left;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center
-}
-
-.ship-docs-nav-tab {
-    display: inline-block;
-    font-size: 16px;
-    transition: all .3s;
-    white-space: nowrap;
-    padding: 1rem 0
-}
-
-.ship-docs-nav-tab+.ship-docs-nav-tab {
-    margin-left: 2rem
-}
-
-.ship-docs-nav-tab:focus,.ship-docs-nav-tab:hover {
-    color: #54d194
-}
-
-.ship-docs-nav-tab.active {
-    color: #006cd1;
-    border-bottom: 1px solid #006cd1;
-    margin-bottom: -1px
+    overflow-x: hidden;
+    height:100vh;
+    position: fixed;
 }
 
 .ship-docs-nav-search-form {
@@ -265,11 +232,15 @@ menu,ol,ul {
     position: absolute;
     width: 16px;
     height: 16px;
-    background-image: url(/docs/search.svg);
+    background-image: url(../ionicons/css/search.svg);
     background-repeat: no-repeat;
     background-position: 50%;
     top: 13px;
     left: 16px
+}
+
+.navbar-default.navbar-transparent {
+  background-image: url("/static/images/shippable-logos/bg-crop.png")
 }
 
 .ship-docs-nav-search-input {
@@ -343,6 +314,10 @@ menu,ol,ul {
     background-size: contain
 }
 
+.ship-nav-item-header--hasChildren:before {
+    background-image: url(../ionicons/css/caret-closed.svg)
+}
+
 .ship-nav-item-header:empty,.ship-nav-item-nav {
     display: none
 }
@@ -357,9 +332,6 @@ menu,ol,ul {
     margin-bottom: .5rem
 }
 
-.ship-nav-item-link:focus,.ship-nav-item-link:hover {
-    color: #49b882
-}
 
 .ship-nav-item.active .ship-nav-item-header {
     color: #006cd1
@@ -395,4 +367,3 @@ html {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased
 }
-

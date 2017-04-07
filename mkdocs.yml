@@ -16,198 +16,362 @@ google_analytics: ['UA-50610279-1', 'auto']
 # Pages
 pages:
 - Overview:
-  - What is Shippable?: index.md
-  - FAQ: faq.md
-- Continuous Integration (CI):
-  - Overview: ci/overview.md
-  - What is supported?: ci/supported.md
-  - Running a build: ci/runFirstBuild.md
-  - Build configuration: ci/shippableyml.md
-  - Machine Images:
-    - Overview: ci/machine-images/overview.md
-    - v5.4.1: ci/machine-images/v5-4-1.md
-    - v5.3.2: ci/machine-images/v5-3-2.md
-    - Stable: ci/machine-images/stable.md
-  - Languages:
-    - Node.js: ci/languages/node.md
-    - Python: ci/languages/python.md
-    - Java: ci/languages/java.md
-    - Clojure: ci/languages/clojure.md
-    - Ruby: ci/languages/ruby.md
-    - Go: ci/languages/go.md
-    - PHP: ci/languages/php.md
-    - Scala: ci/languages/scala.md
-    - C: ci/languages/objc.md
-    - Custom Images: ci/languages/customImages.md
-  - Services:
-    - CouchDB: ci/services/couchDB.md
-    - Elastic Search: ci/services/elasticSearch.md
-    - Memcached: ci/services/memcached.md
-    - MongoDB: ci/services/mongoDB.md
-    - MySQL: ci/services/mySQL.md
-    - Neo4j: ci/services/neo4j.md
-    - Postgres: ci/services/postgreSQL.md
-    - RabbitMQ: ci/services/rabbitMQ.md
-    - Redis: ci/services/redis.md
-    - RethinkDB: ci/services/rethinkDB.md
-    - Riak: ci/services/riak.md
-    - Selenium: ci/services/selenium.md
-    - SQLite: ci/services/sqlite.md
-  - Advanced Options:
-    - Environment Variables: ci/advancedOptions/environmentVariables.md
-    - Including/Excluding branches: ci/advancedOptions/branches.md
-    - Matrix builds: ci/advancedOptions/matrixBuilds.md
-    - Caching: ci/advancedOptions/caching.md
-    - Artifacts: ci/advancedOptions/artifacts.md
-    - Using git submodules: ci/advancedOptions/gitSubmodules.md
-    - SSH keys: ci/advancedOptions/sshKeys.md
-    - Shippable_retry: ci/advancedOptions/retry.md
-    - Skipping builds: ci/advancedOptions/skipBuild.md
-    - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
-    - Test and Coverage Reports: ci/advancedOptions/testCoverage.md
-    - Timeouts: ci/advancedOptions/timeouts.md
-    - Console logs: ci/advancedOptions/console-logs.md
-  - Permissions: ci/permissions.md
-  - Troubleshooting CI: ci/troubleshoot.md
-- Continuous Deployment Pipelines:
-  - Overview: pipelines/overview.md
-  - Getting Started: pipelines/gettingStarted.md
-  - Resources:
-    - Overview: pipelines/resources/overview.md
-    - ciRepo: pipelines/resources/ciRepo.md
-    - cliConfig: pipelines/resources/cliConfig.md
-    - cluster: pipelines/resources/cluster.md
-    - dockerOptions: pipelines/resources/dockerOptions.md
-    - file: pipelines/resources/file.md
-    - gitRepo: pipelines/resources/gitRepo.md
-    - image: pipelines/resources/image.md
-    - integration: pipelines/resources/integration.md
-    - loadBalancer: pipelines/resources/loadBalancer.md
-    - notification: pipelines/resources/notification.md
-    - params: pipelines/resources/params.md
-    - replicas: pipelines/resources/replicas.md
-    - syncRepo: pipelines/resources/syncRepo.md
-    - time: pipelines/resources/time.md
-    - version: pipelines/resources/version.md
-  - Jobs:
-    - Overview: pipelines/jobs/overview.md
-    - deploy: pipelines/jobs/deploy.md
-    - manifest: pipelines/jobs/manifest.md
-    - provision: pipelines/jobs/provision.md
-    - release: pipelines/jobs/release.md
-    - runCI: pipelines/jobs/runCI.md
-    - runCLI: pipelines/jobs/runCLI.md
-    - runSh: pipelines/jobs/runSh.md
-    - jenkinsJob: pipelines/jobs/jenkinsJob.md
-  - Triggers: pipelines/triggers.md
-  - Trace: pipelines/trace.md
-- Integrations:
-  - Overview: integrations/overview.md
-  - Source Control Systems:
-    - Overview: integrations/scm/scmOverview.md
-    - GitHub: integrations/scm/github.md
-    - GitHub Enterprise: integrations/scm/githubEnterprise.md
-    - Bitbucket: integrations/scm/bitbucket.md
-    - Bitbucket Server: integrations/scm/bitbucketServer.md
-    - GitLab: integrations/scm/gitlab.md
-  - Notifications:
-    - Slack: integrations/notifications/slack.md
-    - Email: integrations/notifications/email.md
-    - HipChat: integrations/notifications/hipchat.md
-    - IRC: integrations/notifications/irc.md
-    - Webhooks: integrations/notifications/webhooks.md
-  - Image Registries:
-    - Docker Hub: integrations/imageRegistries/dockerHub.md
-    - Docker Trusted Registry: integrations/imageRegistries/dockerTrustedRegistry.md
-    - Amazon EC2 Container Registry (ECR): integrations/imageRegistries/ecr.md
-    - Google Container Registry (GCR): integrations/imageRegistries/gcr.md
-    - Quay.io: integrations/imageRegistries/quay.md
-    - Any Private Registry: integrations/imageRegistries/privateRegistry.md
-  - Artifact Registries:
-    - Jfrog Artifactory: integrations/artifactRegistries/jfrogArtifactory.md
-  - Container Services:
-    - Amazon EC2 Container Service (ECS): integrations/containerServices/ecs.md
-    - Kubernetes: integrations/containerServices/kubernetes.md
-    - Google Container Engine (GKE): integrations/containerServices/gke.md
-    - Docker Cloud: integrations/containerServices/dockerCloud.md
-    - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
-  - Deploy:
-    - AWS Elastic Beanstalk: integrations/deploy/eb.md
-    - Node Cluster: integrations/deploy/nodeCluster.md
-  - Keys:
-    - SSH: integrations/keys/ssh.md
-    - PEM:  integrations/keys/pem.md
-  - Generic:
-    - Key-Value: integrations/generic/keyValuePair.md
-- Navigating the UI:
-  - Home: navigatingUI/home.md
-  - Account:
-    - Account: navigatingUI/accountSettings/accounts.md
-    - Integrations: navigatingUI/accountSettings/integrations.md
-    - Cards: navigatingUI/accountSettings/cards.md
-    - API: navigatingUI/accountSettings/api.md
-    - My Dashboard: navigatingUI/accountSettings/myDashboard.md
-  - Subscription:
-    - CI: navigatingUI/subscriptions/ci.md
-    - Pipelines: navigatingUI/subscriptions/pipelines.md
-    - Settings: navigatingUI/subscriptions/settings.md
-  - Project:
-    - Status: navigatingUI/projects/status.md
-    - Settings: navigatingUI/projects/settings.md
-  - Build:
-    - Overview: navigatingUI/builds/overview.md
-    - Detail: navigatingUI/builds/detail.md
-- API:
-  - Overview: api/overview.md
-  - Docs: api/docs.md
-- Shippable Server:
-  - Overview: server/overview.md
-  - Installing Shippable Server: server/installingShippableServer.md
-  - Backup and Restore Procedures: server/backup-restore-procedures.md
-- Tutorials:
-  - CI tutorial Index: tutorials/continuous-integration.md
-  - CD Pipelines tutorial index: tutorials/continuous-delivery-pipelines.md
-  - CI Tutorials:
-    - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
-    - Source Control Tutorials:
-      - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/link-gitHub-bitbucket.md
-      - Building Bitbucket Server repos: tutorials/ci/scm-bitbucket-server-ci.md
-      - Building GitLab repos: tutorials/ci/scm-gitlab-ci.md
-    - Docker registry tutorials:
-      - Amazon ECR tutorials:
-        - Pull Docker image from ECR: tutorials/ci/hub-amazon-ecr-pull-docker-image.md
-        - Build docker image: tutorials/ci/hub-amazon-ecr-build-docker-image.md
-        - Push a Docker image to ECR: tutorials/ci/hub-amazon-ecr-push-docker-image.md
-        - Use custom Docker image from ECR for CI: tutorials/ci/hub-amazon-ecr-custom-ci-image.md
-      - Docker Hub tutorials:
-        - Pull image from Docker Hub: tutorials/ci/hub-docker-pull-image.md
-        - Build docker image: tutorials/ci/hub-docker-build-image.md
-        - Push an image to Docker Hub: tutorials/ci/hub-docker-push-image.md
-        - Use custom image from Docker Hub for CI: tutorials/ci/hub-docker-custom-ci-image.md
-      - GCR tutorials:
-        - Pull Docker image from GCR: tutorials/ci/hub-gcr-pull-docker-image.md
-        - Build docker image: tutorials/ci/hub-gcr-build-docker-image.md
-        - Push a Docker image to GCR: tutorials/ci/hub-gcr-push-docker-image.md
-        - Use custom Docker image from GCR for CI: tutorials/ci/hub-gcr-custom-ci-image.md
-    - Test and Code Coverage Tutorials:
-      - Advanced Coverage Reports with JaCoCo: tutorials/ci/code-coverage-jacoco.md
-    - Deploy Tutorials:
-      - Using Heroku: tutorials/ci/deploy-heroku.md
-      - Using OpsWorks: tutorials/ci/deploy-amazon-opsworks.md
-      - Using Code Deploy: tutorials/ci/deploy-amazon-codedeploy.md
-      - Using Digital Ocean: tutorials/ci/deploy-digital-ocean.md
-  - Pipelines Tutorials:
-    - Deploying a sample application: tutorials/pipelines/samplePipeline.md
-    - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
-    - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
-    - Migrating from Event Trigger to runCI: tutorials/pipelines/migrateEventTrigger.md
-    - Migrating resources or jobs from one project to another: tutorials/pipelines/migrateResources.md
-    - Rolling back deployments: tutorials/pipelines/rollback-deployments.md
-    - Deploy tutorials:
-      - Deploy a sample app to Kubernetes: tutorials/pipelines/deploy-to-kubernetes.md
-    - runSh tutorials:
-      - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
-      - Updating resource version: tutorials/pipelines/updateResourceVersion.md
-      - Extracting resource version information: tutorials/pipelines/extractVersionInformation.md
-      - Persisting state between runs: tutorials/pipelines/persistStateBetweenRuns.md
-- Search: search.md
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
+- Overview:
+  - Why Shippable: index.md
+  - Use cases: index.md
+  - Concepts: index.md
+  - Building blocks: index.md
+  - Single Pane of Glass: index.md
+- What is supported?:
+  - Source control providers: index.md
+  - Languages: index.md
+  - Services: index.md
+  - Notifications: index.md
+  - Artifact repositories: index.md
+  - Deployment endpoints: index.md
+- Billing:
+  - Overview: index.md
+  - Managing your plan: index.md
+- Your account:
+  - Setting account email: index.md
+  - Managing payment methods: index.md
+  - Git identities: index.md
+  - API tokens: index.md
+  - Integrations: index.md
+- Running builds on your own infrastructure:
+  - Overview: index.md
+  - Adding nodes: index.md
+  - Resetting a node: index.md
+  - Deleting nodes: index.md
+- Run your first build: index.md
+- Deploy your first app: index.md
+- Support: index.md
