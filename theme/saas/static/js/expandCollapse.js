@@ -1,7 +1,7 @@
 $(document).ready(function () {
-	$('.ship-nav-item').click(
+	$('.shipNav-item').click(
 	 function () {
-	   $('.ship-nav-item').removeClass('active')
+	   $('.shipNav-item').removeClass('active')
 	   $(this).addClass('active')
 	 }
 	)

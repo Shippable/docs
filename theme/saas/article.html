@@ -1,35 +1,23 @@
-<div class="row-offcanvas row-offcanvas-left">
-  <div id="sidebar" class="sidebar-offcanvas">
-      <div class="col-md-12">
-        <div class="ship-sidebar">
-          <form class="ship-docs-nav-search-form">
-            <i class="ship-docs-nav-search-icon"></i>
-            <input type="search" class="ship-docs-nav-search-input st-search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off">
-          </form>
-          <ul class="ship-nav">
-            {% for section in nav %}
-              {% if section.children %}
-                <li class="ship-nav-item">
-                    {% for first_item in section.children[:1] %}
-                      <a class="ship-nav-item-header ship-nav-item-header--hasChildren"> {{ section.title }} </a>
-                      <nav class="ship-nav-item-nav">
-                        {% for section in section.children %}
-                          <a class="ship-nav-item-link" href="{{ section.url }}">
-                            {{ section.title }}
-                          </a>
-                        {% endfor %}
-                      </nav>
-                  {% endfor %}
-                </li>
-              {% endif %}
-            {% endfor %}
-          <ul>
-        </div>
-      </div>
-  </div>
-  <div id="main">
-      <div class="col-md-12 content-pad">
-               {% block content %} {{ content }} {% endblock %}
-      </div>
-  </div>
-</div>
+
+<form class="shipDocsNav-search-form">
+  <i class="shipDocsNav-search-icon"></i>
+  <input type="search" class="shipDocsNav-search-input st-search-input" placeholder="Search...">
+</form>
+<ul class="shipNav">
+  {% for section in nav %}
+    {% if section.children %}
+      <li class="shipNav-item">
+          {% for first_item in section.children[:1] %}
+            <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
+            <nav class="shipNav-item-nav">
+              {% for section in section.children %}
+                <a class="shipNav-item-link" href="{{ section.url }}">
+                  {{ section.title }}
+                </a>
+              {% endfor %}
+            </nav>
+        {% endfor %}
+      </li>
+    {% endif %}
+  {% endfor %}
+<ul>
