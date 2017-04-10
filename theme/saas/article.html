@@ -1,27 +1,30 @@
-
 <form class="shipDocsNav-search-form">
   <i class="shipDocsNav-search-icon"></i>
   <input type="search" class="shipDocsNav-search-input st-search-input" placeholder="Search...">
 </form>
-<ul class="shipNav">
+<span class="shipNav">
   {% for section in nav %}
     {% if section.children %}
-      <li class="shipNav-item" id="{{section.title[:10] |replace(' ', '_')}}">
-          {% for first_item in section.children[:1] %}
-            <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
-            <nav class="shipNav-item-nav">
-              {% for section in section.children %}
-                <a class="shipNav-item-link" href="{{ section.url }}">
-                  {{ section.title }}
-                </a>
-              {% endfor %}
-            </nav>
+      <ul class="indiviualSection" id="{{section.title |replace(' ', '-')}}">
+        {% for section in section.children %}
+          {% if section.children %}
+            <li class="shipNav-item" id="{{section.title[:10] |replace(' ', '-')}}">
+                <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
+                <nav class="shipNav-item-nav">
+                  {% for section in section.children %}
+                    <a class="shipNav-item-link" href="{{ section.url }}">
+                      {{ section.title }}
+                    </a>
+                  {% endfor %}
+                </nav>
+            </li>
+          {% else %}
+            <li>
+              <a class="shipNav-item-header" href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
+            </li>
+          {% endif %}
         {% endfor %}
-      </li>
-    {% else %}
-      <li>
-        <a class="shipNav-item-header" href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
-      </li>
+      </ul>
     {% endif %}
   {% endfor %}
-<ul>
+</span>

@@ -14,33 +14,6 @@ google_analytics: ['UA-50610279-1', 'auto']
 
 # Pages
 pages:
-- Overview:
-  - Why Shippable: index.md
-  - Use cases: overview/shippable-use-cases.md
-  - Concepts: overview/concepts.md
-  - Building blocks: overview/building-blocks.md
-  - Single Pane of Glass: overview/single-pane-of-glass-spog.md
-- What is supported?:
-  - Source control providers: what-is-supported/supported-scms.md
-  - Languages: what-is-supported/supported-languages.md
-  - Services: what-is-supported/supported-services.md
-  - Notifications: what-is-supported/supported-notifications.md
-  - Artifact repositories: what-is-supported/supported-artifact-repositories.md
-  - Deployment endpoints: what-is-supported/supported-deployments.md
-- Billing:
-  - Overview: billing/billing-overview.md
-  - Managing your plan: billing/managing-your-plan.md
-- Your account:
-  - Setting account email: your-account/set-email.md
-  - Managing payment methods: your-account/manage-payment-methods.md
-  - Git identities: your-account/git-identities.md
-  - API tokens: your-account/api-tokens.md
-  - Integrations: your-account/integrations.md
-- Running builds on your own infrastructure:
-  - Overview: running-builds-on-your-own-infrastructure/byon-overview.md
-  - Adding nodes: running-builds-on-your-own-infrastructure/byon-add-node.md
-  - Resetting a node: running-builds-on-your-own-infrastructure/byon-reset-node.md
-  - Deleting nodes: running-builds-on-your-own-infrastructure/byon-delete-node.md
-- Run your first build: ci-sample.md
-- Deploy your first app: cd-sample.md
-- Support: support.md
+  - Getting started:
+    - Overview:
+      - Why Shippable: index.md
