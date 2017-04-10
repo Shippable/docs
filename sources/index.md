@@ -1,7 +1,8 @@
 page_title: What is Shippable?
 page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
-
+main_section: Getting started
+sub_section: Overview
 # What is Shippable?
 
 Shippable was founded so that software powered organizations could accelerate innovation. We enable this by providing an integrated platform, built from the ground up, to defragment and streamline the process of shipping applications. Using Shippable, you can automate your software delivery from source control to production, without needing to write complex, imperative code.

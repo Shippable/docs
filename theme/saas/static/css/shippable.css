@@ -93,7 +93,7 @@ background-color: #064052;
 
 p {
   color: #333333;
-  font-size: 15px;
+  font-size: 1em;
 }
 
 .list li {
@@ -143,19 +143,14 @@ blockquote {
   border-left: 5px solid #ddd;
 }
 
+/* ------------------ */
 .containerpad {
   padding-left: 20px;
   padding-right: 40px;
 }
 
-.content-pad {
-  padding: 2rem;
-}
 .navbar-default.navbar-transparent .navbar-brand img {
-  bottom: 15px !important;
-}
-body,html,.row-offcanvas {
-  height:100%;
+  bottom: 1em !important;
 }
 
 body {
@@ -163,26 +158,14 @@ body {
 }
 
 menu,ol,small,ul {
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0
 }
 
 menu,ol,ul {
-    list-style: none
+  list-style: none
 }
 
-#sidebar {
-  width: inherit;
-  min-width: 220px;
-  background-color:#f5f5f5;
-  float: left;
-  height:100%;
-  position:relative;
-  overflow-y:auto;
-  overflow-x:hidden;
-}
-
-/* ------------------ */
 .shipContent {
     display: -ms-flexbox;
     display: flex;
@@ -223,7 +206,7 @@ menu,ol,ul {
 
 .shipDocsNav-tab {
     display: inline-block;
-    font-size: 16px;
+    font-size: 1em;
     transition: all .3s;
     white-space: nowrap;
     padding: 1rem 0
@@ -262,7 +245,7 @@ menu,ol,ul {
 }
 
 .shipDocsNav-search-input {
-    font-size: 16px;
+    font-size: 1em;
     padding: 0 1rem 0 40px;
     line-height: 40px;
     transition: border-color .2s;
@@ -317,7 +300,7 @@ menu,ol,ul {
 
 .shipNav-item-header {
     color: #425e78;
-    font-size: 16px;
+    font-size: 1em;
     text-decoration: none
 }
 
@@ -382,7 +365,7 @@ menu,ol,ul {
 
 
 .shipContent-sidebar-title {
-    font-size: 16px;
+    font-size: 1em;
     font-feature-settings: "smcp","c2sc";
     font-variant: all-small-caps;
     color: #425e78;
@@ -404,7 +387,7 @@ menu,ol,ul {
 }
 
 .shipContent-title {
-    font-size: 31px;
+    font-size: 2em;
     font-weight: 400;
     letter-spacing: -.645;
     line-height: 46px;
@@ -417,9 +400,31 @@ menu,ol,ul {
 }
 
 .navbar-default.navbar-transparent {
-  background-image: url("/static/images/shippable-logos/bg-crop.png")
+  background-image: url("/static/images/shippable-logos/bg-crop.png");
+  background-size:cover
 }
 
 a {
   cursor: pointer;
+}
+
+.hidesection {
+  display: none
+}
+
+.showsection {
+  display: block
+}
+
+
+#navhead {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translatex(-50%);
+}
+
+@media(max-width: 1280px) {
+  .navbar-default .navbar-nav>li>a {
+    font-size: 12px !important;
+  }
 }
