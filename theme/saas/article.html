@@ -6,7 +6,7 @@
 <ul class="shipNav">
   {% for section in nav %}
     {% if section.children %}
-      <li class="shipNav-item">
+      <li class="shipNav-item" id="{{section.title[:10] |replace(' ', '_')}}">
           {% for first_item in section.children[:1] %}
             <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
             <nav class="shipNav-item-nav">
@@ -17,6 +17,10 @@
               {% endfor %}
             </nav>
         {% endfor %}
+      </li>
+    {% else %}
+      <li>
+        <a class="shipNav-item-header" href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
       </li>
     {% endif %}
   {% endfor %}

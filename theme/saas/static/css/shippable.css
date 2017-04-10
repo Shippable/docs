@@ -200,12 +200,12 @@ menu,ol,ul {
 
 .shipContent-body {
     -ms-flex: 1;
-    flex: 1
+    flex: 1;
 }
 
 .shipContent-sidebar {
     width: 300px;
-    padding: 3rem;
+    padding: 5rem;
     background: #fafbfc;
     border-right: 1px solid #e4edf5;
     overflow-y: auto;
@@ -396,7 +396,7 @@ menu,ol,ul {
 
 .shipContent-main {
     /*max-width: 800px;*/
-    padding: 3rem 4rem 8rem 96px
+    padding: 5rem
 }
 
 .shipContent-contents-description {

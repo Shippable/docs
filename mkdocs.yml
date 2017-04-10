@@ -12,36 +12,35 @@ strict: true
 #Google Analytics
 google_analytics: ['UA-50610279-1', 'auto']
 
-
 # Pages
 pages:
 - Overview:
   - Why Shippable: index.md
-  - Use cases: index.md
-  - Concepts: index.md
-  - Building blocks: index.md
-  - Single Pane of Glass: index.md
+  - Use cases: overview/shippable-use-cases.md
+  - Concepts: overview/concepts.md
+  - Building blocks: overview/building-blocks.md
+  - Single Pane of Glass: overview/single-pane-of-glass-spog.md
 - What is supported?:
-  - Source control providers: index.md
-  - Languages: index.md
-  - Services: index.md
-  - Notifications: index.md
-  - Artifact repositories: index.md
-  - Deployment endpoints: index.md
+  - Source control providers: what-is-supported/supported-scms.md
+  - Languages: what-is-supported/supported-languages.md
+  - Services: what-is-supported/supported-services.md
+  - Notifications: what-is-supported/supported-notifications.md
+  - Artifact repositories: what-is-supported/supported-artifact-repositories.md
+  - Deployment endpoints: what-is-supported/supported-deployments.md
 - Billing:
-  - Overview: index.md
-  - Managing your plan: index.md
+  - Overview: billing/billing-overview.md
+  - Managing your plan: billing/managing-your-plan.md
 - Your account:
-  - Setting account email: index.md
-  - Managing payment methods: index.md
-  - Git identities: index.md
-  - API tokens: index.md
-  - Integrations: index.md
+  - Setting account email: your-account/set-email.md
+  - Managing payment methods: your-account/manage-payment-methods.md
+  - Git identities: your-account/git-identities.md
+  - API tokens: your-account/api-tokens.md
+  - Integrations: your-account/integrations.md
 - Running builds on your own infrastructure:
-  - Overview: index.md
-  - Adding nodes: index.md
-  - Resetting a node: index.md
-  - Deleting nodes: index.md
-- Run your first build: index.md
-- Deploy your first app: index.md
-- Support: index.md
+  - Overview: running-builds-on-your-own-infrastructure/byon-overview.md
+  - Adding nodes: running-builds-on-your-own-infrastructure/byon-add-node.md
+  - Resetting a node: running-builds-on-your-own-infrastructure/byon-reset-node.md
+  - Deleting nodes: running-builds-on-your-own-infrastructure/byon-delete-node.md
+- Run your first build: ci-sample.md
+- Deploy your first app: cd-sample.md
+- Support: support.md
