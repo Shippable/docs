@@ -1,7 +1,7 @@
 
 /*
 
-Project      : SAAS - For Saas Startups
+Project  : SAAS - For Saas Startups
 Version      : v1.0
 Author       : Design_mylife (Rakesh Sharma)
 Support email: mylifedesign143@gmail.com
@@ -42,19 +42,19 @@ fbold {
 
 /*Button overrides*/
 .btn-primary {
- background: #DA5A5B;
- border: 2px solid #DA5A5B;
+  background: #DA5A5B;
+  border: 2px solid #DA5A5B;
 }
 
 .btn-primary:focus {
- background: #DA5A5B;
- border: 2px solid #DA5A5B;
+  background: #DA5A5B;
+  border: 2px solid #DA5A5B;
 }
 
 .btn-primary:hover {
- background: #DA5A5B;
- color: #000;
- border: 2px solid #DA5A5B;
+  background: #DA5A5B;
+  color: #000;
+  border: 2px solid #DA5A5B;
 }
 
 .navbar-default.navbar-transparent .navbar-nav > li > a.btn-primary:hover {
@@ -80,11 +80,11 @@ fbold {
 }
 
 .skin-bg {
-background-color: #064052;
+  background-color: #064052;
 }
 
 .cta-skin {
-background-color: #064052;
+  background-color: #064052;
 }
 
 .lemon-bg {
@@ -93,7 +93,7 @@ background-color: #064052;
 
 p {
   color: #333333;
-  font-size: 15px;
+  font-size: 1em;
 }
 
 .list li {
@@ -141,4 +141,281 @@ p {
 blockquote {
   color: #333;
   border-left: 5px solid #ddd;
+}
+
+/* ------------------ */
+.containerpad {
+  padding-left: 20px;
+  padding-right: 40px;
+}
+
+.navbar-default.navbar-transparent .navbar-brand img {
+  bottom: 1em !important;
+}
+
+body {
+  padding-top: 50px;
+}
+
+menu,ol,small,ul {
+  margin: 0;
+  padding: 0;
+}
+
+menu,ol,ul {
+  list-style: none;
+}
+
+.shipContent {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  height: calc(100vh - 63px);
+}
+
+.shipContent,.shipContent-body {
+  overflow-y: auto;
+  overflow-x: hidden
+}
+
+.shipContent-body {
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.shipContent-sidebar {
+  width: 300px;
+  padding: 5rem;
+  background: #fafbfc;
+  border-right: 1px solid #e4edf5;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.shipDocsNav {
+  position: relative;
+  text-align: left;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.shipDocsNav-tab {
+  display: inline-block;
+  font-size: 1em;
+  transition: all .3s;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.shipDocsNav-tab+.shipDocsNav-tab {
+  margin-left: 2rem;
+}
+
+.shipDocsNav-tab:focus,.shipDocsNav-tab:hover {
+  color: #54d194;
+}
+
+.shipDocsNav-tab.active {
+  color: #006cd1;
+  border-bottom: 1px solid #006cd1;
+  margin-bottom: -1px;
+}
+
+.shipDocsNav-search-form {
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.shipDocsNav-search-icon {
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-image: url(../ionicons/css/search.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  top: 13px;
+  left: 16px;
+}
+
+.shipDocsNav-search-input {
+  font-size: 1em;
+  padding: 0 1rem 0 40px;
+  line-height: 40px;
+  transition: border-color .2s;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  background: #fff;
+  border: 1px solid #e4edf5;
+  border-radius: 100px;
+  color: #425e78;
+}
+
+.shipDocsNav-search-input::-webkit-input-placeholder {
+  color: #aec3d6;
+  transition: opacity .2s;
+}
+
+.shipDocsNav-search-input:-ms-input-placeholder {
+  color: #aec3d6;
+  transition: opacity .2s;
+}
+
+.shipDocsNav-search-input::placeholder {
+  color: #aec3d6;
+  transition: opacity .2s
+}
+
+.shipDocsNav-search-input:focus::-webkit-input-placeholder {
+  opacity: .5;
+}
+
+.shipDocsNav-search-input:focus:-ms-input-placeholder {
+  opacity: .5;
+}
+
+.shipDocsNav-search-input:focus::placeholder {
+  opacity: .5;
+}
+
+.shipNav {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.shipNav-item {
+  margin-bottom: .5rem;
+}
+
+.shipNav-item.active {
+  z-index: 100;
+}
+
+.shipNav-item-header {
+  color: #425e78;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.shipNav-item-header:before {
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: .5em;
+  background: no-repeat 50%;
+  background-size: contain;
+}
+
+.shipNav-item-header--hasChildren:before {
+  background-image: url(../ionicons/css/caret-closed.svg);
+}
+
+.shipNav-item-header:empty,.shipNav-item-nav {
+  display: none;
+}
+
+.shipNav-item-link {
+  display: block;
+  cursor: pointer;
+  line-height: 21px;
+  padding-left: 2rem;
+  color: #7999b8;
+  transition: opacity .2s;
+  margin-bottom: .5rem;
+}
+
+.shipNav-item-link:focus,.shipNav-item-link:hover {
+  color: #49b882;
+}
+
+.shipNav-item.active .shipNav-item-header {
+  color: #006cd1;
+}
+
+.shipNav-item.active .shipNav-item-header:before {
+  transform: rotate(90deg);
+}
+
+.shipNav-item.active .shipNav-item-nav {
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+}
+
+.shipNav-item.active .shipNav-item-nav::empty {
+  display: none;
+}
+
+.shipNav-item-link.active {
+  color: #00386c;
+  opacity: 1;
+}
+
+.shipNav-item.active .shipNav-item-nav:empty {
+  display: none;
+}
+
+
+.shipContent-sidebar-title {
+  font-size: 1em;
+  font-feature-settings: "smcp","c2sc";
+  font-variant: all-small-caps;
+  color: #425e78;
+  border-bottom: 1px solid #fbfaf9;
+  padding-bottom: 1rem;
+}
+
+.shipContent-sidebar-title:empty {
+  display: none;
+}
+
+.shipContent-main {
+  /*max-width: 800px;*/
+  padding: 5rem;
+}
+
+.shipContent-contents-description {
+  margin-top: 2rem;
+}
+
+.shipContent-title {
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: -.645;
+  line-height: 46px;
+  color: #00386c;
+  margin-bottom: 2rem;
+}
+
+.shipContent-footer {
+  margin-top: 2rem;
+}
+
+.navbar-default.navbar-transparent {
+  background-image: url("/static/images/shippable-logos/bg-crop.png");
+  background-size:cover;
+}
+
+a {
+  cursor: pointer;
+}
+
+#navhead {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translatex(-50%);
+}
+
+@media(max-width: 1280px) {
+  .navbar-default .navbar-nav>li>a {
+  font-size: 12px !important;
+  }
 }
