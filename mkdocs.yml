@@ -224,3 +224,46 @@ pages:
     - Provisioning AWS infrastructure:
       - With Terraform: provision/aws-with-terraform.md
       - With Ansible: provision/aws-with-ansible.md
+  - Reference:
+    - CI:
+      - YML Reference: reference/ci-yml.md
+    - Jobs:
+      - Overview: reference/jobs-overview.md
+      - deploy: reference/job-deploy.md
+      - manifest: reference/job-manifest.md
+      - provision: reference/job-provision.md
+      - release: reference/job-release.md
+      - runCI: reference/job-runci.md
+      - runCLI: reference/job-runcli.md
+      - runSH: reference/job-runsh.md
+      - jenkinsJob: reference/job-jenkinsjob.md
+    - Resources:
+      - Overview: reference/resources-overview.md
+      - ciRepo: reference/resource-cirepo.md
+      - cliConfig: reference/resource-cliconfig.md
+      - cluster: reference/resource-cluster.md
+      - dockerOptions: reference/resource-dockeroptions.md
+      - file: reference/resource-file.md
+      - gitRepo: reference/resource-gitrepo.md
+      - image: reference/resource-image.md
+      - integration: reference/resource-integration.md
+      - loadBalancer: reference/resource-loadbalancer.md
+      - notification: reference/resource-notification.md
+      - params: reference/resource-params.md
+      - replicas: reference/resource-replicas.md
+      - syncRepo: reference/resource-syncrepo.md
+      - time: reference/resource-time.md
+      - version: reference/resource-version.md
+    - API:
+      - Overview: reference/api-overview.md
+      - Accounts: reference/api-accounts.md
+      - BuildJobs: reference/api-buildjobs.md
+      - Builds: reference/api-builds.md
+      - ClusterNodes: reference/api-clusternodes.md
+      - Jobs: reference/api-jobs.md
+      - Projects: reference/api-projects.md
+      - Resources: reference/api-resources.md
+      - Runs: reference/api-runs.md
+      - Subscriptions: reference/api-subscriptions.md
+      - systemCodes: reference/api-systemcodes.md
+      - versions: reference/api-versions.md
