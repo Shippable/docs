@@ -11,3 +11,9 @@ strict: true
 
 #Google Analytics
 google_analytics: ['UA-50610279-1', 'auto']
+
+# Pages
+pages:
+  - Getting started:
+    - Overview:
+      - Why Shippable: index.md
