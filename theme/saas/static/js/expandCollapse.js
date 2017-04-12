@@ -5,8 +5,6 @@ $(document).ready(
         if (!$(this).hasClass('active')) {
           $('.shipNav-item').removeClass('active');
           $(this).addClass('active');
-        } else {
-          $('.shipNav-item').removeClass('active');
         }
       }
     );
