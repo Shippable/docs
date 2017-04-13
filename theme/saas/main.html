@@ -24,12 +24,14 @@
       {% include 'header.html' %}
     </div>
     <div class="shipContent">
-      <div class="shipContent-body">
-        <main class="shipContent-main col-md-12">
+      <div class="shipContent-body col-md-10">
+        <main class="shipContent-main col-md-8">
           {% block content %} {{ content }} {% endblock %}
         </main>
+        <div class="col-md-4">
+        </div>
       </div>
-      <div class="shipContent-sidebar">
+      <div class="shipContent-sidebar col-md-2">
         {% include 'article.html' %}
       </div>
     </div>

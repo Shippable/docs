@@ -11,7 +11,17 @@ Support email: mylifedesign143@gmail.com
 /*
 Shippable style csss
 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  padding-bottom: 10px;
+  padding-top: 30px;
 
+}
 .red-color {
   color : red;
 }
@@ -187,8 +197,7 @@ menu,ol,ul {
 }
 
 .shipContent-sidebar {
-  width: 300px;
-  padding: 5rem;
+  padding: 4rem;
   background: #fafbfc;
   border-right: 1px solid #e4edf5;
   overflow-y: auto;
