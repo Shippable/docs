@@ -58,6 +58,7 @@ integrations:
 ```
 In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
 
+---
 ### Pushing to different accounts based on branch
 
 You can also choose to push your images to different Docker Hub accounts, depending on branch.
@@ -84,7 +85,7 @@ integrations:
 
 ```
 
-
+---
 ###Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to Docker Hub and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
@@ -104,6 +105,7 @@ integrations:
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
 
+---
 ###Pushing Docker images with multiple tags
 
 If you want to push the container image with multiple tags, you can just push twice as shown below:
@@ -121,7 +123,7 @@ integrations:
       type: docker
 
 ```
-
+---
 ## Sample project
 
 Here are some links to a working sample of this scenario.
@@ -134,7 +136,7 @@ Here are some links to a working sample of this scenario.
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
 
-
+---
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
