@@ -94,7 +94,7 @@ pages:
       - Push Docker image to Docker Hub:  ci/push-docker-hub.md
       - Push Docker image to Amazon ECR:  ci/push-amazon-ecr.md
       - Push Docker image to GCR: ci/push-gcr.md
-      - Push Docker image to Quay:  ci/push-quay.md 
+      - Push Docker image to Quay:  ci/push-quay.md
       - Push Docker image to Docker Private/Trusted registry: ci/push-docker-private-registry.md
     - Deployments:
       - Overview: ci/deployment-overview.md
@@ -267,3 +267,8 @@ pages:
       - Subscriptions: reference/api-subscriptions.md
       - systemCodes: reference/api-systemcodes.md
       - versions: reference/api-versions.md
+    - Machine Images:
+      - Overview: reference/machine-images-overview.md
+      - v5.4.1: reference/machine-image-v541.md
+      - v5.3.2: reference/machine-image-v532.md
+      - Stable: reference/machine-image-stable.md 
