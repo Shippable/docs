@@ -5,6 +5,7 @@ sub_section: Pushing artifacts
 
 You can push your image to Docker Hub in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
+---
 ##Basic config
 
 1. Add an integration for Docker Hub. This is where your credentials are stored, so you do not have tp store them in the yml.
@@ -37,6 +38,7 @@ build:
 
 You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above.
 
+---
 ## Advanced config
 ### Limiting branches
 
