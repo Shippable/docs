@@ -94,8 +94,8 @@ pages:
       - Push Docker image to Docker Hub:  ci/push-docker-hub.md
       - Push Docker image to Amazon ECR:  ci/push-amazon-ecr.md
       - Push Docker image to GCR: ci/push-gcr.md
-      - Push Docker image to Quay:  ci/push-quay.md
-      - Push Docker image to Docker Private/Trusted registry: ci/docker-private-registry-push.md
+      - Push Docker image to Quay:  ci/push-quay.md 
+      - Push Docker image to Docker Private/Trusted registry: ci/push-docker-private-registry.md
     - Deployments:
       - Overview: ci/deployment-overview.md
       - Heroku: ci/deploy-to-heroku.md
