@@ -91,10 +91,10 @@ pages:
     - Pushing artifacts:
       - Overview: ci/push-artifacts.md
       - Push artifacts to S3: ci/push-to-s3.md
-      - Push Docker image to Docker Hub:  ci/docker-hub-push.md
-      - Push Docker image to Amazon ECR:  ci/amazon-ecr-push.md
-      - Push Docker image to GCR: ci/gcr-push.md
-      - Push Docker image to Quay:  ci/quay-push.md
+      - Push Docker image to Docker Hub:  ci/push-docker-hub.md
+      - Push Docker image to Amazon ECR:  ci/push-amazon-ecr.md
+      - Push Docker image to GCR: ci/push-gcr.md
+      - Push Docker image to Quay:  ci/push-quay.md
       - Push Docker image to Docker Private/Trusted registry: ci/docker-private-registry-push.md
     - Deployments:
       - Overview: ci/deployment-overview.md

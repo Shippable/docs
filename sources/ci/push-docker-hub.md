@@ -3,11 +3,15 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to Docker Hub
 
-You can push your image to Docker Hub in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci`
+You can push your image to Docker Hub in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
-To do this:
+##Basic config
 
-#### Add an integration for Docker Hub.
+1. Add an integration for Docker Hub. This is where your credentials are stored, so you do not have tp store them in the yml.
+  - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+  - Click on **Integrations** in the left sidebar menu and then click on **Add integration**
+  - Select **Docker** from the list
+  -
 
 Next, customize the following snippet and include it in the `shippable.yml` for your project:
 
@@ -16,10 +20,6 @@ integrations:                               #required only for private images
   hub:
     - integrationName: myIntegration    
       type: docker                        
-      branches:                           
-        only:
-          - master
-          - dev
 ```
 - `integrationName` value is the name of the Docker Hub integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). Moreover, this account should have permissions to pull the the build image specified in the `image_name` setting.
 - `type` is `docker`.
@@ -34,6 +34,12 @@ build:
 ```
 
 You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above. If you also want to build the image as part of your CI workflow, check out the tutorial for [building a Docker image](/tutorials/ci/hub-docker-build-image/).
+
+## Advanced config
+
+### Specifying branches
+
+###
 
 ###Pushing the CI container with all artifacts intact
 
@@ -62,3 +68,5 @@ build:
     - docker push docker-hub-org/image-name:image-tag-2
 
 ```
+
+##Sample code
