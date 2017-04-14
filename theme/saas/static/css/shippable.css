@@ -27,6 +27,11 @@ h2 {
   border-bottom: 1px solid #777777;
   margin-bottom: 20px;
 }
+
+body {
+  color: #333;
+  font-size: 15px;
+}
 .red-color {
   color : red;
 }
@@ -188,7 +193,7 @@ menu,ol,ul {
   align-items: stretch;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
-  height: calc(100vh - 63px);
+  /*height: calc(100vh - 63px);*/
 }
 
 .shipContent,.shipContent-body {
@@ -416,6 +421,10 @@ menu,ol,ul {
 .navbar-default.navbar-transparent {
   background-image: url("/static/images/shippable-logos/bg-crop.png");
   background-size:cover;
+}
+
+.navbar-default.navbar-transparent .navbar-brand img {
+  position: inherit;
 }
 
 a {
