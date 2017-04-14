@@ -104,7 +104,7 @@ pages:
       - Digital Ocean: ci/deploy-to-digital-ocean.md
     - Advanced configuration:
       - Caching: ci/caching.md
-      - Triggering multiple jobs per commit: ci/matrix-builds.md
+      - Triggering multiple jobs: ci/matrix-builds.md
       - Building pull requests: ci/pull-request-builds.md
       - Skipping a build: ci/skip-builds.md
       - Using git submodules: ci/git-submodules.md
@@ -271,4 +271,4 @@ pages:
       - Overview: reference/machine-images-overview.md
       - v5.4.1: reference/machine-image-v541.md
       - v5.3.2: reference/machine-image-v532.md
-      - Stable: reference/machine-image-stable.md 
+      - Stable: reference/machine-image-stable.md

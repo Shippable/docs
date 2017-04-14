@@ -12,7 +12,7 @@ Before you start, you will need to connect your Docker Hub account with Shippabl
 - <i class="ion-ios-minus-empty"> </i>  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - <i class="ion-ios-minus-empty"> </i>  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
 - <i class="ion-ios-minus-empty"> </i>  Locate **Docker** in the list and click on **Create Integration**
-- <i class="ion-ios-minus-empty"> </i>  Name your integration and enter your Docker Hub username, password, and the email with which you - registered there.
+- <i class="ion-ios-minus-empty"> </i>  Name your integration and enter your Docker Hub username, password, and the email with which you registered there.
 - <i class="ion-ios-minus-empty"> </i>  Choose the Subscription which contains the repository for which you want to push the image
 - <i class="ion-ios-minus-empty"> </i>  Click **Save**
 
