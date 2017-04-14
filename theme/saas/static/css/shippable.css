@@ -450,3 +450,14 @@ img {
   max-width: 100%;
   padding: 2rem;
 }
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #666;
+}
+
+table {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
