@@ -5,21 +5,23 @@ sub_section: Pushing artifacts
 
 You can push your image to Docker Hub in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
----
+##Setup
+
+Before you start, you will need to connect your Docker Hub account with Shippable so we have the credentials to push your image on your behalf. We do this through [TODO Add link] Account Integrations, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+
+- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+- Click on **Integrations** in the left sidebar menu and then click on **Add integration**
+- Locate **Docker** in the list and click on **Create Integration**
+- Name your integration and enter your Docker Hub username, password, and the email with which you registered there.
+- Choose the Subscription which contains the repository for which you want to push the image
+- Click **Save**
+
+<img src="../../images/ci/docker-hub-integration.png" alt="Add Docker Hub credentials">
+
 ##Basic config
 
-1. Add an integration for Docker Hub. This is where your credentials are stored, so you do not have tp store them in the yml.
-  - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-  - Click on **Integrations** in the left sidebar menu and then click on **Add integration**
-  - Locate **Docker** in the list and click on **Create Integration**
-  - Name your integration and enter your Docker Hub username, password, and the email with which you registered there.
-  - Choose the Subscription which contains the repository for which you want to push the image
-  - Click **Save**
-
-  <img src="../../images/ci/docker-hub-integration.png" alt="Add Docker Hub credentials">
-
-
-2. Next, add the following to the `shippable.yml` for your project:
+2. After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to
+authenticate with Docker Hub using your credentials.
 
 ```
 integrations:                               
@@ -38,7 +40,6 @@ build:
 
 You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above.
 
----
 ## Advanced config
 ### Limiting branches
 
@@ -60,7 +61,6 @@ integrations:
 ```
 In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
 
----
 ### Pushing to different accounts based on branch
 
 You can also choose to push your images to different Docker Hub accounts, depending on branch.
@@ -87,7 +87,6 @@ integrations:
 
 ```
 
----
 ###Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to Docker Hub and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
@@ -107,7 +106,6 @@ integrations:
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
 
----
 ###Pushing Docker images with multiple tags
 
 If you want to push the container image with multiple tags, you can just push twice as shown below:
@@ -125,10 +123,11 @@ integrations:
       type: docker
 
 ```
----
+
 ## Sample project
 
-Here are some links to a working sample of this scenario.
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Docker Hub.
 
 **Source code:**  [devops-recipes/push-docker-hub](https://github.com/devops-recipes/push-docker-hub).
 
@@ -138,7 +137,6 @@ Here are some links to a working sample of this scenario.
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
 
----
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
