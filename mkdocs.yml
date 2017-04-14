@@ -58,7 +58,7 @@ pages:
       - Setting language and runtime: ci/set-language.md
       - Choosing a build image: ci/build-image.md
       - Specifying branches to build: ci/specify-branches.md
-      - Working with environment variables: ci/env-vars.md
+      - Working with env variables: ci/env-vars.md
     - Working with services:
       - Overview: ci/services-overview.md
       - CouchDB:  ci/couchdb.md

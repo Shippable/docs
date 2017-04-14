@@ -18,9 +18,12 @@ h4,
 h5,
 h6 {
   font-weight: 300;
+}
+
+h1,
+h2 {
   padding-bottom: 10px;
   padding-top: 30px;
-
 }
 
 h2 {
@@ -446,4 +449,15 @@ a {
 img {
   max-width: 100%;
   padding: 2rem;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #666;
+}
+
+table {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

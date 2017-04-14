@@ -5,13 +5,13 @@ sub_section: Advanced configuration
 
 Console logs are available real time for every build on the Build details page. Sections have a `+` to the left of them and can be collapsed or expanded as desired. You can also copy text from the console log.
 
-<img src="../../images/ci/console-logs.png" alt="Console Logs for CI/CD" style="width:8900px;"/>
+<img src="../../images/ci/console-logs.png" alt="Console Logs for CI/CD" style="width:900px;"/>
 
 ##Downloading logs
 
 The **Download** dropdown on the right of the build item console lets you download console logs to your machine.
 
-<img src="../../images/ci/download-logs.png" alt="Download logs">
+<img src="../../images/ci/download-logs.png" alt="Download logs" style="width:900px;"/>
 
 ##Log size limits
 
