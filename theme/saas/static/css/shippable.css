@@ -18,9 +18,12 @@ h4,
 h5,
 h6 {
   font-weight: 300;
+}
+
+h1,
+h2 {
   padding-bottom: 10px;
   padding-top: 30px;
-
 }
 
 h2 {
