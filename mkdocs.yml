@@ -75,9 +75,7 @@ pages:
       - Selenium: ci/selenium.md
       - SQLite: ci/sqlite.md
     - Building and testing your project:
-      - Overview: ci/build-and-test.md
-      - Installing dependencies:  ci/install-depencies.md
-      - Customizing compile and test commands:  ci/customize-commands.md
+      - Configuring your CI: ci/build-and-test.md
       - Running tests in parallel:  ci/parallelize-tests.md
     - Configuring test/code coverage:
       - Overview with default scenario: ci/test-code-coverage-reports.md
