@@ -36,7 +36,6 @@ More on these types of variables:
 
 Standard variables are pre-populated by Shippable and are available to you for every build. A complete list is provided below:
 
-
 | Env variable        | Description           |
 | ------------- |-------------|
 |BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged.|
