@@ -180,12 +180,12 @@ body {
   padding-top: 50px;
 }
 
-menu,ol,small,ul {
+menu,ol.shipNav,small,ul.shipNav {
   margin: 0;
   padding: 0;
 }
 
-menu,ol,ul {
+menu,ol.shipNav,ul.shipNav {
   list-style: none;
 }
 
