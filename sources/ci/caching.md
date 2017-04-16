@@ -38,7 +38,7 @@ build:
 
 ##Advanced config
 
-###Caching node modules
+###1. Caching node modules
 
 To cache just node modules, use the snippet below in your `yml`:
 
@@ -49,7 +49,7 @@ build:
     - $SHIPPABLE_BUILD_DIR/node_modules
 ```
 
-###Caching ruby gems
+###2. Caching ruby gems
 
 The `bundle install` command can take a while depending on what needs to be installed. To avoid paying this installation tax for each build, you can cache your gems using the `yml` snippet below as a guide:
 
@@ -68,25 +68,26 @@ build:
 ```
 If the above directories don't work for you, you should check where the gems are installed in your container. To do this, cd /usr/local/rvm/gems and see which directories are in there and need to be cached.
 
-###Per-branch caching
+###3. Per-branch caching
 
 Caching per branch is currently unsupported, so your cache will be updated for each build regardless of branch. Please open a [support issue](https://www.github.com/Shippable/support/issues) if this is important for your workflow.
 
-###Caching for matrix builds
+###4. Caching for matrix builds
 
 If you're running multiple builds per trigger, aka [matrix builds](matrix-builds/), the cache will be updated for each build in the matrix and available for subsequent builds.
 
 ## Clearing cache
 You can clear cache in one of two ways:
 
-* <i class="ion-ios-minus-empty"> </i>Including [reset minion] or [reset_minion] in your commit message.
-* <i class="ion-ios-minus-empty"> </i>Clicking on the `Clear cache` in your Project settings UI.
+* <i class="ion-ios-minus-empty"> </i>Including ``[reset minion]`` or ``[reset_minion]`` in your commit message.
+* <i class="ion-ios-minus-empty"> </i>Clicking on the **Clear cache** in your Project Settings UI.
+
 <br>
 In both cases, your cached content will be deleted. This is a one time action, so if cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds.
 
 This method is the best way to update your cache, if required.
 
-## Removing unwanted files when caching is enabled
+## Removing unwanted files between builds
 When caching is enabled, the entire build directory including artifacts (when `cache: true` is used) or the entire folder contents (if configured for specific folders) is cached.
 
 This may include unwanted files.

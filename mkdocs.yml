@@ -37,7 +37,7 @@ pages:
       - Git identities: getting-started/git-identities.md
       - API tokens: getting-started/api-tokens.md
       - Integrations: getting-started/integrations.md
-    - Running builds on your own infrastructure:
+    - Using your own infrastructure:
       - Overview: getting-started/byon-overview.md
       - Adding nodes: getting-started/byon-add-node.md
       - Resetting a node: getting-started/byon-reset-node.md
@@ -79,10 +79,10 @@ pages:
       - Installing dependencies:  ci/install-depencies.md
       - Customizing compile and test commands:  ci/customize-commands.md
       - Running tests in parallel:  ci/parallelize-tests.md
-    - Configuring test and code coverage:
+    - Configuring test/code coverage:
       - Overview with default scenario: ci/test-code-coverage-reports.md
       - JaCoCo reports: ci/jacoco-reports.md
-    - Sending build notifications:
+    - Sending notifications:
       - Overview: ci/send-notifications.md
       - Sending messages to Slack:  ci/slack-notifications.md
       - Sending messages to Email:  ci/email-notifications.md
@@ -102,9 +102,9 @@ pages:
       - AWS Opsworks: ci/deploy-to-aws-opsworks.md
       - AWS EBS:  ci/deploy-to-aws-beanstalk.md
       - Digital Ocean: ci/deploy-to-digital-ocean.md
-    - Advanced configuration:
+    - Advanced config:
       - Caching: ci/caching.md
-      - Triggering multiple jobs: ci/matrix-builds.md
+      - Triggering parallel jobs: ci/matrix-builds.md
       - Building pull requests: ci/pull-request-builds.md
       - Skipping a build: ci/skip-builds.md
       - Using git submodules: ci/git-submodules.md
