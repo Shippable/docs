@@ -59,7 +59,7 @@ And you're done. You will receive Slack notifications for all branches when buil
 
 ##Advanced config
 
-### Limiting branches
+###1. Limiting branches
 
 By default, Slack notifications are sent for builds for all branches. If you want to only send notifications for specific branch(es), you can do so with the `branches` keyword.
 
@@ -79,7 +79,7 @@ integrations:
 `branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 
 
-### Customizing notification triggers
+###2. Customizing notification triggers
 
 By default, Slack notifications are sent for the following events:
 
