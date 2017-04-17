@@ -35,8 +35,8 @@ In most cases, the default Machine image set for your Subscription will be
 sufficient to run your builds. The main reasons why you might want to consider
 changing to a more recent image are:
 
-- <i class="ion-ios-minus-empty"> </i>You need a newer language/service/package version
-- <i class="ion-ios-minus-empty"> </i>You need a newer Docker version
+-  You need a newer language/service/package version
+-  You need a newer Docker version
 
 
 ## Viewing Subscription Machine Image
@@ -54,8 +54,8 @@ alt="Machine Image for a Subscription" style="width:800px;"/>
 
 To select a different Machine Image:
 
-- <i class="ion-ios-minus-empty"> </i>Go to the `Settings` tab of your Subscription
-- <i class="ion-ios-minus-empty"> </i>Click on `Options` in the left sidebar and select the image you want from the
+-  Go to the `Settings` tab of your Subscription
+-  Click on `Options` in the left sidebar and select the image you want from the
 dropdown under the 'Machine Images' section. Please note that this setting will
 affect all projects and builds in your Subscription.
 

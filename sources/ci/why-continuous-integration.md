@@ -47,41 +47,30 @@ Your CI workflow is configured with a yml based file called **shippable.yml** wh
 
 ##CI Triggers
 
-When a repository is enabled on Shippable, we enable webhooks on that repository and start listening to commit and pull request events.
+When a repository is enabled on Shippable, we enable webhooks on that repository and start listening to commit and pull request events. To enable a repository, read the [Enable your project page.](enable-project/)
 
 Shippable automatically builds and tests your repositories when the following triggers are received-
 
-- <i class="ion-ios-minus-empty"> </i>  commit webhook
-- <i class="ion-ios-minus-empty"> </i>  webhook for a pull request opened for an enabled repository
-- <i class="ion-ios-minus-empty"> </i>  webhook for a git tag push event (GitHub only, turned off by default)
-- <i class="ion-ios-minus-empty"> </i>  webhook for a release event (GitHub only, turned off by default)
+*  commit webhook
+*  webhook for a pull request opened for an enabled repository
+*  webhook for a git tag push event (GitHub only, turned off by default)
+*  webhook for a release event (GitHub only, turned off by default)
 
 You can also initiate manual builds through the UI, by clicking on the Build button for any project or branch, irrespective of a webhook event.
 
-To learn how to switch some of these triggers off, read about the configuration in [Subscription settings](trigger-job/).
+To learn how to switch some of these triggers off, read about the configuration in [Triggering your CI](trigger-job/).
 
 ##Build flow
 
 When a build is triggered, it is executed in the sequence below -
 
-- <i class="ion-ios-minus-empty"> </i>  First, we provision a build machine for you. Build machines have 2 cores, 3.75 GB RAM each. Provisioning can take anytime between 10 seconds to 4 mins, depending on whether your subscription already has a build machine running from an earlier build.
-- <i class="ion-ios-minus-empty"> </i>  Once the machine is available, the Shippable agent starts running on that machine.
-- <i class="ion-ios-minus-empty"> </i>  Commands in the `pre_ci` section are then executed on your build machine by the Shippable Agent.
-- <i class="ion-ios-minus-empty"> </i>  The next step is booting your build container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the build container specified.
-- <i class="ion-ios-minus-empty"> </i>  Next, we set the environment in the build container and clone your repository that is to be built.
-- <i class="ion-ios-minus-empty"> </i>  All commands in the `ci` section are executed in sequence inside the build container.
-- <i class="ion-ios-minus-empty"> </i>  Commands in the `post_ci` section are executed inside the build container.
-- <i class="ion-ios-minus-empty"> </i>  If the `ci` and `post_ci` sections were successful, commands in the `on_success` section are executed.
-- <i class="ion-ios-minus-empty"> </i>  If the `ci` and/or `post_ci` sections failed, commands in the `on_failure` section are execured.
-- <i class="ion-ios-minus-empty"> </i>  If notifications are configured in the yml, we will send out notifications about build results through the configured channel. Email notifications are on by default.
-
-##Enabling GitHub private repositories
-
-If you want to use Shippable to build private repositories, you'll need to authorize Shippable. You can do this by following the outlined steps:
-
-- <i class="ion-ios-minus-empty"> </i>  Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
-- <i class="ion-ios-minus-empty"> </i>  Click on the Account settings (gear icon on the top navigation bar).
-- <i class="ion-ios-minus-empty"> </i>  In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
-- <i class="ion-ios-minus-empty"> </i>  Click `Authorize application` in the next page to enable access to private repositories.
-
-<img src="../../images/ci/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
+-  First, we provision a build machine for you. Build machines have 2 cores, 3.75 GB RAM each. Provisioning can take anytime between 10 seconds to 4 mins, depending on whether your subscription already has a build machine running from an earlier build.
+-  Once the machine is available, the Shippable agent starts running on that machine.
+-  Commands in the `pre_ci` section are then executed on your build machine by the Shippable Agent.
+-  The next step is booting your build container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the build container specified.
+-  Next, we set the environment in the build container and clone your repository that is to be built.
+-  All commands in the `ci` section are executed in sequence inside the build container.
+-  Commands in the `post_ci` section are executed inside the build container.
+-  If the `ci` and `post_ci` sections were successful, commands in the `on_success` section are executed.
+-  If the `ci` and/or `post_ci` sections failed, commands in the `on_failure` section are execured.
+-  If notifications are configured in the yml, we will send out notifications about build results through the configured channel. Email notifications are on by default.

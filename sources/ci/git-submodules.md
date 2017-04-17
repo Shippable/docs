@@ -20,15 +20,15 @@ https://github.com/someuser/somelibrary.git
 ##Private submodules
 If your submodules are in a private repository, you will need to add your Shippable subscription's deploy key to the private repository on your source control, so that we have access to pull from the repository.
 
-- <i class="ion-ios-minus-empty"> </i>  First, go to your Subscription's **Settings** tab and copy the deploy key (key in image is redacted for privacy):
+-  First, go to your Subscription's **Settings** tab and copy the deploy key (key in image is redacted for privacy):
 
 <img src="../../images/ci/deploy-key.png" alt="deploy key for git submodules">
 
-- <i class="ion-ios-minus-empty"> </i>  Next, go to the private repository in your source control that contains the required submodule and add a deploy key in your repository settings (key in image is redacted for privacy):
+-  Next, go to the private repository in your source control that contains the required submodule and add a deploy key in your repository settings (key in image is redacted for privacy):
 
 <img src="../../images/ci/deploy-key-github.png" alt="deploy key for git submodules">
 
-- <i class="ion-ios-minus-empty"> </i> You can now include the path of your submodule repo in the `.gitmodules` file of the repository you're building:
+-  You can now include the path of your submodule repo in the `.gitmodules` file of the repository you're building:
 
 ```
 git@github.com:someuser/somelibrary.git

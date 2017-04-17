@@ -16,9 +16,9 @@ services:
 
 When started, Rabbitmq binds to 127.0.0.1 by and uses the default configuration:
 
-- <i class="ion-ios-minus-empty"> </i> vhost: /
-- <i class="ion-ios-minus-empty"> </i> username: guest
-- <i class="ion-ios-minus-empty"> </i> password: guest
+-  vhost: /
+-  username: guest
+-  password: guest
 
 You can add more vhosts and roles in the `ci` section of your yml.
 

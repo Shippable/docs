@@ -5,10 +5,10 @@ sub_section: Building and testing your project
 
 The following sections of your `shippable.yml` will contain the bulk of your CI configuration:
 
-- <i class="ion-ios-minus-empty"> </i>  The `ci` section is where you install dependencies, create databases and folders, and include your build and test commands.
-- <i class="ion-ios-minus-empty"> </i>  The `post_ci` section includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry.
-- <i class="ion-ios-minus-empty"> </i>  The `on_success` includes commands you want to execute only if your CI workflow passes, i.e. the `ci` section exits with 0.
-- <i class="ion-ios-minus-empty"> </i>  The `on_failure` includes commands you want to execute only if your CI workflow fails, i.e. the `ci` section does not exit with a 0.
+-  The `ci` section is where you install dependencies, create databases and folders, and include your build and test commands.
+-  The `post_ci` section includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry.
+-  The `on_success` includes commands you want to execute only if your CI workflow passes, i.e. the `ci` section exits with 0.
+-  The `on_failure` includes commands you want to execute only if your CI workflow fails, i.e. the `ci` section does not exit with a 0.
 
 <br>
 All commands in these sections are executed sequentially inside your build container in the order they appear in your yml.
@@ -49,15 +49,15 @@ Depending on the whether your `ci` section is successful or not, the `on_success
 
 If the `ci` section is blank, then default commands are executed, depending on the language. For more information, check out specific language pages:
 
-- <i class="ion-ios-minus-empty"> </i>  [Node.js](nodejs-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Python](python-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Java](java-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Ruby](ruby-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Go](go-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Scala](scala-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [PHP](php-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [Clojure](clojure-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>  [C/C++](cpp-continuous-integration.md)
+-  [Node.js](nodejs-continuous-integration.md)
+-  [Python](python-continuous-integration.md)
+-  [Java](java-continuous-integration.md)
+-  [Ruby](ruby-continuous-integration.md)
+-  [Go](go-continuous-integration.md)
+-  [Scala](scala-continuous-integration.md)
+-  [PHP](php-continuous-integration.md)
+-  [Clojure](clojure-continuous-integration.md)
+-  [C/C++](cpp-continuous-integration.md)
 
 ## post_ci
 The `post_ci` section of the yml is executed after the `ci` section. Similar to the `ci` section, you can include a set of commands in this section which will be executed sequentially. Please note that commands in the `post_ci` section is not executed if the ci section fails.

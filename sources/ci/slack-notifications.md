@@ -15,24 +15,24 @@ Before you start, you will need to connect your Slack account with Shippable so 
 
 There are 2 steps to add a Slack integration: Configuring the webhook on Slack, and adding the webhook to your Shippable account.
 
-###Configure an incoming webhook on Slack
+###1. Configure an incoming webhook on Slack
 
-* <i class="ion-ios-minus-empty"> </i>Sign in to your Slack account and [go to this link to create an incoming webhook](https://my.slack.com/services/new/incoming-webhook/).
-     - <i class="ion-ios-minus-empty"> </i> Provide credentials to your Slack account, if prompted.
-* <i class="ion-ios-minus-empty"> </i>In the **Post Channel** section, use the dropdown and select a channel to create the webhook. It does not matter which channel you choose while creating the webhook. We will override it when you configure the integration on Shippable.
-* <i class="ion-ios-minus-empty"> </i>Click the 'Add Incoming Webhook integration' button.
-* <i class="ion-ios-minus-empty"> </i>Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
-* <i class="ion-ios-minus-empty"> </i>Click the **Save Settings** button.
+*  Sign in to your Slack account and [go to this link to create an incoming webhook](https://my.slack.com/services/new/incoming-webhook/).
+     -  Provide credentials to your Slack account, if prompted.
+*  In the **Post Channel** section, use the dropdown and select a channel to create the webhook. It does not matter which channel you choose while creating the webhook. We will override it when you configure the integration on Shippable.
+*  Click the 'Add Incoming Webhook integration' button.
+*  Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
+*  Click the **Save Settings** button.
 
 
-###Add the Slack integration to your Account
+###2. Add the Slack integration to your Account
 
-- <i class="ion-ios-minus-empty"> </i>  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-- <i class="ion-ios-minus-empty"> </i>  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
-- <i class="ion-ios-minus-empty"> </i>  Locate **Slack** in the list and click on **Create Integration**
-- <i class="ion-ios-minus-empty"> </i>  Name your integration with a friendly name and enter the Slack webhook URL in the 'Webhook URL' field
-- <i class="ion-ios-minus-empty"> </i>  Choose the Subscription which contains the repository for which you want to send notifications. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-- <i class="ion-ios-minus-empty"> </i>  Click **Save**
+-  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+-  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
+-  Locate **Slack** in the list and click on **Create Integration**
+-  Name your integration with a friendly name and enter the Slack webhook URL in the 'Webhook URL' field
+-  Choose the Subscription which contains the repository for which you want to send notifications. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
+-  Click **Save**
 
 ##Basic config
 
@@ -50,9 +50,9 @@ integrations:
 ```
 Use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- <i class="ion-ios-minus-empty"></i>`integrationName` value is the name of the Slack integration you added to your settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
-- <i class="ion-ios-minus-empty"></i>`type` is `slack`.
-- <i class="ion-ios-minus-empty"></i>`recipients` is an array that specifies the channels you want to send the notification to. If there is just a single recipient, use the format `recipients: "#channelOne"`
+- `integrationName` value is the name of the Slack integration you added to your settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
+- `type` is `slack`.
+- `recipients` is an array that specifies the channels you want to send the notification to. If there is just a single recipient, use the format `recipients: "#channelOne"`
 
 And you're done. You will receive Slack notifications for all branches when builds fail, or change from failed to passed, or pull requests are built. To change some of these default configs, please see the Advanced config section below.
 
