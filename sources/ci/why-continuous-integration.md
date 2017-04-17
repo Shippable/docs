@@ -1,4 +1,87 @@
 main_section: CI
 sub_section: Overview
+# Getting started with CI
 
-# why-continuous-integration
+Shippable's DevOps Automation platform gives you an easy way to set up Continuous Integration (CI) for your projects and automate unit testing, packaging, and deployment for any change in your source control repository.
+
+This page explains what CI is, and also the basic concepts you should know before starting to use Shippable.
+
+##Why do you need continuous integration?
+
+Continuous Integration is an essential first part of a continuous delivery workflow and helps software teams ensure that their changes are built and tested with the latest version of the entire codebase. As a result, most bugs are found almost immediately after the code change is committed, leading to better quality since each bug can be easily isolated to a specific code change and fixed promptly.   
+
+For more on Continuous Integration and why you should include it as part of your workflow, read Martin Fowler's article on the [Benefits of Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html#BenefitsOfContinuousIntegration)
+
+##Terminology
+
+###Account
+
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services.
+
+###Subscription
+A subscription on Shippable corresponds to an organization or personal account in your source control provider. So if you sign in to Shippable with GitHub credentials and your username is abcfoo and you're a member of orgs org1foo and org2foo, you will have 3 subscriptions on Shippable.
+
+Billing is handled per subscription.
+
+###Projects
+A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
+
+###Minions
+Minions are the build machines that are spun up to run your builds on Shippable Hosted. They are also called build machines or build containers at some places in the documentation.
+
+##Signing in to Shippable
+
+You do not need to explicitly create an account on the Hosted version of Shippable to start using it. You can sign in using your GitHub or Bitbucket credentials. We use OAuth authentication so you will need to authorize Shippable the first time you sign in. We sync all organizations from your source control, so if you click on the <i class="fa fa-bars" aria-hidden="true"></i> menu at the top left of your screen, you will see a list of your organizations (aka subscriptions on Shippable). You can then click into any organization to [enable projects](enable-project/).
+
+<a name="ciWorkflow"></a>
+##CI workflow
+
+The picture below shows a very basic CI workflow. Shippable receives an incoming webhook from your source control and spins up a build machine. A Shippable agent comes up on the build machine and starts the build container, inside which your CI commands are executed. At the end of the build process, you can push to any endpoint. This endpoint can be an artifact repository like Artifactory or Docker Hub, or can be a PaaS/IaaS/Container Service endpoint.
+
+<img src="../../images/ci/ciWorkflow.png" alt="Continuous Integration workflow" style="width:1000px;"/>
+
+Your CI workflow stops after deployment to an endpoint. If you want to define your end to end application delivery pipelines, check out our other use cases like [Validate](../validate/devops-validate/), [Release](../release/devops-release-management/), [Deploy](../deploy/why-deploy/), and [Provision](../provision/why-infrastructure-provisioning/).
+
+##Configuration
+Your CI workflow is configured with a yml based file called **shippable.yml** which should be committed to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the yml structure and how to configure it, check out our [Build Configuration page](yml-structure/).
+
+##CI Triggers
+
+When a repository is enabled on Shippable, we enable webhooks on that repository and start listening to commit and pull request events.
+
+Shippable automatically builds and tests your repositories when the following triggers are received-
+
+- <i class="ion-ios-minus-empty"> </i>  commit webhook
+- <i class="ion-ios-minus-empty"> </i>  webhook for a pull request opened for an enabled repository
+- <i class="ion-ios-minus-empty"> </i>  webhook for a git tag push event (GitHub only, turned off by default)
+- <i class="ion-ios-minus-empty"> </i>  webhook for a release event (GitHub only, turned off by default)
+
+You can also initiate manual builds through the UI, by clicking on the Build button for any project or branch, irrespective of a webhook event.
+
+To learn how to switch some of these triggers off, read about the configuration in [Subscription settings](trigger-job/).
+
+##Build flow
+
+When a build is triggered, it is executed in the sequence below -
+
+- <i class="ion-ios-minus-empty"> </i>  First, we provision a build machine for you. Build machines have 2 cores, 3.75 GB RAM each. Provisioning can take anytime between 10 seconds to 4 mins, depending on whether your subscription already has a build machine running from an earlier build.
+- <i class="ion-ios-minus-empty"> </i>  Once the machine is available, the Shippable agent starts running on that machine.
+- <i class="ion-ios-minus-empty"> </i>  Commands in the `pre_ci` section are then executed on your build machine by the Shippable Agent.
+- <i class="ion-ios-minus-empty"> </i>  The next step is booting your build container. This will use our default Docker images if nothing is configured in the `pre_ci_boot` section of your yml. If that section is configured, it overrides the default image and boots up the build container specified.
+- <i class="ion-ios-minus-empty"> </i>  Next, we set the environment in the build container and clone your repository that is to be built.
+- <i class="ion-ios-minus-empty"> </i>  All commands in the `ci` section are executed in sequence inside the build container.
+- <i class="ion-ios-minus-empty"> </i>  Commands in the `post_ci` section are executed inside the build container.
+- <i class="ion-ios-minus-empty"> </i>  If the `ci` and `post_ci` sections were successful, commands in the `on_success` section are executed.
+- <i class="ion-ios-minus-empty"> </i>  If the `ci` and/or `post_ci` sections failed, commands in the `on_failure` section are execured.
+- <i class="ion-ios-minus-empty"> </i>  If notifications are configured in the yml, we will send out notifications about build results through the configured channel. Email notifications are on by default.
+
+##Enabling GitHub private repositories
+
+If you want to use Shippable to build private repositories, you'll need to authorize Shippable. You can do this by following the outlined steps:
+
+- <i class="ion-ios-minus-empty"> </i>  Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
+- <i class="ion-ios-minus-empty"> </i>  Click on the Account settings (gear icon on the top navigation bar).
+- <i class="ion-ios-minus-empty"> </i>  In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
+- <i class="ion-ios-minus-empty"> </i>  Click `Authorize application` in the next page to enable access to private repositories.
+
+<img src="../../images/ci/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
