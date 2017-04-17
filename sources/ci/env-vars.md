@@ -34,10 +34,10 @@ More on these types of variables:
 <a name="stdEnv"></a>
 ## Standard variables
 
-Standard variables are pre-populated by Shippable and are available to you for every build. A complete list is provided below:
+Standard variables are pre-populated by Shippable and are available to you for every build. A complete list is provided below.
 
-| Env variable        | Description           |
-| ------------- |-------------|
+| Env variable        | Description                                   |
+| ------------------- |-----------------------------------------------|
 |BASE_BRANCH		 | Name of the target branch into which the pull request changes will be merged.|
 |BRANCH		 | Name of branch being built.|
 |BUILD_NUMBER		 | Build number for current build.|

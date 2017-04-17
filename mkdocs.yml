@@ -54,7 +54,6 @@ pages:
       - Triggering your CI job: ci/trigger-job.md
       - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
     - Preparing your environment:
-      - Overview: ci/prep-env.md
       - Setting language and runtime: ci/set-language.md
       - Choosing a build image: ci/build-image.md
       - Specifying branches to build: ci/specify-branches.md
@@ -110,6 +109,7 @@ pages:
       - Using SSH keys: ci/ssh-keys.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
+      - Scheduled builds: ci/scheduled-builds.md 
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
