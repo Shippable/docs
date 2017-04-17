@@ -12,9 +12,9 @@ For example, you might want to test against multiple versions of Ruby, multiple 
 
 This scenario is handled by our **Matrix Build** feature, where certain configurations of your yml file lead to multiple builds being triggered per code commit or pull request. These configurations include -
 
-- <i class="ion-ios-minus-empty"> </i>specifying more than one language version
-- <i class="ion-ios-minus-empty"> </i>specifying more than one variable in the `env` section
-- <i class="ion-ios-minus-empty"> </i>specifying multiple gemfiles for ruby
+-  specifying more than one language version
+-  specifying more than one variable in the `env` section
+-  specifying multiple gemfiles for ruby
 
 ##Basic config
 

@@ -17,8 +17,8 @@ The **Download** dropdown on the right of the build item console lets you downlo
 
 There are some limits for log size beyond which we take specific actions:   
 
-- <i class="ion-ios-minus-empty"> </i> If the log for your build exceeds 30,000 lines, it will not be displayed in the UI. However, you will still be able to download it.
-- <i class="ion-ios-minus-empty"> </i> Maximum allowed log size per build is 64mb at this time. If your log for a build  exceeds 64 MB, it will not be displayed in the UI and you will not be able to download it. Your build will continue and the result will be unaffected but debugging might be a challenge due to lack of logs.
+-  If the log for your build exceeds 30,000 lines, it will not be displayed in the UI. However, you will still be able to download it.
+-  Maximum allowed log size per build is 64mb at this time. If your log for a build  exceeds 64 MB, it will not be displayed in the UI and you will not be able to download it. Your build will continue and the result will be unaffected but debugging might be a challenge due to lack of logs.
 
 ##Logs storage duration
 

@@ -27,19 +27,19 @@ Similarly, you can use `rvm` for Ruby, `jdk` for Java and Scala, `go` for go, `p
 
 For more on each language and how to set the runtime, you can check out our language specific pages:
 
-- <i class="ion-ios-minus-empty"> </i>[Node.js](nodejs-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Python](python-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Java](java-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Ruby](ruby-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Go](go-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Scala](scala-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[PHP](php-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[Clojure](clojure-continuous-integration.md)
-- <i class="ion-ios-minus-empty"> </i>[C/C++](cpp-continuous-integration.md)
+-  [Node.js](nodejs-continuous-integration.md)
+-  [Python](python-continuous-integration.md)
+-  [Java](java-continuous-integration.md)
+-  [Ruby](ruby-continuous-integration.md)
+-  [Go](go-continuous-integration.md)
+-  [Scala](scala-continuous-integration.md)
+-  [PHP](php-continuous-integration.md)
+-  [Clojure](clojure-continuous-integration.md)
+-  [C/C++](cpp-continuous-integration.md)
 
 <br>
 **Things to remember**
 
-- <i class="ion-ios-minus-empty"> </i>Setting the runtime only works if you are using our default build images or an image pulled from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) for CI.
+-  Setting the runtime only works if you are using our default build images or an image pulled from our [drydock repository on Docker Hub](https://hub.docker.com/u/drydock/) for CI.
 
-- <i class="ion-ios-minus-empty"> </i>You can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.
+-  You can specify language versions as number or string, i.e. as `0.10` or as `"0.10"`. In most cases the format is entirely interchangeable. However, in cases where the version number ends with a 0, such as `5.10`, it is safer to use a string to avoid the yml parser from transating the version to `5.1`.

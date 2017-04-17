@@ -7,12 +7,12 @@ This page explains yml configuration that is specific to Scala projects. For a c
 Our yml configuration is highly customizable. Please read the following sections carefully to learn how to
 configure your builds.
 
-- <i class="ion-ios-minus-empty"> </i>  [Basic configuration](#basic-scala-config)
-- <i class="ion-ios-minus-empty"> </i>  [Setting language and runtime](#language)
-- <i class="ion-ios-minus-empty"> </i>  [Preparing your environment](#environment)
-- <i class="ion-ios-minus-empty"> </i>  [Configuring build and test commands](#build-test)
-- <i class="ion-ios-minus-empty"> </i>  [Test and code coverage visualizations](#test-coverage-reports)
-- <i class="ion-ios-minus-empty"> </i>  [Advanced config](#advanced-config)
+-  [Basic configuration](#basic-scala-config)
+-  [Setting language and runtime](#language)
+-  [Preparing your environment](#environment)
+-  [Configuring build and test commands](#build-test)
+-  [Test and code coverage visualizations](#test-coverage-reports)
+-  [Advanced config](#advanced-config)
 
 <a name="basic-scala-config"></a>
 ##Basic configuration
@@ -43,11 +43,11 @@ scala:
 
 Our official build images, which are used to run your builds by default, come installed with multiple versions of Scala. Currently, the following versions are pre-installed:
 
-- <i class="ion-ios-minus-empty"> </i>  2.9.3
-- <i class="ion-ios-minus-empty"> </i>  2.10.6
-- <i class="ion-ios-minus-empty"> </i>  2.11.8
-- <i class="ion-ios-minus-empty"> </i>  2.12.0
-- <i class="ion-ios-minus-empty"> </i>  2.12.1
+-  2.9.3
+-  2.10.6
+-  2.11.8
+-  2.12.0
+-  2.12.1
 
 <br>
 To find out which versions are supported out of the box for your build image, [TODO: How do they figure out what is available to them by default??]
@@ -73,9 +73,9 @@ Depending on the `language` tag in your yml, an official build image is chosen f
 
 If the default image does not satisfy your requirements, you can do one of three things:
 
-- <i class="ion-ios-minus-empty"> </i>  Continue using default image and include commands to install any missing dependencies or packages in your yml
-- <i class="ion-ios-minus-empty"> </i>  Switch your Machine Image to a more recent version that contains what you need
-- <i class="ion-ios-minus-empty"> </i>  Use a custom build image that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
+-  Continue using default image and include commands to install any missing dependencies or packages in your yml
+-  Switch your Machine Image to a more recent version that contains what you need
+-  Use a custom build image that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
 
 <br>
 If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this scenario are available in the [Choosing a build image](build-image/) page. You will also need to configure the `pre_ci_boot` section if you are okay with the default build image but want to override the default options that are used to boot up the image.
@@ -122,16 +122,16 @@ You can view your test and code coverage results in a consumable format and dril
 
 To configure test reports visualization:
 
-- <i class="ion-ios-minus-empty"> </i>  Run your tests as part of your CI workflow in the `ci` section.
-- <i class="ion-ios-minus-empty"> </i>  Make sure test results are in junit format.
-- <i class="ion-ios-minus-empty"> </i>  Output or copy test results to `shippable/testresults` folder.
+-  Run your tests as part of your CI workflow in the `ci` section.
+-  Make sure test results are in junit format.
+-  Output or copy test results to `shippable/testresults` folder.
 
 <br>
 To configure code coverage visualization:
 
-- <i class="ion-ios-minus-empty"> </i>  Run your code coverage command(s) as part of your CI workflow in the `ci` section.
-- <i class="ion-ios-minus-empty"> </i>  Make sure code coverage output is in cobertura xml format.
-- <i class="ion-ios-minus-empty"> </i>  Output or copy code coverage output to `shippable/codecoverage` folder.
+-  Run your code coverage command(s) as part of your CI workflow in the `ci` section.
+-  Make sure code coverage output is in cobertura xml format.
+-  Output or copy code coverage output to `shippable/codecoverage` folder.
 
 <a name="advanced-config"></a>
 ##Advanced config

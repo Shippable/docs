@@ -28,9 +28,7 @@ pages:
       - Notifications: getting-started/supported-notifications.md
       - Artifact repositories: getting-started/supported-artifact-repositories.md
       - Deployment endpoints: getting-started/supported-deployments.md
-    - Billing:
-      - Overview: getting-started/billing-overview.md
-      - Managing your plan: getting-started/manage-plan.md
+    - Managing your plan: getting-started/manage-plan.md
     - Your account:
       - Setting account email: getting-started/set-email.md
       - Managing payment methods: getting-started/manage-payment-methods.md
@@ -48,7 +46,6 @@ pages:
   - CI:
     - Overview:
       - Why CI?: ./ci/why-continuous-integration.md
-      - Building blocks: ci/building-blocks.md
       - Enabling a project: ci/enable-project.md
       - Yml structure:  ci/yml-structure.md
       - Triggering your CI job: ci/trigger-job.md
@@ -88,6 +85,7 @@ pages:
     - Pushing artifacts:
       - Overview: ci/push-artifacts.md
       - Push artifacts to S3: ci/push-to-s3.md
+      - Push to JFrog Artifactory: ci/push-to-artifactory.md
       - Push Docker image to Docker Hub:  ci/push-docker-hub.md
       - Push Docker image to Amazon ECR:  ci/push-amazon-ecr.md
       - Push Docker image to GCR: ci/push-gcr.md
@@ -96,6 +94,7 @@ pages:
     - Deployments:
       - Overview: ci/deployment-overview.md
       - Heroku: ci/deploy-to-heroku.md
+      - Amazon EC2: ci/deploy-to-ec2.md
       - AWS Opsworks: ci/deploy-to-aws-opsworks.md
       - AWS EBS:  ci/deploy-to-aws-beanstalk.md
       - Digital Ocean: ci/deploy-to-digital-ocean.md
@@ -109,7 +108,7 @@ pages:
       - Using SSH keys: ci/ssh-keys.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
-      - Scheduled builds: ci/scheduled-builds.md 
+      - Scheduled builds: ci/scheduled-builds.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md

@@ -11,8 +11,8 @@ Caching can have a dramatic impact in build durations since it provides a way to
 
 We create a tarball of whatever needs to be cached and upload it to S3 at the end of the build. The roundtrip to and from S3 means that caching is very useful in specific scenarios and not so much in others:
 
-* <i class="ion-ios-minus-empty"> </i>Files that take a long time to install benefit from caching. So anything related to bundler, npm, composer, pip, etc are great candidates for caching.
-* <i class="ion-ios-minus-empty"> </i>Files that take a long time to download but installed quickly do not benefit from caching since it takes as much time to download from S3 as from the original source. Examples are compiled binaries, JDK packages, etc.
+*  Files that take a long time to install benefit from caching. So anything related to bundler, npm, composer, pip, etc are great candidates for caching.
+*  Files that take a long time to download but installed quickly do not benefit from caching since it takes as much time to download from S3 as from the original source. Examples are compiled binaries, JDK packages, etc.
 
 ##Basic config
 
@@ -79,8 +79,8 @@ If you're running multiple builds per trigger, aka [matrix builds](matrix-builds
 ## Clearing cache
 You can clear cache in one of two ways:
 
-* <i class="ion-ios-minus-empty"> </i>Including ``[reset minion]`` or ``[reset_minion]`` in your commit message.
-* <i class="ion-ios-minus-empty"> </i>Clicking on the **Clear cache** in your Project Settings UI.
+*  Including ``[reset minion]`` or ``[reset_minion]`` in your commit message.
+*  Clicking on the **Clear cache** in your Project Settings UI.
 
 <br>
 In both cases, your cached content will be deleted. This is a one time action, so if cache is still set to true in your yml, the build will generate a new cache which will be used for subsequent builds.
@@ -96,9 +96,9 @@ Unless these unwanted files are removed, your tests could fail during the CI bui
 
 Remove the unwanted files in one of the two ways:
 
-* <i class="ion-ios-minus-empty"> </i>Use the `git clean` command: In your `shippable.yml` add the `git clean` in the `ci` section using the following format:
-    - <i class="ion-ios-minus-empty"> </i>`git clean -f` removes all untracked files not ignored by `.gitignore`.
-    - <i class="ion-ios-minus-empty"> </i>`git clean -f -X` removes all untracked files included in `.gitignore` only.
-    - <i class="ion-ios-minus-empty"> </i>`git clean -f -x` removes all untracked files.
+*  Use the `git clean` command: In your `shippable.yml` add the `git clean` in the `ci` section using the following format:
+    -  `git clean -f` removes all untracked files not ignored by `.gitignore`.
+    -  `git clean -f -X` removes all untracked files included in `.gitignore` only.
+    -  `git clean -f -x` removes all untracked files.
 
-* <i class="ion-ios-minus-empty"> </i>Add commands such as `rm` to remove the unwanted files in your `shippable.yml` in the `ci` section.  
+*  Add commands such as `rm` to remove the unwanted files in your `shippable.yml` in the `ci` section.  
