@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Advanced configuration
+sub_section: Advanced config
 page_title: Using Caching in your CI/CD projects
 page_description: How to use caching for your builds
 page_keywords: cache, caching, shippable, config, yml

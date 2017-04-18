@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Advanced configuration
+sub_section: Advanced config
 
 # Console logs
 
