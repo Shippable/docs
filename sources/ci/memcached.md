@@ -27,3 +27,5 @@ For example, the following yml snippet overrides the default startup command for
 env:
   global:
     - SHIPPABLE_MEMCACHED_CMD="<command>"
+
+```
