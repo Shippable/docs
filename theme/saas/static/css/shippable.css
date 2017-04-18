@@ -470,3 +470,7 @@ table {
   margin-top: 20px;
   width: 100%;
 }
+
+.navbar-nav>li>a {
+  font-size: 15px;
+}

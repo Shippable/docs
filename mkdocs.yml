@@ -37,9 +37,7 @@ pages:
       - Integrations: getting-started/integrations.md
     - Using your own infrastructure:
       - Overview: getting-started/byon-overview.md
-      - Adding nodes: getting-started/byon-add-node.md
-      - Resetting a node: getting-started/byon-reset-node.md
-      - Deleting nodes: getting-started/byon-delete-node.md
+      - Managing nodes: getting-started/byon-manage-node.md
     - Run your first build: ci-sample.md
     - Deploy your first app: cd-sample.md
     - Support: support.md
