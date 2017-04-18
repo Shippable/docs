@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Advanced configuration
+sub_section: Advanced config
 page_title: Running matrix builds
 page_description: How to use matrix builds in your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml, multiple languages, versions

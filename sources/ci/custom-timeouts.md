@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Advanced configuration
+sub_section: Advanced config
 page_title: Build Timeouts
 page_description: How to customize timeouts for your CI/CD workflow
 page_keywords: shippable, ci, cd, timeouts, build, config, yml

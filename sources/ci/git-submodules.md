@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Advanced configuration
+sub_section: Advanced config
 page_title: Using git submodules in your Continuous Integration/Continuous Delivery projects
 page_description: How to to use git submodules in your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml, GitHub, Bitbucket, GitLab, Docker
