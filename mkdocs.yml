@@ -267,3 +267,4 @@ pages:
       - v5.4.1: reference/machine-image-v541.md
       - v5.3.2: reference/machine-image-v532.md
       - Stable: reference/machine-image-stable.md
+    - Integrations: reference/integrations.md
