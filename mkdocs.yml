@@ -107,6 +107,7 @@ pages:
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
       - Scheduled builds: ci/scheduled-builds.md
+      - Using a custom Docker image: ci/custom-docker-image.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
@@ -267,4 +268,28 @@ pages:
       - v5.4.1: reference/machine-image-v541.md
       - v5.3.2: reference/machine-image-v532.md
       - Stable: reference/machine-image-stable.md
-    - Integrations: reference/integrations.md
+    - Integrations:
+      - Overview: reference/integrations-overview.md
+      - Docker Hub: reference/int-docker-hub.md
+      - JFrog Artifactory: reference/int-jfrog-artifactory.md
+      - Amazon ECR: reference/int-amazon-ecr.md
+      - GCR: reference/int-gcr.md
+      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
+      - GitHub: reference/int-github.md
+      - Bitbucket: reference/int-bitbucket.md
+      - GitHub Enterprise: reference/int-github-enterprise.md
+      - Bitbucket Server: reference/int-bitbucket-server.md
+      - Gitlab: reference/int-gitlab.md
+      - Slack: reference/int-slack.md
+      - Hipchat: reference/int-hipchat.md
+      - IRC: reference/int-irc.md
+      - Email: reference/int-email.md
+      - Amazon ECS: reference/int-amazon-ecs.md
+      - Kubernetes: reference/int-kubernetes.md
+      - GKE: reference/int-gke.md
+      - Docker Cloud: reference/int-docker-cloud.md
+      - Docker Datacenter: reference/int-docker-datacenter.md
+      - Node Cluster: reference/int-node-cluster.md
+      - PEM Keys: reference/int-key-pem.md
+      - IRC: reference/int-key-ssh.md
+      - Key-value: reference/int-key-value.md
