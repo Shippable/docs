@@ -14,7 +14,7 @@ This page shows you how to manage your integrations and perform the following ac
 - [Deleting an account integration](#delete-integration)
 
 <a name="view-integration"></a>
-##Viewing an account integration
+##Viewing your account integrations
 
 - Click on the gear icon at the right of your top navigation bar to open **Account Settings**.
 

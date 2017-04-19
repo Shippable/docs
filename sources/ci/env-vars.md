@@ -28,8 +28,8 @@ env:
 
 More on these types of variables:
 
-- <i class="ion-ios-minus-empty"> </i> [Standard environment variables](#stdEnv)
-- <i class="ion-ios-minus-empty"> </i> [User defined environment variables](#usrEnv)
+-  [Standard environment variables](#stdEnv)
+-  [User defined environment variables](#usrEnv)
 
 <a name="stdEnv"></a>
 ## Standard variables
@@ -62,7 +62,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |LC_ALL 		 |en_US.UTF-8 |
 |LC_CTYPE 		 | en_US.UTF-8|
 |MERB_ENV 		 |test |
-|ORG_NAME     | Name of the organization/user that owns the repository currently being built (eg. This will be set to `Shippable` if the full name is `Shippable/support`).|
+|ORG_NAME     | Name of the organization/user that owns the repository currently being built (e.g. This will be set to `Shippable` if the full name is `Shippable/support`).|
 |PATH		 | $HOME/bin:$PATH:$HOME/usr/local/bin|
 |PROJECT_ID | ID of the Shippable Project. |
 |PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false**. |

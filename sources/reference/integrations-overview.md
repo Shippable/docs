@@ -1,5 +1,6 @@
 main_section: Reference
-sub_section: CI
+sub_section: Integrations
+page_title: Integrations overview
 
 # Third-party integrations
 
