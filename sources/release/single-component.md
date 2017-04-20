@@ -58,11 +58,7 @@ the image to Docker Hub.
 
 **Source code:**  [devops-recipes/release-single-component](https://github.com/devops-recipes/release-single-component).
 
-**Build link:** TODO
-
-**Docker Hub image pushed:** TODO
-
-**Build status badge:** TODO
+**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-single-component/blob/master/public/resources/images/pipeline-view.png)
 
 ## Improve this page
 
