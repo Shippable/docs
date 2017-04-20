@@ -35,3 +35,7 @@ sub_section: Managing release versions
 ```
 
 - Running the Release job will set the current version to 1.1.0, incrementing the minor version. To increment other components of the version such as major/patch, please see the section on incrementing version numbers.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

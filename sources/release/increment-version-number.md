@@ -174,3 +174,7 @@ The `bump` directive in the Release job specifies how the version number should 
 ```
 
 - Running the Release job will set the current version to 1.0.0-rc since `bump` was set to `rc`. The next run will set the version to 1.0.0-rc.1.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
