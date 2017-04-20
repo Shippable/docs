@@ -1,5 +1,5 @@
 main_section: CI
-sub_section: Sending build notifications
+sub_section: Sending notifications
 page_title: Sending slack notifications
 page_description: Configure Slack to send notifications for Continuous Integration and Delivery actions
 page_keywords: slack, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
@@ -7,7 +7,6 @@ page_keywords: slack, Continuous Integration, Continuous Deployment, CI/CD, test
 #Sending CI notifications to Slack
 
 You can send Slack notifications for various events in your CI workflow, including when builds start or finish.
-
 
 ##Setup
 
