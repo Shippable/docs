@@ -94,7 +94,7 @@ Follow the steps below to build a Docker image and use it to spin up your CI con
 
 * Make sure the **Dockerfile** for the image you want to build is in your repository
 
-* Include the following in your `shippable.yml`. This snippet builds a Docker image called **myImage** with the tag **tip** from a Dockerfile at the root of the repository. You can use your own image name and tag as needed:
+* Include the following in your `shippable.yml`. This snippet builds a Docker image called **myImage** with the tag **latest** from a Dockerfile at the root of the repository. You can use your own image name and tag as needed:
 
 ```
 build:
@@ -125,5 +125,13 @@ integrations:
     - integrationName: my-docker-hub   ##replace with your integration name
       type: docker
 ```
+
+* `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
+* `type` depends on the registry you are pulling from:
+    * `docker` for Docker Hub
+    * `ecr` for Amazon ECR
+    * `gcr` for Google Container Registry (GCR)
+    * `"Docker Trusted Registry"` for Docker Trusted Registry
+    * `quay` for Quay.io
 
 This should configure your workflow to build `my_registry_repo/my_image` image and use it for your CI.
