@@ -130,17 +130,10 @@ pages:
     - Running integration tests:
       - Overview: validate/running-integration-tests.md
       - Sauce Labs: validate/sauce-labs.md
-    - Running performane tests:
+    - Running performance tests:
       - Overview: validate/running-performance-tests.md
       - Nouvola: validate/nouvola.md
     - Running smoke tests: validate/running-smoke-tests.md
-    - Running UI tests:
-      - Overview: validate/running-ui-tests.md
-      - Selenium: validate/selenium.md
-    - Running security tests:
-      - Overview: validate/running-security-tests.md
-      - Aqua: validate/aqua.md
-      - Twistlock:  validate/twistlock.md
   - Release:
     - Overview:
       - What is release management?: release/devops-release-management.md
