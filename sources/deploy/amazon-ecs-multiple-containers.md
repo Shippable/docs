@@ -1,13 +1,12 @@
 main_section: Deploy
 sub_section: Deploying to Amazon ECS
 
-# amazon-ecs-multiple-containers
-The strength of ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several way to accomplish this on Shippable.  This page will discuss some of the most common ways to use Shippable to deploy multiple containers to ECS.
+# Deploying Multiple Containers to Amazon ECS
+The strength of ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to ECS:
 
 1. separate pipelines
 2. two images, one manifest
 3. multi-manifest deployment
-4. two clusters, one manifest
 
 ## Setup
 
