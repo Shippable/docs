@@ -241,7 +241,7 @@ DigitalOcean has streamlined the process by providing a droplet image with dokku
 
 After your droplet is created, visit its IP address, can be found under the Droplet name and should also be emailed to you. Here you will find a web console to finish setting up Dokku. We'll come back to this in a moment. Before going any further on this screen, you need to grab your deployment key from your Shippable account.
 
-After you login to your account, click on the CI dropdown and select the organization that is storing your app. Go to the 'Settings' tab on the right, and find the 'Deployment Key' section. Copy what you see there
+After you login to your account, click on the **Subscriptions** dropdown at the top left of your screen and select the organization that is storing your app. Go to the **Settings** tab on the right, and find the **Deployment Key** section. Copy what you see there
 
 ![deployment-key](../../images/ci/deploy-key.png)
 

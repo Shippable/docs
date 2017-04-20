@@ -49,7 +49,6 @@ Our official build images, which are used to run your builds by default, come in
 -  2.12.0
 -  2.12.1
 
-<br>
 To find out which versions are supported out of the box for your build image, [TODO: How do they figure out what is available to them by default??]
 
 If you want to test against several versions of Scala, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
@@ -69,16 +68,13 @@ If you're running a simple Scala build, feel free to skip this section since you
 
 ###Overriding the default build image
 
-Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../machine-images/overview/).
+Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../reference/machine-images-overview/).
 
 If the default image does not satisfy your requirements, you can do one of three things:
 
 -  Continue using default image and include commands to install any missing dependencies or packages in your yml
--  Switch your Machine Image to a more recent version that contains what you need
--  Use a custom build image that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
-
-<br>
-If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this scenario are available in the [Choosing a build image](build-image/) page. You will also need to configure the `pre_ci_boot` section if you are okay with the default build image but want to override the default options that are used to boot up the image.
+-  [Switch your Machine Image](../ci/build-image/#changing-your-default-tag) to a more recent version that contains what you need
+-  [Use a custom build image](../ci/custom-docker-image/) that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
 
 ###Setting environment variables
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
@@ -126,7 +122,6 @@ To configure test reports visualization:
 -  Make sure test results are in junit format.
 -  Output or copy test results to `shippable/testresults` folder.
 
-<br>
 To configure code coverage visualization:
 
 -  Run your code coverage command(s) as part of your CI workflow in the `ci` section.
@@ -152,8 +147,6 @@ The yml above will trigger 4 builds, one against each jdk version.
 
 ### Specifying branches to build
 You can restrict which branches do or do not trigger your CI workflow. This is done with the `branches` tag. Read the [docs on Specifying branches](specify-branches/) for more information.
-
-
 
 ### Default commands
 

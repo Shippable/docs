@@ -1,4 +1,5 @@
 main_section: Reference
 sub_section: Integrations
+page_title: Docker Hub integration
 
-# resources-overview
+# Docker Hub integration
