@@ -172,14 +172,94 @@ Replicas [TODO: add link] is a very simple type of resource. You can use it to d
 If managed jobs don't work for your scenario, Shippable also gives you the ability to fully customize exactly how you want your deployments to behave.  By using an unmanaged job type, you have full control over the commands and options passed in to ECS.
 
 ### Basic Configuration
-- create CLIconfig resource
-- create runCLI job
-- create a gitRepo
-- deploy an existing task definition hardcoded in the repo
+
+First, you'll want to create a resource that helps configure the aws cli with your integration.
+
+```
+resources:
+  - name: MyAwsConfig
+    type: cliConfig
+    integration: MyECSCredentials
+    pointer:
+      region: us-west-2
+```
+Now you'll need a particular job that can utilize that resource
+
+```
+jobs:
+  - name: myCustomDeployment
+    type: runCLI
+    steps:
+      - IN: MyAwsConfig
+      - TASK:
+        - script: aws ecs describe-clusters
+```
+For now, we'll just add a simple command to describe our clusters.
+
+
+In your job's logs, you should see the results of the `describe-clusters` command.
+
+
+Next, we'll include a gitRepo that contains a static taskDefinition json object, which we update any time we want to deploy a new image version.  To add this resource, you'll need a subscription integration for your github credentials.
+```
+resources:
+  - name: MyStaticTaskDefRepo
+    type: gitRepo
+    integration: MyGithubIntegration
+    pointer:
+      sourceName: shippablesamples/taskDefinitions
+
+```
+Now your pipeline should look something like this:
+<img src="../../images/spog/basic-deployment-unmanaged.png" alt="Alternate Pipeline">
+
+Now, update the job to use this gitRepo as an `IN`, and add some extra commands  to make the script more reusable.  This assumes that a service already exists on the cluster with the same name as this job (myCustomDeployment).
+
+- register a new task definition from a json file and capture the revision number
+- update the service using the `--task-definition family:revision` syntax
+
+```
+jobs:
+  - name: myCustomDeployment
+    type: runCLI
+    steps:
+      - IN: MyAwsConfig
+      - IN: MyStaticTaskDefRepo
+      - TASK:
+        - script: aws ecs describe-clusters
+        - script: aws ecs register-task-definition --cli-input-json file://${MYSTATICTASKDEFREPO_STATE}/taskdefinitions/sample.json > output.json
+        - script: REVISION=$(cat output.json | jq '.taskDefinition.revision')
+        - script: echo "revision is $REVISION"
+        - script: aws ecs update-service --cluster cluster-test-1 --service ${JOB_NAME} --task-definition shippable:${REVISION} --desired-count 2
+
+```
+
+Inside the 'taskdefinitions' directory in my `gitRepo`, I have a file called `sample.json` that contains this task definition:
+
+```
+{
+    "family": "shippable",
+    "containerDefinitions": [
+        {
+            "name": "myapp",
+            "image": "trriplejay/simpleserver:master.58",
+            "cpu": 0,
+            "memory": 125,
+            "essential": true,
+            "privileged": true
+        }
+    ]
+}
+
+```
+
+Run your job, and you should get some output from AWS like this:
+<img src="../../images/spog/basic-deployment-runcli-output.png" alt="runCLI Output">
+
+
+And if you check ECS, you should see your service running your task definition!
+<img src="../../images/aws/basic-deployment-service.png" alt="Alternate Pipeline">
+
 
 ### advanced Configuration
-- use image resource that is created in CI
-- use a generic taskdef template with placeholders filled in via shippable_replace
-- pass ENVs and state from CI to build the task definition
-- deploy task definition via awscli
-- use params resource to pass state info from CI to runCLI
+- coming soon
