@@ -37,7 +37,7 @@ jobs:
 
 ```
 
-As shown above, the runCI job should have an OUT tag which specifies the resource that is updated as a result of this CI job. As long as the next job in your pipeline has that resource as an IN, any change to the resource by the CI job will trigger the next job.
+As shown above, the runCI job should have an OUT tag which specifies the resource `my_image` that is updated as a result of this CI job. As long as the next job in your pipeline has the same resource as an IN, any change to the resource by the CI job will trigger the next job.
 
 ###2. Updating the resource version
 
