@@ -23,7 +23,7 @@ This tutorial builds on the [Node tutorial](https://github.com/devops-recipes/pu
 Set the starting point of your version in the versionName field. The Release job which we will define later on in this tutorial will use the versionName as the seed and increment it whenever it is triggered.  
 
 
-- <i class="ion-ios-minus-empty"></i>Next add a release job to shippable.jobs.yml file.
+- <i class="ion-ios-minus-empty"></i>Next add a Release job to shippable.jobs.yml file of **type release**.
 ```
 # Deploy job that deploys to Amazon ECS cluster
   - name: deploy-test-ecs
@@ -58,11 +58,7 @@ the image to Docker Hub.
 
 **Source code:**  [devops-recipes/release-single-component](https://github.com/devops-recipes/release-single-component).
 
-**Build link:** TODO
-
-**Docker Hub image pushed:** TODO
-
-**Build status badge:** TODO
+**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-single-component/blob/master/public/resources/images/pipeline-view.png)
 
 ## Improve this page
 
