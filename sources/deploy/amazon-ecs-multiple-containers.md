@@ -246,7 +246,7 @@ You'll see in the logs that each manifest is deployed in turn, and the deploy jo
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS for all of the scenarios described above.
 
-**Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container).
+**Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
 
 **Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container/runs/4/1/console)
 
