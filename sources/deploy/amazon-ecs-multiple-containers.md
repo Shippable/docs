@@ -16,40 +16,43 @@ We'll start with some basic pipeline building blocks: one image, one manifest, o
 ```
 resources:
 
-  - name: MyECSCluster
-    type: cluster
-    integration: MyECSCredentials
-    pointer:
-      sourceName: cluster-test-1
-      region: us-west-2
-
-  - name: MyNginxImage
+  - name: deploy-ecs-multi-container-image
     type: image
+    integration: dr-ecr
     pointer:
-      sourceName: library/nginx
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
     seed:
-      versionName: latest
+      versionName: "latest"
 
+
+  - name: deploy-ecs-multi-container-ecs-cluster
+    type: cluster
+    integration: dr-aws
+    pointer:
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 ```
 
 `shippable.jobs.yml`
 ```
 jobs:
 
-  - name: MyNginxManifest
+  - name: deploy-ecs-multi-container-manifest
     type: manifest
+    flags:
+      - deploy-ecs-multi-container
     steps:
-      - IN: MyNginxImage
+     - IN: deploy-ecs-multi-container-image
 
-  - name: DeployTo_cluster-test-1
-    type: deploy
-    steps:
-      - IN: MyECSCluster
-      - IN: MyNginxManifest
+ - name: deploy-ecs-multi-container-deploy
+   type: deploy
+   flags:
+     - deploy-ecs-multi-container
+   steps:
+     - IN: deploy-ecs-multi-container-manifest
+     - IN: deploy-ecs-multi-container-ecs-cluster
 
 ```
-
-
 
 ## Managed Deployments
 
@@ -65,55 +68,55 @@ Now the updated ymls should look like this:
 ```
 resources:
 
-  - name: MyECSCluster
+  - name: deploy-ecs-multi-container-image
+    type: image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
+    seed:
+      versionName: "latest"
+
+  - name: deploy-ecs-multi-container-nginx
+    type: image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
+    seed:
+      versionName: "1.12.0"
+
+  - name: deploy-ecs-multi-container-ecs-cluster
     type: cluster
-    integration: MyECSCredentials
+    integration: dr-aws
     pointer:
-      sourceName: cluster-test-1
-      region: us-west-2
-
-  - name: MyNginxImage
-    type: image
-    pointer:
-      sourceName: library/nginx
-    seed:
-      versionName: latest
-
-  - name: MyRedisImage
-    type: image
-    pointer:
-      sourceName: library/redis
-    seed:
-      versionName: latest
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 
 ```
 
 ```
 jobs:
 
-  - name: MyNginxManifest
+  - name: deploy-ecs-multi-container-manifest-3a
     type: manifest
     steps:
-      - IN: MyNginxImage
+     - IN: deploy-ecs-multi-container-image
 
-  - name: MyRedisManifest
+  - name: deploy-ecs-multi-container-manifest-3b
     type: manifest
     steps:
-      - IN: MyRedisImage
+      - IN: deploy-ecs-multi-container-nginx
 
-
-  - name: DeployNginx
+  - name: deploy-ecs-multi-container-deploy-3a
     type: deploy
     steps:
-      - IN: MyECSCluster
-      - IN: MyNginxManifest
+      - IN: deploy-ecs-multi-container-manifest-3a
+      - IN: deploy-ecs-multi-container-ecs-cluster
 
-  - name: DeployRedis
+  - name: deploy-ecs-multi-container-deploy-3b
     type: deploy
     steps:
-      - IN: MyECSCluster
-      - IN: MyRedisManifest
-
+      - IN: deploy-ecs-multi-container-manifest-3b
+      - IN: deploy-ecs-multi-container-ecs-cluster
 ```
 
 Once you push these changes, your pipeline should look like this:
@@ -122,40 +125,38 @@ Once you push these changes, your pipeline should look like this:
 
 Now each pipeline is handled separately, but is being deployed to the same cluster.  Each deploy job will create its own service and task definition.  When you run each manifest job, you can see the results on ECS:
 
-
 <img src="../../images/aws/ecs-parallel-pipeline-results.png" alt="Parallel pipeline results">
 
 ### Advanced Configuration: two images in one manifest
 
-When two images depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate via localhost or container linking.
+When two containers depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate on ECS via localhost or container linking.
 
 Shippable natively supports this, and it's quite simple to implement.  In your manifest job, just include both images as separate IN statements like this:
 
 ```
 jobs:
 
-  - name: MyAppManifest
+  - name: deploy-ecs-multi-container-manifest-1
     type: manifest
     steps:
-      - IN: MyNginxImage
-      - IN: MyRedisImage
+     - IN: deploy-ecs-multi-container-image
+     - IN: deploy-ecs-multi-container-nginx
 
-
-  - name: DeployApp
+  - name: deploy-ecs-multi-container-deploy-1
     type: deploy
     steps:
-      - IN: MyECSCluster
-      - IN: MyAppManifest
+      - IN: deploy-ecs-multi-container-manifest-1
+      - IN: deploy-ecs-multi-container-ecs-cluster
 
 ```
 
 This will result in a single service being created or updated with a single task definition that contains two container definitions.  The pipeline should look like this:
 
-<img src="../../images/spog/ecs-multi-manifest-pipeline.png" alt="Multi-manifest pipeline">
+<img src="../../images/spog/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
 
 And deployment to Amazon ECS should result in a task definition that looks like this:
 
-<img src="../../images/aws/ecs-multi-manifest-pipeline-results.png" alt="Multi-manifest pipeline results">
+<img src="../../images/aws/ecs-multi-image-manifest-pipeline-results.png" alt="Multi-image-manifest pipeline results">
 
 Now, any time either image is updated with a new version, the pipeline will be triggered, and your combined manifest will always be up-to-date.
 
@@ -164,33 +165,33 @@ Now, any time either image is updated with a new version, the pipeline will be t
 
 It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
 
-
 Lets start with our two images and our cluster:
 
 ```
 resources:
 
-  - name: MyECSCluster
+  - name: deploy-ecs-multi-container-image
+    type: image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
+    seed:
+      versionName: "latest"
+
+  - name: deploy-ecs-multi-container-nginx
+    type: image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
+    seed:
+      versionName: "1.12.0"
+
+  - name: deploy-ecs-multi-container-ecs-cluster
     type: cluster
-    integration: MyECSCredentials
+    integration: dr-aws
     pointer:
-      sourceName: cluster-test-1
-      region: us-west-2
-
-  - name: MyNginxImage
-    type: image
-    pointer:
-      sourceName: library/nginx
-    seed:
-      versionName: latest
-
-  - name: MyRedisImage
-    type: image
-    pointer:
-      sourceName: library/redis
-    seed:
-      versionName: latest
-
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 ```
 
 And now lets add a second manifest job and modify the deploy job to take both manifests as INs
@@ -198,22 +199,22 @@ And now lets add a second manifest job and modify the deploy job to take both ma
 ```
 jobs:
 
-  - name: MyNginxManifest
+  - name: deploy-ecs-multi-container-manifest-2a
     type: manifest
     steps:
-      - IN: MyNginxImage
+     - IN: deploy-ecs-multi-container-image
 
-  - name: MyRedisManifest
+  - name: deploy-ecs-multi-container-manifest-2b
     type: manifest
     steps:
-      - IN: MyRedisImage
+      - IN: deploy-ecs-multi-container-nginx
 
-  - name: DeployTo_cluster-test-1
+  - name: deploy-ecs-multi-container-deploy
     type: deploy
     steps:
-      - IN: MyECSCluster
-      - IN: MyNginxManifest
-      - IN: MyRedisManifest
+      - IN: deploy-ecs-multi-container-manifest-2a
+      - IN: deploy-ecs-multi-container-manifest-2b
+      - IN: deploy-ecs-multi-container-ecs-cluster
 
 ```
 
@@ -223,11 +224,11 @@ Once these changes are pushed, your pipeline will look like this:
 
 When you run the deploy job, the following steps will be taken:
 
+  - register new task definition for application manifest
+  - create or update service with application task definition
+  - wait for runningCount to reach desiredCount
   - register new task definition for nginx manifest
   - create or update service with nginx task definition
-  - wait for runningCount to reach desiredCount
-  - register new task definition for redis manifest
-  - create or update service with redis task definition
   - wait for runningCount to reach desiredCount
   - complete successfully
 
@@ -238,6 +239,19 @@ Once the deploy job completes, your Amazon ECS cluster should show two new servi
 You'll see in the logs that each manifest is deployed in turn, and the deploy job waits for each service to be running steadily before moving on to the next manifest.
 
 <img src="../../images/spog/ecs-multi-manifest-single-deploy-pipeline-logs.png" alt="Multi-manifest pipeline with single deploy logs">
+
+
+## Sample project
+
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS for all of the scenarios described above.
+
+**Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container).
+
+**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container/runs/4/1/console)
+
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container)
+
 
 ## Unmanaged Deployments
 
