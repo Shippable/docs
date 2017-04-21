@@ -22,39 +22,34 @@ This key should have the appropriate permissions and roles described [TODO add r
 
 ```
 resources:
-  #############################
-  # Basic resource configuration
-  #############################
 
-  - name: MyECSCluster
+  - name: deploy-ecs-basic-ecs-cluster
     type: cluster
-    integration: MyECSCredentials
+    integration: dr-aws
     pointer:
-      sourceName: cluster-test-1
-      region: us-west-2
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 ```
 
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.
+You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Amazon ECR since it integrates nicely with Amazon ECS.
 
 ```
 resources:
-  #############################
-  # Basic resource configuration
-  #############################
 
-  - name: MyECSCluster
+  - name: deploy-ecs-basic-ecs-cluster
     type: cluster
-    integration: MyECSCredentials
+    integration: dr-aws
     pointer:
-      sourceName: cluster-test-1
-      region: us-west-2
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 
-  - name: MyAppImage
+  - name: deploy-ecs-basic-image
     type: image
+    integration: dr-ecr
     pointer:
-      sourceName: shippablesamples/samplepipelinesdemo
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"
     seed:
-      versionName: latest
+      versionName: "latest"
 
 ```
 
@@ -69,14 +64,12 @@ Now that we have a reference to our image, we need to package it in a way that i
 
 ```
 jobs:
-  ##########################
-  # Basic jobs configuration
-  ##########################
 
-  - name: MyFirstManifest
-    type: manifest
-    steps:
-      - IN: MyAppImage
+- name: deploy-ecs-basic-manifest
+  type: manifest
+  steps:
+   - IN: deploy-ecs-basic-image
+
 ```
 It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described [TODO add link] in this section.
 
@@ -84,20 +77,18 @@ Now we can take that manifest, and use it as input to a `deploy` type job.  This
 
 ```
 jobs:
-  ##########################
-  # Basic jobs configuration
-  ##########################
 
-  - name: MyFirstManifest
+  - name: deploy-ecs-basic-manifest
     type: manifest
     steps:
-      - IN: MyAppImage
+      - IN: deploy-ecs-basic-image
 
-  - name: DeployTo_cluster-test-1
+  - name: deploy-ecs-basic-deploy
     type: deploy
     steps:
-      - IN: MyECSCluster
-      - IN: MyFirstManifest
+      - IN: deploy-ecs-basic-manifest
+      - IN: deploy-ecs-basic-ecs-cluster
+
 ```
 
 The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
@@ -138,23 +129,24 @@ These settings can all be customized by creating additional Pipelines Resources.
 #### dockerOptions
 Using [TODO: add link] dockerOptions, all of the advanced configurations of docker are available to you. [TODO add link] Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
-  - name: myBasicOptions
-    type: dockerOptions
-    version:
-      memory: 100
-      portMappings:
-        - "80:8888"
+- name: deploy-ecs-basic-docker-options
+  type: dockerOptions
+  version:
+    memory: 100
+    portMappings:
+      - 80:80
 ```
 #### params
 When [TODO: add link] params resources are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
-  - name: myBasicParams
+  - name: deploy-ecs-basic-params
     type: params
     version:
       params:
-        DB_URL: "http://example.com:5432"
-        MODE: "beta"
+        PORT: 80
+        ENVIRONMENT: "dev"
+
 
 ```
 
@@ -162,11 +154,26 @@ When [TODO: add link] params resources are added to a manifest, they become envi
 
 Replicas [TODO: add link] is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 ```
-  - name: myBasicReplicas
+  - name: deploy-ecs-basic-replicas
     type: replicas
     version:
       count: 2
 ```
+
+## Sample project
+
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
+
+**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic).
+
+**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic/runs/5/1/console)
+
+**Application running on Amazon ECS:** [link](http://52.87.153.126/)
+
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f6fcddd1780a07007bba3f/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic)
+
+
 
 ## Unmanaged Deployments
 If managed jobs don't work for your scenario, Shippable also gives you the ability to fully customize exactly how you want your deployments to behave.  By using an unmanaged job type, you have full control over the commands and options passed in to ECS.

@@ -160,7 +160,7 @@ pages:
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
     - Deploying to Amazon ECS:
-      - Default scenario: deploy/amazon-ecs.md
+      - Basic scenario: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
       - Deploying multi-container services: deploy/amazon-ecs-multiple-containers.md
