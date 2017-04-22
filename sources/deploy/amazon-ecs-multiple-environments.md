@@ -255,4 +255,7 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 
 ## Unmanaged deployments
-coming soon
+
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+
+For unmanaged jobs, you can run your awscli commands against any cluster and region that you want. Deploying to one or more environments is as simple as running `aws configure set region us-east-1` or simply specifying a different `--cluster` when creating a service.

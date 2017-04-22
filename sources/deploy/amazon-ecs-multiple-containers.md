@@ -256,4 +256,18 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 ## Unmanaged Deployments
 
-coming soon
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+
+For unamanged jobs, the deployment workflow is under your control, but here is a description of how shippable treats different scenarios in the managed jobs.  You can duplicate this functionlity in your own scripts and even discover ways of improving the logic.
+
+two manifests into a single deploy job:
+
+- create two services and two task definitions, each task definition corresponds to one of the manifests
+
+two images in one manifest:
+
+- create one task definition with two items in the container definitions array. create one service to use the task definition.
+
+one manifest used by two deploy jobs:
+
+- create one task definition. create two services. update each service to use the same task definition.
