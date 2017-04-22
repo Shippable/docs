@@ -5,6 +5,8 @@ sub_section: Deploying to Amazon ECS
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Amazon ECS.
 
 ## Setup
+Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
+
 For this example, we're going to use two docker images, two Shippable manifests, and one Shippable deploy job.
 
 ```

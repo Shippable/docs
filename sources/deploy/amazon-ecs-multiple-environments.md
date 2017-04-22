@@ -5,6 +5,8 @@ sub_section: Deploying to Amazon ECS
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
 
 ## Setup
+Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
+
 Let's keep our example scenario simple.  One image and one manifest to start.
 
 ```
