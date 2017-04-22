@@ -105,7 +105,7 @@ jobs:
 Notice that the production deploy job has several `switch: off` statements.  We want to make sure that no one accidentally deploys to production by changing one of its inputs!
 
 Your pipeline should look like this:
-<img src="../../images/spog/ecs-multi-env-serial-pipeline.png" alt="serial pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-pipeline.png" alt="serial pipeline">
 
 Notice the dotted lines connecting the resources to production. This is the visual representation of the break in automation that `switch: off` causes.
 
@@ -166,13 +166,13 @@ Notice that on each deploy job, beneath the `IN` statement for the manifest ther
 
 Once you add these to your pipeline, check out your SPOG. It should look something like this:
 
-<img src="../../images/spog/ecs-multi-env-parallel-pipeline.png" alt="blue-green pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-pipeline.png" alt="blue-green pipeline">
 
 Since `switch: off` is present on the manifest input, you'll have to right-click and select 'Run Job' to start the deployment. Make sure that the manifest job has run first so that the latest version is available for deployment.
 
 If you're following along with our sample app, you should be able to access the page, on which you can see the environment, injected by the `params` resource.
 
-<img src="../../images/sampleapp/ecs-multi-env-parallel-blue.png" alt="blue-green pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-blue.png" alt="blue-green pipeline">
 
 
 
@@ -229,16 +229,16 @@ In this case, we will add our common slack token to the original manifest, and e
 
 With these new items, the pipeline should look like this:
 
-<img src="../../images/spog/ecs-multi-env-serial-advanced.png" alt="serial params pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-advanced.png" alt="serial params pipeline">
 
 After deploying beta to the Amazon ECS cluster, you can look up the running task definition. Inside, you should see the ENVs that were set via params, as well as the memory setting from the `dockerOptions`.
 
-<img src="../../images/aws/ecs-multi-env-serial-beta-results.png" alt="serial beta task definition">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-beta-results.png" alt="serial beta task definition">
 
 
 Now, switch back to your SPOG view, right-click the production deploy job, and click "run job".  Once the deployment has finished, you can examine the task definition. You should see that its settings are properly modified to reflect the environment, while the token from the original manifest remains unchanged.
 
-<img src="../../images/aws/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
 
 NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [TODO: add link]
 

@@ -15,7 +15,7 @@ Shippable will use an AWS key/secret pair to communicate with ECS on your behalf
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../../images/integrations/create-aws-deploy-integration.png" alt="Add AWS credentials">
+<img src="../../images/deploy/amazon-ecs/create-aws-deploy-integration.png" alt="Add AWS credentials">
 
 
 This key should have the appropriate permissions and roles described [TODO add reference link] here.  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
@@ -95,7 +95,7 @@ The deploy job expects a manifest and a cluster as input.  The cluster tells Shi
 
 With these jobs and resources created, your pipeline should look something like this:
 
-<img src="../../images/spog/basic-deployment-configuration.png" alt="Successful pipeline">
+<img src="../../images/deploy/amazon-ecs/basic-deployment-configuration.png" alt="Successful pipeline">
 
 
 Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
@@ -108,11 +108,11 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 
 After running, your pipeline will hopefully change color:
 
-<img src="../../images/spog/basic-deployment-configuration-success.png" alt="Basic Pipeline Scenario">
+<img src="../../images/deploy/amazon-ecs/basic-deployment-configuration-success.png" alt="Basic Pipeline Scenario">
 
 And when you check your cluster on ECS, you should see that a service was created, and that there is one running task:
 
-<img src="../../images/aws/basic-deployment-cluster.png" alt="Cluster stats">
+<img src="../../images/deploy/amazon-ecs/basic-deployment-cluster.png" alt="Cluster stats">
 
 That's all there is to it!
 
@@ -219,7 +219,7 @@ resources:
 
 ```
 Now your pipeline should look something like this:
-<img src="../../images/spog/basic-deployment-unmanaged.png" alt="Alternate Pipeline">
+<img src="../../images/deploy/amazon-ecs/basic-deployment-unmanaged.png" alt="Alternate Pipeline">
 
 Now, update the job to use this gitRepo as an `IN`, and add some extra commands  to make the script more reusable.  This assumes that a service already exists on the cluster with the same name as this job (myCustomDeployment).
 
@@ -262,12 +262,8 @@ Inside the 'taskdefinitions' directory in my `gitRepo`, I have a file called `sa
 ```
 
 Run your job, and you should get some output from AWS like this:
-<img src="../../images/spog/basic-deployment-runcli-output.png" alt="runCLI Output">
+<img src="../../images/deploy/amazon-ecs/basic-deployment-runcli-output.png" alt="runCLI Output">
 
 
 And if you check ECS, you should see your service running your task definition!
-<img src="../../images/aws/basic-deployment-service.png" alt="Running service">
-
-
-### advanced Configuration
-- coming soon
+<img src="../../images/deploy/amazon-ecs/basic-deployment-service.png" alt="Running service">
