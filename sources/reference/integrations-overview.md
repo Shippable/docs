@@ -21,7 +21,6 @@ To add an account integration:
 - Select the one you want from the list, complete all fields, and click on **Save**
 - Please note that while creating the integration, you will need to specify which Subscriptions have access to it. This is a very important step and if you miss it, you will not be able to use it in your ymls.
 
-
 ###2. Using the integration in your yml
 Once an integration is enabled for a Subscription, you can use it in any project in that Subscription with a few lines of yml configuration. Please note that the integration name in your yml should be same as the one configured in your integration.
 
@@ -39,7 +38,7 @@ If you need to use an integration in additional Subscriptions after it was creat
 - Click on the **Add integration** button
 - Name your integration and then in the **Account integrations** dropdown, select the integration you want to add. To keep it easy, name your integration with the same name as your account integration.
 - If you want to restrict usage of the integration to specific projects, choose the Project(s). You can just leave it at *All projects* to let all projects in the Subscription use it.
-- Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files. 
+- Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
 
 <a name="listIntegrations"></a>
 ##List of available integrations
@@ -52,21 +51,20 @@ You need a source control integration if:
 
 We currently support the following source control providers:
 
-- GitHub
-- GitHub Enterprise
-- Bitbucket
-- Bitbucket Server
-- GitLab
+- [GitHub](int-github/)
+- [GitHub Enterprise](int-github-enterprise/)
+- [Bitbucket](int-bitbucket/)
+- [Bitbucket Server](int-bitbucket-server/)
+- [GitLab](int-gitlab/)
 
 ### Notification Providers
 
 You need a notification integration if you want to send notifications for your CI or CD workflows.
 
-- [Slack](../ci/slack-notifications/)
-- [IRC](../ci/irc-notifications/)
-- [Email](../ci/email-notifications/)
-- [HipChat](../ci/hipchat-notifications/)
-- [Event triggers](../ci/event-trigger-notifications/)
+- [Slack](int-slack/)
+- [IRC](int-irc/)
+- [Email](int-email//)
+- [HipChat](int-hipchat/)
 
 ### Docker registries
 You will need Docker registry integration if you want to do the following -
@@ -78,14 +76,12 @@ You will need Docker registry integration if you want to do the following -
 
 We support the following Docker registries:
 
-- Docker Hub
-- Amazon EC2 Container Registry (ECR)
-- Google Container Registry
-- Quay
-- Docker Trusted Registry
-- Any private registry
-
----
+- [Docker Hub](int-docker-hub/)
+- [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/)
+- [Google Container Registry](int-gcr/)
+- [Quay](int-quay/)
+- [Docker Trusted Registry](int-docker-trusted-registry/)
+- [Any private registry](int-docker-trusted-registry/)
 
 ### Container Services
 
@@ -93,13 +89,11 @@ You need a Container Service integration if you want to push your application to
 
 We support the following Container Services:
 
-- [Amazon EC2 Container Service (ECS)](../deploy/amazon-ecs/)
-- [Kubernetes](../deploy/kubernetes/)
-- [Google Container Engine (GKE)](../deploy/gke/)
-- [Docker Cloud](../deploy/docker-cloud/)
-- [Docker Datacenter](../deploy/docker-datacenter/)
-
----
+- [Amazon EC2 Container Service (ECS)](int-amazon-ecs/)
+- [Kubernetes](int-kubernetes/)
+- [Google Container Engine (GKE)](int-gke/)
+- [Docker Cloud](int-docker-cloud/)
+- [Docker Datacenter](int-docker-datacenter/)
 
 ### Deploy
 
@@ -107,10 +101,9 @@ You can push to Amazon elastic beanstalk as part of your CI workflow by adding t
 
 - [Amazon Elastic Beanstalk](../deploy/aws-elastic-beanstalk/)
 
----
 ### Keys
 
 You need a key integration if you want to integrate with a third party service that is not natively supported with Shippable. You should use these integrations so that you don't have to expose your keys in your CI yml configuration:
 
-- PEM
-- SSH
+- [PEM keys](int-key-pem/)
+- [SSH keys](int-key-ssh/)
