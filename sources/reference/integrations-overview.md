@@ -10,6 +10,7 @@ Using an integration is a two step process:
 
 <img src="../../images/reference/account-integrations-explained.png" alt="Google Container Registry integration">
 
+##Basic config
 ###1. Adding an integration to your account
 
 To add an account integration:
@@ -23,6 +24,22 @@ To add an account integration:
 
 ###2. Using the integration in your yml
 Once an integration is enabled for a Subscription, you can use it in any project in that Subscription with a few lines of yml configuration. Please note that the integration name in your yml should be same as the one configured in your integration.
+
+##Advanced config
+
+<a name="add-subscriptions"></a>
+##Adding your integration to additional Subscriptions
+
+If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
+
+- From the Subsciption dropdown menu at the top left of your Dashboard, click on the Subscription you need.
+<img src="../../images/reference/list-subscriptions.png" alt="List subscriptions">
+
+- Go to the **Settings** tab and click on **Integrations** in the left sidebar.
+- Click on the **Add integration** button
+- Name your integration and then in the **Account integrations** dropdown, select the integration you want to add. To keep it easy, name your integration with the same name as your account integration.
+- If you want to restrict usage of the integration to specific projects, choose the Project(s). You can just leave it at *All projects* to let all projects in the Subscription use it.
+- Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files. 
 
 <a name="listIntegrations"></a>
 ##List of available integrations
@@ -97,5 +114,3 @@ You need a key integration if you want to integrate with a third party service t
 
 - PEM
 - SSH
-
----

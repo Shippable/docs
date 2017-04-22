@@ -150,7 +150,6 @@ pages:
       - Overview: release/manage-release-versions.md
       - Setting version number: release/set-version-number.md
       - Incrementing version numbers: release/increment-version-number.md
-      - Specifying release type:  release/set-release-type.md
   - Deploy:
     - Overview:
       - Why deploy?:  deploy/why-deploy.md
