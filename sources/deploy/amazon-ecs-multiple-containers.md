@@ -9,6 +9,7 @@ The strength of ECS is in its ability to orchestrate multi-container application
 3. multi-manifest deployment
 
 ## Setup
+Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
 
 We'll start with some basic pipeline building blocks: one image, one manifest, one deploy job.
 
