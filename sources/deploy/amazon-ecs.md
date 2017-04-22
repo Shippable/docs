@@ -215,6 +215,7 @@ resources:
     integration: MyGithubIntegration
     pointer:
       sourceName: shippablesamples/taskDefinitions
+      branch: master
 
 ```
 Now your pipeline should look something like this:
@@ -265,7 +266,7 @@ Run your job, and you should get some output from AWS like this:
 
 
 And if you check ECS, you should see your service running your task definition!
-<img src="../../images/aws/basic-deployment-service.png" alt="Alternate Pipeline">
+<img src="../../images/aws/basic-deployment-service.png" alt="Running service">
 
 
 ### advanced Configuration

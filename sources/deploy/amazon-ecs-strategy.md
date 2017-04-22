@@ -17,7 +17,7 @@ resources:
     integration: dr-aws
     pointer:
       sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"      
+      region: "us-east-1"
 
   - name: deploy-ecs-strategy-image
     type: image
@@ -173,4 +173,7 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f94cc57e84cc070041e5a0/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-strategy)
 
 ## Unmanaged Deployments
-coming soon
+
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+
+From that starting point, there are no pre-built deployment strategies for ECS for unmanaged jobs, however the power and flexibility of Shippable pipelines is available to you to script whatever deployment behavior works best for your environment.

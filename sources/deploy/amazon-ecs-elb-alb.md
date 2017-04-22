@@ -182,4 +182,9 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 
 ## Unmanaged
-coming soon
+
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+
+If your load balancer is already created on AWS, deploying with it in a runCLI job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
+
+Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable managed deploy jobs handle these scenarios automatically for you.
