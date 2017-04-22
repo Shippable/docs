@@ -66,7 +66,7 @@ The default method is "classic" which you can read about in the next section.
 
 For ALBs, the sourceName field should be the ARN of the target group that was created alongside your ALB.  Make sure this is the ARN of the *target group* and not the ARN of the load balancer itself.
 
-<img src="../../images/aws/ecs-deploy-alb-tgtgrp.png" alt="Target group ARN">
+<img src="../../images/deploy/amazon-ecs/ecs-deploy-alb-tgtgrp.png" alt="Target group ARN">
 
 
 Now you can use that ALB in your deploy job:
@@ -120,7 +120,7 @@ Now we should use both the `replicas` and `dockerOptions` resources as INs to ou
 
 Now you should see multiple targets registered to you target group. They may even end up on the same host machine:
 
-<img src="../../images/aws/ecs-deploy-alb-healthy.png" alt="Healthy target group">
+<img src="../../images/deploy/amazon-ecs/ecs-deploy-alb-healthy.png" alt="Healthy target group">
 
 
 ### Classic Load Balancer
@@ -152,7 +152,7 @@ When using a loadBalancer in a deploy job, you must include this `applyTo` secti
 
 If you've configured your job correctly, you should see a few extra lines appear in the deploy logs compared to a deployment without load balancing.
 
-<img src="../../images/spog/ecs-deploy-lb-logs.png" alt="Load balancing logs">
+<img src="../../images/deploy/amazon-ecs/ecs-deploy-lb-logs.png" alt="Load balancing logs">
 
 Here are some of the most common errors from attempts to load balancer, along with the solutions.
 

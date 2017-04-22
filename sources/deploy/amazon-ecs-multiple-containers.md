@@ -122,11 +122,11 @@ jobs:
 
 Once you push these changes, your pipeline should look like this:
 
-<img src="../../images/spog/ecs-parallel-pipeline.png" alt="Parallel pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline">
 
 Now each pipeline is handled separately, but is being deployed to the same cluster.  Each deploy job will create its own service and task definition.  When you run each manifest job, you can see the results on ECS:
 
-<img src="../../images/aws/ecs-parallel-pipeline-results.png" alt="Parallel pipeline results">
+<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline-results.png" alt="Parallel pipeline results">
 
 ### Advanced Configuration: two images in one manifest
 
@@ -153,11 +153,11 @@ jobs:
 
 This will result in a single service being created or updated with a single task definition that contains two container definitions.  The pipeline should look like this:
 
-<img src="../../images/spog/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
 
 And deployment to Amazon ECS should result in a task definition that looks like this:
 
-<img src="../../images/aws/ecs-multi-image-manifest-pipeline-results.png" alt="Multi-image-manifest pipeline results">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline-results.png" alt="Multi-image-manifest pipeline results">
 
 Now, any time either image is updated with a new version, the pipeline will be triggered, and your combined manifest will always be up-to-date.
 
@@ -221,7 +221,7 @@ jobs:
 
 Once these changes are pushed, your pipeline will look like this:
 
-<img src="../../images/spog/ecs-multi-mani-single-deploy-pipeline.png" alt="Multi-manifest pipeline with single deploy job">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline.png" alt="Multi-manifest pipeline with single deploy job">
 
 When you run the deploy job, the following steps will be taken:
 
@@ -235,11 +235,11 @@ When you run the deploy job, the following steps will be taken:
 
 Once the deploy job completes, your Amazon ECS cluster should show two new services, each one running a task with one of the images.
 
-<img src="../../images/aws/ecs-multi-mani-single-deploy-pipeline-results.png" alt="Multi-manifest pipeline with single deploy results">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline-results.png" alt="Multi-manifest pipeline with single deploy results">
 
 You'll see in the logs that each manifest is deployed in turn, and the deploy job waits for each service to be running steadily before moving on to the next manifest.
 
-<img src="../../images/spog/ecs-multi-manifest-single-deploy-pipeline-logs.png" alt="Multi-manifest pipeline with single deploy logs">
+<img src="../../images/deploy/amazon-ecs/ecs-multi-manifest-single-deploy-pipeline-logs.png" alt="Multi-manifest pipeline with single deploy logs">
 
 
 ## Sample project
