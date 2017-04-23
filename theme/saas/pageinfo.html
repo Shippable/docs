@@ -4,22 +4,22 @@
     <ul class="nav">
       {% for toc_item in toc %}
         {% for toc_h2_item in toc_item.children %}
-            <li>
-              <a href="{{ toc_h2_item.url }}">
-                {{ toc_h2_item.title }}
-              </a>
-              {% if toc_h2_item.children %}
-              <ul class="shipNav">
-                {% for toc_h3_item in toc_h2_item.children %}
-                  <li>
-                    <a href="{{ toc_h3_item.url }}" class="shipNav-item-link">
-                      {{ toc_h3_item.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            </li>
+          <li>
+            <a href="{{ toc_h2_item.url }}">
+              {{ toc_h2_item.title }}
+            </a>
+            {% if toc_h2_item.children %}
+            <ul class="shipNav">
+              {% for toc_h3_item in toc_h2_item.children %}
+                <li>
+                  <a href="{{ toc_h3_item.url }}" class="shipNav-item-link">
+                    {{ toc_h3_item.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
         {% endfor %}
       {% endfor %}
     </ul>
