@@ -23,14 +23,22 @@
     <div id="header">
       {% include 'header.html' %}
     </div>
+    {% if meta and meta.is_swagger %}
+      {% include 'swagger_top.html' %}
+    {% endif %}
+    <!-- Swagger needs a special class. -->
+    {% if meta and meta.is_swagger %}
+      <body class='swagger-section' data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+    {% else %}
+      <body data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+    {% endif %}
     <div class="shipContent">
-      <div class="shipContent-sidebar col-md-2">
-        {% include 'pageinfo.html' %}
-      </div>
-      <div class="shipContent-body col-md-7">
-        <main class="shipContent-main col-md-12">
+      <div class="shipContent-body col-md-9">
+        <main class="shipContent-main col-md-9">
           {% block content %} {{ content }} {% endblock %}
         </main>
+        <div class="col-md-4">
+        </div>
       </div>
       <div class="shipContent-sidebar col-md-3">
         {% include 'article.html' %}
