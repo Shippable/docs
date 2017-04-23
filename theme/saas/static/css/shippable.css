@@ -393,6 +393,12 @@ menu,ol.shipNav,ul.shipNav {
   display: none;
 }
 
+.shipNav-item-title {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
 
 .shipContent-sidebar-title {
   font-size: 1em;
