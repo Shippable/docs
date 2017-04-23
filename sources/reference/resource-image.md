@@ -28,7 +28,7 @@ resources:
 	- [Docker Trusted Registry](int-docker-trusted-registry/)
 	- [Google Container Registry (GCR)](int-gcr/)
 	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
-	- [Quay.io]()
+	- [Quay.io]()[TODO: when new links are updated]
 
 Please make sure your integration is also [enabled for your subscription]() and you use that  integration name here.
 
