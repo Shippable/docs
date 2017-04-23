@@ -374,7 +374,7 @@ Here are links to docs for each Container Service:
 
 For example, if you want to use different settings for your service in Test and Production environments, you can do so by overriding one or more settings in the resource.
 
-<img src="../../images/reference/overrideDockerOptions.png" alt="Docker Options">
+<img src="../../images/reference/resources/overrideDockerOptions.png" alt="Docker Options">
 
 In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
 
