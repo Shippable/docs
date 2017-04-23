@@ -96,11 +96,11 @@ Pipeline notifications are sent by defining the [notification resource](../../pi
 
 ##Editing your Slack integration
 
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your GitHub integration. You can then change integration name and your slack webhook URL.
+You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Slack integration. You can then change integration name and your slack webhook URL.
 
 However, you cannot edit the list of Subscriptions that are allowed to use the integration from this page. To add your integration to additional Subscriptions, read our [Adding your integration to additional Subscriptions section](integrations-overview/#add-subscriptions)
 
-##Deleting your GitHub integration
+##Deleting your Slack integration
 
 If you no longer need the integration, you can delete it by following the steps below.
 
