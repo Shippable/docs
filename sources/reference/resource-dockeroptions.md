@@ -2,7 +2,7 @@ main_section: Reference
 sub_section: Resources
 
 # resource-dockeroptions
-This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](../jobs/manifest/), or for a [deploy job](../jobs/deploy/).
+This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](resource-image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](job-manifest/), or for a [deploy job](job-deploy/).
 
 ##Configuration reference
 
@@ -313,7 +313,7 @@ There are two levels of mapping in dockerOptions.
 
 - __Top level__ : The docker options, which will be mapped to fields that are common to one or more containers in the configuration of the container service. Example: Fields present at root level of [taskDefinition](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) will be top level options and are common to all containers in [containerDefinitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions).
 
-The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the top level docker options metioned in  [Provider specific options](dockerOptions/#provider-specific-options).
+The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the top level docker options metioned in  [Provider specific options](resource-dockeroptions/#provider-specific-options).
 
 | Shippable Tag                     | Amazon ECS                       | Kubernetes                        | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] |
 |-------------------------------|----------------------------------|----------------------------|----------------------------|---------------------------|-----------------|-------------------------|
@@ -374,7 +374,7 @@ Here are links to docs for each Container Service:
 
 For example, if you want to use different settings for your service in Test and Production environments, you can do so by overriding one or more settings in the resource.
 
-<img src="../../images/resources/overrideDockerOptions.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="sources/images/reference/overrideDockerOptions.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
 
