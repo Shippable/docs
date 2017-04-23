@@ -18,28 +18,27 @@
   <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/static/js/template-custom.min.js" type="text/javascript"></script>
   <script src="/static/js/expandCollapse.js" type="text/javascript"></script>
+  {% if meta and meta.is_swagger %}
+    {% include 'swagger_top.html' %}
+  {% endif %}
 </head>
   <body>
     <div id="header">
       {% include 'header.html' %}
     </div>
-    {% if meta and meta.is_swagger %}
-      {% include 'swagger_top.html' %}
-    {% endif %}
-    <!-- Swagger needs a special class. -->
-    {% if meta and meta.is_swagger %}
-      <body class='swagger-section' data-spy="scroll" data-target="#scrollTarget" data-offset="150">
-    {% else %}
-      <body data-spy="scroll" data-target="#scrollTarget" data-offset="150">
-    {% endif %}
     <div class="shipContent">
       <div class="shipContent-sidebar col-md-2">
         {% include 'pageinfo.html' %}
       </div>
       <div class="shipContent-body col-md-7">
-        <main class="shipContent-main col-md-12">
-          {% block content %} {{ content }} {% endblock %}
-        </main>
+        <!-- Swagger needs a special class. -->
+        {% if meta and meta.is_swagger %}
+          <main class="swagger-section shipContent-main col-md-12" data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+        {% else %}
+          <main class="shipContent-main col-md-12" data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+        {% endif %}
+            {% block content %} {{ content }} {% endblock %}
+          </main>
       </div>
       <div class="shipContent-sidebar col-md-3">
         {% include 'article.html' %}
