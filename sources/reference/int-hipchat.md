@@ -107,7 +107,7 @@ If you no longer need the integration, you can delete it by following the steps 
 
 <img src="../../images/reference/integrations/account-settings.png" alt="Account settings">
 
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
+-  Click on **Integrations** in the left sidebar menu
 - Locate the integration you want to delete and click on the **Delete** button.
 - If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
 
