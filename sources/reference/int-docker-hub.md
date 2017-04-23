@@ -16,7 +16,8 @@ This page explains how you can add a Docker Hub integration to your account so t
 ##Adding your Docker Hub integration
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-<img src="../../images/reference/account-settings.png" alt="Add Docker Hub credentials">
+
+<img src="../../images/reference/integrations/account-settings.png" alt="Add Docker Hub credentials">
 
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
 -  Locate **Docker** in the list and click on **Create Integration**
@@ -37,6 +38,7 @@ However, you cannot edit the list of Subscriptions that are allowed to use the i
 If you no longer need the integration, you can delete it by following the steps below. Please note that if any projects are using this integration in their `yml` files, builds will fail after deleting the integration:
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+
 <img src="../../images/reference/integrations/account-settings.png" alt="Account settings">
 
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
