@@ -173,9 +173,9 @@ Once your deployment succeeds you should be able to visit the DNS name of your L
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS with a load balancer.
 
-**Source code:**  [devops-recipes/deploy-ecs-elb](https://github.com/devops-recipes/deploy-ecs-elb).
+**Source code:**  [devops-recipes/deploy-ecs-elb](https://github.com/devops-recipes/deploy-ecs-lb).
 
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-elb/runs/14/1/console)
+**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-lb/runs/14/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58faa57fbaa5e307002bd3ae/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-lb)
 

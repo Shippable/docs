@@ -167,7 +167,7 @@ pages:
       - Working with state and environment variables: deploy/amazon-ecs-state-env-vars.md
       - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
       - Using CloudFormation templates: deploy/amazon-ecs-cloudformation-templates.md
-    - Deploying to Kubernetes/GKE:
+    - Deploying to Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Using a load balancer:  deploy/kubernetes-loadbalancer.md
@@ -175,6 +175,14 @@ pages:
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
       - Working with state and environment variables: deploy/kubernetes-state-env-vars.md
       - Using custom task definition templates: deploy/kubernetes-custom-task-definitions.md
+    - Deploying to GKE:
+      - Default scenario: deploy/gke.md
+      - Specifying deployment strategy: deploy/gke-strategy.md
+      - Using a load balancer:  deploy/gke-loadbalancer.md
+      - Deploying multi-container services: deploy/gke-multiple-containers.md
+      - Deploying to multiple environments: deploy/gke-multiple-environments.md
+      - Working with state and environment variables: deploy/gke-state-env-vars.md
+      - Using custom pod templates: deploy/gke-custom-pods.md
     - Deploying to Docker Datacenter:
       - Default scenario: deploy/docker-datacenter.md
       - Specifying deployment strategy: deploy/docker-datacenter-strategy.md

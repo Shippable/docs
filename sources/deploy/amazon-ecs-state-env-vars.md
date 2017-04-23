@@ -14,7 +14,7 @@ Managed jobs maintain their own state, and it cannot be customized.  To set envi
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs.md#Unmanaged_Deployments).
 
 Managing state and utilizing ENVs is a critical part of writing good runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
