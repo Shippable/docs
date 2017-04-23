@@ -44,4 +44,4 @@ For example, if you want to use different environment parameters (say database s
 In the picture above, `deploy-test` takes `params-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `params-2` as an input. For this production deployment, we will use a superset of settings from `params-1` and `params-2`, with values for any common settings being chosen from `params-2`.
 
 ## Using params resources as inputs to runSh and runCLI jobs
-If a params resource is added as an input, the key-value pairs contained in the params resource are set as environment variables in the runSh or runCLI job. The naming convention for those variables is available in the documentation on [runSh environment variables]job-runSh/#resource-variables).
+If a params resource is added as an input, the key-value pairs contained in the params resource are set as environment variables in the runSh or runCLI job. The naming convention for those variables is available in the documentation on [runSh environment variables](job-runSh/#resource-variables).
