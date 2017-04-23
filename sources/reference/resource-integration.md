@@ -5,7 +5,7 @@ sub_section: Resources
 Shippable is designed to separate out sensitive authentication information from resources.
 This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
 
-An `integration` resource contains your credentials to connect to any [supported third party platform or provider](../../integrations/overview/). This resource is used an input `IN` to [runSh jobs](job-runsh/).
+An `integration` resource contains your credentials to connect to any [supported third party platform or provider](integrations-overview/). This resource is used an input `IN` to [runSh jobs](job-runsh/).
 
 You can create an integration resource by adding it to `shippable.resources.yml`
 
