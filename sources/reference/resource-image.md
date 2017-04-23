@@ -24,7 +24,7 @@ resources:
 * `integration` should be the name of the integration that connects to the Docker Registry provider where the image is located. To learn how to create integrations for a specific Docker Registry, please select from the list below and read the **Adding an integration** section on that page:
 
 	- [Docker Hub](int-docker-hub/)
-	- [Docker Private Registry]()
+	- [Docker Private Registry](int-docker-trusted-registry/)
 	- [Docker Trusted Registry](int-docker-trusted-registry/)
 	- [Google Container Registry (GCR)](int-gcr/)
 	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
