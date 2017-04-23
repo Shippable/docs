@@ -4,7 +4,7 @@ sub_section: Resources
 # resource-dockeroptions
 This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](resource-image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](job-manifest/), or for a [deploy job](job-deploy/).
 
-##Configuration reference
+## Configuration reference
 
 You can define `dockerOptions` by adding it to `shippable.resources.yml` as shown below:
 
@@ -369,25 +369,26 @@ Here are links to docs for each Container Service:
 * [Docker Datacenter](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 
 
-##Overriding dockerOptions
+## Overriding dockerOptions
 `dockerOptions` can also be used to override options that are already set in an upstream stage of the pipeline.
 
 For example, if you want to use different settings for your service in Test and Production environments, you can do so by overriding one or more settings in the resource.
 
-<img src="sources/images/reference/overrideDockerOptions.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/reference/overrideDockerOptions.png" alt="Docker Options">
 
 In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
 
-##Triggering dependent jobs
+## Triggering dependent jobs
 
 When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
 
-To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](../triggers/) for the job.
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input 
+[trigger resource]()[TODO: when new links are updated] link for the job
 
-##Provider specific options
+## Provider specific options
 Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
 
-###Amazon ECS
+### Amazon ECS
 
 Container level docker options: These fields map to each objects inside `containerDefinitions` of `taskDefinition`.
 ```
@@ -427,7 +428,7 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
           - "<source>:<container path>:<options>"
 ```
 
-###Kubernetes
+### Kubernetes
 
 Pod Spec level docker options:
 ```
@@ -473,7 +474,7 @@ resources:
           <object>
 ```
 
-###Google Container Engine
+### Google Container Engine
 
 Top level docker options: Only one top level is currently supported for Google Container Engine i.e. pod. In future, Shippable might support more top level objects like `replication controller`, `namespace`. Please open a [support ticket](https://github.com/Shippable/support), if you are in need of specific top level option.
 ```
@@ -496,7 +497,7 @@ resources:
           - <string>
 ```
 
-###Docker Datacenter
+### Docker Datacenter
 
 Container level docker options:
 ```
@@ -551,7 +552,7 @@ resources:
         ShmSize: <number>
 ```
 
-###Docker Cloud
+### Docker Cloud
 
 Container level docker options:
 ```
