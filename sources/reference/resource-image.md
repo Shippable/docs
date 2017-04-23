@@ -23,14 +23,14 @@ resources:
 
 * `integration` should be the name of the integration that connects to the Docker Registry provider where the image is located. To learn how to create integrations for a specific Docker Registry, please select from the list below and read the **Adding an integration** section on that page:
 
-	- [Docker Hub](../../integrations/imageRegistries/dockerHub/)
-	- [Docker Private Registry](../../integrations/imageRegistries/privateRegistry/)
-	- [Docker Trusted Registry](../../integrations/imageRegistries/dockerTrustedRegistry/)
-	- [Google Container Registry (GCR)](../../integrations/imageRegistries/gcr/)
-	- [Amazon Elastic Container Registry (ECR)](../../integrations/imageRegistries/ecr/)
-	- [Quay.io](../../integrations/imageRegistries/quay/)
+	- [Docker Hub](int-docker-hub/)
+	- [Docker Private Registry]()
+	- [Docker Trusted Registry](int-docker-trusted-registry/)
+	- [Google Container Registry (GCR)](int-gcr/)
+	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
+	- [Quay.io]()
 
-Please make sure your integration is also [enabled for your subscription](../../navigatingUI/subscriptions/settings/#adding-integrations) and you use that  integration name here.
+Please make sure your integration is also [enabled for your subscription]() and you use that  integration name here.
 
 * `pointer` section provides information about the image.
 	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
