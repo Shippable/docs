@@ -4,7 +4,7 @@ sub_section: Resources
 # resource-gitrepo
 
 
-You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](../job-runsh/).
+You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](job-runsh/).
 
 Adding this resource type creates a webhook on the source repository pointing to Shippable. Due to this, future commits to the repository will automatically create a new version for this resource with the new commit SHA. This will trigger any jobs that have this resource as an `IN` unless triggers are explicitly turned off for that job.
 
@@ -38,11 +38,11 @@ You can create this resource by adding it to `shippable.resources.yml`
 
 * `integration` should be the name of the integration that connects to the Source Control provider where the repository is located. To learn how to create integrations for a specific Source Control Provider, please select from the list below and read the **Adding an integration** section on that page:
 
-    - [GitHub](../../int-github/)
-    - [Bitbucket](../../iint-bitbucket/)
-    - [Github Enterprise](../../int-github-enterprise/)
-    - [Bitbucket Server (formerly Stash)](../../int-bitbucket-server/)
-    - [Gitlab/GitlabServer](../../int-gitlab/)
+    - [GitHub](int-github/)
+    - [Bitbucket](int-bitbucket/)
+    - [Github Enterprise](int-github-enterprise/)
+    - [Bitbucket Server (formerly Stash)](int-bitbucket-server/)
+    - [Gitlab/GitlabServer](int-gitlab/)
 
 * `pointer` section provides information about the repository and branch to which you want to connect.
     * `sourceName` is the fully qualified name of the repository in the format **org/repo**
