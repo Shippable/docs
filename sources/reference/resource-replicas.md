@@ -27,6 +27,6 @@ A new version of this resource is created everytime anything in the version sect
 
 For example, if you want to use different number of replicas in Test and Production environments, you can do so by overriding the resource.
 
-<img src="../../images/resources/overrideReplicas.png" alt="Overriding replicas" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/resources/overrideReplicas.png" alt="Overriding replicas" >
 
 In the picture above, `deploy-test` takes `replicas-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `replicas-2` as an input. For the production deployment, value of count in `replicas-2` will override the setting from `replicas-1`.
