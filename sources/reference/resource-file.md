@@ -24,7 +24,7 @@ resources:
 * `type` is always set to 'cluster'.
 
 * `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the artifact registry of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
-	* [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory/)
+	* [JFrog Artifactory](int-jfrog-artifactory/)
 
 * `sourceName` is the URI denoting that file. The value is different based on the integration used.
 
@@ -32,4 +32,4 @@ __No integration__: If there is no integration present, then `sourceName` could 
 
 __JFrog Artifactory__: The `sourceName` is of format `repositoryName/path` of a artifactory repository file. For example, the `index.html` shown in the below picture will have the `sourceName` as `pages/index.html`
 
-<img src="/pipelines/images/resources/fileResourceJFrogArtifactory.png" alt="JFrog Artifactory" style="width:700px;"/>
+<img src="../../images/reference/resources/fileResourceJFrogArtifactory.png" alt="JFrog Artifactory">
