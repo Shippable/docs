@@ -8,7 +8,7 @@ Integrations are used to connect your Shippable CI or CD workflows to third part
 
 Using an integration is a two step process:
 
-<img src="../../images/reference/account-integrations-explained.png" alt="Google Container Registry integration">
+<img src="../../images/reference/integrations/account-integrations-explained.png" alt="Google Container Registry integration">
 
 ##Basic config
 ###1. Adding an integration to your account
@@ -32,7 +32,7 @@ Once an integration is enabled for a Subscription, you can use it in any project
 If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
 
 - From the Subsciption dropdown menu at the top left of your Dashboard, click on the Subscription you need.
-<img src="../../images/reference/list-subscriptions.png" alt="List subscriptions">
+<img src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
 - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
 - Click on the **Add integration** button
