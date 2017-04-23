@@ -285,3 +285,4 @@ pages:
       - PEM Keys: reference/int-key-pem.md
       - IRC: reference/int-key-ssh.md
       - Key-value: reference/int-key-value.md
+      - SSH Keys: reference/int-key-ssh.md
