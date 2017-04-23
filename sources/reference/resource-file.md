@@ -32,4 +32,4 @@ __No integration__: If there is no integration present, then `sourceName` could 
 
 __JFrog Artifactory__: The `sourceName` is of format `repositoryName/path` of a artifactory repository file. For example, the `index.html` shown in the below picture will have the `sourceName` as `pages/index.html`
 
-<img src="../../images/reference/fileResourceJFrogArtifactory.png" alt="JFrog Artifactory">
+<img src="../../images/reference/resources/fileResourceJFrogArtifactory.png" alt="JFrog Artifactory">
