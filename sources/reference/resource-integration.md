@@ -20,4 +20,4 @@ resources:
 
 * `type` is always set to 'integration'.
 
-* `integration` should be the name of the integration that connects to the third party platform or service you want to connect to. For a complete list of supported third party integrations, visit our [Integrations overview page](integrations-overview/), click on a specific integration, and follow instructions to add the integration to your Account. Please make sure you also [enable the integration for your subscription](../../navigatingUI/subscriptions/settings/#adding-integrations) and use the name from Subscription settings as the value for this tag.
+* `integration` should be the name of the integration that connects to the third party platform or service you want to connect to. For a complete list of supported third party integrations, visit our [Integrations overview page](integrations-overview/), click on a specific integration, and follow instructions to add the integration to your Account. Please make sure you also [enable the integration for your subscription]() and use the name from Subscription settings as the value for this tag.
