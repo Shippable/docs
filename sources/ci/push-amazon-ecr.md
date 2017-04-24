@@ -9,13 +9,16 @@ You can push your image to Amazon ECR in any section [of your yml](../reference/
 
 Before you start, you will need to connect your Amazon account with Shippable so we have the credentials to push your image on your behalf. We do this through [TODO Add link] Account Integrations, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
+#### Generating access keys for Amazon ECR
+- To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html" target="_blank">Amazon's guide for Creating and Managing access keys</a>.
+
+#### Adding Amazon ECR Integration to your Shippable Account
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **Docker** in the list and click on **Create Integration**
--  Name your integration with an easy to remember friendly name
--  Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in [Amazon's guide for Creating and Managing access keys](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
--  Choose the Subscription which contains the repository for which you want to push the image
--  Click **Save**
+-  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
+-  Search **Amazon ECR** in the list and click on **Create Integration**.
+-  Name your integration and enter your **aws_access_key_id** and **aws_secret_access_key**.
+-  Choose the Subscription which contains the repository for which you want to push the image.
+-  Click **Save**.
 
 <img src="../../images/ci/amazon-ecr-integration.png" alt="Add Amazon ECR keys">
 
@@ -28,13 +31,13 @@ build:
   post_ci:
     - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag
 
-integrations:                               
+integrations:
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
-      type: ecr                        
+    - integrationName: ecr-integration    #replace with your integration name
+      type: ecr
 ```
 
-You can replace your myIntegration, aws-account-id, region, image-name and image-tag as required in the snippet above.
+You can replace your ecr-integration, aws-account-id, region, image-name and image-tag as required in the snippet above.
 
 ## Advanced config
 
@@ -49,8 +52,8 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
-      type: ecr    
+    - integrationName: ecr-integration    #replace with your integration name
+      type: ecr
       branches:
         only:
           - master
@@ -70,13 +73,13 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-ecr    #replace with your integration name   
+    - integrationName: master-ecr    #replace with your integration name
       type: ecr    
       branches:
         only:
           - master
 
-    - integrationName: dev-ecr    #replace with your integration name   
+    - integrationName: dev-ecr    #replace with your integration name
       type: ecr    
       branches:
         only:
@@ -97,7 +100,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
+    - integrationName: ecr-integration    #replace with your integration name
       type: ecr              
 ```
 
@@ -116,10 +119,32 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
+    - integrationName: ecr-integration    #replace with your integration name
       type: ecr
 
 ```
+
+### Important note for customers overriding default image for CI
+If you are using a custom image for your CI workflow, we will try to login to ECR on your behalf from inside your CI build container. This means that you will need the **AWS Command Line Interface (CLI)** installed inside your custom image if you want this to succeed, else you will get a `aws: command` not found error.
+
+You can solve this in 2 ways:
+
+-  Set `agent_only: true` for ECR integration in your `shippable.yml`
+
+```
+integrations:
+  hub:
+    - integrationName: ecr-integration
+      type: ecr
+      agent_only: true
+```
+If `agent_only` is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to ECR in the `pre_ci` and `push` sections of the yml.
+
+-  If you want to use docker commands to interact with ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your **Dockerfile**to install the AWS CLI:
+```
+sudo pip install awscli
+```
+
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
