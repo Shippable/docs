@@ -4,7 +4,7 @@ page_title: Key-value integration
 
 # Key-value pair integration
 
-A key-value pair integration is a custom integration where you can give any key-value pairs.
+A key-value pair integration is a custom integration where you can give any key-value pairs. You can use it in your ci or pipeline jobs. These key-values will be available as environments variables to you.
 
 ##Adding your Key-Value Pair integration
 
@@ -19,50 +19,6 @@ A key-value pair integration is a custom integration where you can give any key-
 -  Click **Save**
 
 <img src="../../images/reference/integrations/key-value-integration.png" alt="Add Key-Value pair credentials">
-
-##Using Key-Value pair integration in CI
-
-To use key-value pair integration in CI builds, you need to add it in your `shippable.yml` under `generic` integrations section. You just need to provide the name of the integration.
-```
-# shippable.yml
-integrations:
-  generic:
-    - integrationName: "key-value-integration"
-```
-
-When you run a build for this project, your key-value pairs will be available as environment variables.
-
-<img src="../../images/reference/integrations/key-value-ci-jobConsoles.png" alt="ci jobConsoles">
-
-##Using Key-Value pair integration in Pipelines
-
-You can only use a key-value pair integration in your runSh and runCLI jobs.
-
-* Create an integration resource with key-value pair integration.
-```
-# shippable.resources.yml
-resources:
-  - name: key-values
-    type: integration
-    integration: "key-value-integration"
-```
-
-* Add this resource as an `IN` to your `runSh`/`runCLI` job.
-```
-# shippable.jobs.yml
-jobs:
-  - name: runSh-job
-    type: runSh
-    steps:
-      - IN: key-values
-      - TASK:
-        - script: echo $API_KEY
-        - script: echo $API_URL
-```
-
-When you run a build for this job, your key-value pairs will be available as environment variables.
-
-<img src="../../images/reference/integrations/key-value-pipelines-buildJobConsoles.png" alt="pipelines buildJobConsoles">
 
 ##Editing your Key-Value pair integration
 
