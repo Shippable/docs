@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Deploying to Google Container Engine
 
 # Deploying with Google Container Engine (GKE)
 
