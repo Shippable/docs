@@ -22,7 +22,7 @@ Follow the steps below to create an account integration with AWS ECS.
 
 2. **Integration type:** Locate and select `AWS (IAM)`
 3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
-4. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**
+4. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
 5. Click **Save**
 
 <img src="../../images/reference/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
@@ -36,7 +36,7 @@ Follow the steps below to create an account integration with AWS ECS.
 2. Click on the **Add Integration** button.
 3. For **Integration type**, locate **AWS** from the list of integrations.
 4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **AWS-Integration**.
-5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.
+5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.  These keys should be associated with an account that has access to a policy with rules described [here](#policy).
 6. Click on **Save**.
 
 <img src="../../images/reference/integrations/ecs-integration.png" alt="Amazon ECS credentials">
@@ -76,3 +76,39 @@ If you no longer need the integration, you can delete it by following the steps 
     - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
     - Delete the integration.
 - Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+
+## Policy
+
+The following policy document is required for Shippable to manage your deployments to ECS.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:ConfigureHealthCheck",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "iam:ListRoles",
+                "iam:PassRole",
+                "ec2:DescribeRegions",
+                "ec2:DescribeInstances",
+                "ecs:DescribeClusters",
+                "ecs:ListClusters",
+                "ecs:RegisterTaskDefinition",
+                "ecs:DeregisterTaskDefinition",
+                "ecs:ListTaskDefinitions",
+                "ecs:DescribeServices",
+                "ecs:UpdateService",
+                "ecs:DeleteService",
+                "ecs:CreateService",
+                "ecs:ListTasks",
+                "ecs:ListContainerInstances",
+                "ecs:DescribeContainerInstances"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
