@@ -10,9 +10,12 @@ If you did not sign in to Shippable with GitLab credentials but want to connect 
 
 ##Adding a Gitlab integration
 
-To add an integration for GitHub Enterprise, you will first need to sign in with GitHub or Bitbucket credentials.
+To add an integration for Gitlab, you will first need to sign in with GitHub or Bitbucket credentials.
 
 * Go to your **Account Settings** by clicking on the gear menu in the top navbar.
+
+<img src="../../images/reference/integrations/account-settings.png" alt="Add Gitlab credentials">
+
 * Click on **Integrations** in the sidebar menu.
 * Click on **Add Integration**.
 * Locate **Gitlab** in the list and click on **Create Integration**
