@@ -89,7 +89,7 @@ This is the default behavior that the deploy job uses unless otherwise specified
 - wait for the old service's runningCount to reach 0
 - delete the old service
 
-Once this is complete, you'll have a new service that has replaced the old one.  The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host.  Shippable recommends the use of application load balancers, which you can read about here [TODO: add link].
+Once this is complete, you'll have a new service that has replaced the old one.  The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host.  Shippable recommends the use of application load balancers, which you can [read about here](./amazon-ecs-elb-alb).
 
 ### deployMethod: upgrade
 When deploying to Amazon ECS, Shippable's `upgrade` method relies on the default behavior of Amazon ECS.  Typically the workflow looks something like this:
@@ -138,7 +138,7 @@ To use this method, update your deploy job to specify `deployMethod: replace`
 ```
 
 ### deployMethod: scale
-Scale is unique in that you cannot specify it in your deploy job yml.  Instead, the act of scaling is determined automatically during deployment, and can apply to any of the above deploy methods.  Scale is used only when Shippable detects that no change has occurred to any aspect of the manifest other than the 'replicas'.  
+Scale is unique in that you cannot specify it in your deploy job yml.  Instead, the act of scaling is determined automatically during deployment, and can apply to any of the above deploy methods.  Scale is used only when Shippable detects that no change has occurred to any aspect of the manifest other than the 'replicas' field.  
 
 For example, if a user updates their manifest to request 5 replicas instead of 2, but doesn't change any other setting (envs, image tags, docker options, etc), instead of performing a full deployment, Shippable performs the action 'scale' which simply updates the Amazon ECS service's desiredCount.  This makes the deployment much faster and doesn't perform any unnecessary steps.
 
@@ -174,6 +174,6 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 ## Unmanaged Deployments
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
 From that starting point, there are no pre-built deployment strategies for ECS for unmanaged jobs, however the power and flexibility of Shippable pipelines is available to you to script whatever deployment behavior works best for your environment.

@@ -14,9 +14,9 @@ Managed jobs maintain their own state, and it cannot be customized.  To set envi
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs.md#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
-Managing state and utilizing ENVs is a critical part of writing good runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
+Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
 First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [TODO: add link] documentation for instructions on how to set that up.
 
@@ -101,7 +101,7 @@ steps:
 
 Now your task definition is using the latest image tag, and you can update your ECS service to use it.
 
-All resources have environment variables like this. We've documented the list of possibilities here.  [TODO: add link to reference]
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/job-runcli).
 
 ### Resource State Management
 
@@ -167,7 +167,7 @@ Finally, make sure that your JSON file represents a service object with an envir
 
 ```
 
-Shippable replace will automatically replace the variables with the values in the environment, and the `aws ecs update-cluster` command will send it to Amazon ECS.
+`shippable_replace` will automatically replace the variables with the values in the environment, and the `aws ecs update-cluster` command will send it to Amazon ECS.
 
 ### Job State Management
 
