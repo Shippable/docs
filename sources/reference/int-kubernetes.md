@@ -6,7 +6,7 @@ page_title: Kubernetes integration
 
 Shippable lets you easily deploy your Dockerized applications to popular Container Services like Kubernetes, Amazon EC2 Container Service (ECS), Google Container Engine (GKE), Docker Cloud/Datacenter, and Joyent Triton.
 
-You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Pipelines.
+You will first need to configure an account integration with your credentials or keys in order to interact with these services using Shippable Pipelines.
 
 Follow the steps below to create an account integration with Google's Kubernetes. The steps below assume you already have a Kubernetes cluster which you want to configure for deployment with Shippable.
 
@@ -14,17 +14,17 @@ Follow the steps below to create an account integration with Google's Kubernetes
 
 ### Kubernetes master having a public IP address
 
-* Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
+* Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** section.
 
 <img src="../../images/reference/integrations/account-settings.png" alt="Add Kubernetes integration">
 
-* Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
-* For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
-* 'Cluster Access type' should be set to `Kubernetes master`
+* Click on the **Add Integration** button and choose **Kubernetes** from the list of choices.
+* For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **kube-int**.
+* **Cluster Access type** should be set to **Kubernetes master**
 * Copy the contents of your [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/) file, usually found at ~/.kube/config, that contains credentials for accessing your Kubernetes cluster. You may copy the entire kubeconfig file or only the details related to a particular cluster
-* Paste the contents into the 'KubeConfig File' textbox.
+* Paste the contents into the **KubeConfig File** textbox.
 * Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-* Click on `Save`.
+* Click on **Save**.
 
 <img src="../../images/reference/integrations/kubernetes-integration.png" alt="Add Kubernetes integration">
 
@@ -37,7 +37,7 @@ For more information on this, please check out our docs on [deploy job](./job-de
 If your Kubernetes master node is not publicly accessible from the internet, Shippable's hosted service cannot communicate with it. To get around this problem, we need you to configure a Bastion host which is publicly accessible and can also communicate with the Kubernetes master node.
 
 The requirement for Bastion host are:
-* Bastion host should have IP address and port 22 open for SSH access
+* Bastion host should have an IP address and port 22 open for SSH access
 * You can SSH into the Bastion host
 * Bastion host can access the Kubernetes master node, i.e. it contains the private SSH key
 * Bastion host has kubectl installed. Install it with the following script:
@@ -51,22 +51,22 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 Now, you can create the Shippable account integration:
 
-* Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
+* Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** section.
 
 <img src="../../images/reference/integrations/account-settings.png" alt="Add Kubernetes integration">
 
-* Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
-* For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
-* 'Cluster Access type' should be set to `Bastion Host`.
+* Click on the **Add Integration** button and choose **Kubernetes** from the list of choices.
+* For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **kube-int**.
+* **Cluster Access type** should be set to **Bastion Host**.
 * SSH into the Bastion host and from there, SSH into your Kubernetes master node and run the following commands. Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
 ```
 $ sudo su -
 $ cat /etc/kubernetes/admin.conf
 ```
-* Paste the contents into the 'KubeConfig File' textbox.
+* Paste the contents into the **KubeConfig File** textbox.
 * Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-* Click on `Save`.
-* You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on `Done`.
+* Click on **Save**.
+* You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on **Done**.
 
 <img src="../../images/reference/integrations/kubernetes-bastion-integration.png" alt="Add Kubernetes integration">
 
