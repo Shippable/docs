@@ -18,7 +18,7 @@ Shippable has a special job type available that will allow you to connect your e
 
 This will create a representation of your Jenkins job in your spog, but it won't be connected to anything yet.
 
-<img src="/pipelines/images/resources/jenkinsJob/jenkins1.png" alt="basic spog" style="width:700px;"/>
+<img src="../../images/reference/jobs/jenkins/jenkins1.png" alt="basic spog" style="width:700px;"/>
 
 The idea behind the jenkins job is to use it to build/push your docker image, and once that is complete, trigger the rest of your pipeline on shippable. In order to accomplish that, we'll have to set up an `OUT` image resource for the jenkinsJob
 
@@ -52,4 +52,4 @@ curl -H "Authorization: apiToken XXXXXXXXXXXXXXXXXXXXXXX" -H "Content-Type: appl
 
 This new version will trigger any job that uses the image resource as an `IN`.
 
-<img src="/pipelines/images/resources/jenkinsJob/jenkins2.png" alt="multi jenkins" style="width:700px;"/>
+<img src="../../images/reference/jobs/jenkins/jenkins2.png" alt="multi jenkins" style="width:700px;"/>
