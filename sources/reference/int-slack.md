@@ -37,63 +37,6 @@ There are two actions to set up the Slack integration through the UI. They are:
 
 <img src="../../images/reference/integrations/slack-integration.png" alt="Add Slack credentials">
 
-##CI notifications
-
-To use your Slack integration for your CI workflows, follow the steps below:
-
-* First, add the [Slack integration to your Account](#addSlackToAccount)
-* Select your Subscription from the top left menu dropdown on your dashboard. This should be the Subscription containing the project you want to send Slack notifications for.
-* Go to the **Settings** tab and click on **Integrations** in the sidebar menu.
-* If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `Add Integration` button and completing the required fields.
-
-* Update the `shippable.yml` file for the project for which you want to send Slack notifications:
-
-```
-integrations:
-  notifications:
-    - integrationName: slack-integration
-      type: slack
-      recipients:
-        - "#channelOne"
-        - "#channelTwo"
-      branches:
-        only:
-          - master
-          - dev
-      on_success: never
-      on_failure: always
-```
-Use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
-
-- `integrationName` value is the name of the Slack integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match). [TODO: when new links are updated]
-- `type` is `slack`.
-- `recipients` specifies the channels you want to send the notification to. Please note this is a required field for slack notifications to work.
-     - Even if there is a single recipient, use the format `recipients: "#channelOne"`
-- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported. [TODO: when new links are updated]
-- [optional] You can set the following options for the `on_success`, `on_failure` tags:
-     - The value `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively.
-     - `always` means that you will always receive a notification for that build status.
-     - `never` means that you will never receive a notification for that build status.
-     - By default, `on_success` is set to `change` and `on_failure` is set to `always` when Slack is configured in the yml and you have not specified these tags.
-- [optional] You can set the following options for the `on_start`, `on_pull_request` tags:
-     - Setting the value to `always` means that you will always receive a notification for build start/pull request.
-     - Setting the value to `never` means that you will never receive a notification for that build start/pull request.
-     - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when Slack is configured in the yml and you have not specified these tags.
-
-
-Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
-
-##Pipeline notifications
-
-To use your Slack integration for your Pipeline workflows, follow the steps below:
-
-* First, add the [Slack integration to your Account](#addSlackToAccount)
-* Select your Subscription from the top left menu dropdown on your dashboard. This should be the Subscription containing the project you want to send Slack notifications for.
-* Go to the **Settings** tab and click on **Integrations** in the sidebar menu.
-* If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `Add Integration` button and completing the required fields.
-
-Pipeline notifications are sent by defining the [notification resource](../../pipelines/resources/notification/) in your `shippable.resources.yml` and then using it in your `shippable.jobs.yml`. More on this is explained in our [Jobs documentation](../../pipelines/jobs/overview/#jobNotifications). [TODO: when new links are updated]
-
 ##Editing your Slack integration
 
 You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Slack integration. You can then change integration name and your slack webhook URL.
