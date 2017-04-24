@@ -9,15 +9,27 @@ You can push your image to GCR in any section [of your yml](../reference/ci-yml/
 
 Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through [TODO Add link] Account Integrations, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
-- Generate a
+#### Generating a JSON key on Google Developers Console (GDC)
+-  In the top navigation bar, select the project you want to integrate with Shippable.
+-  Click on the **Products and Services** menu on the top left.
+-  Click on the **Manage project settings** on the **Project info** card.
+-  Click on the **Service accounts** on the left panel.
+-  Click on the **Create service account**.
+-  Enter the desired values and hit **Create**.
+-  Now that the service account is created click on **Create key** present under the right dropdown.
+-  Create a key of type **JSON** and hit **Create**.
+-  Your new **JSON key** is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
+-  For more on JSON keys and Service accounts, read
+<a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file" target="_blank"> Google's docs</a>.
+#### Adding GCR Integration to your Shippable Account
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **GCR** in the list and click on **Create Integration**
--  Name your integration and enter your GCR username, password, and the email with which you registered there.
--  Choose the Subscription which contains the repository for which you want to push the image
--  Click **Save**
+-  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
+-  Search **GCR** in the list and click on **Create Integration**.
+-  Name your integration and enter your **JSON key** obtained from **GDC**.
+-  Choose the Subscription which contains the repository for which you want to push the image.
+-  Click **Save**.
 
-<img src="../../images/ci/docker-hub-integration.png" alt="Add  GCR credentials">
+<img src="../../images/ci/gcr-hub-integration.png" alt="Add  GCR credentials">
 
 ##Basic config
 
