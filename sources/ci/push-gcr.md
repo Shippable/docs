@@ -38,7 +38,7 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 ```
 integrations:                               
   hub:
-    - integrationName: gcr-integration    #replace with your integration name   
+    - integrationName: gcr-integration    #replace with your integration name
       type: gcr                        
 ```
 
@@ -131,10 +131,29 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
+    - integrationName: gcr-integration   #replace with your integration name   
       type: gcr
 
 ```
+
+### Important note for customers overriding default image for CI
+If you are using a custom image for your CI workflow, we will try to login to GCR on your behalf from inside your CI build container. This means that you will need the gcloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud: command` not found error.
+
+You can solve this in 2 ways:
+
+-  Set `agent_only: true` for GCR integration in your `shippable.yml`.
+```
+integrations:
+  hub:
+    - integrationName: gcr-integration
+      type: gcr
+      agent_only: true
+```
+
+If `agent_only` tag is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to GCR in the `pre_ci` and `push` sections of the yml.
+
+- If you want to use docker commands to interact with GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your shippable.yml, then please install the gcloud sdk in your custom image.
+
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
