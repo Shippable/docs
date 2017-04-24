@@ -176,7 +176,7 @@ pages:
       - Working with state and environment variables: deploy/kubernetes-state-env-vars.md
       - Using custom task definition templates: deploy/kubernetes-custom-task-definitions.md
     - Deploying to GKE:
-      - Default scenario: deploy/gke.md
+      - Basic scenario: deploy/gke.md
       - Specifying deployment strategy: deploy/gke-strategy.md
       - Using a load balancer:  deploy/gke-loadbalancer.md
       - Deploying multi-container services: deploy/gke-multiple-containers.md

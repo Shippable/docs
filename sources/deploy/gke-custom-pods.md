@@ -19,6 +19,7 @@ resources:
       # add settings here
 
 ```
+You can also look at the complete reference for this type of resource [here](../reference/resource-dockeroptions).
 
 ## Managed
 
@@ -30,7 +31,7 @@ The `dockerOptions` resource is made to be used with Shippable managed jobs incl
 | **cpuShares**                     | cpu                        |
 | **portMappings**                  | port                       |
 | **hostName**                       | TOP LEVEL -> hostname      |
-| **domainName**                     TOP LEVEL -> subDomain     |
+| **domainName**                    | TOP LEVEL -> subDomain     |
 | **user**                          | runAsUser                  |
 | **tty**                           | tty                        |
 | **stdin**                         | stdin                      |
