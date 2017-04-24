@@ -77,8 +77,8 @@ You can also choose to push your images to different Quay.io accounts, depending
 ```
 build:
   post_ci:
-    - if [ "$BRANCH" == "master" ]; then docker push quay.io/organization/repository-name:image-tag; fi
-    - if [ "$BRANCH" == "dev" ]; then docker push quay.io/organization/repository-name:image-tag; fi
+    - if [ "$BRANCH" == "master" ]; then docker push quay.io/organization-1/repository-name:image-tag; fi
+    - if [ "$BRANCH" == "dev" ]; then docker push quay.io/organization-2/repository-name:image-tag; fi
 
 integrations:
   hub:
