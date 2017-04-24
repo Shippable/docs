@@ -283,13 +283,12 @@ pages:
       - Gitlab: reference/int-gitlab.md
       - Slack: reference/int-slack.md
       - Hipchat: reference/int-hipchat.md
-      - IRC: reference/int-irc.md
-      - Email: reference/int-email.md
       - Amazon ECS: reference/int-amazon-ecs.md
       - Kubernetes: reference/int-kubernetes.md
       - GKE: reference/int-gke.md
       - Docker Cloud: reference/int-docker-cloud.md
       - Docker Datacenter: reference/int-docker-datacenter.md
+      - Joyent Triton: reference/int-tripub.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
       - IRC: reference/int-key-ssh.md
