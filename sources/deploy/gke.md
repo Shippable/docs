@@ -174,7 +174,7 @@ resources:
     type: cliConfig
     integration: MyGKECredentials
 ```
-For more details on the `cliConfig` resource, [see here]('../reference/resource-cliconfig.md'). Now you'll need a particular job that can utilize that resource
+For more details on the `cliConfig` resource, [see here](../reference/resource-cliconfig). Now you'll need a particular job that can utilize that resource
 
 ```
 jobs:
