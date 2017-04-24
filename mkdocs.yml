@@ -272,6 +272,7 @@ pages:
       - Overview: reference/integrations-overview.md
       - Docker Hub: reference/int-docker-hub.md
       - JFrog Artifactory: reference/int-jfrog-artifactory.md
+      - Quay.io: reference/int-quay.md
       - Amazon ECR: reference/int-amazon-ecr.md
       - GCR: reference/int-gcr.md
       - Docker Trusted Registry: reference/int-docker-trusted-registry.md
