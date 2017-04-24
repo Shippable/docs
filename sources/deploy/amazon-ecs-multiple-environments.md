@@ -33,7 +33,7 @@ jobs:
 
 
 ## Managed deployments
-Shippable managed deployments give you a ton of flexibility in how you structure your pipeline.  Deploy jobs accept manifests as inputs, but can also accept other deploy jobs, by themselves or in combination with manifests.  This allows you to put your pipeline together in whatever way works best for your system while maintaining a simple visual on the whole process.  This page will discuss a couple of the most common scenarios invovling multiple deployment environments.
+Shippable managed deployments give you a ton of flexibility in how you structure your pipeline.  Deploy jobs accept manifests as inputs, but can also accept other deploy jobs, by themselves or in combination with manifests.  This allows you to put your pipeline together in whatever way works best for your system while maintaining a simple visual on the whole process.  This page will discuss a couple of the most common scenarios involving multiple deployment environments.
 
 ### Serial Environments
 One common scenario for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate clusters.  Lets set this up in our pipeline so we can see how it works.
@@ -197,7 +197,7 @@ resources:
 
 ```
 
-We should also modify our params resources.  We're going to add some settings to help our container integrate with slack. [TODO: add link].  We want our application to communicate with a different channel based on whether its running in beta or in production, but in both cases, the token being used is the same.
+We should also modify our params resources.  We're going to add some settings to help our container integrate with slack. [Here are some instructions for creating the integration](../reference/int-slack).  We want our application to communicate with a different channel based on whether its running in beta or in production, but in both cases, the token being used is the same.
 
 ```
 resources:
@@ -240,7 +240,7 @@ Now, switch back to your SPOG view, right-click the production deploy job, and c
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
 
-NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [TODO: add link]
+NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](TODO: add link)
 
 ## Sample project
 
@@ -256,6 +256,6 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 ## Unmanaged deployments
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
 For unmanaged jobs, you can run your awscli commands against any cluster and region that you want. Deploying to one or more environments is as simple as running `aws configure set region us-east-1` or simply specifying a different `--cluster` when creating a service.

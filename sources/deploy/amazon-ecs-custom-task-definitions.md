@@ -19,10 +19,11 @@ resources:
       # add settings here
 
 ```
+You can also look at the complete reference for this type of resource [here](../reference/resource-dockeroptions).
 
 ## Managed
 
-The `dockerOptions` resource is made to be used with Shippable managed jobs including `manifest` and `deploy`.  It can be applied to an entire manifest, multiple manifests, or even a single image within a manifest.  Many of the core service and task definition options are directly modifiable through certain keywords in the dockerOptions.  Here's a table of the features we directly support.  The left column is how the options is added to the `dockerOptions` resource, and the right column is the setting that it maps to on Amazon ECS.
+The `dockerOptions` resource is made to be used with Shippable managed jobs including `manifest` and `deploy`.  It can be applied to an entire manifest, multiple manifests, or even a single image within a manifest.  Many of the core service and task definition options are directly modifiable through certain keywords in the dockerOptions.  Here's a table of the features we directly support.  The left column is how the option is added to the `dockerOptions` resource, and the right column is the setting that it maps to on Amazon ECS.
 
 | Shippable Tag | Amazon ECS |
 |-|-|
@@ -85,6 +86,6 @@ There are two special sections for Amazon ECS: `service` and `taskDefinition`. P
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
-If you've completed the basic scenario, you've already done everything required to support these options.  Just update your taskDefinition.json to include any additional settings you'd like, and when you register the task definition and update your service to use it, your settings should take effect!
+If you've completed the basic scenario, you've already done everything required to support these options.  Just update your taskDefinition.json to include any additional settings you'd like, and when you register the task definition and update your service to use it, your settings should take effect! Refer directly to the Amazon ECS documentation for all possible available options.
