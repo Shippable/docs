@@ -6,7 +6,7 @@ There are many strategies that can be used to deploy containers to [Amazon ECS](
 
 ## Setup
 
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. You can add this to Shippable via [TODO Add link] Account Integrations, so that we can internally use those keys to issue commands to ECS.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. You can add this to Shippable via [Account Integrations](../../getting-started/integrations), so that we can internally use those keys to issue commands to ECS.
 
 - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
@@ -127,7 +127,7 @@ In the above scenario, several options are set by default that you might want to
 These settings can all be customized by creating additional Pipelines Resources.
 
 #### dockerOptions
-Using [TODO: add link] dockerOptions, all of the advanced configurations of docker are available to you. [TODO add link] Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
+Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../reference/resource-dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
 - name: deploy-ecs-basic-docker-options
   type: dockerOptions
@@ -137,7 +137,7 @@ Using [TODO: add link] dockerOptions, all of the advanced configurations of dock
       - 80:80
 ```
 #### params
-When [TODO: add link] params resources are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+When [params resources](../reference/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-ecs-basic-params
@@ -152,7 +152,7 @@ When [TODO: add link] params resources are added to a manifest, they become envi
 
 #### replicas
 
-Replicas [TODO: add link] is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
+Using the [replicas resource](../reference/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 ```
   - name: deploy-ecs-basic-replicas
     type: replicas

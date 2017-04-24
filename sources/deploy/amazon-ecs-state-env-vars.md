@@ -14,7 +14,7 @@ Managed jobs maintain their own state, and it cannot be customized.  To set envi
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs.md#Unmanaged_Deployments).
+In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs.md#unmanaged-deployments).
 
 Managing state and utilizing ENVs is a critical part of writing good runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
@@ -67,12 +67,12 @@ MYAPPIMAGE_SEED_VERSIONNAME=master.7
 MYAPPIMAGE_PATH=/build/IN/MyAppImage
 ```
 
-The most critical values here are `MYAPPIMAGE_POINTER_SOURCENAME` and `MYAPPIMAGE_VERSIONNAME`.  Using these, you can perform generic tasks like:
+The most critical values here are `MYAPPIMAGE_SOURCENAME` and `MYAPPIMAGE_VERSIONNAME`.  Using these, you can perform generic tasks like:
 
 ```
-docker pull ${MYAPPIMAGE_POINTER_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}
+docker pull ${MYAPPIMAGE_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}
 ```
-This way, every time your image tag is updated, the newest tag is pulled to be used in the job.
+This way, every time your image tag is updated, the newest tag is pulled for use in the job.
 
 Or, you can add them to your task definition template and use `shippable_replace` to fill in the values:
 
@@ -83,7 +83,7 @@ from a `sample.json` file in the `MyStaticTaskDefRepo` resource described in the
     "containerDefinitions": [
         {
             "name": "myapp",
-            "image": "${MYAPPIMAGE_POINTER_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}",
+            "image": "${MYAPPIMAGE_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}",
             "cpu": 0,
             "memory": 125,
             "essential": true,
@@ -101,13 +101,13 @@ steps:
 
 Now your task definition is using the latest image tag, and you can update your ECS service to use it.
 
-All resources have environment variables like this, which we've documented here.  [TODO: add link to reference]
+All resources have environment variables like this. We've documented the list of possibilities here.  [TODO: add link to reference]
 
 ### Resource State Management
 
 Every job in Shippable Pipelines has a `state` directory where information is written to be stored for use later on in the pipeline.  The location of this directory is found in the environment as `$JOB_STATE`.  
 
-When you list a resource as an `OUT`, a `<resourcename>.env` file is created in the `$JOB_STATE` directory. This is the file that you write to if you want to update the state of that resource.
+When you list a resource as an `OUT`, a `<resourcename>.env` file is created in the `$JOB_STATE` directory. This is the file that you need to write to if you want to update the state of that resource.
 
 For example, lets say you want to update the desiredCount of your task definition based on the output of some previous job.  To do this in an unmanaged job, you'll want to create a `params` resource like this:
 
@@ -152,7 +152,7 @@ steps:
     - script: aws ecs update-cluster --cli-input-json file://${JSON_FILE} > output.json
 ```
 
-Finally, make sure that your JSON file represents a service object with an environment variable that correspond to your params resource like this:
+Finally, make sure that your JSON file represents a service object with an environment variable that corresponds to your params resource like this:
 
 ```
 {
@@ -171,7 +171,7 @@ Shippable replace will automatically replace the variables with the values in th
 
 ### Job State Management
 
-You don't have to rely on other resources to transfer information from one job to the next. you can do this more directly by simply writing information directly to one or more files in the job's state directory (located at `$JOB_STATE`)
+You don't have to rely on other resources to transfer information from one job to the next. You can also accomplish this by writing information directly to one or more files in the job's state directory (located at `$JOB_STATE`)
 
 Instead of writing to a `<resourceName>.env` file, just write any file you want to that same state directory, and use the job itself as input to the next job.
 
@@ -185,11 +185,11 @@ steps:
   - IN: MyECSCluster
   - IN: MyLoadChecker  #another runCLI job
   - TASK:
-    - script: ls -al $MYLOADCHECKER_STATE
+    - script: ls $MYLOADCHECKER_STATE
     - script: JSON_FILE=$MYLOADCHECKER_STATE/taskdefinitions/sample.json
     - script: shippable_replace $JSON_FILE
     - script: aws ecs update-cluster --cli-input-json file://${JSON_FILE} > output.json
 
 ```
 
-Using this strategy, you could have the first job write the entire service JSON to a file, then have this job simply send the update to aws.
+Using this strategy, you could have the first job write the entire service JSON to a file with the appropriate `desiredCount`, then have this job simply send the update to aws.  In this example, any files that were written to the state directory in the job `MyLoadChecker` should also be visible in this job (`MyServiceUpdater`) when doing an `ls` on the incoming job's state directory.
