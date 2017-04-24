@@ -60,4 +60,4 @@ If you no longer need the integration, you can delete it by following the steps 
 
     - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
     - Delete the integration.
-- Once you have delete the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+- Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.

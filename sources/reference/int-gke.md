@@ -8,11 +8,11 @@ To deploy applications to GKE, you need to configure an account integration with
 
 ##Adding the GKE Integration
 
-1. Go to your [Google Cloud Platform (GCP) Console](https://console.cloud.google.com).
-2. Create a new Service account by following the instructions in Google's documentation for [generating a service account credential](https://cloud.google.com/storage/docs/authentication#service_accounts).
+1. Go to your <a href="https://console.cloud.google.com" target="_blank"> Google Cloud Platform (GCP) Console</a>.
+2. Create a new Service account by following the instructions in Google's documentation for <a href="https://cloud.google.com/storage/docs/authentication#service_accounts" target="_blank"> generating a service account credential</a>.
 3. Generate a private key in JSON format.
 4. Copy the JSON key you generated for your Service account.
-5. Sign in to [Shippable](https://app.shippable.com)
+5. Sign in to <a href="https://app.shippable.com" target="_blank"> Shippable</a>.
 6. Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** section.
 
 <img src="../../images/reference/integrations/account-settings.png" alt="Add GKE integration">
@@ -56,4 +56,4 @@ If you no longer need the integration, you can delete it by following the steps 
 
     - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
     - Delete the integration.
-- Once you have delete the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+- Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
