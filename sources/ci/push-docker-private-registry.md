@@ -1,7 +1,6 @@
 main_section: CI
 sub_section: Pushing artifacts 
 
-# docker-private-registry-push
 #Pushing a Docker image to Private Registry
 
 You can push your image to Docker Private Registry in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
