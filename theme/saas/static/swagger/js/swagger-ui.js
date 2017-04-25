@@ -125,7 +125,7 @@ templates['main'] = template({"1":function(container,depth0,helpers,partials,dat
 
   return "  <div class=\"info_title\">"
     + ((stack1 = (helpers.sanitize || (depth0 && depth0.sanitize) || helpers.helperMissing).call(alias1,((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.title : stack1),{"name":"sanitize","hash":{},"data":data})) != null ? stack1 : "")
-    + "</div>\n    <div>\n      <a id=\"authorizeButton\">Authorize</a>\n      <div class='input' id=\"authorizeBox\" hidden>\n        <p>Use the <code>apiToken</code> obtained from your account settings. If left empty, requests will be made as a public user.</p>\n        <input placeholder=\"apiToken xxxxx\" id=\"apiToken\" name=\"apiToken\" type=\"text\"/>\n        <button type=\"button\" id=\"saveApiToken\">Save</button>\n        <button type=\"button\" id=\"clearApiToken\">Clear</button>\n      </div>\n    </div>\n  </div>\n"
+    + "</div>\n    <div>\n      <a style=\"text-decoration:none; color:#006cd1; font-size:1.3em\" id=\"authorizeButton\">Authorize</a>\n      <div class='input' id=\"authorizeBox\" hidden>\n        <p>Use the <code>apiToken</code> obtained from your account settings. If left empty, requests will be made as a public user.</p>\n        <input placeholder=\"apiToken xxxxx\" class=\"apiToken\" id=\"apiToken\" name=\"apiToken\" type=\"text\"/>\n        <button type=\"button\" class =\"btn-save\" id=\"saveApiToken\">Save</button>\n        <button type=\"button\" class=\"btn-primary\" id=\"clearApiToken\">Clear</button>\n      </div>\n    </div>\n  </div>\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.externalDocs : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "  "
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.termsOfServiceUrl : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -314,7 +314,7 @@ templates['operation'] = template({"1":function(container,depth0,helpers,partial
 },"21":function(container,depth0,helpers,partials,data) {
     return "";
 },"23":function(container,depth0,helpers,partials,data) {
-    return "          <div class='sandbox_header'>\n            <input class='submit' type='submit' value='Try it out!' data-sw-translate/>\n            <a href='#' class='response_hider' style='display:none' data-sw-translate>Hide Response</a>\n            <span class='response_throbber' style='display:none'></span>\n          </div>\n";
+    return "          <div class='sandbox_header'>\n            <input class='submit btn-primary' type='submit' value='Try it out!' data-sw-translate/>\n            <a href='#' class='response_hider' style='display:none' data-sw-translate>Hide Response</a>\n            <span class='response_throbber' style='display:none'></span>\n          </div>\n";
 },"25":function(container,depth0,helpers,partials,data) {
     return "          <h4 data-sw-translate>Request Headers</h4>\n          <div class='block request_headers'></div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
