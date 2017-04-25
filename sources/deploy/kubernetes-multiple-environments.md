@@ -267,7 +267,7 @@ With these new items, the pipeline should look like this:
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon kubernetes for all of the scenarios described above.
+the image to Docker hub. It also contains all of the pipelines configuration files for deploying to kubernetes for all of the scenarios described above.
 
 **Source code:**  [devops-recipes/deploy-kubernetes-multi-env](https://github.com/devops-recipes/deploy-kubernetes-multi-env)
 
