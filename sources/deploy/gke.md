@@ -12,14 +12,14 @@ Shippable will use Google Cloud service account credentials to communicate with 
 - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
 - Locate **Google Container Engine** of type **deploy** in the list and click **Create Integration**.
-- Give your integration a name, and provide your JSON key for your service accont
+- Give your integration a name, and provide your JSON key for your service account
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
 <img src="../../images/deploy/gke/create-gke-deploy-integration.png" alt="Add GKE credentials">
 
 
-This key should have the appropriate permissions and roles described [TODO add reference link] here.  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on GKE.
+Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on GKE.
 
 ```
 resources:
