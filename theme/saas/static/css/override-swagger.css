@@ -1,0 +1,126 @@
+/*
+Shippable swagger override css
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family : "Roboto", sans-serif !important;
+}
+
+p {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 300;
+}
+
+.btn-primary {
+  background: #DA5A5B;
+  border: 2px solid #DA5A5B;
+  border-radius: 2px;
+}
+
+.btn-primary:focus {
+  background: #DA5A5B;
+  border: 2px solid #DA5A5B;
+  border-radius: 2px;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #DA5A5B;
+  border: 2px solid #DA5A5B;
+  border-radius: 2px;
+}
+
+.btn-save {
+  background: #006cd1;
+  color: #fff;
+  border: 2px solid #006cd1;
+  border-radius: 2px;
+}
+
+.btn-save:focus {
+  background: #006cd1;
+  color: #fff;
+  border: 2px solid #006cd1;
+  border-radius: 2px;
+}
+
+.btn-save:hover {
+  background: #fff;
+  color: #006cd1;
+  border: 2px solid #006cd1;
+  border-radius: 2px;
+}
+
+.apiToken {
+  padding: 1%;
+}
+
+input.parameter {
+  padding: 1%;
+}
+
+table {
+  border: 1px solid;
+}
+
+select {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+div.swagger-ui-wrap {
+  font-family: "Roboto", sans-serif !important;
+}
+
+div.swagger-ui-wrap div.info div.input button {
+  padding: 9px 15px;
+  margin-left: 5px;
+}
+
+div.swagger-ui-wrap div.container ul#resources div.heading h2 {
+  border-bottom: none;
+}
+
+div.swagger-ui-wrap div.container ul#resources ul.endpoints {
+  padding-left: 0px !important;
+}
+
+div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.operations div.heading h3 {
+  line-height: 1.7em !important;
+}
+
+div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.operations div.heading ul.options {
+  margin: 7px 10px 0 0 !important;
+}
+
+div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
+  background: #DA5A5B !important;
+}
+
+div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a {
+  background: #006cd1 !important;
+}
+
