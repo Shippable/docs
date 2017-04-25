@@ -1,12 +1,12 @@
 main_section: Deploy
 sub_section: Deploying to Kubernetes/GKE
 
-# Deploying to Kubern
+# Deploying to Kubernetes
 There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
 
 ## Setup
 
-Shippable will use a Kubernetes integration communicate with your cluster on your behalf. You can add this to Shippable via Account Integrations.
+Shippable will use a Kubernetes integration to communicate with your cluster on your behalf. You can add this to Shippable via Account Integrations.
 
 - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
