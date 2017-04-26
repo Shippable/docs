@@ -130,15 +130,18 @@ Finally, lets add a `params` resource in case there are any environment variable
       params:
         ENVIRONMENT: "sample" # used inside our sample image
         PORT: 80  # tells app which port to listen to
-        AWS_EB_ENVIRONMENT: "Sample-env"      # for use with the EB commands
-        AWS_EB_APPLICATION: "deploy-eb-basic" # for use with the EB commands
+        AWS_EB_ENVIRONMENT_SINGLE: "Sample-env" # for the single-container example
+        AWS_EB_ENVIRONMENT_MULTI: "Sample-env-1" # for the multi-container example
+        AWS_EB_APPLICATION: "deploy-eb-basic" # the name you gave your eb application
+        AWS_EB_BUCKET_NAME: "shippable-deploy-eb" # a pre-existing s3 bucket to store the eb packages
+
 
 ```
 
-Now, update the job to use this gitRepo as an `IN`, and add some extra commands.  We need to update our` Dockerrun.aws.json` file, and then deploy it.
+Now, update the job to use these new resources as `IN` statements, and add some extra commands.  We need to update our` Dockerrun.aws.json` file to have the latest image tag.
 
 - utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file
-- use the preconfigured eb cli to init and deploy.
+- `cat` the modified file so we can make sure it's being properly updated
 - make sure everything has `switch: off` except the image. We only want to deploy when the image changes.
 
 ```
@@ -155,12 +158,12 @@ jobs:
         switch: off
       - TASK:
         - script: cd $DEPLOYEBBASICREPO_STATE # the dir where our gitRepo files are cloned
-        - script: shippable_replace Dockerrun.aws.json
-        - script: cat Dockerrun.aws.json
+        - script: shippable_replace single_container/Dockerrun.aws.json # path to the dockerrun file
+        - script: cat single_container/Dockerrun.aws.json
 
 ```
 
-In this example, we should have a `Dockerrun.aws.json` file at the root of our repo that looks like this:
+In this example, we have a `Dockerrun.aws.json` file inside the "single_container" directory:
 
 ```
 {
@@ -186,7 +189,7 @@ In this example, we should have a `Dockerrun.aws.json` file at the root of our r
   ]
 }
 ```
-Note that these variables come directly from the `params` resource that we created earlier. Check out [this page](../reference/job-runcli#resource-variables) to learn all of the different supported environment variables in `runCLI` jobs.
+Note that these variables come automatically from the `params` resource that we created earlier. Check out [this page](../reference/job-runcli#resource-variables) to learn all of the different supported environment variables in `runCLI` jobs.
 
 Your pipeline should look like this now:
 <img src="../../images/deploy/elasticbeanstalk/deploy-eb-finalpipe.png" alt="Final pipeline">
@@ -195,20 +198,72 @@ Your pipeline should look like this now:
 Run your job, and you should see your modified `Dockerrun.aws.json` in the console output like this:
 <img src="../../images/deploy/elasticbeanstalk/dockerrun-updated.png" alt="Updated dockerrun">
 
-Now that our Dockerrun is looking good, we're ready to add some commands to perform the actual deployment.  First we'll need to initialize the EBCLI:
+Now that our Dockerrun is looking good, we're ready to add some commands to perform the actual deployment.  Update your job to look like this:
+```
+- name: deploy-eb-basic-deploy
+    type: runCLI
+    flags:
+      - deploy-eb-basic
+    steps:
+      - IN: deploy-eb-basic-image
+      - IN: deploy-eb-basic-config
+        switch: off
+      - IN: deploy-eb-env-params
+        switch: off
+      - IN: deploy-eb-basic-repo
+        switch: off
+      - TASK:
+        - script: cd $DEPLOYEBBASICREPO_STATE
+        - script: shippable_replace single_container/Dockerrun.aws.json
+        - script: cat single_container/Dockerrun.aws.json
+        - script: BUCKET_NAME=${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
+        - script: BUCKET_KEY="${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}-${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}-${BUILD_NUMBER}.zip"
+        - script: sudo apt-get install zip
+        - script: pushd single_container && tar -czvf $BUCKET_KEY Dockerrun.aws.json
+        - script: aws s3 cp $BUCKET_KEY s3://$BUCKET_NAME/
+        - script: aws elasticbeanstalk create-application-version --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --version-label $BUCKET_KEY --source-bundle S3Bucket=$BUCKET_NAME,S3Key=$BUCKET_KEY
+        - script: aws elasticbeanstalk update-environment --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --environment-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE} --version-label $BUCKET_KEY
+```
+We're going to use the awscli to perform a number of commands that will result in an update to our EB application/environment.  Let's break it down one script line at a time:
 
 ```
-- script: echo \"\" | eb init ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} -r ${DEPLOYEBBASICCONFIG_POINTER_REGION}
+- script: BUCKET_NAME=${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
 ```
-NOTE: the `echo \"\" |` is required to get around how the latest versions of ebcli have `eb init` prompt for whether or not you want to use code commit. It's a bit hacky, but ebcli seems to offer no other way around it.
+This is the name of the bucket that we're going to upload our `Dockerrun.aws.json` to.  You can use whatever name you want.  You should create this bucket in advance.  In this case, we've added the bucket name to our `params` object. This will allow it to be easily reused across multiple jobs without having to hard-code it in each script.
 
-Once that's complete, we'll issue the deploy command:
 ```
-- script: eb deploy ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
+- script: BUCKET_KEY="${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}-${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}-${BUILD_NUMBER}.zip"
 ```
+This should be a unique name. Every time this job runs, a package will be uploaded to your s3 bucket, and the name must be unique so that the upload doesn't fail.  We've used a combination of application name, environment name, and the built-in `$BUILD_NUMBER` environment variable, which is guaranteed to be unique.  You can use whatever unique identifier works best for you.
 
-This will send your modified code up to EB, where it will automatically detect the changed dockerrun file, pull the latest image, setup the environments, and run your application.
+```
+- script: sudo apt-get install zip
+```
+Beanstalk requires package uploads to be in the zip format, and this utility is not installed by default unfortunately, so add a step here to install it.
+
+```
+- script: pushd single_container && zip $BUCKET_KEY Dockerrun.aws.json
+```
+In order to deploy from s3, we need to upload a packaged version of the source.  However, since we're using docker images, the only file that needs to be in the package is the `Dockerrun.aws.json`, so we `pushd` into the directory (single_container), and issue our archive command.  If your `Dockerrun.aws.json` file is in the root of your repo, then you won't need the pushd, but you might want to make sure you're only archiving that one file, to avoid unnecessary s3 usage.
+
+```
+- script: aws s3 cp $BUCKET_KEY s3://$BUCKET_NAME/ && popd
+```
+Copy the archive to s3 using the appropriate bucket key and bucket name.  Then issue `popd` to undo our earlier `pushd`.
+
+```
+- script: aws elasticbeanstalk create-application-version --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --version-label $BUCKET_KEY --source-bundle S3Bucket=$BUCKET_NAME,S3Key=$BUCKET_KEY
+```
+This creates a new version of your application based on the archive you just uploaded.  This is tracked internally by beanstalk.  At this point, you could deploy the version manually via the beanstalk UI if you wanted to.
+
+```
+- script: aws elasticbeanstalk update-environment --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --environment-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE} --version-label $BUCKET_KEY
+```
+Finally, this command tells a particular environment to update to the application version that you created.  Once this command is issued, you should see your beanstalk dashboard automatically deploy your new version.  Eventually your deployment should complete successfully and you'll see something like this:
+
 <img src="../../images/deploy/elasticbeanstalk/completed-deployment.png" alt="Updated dockerrun">
+
+One caveat of this method is that your script doesn't know if your deployment succeeded or failed. It's quite possible that your `update environment` command succeeds, but then the update itself fails at some step (fails to pull the image, cannot find the dockerrun file, etc).  You may want to enhance your script to perform some kind of query using something like `aws elasticbeanstalk --describe-events`.  See the advanced section for an example on how to do that.
 
 ## Sample project
 
@@ -223,6 +278,7 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 ## Advanced configuration
 
 Coming soon
+
 - updating image from CI
 - private images
-- direct aws commands instead of ebcli
+- waiting for success
