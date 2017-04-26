@@ -22,7 +22,7 @@ A release job needs a [manifest](/reference/job-manifest/) job and a [version](/
 
 ```
 # Release version
-  - name: demo-release-version
+  - name: my-version
     type: version
     seed:
       versionName: "1.0.0"
@@ -33,7 +33,7 @@ Set the starting point of your version in the versionName field. The `release` j
 
 ```
 # Manifest job
-  - name: demo-manifest
+  - name: my-manifest
     type: manifest
     steps:
       - IN: my-image
@@ -41,11 +41,11 @@ Set the starting point of your version in the versionName field. The `release` j
       - TASK: managed
 
 #Release job
-  - name: version-deployment
+  - name: my-release
     type: release
     steps:
-      - IN: demo-release-version
-      - IN: demo-manifest
+      - IN: my-version
+      - IN: my-manifest
       - TASK: managed
         bump: beta
 ```
