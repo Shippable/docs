@@ -110,11 +110,6 @@ jobs:
 
 The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
 
-With these jobs and resources created, your pipeline should look something like this:
-
-<img src="../images/deploy/do/basic-deployment-configuration.png" alt="Successful pipeline">
-
-
 Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
 - The manifest job will package your image with default settings
@@ -142,7 +137,7 @@ In the above scenario, several options are set by default that you might want to
 These settings can all be customized by creating additional Pipelines Resources.
 
 #### dockerOptions
-Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. [TODO add link] Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
+Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
 - name: deploy-dockercloud-basic-docker-options
   type: dockerOptions
