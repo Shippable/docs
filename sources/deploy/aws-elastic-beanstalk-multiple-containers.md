@@ -44,8 +44,6 @@ resources:
 jobs:
   - name: deploy-eb-multi-deploy
     type: runCLI
-    flags:
-      - deploy-eb-basic
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-nginx-image
