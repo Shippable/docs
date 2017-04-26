@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-dockeroptions
+# dockerOptions
 This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](resource-image/). A `dockerOptions` resource can be an `IN` resource for [a manifest job](job-manifest/), or for a [deploy job](job-deploy/).
 
 ## Configuration reference
@@ -382,7 +382,7 @@ In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After t
 
 When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
 
-To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input 
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input
 [trigger resource]()[TODO: when new links are updated] link for the job
 
 ## Provider specific options

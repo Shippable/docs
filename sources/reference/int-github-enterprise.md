@@ -8,7 +8,7 @@ We support GitHub Enterprise in 2 flavors:
 
 * Using Shippable Hosted, you can sign in to Shippable with your GitHub or Bitbucket credentials, and then add an integration to your account that enables you to build repositories hosted on your GitHub Enterprise instance. This is described in the sections below.
 
-* You can also buy Shippable Server and run it on-premises or behind your firewall in your private cloud. In this setup, we support authenticating against GitHub Enterprise directly. If you are interested in this model, please send us an email to our <a href="mailto:sales@shippable.com" target="_blank"> Sales team</a>.
+* You can also buy Shippable Server and run it on-premises or behind your firewall in your private cloud. In this setup, we support authenticating against GitHub Enterprise directly. If you are interested in this model, please send us an email to our <a href="mailto:sales@shippable.com"> Sales team</a>.
 
 ##Adding a GitHub Enterprise integration
 

@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-syncrepo
+# syncRepo
 
 The `syncRepo` resource is at the heart of your deployment pipelines. This resource is a pointer to the source control repository containing the files that define your pipelines:  `shippable.resources.yml` and `shippable.jobs.yml`.
 

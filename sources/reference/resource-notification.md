@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-notification
+# notification
 A `notification` resource is used to add a notification type so that you can send our notifications for the following events:
 
 * Job starts (on_start)

@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-replicas
+# replicas
 This resource type is used to control the number of instances of an application or service
 that will be started in the target environment. This is used as an input resource to [manifest jobs](job-manifest/) or [deploy jobs](job-deploy/).
 

@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-file
+# file
 
 This resource type is used to specify a file that could be transferred to cluster of nodes during deployment.
 

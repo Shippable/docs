@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-loadbalancer
+# loadbalancer
 There are two ways that a `loadBalancer` resource can be used.  It may be used as an input to a [deploy job](job-deploy/) to deploy a service manifest with a load balancer; this is only supported for Amazon's EC2 Container Service (ECS) at this time. Or, it can be used as an input to a [provision job](job-provision/) to create a new load balancer in a Google Container Engine (GKE) cluster.
 
 ## Configuration reference
@@ -72,4 +72,3 @@ resources:
     * `loadBalancerIP` is optional and only used when the method is LoadBalancer.  It is mapped to the loadBalancerIP field in the Kubernetes service.
     * `loadBalancerSourceRanges` is optional and
     * `externalName` is required when the method is ExternalName and is the valid DNS name to be returned as CNAME for the service.
-    
