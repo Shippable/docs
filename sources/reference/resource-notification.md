@@ -19,6 +19,7 @@ resources:
     type: notification					#required
     integration: <string>				#required for Slack, Hipchat
     pointer:
+      method: email ! irc       #required for email and IRC
       recipients:
         - "#beta"				        #required
         - "@trriplejay"			                #optional

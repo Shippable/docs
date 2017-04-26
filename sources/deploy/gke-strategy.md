@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Google Container Engine
+sub_section: Deploying to GKE
 
 # Google Container Engine Deployment Strategies
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Google Container Engine (GKE).

@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Kubernetes/GKE
+sub_section: Deploying to Kubernetes
 
 # Deploying to Kubernetes
 There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
@@ -17,22 +17,22 @@ Shippable will use a Kubernetes integration to communicate with your cluster on 
   apiVersion: v1
   clusters:
   - cluster:
-      certificate-authority-data: <data has been removed since its confidential> 
-      server: https://api.devops-recipes.com 
-    name: devops-recipes.com 
+      certificate-authority-data: <data has been removed since its confidential>
+      server: https://api.devops-recipes.com
+    name: devops-recipes.com
   contexts:
   - context:
-      cluster: devops-recipes.com 
-      user: devops-recipes.com 
-    name: devops-recipes.com 
+      cluster: devops-recipes.com
+      user: devops-recipes.com
+    name: devops-recipes.com
   current-context: devops-recipes.com
   kind: Config
   preferences: {}
   users:
   - name: devops-recipes.com
     user:
-      client-certificate-data: <data has been removed since its confidential> 
-      client-key-data: <data has been removed since its confidential> 
+      client-certificate-data: <data has been removed since its confidential>
+      client-key-data: <data has been removed since its confidential>
       password: <data has been removed since its confidential>
       username: admin
   - name: devops-recipes.com-basic-auth
@@ -131,7 +131,7 @@ Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOption
 
 #### replicas
 
-[Replicas](http://docs.shippable.com/pipelines/resources/replicas/) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance. 
+[Replicas](http://docs.shippable.com/pipelines/resources/replicas/) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
   - name: deploy-kubernetes-basic-replicas
     type: replicas
     version:

@@ -184,21 +184,9 @@ pages:
       - Working with state and environment variables: deploy/gke-state-env-vars.md
       - Using custom pod templates: deploy/gke-custom-pods.md
     - Deploying to Docker Datacenter:
-      - Default scenario: deploy/docker-datacenter.md
-      - Specifying deployment strategy: deploy/docker-datacenter-strategy.md
-      - Using an HAProxy: deploy/docker-datacenter-loadbalancer.md
-      - Deploying multi-container services: deploy/docker-datacenter-multiple-containers.md
-      - Deploying to multiple environments: deploy/docker-datacenter-multiple-environments.md
-      - Working with state and environment variables: deploy/docker-datacenter-state-env-vars.md
-      - Using custom task definition templates: deploy/docker-datacenter-custom-task-definitions.md
+      - Basic scenario: deploy/docker-datacenter.md
     - Deploying to Docker cloud:
-      - Default scenario: deploy/docker-cloud.md
-      - Specifying deployment strategy: deploy/docker-cloud-strategy.md
-      - Using a load balancer:  deploy/docker-cloud-loadbalancer.md
-      - Deploying multi-container services: deploy/docker-cloud-multiple-containers.md
-      - Deploying to multiple environments: deploy/docker-cloud-multiple-environments.md
-      - Working with state and environment variables: deploy/docker-cloud-state-env-vars.md
-      - Using custom task definition templates: deploy/docker-cloud-custom-task-definitions.md
+      - Basic scenario: deploy/docker-cloud.md
     - Deploying to AWS Elastic Beanstalk:
       - Deploying Docker container to an existing env:  deploy/aws-elastic-beanstalk.md
       - Deploying multi-container services: deploy/aws-elastic-beanstalk-multiple-containers.md
