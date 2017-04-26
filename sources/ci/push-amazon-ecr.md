@@ -150,11 +150,11 @@ sudo pip install awscli
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR.
 
-**Source code:**  [devops-recipes/push-docker-hub](https://github.com/devops-recipes/push-docker-hub).
+**Source code:**  [devops-recipes/ci-push-amazon-ecr](https://github.com/devops-recipes/ci-push-amazon-ecr).
 
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/push-docker-hub/runs/1/1/console)
+**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr/runs/8/1/console" target="_blank"> CI build on Shippable</a>
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/59006c891fb3ec0700e1d646/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
 
 ## Improve this page
 
