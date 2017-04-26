@@ -18,7 +18,7 @@ In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as
 
 Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
-First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [TODO: add link] documentation for instructions on how to set that up.
+First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [documentation](../ci/trigger-pipeline-jobs) for instructions on how to set that up.
 
 ```
 resources:

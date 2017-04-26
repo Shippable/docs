@@ -235,7 +235,7 @@ After deploying beta to the GKE cluster, you can look up the running pod. Inside
 
 Now, switch back to your SPOG view, right-click the production deploy job, and click "run job".  Once the deployment has finished, you can examine the pod. You should see that its settings are properly modified to reflect the environment, while the token from the original manifest remains unchanged.
 
-NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](TODO: add link)
+NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](../ci/env-vars#secure-variables)
 
 
 ## Unmanaged deployments

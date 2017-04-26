@@ -18,7 +18,7 @@ In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig.
 
 Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will explain how these are used in the sample project.
 
-First, lets look at our application image.  This image will be updated automatically via Shippable CI.  You can check the [TODO: add link] documentation for instructions on how to configure a shippable.yml to accomplish that.
+First, lets look at our application image.  This image will be updated automatically via Shippable CI.  You can check the [documentation](../ci/trigger-pipeline-jobs) for instructions on how to configure a shippable.yml to accomplish that.
 
 ```
 resources:

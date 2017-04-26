@@ -18,7 +18,7 @@ Shippable will use an AWS key/secret pair to communicate with ECS on your behalf
 <img src="../../images/deploy/amazon-ecs/create-aws-deploy-integration.png" alt="Add AWS credentials">
 
 
-This key should have the appropriate permissions and roles described [TODO add reference link] here.  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
+This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
 
 ```
 resources:
@@ -71,7 +71,7 @@ jobs:
    - IN: deploy-ecs-basic-image
 
 ```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described [TODO add link] in this section.
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
 
 Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on ECS.
 

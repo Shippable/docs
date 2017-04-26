@@ -1,7 +1,7 @@
 main_section: Deploy
 sub_section: Deploying to AWS Elastic Beanstalk
 
-# aws-elastic-beanstalk-multiple-containers
+# Deploying Multiple Containers to Amazon Elastic Beanstalk
 This page will describe how to deploy multiple containers to Amazon Elastic Beanstalk
 
 ## Setup
