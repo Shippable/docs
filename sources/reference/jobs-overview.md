@@ -7,7 +7,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Jobs
 Jobs are the executable units of your pipelines. They take one or more [resources](resources-overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.
 
-<img src="../../images/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/reference/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
@@ -15,7 +15,9 @@ Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
 **Unmanaged jobs** are available for you to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
-We currently support 8 types of jobs:
+We currently support the following jobs:
+
+**Managed**
 
 - [deploy](job-deploy/): This managed job type is used to for deploying your application or service to any supported Container Service, including Amazon Elastic Compute Service (ECS), Google Container Engine (GKE), Joyent Triton, Azure Container Service (ACS), Docker Cloud and Docker Data Center.
 
@@ -25,13 +27,15 @@ We currently support 8 types of jobs:
 
 - [release](job-release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
 
-- [runSh](job-runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
-
-- [runCI](job-runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
-
 - [runCLI](job-runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 
 - [jenkinsJob](job-jenkinsJob/): This managed job type allows you to connect an existing Jenkins job to your Shippable pipeline.
+
+**Unmanaged**
+
+- [runSh](job-runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+
+- [runCI](job-runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
 
 Jobs, [resources](resources-overview/), and triggers together can be used to model any deployment pipeline, regardless of the complexity of your application.
 
@@ -86,7 +90,7 @@ For a detailed explanation of the yml for each job type, visit the page for that
 
 Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for Job-3:
 
-<img src="../../images/jobs/jobTrigger.png" alt="Connecting jobs into a pipeline" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/reference/jobs/jobTrigger.png" alt="Connecting jobs into a pipeline" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 
 In this configuration, Job-3 will be triggered in one of 4 ways:
