@@ -22,7 +22,7 @@ You will need to configure this integration to pull from or push images to Amazo
 2. Click on the **Add Integration** button.
 3. Choose **Amazon ECR** from the list of integration types.
 4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **ecr-integration**
-5. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html" target="_blank"> Amazon's guide for Creating and Managing access keys</a>.
+5. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html"> Amazon's guide for Creating and Managing access keys</a>.
 6. Assign this integration to the Subscription(s) you want to use it in. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
 7. Click on **Save**
 
@@ -32,7 +32,7 @@ The integration will now be available to all your Continuous Integration and Dep
 
 To learn how to use the integration for your scenario, check out the tutorials below.
 
-* [Pulling a Docker image from ECR]() [TODO when added]
+* Pulling a Docker image from ECR
 
 * [Using a Docker image from ECR to spin up your CI container]() [TODO when added]
 

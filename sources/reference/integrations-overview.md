@@ -59,11 +59,9 @@ We currently support the following source control providers:
 
 ### Notification Providers
 
-You need a notification integration if you want to send notifications for your CI or CD workflows.
+You need a Slack or Hipchat integration if you want to send notifications for your CI or CD workflows through these providers.
 
 - [Slack](int-slack/)
-- [IRC](int-irc/)
-- [Email](int-email//)
 - [HipChat](int-hipchat/)
 
 ### Docker registries

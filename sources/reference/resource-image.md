@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-image
+# image
 An `image` resource is used to add a reference to a docker image to your pipeline. It is used as an input for [manifest jobs](job-manifest/).
 
 You can create an `image` resource by adding it to `shippable.resources.yml`:

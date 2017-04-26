@@ -1,8 +1,8 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-version
-A `version` resource is used to create version numbers for releases. It uses <a href="http://www.semver.org/" target="_blank">the semantic version</a> methodology to increment versions.
+# version
+A `version` resource is used to create version numbers for releases. It uses <a href="http://www.semver.org/">the semantic version</a> methodology to increment versions.
 
 `version` resources are used as inputs to [release jobs](job-release/).
 

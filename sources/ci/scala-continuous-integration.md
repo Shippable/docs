@@ -159,6 +159,3 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
-
-### Switching runtimes (for custom build images only)
-TODO add how to

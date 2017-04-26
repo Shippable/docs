@@ -13,7 +13,7 @@ language: node_js
 
 You can set this tag to the following values depending on the language you need for your build: `clojure`, `go`, `java`, `node_js`, `php`, `python`, `ruby`, `scala`, `c`.
 
-Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [TODO: Add building unsupported languages] section.
+Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [building unsupported languages](unsupported-languages/) section of our docs.
 
 ## runtime
 

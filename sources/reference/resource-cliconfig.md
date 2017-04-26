@@ -24,6 +24,6 @@ resources:
 
 * `integration` should be the name of the integration that connects to the third party platform or service you want to be configured in your [runCLI jobs](job-runcli/).
 
-* `region` is the AWS region or Google Cloud zone, for example 'us-east-1' or 'europe-west1-c.' It is required when `integration` is an [AWS]()[TODO: when new links are updated] or [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/) integration and is optional for [Google Container Engine (GKE)](int-gcr/) integrations.
+* `region` is the AWS region or Google Cloud zone, for example 'us-east-1' or 'europe-west1-c.' It is required when `integration` is an [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/) integration and is optional for [Google Container Engine (GKE)](int-gcr/) integrations.
 
 * `clusterName` is optional when using a [Google Container Engine (GKE)](int-gcr/) integration. This should be the name of a cluster on GKE. If a `clusterName` is given, `gcloud` and `kubectl` will be configured to use that cluster. Specifying a `clusterName` without a `region` is not supported.

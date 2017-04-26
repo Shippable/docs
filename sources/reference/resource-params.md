@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-params
+# params
 Params resources provide a convenient way to pass key-value pairs into an environment. There are two ways params resources can be used.
 
 When used as an input to [manifest](job-manifest/) or [deploy](job-deploy/) jobs, params resources add a list of environment parameters to an application or microservice.

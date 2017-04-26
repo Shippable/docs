@@ -1,7 +1,7 @@
 main_section: Reference
 sub_section: Resources
 
-# resource-gitrepo
+# gitRepo
 
 
 You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](job-runsh/).
