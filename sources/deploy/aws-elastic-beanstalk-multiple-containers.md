@@ -1,7 +1,7 @@
 main_section: Deploy
 sub_section: Deploying to AWS Elastic Beanstalk
 
-# aws-elastic-beanstalk-multiple-containers
+# Deploying Multiple Containers to Amazon Elastic Beanstalk
 This page will describe how to deploy multiple containers to Amazon Elastic Beanstalk
 
 ## Setup
@@ -44,8 +44,6 @@ resources:
 jobs:
   - name: deploy-eb-multi-deploy
     type: runCLI
-    flags:
-      - deploy-eb-basic
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-nginx-image
@@ -125,6 +123,5 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 Coming soon
 
-- updating images from CI
 - private images
 - waiting for success

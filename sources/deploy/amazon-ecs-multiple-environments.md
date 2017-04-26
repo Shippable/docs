@@ -240,7 +240,7 @@ Now, switch back to your SPOG view, right-click the production deploy job, and c
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
 
-NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](TODO: add link)
+NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](../ci/env-vars#secure-variables)
 
 ## Sample project
 

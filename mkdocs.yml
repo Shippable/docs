@@ -188,8 +188,8 @@ pages:
     - Deploying to Docker cloud:
       - Basic scenario: deploy/docker-cloud.md
     - Deploying to AWS Elastic Beanstalk:
-      - Deploying Docker container to an existing env:  deploy/aws-elastic-beanstalk.md
-      - Deploying multi-container services: deploy/aws-elastic-beanstalk-multiple-containers.md
+      - Deploying single-container environments:  deploy/aws-elastic-beanstalk.md
+      - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
       - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
       - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
     - Deploying artifacts to VMs:
