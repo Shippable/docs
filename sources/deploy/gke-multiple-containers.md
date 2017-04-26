@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Google Container Engine
+sub_section: Deploying to GKE
 
 # Deploying Multiple Containers to Google Container Engine
 The strength of Google Container Engine (GKE) is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to GKE:

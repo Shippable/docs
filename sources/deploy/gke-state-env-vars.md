@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Google Container Engine
+sub_section: Deploying to GKE
 
 # Using State and Environment Variables with Google Container Engine
 

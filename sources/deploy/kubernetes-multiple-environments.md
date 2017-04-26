@@ -1,5 +1,6 @@
 main_section: Deploy
-sub_section: Deploying to Kubernetes/GKE
+sub_section: Deploying to Kubernetes
+
 
 # Deploying to multiple Kubernetes Environments
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
@@ -91,7 +92,7 @@ jobs:
         - IN: deploy-kubernetes-multi-env-betaparams
         - IN: deploy-kubernetes-multi-env-manifest-2
         - IN: deploy-kubernetes-multi-env-betacluster
-  
+
     - name: dkme-proddeploy
       type: deploy
       flags:
@@ -148,7 +149,7 @@ resources:
     version:
       labels:
         color: green
-        
+
   - name: deploy-kubernetes-multi-env-blueparams
     type: params
     flags:
@@ -247,7 +248,7 @@ resources:
     version:
       params:
         ENVIRONMENT: "beta"
-    
+
   - name: deploy-kubernetes-multi-env-betaparams
     type: params
     version:

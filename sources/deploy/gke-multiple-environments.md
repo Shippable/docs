@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Google Container Engine
+sub_section: Deploying to GKE
 
 # Deploying to multiple Environments
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
@@ -242,4 +242,4 @@ NOTE: It's not recommended to directly commit tokens of any kind to source contr
 
 In an unmanaged scenario, you'll be using a runCLI job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
-For unmanaged jobs, you can run your kubectl and gcloud commands against any cluster and region that you want. 
+For unmanaged jobs, you can run your kubectl and gcloud commands against any cluster and region that you want.

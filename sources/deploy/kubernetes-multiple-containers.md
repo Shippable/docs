@@ -1,5 +1,6 @@
 main_section: Deploy
-sub_section: Deploying to Amazon kubernetes
+sub_section: Deploying to Kubernetes
+
 
 # Deploying Multiple Containers to Kubernetes
 The strength of Kubernetes is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to Kubernetes:
@@ -155,7 +156,7 @@ Pod Template:
   Containers:
    deploy-kubernetes-multi-container-manifest-3b-0:
     Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:	
+    Port:
     Limits:
       memory:		400Mi
     Environment:	<none>
@@ -226,14 +227,14 @@ Pod Template:
   Containers:
    deploy-kubernetes-multi-container-manifest-1-0:
     Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:	
+    Port:
     Limits:
       memory:		400Mi
     Environment:	<none>
     Mounts:		<none>
    deploy-kubernetes-multi-container-manifest-1-1:
     Image:	docker.io/devopsrecipes/deploy-kubernetes-multi-container:master.5
-    Port:	
+    Port:
     Limits:
       memory:		400Mi
     Environment:	<none>
@@ -339,7 +340,7 @@ Pod Template:
   Containers:
    deploy-kubernetes-multi-container-manifest-2b-0:
     Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:	
+    Port:
     Limits:
       memory:		400Mi
     Environment:	<none>

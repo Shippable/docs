@@ -66,7 +66,7 @@ resources:
   - name: irc-notif
     type: notification
     pointer:          
-      method: email
+      method: irc
       recipients:
         - "chat.freenode.net#channel1"
 ```
