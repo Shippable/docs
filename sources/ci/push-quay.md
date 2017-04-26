@@ -138,11 +138,11 @@ integrations:
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Quay.io.
 
-**Source code:**  [devops-recipes/push-docker-hub](https://github.com/devops-recipes/push-docker-hub).
+**Source code:**  [devops-recipes/push-docker-hub](https://github.com/devops-recipes/ci-push-quay).
 
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/push-docker-hub/runs/1/1/console)
+**Build link:** [CI build on Shippable](https://app.shippable.com/github/himanshu0503/ci-push-quay/runs/1/1/console)
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/5900754c614d120700088a0d/badge?branch=master)](https://app.shippable.com/github/devops-recipes/ci-push-quay)
 
 ## Improve this page
 
