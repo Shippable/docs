@@ -193,4 +193,4 @@ Now, any time your deploy-eb-basic-image has its version updated, it will trigge
 
 ### Advanced
 
-Since unmanaged jobs allow for unlimited scripting, there's no reason why your environments have to be restricted to the same EB application.  By splitting up your deployments across multiple applications, you can deploy to different AWS regions.  The workflow wouldn't be much different from what is described above, you would just need a couple new environment variables to represent the different application names, and the different regions.
+Since unmanaged jobs allow for unlimited scripting, there's no reason why your environments have to be restricted to the same EB application.  By splitting up your deployments across multiple applications, you can deploy to different AWS regions.  The workflow wouldn't be much different from what is described above, but you would need a couple new environment variables to represent the different application names, and the different regions.

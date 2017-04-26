@@ -279,6 +279,5 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 Coming soon
 
-- updating image from CI
 - private images
 - waiting for success
