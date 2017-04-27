@@ -35,7 +35,8 @@ $('#shippable-search').autocomplete(autocompleteOptions, [
             searchResult = suggestion._highlightResult[key].value.substring(start - 10, end + 30);
           }
         }
-        return suggestion.main_section + '<br>' +
+        return suggestion.main_section +
+          '  <svg width="6" height="10" viewBox="0 0 6 10"><path fill="#6D86A5" d="M0 10l6-5-6-5" fill-rule="evenodd"/></svg>  ' +
           suggestion.sub_section + '<br>' +
           searchResult;
       }
