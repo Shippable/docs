@@ -38,7 +38,7 @@ Here are some links to a working sample of this scenario. This is a simple Node.
 
 **Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-to-s3/runs/1/summary" target="_blank"> CI build on Shippable</a>
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/5900943a28b7f006008d355d	/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-to-s3)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/5900943a28b7f006008d355d/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-to-s3)
 
 ## Improve this page
 
