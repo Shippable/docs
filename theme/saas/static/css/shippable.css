@@ -504,9 +504,13 @@ div.swagger-ui-wrap div.container {
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
   border-bottom-color: 20px solid #999;
   cursor: pointer;
-  padding: 5px 4px;
-  padding-left: 15px;
   color: #2B2B2B;
+  padding: 15px 15px 15px 15px;
+  border-bottom: 2px solid #e4edf5;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion p{
+  font-weight: lighter;
+  font-variant: small-caps;
 }
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
   background-color: rgba(71, 143, 225, 0.26);
