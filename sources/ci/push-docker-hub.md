@@ -134,7 +134,7 @@ the image to Docker Hub.
 
 **Docker Hub image pushed:** [devopsrecipes/push-docker-hub](https://hub.docker.com/r/devopsrecipes/push-docker-hub/)
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/ci-push-docker-hub)
 
 ## Improve this page
 
