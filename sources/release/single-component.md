@@ -12,8 +12,6 @@ In general, creating releases helps you version your component and keep track of
 
 ## Basic Config
 
-###Inputs
-
 A release job needs a [manifest](/reference/job-manifest/) job and a [version](/reference/resource-version/) resource as inputs.
 
 <img src="/images/release/release-inputs.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
@@ -21,7 +19,9 @@ A release job needs a [manifest](/reference/job-manifest/) job and a [version](/
 - You can add a version resource in your `shippable.resources.yml` file.
 
 ```
-# Release version
+resources:
+
+  # Release version
   - name: my-version
     type: version
     seed:
@@ -32,7 +32,9 @@ Set the starting point of your version in the versionName field. The `release` j
 - Next, add a `release` job to `shippable.jobs.yml` file. The snippet below also shows sample config for the input manifest job :
 
 ```
-# Manifest job
+jobs:
+
+  # Manifest job
   - name: my-manifest
     type: manifest
     steps:
@@ -40,7 +42,7 @@ Set the starting point of your version in the versionName field. The `release` j
       - IN: my-image-dockerOptions
       - TASK: managed
 
-#Release job
+  #Release job
   - name: my-release
     type: release
     steps:
