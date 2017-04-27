@@ -141,13 +141,11 @@ pages:
       - Building blocks: release/building-blocks.md
       - Triggering release jobs: release/trigger-job.md
       - Sending notifications: release/send-notifications.md
-    - Creating a release:
-      - Overview: release/create-release-overview.md
+    - Creating a release: 
       - From Single Service/Component: release/single-component.md
       - From Multiple Services/Components: release/mutiple-components.md
       - From upstream releases: release/upstream-releases.md
     - Managing release versions:
-      - Overview: release/manage-release-versions.md
       - Setting version number: release/set-version-number.md
       - Incrementing version numbers: release/increment-version-number.md
   - Deploy:
