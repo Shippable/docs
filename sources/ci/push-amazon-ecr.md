@@ -154,7 +154,7 @@ the image to Amazon ECR.
 
 **Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr/runs/8/1/console" target="_blank"> CI build on Shippable</a>
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/59006c891fb3ec0700e1d646/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/59006c891fb3ec0700e1d646/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr)
 
 ## Improve this page
 
