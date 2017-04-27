@@ -25,7 +25,7 @@ After completing the Setup step, add the following to the `shippable.yml` for yo
 ```
 build:
   ci:
-    - jfrog rt u pages/artifact.tar
+    - jfrog rt u pages/artifact.tar target-dir/target-filename.tar
 
 integrations:
   hub:
@@ -42,7 +42,7 @@ By default, your integration is valid for all branches. If you want to only push
 ```
 build:
   ci:
-    - if [ "$BRANCH" == "master" ]; then jfrog rt u pages/artifact.tar; fi
+    - if [ "$BRANCH" == "master" ]; then jfrog rt u pages/artifact.tar target-dir/target-filename.tar; fi
 
 integrations:
   hub:
@@ -60,11 +60,11 @@ In addition to the `only` tag which includes specific branches, you can also use
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Quay.io.
 
-**Source code:**  [devops-recipes/push-docker-hub](https://github.com/devops-recipes/push-docker-hub).
+**Source code:**  [devops-recipes/ci-push-to-jfrog](https://github.com/devops-recipes/ci-push-to-jfrog)
 
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/push-docker-hub/runs/1/1/console)
+**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-to-jfrog/runs/1/1/console" target="_blank"> CI build on Shippable</a>
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/5901b124cd251706003517fe/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-to-jfrog)
 
 ## Improve this page
 
