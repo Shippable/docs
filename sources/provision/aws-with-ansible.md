@@ -108,7 +108,7 @@ To set up this Pipeline, simply separate your provision and terminate actions
 into separate playbooks and name the 'provision' job as an input to the 
 'terminate' job.
 
-shippable.jobs.yml:
+`shippable.jobs.yml`:
 ```yaml
 # job to execute ansible script to provision aws instances
   - name: myProvisionJob
@@ -174,7 +174,7 @@ shippable.jobs.yml:
 To schedule a Pipeline job to automatically execute an Ansible playbook on a 
 recurring basis, add a `time` resource.
 
-shippable.resources.yml:
+`shippable.resources.yml`:
 ```yaml
 # This time resource triggers an attached job nightly at 11:00p
   - name: myNightlyTrigger
@@ -183,7 +183,7 @@ shippable.resources.yml:
       interval: * 23 * * * *
 ```
 
-shippable.jobs.yml:
+`shippable.jobs.yml`:
 ```yaml
 # job to execute ansible script to provision aws instances
   - name: myProvisionJob
