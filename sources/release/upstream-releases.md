@@ -3,27 +3,27 @@ sub_section: Creating a release
 
 # Creating a release from upstream release jobs
 
-This tutorial demonstrates how to version every stage of deployment, as your code moves across different environments, 
-in a staged manner. 
+This tutorial demonstrates how to version every stage of deployment, as your code moves across different environments,
+in a staged manner.
 
-In this tutorial, you will learn how to specify the output of one release job as input to another release job. 
-This passes the version state from one release job to another, while allowing each release job to bump the 
+In this tutorial, you will learn how to specify the output of one release job as input to another release job.
+This passes the version state from one release job to another, while allowing each release job to bump the
 specific component of the version it so desires. For example, before deploying to the beta deployment, a release job
-increments the beta tag, while after deploying to beta, another release job increments the rc tag, with both jobs 
+increments the beta tag, while after deploying to beta, another release job increments the rc tag, with both jobs
 retaining the same major/minor/patch version number.
 
 ##Setup
 The basic setup needs a manifest job for each component that has to be versioned in the shippable.resources.yml file.
 
 This tutorial uses docker images built by -
-- <i class="ion-ios-minus-empty"></i>[Node tutorial](https://github.com/devops-recipes/release-single-component) 
+- <i class="ion-ios-minus-empty"></i>[Node tutorial](https://github.com/devops-recipes/release-single-component)
 that builds a node docker image and pushes the image to Docker hub.
-- <i class="ion-ios-minus-empty"></i>[Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr) 
+- <i class="ion-ios-minus-empty"></i>[Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr)
 that builds a java war docker image and pushes the image to EC2 Container Registry.
 
 ## Basic Config
 
-- Once you have completed the Setup, add a version resource that will be used as an input to the upstream Release job 
+- Once you have completed the Setup, add a version resource that will be used as an input to the upstream Release job
 in the shippable.resources.yml file. This resource specifies the version seed, that will flow throughout the pipeline.
 ```
   - name: upstream-release-version
@@ -46,7 +46,7 @@ images that we want to version before deployment to the ECS cluster.
       - TASK: managed
     flags:
       - release-from-upstream-release-jobs
-      
+
   #Manifest job
   - name: release-from-upstream-release-java-img-manifest-job
     type: manifest
@@ -86,7 +86,7 @@ This results in the version of the upstream release job being fed as input to it
         - TASK: managed
       flags:
         - release-from-upstream-release-jobs
-  
+
     - name: release-from-upstream-release-downstream-release-job
       type: release
       steps:
@@ -99,7 +99,7 @@ This results in the version of the upstream release job being fed as input to it
 
 When this release job runs, it increments the rc version and set the version to 1.1.0-rc.
 
-**Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/blob/master/public/resources/images/release-job-view.png)
+**Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/release-job-view.png)
 
 ## Sample project
 

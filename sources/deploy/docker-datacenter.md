@@ -15,7 +15,7 @@ Shippable will use an API token to communicate with Docker Datacenter on your be
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../images/deploy/docker-Datacenter/docker-datacenter-integration.png" alt="Add Docker Datacenter integration">
+<img src="../../images/deploy/docker-datacenter/docker-datacenter-integration.png" alt="Add Docker Datacenter integration">
 
 
 Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Docker Datacenter.

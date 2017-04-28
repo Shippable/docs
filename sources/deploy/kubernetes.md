@@ -44,7 +44,7 @@ Shippable will use a Kubernetes integration to communicate with your cluster on 
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../../images/deploy/amazon-ecs/create-kube-deploy-integration.png" alt="Add Kubernetes credentials">
+<img src="../../images/deploy/kubernetes/create-kube-deploy-integration.png" alt="Add Kubernetes credentials">
 
 
 Now that the Kubernetes integration is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
