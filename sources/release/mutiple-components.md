@@ -3,13 +3,15 @@ sub_section: Creating a release
 
 # Creating a release for a multiple services / components
 
+This tutorial demonstrates how to version multiple components before they are deployed to an environment. A component is any artifact that is deployed to an environment such as a WAR file or a docker image. In this tutorial, we will version two docker images, before they get deployed to an environment.
+
 ##Setup
 
-This tutorial demonstrates how to version multiple components before they are deployed to an environment. A component is any artifact that is deployed to an environment such as a WAR file or a docker image. The basic setup needs a manifest job for each component that has to be versioned in the shippable.resources.yml file. Here we demonstrate the steps to version a node docker image and a java docker images before they are deployed to an ECS cluster using a release job.
+The basic setup needs a manifest job for each component that has to be versioned in the shippable.resources.yml file. Here we demonstrate the steps to version a node docker image and a java docker images before they are deployed to an ECS cluster using a release job.
 
 This tutorial uses docker images built by -
-- <i class="ion-ios-minus-empty"></i>[Node tutorial](https://github.com/devops-recipes/release-single-component) that builds a node docker image and pushes the image to Docker hub.
-- <i class="ion-ios-minus-empty"></i>[Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr) that builds a java war docker image and pushes the image to EC2 Container Registry.
+- [Node tutorial](https://github.com/devops-recipes/release-single-component) that builds a node docker image and pushes the image to Docker hub.
+- [Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr) that builds a java war docker image and pushes the image to EC2 Container Registry.
 
 ## Basic Config
 
@@ -70,11 +72,11 @@ For additional documentation on the bump field, please go [here](http://docs.shi
 
 ## Sample project
 
-Here are some links to a working sample of this scenario.
+We have a working sample of this scenario for you. Instructions to run this sample are in the README.md file.
 
 **Source code:**  [devops-recipes/release-multiple-component](https://github.com/devops-recipes/release-multiple-component).
 
-**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-multiple-component/blob/master/public/resources/images/pipeline%20view.png)
+**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-multiple-component/raw/master/public/resources/images/pipeline-view.png)
 
 ## Improve this page
 

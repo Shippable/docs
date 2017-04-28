@@ -116,13 +116,13 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 
 After running, your pipeline will change color:
 
-![Basic Pipeline Scenario]()
+![Basic Pipeline Scenario](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/pipeline-view.png)
 
 And when you check your cluster on Docker Datacenter, you should see that the container running with the deployed image:
 
-![Docker Datacenter Container](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/ddc-container.png)
-![Docker Datacenter Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/ddc-deployed-image.png)
-![Deploy job Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/deploy-job-view.png)
+![Docker Datacenter Container](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/ddc-container.png)
+![Docker Datacenter Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/ddc-deployed-image.png)
+![Deploy job Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/deploy-job-view.png)
 
 That's all there is to it!
 
