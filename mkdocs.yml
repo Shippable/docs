@@ -164,7 +164,6 @@ pages:
       - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Working with state and environment variables: deploy/amazon-ecs-state-env-vars.md
       - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
-      - Using CloudFormation templates: deploy/amazon-ecs-cloudformation-templates.md
     - Deploying to Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
@@ -190,9 +189,9 @@ pages:
       - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
       - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
       - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
-    - Deploying artifacts to VMs:
-      - Deploying a tarball to a VM: deploy/tarball-to-vm.md
-      - Deploying from JFrog Artifactory: deploy/jfrog-artifactory.md
+    - Deploying to a Node Cluster:
+      - Deploying artifacts: deploy/vm-basic.md
+      - Deploying from JFrog Artifactory: deploy/vm-jfrog.md
       - Deploying to multiple environments: deploy/vm-multiple-environments.md
       - Working with state and environment variables: deploy/vm-state-env-vars.md
     - Rolling back deployments: deploy/rollback.md
@@ -245,27 +244,27 @@ pages:
       - Stable: reference/machine-image-stable.md
     - Integrations:
       - Overview: reference/integrations-overview.md
-      - Docker Hub: reference/int-docker-hub.md
-      - JFrog Artifactory: reference/int-jfrog-artifactory.md
-      - Quay.io: reference/int-quay.md
       - Amazon ECR: reference/int-amazon-ecr.md
-      - GCR: reference/int-gcr.md
-      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
-      - GitHub: reference/int-github.md
-      - Bitbucket: reference/int-bitbucket.md
-      - GitHub Enterprise: reference/int-github-enterprise.md
-      - Bitbucket Server: reference/int-bitbucket-server.md
-      - Gitlab: reference/int-gitlab.md
-      - Slack: reference/int-slack.md
-      - Hipchat: reference/int-hipchat.md
       - Amazon ECS: reference/int-amazon-ecs.md
-      - Kubernetes: reference/int-kubernetes.md
-      - GKE: reference/int-gke.md
+      - Bitbucket: reference/int-bitbucket.md
+      - Bitbucket Server: reference/int-bitbucket-server.md
       - Docker Cloud: reference/int-docker-cloud.md
       - Docker Datacenter: reference/int-docker-datacenter.md
+      - Docker Hub: reference/int-docker-hub.md
+      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
+      - GitHub: reference/int-github.md
+      - GitHub Enterprise: reference/int-github-enterprise.md
+      - Gitlab: reference/int-gitlab.md
+      - Google Container Engine: reference/int-gke.md
+      - Google Container Registry: reference/int-gcr.md
+      - Hipchat: reference/int-hipchat.md
+      - IRC: reference/int-key-ssh.md
+      - JFrog Artifactory: reference/int-jfrog-artifactory.md
       - Joyent Triton: reference/int-tripub.md
+      - Key-value: reference/int-key-value.md
+      - Kubernetes: reference/int-kubernetes.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
-      - IRC: reference/int-key-ssh.md
-      - Key-value: reference/int-key-value.md
+      - Quay.io: reference/int-quay.md
+      - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md
