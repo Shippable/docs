@@ -16,7 +16,7 @@ A release job needs a [manifest](/reference/job-manifest/) job and a [version](/
 
 <img src="/images/release/release-inputs.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-- You can add a version resource in your `shippable.resources.yml` file.
+- First, you will want to create a version resource in your `shippable.resources.yml` file.
 
 ```
 resources:
@@ -56,6 +56,11 @@ jobs:
 * `type` is always set to release
 * The manifest job and version resource are inputs, i.e. specified in the `IN` tag.
 * The `bump` tag specifies how the release version will be incremented each time the release job runs. More on incrementing versions is described in our tutorial for [bumping release versions.](increment-version-number/)
+
+- Add your project in the Pipelines tab in the dashboard and run the Manifest and Release jobs. Your pipeline should now look like this -
+
+![Pipeline](https://raw.githubusercontent.com/devops-recipes/release-single-component/master/public/resources/images/pipeline-view.png)
+
 
 ## Sample project
 

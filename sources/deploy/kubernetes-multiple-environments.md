@@ -112,15 +112,15 @@ jobs:
 Notice that the production deploy job has several `switch: off` statements.  We want to make sure that no one accidentally deploys to production by changing one of its inputs!
 
 Your pipeline should look like this:
-![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-pipeline-view.png)
+![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
 
 Notice the dotted lines connecting the resources to production. This is the visual representation of the break in automation that `switch: off` causes.
 
 Now, switch back to your SPOG view, right-click the dkme-betadeploy deploy job when you are ready for deployment, and click "run job".  Once the deployment has finished, you can examine the console log for it.
-![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-beta-deploy-view.png)
+![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-beta-deploy-view.png)
 
 Right-click the dkme-proddeploy deploy job when you are ready for deployment, and click "run job".  Once the deployment has finished, you can examine the console log for it.
-![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-prod-deploy-view.png)
+![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-prod-deploy-view.png)
 
 ### Parallel Environments
 Another common scenario is the blue-green deployment.  In this situation, you essentially have two separate copies of your application, ready to be deployed, with only one environment running at any given time.  When a change is made to your application, you deploy the second environment. Once that environment is running and validated, you can stop the old environment for a seamless transition.
@@ -206,15 +206,15 @@ Notice that on each deploy job, beneath the `IN` statement for the manifest ther
 
 Once you add these to your pipeline, check out your SPOG. It should look something like this:
 
-![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-pipeline-view.png)
+![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
 
 Since `switch: off` is present on the manifest input, you'll have to right-click and select 'Run Job' to start the deployment. Make sure that the manifest job has run first so that the latest version is available for deployment.
 
 Right-click the dkme-bluedeploy deploy job, and click "run job" when you are ready for deployment.  Once the deployment has finished, you can examine the console log for it.
-![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-beta-deploy-view.png)
+![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-beta-deploy-view.png)
 
 Right-click the dkme-greendeploy deploy job, and click "run job" when you are ready for deployment.  Once the deployment has finished, you can examine the console log for it.
-![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-prod-deploy-view.png)
+![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-prod-deploy-view.png)
 
 
 ### Advanced
@@ -262,7 +262,7 @@ When deploying to prod, the `ENVIRONMENT` parameter that was carried forward fro
 
 With these new items, the pipeline should look like this:
 
-![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/blob/master/public/resources/images/dkme-pipeline-view.png)
+![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
 
 
 ## Sample project

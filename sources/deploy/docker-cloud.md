@@ -117,12 +117,12 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 
 After running, your pipeline will change color:
 
-![Basic Pipeline Scenario](https://github.com/devops-recipes/deploy-dockercloud-basic/tree/master/public/resources/images/pipeline-view.png)
+![Basic Pipeline Scenario](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/pipeline-view.png)
 
 And when you check your cluster on Docker Cloud, you should see that a service and a stack was created, and their state is set to running:
 
-![Docker Cloud Service](https://github.com/devops-recipes/deploy-dockercloud-basic/tree/master/public/resources/images/docker-cloud-service.png)
-![Docker Cloud Stack](https://github.com/devops-recipes/deploy-dockercloud-basic/tree/master/public/resources/images/docker-cloud-stack.png)
+![Docker Cloud Service](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/docker-cloud-service.png)
+![Docker Cloud Stack](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/docker-cloud-stack.png)
 
 That's all there is to it!
 

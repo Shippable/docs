@@ -91,7 +91,7 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 - The deploy job will create a pod. That pod will have the container with the image specified in your manifest.
 
 After running, your pipeline will hopefully change color:
-![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/blob/master/public/resources/images/pipeline-view.png)
+![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
 
 And  you can check your pods using kubectl :
 

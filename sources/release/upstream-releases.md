@@ -72,7 +72,7 @@ images that we want to version before deployment to the ECS cluster.
 
 When this release job runs, it increments the beta version and set the version to 1.1.0-beta.
 
-**Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/blob/master/public/resources/images/beta-release-version.png)
+**Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/beta-release-version.png)
 
 - Next add the downstream Release job to shippable.jobs.yml file of **type release**. This job takes as input the deploy
 job. It does **not** have its own version resource, since the upstream release job is specified as input to the deploy job.
@@ -107,7 +107,7 @@ Here are some links to a working sample of this scenario.
 
 **Source code:**  [devops-recipes/release-from-upstream-release-jobs](https://github.com/devops-recipes/release-from-upstream-release-jobs).
 
-**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/blob/master/public/resources/images/pipeline-view.png)
+**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/pipeline-view.png)
 
 ## Improve this page
 

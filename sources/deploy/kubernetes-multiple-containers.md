@@ -124,7 +124,7 @@ jobs:
 
 Once you push these changes, your pipeline should look like this:
 
-![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/blob/master/public/resources/images/deploy3a3b-pipeline-view.png")
+![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
 
 ```
 Deployment data using kubectl
@@ -195,8 +195,7 @@ jobs:
 
 This will result in a single service being created or updated with a single task definition that contains two container definitions.  The pipeline should look like this:
 
-![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/blob/master/public/resources/images/deploy1-pipeline-view.png")
-
+![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
 ```
 Deployment data using kubectl
 
@@ -307,8 +306,7 @@ jobs:
 
 Once these changes are pushed, your pipeline will look like this:
 
-![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/blob/master/public/resources/images/deploy2-pipeline-view.png")
-
+![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy2-pipeline-view.png)
 
 ```
 Kubernetes deployment using kubectl
