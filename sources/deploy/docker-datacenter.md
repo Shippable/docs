@@ -15,7 +15,7 @@ Shippable will use an API token to communicate with Docker Datacenter on your be
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../images/deploy/docker-Datacenter/docker-datacenter-integration.png" alt="Add Docker Datacenter integration">
+<img src="../../images/deploy/docker-datacenter/docker-datacenter-integration.png" alt="Add Docker Datacenter integration">
 
 
 Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Docker Datacenter.
@@ -116,13 +116,13 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 
 After running, your pipeline will change color:
 
-![Basic Pipeline Scenario]()
+![Basic Pipeline Scenario](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/pipeline-view.png)
 
 And when you check your cluster on Docker Datacenter, you should see that the container running with the deployed image:
 
-![Docker Datacenter Container](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/ddc-container.png)
-![Docker Datacenter Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/ddc-deployed-image.png)
-![Deploy job Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/blob/master/public/resources/images/deploy-job-view.png)
+![Docker Datacenter Container](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/ddc-container.png)
+![Docker Datacenter Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/ddc-deployed-image.png)
+![Deploy job Image](https://github.com/devops-recipes/deploy-dockerdatacenter-basic/raw/master/public/resources/images/deploy-job-view.png)
 
 That's all there is to it!
 

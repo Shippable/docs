@@ -44,7 +44,7 @@ Shippable will use a Kubernetes integration to communicate with your cluster on 
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../../images/deploy/amazon-ecs/create-kube-deploy-integration.png" alt="Add Kubernetes credentials">
+<img src="../../images/deploy/kubernetes/create-kube-deploy-integration.png" alt="Add Kubernetes credentials">
 
 
 Now that the Kubernetes integration is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
@@ -91,7 +91,7 @@ Now you're ready for deployment.  Right-click on the manifest job, and select **
 - The deploy job will create a pod. That pod will have the container with the image specified in your manifest.
 
 After running, your pipeline will hopefully change color:
-![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/blob/master/public/resources/images/pipeline-view.png)
+![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
 
 And  you can check your pods using kubectl :
 
