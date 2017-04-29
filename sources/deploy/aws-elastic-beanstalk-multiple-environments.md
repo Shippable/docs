@@ -17,7 +17,7 @@ This page assumes you're already familiar with the Amazon Beanstalk [basic scena
 
 
 ### Serial Environments
-One common scenario for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate machines.  Lets set this up in our pipeline so we can see how it works.
+One common concept for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate machines.  Lets set this up in our pipeline so we can see how it works.
 
 First, we're going to make three `params` resources.  One for beta, one for prod, and one to hold common values between the two.
 
@@ -30,18 +30,19 @@ resources:
       params:
         PORT: 80
         AWS_EB_APPLICATION: "deploy-eb-basic"
-        AWS_EB_BUCKET_NAME: "shippable-deploy-eb"
 
   - name: beta-params
     type: params
     version:
       params:
+        ENVIRONMENT: "beta"
         AWS_EB_ENVIRONMENT: "beta"
 
   - name: prod-params
     type: params
     version:
       params:
+        ENVIRONMENT: "prod"
         AWS_EB_ENVIRONMENT: "prod"
 
 ```
@@ -51,8 +52,6 @@ Next, we'll need two separate `runCLI` jobs.  One to deploy to beta, which will 
 
 ```
 jobs:
-
-
   - name: deploy-beta
     type: runCLI
     steps:
@@ -69,9 +68,7 @@ jobs:
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
         - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
         - script: export ENVIRONMENT=${BETAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: export BUCKET_NAME=${COMMONPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
-        - script: ./deploy.sh   # script that deploys to eb using above exported envs
-        - script: ./validate.sh # script that makes sure deployment is successful
+        - script: eb deploy
         - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
   - name: deploy-prod
@@ -93,9 +90,7 @@ jobs:
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYBETA_VERSIONNAME}"
         - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
         - script: export ENVIRONMENT=${BETAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: export BUCKET_NAME=${COMMONPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
-        - script: ./deploy.sh   # script that deploys to eb using above exported envs
-        - script: ./validate.sh # script that makes sure deployment is successful
+        - script: eb deploy
 
 ```
 
@@ -158,9 +153,7 @@ jobs:
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
         - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
         - script: export ENVIRONMENT=${BETAAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: export BUCKET_NAME=${COMMONPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
-        - script: ./deploy.sh   # script that deploys to eb using above exported envs
-        - script: ./validate.sh # script that makes sure deployment is successful
+        - script: eb deploy
         - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
   - name: deploy-beta-b
@@ -179,9 +172,7 @@ jobs:
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
         - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
         - script: export ENVIRONMENT=${BETABPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: export BUCKET_NAME=${COMMONPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
-        - script: ./deploy.sh   # script that deploys to eb using above exported envs
-        - script: ./validate.sh # script that makes sure deployment is successful
+        - script: eb deploy
 
 ```
 
@@ -193,4 +184,4 @@ Now, any time your deploy-eb-basic-image has its version updated, it will trigge
 
 ### Advanced
 
-Since unmanaged jobs allow for unlimited scripting, there's no reason why your environments have to be restricted to the same EB application.  By splitting up your deployments across multiple applications, you can deploy to different AWS regions.  The workflow wouldn't be much different from what is described above, but you would need a couple new environment variables to represent the different application names, and the different regions.
+Since unmanaged jobs allow for unlimited scripting, there's no reason why your environments have to be restricted to the same EB application.  By splitting up your deployments across multiple applications, you can deploy to different AWS regions.  The workflow wouldn't be much different from what is described above, but you would need a few new environment variables to represent the different application names, and the different regions.
