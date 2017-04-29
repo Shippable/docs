@@ -54,21 +54,15 @@ jobs:
       - IN: deploy-eb-basic-repo
         switch: off
       - TASK:
-        - script: cd $DEPLOYEBBASICREPO_STATE
-        - script: shippable_replace multi_container/Dockerrun.aws.json
-        - script: cat multi_container/Dockerrun.aws.json
-        - script: BUCKET_NAME=${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_BUCKET_NAME}
-        - script: BUCKET_KEY="${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}-${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_MULTI}-${BUILD_NUMBER}.zip"
-        - script: sudo apt-get install zip
-        - script: pushd multi_container && zip $BUCKET_KEY Dockerrun.aws.json
-        - script: aws s3 cp $BUCKET_KEY s3://$BUCKET_NAME/ && popd
-        - script: aws elasticbeanstalk create-application-version --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --version-label $BUCKET_KEY --source-bundle S3Bucket=$BUCKET_NAME,S3Key=$BUCKET_KEY
-        - script: aws elasticbeanstalk update-environment --application-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION} --environment-name ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_MULTI} --version-label $BUCKET_KEY
+        - script: eb --version
+        - script: pushd $DEPLOYEBBASICREPO_STATE/multi_container && ls -al
+        - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
+        - script: eb deploy -v
 ```
 
 You'll notice that this job is almost identical to the [basic sample version](./aws-elastic-beanstalk).  This is because the only real difference is in the `Dockerrun.aws.json` file.  [See here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_v2config.html) for the official multi-container documentation.
 
-We're going to add a new dockerrun file to our `multi_container` directory, and it'll look like this:
+We're going to add this new dockerrun file to our `multi_container` directory, and it'll look like this:
 ```
 {
   "AWSEBDockerrunVersion": 2,
@@ -104,6 +98,27 @@ We're going to add a new dockerrun file to our `multi_container` directory, and 
 }
 
 ```
+and much like in the single-container example, we'll need a `config.yml` in our `.elasticbeanstalk` directory so that the EBCLI knows our settings without prompting us at the terminal.
+```
+branch-defaults:
+  default:
+    environment: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_MULTI}
+environment-defaults:
+  ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_MULTI}:
+    branch: null
+    repository: null
+global:
+  application_name: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}
+  default_ec2_keyname: null
+  default_platform: null
+  default_region: ${DEPLOYEBBASICCONFIG_POINTER_REGION}
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
+```
 
 Multi-container docker beanstalk is actually using Amazon ECS behind the scenes.  It will convert this dockerrun file into a Task Definition, and then run it on a cluster that was provisioned when you first created the environment.  In this case, whenever our job runs, we'll be creating a new revision of the task definition, which Amazon ECS will then automatically roll out to your cluster.  
 
@@ -124,4 +139,3 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 Coming soon
 
 - private images
-- waiting for success
