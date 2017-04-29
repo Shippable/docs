@@ -158,12 +158,12 @@ pages:
       - Tracing resources: deploy/trace-pipeline.md
     - Deploying to Amazon ECS:
       - Basic scenario: deploy/amazon-ecs.md
-      - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
-      - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
-      - Deploying multi-container services: deploy/amazon-ecs-multiple-containers.md
-      - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
+      - Deployment strategies: deploy/amazon-ecs-strategy.md
+      - Load balancing: deploy/amazon-ecs-elb-alb.md
+      - Multi-container applications: deploy/amazon-ecs-multiple-containers.md
+      - Utilizing multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Working with state and environment variables: deploy/amazon-ecs-state-env-vars.md
-      - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
+      - Using custom task definitions: deploy/amazon-ecs-custom-task-definitions.md
     - Deploying to Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
@@ -175,9 +175,9 @@ pages:
     - Deploying to GKE:
       - Basic scenario: deploy/gke.md
       - Specifying deployment strategy: deploy/gke-strategy.md
-      - Using a load balancer:  deploy/gke-loadbalancer.md
-      - Deploying multi-container services: deploy/gke-multiple-containers.md
-      - Deploying to multiple environments: deploy/gke-multiple-environments.md
+      - Load balancing:  deploy/gke-loadbalancer.md
+      - Multi-container applications: deploy/gke-multiple-containers.md
+      - Utilizing multiple environments: deploy/gke-multiple-environments.md
       - Working with state and environment variables: deploy/gke-state-env-vars.md
       - Using custom pod templates: deploy/gke-custom-pods.md
     - Deploying to Docker Datacenter:
@@ -185,14 +185,14 @@ pages:
     - Deploying to Docker cloud:
       - Basic scenario: deploy/docker-cloud.md
     - Deploying to AWS Elastic Beanstalk:
-      - Deploying single-container environments:  deploy/aws-elastic-beanstalk.md
-      - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
-      - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
+      - Single-container environments:  deploy/aws-elastic-beanstalk.md
+      - Multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
+      - Multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
       - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
     - Deploying to a Node Cluster:
-      - Deploying artifacts: deploy/vm-basic.md
-      - Deploying from JFrog Artifactory: deploy/vm-jfrog.md
-      - Deploying to multiple environments: deploy/vm-multiple-environments.md
+      - Basic scenario: deploy/vm-basic.md
+      - JFrog Artifactory: deploy/vm-jfrog.md
+      - Utilizing multiple environments: deploy/vm-multiple-environments.md
       - Working with state and environment variables: deploy/vm-state-env-vars.md
     - Rolling back deployments: deploy/rollback.md
   - Provision:
