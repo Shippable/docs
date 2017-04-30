@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Overview
+sub_section: Before you start
 page_title: Unified Pipeline Trace
 page_description: description of trace functionality
 page_keywords: pipelines, Continuous Integration, Continuous Deployment, CI/CD, automation, history

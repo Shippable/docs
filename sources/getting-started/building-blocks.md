@@ -13,9 +13,13 @@ Your pipeline is a bunch of jobs that are triggered in sequence or in parallel, 
 
 ##Configuration
 
-Your pipelines are defined through three yml-based configuration files:
+Your pipelines are defined through four yml-based configuration files:
 
-- `shippable.yml` is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI.
+**CI config**
+
+- `shippable.yml` is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI. It must reside at the root of your repository.
+
+**Pipeline config**
 
 - `shippable.jobs.yml` is contains definitions of the Jobs in your pipeline. If you only want to use Shippable for CI, you do not need this file.
 
@@ -23,7 +27,7 @@ Your pipelines are defined through three yml-based configuration files:
 
 - `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI.
 
-These configuration files should be committed to a repository in your source control. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
+Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
 
 ##Jobs
 

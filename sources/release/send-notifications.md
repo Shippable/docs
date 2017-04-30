@@ -1,5 +1,5 @@
 main_section: Release
-sub_section: Overview
+sub_section: Before you start
 
 # Sending job status notifications
 

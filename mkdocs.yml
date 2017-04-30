@@ -28,7 +28,9 @@ pages:
       - Notifications: getting-started/supported-notifications.md
       - Artifact repositories: getting-started/supported-artifact-repositories.md
       - Deployment endpoints: getting-started/supported-deployments.md
-    - Managing your plan: getting-started/manage-plan.md
+    - Plans and Billing:
+      - Pricing plans: getting-started/billing-overview.md
+      - Managing your plan: getting-started/manage-plan.md
     - Your account:
       - Setting account email: getting-started/set-email.md
       - Managing payment methods: getting-started/manage-payment-methods.md
@@ -38,8 +40,9 @@ pages:
     - Using your own infrastructure:
       - Overview: getting-started/byon-overview.md
       - Managing nodes: getting-started/byon-manage-node.md
-    - Run your first build: ci-sample.md
-    - Deploy your first app: cd-sample.md
+    - Run our samples:
+      - Run your first build: ci-sample.md
+      - Deploy your first app: cd-sample.md
     - Support: support.md
   - CI:
     - Overview:
@@ -121,10 +124,10 @@ pages:
       - C/C++: ci/cpp-continuous-integration.md
       - Unsupported languages: ci/unsupported-languages.md
   - Validate:
-    - Overview:
+    - Before you start:
       - What is Validate?: validate/devops-validate.md
-      - Before you start: validate/before-you-start.md
-      - Building blocks: validate/building-blocks.md
+      - Configuration: validate/configuration.md
+      - Single pane of glass: validate/single-pane-of-glass-spog.md
       - Triggering jobs: validate/trigger-job.md
       - Sending notifications: validate/send-notifications.md
     - Running integration tests:
@@ -135,10 +138,10 @@ pages:
       - Nouvola: validate/nouvola.md
     - Running smoke tests: validate/running-smoke-tests.md
   - Release:
-    - Overview:
+    - Before you start:
       - What is release management?: release/devops-release-management.md
-      - Before you start: release/before-you-start.md
-      - Building blocks: release/building-blocks.md
+      - Configuration: release/configuration.md
+      - Single pane of glass: release/single-pane-of-glass-spog.md
       - Triggering release jobs: release/trigger-job.md
       - Sending notifications: release/send-notifications.md
     - Creating a release:
@@ -149,10 +152,10 @@ pages:
       - Setting version number: release/set-version-number.md
       - Incrementing version numbers: release/increment-version-number.md
   - Deploy:
-    - Overview:
+    - Before you start:
       - Why deploy?:  deploy/why-deploy.md
-      - Before you start: deploy/before-you-start.md
-      - Building blocks: deploy/building-blocks.md
+      - Configuration: deploy/configuration.md
+      - Single pane of glass: deploy/single-pane-of-glass-spog.md
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
@@ -198,10 +201,10 @@ pages:
       - Working with state and environment variables: deploy/vm-state-env-vars.md
     - Rolling back deployments: deploy/rollback.md
   - Provision:
-    - Overview:
+    - Before you start:
       - What is provisioning: provision/why-infrastructure-provisioning.md
-      - Before you start: provision/before-you-start.md
-      - Building blocks: provision/building-blocks.md
+      - Configuration: provision/configuration.md
+      - Single pane of glass: provision/single-pane-of-glass-spog.md
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
     - Provisioning AWS infrastructure:

@@ -1,4 +1,4 @@
 main_section: Deploy
-sub_section: Overview
+sub_section: Before you start
 
 # why-deploy
