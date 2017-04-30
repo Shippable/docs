@@ -13,7 +13,7 @@ In this configuration, **my-deploy** will be triggered in one of 4 ways:
 1. **my-manifest-1**, which is an `IN` for **my-deploy** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
 - **Job-2** changes **my-resource**, which is an `IN` for **my-deploy** , and hence triggers it. This trigger can be [switched off](#switchOff) if needed.
 - User commits to the TODO Update link [trigger resource](../triggers/), which is an `IN` for **my-deploy**, and hence triggers it.
-- User right clicks on **my-deploy** in the SPOG UI and clicks on `Run` or selects `Run` for **my-deploy** in the Jobs list in the TODO Add link Grid view.
+- User right clicks on **my-deploy** in the SPOG UI and clicks on `Run` or selects `Run` for **my-deploy** in the Jobs list in the [Grid view](/deploy/single-pane-of-glass-spog/#grid-view).
 
 **my-manifest-2** will not trigger **my-deploy** automatically since the dotted line between them indicates that automatic trigger has been [switched off](#switchOff)
 
