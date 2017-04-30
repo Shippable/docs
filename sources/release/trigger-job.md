@@ -1,14 +1,14 @@
 main_section: Release
 sub_section: Overview
 
-# Triggering jobs
+# Triggering your release jobs
 
-Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for **my-deploy**:
+Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for **my-release**:
 
 <img src="/images/deploy/deploy-job-trigger.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 
-In this configuration, **my-deploy** will be triggered in one of 4 ways:
+In this configuration, **my-release** will be triggered in one of 4 ways:
 
 1. **my-manifest-1**, which is an `IN` for **my-deploy** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
 - **Job-2** changes **my-resource**, which is an `IN` for **my-deploy** , and hence triggers it. This trigger can be [switched off](#switchOff) if needed.
