@@ -1,21 +1,20 @@
-main_section: Deploy
-sub_section: Overview
+main_section: Validate
+sub_section: Before you start
 
-# before-you-start
-
-
-
-##Configuration
+#Configuration
 
 Your pipelines are defined through three yml-based configuration files:
 
-- `shippable.jobs.yml` is contains definitions of the Jobs in your pipeline.
+- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline.
 
 - `shippable.resources.yml` contains definitions of the Resources in your pipeline.
 
 - `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI.
 
-Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You can keep these config files with the source code for your application or keep it separate in its own repository.
+Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
+
+You may have the entire pipeline configuration maintained in one repository, split it across directories within the same repository, or split up the configuration across multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
+
 
 <a name="sync"></a>
 ##Sync repository
@@ -26,11 +25,8 @@ You must seed your pipeline with at least one sync repository through the Shippa
 
 You may have the entire pipeline configuration maintained in one repository, split it across directories within the same repository, or split up the configuration across multiple sync repositories. This decision depends on your organizational preferences, as well as [security and permissions requirements](#permissions). For example, you may have pipeline configuration for source control through your first test environment in one repo, configuration for subsequent test environments in another repo, and configuration for your production environment in yet another repo. In this way, you can manage who can configure and execute different areas of your pipeline based on the permissions set on each repo.
 
-
 <a name="seedPipeline"></a>
-###Adding a sync repository
-
-You can add a sync repository by following the steps below:
+## Adding a syncRepo
 
 * First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/reference/integrations-overview#source-control-providers).
 * Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the Subscriptions menu at the top left of your screen:
@@ -48,7 +44,7 @@ You can add a sync repository by following the steps below:
 
 At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml` in the Single Pane of Glass (SPOG).
 
-###Troubleshooting pipeline errors
+###Troubleshooting errors
 
 If your rSync job fails or you do not see what you expected, you likely have a configuration error. Click on the rSync job in the SPOG view to see the console. Expand the **Executing Managed Task: rSync** section and then the **/home/shippable/micro/nod/stepExec/managed/rSync/run.sh** sections. This is the section that shows the console for your configuration. Configuration errors are shown highlighted in red at the end of this section as shown below.
 
@@ -58,3 +54,8 @@ If your rSync job fails or you do not see what you expected, you likely have a c
 ## Permissions
 
 Permissions for your deployment pipelines are tightly coupled with permissions for your sync repositories. Consequently, pipeline elements are only visible and accessible to perform actions to users with **Owner**, **Collaborator/Write**, or **Read** access to the sync repository that holds the configuration files. Users that do not have access to your sync repository will not have access to that portion of your pipeline, even if they are members of your organization.
+
+<a name="trigger-pipes"></a>
+##Triggering pipelines after CI
+
+If you want to trigger your pipeline workflow after CI is complete, follow instructions in our [Triggering pipeline jobs after CI docs](/ci/trigger-pipeline-jobs/)

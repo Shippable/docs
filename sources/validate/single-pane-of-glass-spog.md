@@ -1,5 +1,5 @@
-main_section: Getting started
-sub_section: Overview
+main_section: Validate
+sub_section: Before you start
 
 # Single Pane of Glass (SPOG) View
 

@@ -21,6 +21,8 @@ enable parallel execution of builds and reduce queuing time.
 
 The number of parallel builds you can run for your Subscription is equal to the number of minions in your plan.
 
+Please note that only admins of the organization can view the billing UI and upgrade/downgrade pricing plans. 
+
 ##Viewing your current plan
 
 To get to the Subscription Billing page:

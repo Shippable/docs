@@ -1,22 +1,19 @@
 main_section: Provision
-sub_section: Overview
+sub_section: Before you start
 
-## Triggering jobs
+# Triggering your jobs
 
-Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for **my-deploy**:
+Jobs can be triggered in multiple ways, including both automated and manual triggers. For example, consider the configuration below for **my-runCLI**:
 
-<img src="/images/deploy/deploy-job-trigger.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/provision/trigger-runCLI.png" alt="Triggering releases" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-In this configuration, **my-deploy** will be triggered in one of 4 ways:
+In this configuration, **my-runCLI** will be triggered in one of 4 ways:
 
-1. **my-manifest-1**, which is an `IN` for **my-deploy** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
-- **Job-2** changes **my-resource**, which is an `IN` for **my-deploy** , and hence triggers it. This trigger can be [switched off](#switchOff) if needed.
-- User commits to the TODO Update link [trigger resource](../triggers/), which is an `IN` for **my-deploy**, and hence triggers it.
-- User right clicks on **my-deploy** in the SPOG UI and clicks on `Run` or selects `Run` for **my-deploy** in the Jobs list in the TODO Add link Grid view.
+1. **my-job**, which is an `IN` for **my-runCLI** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
+- User commits to the TODO Update link [trigger resource](../triggers/), which is an `IN` for **my-runCLI**, and hence triggers it.
+- User right clicks on **my-runCLI** in the SPOG UI and clicks on `Run` or selects `Run` for **my-runCLI** in the Jobs list in the [Grid view](/provision/single-pane-of-glass-spog/#grid-view).
 
-**my-manifest-2** will not trigger **my-deploy** automatically since the dotted line between them indicates that automatic trigger have been [switched off](#switchOff)
-
-**Please note that changing resources cluster, replicas, or dockerOptions manually through a yml commit will not automatically trigger my-deploy.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automaticallly run your job.
+**Please note that changing the params resource manually through a yml commit will not automatically trigger my-runCLI.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automatically run your job.
 
 <a name="switchOff"></a>
 ##Switching triggers off
