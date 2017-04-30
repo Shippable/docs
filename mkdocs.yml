@@ -184,6 +184,8 @@ pages:
       - Basic scenario: deploy/docker-datacenter.md
     - Docker cloud:
       - Basic scenario: deploy/docker-cloud.md
+    - Azure DC/OS:
+      - Basic scenario: deploy/azure-dcos.md
     - AWS Elastic Beanstalk:
       - Deploying single-container environments:  deploy/aws-elastic-beanstalk.md
       - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
@@ -262,6 +264,7 @@ pages:
       - Joyent Triton: reference/int-tripub.md
       - Key-value: reference/int-key-value.md
       - Kubernetes: reference/int-kubernetes.md
+      - Azure DC/OS: reference/int-azure-dcos.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
       - Quay.io: reference/int-quay.md
