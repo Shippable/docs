@@ -193,7 +193,7 @@ jobs:
 
 ```
 
-This will result in a single service being created or updated with a single task definition that contains two container definitions.  The pipeline should look like this:
+This will result in a single deployment object being created or updated with a single pod spec that contains two container definitions.  The pipeline should look like this:
 
 ![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
 ```
