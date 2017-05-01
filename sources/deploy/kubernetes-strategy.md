@@ -1,4 +1,4 @@
 main_section: Deploy
-sub_section: Deploying to Kubernetes
+sub_section: Kubernetes
 
 # kubernetes-strategy

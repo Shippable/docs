@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to AWS Elastic Beanstalk
+sub_section: AWS Elastic Beanstalk
 
 # Deploying to Amazon Elastic Beanstalk
 Deploying to [Amazon Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) is easily automated using Shippable Pipelines.  This page will describe how you can take a single docker image and update your existing Elastic Beanstalk (EB) environment.

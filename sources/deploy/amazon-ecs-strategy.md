@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Amazon ECS Deployment Strategies
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Amazon ECS.
@@ -167,8 +167,6 @@ Here are some links to a working sample of this scenario. This is a simple Node.
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
 
 **Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
-
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-strategy/runs/2/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f94cc57e84cc070041e5a0/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-strategy)
 

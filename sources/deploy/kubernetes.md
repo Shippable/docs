@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Kubernetes
+sub_section: Kubernetes
 
 # Deploying to Kubernetes
 There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.

@@ -1,14 +1,22 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Deploying Multiple Containers to Amazon ECS
-The strength of ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to ECS:
+The strength of ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
 
-1. separate pipelines
-2. two images, one manifest
-3. multi-manifest deployment
+## The Goal
 
-## Setup
+This page will discuss the three most common ways to use Shippable to deploy multiple containers to ECS:
+
+- Separate parallel pipelines
+- Adding two images to a single manifest
+- Multi-manifest deployment
+
+In the end, if you try each of these scenarios, your pipeline might look something like this:
+<img src="../../images/deploy/amazon-ecs/multi-cont-final-pipeline.png" alt="Final pipeline">
+
+
+## The Setup
 Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
 
 We'll start with some basic pipeline building blocks: one image, one manifest, one deploy job.
@@ -56,7 +64,7 @@ jobs:
 ```
 
 ## Managed Deployments
-
+Managed deployments allow you to skip the scripting and let Shippable take control of building the appropriate objects and issuing the various commands.
 
 ### Basic Configuration
 
@@ -248,8 +256,6 @@ Here are some links to a working sample of this scenario. This is a simple Node.
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS for all of the scenarios described above.
 
 **Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
-
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container/runs/4/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container)
 

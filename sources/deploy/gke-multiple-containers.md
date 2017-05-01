@@ -1,14 +1,22 @@
 main_section: Deploy
-sub_section: Deploying to GKE
+sub_section: GKE
 
 # Deploying Multiple Containers to Google Container Engine
-The strength of Google Container Engine (GKE) is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to GKE:
+The strength of Google Container Engine (GKE) is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.
 
-1. separate pipelines
-2. two images, one manifest
-3. multi-manifest deployment
+## The Goal
 
-## Setup
+This page will discuss the three most common ways to use Shippable to deploy multiple containers to GKE:
+
+- Separate parallel pipelines
+- Adding two images to a single manifest
+- Multi-manifest deployment
+
+In the end, if you try each of these scenarios, your pipeline might look something like this:
+<img src="../../images/deploy/amazon-ecs/multi-cont-final-pipeline.png" alt="Final pipeline">
+
+
+## The Setup
 Make sure you have a cluster set up on GKE, then create an integration and cluster resource [as described in the setup section here](./gke)
 
 We'll start with some basic pipeline building blocks: one image, one manifest, one deploy job.
@@ -56,7 +64,7 @@ jobs:
 ```
 
 ## Managed Deployments
-
+Managed deployments allow you to skip the scripting and let Shippable take control of building the appropriate objects and issuing the various commands.
 
 ### Basic Configuration
 

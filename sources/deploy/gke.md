@@ -1,25 +1,26 @@
 main_section: Deploy
-sub_section: Deploying to GKE
+sub_section: GKE
 
 # Deploying with Google Container Engine (GKE)
 
 NOTE: [This page on kubernetes](./kubernetes) is the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
 
-## Setup
+## The Goal
+The goal of this page is to accomplish the following scenario using Shippable Pipelines.
 
-Shippable will use Google Cloud service account credentials to communicate with GKE on your behalf. You can add this to Shippable via [Account Integrations](../../getting-started/integrations), so that we can internally use those keys to issue commands to GKE.
+- Create a pipeline manifest using a docker image on Google Container Registry
+- Use the manifest as an input for a deploy job
+- Deploy the manifest to a Kubernetes cluster on Google Container Engine
 
-- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-- Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
-- Locate **Google Container Engine** of type **deploy** in the list and click **Create Integration**.
-- Give your integration a name, and provide your JSON key for your service account
-- From the dropdown, select the subscription that you'll be using to create your pipelines.
-- Click **Save**
-
-<img src="../../images/deploy/gke/create-gke-deploy-integration.png" alt="Add GKE credentials">
+In the end, your pipeline will look like this:
+<img src="../../images/deploy/gke/gke-final-pipeline.png" alt="Final Pipeline">
 
 
-Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on GKE.
+## The Setup
+
+Shippable will use Google Cloud service account credentials to communicate with GKE on your behalf. Get started by creating a [Google Container Engine Integration](../reference/int-gke).
+
+Once your key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on GKE.
 
 ```
 resources:
