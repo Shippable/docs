@@ -84,7 +84,7 @@ an ansible playbook to provision on aws from your pipeline:
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
@@ -125,7 +125,7 @@ into separate playbooks and name the 'provision' job as an input to the
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
@@ -155,7 +155,7 @@ into separate playbooks and name the 'provision' job as an input to the
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
