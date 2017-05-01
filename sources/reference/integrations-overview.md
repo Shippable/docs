@@ -27,7 +27,7 @@ Once an integration is enabled for a Subscription, you can use it in any project
 ##Advanced config
 
 <a name="add-subscriptions"></a>
-##Adding your integration to additional Subscriptions
+###Adding your integration to additional Subscriptions
 
 If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
 

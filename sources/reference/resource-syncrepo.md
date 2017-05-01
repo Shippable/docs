@@ -13,11 +13,18 @@ This is the only resource type that can be added from the UI. You should not add
 
 ## Adding a syncRepo from the UI
 
-* Go to your Subscription's page and click on `Pipelines`
-* Click on the `+` button in the upper right corner
-* You will first need to select a subscription integration. This should point to the source control system where the repository containing your pipeline definitions is located. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](integrations-overview/).
-* Once you add the integration, you will see a list of repositories in your subscription.
-* Select the repository and branch that contains your shippable.jobs.yml and shippable.resources.yml files
-* Name your sync repository and click on `Save`. This should seed your pipeline.
+* First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/reference/integrations-overview#source-control-providers).
+* Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the Subscriptions menu at the top left of your screen:
 
-Once you have added a syncRepo, you will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml`.
+<img src="/images/getting-started/list-subscriptions.png" alt="List of subscriptions">
+
+* Click on the **Pipelines** tab
+* If you have never added a sync repository, your Single Pane of Glass will be empty. Click the **+** button at upper right to add a sync repository.
+* Complete the **Add Resource** fields:
+	* The subscription integration dropdown should show the integration you created in the first step. If not, you will need to go through the flow of adding the integration.
+	* The **Select Project** dropdown will show all repositories in the source control you just connected with the integration. Choose your sync repository.
+	* Select the branch of the sync repository that contains your pipeline configuration files.
+	* Name your sync repository with an easy to remember name.
+* Click on **Save** to apply your sync repository configuration.
+
+At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml` in the Single Pane of Glass (SPOG).

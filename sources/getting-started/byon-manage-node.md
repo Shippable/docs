@@ -1,5 +1,5 @@
 main_section: Getting started
-sub_section: Running builds on your own infrastructure
+sub_section: Using your own infrastructure
 
 # Managing your build infrastructure
 

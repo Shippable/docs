@@ -28,7 +28,9 @@ pages:
       - Notifications: getting-started/supported-notifications.md
       - Artifact repositories: getting-started/supported-artifact-repositories.md
       - Deployment endpoints: getting-started/supported-deployments.md
-    - Managing your plan: getting-started/manage-plan.md
+    - Plans and Billing:
+      - Pricing plans: getting-started/billing-overview.md
+      - Managing your plan: getting-started/manage-plan.md
     - Your account:
       - Setting account email: getting-started/set-email.md
       - Managing payment methods: getting-started/manage-payment-methods.md
@@ -38,8 +40,9 @@ pages:
     - Using your own infrastructure:
       - Overview: getting-started/byon-overview.md
       - Managing nodes: getting-started/byon-manage-node.md
-    - Run your first build: ci-sample.md
-    - Deploy your first app: cd-sample.md
+    - Run our samples:
+      - Run your first build: ci-sample.md
+      - Deploy your first app: cd-sample.md
     - Support: support.md
   - CI:
     - Overview:
@@ -121,27 +124,24 @@ pages:
       - C/C++: ci/cpp-continuous-integration.md
       - Unsupported languages: ci/unsupported-languages.md
   - Validate:
-    - Overview:
+    - Before you start:
       - What is Validate?: validate/devops-validate.md
-      - Before you start: validate/before-you-start.md
-      - Building blocks: validate/building-blocks.md
+      - Configuration: validate/configuration.md
+      - Single pane of glass: validate/single-pane-of-glass-spog.md
       - Triggering jobs: validate/trigger-job.md
       - Sending notifications: validate/send-notifications.md
-    - Running integration tests:
-      - Overview: validate/running-integration-tests.md
-      - Sauce Labs: validate/sauce-labs.md
     - Running performance tests:
-      - Overview: validate/running-performance-tests.md
       - Nouvola: validate/nouvola.md
-    - Running smoke tests: validate/running-smoke-tests.md
+    - Running integration tests:
+      - Sauce Labs: validate/sauce-labs.md
   - Release:
-    - Overview:
+    - Before you start:
       - What is release management?: release/devops-release-management.md
-      - Before you start: release/before-you-start.md
-      - Building blocks: release/building-blocks.md
+      - Configuration: release/configuration.md
+      - Single pane of glass: release/single-pane-of-glass-spog.md
       - Triggering release jobs: release/trigger-job.md
       - Sending notifications: release/send-notifications.md
-    - Creating a release: 
+    - Creating a release:
       - From Single Service/Component: release/single-component.md
       - From Multiple Services/Components: release/mutiple-components.md
       - From upstream releases: release/upstream-releases.md
@@ -149,14 +149,14 @@ pages:
       - Setting version number: release/set-version-number.md
       - Incrementing version numbers: release/increment-version-number.md
   - Deploy:
-    - Overview:
+    - Before you start:
       - Why deploy?:  deploy/why-deploy.md
-      - Before you start: deploy/before-you-start.md
-      - Building blocks: deploy/building-blocks.md
+      - Configuration: deploy/configuration.md
+      - Single pane of glass: deploy/single-pane-of-glass-spog.md
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
-    - Deploying to Amazon ECS:
+    - Amazon ECS:
       - Basic scenario: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
@@ -164,16 +164,15 @@ pages:
       - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Working with state and environment variables: deploy/amazon-ecs-state-env-vars.md
       - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
-      - Using CloudFormation templates: deploy/amazon-ecs-cloudformation-templates.md
-    - Deploying to Kubernetes:
+    - Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Using a load balancer:  deploy/kubernetes-loadbalancer.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
       - Working with state and environment variables: deploy/kubernetes-state-env-vars.md
-      - Using custom task definition templates: deploy/kubernetes-custom-task-definitions.md
-    - Deploying to GKE:
+      - Using custom deployment templates: deploy/kubernetes-custom-deployments.md
+    - GKE:
       - Basic scenario: deploy/gke.md
       - Specifying deployment strategy: deploy/gke-strategy.md
       - Using a load balancer:  deploy/gke-loadbalancer.md
@@ -181,34 +180,39 @@ pages:
       - Deploying to multiple environments: deploy/gke-multiple-environments.md
       - Working with state and environment variables: deploy/gke-state-env-vars.md
       - Using custom pod templates: deploy/gke-custom-pods.md
-    - Deploying to Docker Datacenter:
+    - Docker Datacenter:
       - Basic scenario: deploy/docker-datacenter.md
-    - Deploying to Docker cloud:
+    - Docker cloud:
       - Basic scenario: deploy/docker-cloud.md
-    - Deploying to AWS Elastic Beanstalk:
+    - Azure DC/OS:
+      - Basic scenario: deploy/azure-dcos.md
+    - AWS Elastic Beanstalk:
       - Deploying single-container environments:  deploy/aws-elastic-beanstalk.md
       - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
       - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
       - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
-    - Deploying artifacts to VMs:
-      - Deploying a tarball to a VM: deploy/tarball-to-vm.md
-      - Deploying from JFrog Artifactory: deploy/jfrog-artifactory.md
+    - Node Cluster on any cloud:
+      - Deploying artifacts: deploy/vm-basic.md
+      - Deploying from JFrog Artifactory: deploy/vm-jfrog.md
       - Deploying to multiple environments: deploy/vm-multiple-environments.md
       - Working with state and environment variables: deploy/vm-state-env-vars.md
     - Rolling back deployments: deploy/rollback.md
   - Provision:
-    - Overview:
+    - Before you start:
       - What is provisioning: provision/why-infrastructure-provisioning.md
-      - Before you start: provision/before-you-start.md
-      - Building blocks: provision/building-blocks.md
+      - Configuration: provision/configuration.md
+      - Single pane of glass: provision/single-pane-of-glass-spog.md
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
     - Provisioning AWS infrastructure:
       - With Terraform: provision/aws-with-terraform.md
       - With Ansible: provision/aws-with-ansible.md
   - Reference:
-    - CI:
-      - YML Reference: reference/ci-yml.md
+    - Configuration:
+      - shippable.yml: reference/shippable-yml.md
+      - shippable.jobs.yml: reference/shippable-jobs-yml.md
+      - shippable.resources.yml: reference/shippable-resources-yml.md
+      - shippable.triggers.yml: reference/shippable-triggers-yml.md
     - Jobs:
       - Overview: reference/jobs-overview.md
       - deploy: reference/job-deploy.md
@@ -245,27 +249,27 @@ pages:
       - Stable: reference/machine-image-stable.md
     - Integrations:
       - Overview: reference/integrations-overview.md
-      - Docker Hub: reference/int-docker-hub.md
-      - JFrog Artifactory: reference/int-jfrog-artifactory.md
-      - Quay.io: reference/int-quay.md
       - Amazon ECR: reference/int-amazon-ecr.md
-      - GCR: reference/int-gcr.md
-      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
-      - GitHub: reference/int-github.md
-      - Bitbucket: reference/int-bitbucket.md
-      - GitHub Enterprise: reference/int-github-enterprise.md
-      - Bitbucket Server: reference/int-bitbucket-server.md
-      - Gitlab: reference/int-gitlab.md
-      - Slack: reference/int-slack.md
-      - Hipchat: reference/int-hipchat.md
       - Amazon ECS: reference/int-amazon-ecs.md
-      - Kubernetes: reference/int-kubernetes.md
-      - GKE: reference/int-gke.md
+      - Bitbucket: reference/int-bitbucket.md
+      - Bitbucket Server: reference/int-bitbucket-server.md
       - Docker Cloud: reference/int-docker-cloud.md
       - Docker Datacenter: reference/int-docker-datacenter.md
+      - Docker Hub: reference/int-docker-hub.md
+      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
+      - GitHub: reference/int-github.md
+      - GitHub Enterprise: reference/int-github-enterprise.md
+      - Gitlab: reference/int-gitlab.md
+      - Google Container Engine: reference/int-gke.md
+      - Google Container Registry: reference/int-gcr.md
+      - Hipchat: reference/int-hipchat.md
+      - JFrog Artifactory: reference/int-jfrog-artifactory.md
       - Joyent Triton: reference/int-tripub.md
+      - Key-value: reference/int-key-value.md
+      - Kubernetes: reference/int-kubernetes.md
+      - Azure DC/OS: reference/int-azure-dcos.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
-      - IRC: reference/int-key-ssh.md
-      - Key-value: reference/int-key-value.md
+      - Quay.io: reference/int-quay.md
+      - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md

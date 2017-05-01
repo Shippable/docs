@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to AWS Elastic Beanstalk
+sub_section: AWS Elastic Beanstalk
 
 # Using State and Environment Variables with Amazon Elastic Beanstalk
 
@@ -10,7 +10,7 @@ Follow the setup section as described in the basic EB scenario located [here](./
 This page will refer to the jobs and resources found in the [devops-recipes/deploy-beanstalk-basic](https://github.com/devops-recipes/deploy-beanstalk-basic) sample repository.
 
 ## Managed
-Shippable does not yet support managed elastic beanstalk deployments
+Shippable does not support managed beanstalk deployments at this time.
 
 ## Unmanaged
 

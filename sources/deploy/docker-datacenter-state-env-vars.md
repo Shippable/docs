@@ -1,4 +1,4 @@
 main_section: Deploy
-sub_section: Deploying to Docker Datacenter
+sub_section: Docker Datacenter
 
 # docker-datacenter-state-env-vars

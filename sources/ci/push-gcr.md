@@ -3,11 +3,11 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to GCR
 
-You can push your image to GCR in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to GCR in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 
-Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/" target="_blank"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 #### Generating a JSON key on Google Developers Console (GDC)
 -  In the top navigation bar, select the project you want to integrate with Shippable.
@@ -20,7 +20,7 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 -  Create a key of type **JSON** and hit **Create**.
 -  Your new **JSON key** is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 -  For more on JSON keys and Service accounts, read
-<a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file" target="_blank"> Google's docs</a>.
+<a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
 #### Adding GCR Integration to your Shippable Account
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
@@ -136,7 +136,8 @@ integrations:
 
 ```
 
-### Important note for customers overriding default image for CI
+### Using a custom image for CI
+
 If you are using a custom image for your CI workflow, we will try to login to GCR on your behalf from inside your CI build container. This means that you will need the gcloud SDK installed inside your custom image if you want this to succeed, else you will get a `gcloud: command` not found error.
 
 You can solve this in 2 ways:
@@ -161,7 +162,7 @@ the image to GCR.
 
 **Source code:**  [devops-recipes/ci-push-gcr](https://github.com/devops-recipes/ci-push-gcr).
 
-**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-gcr/runs/1/1/console" target="_blank"> CI build on Shippable</a>
+**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-gcr/runs/1/1/console"> CI build on Shippable</a>
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/59005d984f6072070074ce89/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-gcr)
 

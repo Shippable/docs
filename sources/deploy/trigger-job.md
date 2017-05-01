@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Overview
+sub_section: Before you start
 
 # Triggering jobs
 
@@ -13,7 +13,7 @@ In this configuration, **my-deploy** will be triggered in one of 4 ways:
 1. **my-manifest-1**, which is an `IN` for **my-deploy** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
 - **Job-2** changes **my-resource**, which is an `IN` for **my-deploy** , and hence triggers it. This trigger can be [switched off](#switchOff) if needed.
 - User commits to the TODO Update link [trigger resource](../triggers/), which is an `IN` for **my-deploy**, and hence triggers it.
-- User right clicks on **my-deploy** in the SPOG UI and clicks on `Run` or selects `Run` for **my-deploy** in the Jobs list in the TODO Add link Grid view.
+- User right clicks on **my-deploy** in the SPOG UI and clicks on `Run` or selects `Run` for **my-deploy** in the Jobs list in the [Grid view](/deploy/single-pane-of-glass-spog/#grid-view).
 
 **my-manifest-2** will not trigger **my-deploy** automatically since the dotted line between them indicates that automatic trigger has been [switched off](#switchOff)
 
@@ -39,3 +39,8 @@ As shown above, the `switch: off` tag can be defined for IN resources or jobs in
 ## Pausing jobs
 
 You can pause any jobs in your pipeline by right-clicking on the job, and clicking **Pause Jobs**. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume automatic triggers.
+
+<a name="trigger-pipes"></a>
+##Triggering pipelines after CI
+
+If you want to trigger your pipeline workflow after CI is complete, follow instructions in our [Triggering pipeline jobs after CI docs](/ci/trigger-pipeline-jobs/)

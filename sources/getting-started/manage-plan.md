@@ -1,5 +1,5 @@
 main_section: Getting started
-sub_section: Billing
+sub_section: Plans and Billing
 
 # Managing your plan
 
@@ -20,6 +20,8 @@ You should upgrade your Subscription to a paid plan in the following scenarios:
 enable parallel execution of builds and reduce queuing time.
 
 The number of parallel builds you can run for your Subscription is equal to the number of minions in your plan.
+
+Please note that only admins of the organization can view the billing UI and upgrade/downgrade pricing plans.
 
 ##Viewing your current plan
 

@@ -1,4 +1,4 @@
 main_section: Getting started
-sub_section: Billing
+sub_section: Plans and Billing
 
 # billing-overview

@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Customizing your Amazon ECS Task Definitions
 

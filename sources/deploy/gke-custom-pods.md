@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to GKE
+sub_section: GKE
 
 # Customizing your Google Container Engine Pods
 

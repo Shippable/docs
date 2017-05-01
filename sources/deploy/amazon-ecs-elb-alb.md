@@ -1,10 +1,21 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Using Classic and Application Load Balancers with Amazon ECS
 Load balancers are a must-have for any containerized application that wants to run on an Amazon ECS cluster.  When running on ECS, the agent has control over when and where your tasks spawn.  This means that you cannot necessarily depend on any particular machine running your service at any particular time.  A load balancer helps mitigate this uncertainty by directing traffic to the correct spot, no matter where the container is running.
 
-## Setup
+## The Goal
+The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+
+- Create a pipeline manifest using a docker image on Amazon ECR
+- Use the manifest as an input for a deploy job
+- Deploy the manifest to Amazon ECS
+- Load balance the service on ECS by adding a loadBalancer to your pipeline
+
+In the end, your pipeline will look like this:
+<img src="../../images/deploy/amazon-ecs/lb-final-pipeline.png" alt="Final Pipeline">
+
+## The Setup
 Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
 
 This scenario will require the following resources:
@@ -173,9 +184,7 @@ Once your deployment succeeds you should be able to visit the DNS name of your L
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS with a load balancer.
 
-**Source code:**  [devops-recipes/deploy-ecs-elb](https://github.com/devops-recipes/deploy-ecs-lb).
-
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-lb/runs/14/1/console)
+**Source code:**  [devops-recipes/deploy-ecs-elb](https://github.com/devops-recipes/deploy-ecs-lb)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58faa57fbaa5e307002bd3ae/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-lb)
 

@@ -1,21 +1,23 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Deploying to Amazon ECS
 There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your cluster on Amazon ECS.
 
-## Setup
+## The Goal
+The goal of this page is to accomplish the following scenario using Shippable Pipelines.
 
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. You can add this to Shippable via [Account Integrations](../../getting-started/integrations), so that we can internally use those keys to issue commands to ECS.
+- Create a pipeline manifest using a docker image on Amazon ECR
+- Use the manifest as an input for a deploy job
+- Deploy the manifest to Amazon ECS
 
-- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-- Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
-- Locate **AWS** of type **deploy** in the list and click **Create Integration**.
-- Give your integration a name, and provide your AWS access key and AWS secret key
-- From the dropdown, select the subscription that you'll be using to create your pipelines.
-- Click **Save**
+In the end, your pipeline will look like this:
+<img src="../../images/deploy/amazon-ecs/basic-deployment-configuration-success.png" alt="Basic Pipeline Scenario">
 
-<img src="../../images/deploy/amazon-ecs/create-aws-deploy-integration.png" alt="Add AWS credentials">
+
+## The Setup
+
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
 
 
 This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
@@ -45,7 +47,6 @@ resources:
 
   - name: deploy-ecs-basic-image
     type: image
-    integration: dr-ecr
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"
     seed:
@@ -165,9 +166,7 @@ Using the [replicas resource](../reference/resource-replicas) is quite simple. Y
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
 
-**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic).
-
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic/runs/5/1/console)
+**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic)
 
 **Application running on Amazon ECS:** [link](http://52.87.153.126/)
 

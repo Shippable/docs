@@ -3,7 +3,7 @@ sub_section: Pushing artifacts
 
 #Pushing Artifacts to JFrog
 
-You can push your artifacts to JFrog in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your artifacts at the end of the `ci` section.
+You can push your artifacts to JFrog in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your artifacts at the end of the `ci` section.
 
 ##Setup
 

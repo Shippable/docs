@@ -4,9 +4,8 @@ page_title: Unified Pipeline Resources
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-<br>
 # Resources
-Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](jobs-overview/).
+Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](/reference/jobs-overview/).
 
 A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns the same result every single time it is fetched. For example, git commit sha is always idempotent.
 
@@ -31,15 +30,13 @@ There are several resources that are pre-defined as part of the platform and wor
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-[Jobs](jobs-overview/),[resources, and triggers together can be used to model any deployment pipeline, from the simple to highly complex.
+[Jobs](jobs-overview/), resources, and triggers together can be used to model any deployment pipeline, from the simple to highly complex.
 
----
 ## Adding resources
 Resources are defined in a configuration file `shippable.resources.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 resource files are present, the first one is used. This is done in order to reduce conflict due to the same resource being defined in multiple places.
 
 To learn how to add this file and connect it to pipelines, TODO correct link [click here ](/tutorials/pipelines/howToAddSyncRepos/)
 
----
 ## Deleting resources
 
 Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a resource can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of resource(s) in ymls, we have made deletion of resources a 2 step process.
@@ -54,11 +51,9 @@ To completely remove a resource from the system, you need to hard delete it thro
 
 A resource must be soft deleted before it can be hard deleted.
 
----
 ## Viewing resources
 You can view version histories of resources by left-clicking on that resource in the Single Pane of Glass.
 
----
 <a name="integration"></a>
 ## Integrations
 Shippable is designed to separate out sensitive authentication information from your resources yml.

@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Docker cloud
+sub_section: Docker cloud
 
 # Deploying to Docker Cloud
 There are many strategies that can be used to deploy containers to [Docker Cloud](https://cloud.docker.com) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your cluster on Docker Cloud.
