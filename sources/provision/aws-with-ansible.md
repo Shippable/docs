@@ -2,7 +2,7 @@ main_section: Provision
 sub_section: Provisioning AWS infrastructure
 
 # AWS with Ansible
-With Shippable, you can use Ansible within Pipelines to provision 
+With Shippable, you can use Ansible from Red Hat within Pipelines to provision 
 infrastructure on AWS. You would do so with a `runCLI` or 
 `runSh` job.
 
@@ -28,48 +28,48 @@ push the image
 <img src="../../images/provision/amazon-web-services-integration.png" alt="add 
 aws credentials">
 
-##basic config
+##Basic config
 
-after completing the setup step, you'll configure the following pipeline 
+After completing the setup step, you'll configure the following pipeline 
 resources and jobs:
 
 -  resources:
-    *  **cliconfig** - to configure the default aws cli settings
-    *  **gitrepo** - contains your ansible scripts
+    *  **cliConfig** - to configure the default aws cli settings
+    *  **gitRepo** - contains your Ansible scripts
     *  **integration** - to store you ssh key for use by ansible
 -  jobs
-    *  **runcli** - for executing your ansible scripts
+    *  **runCLI** - for executing your Ansible scripts
 
 in `shippable.resources.yml`, define the following resources to be used as 
 inputs to your pipeline:
 
 ```yaml
 # config for awscli 
-  - name: myawscliconfig
-    type: cliconfig
-    integration: myawsintegration # replace with your aws integration name
+  - name: myAwsCliConfig
+    type: cliConfig
+    integration: myAwsIntegration # replace with your aws integration name
     pointer:
       region: us-east-1 # replace with your aws region
 
-# source code repo holding ansible scripts to be used in pipeline
-  - name: mygithubrepo
-    type: gitrepo
-    integration: myscmintegration # replace with your scm integration name
+# source code repo holding Ansible scripts to be used in pipeline
+  - name: myGithubRepo
+    type: gitRepo
+    integration: myScmIntegration # replace with your scm integration name
     pointer:
       sourcename: source-code-org/repo
       branch: master
 
 # pem key for connecting to ec/2 instances
-  - name: myawskeypair
+  - name: myAwsKeyPair
     type: integration
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute ansible 
-an ansible playbook to provision on aws from your pipeline:
+in `shippable.jobs.yml`, define the following job in order to execute Ansible 
+an Ansible playbook to provision on aws from your pipeline:
 
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -84,7 +84,7 @@ an ansible playbook to provision on aws from your pipeline:
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
@@ -105,12 +105,12 @@ from your 'terminate' actions. In this manner you can easily trigger either
 action on-demand or via automated triggers.
 
 To set up this Pipeline, simply separate your provision and terminate actions 
-into separate playbooks and name the 'provision' job as an input to the 
+into separate jobs and name the 'provision' job as an input to the 
 'terminate' job.
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -125,7 +125,7 @@ into separate playbooks and name the 'provision' job as an input to the
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
@@ -139,7 +139,7 @@ into separate playbooks and name the 'provision' job as an input to the
             cd $MYGITHUBREPO_STATE  
             ansible-playbook -v my-ansible-provision-playbook.yml
 
-# job to execute ansible script to terminate aws instances
+# job to execute Ansible script to terminate aws instances
   - name: myTerminateJob
     type: runCLI
     steps:
@@ -155,7 +155,7 @@ into separate playbooks and name the 'provision' job as an input to the
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
 
         # Replace variables in ansible.cfg template
-        - script: shippable_replace $PROVISION_AWS_ANSIBLE_REPO_STATE/ansible.cfg
+        - script: shippable_replace $MYGITHUBREPO_STATE/ansible.cfg
         
         # Install Ansible CLI
         - script: |
@@ -185,7 +185,7 @@ recurring basis, add a `time` resource.
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
