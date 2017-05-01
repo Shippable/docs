@@ -2,9 +2,8 @@ main_section: Provision
 sub_section: Provisioning AWS infrastructure
 
 # AWS with Terraform
-With Shippable, you can use Terraform within Pipelines to provision 
-infrastructure on AWS. You would do so with a `runCLI` or 
-`runSh` job.
+With Shippable, you can use Terraform from Hashicorp within Pipelines to 
+provision infrastructure on AWS. You would do so with a `runCLI` or `runSh` job.
 
 ##Setup
 
