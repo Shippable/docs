@@ -4,7 +4,18 @@ sub_section: Kubernetes
 # Deploying to Kubernetes
 There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
 
-## Setup
+## The Goal
+The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+
+- Create a pipeline manifest using a docker image on docker hub
+- Use the manifest as an input for a deploy job
+- Deploy the manifest to a Kubernetes cluster
+
+In the end, your pipeline will look like this:
+![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
+
+
+## The Setup
 
 Shippable will use a Kubernetes integration to communicate with your cluster on your behalf. You can add this to Shippable via Account Integrations.
 
@@ -85,31 +96,60 @@ resources:
 
 With these resources, you're ready to start writing jobs that will help you deploy.
 
+## Basic configuration
+
+Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+
+```
+jobs:
+
+- name: deploy-kubernetes-basic-manifest
+  type: manifest
+  steps:
+   - IN: deploy-kubernetes-basic-img
+
+```
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
+
+Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on GKE.
+
+```
+jobs:
+
+  - name: deploy-kubernetes-basic-manifest
+    type: manifest
+    steps:
+      - IN: deploy-kubernetes-basic-img
+
+  - name: deploy-kubernetes-basic-deploy
+    type: deploy
+    steps:
+      - IN: deploy-kubernetes-basic-manifest
+      - IN: deploy-kubernetes-basic-kube-cluster
+
+```
+
+The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
+
+With these jobs and resources created, your pipeline should look something like this:
+
+![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
+
+
+
 Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
 - The manifest job will package your image with default settings
-- The deploy job will create a pod. That pod will have the container with the image specified in your manifest.
+- The deploy job will create the appropriate namespace if it doesn't already exist
+- A podSpec will be created based on your manifest settings
+- A Kubernetes deployment object will be created in the namespace referencing the podSpec
 
-After running, your pipeline will hopefully change color:
-![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
-
-And  you can check your pods using kubectl :
+After running, you can check on your pods using kubectl :
 
 ```
-ambarishs-MacBook-Pro:release ambarish$ kubectl get pods --all-namespaces
+ambarishs-MacBook-Pro:release ambarish$ kubectl get pods
 NAMESPACE     NAME                                                              READY     STATUS    RESTARTS   AGE
 default       kube-deploy-20bc938e-ea98-446b-8054-403d72eea3bd-359291515ltsvz   1/1       Running   0          2h
-kube-system   dns-controller-1971817441-jqn32                                   1/1       Running   0          23h
-kube-system   etcd-server-events-ip-172-20-103-28.ec2.internal                  1/1       Running   0          23h
-kube-system   etcd-server-ip-172-20-103-28.ec2.internal                         1/1       Running   0          23h
-kube-system   kube-apiserver-ip-172-20-103-28.ec2.internal                      1/1       Running   4          23h
-kube-system   kube-controller-manager-ip-172-20-103-28.ec2.internal             1/1       Running   0          23h
-kube-system   kube-dns-v20-3531996453-4yciq                                     3/3       Running   0          23h
-kube-system   kube-dns-v20-3531996453-qtr5f                                     3/3       Running   0          23h
-kube-system   kube-proxy-ip-172-20-103-28.ec2.internal                          1/1       Running   0          23h
-kube-system   kube-proxy-ip-172-20-107-83.ec2.internal                          1/1       Running   0          23h
-kube-system   kube-proxy-ip-172-20-124-134.ec2.internal                         1/1       Running   0          23h
-kube-system   kube-scheduler-ip-172-20-103-28.ec2.internal                      1/1       Running   0          23h
 ```
 
 That's all there is to it!
@@ -118,7 +158,7 @@ That's all there is to it!
 In the above scenario, several options are set by default that you might want to change.
 
 #### dockerOptions
-Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOptions/), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
+Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
 ```
   - name: deploy-kubernetes-basic-img-options
     type: dockerOptions
@@ -128,14 +168,29 @@ Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOption
     flags:
       - deploy-kubernetes-basic
 ```
+#### params
+When [params resources](../reference/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
+```
+  - name: deploy-kubernetes-basic-params
+    type: params
+    version:
+      params:
+        PORT: 80
+        ENVIRONMENT: "dev"
+
+
+```
 #### replicas
 
-[Replicas](http://docs.shippable.com/pipelines/resources/replicas/) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
+Using the [replicas resource](../reference/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+
+```
   - name: deploy-kubernetes-basic-replicas
     type: replicas
     version:
       count: 2
+```
 
 ## Sample project
 
