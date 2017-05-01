@@ -30,15 +30,15 @@ aws credentials">
 
 ##basic config
 
-after completing the setup step, you'll configure the following pipeline 
+After completing the setup step, you'll configure the following pipeline 
 resources and jobs:
 
 -  resources:
     *  **cliconfig** - to configure the default aws cli settings
-    *  **gitrepo** - contains your ansible scripts
+    *  **gitrepo** - contains your Ansible scripts
     *  **integration** - to store you ssh key for use by ansible
 -  jobs
-    *  **runcli** - for executing your ansible scripts
+    *  **runcli** - for executing your Ansible scripts
 
 in `shippable.resources.yml`, define the following resources to be used as 
 inputs to your pipeline:
@@ -51,7 +51,7 @@ inputs to your pipeline:
     pointer:
       region: us-east-1 # replace with your aws region
 
-# source code repo holding ansible scripts to be used in pipeline
+# source code repo holding Ansible scripts to be used in pipeline
   - name: mygithubrepo
     type: gitrepo
     integration: myscmintegration # replace with your scm integration name
@@ -65,11 +65,11 @@ inputs to your pipeline:
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute ansible 
-an ansible playbook to provision on aws from your pipeline:
+in `shippable.jobs.yml`, define the following job in order to execute Ansible 
+an Ansible playbook to provision on aws from your pipeline:
 
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -110,7 +110,7 @@ into separate playbooks and name the 'provision' job as an input to the
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -139,7 +139,7 @@ into separate playbooks and name the 'provision' job as an input to the
             cd $MYGITHUBREPO_STATE  
             ansible-playbook -v my-ansible-provision-playbook.yml
 
-# job to execute ansible script to terminate aws instances
+# job to execute Ansible script to terminate aws instances
   - name: myTerminateJob
     type: runCLI
     steps:
@@ -185,7 +185,7 @@ recurring basis, add a `time` resource.
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute ansible script to provision aws instances
+# job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runCLI
     steps:
