@@ -1,8 +1,18 @@
 main_section: Deploy
-sub_section: Deploying to AWS Elastic Beanstalk
+sub_section: AWS Elastic Beanstalk
 
 # Deploying to Multiple Amazon Elastic Beanstalk Environments
 This page will briefly explain the significance of environments in Amazon Elastic Beanstalk and how they can be used in your Shippable Pipeline.
+
+## The Goal
+The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+
+- Build a docker image in Shippable CI
+- Push that image to Amazon ECR
+- Deploy that image to two different Elastic Beanstalk environments within the same beanstalk application.
+
+In the end, your pipeline will look like this:
+<img src="../../images/deploy/elasticbeanstalk/multi-env-final-pipeline.png" alt="Final Pipeline">
 
 ## Setup
 Follow the setup section as described in the basic EB scenario located [here](./aws-elastic-beanstalk)

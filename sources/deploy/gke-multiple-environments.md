@@ -1,10 +1,21 @@
 main_section: Deploy
-sub_section: Deploying to GKE
+sub_section: GKE
 
 # Deploying to multiple Environments
-Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
+Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.
 
-## Setup
+## The Goal
+This page will describe a few ideas on how you can utilize multiple environments when deploying to GKE.
+
+- separate clusters
+- separate namespaces
+- parallel environments
+- serial environments
+
+In the end, your pipeline might look like this:
+<img src="../../images/deploy/amazon-ecs/multi-env-final-pipeline.png" alt="Final pipeline">
+
+## The Setup
 Make sure you have a cluster set up on Google Container Engine (GKE), then create an integration and cluster resource [as described in the setup section here](./gke)
 
 Let's keep our example scenario simple.  One image and one manifest to start.
@@ -77,6 +88,7 @@ resources:
       namespace: "prod"
 
 ```
+Notice how the cluster is actually the same, but the namespace field has changed. This is the recommended way to create separation on kubernetes.  Namespaces are isolated, so it's rarely necessary to create extra clusters.
 
 Finally, lets add two deploy jobs. The first one (beta) should take the beta params, beta cluster, and the manifest as `IN` statements.  The second deploy job (prod) should take the beta deploy job, prod params, and prod cluster as `IN` statements.
 

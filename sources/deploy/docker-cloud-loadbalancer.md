@@ -1,4 +1,4 @@
 main_section: Deploy
-sub_section: Deploying to Docker cloud
+sub_section: Docker cloud
 
 # docker-cloud-loadbalancer

@@ -1,4 +1,4 @@
 main_section: Deploy
-sub_section: Deploying artifacts to VMs
+sub_section: Node Cluster on any cloud
 
 # vm-multiple-environments

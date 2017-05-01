@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying artifacts to VMs
+sub_section: Node Cluster on any cloud
 
 # Deploying Artifacts to a Node Cluster
 Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../reference/int-node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.

@@ -1,8 +1,18 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Deploying to multiple Amazon ECS Environments
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
+
+## The Goal
+This page will discuss two examples that utilize multiple environments on Amazon ECS and manage them in the same pipeline.  
+
+- serial environments (beta->prod)
+- parallel environments (blue/green)
+
+In the end, your pipeline might look like this:
+<img src="../../images/deploy/amazon-ecs/multi-env-final-pipeline.png" alt="Final pipeline">
+
 
 ## Setup
 Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)

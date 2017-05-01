@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Azure DC/OS
+sub_section: Azure DC/OS
 
 # Deploying to Azure DC/OS
 There are many strategies that can be used to deploy containers to [Azure DC/OS](https://portal.azure.com/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your cluster on Azure using orchestrator as DC/OS.
@@ -106,4 +106,3 @@ Here are some links to a working sample of this scenario. This contains all of t
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
-

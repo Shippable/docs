@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to AWS Elastic Beanstalk
+sub_section: AWS Elastic Beanstalk
 
 # Using State and Environment Variables with Amazon Elastic Beanstalk
 

@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: Deploying to Amazon ECS
+sub_section: Amazon ECS
 
 # Using State and Environment Variables with Amazon ECS
 
@@ -10,7 +10,7 @@ Make sure you have a cluster set up on Amazon ECS, then create an integration an
 
 ## Managed
 
-Managed jobs maintain their own state, and it cannot be customized.  To set environment variables for managed jobs, use the `params` resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
+Managed jobs maintain their own state, and it cannot be customized.  To set environment variables for managed jobs, use the [params](../reference/resource-params) resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
 
 ## Unmanaged
 

@@ -1,10 +1,20 @@
 main_section: Deploy
-sub_section: Deploying to GKE
+sub_section: GKE
 
 # Google Container Engine Deployment Strategies
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Google Container Engine (GKE).
 
-## Setup
+## The Goal
+This page will take you through each deploy method that Shippable supports in managed deploy jobs:
+
+- blueGreen
+- upgrade
+- replace
+- serial/parallel
+
+We'll describe exactly how these methods impact deployments to GKE.
+
+## The Setup
 Make sure you have a cluster set up on GKE, then create an integration and cluster resource [as described in the setup section here](./gke)
 
 For this example, we're going to use two docker images, two Shippable manifests, and one Shippable deploy job.
