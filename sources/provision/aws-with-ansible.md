@@ -28,7 +28,7 @@ push the image
 <img src="../../images/provision/amazon-web-services-integration.png" alt="add 
 aws credentials">
 
-##basic config
+##Basic config
 
 After completing the setup step, you'll configure the following pipeline 
 resources and jobs:
@@ -38,29 +38,29 @@ resources and jobs:
     *  **gitRepo** - contains your Ansible scripts
     *  **integration** - to store you ssh key for use by ansible
 -  jobs
-    *  **runcli** - for executing your Ansible scripts
+    *  **runCLI** - for executing your Ansible scripts
 
 in `shippable.resources.yml`, define the following resources to be used as 
 inputs to your pipeline:
 
 ```yaml
 # config for awscli 
-  - name: myawscliConfig
+  - name: myAwsCliConfig
     type: cliConfig
-    integration: myawsintegration # replace with your aws integration name
+    integration: myAwsIntegration # replace with your aws integration name
     pointer:
       region: us-east-1 # replace with your aws region
 
 # source code repo holding Ansible scripts to be used in pipeline
-  - name: mygithubrepo
+  - name: myGithubRepo
     type: gitRepo
-    integration: myscmintegration # replace with your scm integration name
+    integration: myScmIntegration # replace with your scm integration name
     pointer:
       sourcename: source-code-org/repo
       branch: master
 
 # pem key for connecting to ec/2 instances
-  - name: myawskeypair
+  - name: myAwsKeyPair
     type: integration
     integration: mysshintegration # replace with your ssh/pem integration name
 ```

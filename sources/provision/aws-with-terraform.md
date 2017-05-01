@@ -28,48 +28,48 @@ push the image
 <img src="../../images/provision/amazon-web-services-integration.png" alt="add 
 aws credentials">
 
-##basic config
+##Basic config
 
 After completing the setup step, you'll configure the following pipeline 
 resources and jobs:
 
 -  resources:
-    *  **cliConfig** - to configure the default aws cli settings
+    *  **cliConfig** - to configure the default AWS CLI settings
     *  **gitRepo** - contains your Terraform scripts
     *  **integration** - to store you ssh key for use by terraform
 -  jobs
-    *  **runcli** - for executing your Terraform scripts
+    *  **runCLI** - for executing your Terraform scripts
 
 in `shippable.resources.yml`, define the following resources to be used as 
 inputs to your pipeline:
 
 ```yaml
 # config for awscli 
-  - name: myawscliconfig
+  - name: myAwsCliConfig
     type: cliConfig
-    integration: myawsintegration # replace with your aws integration name
+    integration: myawsintegration # replace with your AWS integration name
     pointer:
-      region: us-east-1 # replace with your aws region
+      region: us-east-1 # replace with your AWS region
 
 # source code repo holding Terraform scripts to be used in pipeline
-  - name: mygithubrepo
+  - name: myGithubRepo
     type: gitRepo
-    integration: myscmintegration # replace with your scm integration name
+    integration: myScmIntegration # replace with your scm integration name
     pointer:
       sourcename: source-code-org/repo
       branch: master
 
 # pem key for connecting to ec/2 instances
-  - name: myawskeypair
+  - name: myAwsKeypair
     type: integration
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
 in `shippable.jobs.yml`, define the following job in order to execute Terraform 
-a Terraform playbook to provision on aws from your pipeline:
+a Terraform playbook to provision on AWS from your pipeline:
 
 ```yaml
-# job to execute Terraform script to provision aws instances
+# job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -110,7 +110,7 @@ into separate playbooks and name the 'provision' job as an input to the
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute Terraform script to provision aws instances
+# job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -142,7 +142,7 @@ into separate playbooks and name the 'provision' job as an input to the
         # Save terraform.state file
         - script:
 
-# job to execute Terraform script to terminate aws instances
+# job to execute Terraform script to terminate AWS instances
   - name: myTerminateJob
     type: runCLI
     steps:
@@ -174,7 +174,7 @@ into separate playbooks and name the 'provision' job as an input to the
 ```
 
 ### Create timed Terraform pipeline job
-To schedule a Pipeline job to automatically execute a Terraform playbook on a 
+To schedule a Pipeline job to automatically execute a Terraform script on a 
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -188,7 +188,7 @@ recurring basis, add a `time` resource.
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute Terraform script to provision aws instances
+# job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runCLI
     steps:
@@ -200,7 +200,8 @@ recurring basis, add a `time` resource.
 
 Here are some links to a working sample of this scenario: 
 
-**Source code:**  [devops-recipes/provision-aws-terraform](https://github.com/devops-recipes/provision-aws-terraform).
+**Source code:**  [devops-recipes/provision-aws-terraform](https://github.com/
+devops-recipes/provision-aws-terraform).
 
 
 ## Improve this page
