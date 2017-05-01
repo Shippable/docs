@@ -130,10 +130,10 @@ pages:
       - Single pane of glass: validate/single-pane-of-glass-spog.md
       - Triggering jobs: validate/trigger-job.md
       - Sending notifications: validate/send-notifications.md
-    - Running integration tests:
-      - Sauce Labs: validate/sauce-labs.md
     - Running performance tests:
       - Nouvola: validate/nouvola.md
+    - Running integration tests:
+      - Sauce Labs: validate/sauce-labs.md
   - Release:
     - Before you start:
       - What is release management?: release/devops-release-management.md
@@ -208,8 +208,11 @@ pages:
       - With Terraform: provision/aws-with-terraform.md
       - With Ansible: provision/aws-with-ansible.md
   - Reference:
-    - CI:
-      - YML Reference: reference/ci-yml.md
+    - Configuration:
+      - shippable.yml: reference/shippable-yml.md
+      - shippable.jobs.yml: reference/shippable-jobs-yml.md
+      - shippable.resources.yml: reference/shippable-resources-yml.md
+      - shippable.triggers.yml: reference/shippable-triggers-yml.md
     - Jobs:
       - Overview: reference/jobs-overview.md
       - deploy: reference/job-deploy.md

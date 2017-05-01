@@ -3,14 +3,14 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to Amazon ECR
 
-You can push your image to Amazon ECR in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to Amazon ECR in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 
-Before you start, you will need to connect your Amazon account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/" target="_blank"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Amazon account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 #### Generating access keys for Amazon ECR
-- To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html" target="_blank">Amazon's guide for Creating and Managing access keys</a>.
+- To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
 #### Adding Amazon ECR Integration to your Shippable Account
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
@@ -124,7 +124,8 @@ integrations:
 
 ```
 
-### Important note for customers overriding default image for CI
+### Using a custom image for CI
+
 If you are using a custom image for your CI workflow, we will try to login to ECR on your behalf from inside your CI build container. This means that you will need the **AWS Command Line Interface (CLI)** installed inside your custom image if you want this to succeed, else you will get a `aws: command` not found error.
 
 You can solve this in 2 ways:
@@ -140,7 +141,7 @@ integrations:
 ```
 If `agent_only` is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to ECR in the `pre_ci` and `push` sections of the yml.
 
--  If you want to use docker commands to interact with ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your **Dockerfile**to install the AWS CLI:
+-  If you want to use docker commands to interact with ECR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then include the following in your **Dockerfile** to install the AWS CLI:
 ```
 sudo pip install awscli
 ```
@@ -152,7 +153,7 @@ the image to Amazon ECR.
 
 **Source code:**  [devops-recipes/ci-push-amazon-ecr](https://github.com/devops-recipes/ci-push-amazon-ecr).
 
-**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr/runs/8/1/console" target="_blank"> CI build on Shippable</a>
+**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr/runs/8/1/console"> CI build on Shippable</a>
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/59006c891fb3ec0700e1d646/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-amazon-ecr)
 

@@ -52,8 +52,7 @@ First, you need to soft-delete a job by removing it from your `shippable.jobs.ym
 To completely remove a job from the system, you need to hard delete it through the UI. To do this:
 
 * Go to your Subscription page and click on the `Pipelines` tab
-* Click on the `Jobs` pill
-* You will find a list of soft deleted jobs at the bottom of the page. To hard delete, just click the `Delete` button for the job you want to hard delete.
+* You will find a list of soft deleted jobs at the bottom of your SPOG. To hard delete, just right click on the job and click `Delete`.
 
 A job must be soft deleted before it can be hard deleted.
 
