@@ -34,8 +34,8 @@ After completing the setup step, you'll configure the following pipeline
 resources and jobs:
 
 -  resources:
-    *  **cliconfig** - to configure the default aws cli settings
-    *  **gitrepo** - contains your Ansible scripts
+    *  **cliConfig** - to configure the default aws cli settings
+    *  **gitRepo** - contains your Ansible scripts
     *  **integration** - to store you ssh key for use by ansible
 -  jobs
     *  **runcli** - for executing your Ansible scripts
@@ -45,15 +45,15 @@ inputs to your pipeline:
 
 ```yaml
 # config for awscli 
-  - name: myawscliconfig
-    type: cliconfig
+  - name: myawscliConfig
+    type: cliConfig
     integration: myawsintegration # replace with your aws integration name
     pointer:
       region: us-east-1 # replace with your aws region
 
 # source code repo holding Ansible scripts to be used in pipeline
   - name: mygithubrepo
-    type: gitrepo
+    type: gitRepo
     integration: myscmintegration # replace with your scm integration name
     pointer:
       sourcename: source-code-org/repo
