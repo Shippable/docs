@@ -3,7 +3,7 @@ sub_section: Pushing artifacts
 
 #Pushing Artifacts to S3
 
-You can push your artifacts to S3 in any section [of your yml](../reference/ci-yml/).
+You can push your artifacts to S3 in any section [of your yml](../reference/shippable-yml/).
 
 ##Setup
 

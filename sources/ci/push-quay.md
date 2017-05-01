@@ -3,7 +3,7 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to Quay.io
 
-You can push your image to Quay.io in any section [of your yml](../reference/ci-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to Quay.io in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 
