@@ -105,7 +105,7 @@ from your 'terminate' actions. In this manner you can easily trigger either
 action on-demand or via automated triggers.
 
 To set up this Pipeline, simply separate your provision and terminate actions 
-into separate playbooks and name the 'provision' job as an input to the 
+into separate jobs and name the 'provision' job as an input to the 
 'terminate' job.
 
 `shippable.jobs.yml`:
