@@ -223,7 +223,7 @@ pages:
       - runCLI: reference/job-runcli.md
       - runSH: reference/job-runsh.md
       - jenkinsJob: reference/job-jenkinsjob.md
-    - Resources:
+    - Resources: 
       - Overview: reference/resources-overview.md
       - ciRepo: reference/resource-cirepo.md
       - cliConfig: reference/resource-cliconfig.md
