@@ -67,6 +67,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |PROJECT_ID | ID of the Shippable Project. |
 |PULL_REQUEST		 |Pull request number if the job is a pull request. If not, this will be set to **false**. |
 |PULL_REQUEST_BASE_BRANCH | Name of the branch that the pull request will be merged into. It should be the same as BASE_BRANCH.|
+|PULL_REQUEST_REPO_FULL_NAME | Full name of the repository from where the pull request originated.|
 |RACK_ENV 		 | test|
 |RAILS_ENV		 |test |
 |REPO_FULL_NAME     | Full name of the repository currently being built (eg. `Shippable/support`).|
