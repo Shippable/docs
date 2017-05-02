@@ -74,20 +74,17 @@ scripts to provision on AWS from your pipeline:
             cd /build/previousState
             if [[ -f terraform.tfstate ]]; then 
               cp terraform.tfstate $PROVISION_AWS_TERRAFORM_REPO_STATE
-            fi
- 
+            fi;
         # Set AWS credentials for use by Terraform CLI
         - script: >
             export 
             AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID 
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
             AWS_DEFAULT_REGION=$MYAWSCLICONFIG_POINTER_REGION
-
         # Execute Terraform script
         - script: |
             cd $MYGITHUBREPO_STATE  
             terraform apply
-   
    # Save terraform.tfstate file for use in subsequent jobs
     always:
       - script: |
