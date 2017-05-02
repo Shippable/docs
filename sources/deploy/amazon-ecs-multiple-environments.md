@@ -46,9 +46,18 @@ jobs:
 Shippable managed deployments give you a ton of flexibility in how you structure your pipeline.  Deploy jobs accept manifests as inputs, but can also accept other deploy jobs, by themselves or in combination with manifests.  This allows you to put your pipeline together in whatever way works best for your system while maintaining a simple visual on the whole process.  This page will discuss a couple of the most common scenarios involving multiple deployment environments.
 
 ### Serial Environments
-One common scenario for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate clusters.  Lets set this up in our pipeline so we can see how it works.
 
-Start by adding two `params` resources, each one having a unique ENV for the cluster it will be deployed to.
+```
+CI -> Amazon ECR -> manifest -> deploy to beta -> deploy to production
+```
+
+- each environment gets its own unique parameters and settings
+- environments each deploy to a different cluster
+- beta environment is automatically triggered
+- production environment is manual-deploy only
+
+
+Add two `params` resources, each one having a unique ENV for the cluster it will be deployed to.
 
 ```
 resources:
@@ -67,7 +76,7 @@ resources:
 
 ```
 
-We'll also need two clusters to deploy to.
+Add two clusters to deploy to.
 
 ```
 resources:
@@ -76,19 +85,22 @@ resources:
     type: cluster
     integration: dr-aws
     pointer:
-      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      sourceName : "deploy-ecs-beta" #name of the cluster to which we are deploying
       region: "us-east-1"
 
   - name: deploy-ecs-multi-env-prodcluster
     type: cluster
     integration: dr-aws
     pointer:
-      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      sourceName : "deploy-ecs-prod" #name of the cluster to which we are deploying
       region: "us-east-1"
 
 ```
 
-Finally, lets add two deploy jobs. The first one (beta) should take the beta params, beta cluster, and the manifest as `IN` statements.  The second deploy job (prod) should take the beta deploy job, prod params, and prod cluster as `IN` statements.
+Add two deploy jobs:
+
+- The beta job should take the beta params, beta cluster, and the manifest as `IN` statements.  
+- The prod job should take the beta deploy job, prod params, and prod cluster as `IN` statements.
 
 ```
 jobs:
@@ -112,7 +124,7 @@ jobs:
 
 ```
 
-Notice that the production deploy job has several `switch: off` statements.  We want to make sure that no one accidentally deploys to production by changing one of its inputs!
+Using `switch: off` prevents accidental deployments to production.
 
 Your pipeline should look like this:
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-pipeline.png" alt="serial pipeline">
@@ -120,13 +132,22 @@ Your pipeline should look like this:
 Notice the dotted lines connecting the resources to production. This is the visual representation of the break in automation that `switch: off` causes.
 
 ### Parallel Environments
-Another common scenario is the blue-green deployment.  In this situation, you essentially have two separate copies of your application, ready to be deployed, with only one environment running at any given time.  When a change is made to your application, you deploy the second environment. Once that environment is running and validated, you can stop the old environment for a seamless transition.
 
-Another scenario is the ability to deploy to multiple regions at the same time. Imagine that your application is running in multiple regions across AWS, and on each region there is an ECS cluster.  Shippable allows you to take the same manifest and send it to as many endpoints as you like.  You can even add extra region-specific ENVs and docker options, while maintaining common core manifest settings.
+```
+CI -> Amazon ECR -> manifest -> blue
+                             -> green
+```
 
-Lets look at a simple case of parallel deployments.  The concept of an "environment" depends heavily on the application.  Some users might divide their application into multiple environments on the same cluster, multiple clusters in the same region, or multiple regions each with their own set of clusters.  In this example, we're going to deploy to the same cluster endpoint.
+- both environments will be connected to the same manifest job
+- each environment has its own cluster
+- clusters can be divided in a variety of ways:
+    - different parameters on same physical cluster
+    - different clusters on same region
+    - different clusters on different regions
+    - different clusters on different cloud providers
 
-Start by adding some new resources.  We're going to use a `params` resource to distinguish the environments. Both environments will be deployed to the same cluster.
+
+Add a `params` resource to distinguish the different environments within the containers.  We'll deploy both images to the same cluster using different parameters.
 
 ```
 resources:
@@ -151,7 +172,8 @@ resources:
 
 ```
 
-Now we should add two deploy jobs. One for our "blue" environment and one for our "green" environment.  These jobs will both take the same manifest as input.
+
+Add two deploy jobs: one for "blue" and one for "green".  Both will take the same manifest as input.
 ```
 jobs:
 
@@ -172,18 +194,17 @@ jobs:
       - IN: deploy-ecs-multi-env-maincluster
 ```
 
-Notice that on each deploy job, beneath the `IN` statement for the manifest there is a section that says `switch: off`.  This is how to tell Shippable not to automatically run the deployment on every change.  For this simple blue-green setup, we want to manually tell Shippable when each environment should be deployed, rather than have them both be deployed automatically on every change.
+Use `switch: off` to prevent auto-deployments.  In this case, we want both environments to be manual deployments.
 
 Once you add these to your pipeline, check out your SPOG. It should look something like this:
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-pipeline.png" alt="blue-green pipeline">
 
-Since `switch: off` is present on the manifest input, you'll have to right-click and select 'Run Job' to start the deployment. Make sure that the manifest job has run first so that the latest version is available for deployment.
+First, run the manifest job.  Then, since `switch: off` is present on the manifest input, you'll have to right-click and select **Run Job** to start the deployment.
 
 If you're following along with our sample app, you should be able to access the page, on which you can see the environment, injected by the `params` resource.
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-blue.png" alt="blue-green pipeline">
-
 
 
 ### Advanced
@@ -191,7 +212,7 @@ The differences between environments often go beyond a simple cluster change.  S
 
 Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
 
-We'll add two more resources to the list which allow us to modify the different docker options.  In production, we want to allocate more memory to our container, since the usage is much higher. For a full list of available options, see the [reference page](../reference/resource-dockeroptions).
+Add two [dockerOptions resources](../reference/resource-dockeroptions) to the pipeline. One for each deploy job.
 ```
 resources:
 
@@ -206,8 +227,9 @@ resources:
       memory: 128
 
 ```
+We're allocating more memory for production since it runs with much higher load.
 
-We should also modify our params resources.  We're going to add some settings to help our container integrate with slack. [Here are some instructions for creating the integration](../reference/int-slack).  We want our application to communicate with a different channel based on whether its running in beta or in production, but in both cases, the token being used is the same.
+Modify our existing params resource to help us [integrate with Slack](../reference/int-slack).  We'll want to send messages to a different channel depending on which environment we're in.
 
 ```
 resources:
@@ -246,11 +268,11 @@ After deploying beta to the Amazon ECS cluster, you can look up the running task
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-beta-results.png" alt="serial beta task definition">
 
 
-Now, switch back to your SPOG view, right-click the production deploy job, and click "run job".  Once the deployment has finished, you can examine the task definition. You should see that its settings are properly modified to reflect the environment, while the token from the original manifest remains unchanged.
+Now run the production deploy job.  Once the deployment has finished, you can examine the task definition. You should see that its settings are properly modified to reflect the environment, while the token from the original manifest remains unchanged.
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
 
-NOTE: It's not recommended to directly commit tokens of any kind to source control, even when using a private repository. Shippable solves this by providing users the opportunity to securely encrypt their params on the project settings page, so that you can still configure your deployment in your yml without the risk of exposing private keys to anyone. [Check here for instructions on using secure encrypted variables](../ci/env-vars#secure-variables)
+NOTE: Directly committing a private token is not recommended. Instead, the same functionality can be achieved by using a [key/value integration](../reference/int-key-value) combined with an [integration resource](../reference/resource-integration).
 
 ## Sample project
 
@@ -259,8 +281,6 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 **Source code:**  [devops-recipes/deploy-ecs-multi-env](https://github.com/devops-recipes/deploy-ecs-multi-env)
 
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-env/runs/4/1/console)
-
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58fa52452ddacd090043d8a2/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-env)
 
 
@@ -268,4 +288,4 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 
 In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
-For unmanaged jobs, you can run your awscli commands against any cluster and region that you want. Deploying to one or more environments is as simple as running `aws configure set region us-east-1` or simply specifying a different `--cluster` when creating a service.
+For unmanaged jobs, you can run your awscli commands against any cluster and region that you want. Deploying to one or more environments can be as easy as changing your default region on the awscli, or simply specifying a different `--cluster` when creating a service.
