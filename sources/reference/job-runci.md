@@ -44,4 +44,12 @@ jobs:
 
 You can configure your `shippable.yml` to update the `OUT` resources for fully integrated pipeline workflows.  For instructions on how to update resources [check out our tutorial on connecting CI with pipelines](/ci/trigger-pipeline-jobs/).
 
-Note that runCI jobs won't process the `TASK` section.  The `TASK` section is automatically configured to run the workflow specified in your `shippable.yml`.  Because of this, you also cannot use `NOTIFY` sections in the runCI job.  Instead, notifications should be set up directly in your CI project's `shippable.yml`, which you can read about [here].
+Note that runCI jobs won't process the `TASK` section.  The `TASK` section is automatically configured to run the workflow specified in your `shippable.yml`.  Because of this, you also cannot use `NOTIFY` sections in the runCI job.  Instead, notifications should be set up directly in your CI project's `shippable.yml`, which you can read about in the [Sending notifications docs](/ci/send-notifications/).
+
+##Environment variables
+
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job.
+
+A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/reference/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
+
+Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/environment-variables/).

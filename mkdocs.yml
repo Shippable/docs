@@ -215,6 +215,7 @@ pages:
       - shippable.triggers.yml: reference/shippable-triggers-yml.md
     - Jobs:
       - Overview: reference/jobs-overview.md
+      - Unmanaged jobs: reference/jobs-unmanaged.md
       - deploy: reference/job-deploy.md
       - manifest: reference/job-manifest.md
       - provision: reference/job-provision.md
@@ -223,7 +224,7 @@ pages:
       - runCLI: reference/job-runcli.md
       - runSH: reference/job-runsh.md
       - jenkinsJob: reference/job-jenkinsjob.md
-    - Resources: 
+    - Resources:
       - Overview: reference/resources-overview.md
       - ciRepo: reference/resource-cirepo.md
       - cliConfig: reference/resource-cliconfig.md
