@@ -1,5 +1,5 @@
 var client = algoliasearch('JD256SSXSD', '645cadc9c306b19f70bac41e09ad2ecc');
-var index = client.initIndex('shippableRCDocs');
+var index = client.initIndex('rcdocsindex');
 var autocompleteOptions = {
   hint: true, // auto suggestions on user inputs
   openOnFocus: true // opens the dropdown menu when the input is focused
@@ -30,9 +30,18 @@ $('#shippable-search').autocomplete(autocompleteOptions, [
         for (var key in suggestion._highlightResult) {
           // To find the text which has the matched characters with the input value
           if (suggestion._highlightResult[key].matchLevel === 'full') {
-            var start = suggestion._highlightResult[key].value.indexOf("<em>");
-            var end = suggestion._highlightResult[key].value.indexOf("</em>");
-            searchResult = suggestion._highlightResult[key].value.substring(start - 10, end + 30);
+            var content = suggestion._highlightResult[key].value;
+            var start = content.indexOf("<em>") + 4;
+            var end = content.indexOf("</em>");
+            searchResult = content.substr(start, end - start) + content.substr(end + 5, 30);
+
+            if (key.startsWith("page_heading")) {
+                suggestion.link = suggestion.page_map[key];
+            } else {
+              suggestion.link = suggestion.page_baselink;
+            }
+
+            break;
           }
         }
         return searchResult + '<br>' + '<p>' + suggestion.main_section +
@@ -42,5 +51,5 @@ $('#shippable-search').autocomplete(autocompleteOptions, [
     }
   }
 ]).on('autocomplete:selected', function (event, suggestion) {
-  window.location = suggestion.page_link;
+  window.location = suggestion.link;
 });
