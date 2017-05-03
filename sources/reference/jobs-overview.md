@@ -27,15 +27,16 @@ We currently support the following jobs:
 
 - [release](job-release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
 
-- [runCLI](job-runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
-
 - [jenkinsJob](job-jenkinsJob/): This managed job type allows you to connect an existing Jenkins job to your Shippable pipeline.
 
 **Unmanaged**
 
+- [runCI](job-runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
+
 - [runSh](job-runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
 
-- [runCI](job-runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
+- [runCLI](job-runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
+
 
 Jobs, [resources](resources-overview/), and triggers together can be used to model any deployment pipeline, regardless of the complexity of your application.
 

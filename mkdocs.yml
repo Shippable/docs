@@ -101,16 +101,17 @@ pages:
       - Digital Ocean: ci/deploy-to-digital-ocean.md
     - Advanced config:
       - Caching: ci/caching.md
+      - Using a custom Docker image: ci/custom-docker-image.md
       - Triggering parallel jobs: ci/matrix-builds.md
       - Building pull requests: ci/pull-request-builds.md
       - Skipping a build: ci/skip-builds.md
       - Using git submodules: ci/git-submodules.md
       - Retrying a command: ci/retry-command.md
       - Using SSH keys: ci/ssh-keys.md
+      - Customizing webhook triggers: ci/configure-webhooks.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
       - Scheduled builds: ci/scheduled-builds.md
-      - Using a custom Docker image: ci/custom-docker-image.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
@@ -215,6 +216,7 @@ pages:
       - shippable.triggers.yml: reference/shippable-triggers-yml.md
     - Jobs:
       - Overview: reference/jobs-overview.md
+      - Unmanaged jobs: reference/jobs-unmanaged.md
       - deploy: reference/job-deploy.md
       - manifest: reference/job-manifest.md
       - provision: reference/job-provision.md
@@ -223,7 +225,7 @@ pages:
       - runCLI: reference/job-runcli.md
       - runSH: reference/job-runsh.md
       - jenkinsJob: reference/job-jenkinsjob.md
-    - Resources: 
+    - Resources:
       - Overview: reference/resources-overview.md
       - ciRepo: reference/resource-cirepo.md
       - cliConfig: reference/resource-cliconfig.md
