@@ -101,16 +101,17 @@ pages:
       - Digital Ocean: ci/deploy-to-digital-ocean.md
     - Advanced config:
       - Caching: ci/caching.md
+      - Using a custom Docker image: ci/custom-docker-image.md
       - Triggering parallel jobs: ci/matrix-builds.md
       - Building pull requests: ci/pull-request-builds.md
       - Skipping a build: ci/skip-builds.md
       - Using git submodules: ci/git-submodules.md
       - Retrying a command: ci/retry-command.md
       - Using SSH keys: ci/ssh-keys.md
+      - Customizing webhook triggers: ci/configure-webhooks.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
       - Scheduled builds: ci/scheduled-builds.md
-      - Using a custom Docker image: ci/custom-docker-image.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
