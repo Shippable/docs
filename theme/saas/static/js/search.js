@@ -26,6 +26,8 @@ $('#shippable-search').autocomplete(autocompleteOptions, [
     templates: {
       suggestion: function(suggestion) {
         var searchResult = '';
+        suggestion.link = suggestion.page_baselink;
+
         // iterating to find the key that matched the input value
         for (var key in suggestion._highlightResult) {
           // To find the text which has the matched characters with the input value
@@ -37,8 +39,6 @@ $('#shippable-search').autocomplete(autocompleteOptions, [
 
             if (key.startsWith("page_heading")) {
                 suggestion.link = suggestion.page_map[key];
-            } else {
-              suggestion.link = suggestion.page_baselink;
             }
 
             break;
