@@ -20,7 +20,7 @@ Before you start, you will need to connect your Docker Private Registry with Shi
 
 ##Basic config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with Amazon ECR using your keys and pushes the image to ECR in the `post_ci` section.
+After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with your Docker Private Registry using your keys and pushes the image to the registry in the `post_ci` section.
 
 ```
 build:
@@ -59,7 +59,7 @@ In addition to the `only` tag which includes specific branches, you can also use
 
 ### Pushing to different accounts based on branch
 
-You can also choose to push your images to different Amazon ECR accounts, depending on branch.
+You can also choose to push your images to different Docker Private Registries, depending on branch.
 
 ```
 build:
@@ -85,7 +85,7 @@ integrations:
 
 ###Pushing the CI container with all artifacts intact
 
-If you are pushing your CI container to Amazon ECR and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
+If you are pushing your CI container to Docker Private Registry and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
 
 ```
 build:
@@ -123,7 +123,7 @@ integrations:
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to a Private Docker Registry.
+the image to a Docker Private Registry.
 
 **Source code:**  [devops-recipes/ci-push-docker-private-registry](https://github.com/devops-recipes/ci-push-docker-private-registry).
 

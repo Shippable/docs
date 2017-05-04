@@ -20,7 +20,7 @@ Before you start, you will need to connect your JFrog account with Shippable so 
 
 ## Basic Config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with JFrog using your keys and pushes the artifacts the `ci` section.
+After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with JFrog using your keys and pushes the artifacts in `ci` section.
 
 ```
 build:
@@ -58,7 +58,7 @@ In addition to the `only` tag which includes specific branches, you can also use
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Quay.io.
+the artifacts to JFrog.
 
 **Source code:**  [devops-recipes/ci-push-to-jfrog](https://github.com/devops-recipes/ci-push-to-jfrog)
 
