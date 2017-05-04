@@ -29,7 +29,7 @@ After completing the Setup step, add the following to the `shippable.yml` for yo
 ```
 build:
   post_ci:
-    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag
+    - docker push aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag
 
 integrations:
   hub:
@@ -48,7 +48,7 @@ By default, your integration is valid for all branches. If you want to only push
 ```
 build:
   post_ci:
-    - if [ "$BRANCH" == "master" ]; then docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag; fi
+    - if [ "$BRANCH" == "master" ]; then docker push aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag; fi
 
 integrations:                               
   hub:
@@ -68,8 +68,8 @@ You can also choose to push your images to different Amazon ECR accounts, depend
 ```
 build:
   post_ci:
-    - if [ "$BRANCH" == "master" ]; then docker push aws-account-id-one.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag; fi
-    - if [ "$BRANCH" == "dev" ]; then docker push aws-account-id-two.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag; fi
+    - if [ "$BRANCH" == "master" ]; then docker push aws-account-id-one.dkr.ecr.region.amazonaws.com/image-name:image-tag; fi
+    - if [ "$BRANCH" == "dev" ]; then docker push aws-account-id-two.dkr.ecr.region.amazonaws.com/image-name:image-tag; fi
 
 integrations:                               
   hub:
@@ -95,8 +95,8 @@ If you are pushing your CI container to Amazon ECR and you want all build artifa
 build:
   post_ci:
     #Commit the container only if you want all the artifacts from the CI step
-    - docker commit $SHIPPABLE_CONTAINER_NAME aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag
-    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag
+    - docker commit $SHIPPABLE_CONTAINER_NAME aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag
+    - docker push aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag
 
 integrations:                               
   hub:
@@ -114,8 +114,8 @@ If you want to push the container image with multiple tags, you can just push tw
 ```
 build:
   post_ci:
-    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag-one
-    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:image-tag-two
+    - docker push aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag-one
+    - docker push aws-account-id.dkr.ecr.region.amazonaws.com/image-name:image-tag-two
 
 integrations:                               
   hub:
