@@ -33,7 +33,7 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 
 ##Basic config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with Quay.io using your keys and pushes the image to ECR in the `post_ci` section.
+After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with Quay.io using your keys and pushes the image to Quay in the `post_ci` section.
 
 ```
 build:

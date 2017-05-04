@@ -52,3 +52,17 @@ build:
 Once you have set this up, you can view your code coverage results in the `Code coverage` tab on your build page.
 
 Check out our blogs on [creating visualizations of your CI test results](http://blog.shippable.com/setting-up-continuous-integration-test-result-visualization) and [setting up code coverage for tests](http://blog.shippable.com/setting-up-code-coverage-visualization-for-tests-in-ci) for additional details.
+
+### Alerts for low coverage
+
+You can set up alerts if the code coverage numbers fall below a specific percentage. To do this:
+
+- Go to your Project in the UI and click on **Settings**
+
+- Click on **Runs config** in the left sidebar menu. You will see a section **Low coverage alert**.
+
+<img src="/images/ci/low-coverage-alert.png" alt="Configure webhook events to trigger builds">
+
+- Click on **Edit** and set the alert threshold to whatever you need. You can also choose to mark builds as **Unstable** if coverage falls below the configured percentage.
+
+- Click on **Save**.

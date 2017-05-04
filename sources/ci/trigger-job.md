@@ -31,20 +31,46 @@ We have written a detailed blog post on how to run scheduled CI builds with the 
 
 ##Configuring build triggers
 
-You can enable or disable triggering of builds for your project, based on specific webhook events on your source control system.
+You can enable or disable triggering of builds for your project based on specific webhook events on your source control system.
 
-To do this, go to the **Settings** tab of your project on Shippable and click on **Runs config** in the left sidebar menu. Find the section for **Configure webhook events for triggering builds**.
+To do this:
 
-<img src="../../images/ci/webhook-event-triggers.png" alt="Configure Webhook events
-to trigger builds">
+- Go to your Project in the UI and click on **Settings**
+- Click on **Runs config** in the left sidebar menu. You will see a section **Configuring webhook events for triggering builds**.
 
-Configure what you need:
+<img src="/images/ci/configure-job-triggers.png" alt="Configure webhook events to trigger builds">
 
--  **Pull Requests**: Click **Disable** to stop the triggering of builds when pull requests are opened or updated for this project. Default value is Enabled.
--  **Commits**: Click **Disable** to
-stop the triggering of builds for code commits to this project. Default value is Enabled.
--  **Tags**: Click **Enable** to trigger builds for all git tag push events
-on the project. Default value is Disabled.
--  **Releases**: Click **Enable** to trigger builds for all GitHub release
-events on the project. Default value is Disabled. This
-feature is currently supported only for GitHub.
+- You can configure the following:
+    - **Pull Requests**: Default value is **Enabled**. Every pull request triggers a build on Shippable when opened. Click
+`Disable` to stop the triggering of builds for pull requests.
+    - **Commits**: Default value is **Enabled**. Every commit to the repository triggers a build on Shippable. Click `Disable` to
+stop the triggering of builds for commits.
+    - **Tags**: Default value is **Disabled**. To trigger builds for git tag push events, click `Enable`.
+    - **Releases**: Default value is **Disabled**. To trigger builds for GitHub release
+events, click `Enable`.This feature is supported only for GitHub.
+
+## Pausing your project
+
+You can 'Pause' a project to stop triggering builds for all webhook events. You will still be able to trigger a build manually.
+
+You can 'Resume' a paused project at any time, which will re-establish webhooks and builds will be triggered as expected.
+
+## Serializing jobs for a project
+
+You can disable parallel jobs for a allows you to restrict job processing based on branch name.
+
+When this setting is disabled, any waiting job will not begin until all processing
+jobs have completed.
+
+You can further customize this by selecting the specific branches that you don't
+want running in parallel.
+
+<img src="/images/ci/run-parallel-jobs.png" alt="Run Parallel Jobs">
+
+In this example, if jobs are triggered simultaneously for branches `master` and
+`prtest`, only one job will be allowed to run at a time, even if the subscription
+has two idle nodes.  
+
+However, if this project were to trigger a job on a branch that was not selected, it would start as soon as it finds  an available node.
+
+The serial jobs will run in the order that they were queued.

@@ -108,9 +108,10 @@ pages:
       - Using git submodules: ci/git-submodules.md
       - Retrying a command: ci/retry-command.md
       - Using SSH keys: ci/ssh-keys.md
-      - Customizing webhook triggers: ci/configure-webhooks.md
+      - Canceling builds: ci/cancel-builds.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
+      - Build badges: ci/build-badges.md
       - Scheduled builds: ci/scheduled-builds.md
     - Language guide:
       - Overview: ci/supported-languages.md
