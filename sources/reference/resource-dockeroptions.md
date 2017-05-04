@@ -19,7 +19,7 @@ resources:
       cpuShares: <number>                       #optional
 
       portMappings:                             #optional
-        - "80:80"
+        - "80:80/tcp"                           #hostPort:containerPort/protocol (udp|tcp)
 
       links:                                    #optional, containerName:alias
         - <container name>:<alias>
