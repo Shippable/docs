@@ -12,7 +12,6 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 #### Generating access token for Quay.io
 -  Login to your Quay.io account and click on **Applications** in the top menu.
 -  Select the organization under which you want to create an **access token**.
--  Select the organization under which you want to create an **access token**.
 -  Click on **Applications** in the left side panel.
 -  Click on **Create New Application**.
 -  Enter the application name and hit enter.
