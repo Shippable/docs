@@ -1,3 +1,4 @@
+page_main_title: Slack
 main_section: Reference
 sub_section: Integrations
 page_title: Slack integration

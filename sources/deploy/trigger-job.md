@@ -1,3 +1,4 @@
+page_main_title: Triggering deploy jobs
 main_section: Deploy
 sub_section: Before you start
 

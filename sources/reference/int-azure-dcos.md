@@ -1,3 +1,4 @@
+page_main_title: Azure DC/OS
 main_section: Reference
 sub_section: Integrations
 page_title: Azure DC/OS integration

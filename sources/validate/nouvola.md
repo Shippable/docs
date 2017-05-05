@@ -1,3 +1,4 @@
+page_main_title: Nouvola
 main_section: Validate
 sub_section: Running performance tests
 

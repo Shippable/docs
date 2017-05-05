@@ -1,3 +1,4 @@
+page_main_title: Building pull requests
 main_section: CI
 sub_section: Advanced config
 

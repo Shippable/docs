@@ -1,3 +1,4 @@
+page_main_title: Yml structure
 main_section: CI
 sub_section: Overview
 # Configure your build

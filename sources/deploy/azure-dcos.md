@@ -1,3 +1,4 @@
+page_main_title: Azure DC/OS Basic scenario
 main_section: Deploy
 sub_section: Azure DC/OS
 

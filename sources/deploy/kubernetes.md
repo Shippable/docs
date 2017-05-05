@@ -1,3 +1,4 @@
+page_main_title: Kubernetes Default scenario
 main_section: Deploy
 sub_section: Kubernetes
 

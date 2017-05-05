@@ -1,3 +1,4 @@
+page_main_title: Push Docker image to Amazon ECR
 main_section: CI
 sub_section: Pushing artifacts
 

@@ -1,3 +1,4 @@
+page_main_title: Push to JFrog Artifactory
 main_section: CI
 sub_section: Pushing artifacts
 

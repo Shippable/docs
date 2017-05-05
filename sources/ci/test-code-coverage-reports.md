@@ -1,3 +1,4 @@
+page_main_title: Overview with default scenario
 main_section: CI
 sub_section: Configuring test and code coverage
 

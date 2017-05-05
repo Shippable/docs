@@ -1,3 +1,4 @@
+page_main_title: Choosing a build image
 main_section: CI
 sub_section: Preparing your environment
 

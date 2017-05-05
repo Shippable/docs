@@ -1,3 +1,4 @@
+page_main_title: Gitlab
 main_section: Reference
 sub_section: Integrations
 page_title: Gitlab integration

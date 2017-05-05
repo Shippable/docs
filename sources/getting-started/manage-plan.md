@@ -1,3 +1,4 @@
+page_main_title: Managing your plan
 main_section: Getting started
 sub_section: Plans and Billing
 

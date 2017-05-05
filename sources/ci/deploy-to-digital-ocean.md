@@ -1,3 +1,4 @@
+page_main_title: Digital Ocean
 main_section: CI
 sub_section: Deployments
 page_title: Deploying to Digital Ocean

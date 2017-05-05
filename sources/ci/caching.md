@@ -1,3 +1,4 @@
+page_main_title: Caching
 main_section: CI
 sub_section: Advanced config
 page_title: Using Caching in your CI/CD projects

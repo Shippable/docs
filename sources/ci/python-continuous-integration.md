@@ -1,3 +1,4 @@
+page_main_title: Python
 main_section: CI
 sub_section: Language guide
 

@@ -1,3 +1,4 @@
+page_main_title: GKE Using custom pod templates
 main_section: Deploy
 sub_section: GKE
 

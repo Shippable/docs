@@ -1,3 +1,4 @@
+page_main_title: Customizing webhook triggers
 main_section: CI
 sub_section: Advanced config
 page_title: Configuring triggers for your project

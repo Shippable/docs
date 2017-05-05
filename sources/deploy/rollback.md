@@ -1,3 +1,4 @@
+page_main_title: Rolling back deployments
 main_section: Deploy
 sub_section: Rolling back deployments
 

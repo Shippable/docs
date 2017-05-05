@@ -1,3 +1,4 @@
+page_main_title: Deploying artifacts
 main_section: Deploy
 sub_section: Node Cluster on any cloud
 

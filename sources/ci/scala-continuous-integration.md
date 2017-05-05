@@ -1,3 +1,4 @@
+page_main_title: Scala
 main_section: CI
 sub_section: Language guide
 # Continuous Integration with Scala
