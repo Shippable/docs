@@ -1,3 +1,4 @@
+page_main_title: Stable
 main_section: Reference
 sub_section: Machine Images
 page_title: Description of what is available in Machine Image Stable

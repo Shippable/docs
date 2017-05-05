@@ -1,3 +1,4 @@
+page_main_title: GitHub
 main_section: Reference
 sub_section: Integrations
 page_title: GitHub integration

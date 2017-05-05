@@ -1,3 +1,4 @@
+page_main_title: Run your first build
 main_section: Getting started
 sub_section: ci sample
 page_title: Running your first sample build

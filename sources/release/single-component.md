@@ -1,3 +1,4 @@
+page_main_title: From Single Service/Component
 main_section: Release
 sub_section: Creating a release
 page_title: From Single Service / Component

@@ -1,3 +1,4 @@
+page_main_title: AWS EBS
 main_section: CI
 sub_section: Deployments
 page_title: AWS Elastic Beanstalk integration

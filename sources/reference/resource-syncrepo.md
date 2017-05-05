@@ -1,3 +1,4 @@
+page_main_title: syncRepo
 main_section: Reference
 sub_section: Resources
 

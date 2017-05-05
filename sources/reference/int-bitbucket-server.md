@@ -1,3 +1,4 @@
+page_main_title: Bitbucket Server
 main_section: Reference
 sub_section: Integrations
 page_title: Bitbucket Server integration

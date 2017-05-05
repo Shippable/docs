@@ -1,3 +1,4 @@
+page_main_title: Tracing resources
 main_section: Deploy
 sub_section: Before you start
 page_title: Unified Pipeline Trace

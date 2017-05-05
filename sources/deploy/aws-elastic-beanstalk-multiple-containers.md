@@ -1,3 +1,4 @@
+page_main_title: Deploying multi-container environments
 main_section: Deploy
 sub_section: AWS Elastic Beanstalk
 

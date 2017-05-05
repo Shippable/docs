@@ -1,3 +1,4 @@
+page_main_title: Building blocks
 main_section: Getting started
 sub_section: Overview
 

@@ -1,3 +1,4 @@
+page_main_title: version
 main_section: Reference
 sub_section: Resources
 

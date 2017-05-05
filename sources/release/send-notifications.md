@@ -1,3 +1,4 @@
+page_main_title: Sending notifications
 main_section: Release
 sub_section: Before you start
 

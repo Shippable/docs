@@ -1,3 +1,4 @@
+page_main_title: Unsupported languages
 main_section: CI
 sub_section: Language guide
 #Building unsupported languages

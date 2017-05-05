@@ -1,3 +1,4 @@
+page_main_title: Integrations
 main_section: Getting started
 sub_section: Your account
 

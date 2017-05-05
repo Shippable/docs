@@ -1,3 +1,4 @@
+page_main_title: SSH Keys
 main_section: Reference
 sub_section: Integrations
 page_title: SSH keys integration

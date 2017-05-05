@@ -1,3 +1,4 @@
+page_main_title: Go
 main_section: CI
 sub_section: Language guide
 page_title: Continuous integration with Go

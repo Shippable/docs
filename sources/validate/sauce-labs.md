@@ -1,3 +1,4 @@
+page_main_title: Sauce Labs
 main_section: Validate
 sub_section: Running integration tests
 

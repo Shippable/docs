@@ -1,3 +1,4 @@
+page_main_title: GKE Basic scenario
 main_section: Deploy
 sub_section: GKE
 

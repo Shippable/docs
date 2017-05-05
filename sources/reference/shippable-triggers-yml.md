@@ -1,3 +1,4 @@
+page_main_title: shippable.triggers.yml
 main_section: Reference
 sub_section: Configuration
 

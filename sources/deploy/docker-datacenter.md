@@ -1,3 +1,4 @@
+page_main_title: Docker Datacenter Basic scenario
 main_section: Deploy
 sub_section: Docker Datacenter
 

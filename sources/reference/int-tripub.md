@@ -1,3 +1,4 @@
+page_main_title: Joyent Triton
 main_section: Reference
 sub_section: Integrations
 page_title: Joyent Triton integration
