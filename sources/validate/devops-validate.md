@@ -1,3 +1,4 @@
+page_main_title: What is Validate?
 main_section: Validate
 sub_section: Before you start
 

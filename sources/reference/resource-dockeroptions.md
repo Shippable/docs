@@ -1,3 +1,4 @@
+page_main_title: dockerOptions
 main_section: Reference
 sub_section: Resources
 
@@ -19,7 +20,7 @@ resources:
       cpuShares: <number>                       #optional
 
       portMappings:                             #optional
-        - "80:80"
+        - "80:80/tcp"                           #hostPort:containerPort/protocol (udp|tcp)
 
       links:                                    #optional, containerName:alias
         - <container name>:<alias>

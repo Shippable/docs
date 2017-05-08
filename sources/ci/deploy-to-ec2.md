@@ -1,3 +1,4 @@
+page_main_title: Amazon EC2
 main_section: CI
 sub_section: Deployments
 page_title: Deploying to EC2 using CodeDeploy

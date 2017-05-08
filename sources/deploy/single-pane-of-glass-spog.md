@@ -1,3 +1,4 @@
+page_main_title: Single pane of glass
 main_section: Deploy
 sub_section: Before you start
 

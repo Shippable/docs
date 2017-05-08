@@ -1,3 +1,4 @@
+page_main_title: Managing your plan
 main_section: Getting started
 sub_section: Plans and Billing
 
@@ -18,6 +19,7 @@ You should upgrade your Subscription to a paid plan in the following scenarios:
 - You need to run more than 150 builds/month for private projects
 - You are seeing regularly queued builds and want to get build results faster. Buying more minions will
 enable parallel execution of builds and reduce queuing time.
+- You need more cores or RAM to run your builds
 
 The number of parallel builds you can run for your Subscription is equal to the number of minions in your plan.
 
@@ -37,6 +39,8 @@ To get to the Subscription Billing page:
 ##Upgrade your plan
 
 To buy more build minions, simply slide the slider to the number of minions you need.
+
+You can pick the size of your minions from the options in the dropdown.
 
 Choose a credit card, or Enter a new credit card and click on Buy.
 

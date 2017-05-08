@@ -1,3 +1,4 @@
+page_main_title: Specifying branches to build
 main_section: CI
 sub_section: Preparing your environment
 page_title: Including or Excluding branches for Continuous Integration

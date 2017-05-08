@@ -1,3 +1,4 @@
+page_main_title: Concepts
 main_section: Getting started
 sub_section: Overview
 

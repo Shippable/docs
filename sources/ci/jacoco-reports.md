@@ -1,3 +1,4 @@
+page_main_title: JaCoCo reports
 main_section: CI
 sub_section: Configuring test and code coverage
 page_title: Advanced Reporting with JaCoCo

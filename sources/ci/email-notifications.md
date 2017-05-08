@@ -1,3 +1,4 @@
+page_main_title: Sending messages to Email
 main_section: CI
 sub_section: Sending notifications
 page_title: Sending email notifications

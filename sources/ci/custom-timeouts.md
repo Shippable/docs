@@ -1,3 +1,4 @@
+page_main_title: Customizing timeouts
 main_section: CI
 sub_section: Advanced config
 page_title: Build Timeouts

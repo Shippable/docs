@@ -1,3 +1,4 @@
+page_main_title: Single Pane of Glass
 main_section: Getting started
 sub_section: Overview
 

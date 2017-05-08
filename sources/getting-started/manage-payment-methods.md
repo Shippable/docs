@@ -1,3 +1,4 @@
+page_main_title: Managing payment methods
 main_section: Getting started
 sub_section: Your account
 

@@ -1,3 +1,4 @@
+page_main_title: Why CI?
 main_section: CI
 sub_section: Overview
 # Getting started with CI

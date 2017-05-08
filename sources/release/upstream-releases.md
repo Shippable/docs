@@ -1,3 +1,4 @@
+page_main_title: From upstream releases
 main_section: Release
 sub_section: Creating a release
 

@@ -1,3 +1,4 @@
+page_main_title: Using git submodules
 main_section: CI
 sub_section: Advanced config
 page_title: Using git submodules in your Continuous Integration/Continuous Delivery projects

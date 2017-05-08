@@ -1,3 +1,4 @@
+page_main_title: Retrying a command
 main_section: CI
 sub_section: Advanced config
 page_title: Retrying a command during CI

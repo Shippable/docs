@@ -1,3 +1,4 @@
+page_main_title: Deploying artifacts
 main_section: Deploy
 sub_section: Node Cluster on any cloud
 
@@ -67,12 +68,10 @@ resources:
     type: params
     version:
       params:
-        manifestName: deploy-nodecluster-basic-manifest
-        fileName: deploy-nodecluster-basic-appfile
         PORT: 8888
         ENVIRONMENT: nodeCluster
 ```
-This is a [params](../reference/resource-params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.  The other variables are used to simplify the process of extracting our source once it's copied to our nodes.
+This is a [params](../reference/resource-params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
 
 We'll also need some jobs that utilize these new resources.
 ```
@@ -112,15 +111,17 @@ jobs:
       - IN: deploy-nodecluster-basic-manifest
       - IN: deploy-nodecluster-basic-cluster
       - TASK:
-        - script: cd ~
-        - script: tar zxf /tmp/shippable/$manifestName/$fileName/$fileName.tar.gz
         - script: forever stopall
+        - script: mkdir -p ~/deploy-nodecluster-basic-manifest && mkdir -p deploy-nodecluster-basic-manifest-2
+        - script: cd ~/deploy-nodecluster-basic-manifest
+        - script: source /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/package.env
+        - script: tar zxf /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/deploy-nodecluster-basic-appfile.tar.gz
         - script: forever start ./bin/www
 ```
 
 Unlike deployments to our supported container services, deployments to nodeclusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your nodecluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
 
-In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the environment variables that we've set up in the params object to build the path to the downloaded file.
+In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
 
 Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
 

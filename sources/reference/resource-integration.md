@@ -1,3 +1,4 @@
+page_main_title: integration
 main_section: Reference
 sub_section: Resources
 

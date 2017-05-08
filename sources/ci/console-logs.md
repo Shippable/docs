@@ -1,3 +1,4 @@
+page_main_title: Console logs
 main_section: CI
 sub_section: Advanced config
 

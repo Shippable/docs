@@ -1,3 +1,4 @@
+page_main_title: Docker Cloud Basic scenario
 main_section: Deploy
 sub_section: Docker cloud
 

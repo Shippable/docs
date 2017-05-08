@@ -1,3 +1,4 @@
+page_main_title: shippable.resources.yml
 main_section: Reference
 sub_section: Configuration
 

@@ -1,3 +1,4 @@
+page_main_title: With Terraform
 main_section: Provision
 sub_section: Provisioning AWS infrastructure
 

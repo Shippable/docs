@@ -1,3 +1,4 @@
+page_main_title: Redis
 main_section: CI
 sub_section: Working with services
 

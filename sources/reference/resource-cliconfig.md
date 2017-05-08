@@ -1,3 +1,4 @@
+page_main_title: cliConfig
 main_section: Reference
 sub_section: Resources
 

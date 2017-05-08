@@ -1,55 +1,79 @@
-var client = algoliasearch('JD256SSXSD', '645cadc9c306b19f70bac41e09ad2ecc');
-var index = client.initIndex('rcdocsindex');
-var autocompleteOptions = {
-  hint: true, // auto suggestions on user inputs
-  openOnFocus: true // opens the dropdown menu when the input is focused
-};
-var searchOptions = {
-  hitsPerPage: 5 // represents the total number of searchResults
-};
-$('#shippable-search').autocomplete(autocompleteOptions, [
-  {
-    source: function(query, callback) {
-      index.search(query, searchOptions,
-        function(error, content) {
-          if (error) {
-            callback([]);
-            return;
+  var client = algoliasearch('JD256SSXSD', '645cadc9c306b19f70bac41e09ad2ecc');
+  var index = client.initIndex('rctestindex');
+  var autocompleteOptions = {
+    hint: true, // auto suggestions on user inputs
+    openOnFocus: true // opens the dropdown menu when the input is focused
+  };
+  var searchOptions = {
+    hitsPerPage: 5 // represents the total number of searchResults
+  };
+  $('#shippable-search').autocomplete(autocompleteOptions, [
+    {
+      source: function(query, callback) {
+        index.search(query, searchOptions,
+          function(error, content) {
+            if (error) {
+              callback([]);
+              return;
+            }
+            callback(content.hits, content);
           }
-          callback(content.hits, content);
-        }
-      );
-    },
-    displayKey: function (suggestion) {
-      return suggestion.main_section;
-    },
-    templates: {
-      suggestion: function(suggestion) {
-        var searchResult = '';
-        suggestion.link = suggestion.page_baselink;
+        );
+      },
+      displayKey: function (suggestion) {
+        return suggestion.main_section;
+      },
+      templates: {
+        suggestion: function(suggestion) {
 
-        // iterating to find the key that matched the input value
-        for (var key in suggestion._highlightResult) {
-          // To find the text which has the matched characters with the input value
-          if (suggestion._highlightResult[key].matchLevel === 'full') {
-            var content = suggestion._highlightResult[key].value;
-            var start = content.indexOf("<em>") + 4;
-            var end = content.indexOf("</em>");
-            searchResult = content.substr(start, end - start) + content.substr(end + 5, 30);
+            var searchResult = suggestion.page_main_heading;
+            suggestion.link = suggestion.headings_link_map["page_main_heading"];
 
-            if (key.startsWith("page_heading")) {
-                suggestion.link = suggestion.page_map[key];
+            var key =  null;
+            function iterateObject(obj) {
+                for (var property in obj) {
+                    if (obj.hasOwnProperty(property)) {
+                        if (typeof obj[property] == "object") {
+                            if (obj[property].hasOwnProperty("matchLevel")
+                                && obj[property].matchLevel === "full") {
+                                key = property;
+                                return obj[property];
+                            }  else {
+                                var val = iterateObject(obj[property]);
+                                if (val) {
+                                    return val;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            break;
-          }
+            var matchingObject = iterateObject(suggestion._snippetResult);
+            if (matchingObject) {
+                searchResult = matchingObject.value;
+                searchResult = searchResult.replace(/<em>/g, "<font color='DarkBlue'>");
+                searchResult = searchResult.replace(/<\/em>/g, "</font>");
+
+                if (key.indexOf("heading") != -1) {
+                    suggestion.link = suggestion.headings_link_map[key];
+                } else if (key.startsWith("paragraph")) {
+                    suggestion.link = suggestion.paragraphs_link_map[key];
+                } else if (key.startsWith("list_item")) {
+                    suggestion.link = suggestion.listitems_link_map[key];
+                } else if (key.startsWith("code")) {
+                    suggestion.link = suggestion.code_snippets_link_map[key];
+                }
+            }
+
+            var sub_section = suggestion.page_main_title ? suggestion.page_main_title : suggestion.sub_section;
+
+            return searchResult + '<br>' + '<p>' + suggestion.main_section +
+                '  <svg width="6" height="10" viewBox="0 0 6 10"><path fill="#6D86A5" d="M0 10l6-5-6-5" fill-rule="evenodd"/></svg>  '
+                + sub_section + '</p>';
         }
-        return searchResult + '<br>' + '<p>' + suggestion.main_section +
-          '  <svg width="6" height="10" viewBox="0 0 6 10"><path fill="#6D86A5" d="M0 10l6-5-6-5" fill-rule="evenodd"/></svg>  ' +
-          suggestion.sub_section + '</p>';
       }
     }
-  }
-]).on('autocomplete:selected', function (event, suggestion) {
-  window.location = suggestion.link;
-});
+  ]).on('autocomplete:selected', function (event, suggestion) {
+    window.location = suggestion.link;
+  });

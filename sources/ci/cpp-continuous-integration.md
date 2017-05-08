@@ -1,3 +1,4 @@
+page_main_title: C/C++
 main_section: CI
 sub_section: Language guide
 

@@ -1,3 +1,4 @@
+page_main_title: AWS Opsworks
 main_section: CI
 sub_section: Deployments
 page_title: Deploying to AWS OpsWorks

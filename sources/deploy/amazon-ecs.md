@@ -1,3 +1,4 @@
+page_main_title: Amazon ECS Basic scenario
 main_section: Deploy
 sub_section: Amazon ECS
 

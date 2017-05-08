@@ -1,3 +1,4 @@
+page_main_title: Setting version number
 main_section: Release
 sub_section: Managing release versions
 

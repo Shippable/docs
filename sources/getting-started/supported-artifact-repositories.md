@@ -1,3 +1,4 @@
+page_main_title: Artifact repositories
 main_section: Getting started
 sub_section: What is supported?
 

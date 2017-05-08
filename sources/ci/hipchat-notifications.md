@@ -1,3 +1,4 @@
+page_main_title: Sending messages to Hipchat
 main_section: CI
 sub_section: Sending notifications
 page_title: Sending Hipchat notifications

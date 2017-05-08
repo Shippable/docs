@@ -1,3 +1,4 @@
+page_main_title: Enabling a project
 main_section: CI
 sub_section: Overview
 

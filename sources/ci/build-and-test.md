@@ -1,3 +1,4 @@
+page_main_title: Configuring your CI
 main_section: CI
 sub_section: Building and testing your project
 

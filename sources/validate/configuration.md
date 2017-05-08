@@ -1,3 +1,4 @@
+page_main_title: Configuration
 main_section: Validate
 sub_section: Before you start
 

@@ -1,3 +1,4 @@
+page_main_title: JFrog Artifactory
 main_section: Reference
 sub_section: Integrations
 page_title: JFrog Artifactory integration

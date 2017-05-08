@@ -1,3 +1,4 @@
+page_main_title: Amazon ECS Specifying deployment strategy
 main_section: Deploy
 sub_section: Amazon ECS
 
