@@ -45,6 +45,10 @@ jobs:
 
 You can configure your `shippable.yml` to update the `OUT` resources for fully integrated pipeline workflows.  For instructions on how to update resources [check out our tutorial on connecting CI with pipelines](/ci/trigger-pipeline-jobs/).
 
+If your runCI job is triggered by pipeline resources(ie. not a manual or webhook triggered build), then you can check which resource triggered the current build by checking `JOB_TRIGGERED_BY_NAME` and `JOB_TRIGGERED_BY_ID` environment variables.
+
+<img src="/images/reference/jobs/runCI/runCITriggeredBy.png" alt="runCI triggered by resource" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
 Note that runCI jobs won't process the `TASK` section.  The `TASK` section is automatically configured to run the workflow specified in your `shippable.yml`.  Because of this, you also cannot use `NOTIFY` sections in the runCI job.  Instead, notifications should be set up directly in your CI project's `shippable.yml`, which you can read about in the [Sending notifications docs](/ci/send-notifications/).
 
 ##Environment variables
