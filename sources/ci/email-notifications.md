@@ -19,7 +19,7 @@ Follow instructions below to configure email notifications for your CI workflows
 
 The yml format looks like this:
 
-```
+```yaml
 integrations:
   notifications:
     - integrationName: email
@@ -45,7 +45,7 @@ Check our blog ["Notifying CI failure/success status on Email and Slack"](http:/
 
 By default, Slack notifications are sent for builds for all branches. If you want to only send notifications for specific branch(es), you can do so with the `branches` keyword.
 
-```
+```yaml
 integrations:                               
   notifications:
     - integrationName: email
@@ -60,8 +60,32 @@ integrations:
 
 `branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 
+###2. Attaching console logs to email notifications.
+You can set sendConsoleLogs: true in your email notification configuration in shippable.yml to receive console logs as attachments in build emails.
 
-###2. Customizing notification triggers
+```yaml
+notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - exampleone@org.com
+      sendConsoleLogs: true
+```
+
+###3. Attaching code coverage reports to email notifications.
+You can set sendCoverageReports: true in your email notification configuration in shippable.yml to receive coverage reports as attachments in build emails.
+
+```yaml
+notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - exampleone@org.com
+      sendCoverageReports: true
+```
+
+
+###4. Customizing notification triggers
 
 By default, Slack notifications are sent for the following events:
 
@@ -97,7 +121,7 @@ You can set the following options for the `on_success`, `on_failure`, `on_start`
 
 If you do not specify any of these tags, the defaults are: `on_success` is set to `change`, `on_failure` is set to `always`, `on_start` is set to `never` and `on_pull_request` is set to `always`.
 
-###Turn off email notifications
+###5. Turn off email notifications
 If you do not want to get notified for any reason, you can turn off email notifications with the following in your `shippable.yml`:
 
 ```
