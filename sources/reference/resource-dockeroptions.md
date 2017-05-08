@@ -325,7 +325,7 @@ The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the to
 | **hostName**                      | hostname                         |  Coming soon...             | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                | None           |
 | **domainName**                    | None                             |   Coming soon...          | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              | None             |
 | **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    | user            |
-| **memorySwap*                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              | None             |
+| **memorySwap**                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              | None             |
 | **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             | None            |
 | **attachStdout**                  | None                             | None                       | None                       | AttachStdOut              | None            | AttachStdOut            | None            |
 | **attachStderr**                  | None                             | None                       | None                       | AttachStderr              | None            | AttachStderr            | None            |
@@ -431,6 +431,29 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
 ```
 
 ### Kubernetes
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
 
 Pod Spec level docker options:
 ```
