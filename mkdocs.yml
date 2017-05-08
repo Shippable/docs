@@ -75,7 +75,7 @@ pages:
       - Configuring your CI: ci/build-and-test.md
       - Running tests in parallel:  ci/parallelize-tests.md
     - Configuring test/code coverage:
-      - Overview with default scenario: ci/test-code-coverage-reports.md
+      - Basic config: ci/test-code-coverage-reports.md
       - JaCoCo reports: ci/jacoco-reports.md
     - Sending notifications:
       - Overview: ci/send-notifications.md
@@ -108,9 +108,10 @@ pages:
       - Using git submodules: ci/git-submodules.md
       - Retrying a command: ci/retry-command.md
       - Using SSH keys: ci/ssh-keys.md
-      - Customizing webhook triggers: ci/configure-webhooks.md
+      - Canceling builds: ci/cancel-builds.md
       - Customizing timeouts: ci/custom-timeouts.md
       - Console logs: ci/console-logs.md
+      - Build badges: ci/build-badges.md
       - Scheduled builds: ci/scheduled-builds.md
     - Language guide:
       - Overview: ci/supported-languages.md

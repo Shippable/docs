@@ -16,13 +16,13 @@ You can view which images are used for your Subscription by following the steps 
 
 - From your Dashboard, click on the Subscriptions dropdown at the top left of your screen and select the Subscription you want to view.
 
-<img src="../../images/ci/list-subscriptions.png" alt="List of subscriptions">
+<img src="/images/ci/list-subscriptions.png" alt="List of subscriptions">
 
 - Click on **Settings** on the Subscription page.
 
 - You will see your current machine image in the **Machine images** section.
 
-<img src="../../images/ci/view-machine-image-2.png" alt="view machine image">
+<img src="/images/ci/view-machine-image-2.png" alt="view machine image">
 
 - For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](../reference/machine-images-overview/)
 
@@ -38,7 +38,7 @@ To change to a newer image tag, follow the steps below:
 - Click on **Settings** on the Subscription page.
 - Select the image tag you want from the dropdown for **Machine images**:
 
-<img src="../../images/ci/view-machine-image.png" alt="change machine image">
+<img src="/images/ci/view-machine-image.png" alt="change machine image">
 
 - Once you change the tag, **all builds for all projects in the subscription will use the new default image tags.**
 

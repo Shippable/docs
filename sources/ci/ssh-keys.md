@@ -20,9 +20,10 @@ We recommend you use the subscription SSH key to pull other repositories (for ex
 ssh-agent bash -c 'ssh-add /tmp/ssh/01_deploy; git clone git@github.com/orgName/repoName.git /path/to/clone/'
 ```
 
-Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control.For example, create a ["SSH key integration"](../../integrations/keys/ssh). Add this newly created key integration to both the 'Subscription' Settings and the shippable.yml of every project you want to use it in.
+Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control. For example, create a ["SSH key integration"](/reference/int-key-ssh/). Add this newly created key integration to both the 'Subscription' Settings and the shippable.yml of every project you want to use it in.
 
 Example `shippable.yml` integration:
+
 ```
 integrations:
   key:
@@ -30,10 +31,11 @@ integrations:
       type: ssh-key
 ```
 Your SSH key will be available on your build container in the `/tmp/ssh/` directory.
-<img src="../../images/advancedOptions/viewKeys.png" alt="SSH Keys list" style="width:100%;"/>
+<img src="/images/ci/view-keys.png" alt="SSH Keys list">
 
 You can use this key in the similarly as you use subsbscription key or project key.
 You can force this key when performing a SSH operations. For example, to force your custom key when cloning a repository you can use the following command.
+
 ```
 ssh-agent bash -c 'ssh-add /tmp/ssh/my_custom_key; git clone git@github.com/orgName/repoName.git /path/to/clone/'
 ```
