@@ -163,9 +163,9 @@ For a table showing the mapping of each setting to a setting in your Container S
 
 ```
     portMappings:
-      - "80:80"
+      - "80:80/tcp"
 ```
-`portMappings` is an array of port mappings. The format is always `"host port number: container port number"`, e.g. "80:80". Port numbers are always integers. If not provided, no container port is exposed, even if your Dockerfile has an `EXPOSE` statement.
+`portMappings` is an array of port mappings. The format is always `"host port : container port / protocol"`, e.g. "80:80/tcp". Port numbers are always integers. Protocols currently supported are `tcp` and `udp`.  The protocol defaults to `tcp` if none is specified.  Most providers will support an empty host port, like `:80`, to imply that the hostPort should be auto-assigned.  If not provided, no container port is exposed, even if your Dockerfile has an `EXPOSE` statement.
 
 ```
     links:
