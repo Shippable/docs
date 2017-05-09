@@ -273,7 +273,7 @@ Now run the production deploy job.  Once the deployment has finished, you can ex
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-prod-results.png" alt="serial prod task definition">
 
-NOTE: Directly committing a private token is not recommended. Instead, the same functionality can be achieved by using a [key/value integration](../reference/int-key-value) combined with an [integration resource](../reference/resource-integration).
+*NOTE: Directly committing a private token is not recommended. Instead, the same functionality can be achieved by using [secure environment variables](../../ci/env-vars/#secure-variables) in your params resource.*
 
 ## Sample project
 
