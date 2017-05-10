@@ -180,7 +180,7 @@ pages:
       - Using custom pod templates: deploy/gke-custom-pods.md
     - Docker Datacenter:
       - Basic scenario: deploy/docker-datacenter.md
-    - Docker cloud:
+    - Docker Cloud:
       - Basic scenario: deploy/docker-cloud.md
     - Azure DC/OS:
       - Basic scenario: deploy/azure-dcos.md
