@@ -1,3 +1,6 @@
+page_main_title: v5.5.1
+main_section: Reference
+sub_section: Machine Images
 page_title: Description of what is available in Machine Image v5.5.1
 page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.5.1
 page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Dockee
