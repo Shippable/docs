@@ -245,23 +245,25 @@ pages:
       - Overview: reference/machine-images-overview.md
       - v5.4.1: reference/machine-image-v541.md
       - v5.3.2: reference/machine-image-v532.md
+      - v5.5.1: reference/machine-image-v551.md
       - Stable: reference/machine-image-stable.md
     - Integrations:
       - Overview: reference/integrations-overview.md
       - Amazon ECR: reference/int-amazon-ecr.md
       - Amazon ECS: reference/int-amazon-ecs.md
       - Bitbucket: reference/int-bitbucket.md
-      - Bitbucket Server: reference/int-bitbucket-server.md
       - Docker Cloud: reference/int-docker-cloud.md
       - Docker Datacenter: reference/int-docker-datacenter.md
       - Docker Hub: reference/int-docker-hub.md
       - Docker Trusted Registry: reference/int-docker-trusted-registry.md
+      - Event Trigger: reference/int-event-trigger.md
       - GitHub: reference/int-github.md
       - GitHub Enterprise: reference/int-github-enterprise.md
       - Gitlab: reference/int-gitlab.md
       - Google Container Engine: reference/int-gke.md
       - Google Container Registry: reference/int-gcr.md
       - Hipchat: reference/int-hipchat.md
+      - Jenkins: reference/int-jenkins.md
       - JFrog Artifactory: reference/int-jfrog-artifactory.md
       - Joyent Triton: reference/int-tripub.md
       - Key-value: reference/int-key-value.md
@@ -269,6 +271,7 @@ pages:
       - Azure DC/OS: reference/int-azure-dcos.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
+      - Private Registries: reference/int-private-registries.md
       - Quay.io: reference/int-quay.md
       - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md

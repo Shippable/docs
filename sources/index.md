@@ -47,7 +47,7 @@ You should use Shippable for Continuous Integration if you fit the following pro
 
 Some customers are not comfortable or for some reason cannot run builds on our hosted infrastructure. To address this, we offer an additional feature called BYOH where you can run builds on your own infrastructure.
 
-Go to [the Continuous Integration section](/ci/overview/) to learn more.
+Go to [the Continuous Integration section](/ci/why-continuous-integration/) to learn more.
 
 ---
 
