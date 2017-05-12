@@ -40,6 +40,7 @@ As shown above, the `switch: off` tag can be defined for IN resources or jobs in
 ## Pausing jobs
 
 You can pause any jobs in your pipeline by right-clicking on the job, and clicking **Pause Jobs**. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume automatic triggers.
+<img src="/images/pipelines/pause-job.png" alt="Pause job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 <a name="trigger-pipes"></a>
 ##Triggering pipelines after CI
