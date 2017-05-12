@@ -83,6 +83,7 @@ This forked repository is called a [sync repo resource](/reference/resource-sync
 be your forked repository.
 
 - You should not be able to see all your pipeline jobs and resources in the single pane of glass (SPOG) view.
+![SPOG view](https://raw.githubusercontent.com/devops-recipes/deploy-ecs-basic/master/public/resources/images/pipeline-view.png)
 
 - Right click on the deploy-ecs-basic-manifest box and click `Run job`. This will run the Manifest job.
 You can also find the job in the grid view by clicking on the grid view button (next to the `+ button`) and click Run to run the job.

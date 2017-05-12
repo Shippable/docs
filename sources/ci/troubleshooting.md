@@ -63,7 +63,7 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/integrations/notifications/slack/) and [hub](/integrations/deploy/eb/) integration for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/reference/int-slack/#slack-integration) and [hub](/reference/integrations-overview/) integration for more details.
 
 ---
 ### common2| cleanRunYml|callerId:
@@ -74,7 +74,7 @@ Reason: Notification and Hub integrations need to be set in two places - In the 
 ```
 Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized. You will also get this error if you have enabled a project in the 'Infra' tab instead of the 'CI' tab. Infra projects are meant for terraform deployments and do not allow languages to be specified in the YML.
 
-**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](ci_configure/#specifying-language-and-runtime).
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](/ci/set-language/#setting-language-and-runtime).
 
 If you have indeed enabled the project through the 'Infra' tab instead of the 'CI' tab, then go to the 'Settings' page for your project, under the 'Options' tab, click the 'Delete' button. Go to the CI tab and enable the project from there and run your build.
 
@@ -291,14 +291,14 @@ integrations:
 
 Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
-Read more about [configuring Slack notifications](../ci/notifications/slack/) in our documentation.
+Read more about [configuring Slack notifications](/reference/int-slack/#slack-integration) in our documentation.
 
 ---
 ### I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](/ci/shippableyml/) of a `shippable.yml` file
+(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](/reference/shippable-yml/#shippable.yml-reference) of a `shippable.yml` file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
@@ -340,7 +340,7 @@ webhook build will not be executed.
 ### In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
-If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/ci/advancedOptions/byon/). Once you BYON, [read the instructions](navigatingUI/subscriptions/settings/#nodes) for attaching your build infrastructure to Shippable.
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/getting-started/byon-overview). Once you BYON, [read the instructions](/getting-started/byon-manage-node/) for attaching your build infrastructure to Shippable.
 
 ---
 ### I am pushing to heroku as part of my build. Why is this suddenly failing?
@@ -387,7 +387,7 @@ The usual workflow for a pull request is:
 
 ---
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](/integrations/imageRegistries/ecr/), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [Amazon ECR integration](/reference/int-amazon-ecr/#amazon-ecr-integration), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:
@@ -400,18 +400,18 @@ integrations:
 ---
 ### Can I use multiple languages in a build?
 
-Yes. The [language tag in the yml](ci/shippableyml/#language) mainly tells us which default build image to use and any default handling for that language.
+Yes. The [language tag in the yml](/ci/set-language/#setting-language-and-runtime) mainly tells us which default build image to use and any default handling for that language.
 
 If you want to use multiple languages, you should:
 
-1. Specify your primary [language](/ci/shippableyml/#language) as usual. For example: `language: node_js`. This will cause your build to run on the default Shippable image for that language.
+1. Specify your primary [language](/ci/set-language/#setting-language-and-runtime) as usual. For example: `language: node_js`. This will cause your build to run on the default Shippable image for that language.
 1. In the `ci` section of your yml, first install the dependencies for the other language(s) in the build.
 
-You can also build your own Docker image with all the dependencies you need for both languages and then [override the default build image](ci/shippableyml/#pre_ci_boot) to use your Docker image.
+You can also build your own Docker image with all the dependencies you need for both languages and then [override the default build image](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci) to use your Docker image.
 
 Let's look at an example of using Node.js & Ruby in a build.
 
-Specify your [language](/ci/shippableyml/#language) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci/languages/node/) for that language.
+Specify your [language](/ci/set-language/#setting-language-and-runtime) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/build-image/) for that language.
 
 All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
 
@@ -454,7 +454,7 @@ build:
 ```
 
 
-This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci/shippableyml/#pre-ci-boot).
+This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci).
 
 
 ---
@@ -469,4 +469,4 @@ While the job is running, you can view the job being run on a particular node by
 
 ---
 ### Builds fail on all my custom nodes
-We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](http://docs.shippable.com/ci/advancedOptions/byon/#resetting-a-build-node) for builds to run successfully.
+We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/getting-started/byon-manage-node/#reset-node) for builds to run successfully.
