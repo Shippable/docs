@@ -27,7 +27,7 @@ resources:
 * `type` is always set to 'params'.
 
 * The version -> params section includes the key-value pairs that will become environment variables.
-	* You can use secure variables to encrypt any key-value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key-value pairs, [follow the instructions in the Subscription Settings guide]()[TODO: when new links are updated]. Copy the encrypted value and include it in your resource file as shown in the snippet above.
+	* You can use secure variables to encrypt any key-value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key-value pairs, instructions can be found [here](/ci/env-vars/#secure-variables). Copy the encrypted value and include it in your resource file as shown in the snippet above.
 
 A new version of this resource is created every time anything in the version section changes.
 
@@ -45,4 +45,4 @@ For example, if you want to use different environment parameters (say database s
 In the picture above, `deploy-test` takes `params-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `params-2` as an input. For this production deployment, we will use a superset of settings from `params-1` and `params-2`, with values for any common settings being chosen from `params-2`.
 
 ## Using params resources as inputs to runSh and runCLI jobs
-If a params resource is added as an input, the key-value pairs contained in the params resource are set as environment variables in the runSh or runCLI job. The naming convention for those variables is available in the documentation on [runSh environment variables](job-runSh/#resource-variables).
+If a params resource is added as an input, the key-value pairs contained in the params resource are set as environment variables in the runSh or runCLI job. The naming convention for those variables is available in the documentation on [runSh environment variables](job-runsh/#resource-variables).

@@ -36,7 +36,7 @@ At this time, we do not support definition of custom resources. If you need a re
 ## Adding resources
 Resources are defined in a configuration file `shippable.resources.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 resource files are present, the first one is used. This is done in order to reduce conflict due to the same resource being defined in multiple places.
 
-To learn how to add this file and connect it to pipelines, TODO correct link [click here ](/tutorials/pipelines/howToAddSyncRepos/)
+To learn how to add this file and connect it to pipelines, [click here ](/reference/resource-syncrepo)
 
 ## Deleting resources
 

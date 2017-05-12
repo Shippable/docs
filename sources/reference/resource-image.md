@@ -29,9 +29,9 @@ resources:
 	- [Docker Trusted Registry](int-docker-trusted-registry/)
 	- [Google Container Registry (GCR)](int-gcr/)
 	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
-	- [Quay.io]()[TODO: when new links are updated]
+	- [Quay.io](int-quay/)
 
-Please make sure your integration is also [enabled for your subscription]()[TODO: when new links are updated] and you use that  integration name here.
+Please make sure your integration is also enabled for your subscription and you use that integration name here.
 
 * `pointer` section provides information about the image.
 	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage

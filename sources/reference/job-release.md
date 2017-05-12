@@ -62,8 +62,7 @@ As an example, if the seed version is 4.0.0, here is how we would increment vers
 If you want to reset the seed version and start over, you can update the `version` resource and release version numbers will be reseeded.
 
 The `trigger` input is optional and gives you a way to manually create releases.
-<!--  TODO: add triggers link-->
-<!-- Read more [on triggers here](../triggers/). -->
+Read more [on triggers here](shippable-triggers-yml/)
 
 ## Deploy release
 If your release job has one or more deploy jobs as inputs and does not have input manifest jobs, it is called a deploy release. These releases are created from an application or service that ia already deployed to an environment. The typical use case for this is an application running in a Test environment, which can be promoted to production by creating a release which then triggers production deployment.
@@ -117,8 +116,7 @@ As an example, if the seed version is 4.0.0, here is how we would increment vers
 If you want to reset the seed version and start over, you can update the `version` resource and release version numbers will be reseeded.
 
 The `trigger` input is optional and gives you a way to manually create releases.
-<!--  TODO: add triggers link-->
-<!-- Read more [on triggers here](../triggers/). -->
+Read more [on triggers here](shippable-triggers-yml/).
 
 
 ## Combination release
