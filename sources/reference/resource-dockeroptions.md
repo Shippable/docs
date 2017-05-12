@@ -384,8 +384,7 @@ In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After t
 
 When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
 
-To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input
-[trigger resource]()[TODO: when new links are updated] link for the job
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](shippable-triggers-yml/)
 
 ## Provider specific options
 Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.

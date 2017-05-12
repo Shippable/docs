@@ -115,10 +115,8 @@ jobs:
 
 Instead of taking a manifest job as an input, this uses another `deploy` job as an input.
 
-<!--  TODO: add triggers link-->
-
 This means that by default, anytime the input deploy job finishes executing, it will trigger this job automatically. You can change this behavior with the `switch: off` setting as shown in the snippet above. If switch is turned off, deploy-2 is not automatically triggered after deploy-1 finishes. You can go to the Shippable SPOG view for Pipelines and run the job manually. You can also add a trigger resource to run the job manually without going to the Shippable UI.
-
+Read more [on triggers here](shippable-triggers-yml/).
 
 ## Deployment types
 Shippable supports 3 types of deployments:
@@ -211,5 +209,4 @@ The above job will transfer the files mentioned in `manifest` and execute the sc
 ## Rolling back your deployments
 As much as we want our code to work perfectly, there are situations when major bugs are discovered in a release after it is already deployed to an environment. In such cases, rolling back the deployment is the best way to recover while you fix the problems.
 
-<!-- TODO: Add tutorial -->
-<!-- Check out our [tutorial on rolling back deployments](../../tutorials/pipelines/rollback-deployments/) to handle this. -->
+ Check out our [tutorial on rolling back deployments](/deploy/rollback) to handle this.

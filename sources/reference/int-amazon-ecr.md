@@ -33,11 +33,7 @@ The integration will now be available to all your Continuous Integration and Dep
 
 To learn how to use the integration for your scenario, check out the tutorials below.
 
-* Pulling a Docker image from ECR
-
-* [Using a Docker image from ECR to spin up your CI container]() [TODO when added]
-
-* [Build a Docker image]() [TODO when added]
+* [Pulling and building a docker image from any registry](/ci/custom-docker-image)
 
 * [Push a Docker image to ECR](../ci/push-amazon-ecr/)
 
