@@ -9,11 +9,11 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 Unmanaged jobs are available to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
-- [runCI](job-runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
+- [runCI](job-runci/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
 
-- [runSh](job-runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+- [runSh](job-runsh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
 
-- [runCLI](job-runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
+- [runCLI](job-runcli/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 
 ## Environment variables
 

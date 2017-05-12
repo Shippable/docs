@@ -57,6 +57,25 @@ If your rSync job fails or you do not see what you expected, you likely have a c
 
 <img src="/images/getting-started/rsync-errors.png" alt="Errors during pipelines config import"">
 
+###Migrating pipeline resources from one repository to another
+You might want to migrate specific resources, jobs or triggers from one repository to another without any downtime. Similarly, you might have more than one repository for your CI-CD pipeline and may want to consolidate both into one repository without losing the history.
+
+Follow these steps to effect both the types of migrations -
+
+1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](trigger-job/#pausing-jobs).
+
+2. Add the resources, jobs or triggers you want to migrate to the destination repository's yml files.
+
+3. Run the rSync job of the destination repository. Once the rSync job completes, migration will be complete. Your SPOG will however not change as no dependency has changed. Therefore, to verify this you can check the logs of the rSync job.
+<img src="/images/pipelines/migrationConsoleLog.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+4. From the source repository, delete all the migrated resources, jobs or triggers. This will automatically trigger the rSync job and it should succeed.
+<img src="/images/pipelines/resumeJob.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+5. Now, your resources, jobs and/or triggers are migrated to the destination repository. You can add, remove or update them there.
+
+**NOTE:** While migrating a job you should copy it exactly as it is in the source repository. You can add or remove dependencies only once the resource is successfully migrated to destination repository.
+
 <a name="permissions"></a>
 ## Permissions
 

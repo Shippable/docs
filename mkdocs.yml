@@ -51,6 +51,7 @@ pages:
       - Yml structure:  ci/yml-structure.md
       - Triggering your CI job: ci/trigger-job.md
       - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
+      - Troubleshooting: ci/troubleshooting.md
     - Preparing your environment:
       - Setting language and runtime: ci/set-language.md
       - Choosing a build image: ci/build-image.md
