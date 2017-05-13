@@ -6,9 +6,9 @@ sub_section: Overview
 
 At a very fundamental level, pipelines consist of two components: Jobs and Resources.
 
-- Jobs are the executable units of your pipelines. They take one or more resources as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serve to daisy-chain a series of jobs into a pipeline. Examples of jobs include CI, deploy, release, etc.  
+- [Jobs](/reference/jobs-overview/) are the executable units of your pipelines. They take one or more resources as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serve to daisy-chain a series of jobs into a pipeline. Examples of jobs include CI, deploy, release, etc.  
 
-- Resources are versioned objects that hold the configuration and other information required to execute your pipeline. They are inputs for and sometimes outputs from Jobs. Examples of resources include source code repositories, docker images, container clusters, environment variables, etc.
+- [Resources](/reference/resources-overview/) are versioned objects that hold the configuration and other information required to execute your pipeline. They are inputs for and sometimes outputs from Jobs. Examples of resources include source code repositories, docker images, container clusters, environment variables, etc.
 
 Your pipeline is a bunch of jobs that are triggered in sequence or in parallel, depending on how they are configured. A job can be triggered in multiple ways: when a preceding job finishes, when an input resource is updated by an upstream job, or manually.
 
@@ -16,7 +16,7 @@ Your pipeline is a bunch of jobs that are triggered in sequence or in parallel, 
 
 ##Terminology
 
-A glossary of terms is available in our [Reference](/reference/glossary/)
+A glossary of terms is available in our [Reference](/reference/glossary/).
 
 ##Configuration
 
@@ -24,15 +24,15 @@ Your pipelines are defined through four yml-based configuration files:
 
 **CI config**
 
-- `shippable.yml` is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI. It must reside at the root of your repository.
+- `shippable.yml` is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI. It must reside at the root of your repository. [Read more...](/ci/shippable-yml/)
 
 **Pipeline config**
 
-- `shippable.jobs.yml` is contains definitions of the Jobs in your pipeline. If you only want to use Shippable for CI, you do not need this file.
+- `shippable.jobs.yml` is contains definitions of the Jobs in your pipeline. If you only want to use Shippable for CI, you do not need this file. [Read more...](/reference/jobs-overview/)
 
-- `shippable.resources.yml` contains definitions of the Resources in your pipeline. If you only want to use Shippable for CI, you do not need this file.
+- `shippable.resources.yml` contains definitions of the Resources in your pipeline. If you only want to use Shippable for CI, you do not need this file. [Read more...](/reference/resources-overview/)
 
-- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI.
+- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. [Read more...](/reference/shippable-triggers-yml/)
 
 Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
 
