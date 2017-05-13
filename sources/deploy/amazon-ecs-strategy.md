@@ -170,9 +170,3 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 **Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f94cc57e84cc070041e5a0/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-strategy)
-
-## Unmanaged Deployments
-
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
-
-From that starting point, there are no pre-built deployment strategies for ECS for unmanaged jobs, however the power and flexibility of Shippable pipelines is available to you to script whatever deployment behavior works best for your environment.

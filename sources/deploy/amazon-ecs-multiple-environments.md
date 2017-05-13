@@ -3,6 +3,7 @@ main_section: Deploy
 sub_section: Amazon ECS
 
 # Deploying to multiple Amazon ECS Environments
+
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
 
 ## The Goal
@@ -283,10 +284,3 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 **Source code:**  [devops-recipes/deploy-ecs-multi-env](https://github.com/devops-recipes/deploy-ecs-multi-env)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58fa52452ddacd090043d8a2/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-env)
-
-
-## Unmanaged deployments
-
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
-
-For unmanaged jobs, you can run your awscli commands against any cluster and region that you want. Deploying to one or more environments can be as easy as changing your default region on the awscli, or simply specifying a different `--cluster` when creating a service.
