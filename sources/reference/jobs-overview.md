@@ -158,7 +158,11 @@ Just like resources, Jobs are also versioned on Shippable. Every run of a job cr
 
 You can view console output for a job by clicking on it in the SPOG view. The job console looks like this:
 
-<img src="../../images/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/reference/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+Please note that in most cases, the logs you are interested in will be under the **Executing Task -> /home/shippable/micro/nod/stepExec/managed/run.sh** section. This section is shown as expanded in the screenshot above.
+
+In addition to viewing logs for the latest run, you can also view logs for historical runs by choosing a past run in the UI.
 
 <a name="jobNotifications"></a>
 ## Sending job status notifications
