@@ -40,19 +40,15 @@ You'll also need to create a type image resource. This will represent your Docke
 ```
 resources:
 
-  - name: deploy-azure-basic-dcos
-    type: cluster
-    integration: dr-azure-cluster    #replace with your azure dc/os integration name
-
-
   - name: deploy-azure-basic-img
     type: image
     integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
-      sourceName: "library/nginx"  #replace with your image name on Docker Hub
+      sourceName: "docker.io/devopsrecipes/deploy-azure-dcos-basic"  #replace with your image name on Docker Hub
       isPull: false
     seed:
-      versionName: "latest"  #replace with your image tag on Docker Hub
+      versionName: "master.1"  #replace with your image tag on Docker Hub
+
 ```
 
 With these resources, you're ready to start writing jobs that will help you deploy.
@@ -78,7 +74,7 @@ That's all there is to it!
 In the above scenario, several options are set by default that you might want to change.
 
 #### dockerOptions
-Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOptions/), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
+Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
 ```
   - name: deploy-azure-basic-img-options
     type: dockerOptions
@@ -90,7 +86,7 @@ Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOption
 
 #### replicas
 
-[Replicas](http://docs.shippable.com/pipelines/resources/replicas/) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
+[Replicas](../reference/resource-replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
 
 ```
   - name: deploy-azure-basic-replicas
@@ -102,8 +98,12 @@ Using [dockerOptions](http://docs.shippable.com/pipelines/resources/dockerOption
 ## Sample project
 Here are some links to a working sample of this scenario. This contains all of the pipelines configuration files for deploying to Azure DC/OS.
 
-**Source code:**  [deploy-azure-dcos-basic](https://github.com/jatindogra/sample_azure/tree/docs).
+**Source code:**  [devops-recipes/deploy-azure-dcos-basic](https://github.com/devops-recipes/deploy-azure-dcos-basic).
 
+**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-azure-dcos-basic/runs/4/1/console)
+
+**Build status badge** [![Run Status](https://api.shippable.com/projects/591761a7ba515b070074ab59/badge?branch=master
+)](https://app.shippable.com/github/devops-recipes/deploy-azure-dcos-basic)
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
