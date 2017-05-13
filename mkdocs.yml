@@ -16,10 +16,9 @@ google_analytics: ['UA-50610279-1', 'auto']
 pages:
   - Getting started:
     - Overview:
-      - Why Shippable: index.md
-      - Use cases: ./getting-started/shippable-use-cases.md
-      - Concepts: getting-started/concepts.md
-      - Building blocks: getting-started/building-blocks.md
+      - What is Shippable?: index.md
+      - Use cases: getting-started/shippable-use-cases.md
+      - Pipeline basics: getting-started/pipeline-basics.md
       - Single Pane of Glass: getting-started/single-pane-of-glass-spog.md
     - What is supported?:
       - Source control providers: getting-started/supported-scms.md
@@ -167,7 +166,6 @@ pages:
       - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Working with state and environment variables: deploy/amazon-ecs-state-env-vars.md
       - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
-      - Naming conventions: deploy/amazon-ecs-naming-conventions.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
@@ -277,3 +275,5 @@ pages:
       - Quay.io: reference/int-quay.md
       - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md
+    - Glossary:
+      - Complete list of terms: reference/glossary.md
