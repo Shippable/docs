@@ -52,7 +52,7 @@ Our official build images, which are used to run your builds by default, come in
 -  pypy 4.0.1
 -  pypy3 2.4.0
 
-To find out which versions are supported out of the box for your build image, [TODO: How do they figure out what is available to them by default??]
+To find out which versions are supported out of the box for your build image, read our [Machine images overview](/reference/machine-images-overview/).
 
 If you want to test against several versions of Python, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
 
