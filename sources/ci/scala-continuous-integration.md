@@ -50,7 +50,7 @@ Our official build images, which are used to run your builds by default, come in
 -  2.12.0
 -  2.12.1
 
-To find out which versions are supported out of the box for your build image, [TODO: How do they figure out what is available to them by default??]
+To find out which versions are supported out of the box for your build image, read our [Machine images overview](/reference/machine-images-overview/).
 
 If you want to test against several versions of Scala, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
 

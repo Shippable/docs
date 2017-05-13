@@ -11,7 +11,7 @@ You can send Hipchat notifications for various events in your CI workflow, inclu
 
 ##Setup
 
-Before you start, you will need to connect your Hipchat account with Shippable so we have the credentials to send notifications on your behalf. We do this through TODO: Add link Account Integrations, so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Hipchat account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Account Integrations](/reference/integrations-overview/), so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 There are 2 steps to add a Hipchat integration: Generating an API token for Hipchat, , and adding the token to your Shippable account.
 
