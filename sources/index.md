@@ -1,60 +1,45 @@
-page_main_title: Why Shippable
-page_title: What is Shippable?
-page_description: Code examples, FAQs, language & platform support
-page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
+page_main_title: Shippable DevOps Automation Platform
+page_title: Shippable DevOps Automation Platform
+page_description: Learn about DevOps and why you need a standard automation platform
+page_keywords: DevOps, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 main_section: Getting started
 sub_section: Overview
+
+
 # What is Shippable?
 
-Shippable was founded so that software powered organizations could accelerate innovation. We enable this by providing an integrated platform, built from the ground up, to defragment and streamline the process of shipping applications. Using Shippable, you can automate your software delivery from source control to production, without needing to write complex, imperative code.
+Shippable is a DevOps and CI/CD Automation platform that helps developers and DevOps teams easily and rapidly build end-to-end software delivery pipelines and make software releases frequent, predictable, and error-free. As a result, teams can focus on  delivering business value to their own customers rather than building homegrown automation.
 
-Today, most organizations find it challenging to innovate fast enough to satisfy consumers. DevOps is a set of principles that tries to solve this problem. One of these principles is automation of your software delivery pipelines, also called Continuous Deployment.
 
-The picture below shows a high level maturity model for Continuous Deployment.
+##Why do you need Shippable?
 
-<img src="images/cdMaturityModel.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
+Today, most organizations are under tremendous pressure to ship faster and with better quality. Software development has already gone through a transformation with Agile adoption, but software delivery is still the bottleneck for most software teams. As a result, DevOps adoption is growing exponentially as teams try to find a winning balance of speed, quality, and cost.
 
-Most organizations today are at L1 or L2 of this maturity model, i.e. they have a CI server that runs unit tests and packaging for every code commit. Some have the capability to deploy to one endpoint as part of their CI. However, this does not address the flow of that service or application through various test environments and ultimately to production.
+However. many organizations find that in spite of investing a lot of money and time into DevOps efforts, they are still not seeing enough ROI in terms of faster, predictable releases.
 
-Organizations that have achieved L3 or L4 have put in significant time and resources in order to get there, mostly through struggling with cobbling together a bunch of fragmented tools and writing thousands of lines of custom scripts to create their continuous deployment pipelines. Once created, these custom, homegrown pipelines are rigid, inflexible and hard to maintain. Regardless of the effort, several successful companies like Facebook, Netflix, Amazon have invested in building these pipelines.
+Shippable offers a very practical, systematic, and measurable approach to DevOps. We believe that DevOps efforts must start with automation and that you need a standard platform on which you can build reusable automation rapidly. Your first pipeline can take a couple of days, but the next pipeline should take a day, the third half a day, and so on. You can read more about this philosophy in our <a href="https://www.shippable.com/devops-playbook.html">DevOps Playbook</a> and <a href="https://www.shippable.com/devops-platform.html">Platform</a> pages.
 
-However, not every organization has the luxury of having entire in-house teams to manage this process. Not just that, this do-it-yourself approach is a distraction and takes valuable cycles away from product engineering  
+If you're on the road to adopting DevOps, Shippable offer you an easy, scalable way to quickly get to greater DevOps maturity. Why crawl when you can run?
 
-**Shippable helps you mature from L1 to L4 at your own pace, without needing to build homegrown pipelines.** Our pipelines are configured in a human readable, declarative language, making it very easy to create and update your release workflows. We offer the only integrated platform that address Continuous Integration (CI) and Application Release Automation (ARA) for a complete end to end solution.
+##How this documentation is structured
 
-We integrate with the tools and technologies you use today and will need tomorrow, across source control providers, artifact repositories, notification providers, and cloud endpoints. Our platform supports enterprise grade multi-tier applications (e.g. Java applications), as well as modern applications with containerized microservices.
+There are 5 main steps to setting up your end to end software delivery pipelines. You can choose to automate any or all of these blocks, depending on your requirements:
 
-If you believe that your team should focus on product innovation instead of building complex deployment pipelines, you should sign up for Shippable today.
+<img src="/images/devops-pillars.png" alt="Triggering releases" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-The Shippable platform consists of 2 parts:
 
-**Continuous Integration (CI)**, which enables teams to build and test their repositories for every code commit or pull request and get instant feedback.
+We have scenario based documentation for each of the steps above:
 
-**Continuous deployment pipelines** which automate the flow of your application from source control to production. Using these deployment pipelines, you can easily deploy containerized applications to Container Services like Amazon's ECS, Google Container Engine (GKE), Joyent Triton, and Microsoft Azure Container Service (ACS).
+- [Continuous Integration (CI)](/ci/why-continuous-integration/): For every commit, build, unit test, and package your application.You can also push your package to a PaaS/IaaS or artifact repository.
 
----
+- [Validate](/validate/devops-validate/): Run functional/integration/performance tests when your application is deployed to a Test environment
 
-## Continuous Integration
-Our Continuous Integration platform helps developers find bugs as soon as they are introduced. Every time you commit code or open a pull request, your code will be automatically built and tested and you will receive a notification with build results.
+- [Release](/release/devops-release-management/): At any point in your workflow, apply a semantic version to your package to identify it. Configure approval gates for specific parts of the pipeline, such as production deployments.
 
-We run all your builds on **minions**, which are Docker-based containers. If you're using Docker for development, you can use your own Docker images or even build a Docker image and run builds in the container as part of your CI workflow. For customers who are not using Docker for their development, we provide a variety of images for each language that are pre-loaded with popular services and tools.
+- [Deploy](/deploy/why-deploy/): Deploy your application to any endpoint, including Docker orchestration platforms like Kubernetes or Amazon ECS, PaaS endpoints like AWS Elastic Beanstalk, or just a Virtual Machine cluster running on any cloud.
 
-You should use Shippable for Continuous Integration if you fit the following profile -
+- [Provision](/provision/why-infrastructure-provisioning/): Automate your provisioning workflows with Ansible, Terraform, or Chef.
 
-* Your source code is on GitHub, GitHub Enterprise, Bitbucket, Bitbucket Server or GitLab
-* You want to avoid the time sink of setting up and managing your own CI system and would rather spend the time writing features for your product   
-* (optional)You're a Docker user and you want to use your own custom image to run your builds. You can even run Docker compose to spin up environments!
+###Reference
 
-Some customers are not comfortable or for some reason cannot run builds on our hosted infrastructure. To address this, we offer an additional feature called BYOH where you can run builds on your own infrastructure.
-
-Go to [the Continuous Integration section](/ci/why-continuous-integration/) to learn more.
-
----
-
-## Continuous Delivery pipelines
-
-Our powerful deployment pipelines give software development teams the ability to automate the flow of their Docker based applications from CI to a versioned deployment unit called manifest which can then be easily and automatically deployed to Container Services like Amazon's ECS or Google Container Engine.
-
-Go to [the Continuous Deployment section](/pipelines/overview/) to learn more.
-
----
+Once you get the hang of how to set up CI or build a pipeline using Shippable, you will just need a reference of everything that is supported. Please read our [Reference Section](/reference/shippable-yml/) for a complete listing of everything supported, along with configuration details.
