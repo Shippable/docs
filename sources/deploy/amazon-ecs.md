@@ -3,7 +3,10 @@ main_section: Deploy
 sub_section: Amazon ECS
 
 # Deploying to Amazon ECS
-There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your cluster on Amazon ECS.
+
+There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can use the managed [**deploy job**](/reference/job-deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
+
+For unmanaged deployments where you write all the deployment scripts yourself, check out our tutorial on [unmanaged deployments](/deploy/amazon-ecs-unmanaged/).
 
 ## The Goal
 The goal of this page is to accomplish the following scenario using Shippable Pipelines.
@@ -15,53 +18,85 @@ The goal of this page is to accomplish the following scenario using Shippable Pi
 In the end, your pipeline will look like this:
 <img src="../../images/deploy/amazon-ecs/basic-deployment-configuration-success.png" alt="Basic Pipeline Scenario">
 
+## Building blocks
 
-## The Setup
+To deploy to Amazon ECS, you need the following building blocks:
+
+**Resources**
+
+- [cluster](/reference/resource-cluster/) resource, to point to a cluster
+- [image](/reference/resource-image/) resource, pointing to the Docker image
+
+**Jobs**
+
+- [manifest](/reference/job-manifest/) which creates a deployable unit for your application
+- [deploy](/reference/job-deploy/), a managed job that does the deployment
+
+
+## Step-by-step instructions
+
+You will need two configuration files:
+
+- `shippable.resources.yml` which contains resource definitions
+- `shippable.jobs.yml` which contains job definitions
+
+These files should be in your [syncRepo](/reference/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+
+Follow the steps below to set up a basic deployment to ECS.
+
+###1: Create an account integration
 
 Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
 
+This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
-This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
+###2: Create resources
 
-```
-resources:
+You need the following three resources in your `shippable.resources.yml` file:
 
-  - name: deploy-ecs-basic-ecs-cluster
-    type: cluster
-    integration: dr-aws
-    pointer:
-      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
-```
+####cluster
 
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Amazon ECR since it integrates nicely with Amazon ECS.
+First, we need a `cluster` resource in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
 
 ```
 resources:
 
-  - name: deploy-ecs-basic-ecs-cluster
+  - name: deploy-ecs-basic-ecs-cluster    # resource friendly name
     type: cluster
-    integration: dr-aws
+    integration: dr-aws                   # replace with integration name from step 1          
     pointer:
-      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
+      sourceName : "deploy-ecs-basic"     # name of the cluster to which we are deploying
+      region: "us-east-1"                 # AWS region where cluster is located
+```
 
-  - name: deploy-ecs-basic-image
+For a complete reference, check out the [cluster](/reference/resource-cluster/) page.
+
+####image
+
+Next, we need an `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Amazon ECR since it integrates nicely with Amazon ECS.
+
+```
+resources:
+
+  - name: deploy-ecs-basic-image          # resource friendly name
     type: image
     pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"   # image pointer
     seed:
-      versionName: "latest"
+      versionName: "latest"     # Tag value for first deployment
 
 ```
 
-With those two resources, you're ready to start writing jobs that will help you deploy.
+For a complete reference, check out the [image](/reference/resource-image/) page.
 
+###3: Define jobs
 
-## Managed Deployments
-Shippable helps make your deployments easier by providing several types of managed jobs.  Utilizing these jobs, deployments can be easily configured via updates to your declarative yml blocks.
+Jobs are defined in your `shippable.jobs.yml`.
 
-### Basic Configuration
+You need two jobs for this scenario:
+
+####manifest
+
 Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
 ```
@@ -70,10 +105,13 @@ jobs:
 - name: deploy-ecs-basic-manifest
   type: manifest
   steps:
-   - IN: deploy-ecs-basic-image
+   - IN: deploy-ecs-basic-image             #friendly name of image created in step 2
 
 ```
+
 It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
+
+####deploy
 
 Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on ECS.
 
@@ -95,12 +133,16 @@ jobs:
 
 The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
 
-With these jobs and resources created, your pipeline should look something like this:
+###4: Add your pipeline
 
+Once you have these jobs and resources yml files as described above, push to your sync repository. You can then follow instructions to [add your pipeline to Shippable](/deploy/configuration/).
+
+Your pipeline should look like this:
 <img src="../../images/deploy/amazon-ecs/basic-deployment-configuration.png" alt="Successful pipeline">
 
+###5: Trigger your pipeline
 
-Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
+When you're ready for deployment, right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
 - The manifest job will package your image with default settings
 - The deploy job will convert your manifest into a task definition and create it on Amazon ECS
@@ -118,7 +160,8 @@ And when you check your cluster on ECS, you should see that a service was create
 
 That's all there is to it!
 
-### Advanced Configuration
+## Advanced Configuration
+
 In the above scenario, several options are set by default that you might want to change.
 
 - memory defaults to 400mb
@@ -128,7 +171,7 @@ In the above scenario, several options are set by default that you might want to
 
 These settings can all be customized by creating additional Pipelines Resources.
 
-#### dockerOptions
+### dockerOptions
 Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../reference/resource-dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
 - name: deploy-ecs-basic-docker-options
@@ -138,7 +181,7 @@ Using dockerOptions, all of the advanced configurations of docker are available 
     portMappings:
       - 80:80
 ```
-#### params
+### params
 When [params resources](../reference/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
@@ -152,7 +195,7 @@ When [params resources](../reference/resource-params) are added to a manifest, t
 
 ```
 
-#### replicas
+### replicas
 
 Using the [replicas resource](../reference/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 ```
@@ -172,98 +215,3 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 **Application running on Amazon ECS:** [link](http://52.87.153.126/)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f6fcddd1780a07007bba3f/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic)
-
-
-
-## Unmanaged Deployments
-If managed jobs don't work for your scenario, Shippable also gives you the ability to fully customize exactly how you want your deployments to behave.  By using an unmanaged job type, you have full control over the commands and options passed in to ECS.
-
-### Basic Configuration
-
-First, you'll want to create a resource that helps configure the aws cli with your integration.
-
-```
-resources:
-  - name: MyAwsConfig
-    type: cliConfig
-    integration: MyECSCredentials
-    pointer:
-      region: us-west-2
-```
-For more details on the `cliConfig` resource, [see here](../reference/resource-cliconfig). Now you'll need a particular job that can utilize that resource
-
-```
-jobs:
-  - name: myCustomDeployment
-    type: runCLI
-    steps:
-      - IN: MyAwsConfig
-      - TASK:
-        - script: aws ecs describe-clusters
-```
-For now, we'll just add a simple command to describe our clusters.
-
-
-In your job's logs, you should see the results of the `describe-clusters` command.
-
-
-Next, we'll include a gitRepo that contains a static taskDefinition json object, which we update any time we want to deploy a new image version.  To add this resource, you'll need a subscription integration for your github credentials.
-```
-resources:
-  - name: MyStaticTaskDefRepo
-    type: gitRepo
-    integration: MyGithubIntegration
-    pointer:
-      sourceName: shippablesamples/taskDefinitions
-      branch: master
-
-```
-Now your pipeline should look something like this:
-<img src="../../images/deploy/amazon-ecs/basic-deployment-unmanaged.png" alt="Alternate Pipeline">
-
-Now, update the job to use this gitRepo as an `IN`, and add some extra commands  to make the script more reusable.  This assumes that a service already exists on the cluster with the same name as this job (myCustomDeployment).
-
-- register a new task definition from a json file and capture the revision number
-- update the service using the `--task-definition family:revision` syntax
-
-```
-jobs:
-  - name: myCustomDeployment
-    type: runCLI
-    steps:
-      - IN: MyAwsConfig
-      - IN: MyStaticTaskDefRepo
-      - TASK:
-        - script: aws ecs describe-clusters
-        - script: aws ecs register-task-definition --cli-input-json file://${MYSTATICTASKDEFREPO_STATE}/taskdefinitions/sample.json > output.json
-        - script: REVISION=$(cat output.json | jq '.taskDefinition.revision')
-        - script: echo "revision is $REVISION"
-        - script: aws ecs update-service --cluster cluster-test-1 --service ${JOB_NAME} --task-definition shippable:${REVISION} --desired-count 2
-
-```
-
-Inside the 'taskdefinitions' directory in my `gitRepo`, I have a file called `sample.json` that contains this task definition:
-
-```
-{
-    "family": "shippable",
-    "containerDefinitions": [
-        {
-            "name": "myapp",
-            "image": "trriplejay/simpleserver:master.58",
-            "cpu": 0,
-            "memory": 125,
-            "essential": true,
-            "privileged": true
-        }
-    ]
-}
-
-```
-
-Run your job, and you should get some output from AWS like this:
-<img src="../../images/deploy/amazon-ecs/basic-deployment-runcli-output.png" alt="runCLI Output">
-
-
-And if you check ECS, you should see your service running your task definition!
-<img src="../../images/deploy/amazon-ecs/basic-deployment-service.png" alt="Running service">
