@@ -1,4 +1,4 @@
-page_main_title: Deploy your first app
+ÂÂpage_main_title: Deploy your first app
 main_section: Getting started
 sub_section: Pipeline sample
 
@@ -10,7 +10,7 @@ tutorial consists of two parts -
 * CI build that creates a docker image of the Node.js app and pushes it to Amazon ECR.
 * Pipeline that deploys the ECR image to ECS.
 
-You can find a ton of other deploy examples [here](/deploy/why-deploy/)
+You can find a ton of other deploy examples [here](/deploy/why-deploy/).
 
 ###1. Fork our sample project
 
@@ -62,13 +62,12 @@ This should be the subscription where you forked the repository.
 
 ###6. View build status
 
-![Console for deploy-ecs-basic sample](Console for deploy-ecs-basic sample)
+![Console for deploy-ecs-basic sample](https://github.com/devops-recipes/deploy-ecs-basic/raw/master/public/resources/images/console.jpg)
 
 ###7. Add ECS integration
 
 - Add an ECS cluster integration using the directions specified [here](/reference/int-amazon-ecs/). This is the cluster to which the
 Node.js docker image will be deployed to. Name the integration dr-aws.
-
 If you choose a different name, replace dr-aws with your integration name in the `shippable.resources.yml` file.
 
 - In the `shippable.resources.yml` file, locate the resource named `deploy-ecs-basic-ecs-cluster`. Replace `us-east-1` with your AWS
