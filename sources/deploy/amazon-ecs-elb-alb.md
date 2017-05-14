@@ -30,7 +30,9 @@ The default load balancer type on Shippable is what Amazon calls "classic".  Cla
 
 ###1: Set up basic deployment
 
-To start, please follow the first three steps of the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
+As a pre-requisite for these instructions, you should already have set up deployment to ECS.
+
+You can follow the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
 
 ###2: Create resources
 
@@ -82,6 +84,7 @@ Even though we're exposing a port, we can run multiple copies of the service on 
 
 You will need to update your `manifest` job to include the `dockerOptions` and `replicas` resources we just created. The `deploy` job need to accept the `loadBalancer` as an Input.
 
+These updates are done in `shippable.jobs.yml`.
 
 ####Update manifest job
 

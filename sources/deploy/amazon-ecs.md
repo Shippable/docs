@@ -44,11 +44,19 @@ These files should be in your [syncRepo](/reference/resource-syncrepo/). Please 
 
 Follow the steps below to set up a basic deployment to ECS.
 
-###1: Create an account integration
+###1: Create account integrations
+
+You need two account integrations for this scenario:
+
+####AWS
 
 Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
 
 This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+
+####Amazon ECR
+You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/reference/int-amazon-ecr/) page.
+
 
 ###2: Create resources
 
@@ -56,7 +64,7 @@ You need the following three resources in your `shippable.resources.yml` file:
 
 ####cluster
 
-First, we need a `cluster` resource in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
+First, we need a `cluster` resource which references a cluster that has already been created on Amazon ECS.
 
 ```
 resources:
@@ -80,6 +88,7 @@ resources:
 
   - name: deploy-ecs-basic-image          # resource friendly name
     type: image
+    integration: dr-ecr                   # replace with integration name from step 1          
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"   # image pointer
     seed:
@@ -97,7 +106,7 @@ You need two jobs for this scenario:
 
 ####manifest
 
-Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
 ```
 jobs:
@@ -109,7 +118,7 @@ jobs:
 
 ```
 
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.
 
 ####deploy
 
@@ -166,8 +175,10 @@ In the above scenario, several options are set by default that you might want to
 
 These settings can all be customized by creating additional Pipelines Resources.
 
-### dockerOptions
-Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../reference/resource-dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
+### Customizing your Task Definitions
+
+You can use the `dockerOptions` resource to customize your task definitions. For example, you can change the memory allocated to the container and expose a port.
+
 ```
 - name: deploy-ecs-basic-docker-options
   type: dockerOptions
@@ -176,8 +187,13 @@ Using dockerOptions, all of the advanced configurations of docker are available 
     portMappings:
       - 80:80
 ```
+The `dockerOptions` resource can then be an IN for your `manifest` or `deploy` job.
+
+For a complete reference of all customizable options, check out our [dockerOptions reference](/reference/resource-dockeroptions/)
+
 ### params
-When [params resources](../reference/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+
+When [params resources](../reference/resource-params) are added as an IN to a `manifest`, they become environment variables for containers in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-ecs-basic-params
@@ -186,13 +202,14 @@ When [params resources](../reference/resource-params) are added to a manifest, t
       params:
         PORT: 80
         ENVIRONMENT: "dev"
-
-
 ```
 
-### replicas
+These environment variables will be available in the running container.
 
-Using the [replicas resource](../reference/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
+### Scaling instances
+
+You can use the [replicas resource](../reference/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+
 ```
   - name: deploy-ecs-basic-replicas
     type: replicas
@@ -200,7 +217,9 @@ Using the [replicas resource](../reference/resource-replicas) is quite simple. Y
       count: 2
 ```
 
-### Scaling instances
+The `replicas` resource can then be an IN for your `manifest` or `deploy` job.
+
+If you specify a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 
 If you update your manifest to request a different number of replicas without changing any other settings, we perform a "scale" action which simply updates the Amazon ECS service's desiredCount.  This makes the deployment much faster and doesn't perform any unnecessary steps.
 
@@ -220,12 +239,12 @@ To override the default name, you can use the `deployName` tag.
 
 ```
 jobs:
-  - name: <job name>
+  - name: deploy-ecs-basic-deploy
     type: deploy
     steps:
-      - IN: <manifest>                        #required
-        deployName: <custom name>
-      - IN: <cluster>                         #required
+      - IN: deploy-ecs-basic-manifest                  #required
+        deployName: myApplication
+      - IN: deploy-ecs-basic-cluster                         #required
       - TASK: managed
         deployMethod: upgrade | replace | blueGreen
 ```
@@ -235,6 +254,24 @@ Some things to remember:
 - The name generated with the [default deployment strategy](/deploy/amazon-ecs-strategy/), **blue-green**, will include a suffix of build number. So the service name will be of format deployName-buildNumber.
 
 - **upgrade** and **replace** deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
+
+### Forcing deployments for static tags
+
+Shippable assumes that your images are versioned with unique names (we recommend tagging with `$BRANCH.$BUILD_NUMBER`). When your deploy job is triggered, it will deploy the latest version of the IN manifests if something has changed in the manifest, i.e. image tag, dockerOptions settings, or params.
+
+If you tag your images with static tags like `latest` or `$BRANCH_NAME`, Shippable cannot detect if the underlying image has changed, and hence it is not deployed. To force deployments in this scenario, you need to set a flag in your deploy job that tells Shippable to deploy the image each time the job is triggered, regardless of whether anything has changed in the manifest.
+
+You can set the `force` flag for a manifest in your deploy job as shown below:
+
+```
+jobs:
+  - name: deploy-ecs-basic-deploy
+    type: deploy
+    steps:
+      - IN: deploy-ecs-basic-manifest         #required
+        force: true
+      - IN: deploy-ecs-basic-cluster          #required
+```
 
 ## Sample project
 

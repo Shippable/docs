@@ -4,11 +4,7 @@ sub_section: Amazon ECS
 
 # Customizing your Amazon ECS Task Definitions
 
-Task definitions are loaded with features to fit various scenarios. This page will describe how you can set up some of the more advanced sections in your Shippable pipeline.
-
-## Setup
-
-Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
+Task definitions are loaded with features to fit various scenarios. This page will describe how you can set up some of the more advanced sections in your Shippable pipeline when deploying using the managed [deploy job](/reference/job-deploy/).
 
 Task definitions are fully customizable through the `dockerOptions` type resource, so you'll need one of those:
 ```
@@ -84,9 +80,3 @@ There are two special sections for Amazon ECS: `service` and `taskDefinition`. P
           - "<source>:<container path>:<options>"
           - "<source>:<container path>:<options>"
 ```
-
-## Unmanaged
-
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
-
-If you've completed the basic scenario, you've already done everything required to support these options.  Just update your taskDefinition.json to include any additional settings you'd like, and when you register the task definition and update your service to use it, your settings should take effect! Refer directly to the Amazon ECS documentation for all possible available options.

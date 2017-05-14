@@ -14,9 +14,11 @@ If you are deploying to Amazon ECS using the managed [deploy job](/reference/job
 
 ##Instructions
 
-###1: Set up your basic deployment
+###1: Set up basic deployment
 
-To start, please follow the first three steps of the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
+As a pre-requisite for these instructions, you should already have set up deployment to ECS.
+
+You can follow the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
 
 ###2: Specify deployment strategy
 

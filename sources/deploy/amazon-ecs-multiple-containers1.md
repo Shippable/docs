@@ -4,66 +4,133 @@ sub_section: Amazon ECS
 
 # Deploying Multiple Containers to Amazon ECS
 
-The strength of Amazon ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
+The strength of ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
+
+## The Goal
 
 This page will discuss the three most common ways to use Shippable to deploy multiple containers to ECS:
 
-- **Parallel pipelines:** You can define one container per manifest and have separate deploy jobs for each manifest. In this scenario, each container will be deployed independently when its pipeline is triggered.
+- Separate parallel pipelines
+- Adding two images to a single manifest
+- Multi-manifest deployment
 
-<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline"y>
+In the end, if you try each of these scenarios, your pipeline might look something like this:
+<img src="../../images/deploy/amazon-ecs/multi-cont-final-pipeline.png" alt="Final pipeline">
 
-- **Multiple images in a single [manifest](/reference/job-manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
+## The Setup
+Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
 
-- **Multi-manifest deployment:** You can include one image per manifest, but choose to deploy several manifests together. In this scenario, all containers will be deployed at the same time, but only containers in the same manifest are guaranteed to be deployed on the same node.
+We'll start with some basic pipeline building blocks: one image, one manifest, one deploy job.
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline.png" alt="Multi-manifest pipeline with single deploy job">
+`shippable.resources.yml`
+```
+resources:
 
-##Parallel pipelines
+  - name: deploy-ecs-multi-container-image
+    type: image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
+    seed:
+      versionName: "latest"
 
-###1: Set up basic deployment
 
-As a pre-requisite for these instructions, you should already have set up deployment to ECS.
+  - name: deploy-ecs-multi-container-ecs-cluster
+    type: cluster
+    integration: dr-aws
+    pointer:
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
+```
 
-You can follow the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
+`shippable.jobs.yml`
+```
+jobs:
 
-###2. Add a second pipeline
+  - name: deploy-ecs-multi-container-manifest
+    type: manifest
+    flags:
+      - deploy-ecs-multi-container
+    steps:
+     - IN: deploy-ecs-multi-container-image
 
-Update `shippable.resources.yml` with an additional `image`. We're just using a standard nginx image here, but you can use the image you need.
+ - name: deploy-ecs-multi-container-deploy
+   type: deploy
+   flags:
+     - deploy-ecs-multi-container
+   steps:
+     - IN: deploy-ecs-multi-container-manifest
+     - IN: deploy-ecs-multi-container-ecs-cluster
+
+```
+
+## Managed Deployments
+Managed deployments allow you to skip the scripting and let Shippable take control of building the appropriate objects and issuing the various commands.
+
+### Basic Configuration
+
+The main idea behind the basic configuration is that since the cluster resource is reusable, we can keep our workflows separate while deploying to the same endpoint.
+
+To accomplish this, we'll simply add another image, manifest, and deploy job in parallel to the original, while keeping the cluster input the same.
+
+Now the updated ymls should look like this:
 
 ```
 resources:
 
-  - name: deploy-ecs-image-nginx     #image resource for nginx
+  - name: deploy-ecs-multi-container-image
     type: image
-    integration: dr-ecr              #ECR integration that has permissions to pull the image
+    integration: dr-ecr
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
+    seed:
+      versionName: "latest"
+
+  - name: deploy-ecs-multi-container-nginx
+    type: image
+    integration: dr-ecr
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
     seed:
       versionName: "1.12.0"
 
-```
+  - name: deploy-ecs-multi-container-ecs-cluster
+    type: cluster
+    integration: dr-aws
+    pointer:
+      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
+      region: "us-east-1"
 
-Update `shippable.jobs.yml` with the new `manifest` and `deploy` jobs. We are adding a manifest for the nginx image, and updating the deploy job to accept the new manifest as an IN:
+```
 
 ```
 jobs:
 
-  - name: deploy-ecs-nginx         #manifest for nginx image
+  - name: deploy-ecs-multi-container-manifest-3a
     type: manifest
     steps:
-      - IN: deploy-ecs-image-nginx
+     - IN: deploy-ecs-multi-container-image
+
+  - name: deploy-ecs-multi-container-manifest-3b
+    type: manifest
+    steps:
+      - IN: deploy-ecs-multi-container-nginx
+
+  - name: deploy-ecs-multi-container-deploy-3a
+    type: deploy
+    steps:
+      - IN: deploy-ecs-multi-container-manifest-3a
+      - IN: deploy-ecs-multi-container-ecs-cluster
 
   - name: deploy-ecs-multi-container-deploy-3b
     type: deploy
     steps:
-      - IN: deploy-ecs-nginx
-      - IN: deploy-ecs-basic-cluster
-
+      - IN: deploy-ecs-multi-container-manifest-3b
+      - IN: deploy-ecs-multi-container-ecs-cluster
 ```
 
-Push your changes to your **syncRepo** and your your pipeline will be updated to look like this:
+Once you push these changes, your pipeline should look like this:
 
 <img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline">
 
@@ -71,7 +138,7 @@ Now each pipeline is handled separately, but is being deployed to the same clust
 
 <img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline-results.png" alt="Parallel pipeline results">
 
-## Multiple images in one manifest
+### Advanced Configuration: two images in one manifest
 
 When two containers depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate on ECS via localhost or container linking.
 
@@ -105,7 +172,7 @@ And deployment to Amazon ECS should result in a task definition that looks like 
 Now, any time either image is updated with a new version, the pipeline will be triggered, and your combined manifest will always be up-to-date.
 
 
-## Multi-manifest deployment
+### Advanced Configuration: multiple manifest deployment
 
 It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
 
