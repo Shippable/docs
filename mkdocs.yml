@@ -160,13 +160,12 @@ pages:
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
     - Amazon ECS:
-      - Managed deployment: deploy/amazon-ecs.md
+      - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
       - Deploying multi-container services: deploy/amazon-ecs-multiple-containers.md
       - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
-      - Using custom service names: deploy/amazon-ecs-naming-conventions.md
       - Custom deployments with runCLI: deploy/amazon-ecs-unmanaged.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md

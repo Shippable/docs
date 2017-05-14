@@ -3,85 +3,43 @@ main_section: Deploy
 sub_section: Amazon ECS
 
 # Amazon ECS Deployment Strategies
+
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Amazon ECS.
 
-## Setup
-Make sure you have a cluster set up on Amazon ECS, then create an integration and cluster resource [as described in the setup section here](./amazon-ecs)
+If you are deploying to Amazon ECS using the managed [deploy job](/reference/job-deploy/), you can specify one of the strategies below:
 
-For this example, we're going to use two docker images, two Shippable manifests, and one Shippable deploy job.
+- blue-green (default), where we wait for the new service to reach steady state before deleting the old service
+- upgrade, where existing services are updated with changes
+- replace, for use with smaller clusters when you are okay with some downtime
 
-```
-resources:
-  - name: deploy-ecs-strategy-ecs-cluster
-    type: cluster
+##Instructions
 
-    integration: dr-aws
-    pointer:
-      sourceName : "deploy-ecs-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
+###1: Set up your basic deployment
 
-  - name: deploy-ecs-strategy-image
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-strategy"
-    seed:
-      versionName: "latest"
+To start, please follow the first three steps of the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
 
-  - name: deploy-ecs-strategy-nginx
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
-    seed:
-      versionName: "1.12.0"
+###2: Specify deployment strategy
 
-```
+You can specify the strategy you want in the `TASK` section of your **deploy** job as shown below:
 
 ```
 jobs:
 
-  - name: deploy-ecs-strategy-manifest
-    type: manifest
-    steps:
-     - IN: deploy-ecs-strategy-image
-
-  - name: deploy-ecs-strategy-nginx-manifest
-    type: manifest
-    steps:
-      - IN: deploy-ecs-strategy-nginx
-
-
-  - name: deploy-ecs-strategy-deploy
+  - name: deploy-ecs-basic-deploy
     type: deploy
     steps:
-      - IN: deploy-ecs-strategy-manifest
-      - IN: deploy-ecs-strategy-nginx-manifest
-      - IN: deploy-ecs-strategy-ecs-cluster
-
+      - IN: deploy-ecs-basic-manifest
+      - IN: deploy-ecs-basic-ecs-cluster
+      - TASK: managed
+        deployMethod: blueGreen | upgrade | replace
 ```
 
-## Managed Deployments
-When using Shippable managed deployments, there are several deployment strategies available to you. This section will discuss these options and the impact that they have on Amazon ECS deployments.
+Push your changes to your **syncRepo** and your next deployment will follow the specified strategy!
 
-### Basic Configuration
-These options are controlled through the `TASK` section of the job steps.  By default, most jobs do not require this section, but if you're looking to use one of the non-default options, then your deploy job steps should be updated to contain this section.  It should look like this:
+A description of various strategies is given below.
 
-```
-- name: deploy-ecs-strategy-deploy
-  type: deploy
-  steps:
-    - IN: deploy-ecs-strategy-ecs-cluster
-    - IN: deploy-ecs-strategy-manifest
-    - IN: deploy-ecs-strategy-nginx-manifest
-    - TASK: managed
-      deployMethod: blueGreen # (blueGreen, upgrade, replace)
-      deployOptions:
-        - serial # (serial, parallel)
-```
-These are the default values that take effect even if you don't add this section to your deploy job.
+####a. deployMethod: blueGreen (default)
 
-### deployMethod: blueGreen (default)
 This is the default behavior that the deploy job uses unless otherwise specified.  The idea behind Shippable's `blueGreen` deployment method is to try to eliminate any risk of down time.  On ECS, we accomplish this with the following workflow:
 
 - register the task definition and create a new service that uses it
@@ -90,9 +48,10 @@ This is the default behavior that the deploy job uses unless otherwise specified
 - wait for the old service's runningCount to reach 0
 - delete the old service
 
-Once this is complete, you'll have a new service that has replaced the old one.  The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host.  Shippable recommends the use of application load balancers, which you can [read about here](./amazon-ecs-elb-alb).
+Once this is complete, you'll have a new service that has replaced the old one.  The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host.  Shippable recommends the use of application load balancers, which you can [read about here](/deploy/amazon-ecs-elb-alb).
 
-### deployMethod: upgrade
+####b. deployMethod: upgrade
+
 When deploying to Amazon ECS, Shippable's `upgrade` method relies on the default behavior of Amazon ECS.  Typically the workflow looks something like this:
 
 - register the task definition
@@ -101,20 +60,8 @@ When deploying to Amazon ECS, Shippable's `upgrade` method relies on the default
 
 On the very first deployment, a new service will be created, but every subsequent deployment will just update the existing service with the modified task definition.
 
-To use this method, update your deploy job to specify `deployMethod: upgrade`
+####c. deployMethod: replace
 
-```
-- name: deploy-ecs-strategy-deploy
-  type: deploy
-  steps:
-    - IN: deploy-ecs-strategy-ecs-cluster
-    - IN: deploy-ecs-strategy-manifest
-    - IN: deploy-ecs-strategy-nginx-manifest
-    - TASK: managed
-      deployMethod: upgrade
-```
-
-### deployMethod: replace
 There are times when you might be working with a limited test environment where you don't care if there are a few minutes of downtime during deployments, and you'd prefer to keep the cluster small and cost-effective.  If this describes your environment, then it's possible that even the `upgrade` method can have trouble placing your tasks due to limited resources.  In this case, Shippable provides the `replace` method.  This will essentially delete your existing running tasks before updating your service.  The workflow looks like this:
 
 - if a service has already been deployed, reduce its desiredCount to 0
@@ -125,34 +72,20 @@ There are times when you might be working with a limited test environment where 
 - wait for the new tasks to start to verify the deployment's success
 
 
-To use this method, update your deploy job to specify `deployMethod: replace`
+## Deploying manifests in parallel
+
+If you are deploying multiple manifests with the same **deploy** job, you might notice that deployments can a long time to reach steady state. This is because manifests are deployed serially by default.
+
+You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
+
+You can set the deployOptions tag to enable this:
 
 ```
-- name: deploy-ecs-strategy-deploy
+- name: deploy-ecs-basic-deploy
   type: deploy
   steps:
-    - IN: deploy-ecs-strategy-ecs-cluster
-    - IN: deploy-ecs-strategy-manifest
-    - IN: deploy-ecs-strategy-nginx-manifest
-    - TASK: managed
-      deployMethod: replace
-```
-
-### deployMethod: scale
-Scale is unique in that you cannot specify it in your deploy job yml.  Instead, the act of scaling is determined automatically during deployment, and can apply to any of the above deploy methods.  Scale is used only when Shippable detects that no change has occurred to any aspect of the manifest other than the 'replicas' field.  
-
-For example, if a user updates their manifest to request 5 replicas instead of 2, but doesn't change any other setting (envs, image tags, docker options, etc), instead of performing a full deployment, Shippable performs the action 'scale' which simply updates the Amazon ECS service's desiredCount.  This makes the deployment much faster and doesn't perform any unnecessary steps.
-
-### parallel: true
-There's one additional deploy option that advanced users might want to try.  You may have noticed while running the above scenarios that your deployment workflow always happens one manifest at a time.  Once one manifest's deployment completes, we move onto the next one.  If you have many manifests to deploy, and each of them is pulling a new tag or starting multiple replicas, deployments can take a long time to reach a steady state.  Instead of waiting for each manifest individually, you can kick off the deployments of each manifest in parallel simply by adding this option to your job.  It looks like this:
-
-```
-- name: deploy-ecs-strategy-deploy
-  type: deploy
-  steps:
-    - IN: deploy-ecs-strategy-ecs-cluster
-    - IN: deploy-ecs-strategy-manifest
-    - IN: deploy-ecs-strategy-nginx-manifest
+    - IN: deploy-ecs-basic-manifest
+    - IN: deploy-ecs-basic-ecs-cluster
     - TASK: managed
       deployMethod: upgrade
       deployOptions:

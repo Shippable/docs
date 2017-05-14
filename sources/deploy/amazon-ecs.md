@@ -118,11 +118,6 @@ Now we can take that manifest, and use it as input to a `deploy` type job.  This
 ```
 jobs:
 
-  - name: deploy-ecs-basic-manifest
-    type: manifest
-    steps:
-      - IN: deploy-ecs-basic-image
-
   - name: deploy-ecs-basic-deploy
     type: deploy
     steps:
@@ -150,7 +145,7 @@ When you're ready for deployment, right-click on the manifest job, and select **
 - The deploy job will update the service to reference the new task definition
 - The deploy job will monitor the service until the desired number of running tasks is reached.
 
-After running, your pipeline will hopefully change color:
+After running, your pipeline will change color:
 
 <img src="../../images/deploy/amazon-ecs/basic-deployment-configuration-success.png" alt="Basic Pipeline Scenario">
 
@@ -204,6 +199,40 @@ Using the [replicas resource](../reference/resource-replicas) is quite simple. Y
     version:
       count: 2
 ```
+
+### Scaling instances
+
+If you update your manifest to request a different number of replicas without changing any other settings, we perform a "scale" action which simply updates the Amazon ECS service's desiredCount.  This makes the deployment much faster and doesn't perform any unnecessary steps.
+
+###Customizing service names
+
+We use a default naming convention for service names:
+
+| Deploy Method | Default Naming Convention |
+|--------------|---------------------------|
+| blueGreen | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName-buildNumber<ul> |
+| upgrade | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
+| replace | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
+
+To override the default name, you can use the `deployName` tag.
+
+```
+jobs:
+  - name: <job name>
+    type: deploy
+    steps:
+      - IN: <manifest>                        #required
+        deployName: <custom name>
+      - IN: <cluster>                         #required
+      - TASK: managed
+        deployMethod: upgrade | replace | blueGreen
+```
+
+Some things to remember:
+
+- The name generated with the [default deployment strategy](/deploy/amazon-ecs-strategy/), **blue-green**, will include a suffix of build number. So the service name will be of format deployName-buildNumber.
+
+- **upgrade** and **replace** deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
 
 ## Sample project
 
