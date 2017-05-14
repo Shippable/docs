@@ -210,9 +210,11 @@ We use a default naming convention for service names:
 
 | Deploy Method | Default Naming Convention |
 |--------------|---------------------------|
-| blueGreen | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName-buildNumber<ul> |
+| blueGreen (default) | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName-buildNumber<ul> |
 | upgrade | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
 | replace | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
+
+Read more on [deployment strategies](/deploy/amazon-ecs-strategy/) to understand them in detail.
 
 To override the default name, you can use the `deployName` tag.
 
