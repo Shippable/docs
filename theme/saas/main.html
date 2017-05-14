@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>{% if meta %}{{ meta.shipContent_title|join('') }} - {% elif shipContent_title %}{{ shipContent_title }} - {% endif %}{{ site_name }}</title>
+  <title>{% if meta %}{{ meta.page_main_title|join('') }} - {% elif page_main_title %}{{ page_main_title }} - {% endif %}{{ site_name }}</title>
   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="/static/images/favicon.png">
