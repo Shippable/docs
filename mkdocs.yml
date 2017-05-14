@@ -163,10 +163,9 @@ pages:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
-      - Deploying multi-container services: deploy/amazon-ecs-multiple-containers.md
-      - Deploying to multiple environments: deploy/amazon-ecs-multiple-environments.md
-      - Using custom task definition templates: deploy/amazon-ecs-custom-task-definitions.md
-      - Custom deployments with runCLI: deploy/amazon-ecs-unmanaged.md
+      - Multi-container services: deploy/amazon-ecs-multiple-containers.md
+      - Multiple environments: deploy/amazon-ecs-multiple-environments.md
+      - Custom deployments(runCLI): deploy/amazon-ecs-unmanaged.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md

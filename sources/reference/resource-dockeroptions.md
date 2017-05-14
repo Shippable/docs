@@ -370,22 +370,6 @@ Here are links to docs for each Container Service:
 * [Docker Datacenter](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 * [Azure DC/OS](https://mesosphere.github.io/marathon/docs/native-docker.html)
 
-
-## Overriding dockerOptions
-`dockerOptions` can also be used to override options that are already set in an upstream stage of the pipeline.
-
-For example, if you want to use different settings for your service in Test and Production environments, you can do so by overriding one or more settings in the resource.
-
-<img src="../../images/reference/resources/overrideDockerOptions.png" alt="Docker Options">
-
-In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
-
-## Triggering dependent jobs
-
-When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
-
-To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](shippable-triggers-yml/)
-
 ## Provider specific options
 Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
 
@@ -617,3 +601,18 @@ resources:
       parameters:
         - <string>: <string>
 ```
+
+## Overriding dockerOptions
+`dockerOptions` can also be used to override options that are already set in an upstream stage of the pipeline.
+
+For example, if you want to use different settings for your service in Test and Production environments, you can do so by overriding one or more settings in the resource.
+
+<img src="../../images/reference/resources/overrideDockerOptions.png" alt="Docker Options">
+
+In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `dockerOptions-2` as an input. For this production deployment, we will use a superset of settings from `dockerOptions-1` and `dockerOptions-2`, with values for any common settings being chosen from `dockerOptions-2`.
+
+## Triggering dependent jobs
+
+When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
+
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](shippable-triggers-yml/)
