@@ -44,11 +44,19 @@ These files should be in your [syncRepo](/reference/resource-syncrepo/). Please 
 
 Follow the steps below to set up a basic deployment to ECS.
 
-###1: Create an account integration
+###1: Create account integrations
+
+You need two account integrations for this scenario:
+
+####AWS
 
 Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
 
 This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+
+####Amazon ECR
+You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/reference/int-amazon-ecr/) page.
+
 
 ###2: Create resources
 
@@ -56,7 +64,7 @@ You need the following three resources in your `shippable.resources.yml` file:
 
 ####cluster
 
-First, we need a `cluster` resource in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Amazon ECS.
+First, we need a `cluster` resource which references a cluster that has already been created on Amazon ECS.
 
 ```
 resources:
@@ -80,6 +88,7 @@ resources:
 
   - name: deploy-ecs-basic-image          # resource friendly name
     type: image
+    integration: dr-ecr                   # replace with integration name from step 1          
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"   # image pointer
     seed:
@@ -97,7 +106,7 @@ You need two jobs for this scenario:
 
 ####manifest
 
-Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
 ```
 jobs:
@@ -109,7 +118,7 @@ jobs:
 
 ```
 
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.
 
 ####deploy
 
