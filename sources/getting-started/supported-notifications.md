@@ -8,7 +8,7 @@ Shippable supports sending email, Slack, HipChat and IRC notifications. You can 
 
 For more information and a detailed tutorial on sending notifications, please select your notification provider below:
 
--  [Sending Slack notifications](slack-notifications/)
--  [Sending Hipchat notifications](hipchat-notifications/)
--  [Sending Email notifications](email-notifications/)
--  [Sending IRC notifications](irc-notifications/)
+-  [Sending Slack notifications](/ci/slack-notifications/)
+-  [Sending Hipchat notifications](/ci/hipchat-notifications/)
+-  [Sending Email notifications](/ci/email-notifications/)
+-  [Sending IRC notifications](/ci/irc-notifications/)
