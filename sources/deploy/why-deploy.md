@@ -4,7 +4,7 @@ sub_section: Before you start
 
 # Deploying your application
 
-Shippable supported deployments to many endpoints, both for traditional and Docker based applications.
+Shippable supports deployments to many endpoints, for both traditional and Docker based applications.
 
 We have put together samples for all common deployment scenarios:
 
@@ -32,7 +32,7 @@ Consider the following scenario:
 - Every time the package is updated, a new version of the application manifest is created. The manifest is a versioned immutable unit of deployment for your application.
 - The updated manifest version automatically triggers a deployment to your Test environment. Your Test team is notified.
 - Once tests are completed and the team signs off on them, the manifest version is automatically deployed to Beta.
-- As it passed through several validation steps, the application is deployed into successive environments until it finally reaches production.
+- As it passes through several validation steps, the application is deployed into successive environments until it finally reaches production.
 
 The deploy steps are shown in the image below:
 
