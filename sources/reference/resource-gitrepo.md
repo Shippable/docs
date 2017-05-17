@@ -41,7 +41,7 @@ You can create this resource by adding it to `shippable.resources.yml`
 
     - [GitHub](int-github/)
     - [Bitbucket](int-bitbucket/)
-    - [Github Enterprise](int-github-enterprise/)
+/reference/int-bitbucket-server/
     - [Bitbucket Server (formerly Stash)](int-bitbucket-server/)
     - [Gitlab/GitlabServer](int-gitlab/)
 

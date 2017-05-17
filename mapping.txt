@@ -32,7 +32,7 @@ ci/advancedOptions/matrixBuilds /ci/matrix-builds
 ci/advancedOptions/caching /ci/caching
 ci/advancedOptions/artifacts /ci/push-artifacts
 ci/advancedOptions/gitSubmodules /ci/git-submodules
-ci/advancedOptions/sshKeys /ci/ssh-keys
+ci/advancedOptions/ssh-keys /ci/ssh-keys
 ci/advancedOptions/retry /ci/retry-command
 ci/advancedOptions/skipBuild /ci/skip-builds
 ci/advancedOptions/byon /getting-started/byon-overview
@@ -41,7 +41,7 @@ ci/advancedOptions/timeouts /ci/custom-timeouts
 ci/advancedOptions/console-logs /ci/console-logs
 ci/advancedOptions/machineImages /reference/machine-images-overview
 ci/troubleshoot lift it
-pipelines/overview /getting-started/building-blocks/
+pipelines/overview /getting-started/pipeline-basics/
 pipelines/gettingStarted /getting-started/single-pane-of-glass-spog/
 pipelines/resources/overview /reference/resources-overview
 pipelines/resources/ciRepo /reference/resource-cirepo

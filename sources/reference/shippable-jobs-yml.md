@@ -31,7 +31,7 @@ jobs:
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines Grid View.
 
-* `type` is always set to type of job - [runCI](/reference/job-runci), [manifest](/reference/job-manifest/), [deploy](/reference/job-deploy/), [release](/reference/job-release/), [runSh](reference/job-runSh/), [provision](/reference/job-provision/), [runCLI](/reference/job-runCLI/), or [jenkinsJob](/reference/job-jenkinsJob/).
+* `type` is always set to type of job - [runCI](/reference/job-runci), [manifest](/reference/job-manifest/), [deploy](/reference/job-deploy/), [release](/reference/job-release/), [runSh](reference/job-runsh/), [provision](/reference/job-provision/), [runCLI](/reference/job-runcLI/), or [jenkinsJob](/reference/job-jenkinsJob/).
 
 * `steps` is an array of instructions consisting of `IN`, `OUT` & `TASK` objects.
 
@@ -57,6 +57,6 @@ For a detailed explanation of the yml for each job type, visit the reference pag
 - [deploy](/reference/job-deploy/)
 - [release](/reference/job-release/)
 - [provision](/reference/job-provision/)
-- [runCLI](/reference/job-runCLI/)
-- [runSh](reference/job-runSh/)
+- [runCLI](/reference/job-runcLI/)
+- [runSh](reference/job-runsh/)
 - [jenkinsJob](/reference/job-jenkinsJob/)

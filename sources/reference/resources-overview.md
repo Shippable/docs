@@ -14,15 +14,15 @@ Shippable internally maintains its own version numbers for every resource so tha
 
 There are several resources that are pre-defined as part of the platform and work as documented in the sections below:
 
-- [ciRepo](resource-ciRepo/): Represents a project in Shippable CI
-- [cliConfig](resource-cliConfig/): Configuration information for command-line tools
+- [ciRepo](resource-cirepo/): Represents a project in Shippable CI
+- [cliConfig](resource-cliconfig/): Configuration information for command-line tools
 - [cluster](resource-cluster/): Cluster that defines a container service
-- [dockerOptions](resource-dockerOptions/): Options for docker images
+- [dockerOptions](resource-dockeroptions/): Options for docker images
 - [file](resource-file/): Specifies a file
-- [gitRepo](resource-gitRepo/): Source repository for your code
+- [gitRepo](resource-gitrepo/): Source repository for your code
 - [image](resource-image/): Docker image definition
 - [integration](resource-integration/): Credentials for third party services
-- [loadBalancer](resource-loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
+- [loadBalancer](resource-loadbalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
 - [notification](resource-notification/): Notifications for job success or failure
 - [params](resource-params/): Parameters for your apps/services/microservices
 - [replicas](resource-replicas/): Number of copies of the service to run

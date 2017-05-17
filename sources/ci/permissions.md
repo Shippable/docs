@@ -12,7 +12,7 @@ We use OAuth authentication.
 
 What this means is if you have either a GitHub or Bitbucket account, you do not need to create a separate account on our platform.
 
-If you want to build repositories in your [GitHub Enterprise](/integrations/int-github-enterprise/) instance, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
+If you want to build repositories in your [GitHub Enterprise](/reference/int-github-enterprise/) instance, you will still need to sign in with GitHub or Bitbucket and add an account integration for GitHub Enterprise.
 
 
 ## Authorizing Shippable

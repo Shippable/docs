@@ -28,9 +28,9 @@ This is done during definition of your application on OpsWorks, by
 entering URL for the repository. Please note that for public access
 (without adding an SSH key), you need to use appropriate protocol for
 the endpoint, for example
-`https://gihub.com/Shippable/sample-php-mysql-opsworks.git` or
-`git://gihub.com/Shippable/sample-php-mysql-opsworks.git`, instead of
-SSH URL, such as `github.com:Shippable/sample-php-mysql-opsworks.git`.
+`https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks.git` or
+`git://gihub.com/Shippable/sample-nodejs-dynamo-opsworks.git`, instead of
+SSH URL, such as `github.com:Shippable/sample-nodejs-dynamo-opsworks.git`.
 
 > **Note**
 >
@@ -134,7 +134,7 @@ class OpsWorksDb {
 }
 
 // ...rest of the file omitted for brevity, you can access it at
-// https://github.com/shippableSamples/sample-php-mysql-opsworks/blob/master/test-config/opsworks.php
+// https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks/blob/master/test-config/opsworks.php
 ```
 
 Then, in `ci` step of your build, copy this file to the
@@ -146,7 +146,7 @@ ci:
 ```
 
 See the full sample of PHP web application featuring MySQL connection
-[on GitHub](https://github.com/shippableSamples/sample-php-mysql-opsworks)
+[on GitHub](https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks)
 for details.
 
 ## General information on using Amazon DynamoDB

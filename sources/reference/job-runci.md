@@ -57,4 +57,4 @@ In order to make it easier to write your scripts and work with `IN` and `OUT` re
 
 A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/reference/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
 
-Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/environment-variables/).
+Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/env-vars/).

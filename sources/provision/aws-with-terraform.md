@@ -3,34 +3,34 @@ main_section: Provision
 sub_section: Provisioning AWS infrastructure
 
 # AWS with Terraform
-With Shippable, you can use Terraform from Hashicorp within Pipelines to 
+With Shippable, you can use Terraform from Hashicorp within Pipelines to
 provision infrastructure on AWS. You would do so with a `runCLI` or `runSh` job.
 
 ##Setup
 
-Before you start, you will need to store your AWS credentials as an [Account 
-Integration](add link) so that your Shippable pipeline job can connect to AWS 
-without exposing your credentials in your config file. Once you add an account 
+Before you start, you will need to store your AWS credentials as an [Account
+Integration](add link) so that your Shippable pipeline job can connect to AWS
+without exposing your credentials in your config file. Once you add an account
 integration, you can use it for all your projects without needing to add it again.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top 
+-  Go to your **Account Settings** by clicking on the gear icon in the top
 navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add 
+-  Click on **Integrations** in the left sidebar menu and then click on **Add
 Integration**
 -  Locate **AWS** in the list and click on **Create Integration**
 -  Name your integration and enter your AWS Access Key ID and AWS Secret Access
-Key for an IAM User with the appropriate policies set to perform the provisioning 
+Key for an IAM User with the appropriate policies set to perform the provisioning
 actions you will execute (e.g. create/delete EC/2 instances)
 -  Choose the Subscription(s) that are allowed to use these credentials.
 push the image
 -  Click **Save**
 
-<img src="../../images/provision/amazon-web-services-integration.png" alt="add 
+<img src="../../images/provision/amazon-web-services-integration.png" alt="add
 aws credentials">
 
 ##Basic config
 
-After completing the setup step, you'll configure the following pipeline 
+After completing the setup step, you'll configure the following pipeline
 resources and jobs:
 
 -  resources:
@@ -39,11 +39,11 @@ resources and jobs:
 -  jobs
     *  **runCLI** - for executing your Terraform scripts
 
-in `shippable.resources.yml`, define the following resources to be used as 
+in `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for awscli 
+# config for awscli
   - name: myAwsCliConfig
     type: cliConfig
     integration: myAwsIntegration # replace with your AWS integration name
@@ -59,7 +59,7 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Terraform 
+in `shippable.jobs.yml`, define the following job in order to execute Terraform
 scripts to provision on AWS from your pipeline:
 
 ```yaml
@@ -73,14 +73,14 @@ scripts to provision on AWS from your pipeline:
         # Restore previous Terraform statefile
         - script: |
             cd /build/previousState
-            if [[ -f terraform.tfstate ]]; then 
+            if [[ -f terraform.tfstate ]]; then
               cp terraform.tfstate $PROVISION_AWS_TERRAFORM_REPO_STATE
             fi
- 
+
         # Set AWS credentials for use by Terraform CLI
         - script: >
-            export 
-            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID 
+            export
+            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
             AWS_DEFAULT_REGION=$MYAWSCLICONFIG_POINTER_REGION
 
@@ -88,7 +88,7 @@ scripts to provision on AWS from your pipeline:
         - script: |
             cd $MYGITHUBREPO_STATE  
             terraform apply
-   
+
    # Save terraform.tfstate file for use in subsequent jobs
     always:
       - script: |
@@ -96,18 +96,18 @@ scripts to provision on AWS from your pipeline:
           cp terraform.tfstate /build/state
 ```
 
-NOTE: The Terraform CLI is pre-installed on Shippable's standard runCLI job 
-runtime images. You do not need to do so as part of your runCLI job. 
+NOTE: The Terraform CLI is pre-installed on Shippable's standard runCLI job
+runtime images. You do not need to do so as part of your runCLI job.
 
 
 ## Advanced config
 ### Separate provision and terminate jobs
-Using Terraform with AWS, you'll likely want to separate your 'provision' actions 
-from your 'terminate' actions. In this manner you can easily trigger either 
+Using Terraform with AWS, you'll likely want to separate your 'provision' actions
+from your 'terminate' actions. In this manner you can easily trigger either
 action on-demand or via automated triggers.
 
-To set up this Pipeline, simply separate your provision and terminate actions 
-into separate jobs and name the 'provision' job as an input to the 
+To set up this Pipeline, simply separate your provision and terminate actions
+into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
 `shippable.jobs.yml`:
@@ -122,14 +122,14 @@ into separate jobs and name the 'provision' job as an input to the
         # Restore previous Terraform statefile
         - script: |
             cd /build/previousState
-            if [[ -f terraform.tfstate ]]; then 
+            if [[ -f terraform.tfstate ]]; then
               cp terraform.tfstate $PROVISION_AWS_TERRAFORM_REPO_STATE
             fi
- 
+
         # Set AWS credentials for use by Terraform CLI
         - script: >
-            export 
-            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID 
+            export
+            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
             AWS_DEFAULT_REGION=$MYAWSCLICONFIG_POINTER_REGION
 
@@ -137,7 +137,7 @@ into separate jobs and name the 'provision' job as an input to the
         - script: |
             cd $MYGITHUBREPO_STATE  
             terraform apply
-    
+
     # Save terraform.tfstate file for use in subsequent jobs
     always:
       - script: |
@@ -155,14 +155,14 @@ into separate jobs and name the 'provision' job as an input to the
         # Restore incoming Terraform statefile
         - script: |
             cd $MYPROVISIONJOB_STATE
-            if [[ -f terraform.tfstate ]]; then 
+            if [[ -f terraform.tfstate ]]; then
               cp terraform.tfstate $MYGITHUBREPO_STATE
             fi
- 
+
         # Set AWS credentials for use by Terraform CLI
         - script: >
-            export 
-            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID 
+            export
+            AWS_ACCESS_KEY_ID=$MYAWSCLICONFIG_INTEGRATION_AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY=$MYAWSCLICONFIG_INTEGRATION_AWS_SECRET_ACCESS_KEY
             AWS_DEFAULT_REGION=$MYAWSCLICONFIG_POINTER_REGION
 
@@ -170,7 +170,7 @@ into separate jobs and name the 'provision' job as an input to the
         - script: |
             cd $MYGITHUBREPO_STATE  
             terraform destroy -force
-    
+
     # Save terraform.tfstate file for use in subsequent jobs
     always:
       - script: |
@@ -180,7 +180,7 @@ into separate jobs and name the 'provision' job as an input to the
 ```
 
 ### Create timed Terraform pipeline job
-To schedule a Pipeline job to automatically execute a Terraform script on a 
+To schedule a Pipeline job to automatically execute a Terraform script on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -204,16 +204,15 @@ recurring basis, add a `time` resource.
 
 ## Sample project
 
-Here are some links to a working sample of this scenario: 
+Here are some links to a working sample of this scenario:
 
-**Source code:**  [devops-recipes/provision-aws-terraform](https://github.com/
-devops-recipes/provision-aws-terraform).
+**Source code:**  [devops-recipes/provision-aws-terraform](https://github.com/devops-recipes/provision-aws-terraform).
 
 
 ## Improve this page
 
-We really appreciate your help in improving our documentation. If you find any 
-problems with this page, please do not hesitate to reach out at 
+We really appreciate your help in improving our documentation. If you find any
+problems with this page, please do not hesitate to reach out at
 [support@shippable.com](mailto:support@shippable.com) or [open a support issue]
-(https://www.github.com/Shippable/support/issues). You can also send us a pull 
+(https://www.github.com/Shippable/support/issues). You can also send us a pull
 request to the [docs repository](https://www.github.com/Shippable/docs).

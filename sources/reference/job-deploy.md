@@ -79,7 +79,7 @@ jobs:
 Additional overrides:
 In addition to the inputs above, you can provide `dockerOptions`, `params`, and `replicas` as inputs to your deploy job. If you have defined these resources in your input manifest, you do not need to define them again here. If provided in both manifest and deploy, the values set in deploy override any common options set in your manifest.
 
-* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](resource-dockerOptions/).
+* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](resource-dockeroptions/).
 	* By default, values specified in dockerOptions apply to all images in all manifests. If you want the custom values to only apply to specific manifests or images, use the `applyTo` tag and provide a list of manifests/images you want to apply them to.
 * `params` is an optional input and adds a list of environment params required for the deployment. This can include any key value pairs and lets you override design time configuration for the manifest. Read more on [params resource](resource-params/).
 	* 	By default, values specified in params applies to all manifests. Use the `applyTo` tag and provide a list to apply params only to specific manifests.
