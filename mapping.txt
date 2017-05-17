@@ -32,7 +32,7 @@ ci/advancedOptions/matrixBuilds /ci/matrix-builds
 ci/advancedOptions/caching /ci/caching
 ci/advancedOptions/artifacts /ci/push-artifacts
 ci/advancedOptions/gitSubmodules /ci/git-submodules
-ci/advancedOptions/ssh-keys /ci/ssh-keys
+ci/advancedOptions/sshKeys /ci/ssh-keys
 ci/advancedOptions/retry /ci/retry-command
 ci/advancedOptions/skipBuild /ci/skip-builds
 ci/advancedOptions/byon /getting-started/byon-overview

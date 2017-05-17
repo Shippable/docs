@@ -24,7 +24,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 The Shippable Official Docker images are the default images used to spin up your CI build containers. In the following sections, you can find what is available on each official CI image, depending on the `language` specified in your yml.
 
-You can override the default CI image for any project by adding a `pre_ci_boot` section to the yml. The config is [described here](../shippableyml/#pre_ci_boot)
+You can override the default CI image for any project by adding a `pre_ci_boot` section to the yml. The config is [described here](/ci/custom-docker-image/)
 
 ##Pre-installed official Docker Images
 

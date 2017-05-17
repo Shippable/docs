@@ -24,7 +24,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 ## Shippable Official Docker Images
 These are the images used to run your CI jobs. The default image is picked up based on the `language` you set in your yml. All these images are available on our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is availabe on our [Github dry-dock org](https://github.com/dry-dock)
 
-If you would like to use your own CI images in place of the official images, instructions are [described here](../shippableyml/#pre_ci_boot)
+If you would like to use your own CI images in place of the official images, instructions are [described here](/ci/custom-docker-image/)
 
 These are the official language images in this version
 

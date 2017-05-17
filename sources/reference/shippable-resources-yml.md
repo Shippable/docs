@@ -33,8 +33,8 @@ resources:
 
 For a detailed explanation of the yml for each resource type, visit the reference page for that specific resource:
 
-- [ciRepo](resource-ciRepo/): Represents a project in Shippable CI
-- [cliConfig](resource-cliConfig/): Configuration information for command-line tools
+- [ciRepo](resource-cirepo/): Represents a project in Shippable CI
+- [cliConfig](resource-cliconfig/): Configuration information for command-line tools
 - [cluster](resource-cluster/): Cluster that defines a container service
 - [dockerOptions](resource-dockeroptions/): Options for docker images
 - [file](resource-file/): Specifies a file
