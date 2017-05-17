@@ -10,7 +10,7 @@ All supported services are pre-installed on your build machines, so you do not h
 
 For more information and a detailed tutorial on each service, please select from the list below below:
 
--  [CouchDB](couchDB/)
+-  [CouchDB](couchdb/)
 -  [Elasticsearch](elasticsearch/)
 -  [Memcached](memcached/)
 -  [MongoDB](mongodb/)

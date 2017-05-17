@@ -19,7 +19,7 @@ A `runCI` job is automatically created when a [project is enabled for CI](/ci/en
 
 <img src="/images/reference/jobs/runCI/hookPipeline.png" alt="Hook button on project settings page." style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-Once enabled or hooked, click on your **Pipelines** tab and you will see the job in your SPOG, just as though you had added it via `shippable.jobs.yml`. It will also show the a [ciRepo resource](/reference/resource-ciRepo/) as an input, which is a pointer to the repository you enabled for CI.
+Once enabled or hooked, click on your **Pipelines** tab and you will see the job in your SPOG, just as though you had added it via `shippable.jobs.yml`. It will also show the a [ciRepo resource](/reference/resource-cirepo/) as an input, which is a pointer to the repository you enabled for CI.
 
 <img src="/images/reference/jobs/runCI/runCIInSPOG.png" alt="runCI in SPOG" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 

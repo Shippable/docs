@@ -52,10 +52,10 @@ You need a source control integration if:
 
 We currently support the following source control providers:
 
-- [GitHub](int-github/)
-- [GitHub Enterprise](int-github-enterprise/)
-- [Bitbucket](int-bitbucket/)
-- [GitLab](int-gitlab/)
+- [GitHub](/reference/int-github/)
+- [GitHub Enterprise](/reference/int-github-enterprise/)
+- [Bitbucket](/reference/int-bitbucket/)
+- [GitLab](/reference/int-gitlab/)
 
 ### Notification Providers
 

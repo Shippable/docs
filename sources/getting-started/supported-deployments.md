@@ -23,4 +23,4 @@ You can deploy to the following hosting providers using Shippable's native integ
 
 - [AWS Opsworks](/ci/deploy-to-aws-opsworks/)
 - [AWS EBS](/ci/deploy-to-aws-beanstalk/)
-- [Heroku](/ci/deploy-heroku/)
+- [Heroku](/ci/deploy-to-heroku/)
