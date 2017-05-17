@@ -25,9 +25,10 @@ what is pre-installed on that image:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
-| [v5.4.1](v5-4-1/)        | Mar 30, 2017    |
-| [v5.3.2](v5-3-2/)        | Mar 11, 2017    |
-| [Stable](stable/)        | Feb 19, 2016 (deprecated) |
+| [v5.5.1](machine-image-v551/)        | Apr 26, 2017    |
+| [v5.4.1](machine-image-v541/)        | Mar 30, 2017    |
+| [v5.3.2](machine-image-v532/)        | Mar 11, 2017    |
+| [Stable](machine-image-stable/)      | Feb 19, 2016 (deprecated) |
 
 **The default Machine Image for your subscription is the latest image available
 when your Subscription was added to Shippable.**
