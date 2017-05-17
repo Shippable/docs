@@ -167,7 +167,8 @@ This creates a [version resource](../../pipelines/resources/version/) for your s
       - TASK: managed
         bump: minor
 ```
-This creates a [release job](../../pipelines/jobs/release/) for your sample project. It takes the version resource we just created as an input. We are also adding a [trigger resource](../../pipelines/triggers/) that allows us to manually trigger the pipeline. This is defined in `shippable.triggers.yml`. This job is sequenced after the deployment job in your pipeline, and every time a release is created, it currently bumps up the minor version.
+
+This creates a [release job](../../pipelines/jobs/release/) for your sample project. It takes the version resource we just created as an input. We are also adding a [trigger resource](reference/shippable-triggers-yml/) that allows us to manually trigger the pipeline. This is defined in `shippable.triggers.yml`. This job is sequenced after the deployment job in your pipeline, and every time a release is created, it currently bumps up the minor version.
 
 Commit your changes. You'll see the release job added at the end:
 

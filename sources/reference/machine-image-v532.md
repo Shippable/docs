@@ -28,7 +28,7 @@ our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is
 available on our [Github dry-dock org](https://github.com/dry-dock)
 
 If you would like to use your own CI images in place of the official images,
-instructions are [described here](../shippableyml/#pre_ci_boot)
+instructions are [described here](/ci/custom-docker-image/)
 
 These are the official language images in this version
 
