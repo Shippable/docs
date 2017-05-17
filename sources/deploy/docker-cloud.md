@@ -9,7 +9,7 @@ There are many strategies that can be used to deploy containers to [Docker Cloud
 
 Shippable will use an API token to communicate with Docker Cloud on your behalf. You can add this to Shippable via Account Integrations, so that we can internally use that token to make API calls to Docker cloud.
 
-- [Generate an API key](https://cloud.docker.com/account/#container-api-key) in your Docker Cloud account to use with Shippable.
+- [Generate an API key](https://docs.docker.com/apidocs/docker-cloud/#rest-api) in your Docker Cloud account to use with Shippable.
 - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
 - Locate **Docker Cloud** of type **deploy** in the list and click **Create Integration**.
@@ -17,7 +17,7 @@ Shippable will use an API token to communicate with Docker Cloud on your behalf.
 - From the dropdown, select the subscription that you'll be using to create your pipelines.
 - Click **Save**
 
-<img src="../images/deploy/docker-cloud/docker-cloud-integration.png" alt="Add Docker Cloud token">
+<img src="/images/deploy/docker-cloud/docker-cloud-integration.png" alt="Add Docker Cloud token">
 
 
 Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Docker Cloud.
