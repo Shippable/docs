@@ -20,6 +20,7 @@ pages:
       - Use cases: getting-started/shippable-use-cases.md
       - Pipeline basics: getting-started/pipeline-basics.md
       - Single Pane of Glass: getting-started/single-pane-of-glass-spog.md
+      - Concepts: getting-started/concepts.md
     - What is supported?:
       - Source control providers: getting-started/supported-scms.md
       - Languages: getting-started/supported-languages.md
