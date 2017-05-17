@@ -369,7 +369,7 @@ $client->createTable(array(
 ));
 ```
 
-Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/aws-sdk-php/guide/latest/service-dynamodb.html) and [the full sample](https://github.com/shippableSamples/sample-php-dynamo-opsworks) on our GitHub account for details.
+Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/aws-sdk-php/guide/latest/service-dynamodb.html) and [the full sample](https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks) on our GitHub account for details.
 
 ## Using DynamoDB with Node.js
 
