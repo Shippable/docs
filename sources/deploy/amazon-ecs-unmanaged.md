@@ -35,18 +35,18 @@ These files should be in your [syncRepo](/reference/resource-syncrepo/). Please 
 
 Follow the steps below to set up a basic deployment to ECS.
 
-###1: Create account integrations
+###1: Create account integrations and add them to the subscription
 
-You need the following two account integrations:
+You need the following two account integrations.  Once created, make sure to add them to the subscription that will contain your pipeline.  You can do this at the time of creation, or you can later navigate to your subscription settings page and add them from the "integrations" tab.
 
 ####Amazon ECS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.  Make sure to specify the subscription that you'd like to use this integration with.
 
 This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
 ####GitHub (or your source control provider)
 
-Create an account integration for GitHub by following [instructions here](/reference/int-github/).
+Create an account integration for GitHub by following [instructions here](/reference/int-github/).  By default, you will already have an account integration with whichever SCM provider you've used to log into Shippable.
 
 For other source control providers, go to one of these:
 
@@ -64,11 +64,12 @@ First, we need a `cliConfig` resource, which will help configure the aws cli wit
 
 ```
 resources:
-  - name: my-aws-config                 # resource friendly name
+  - name: deploy-ecs-unmanaged-config   # resource friendly name
     type: cliConfig
-    integration: my-ecs-creds           # integration created in step 1
+    integration: dr-aws                 # The Amazon ECS integration created in step 1
     pointer:
-      region: us-west-2                 # region where you want to deploy
+      region: us-east-1                 # region where you want to deploy
+
 ```
 For a complete reference, check out the [cliConfig](/reference/resource-cliconfig/) page.
 
@@ -78,29 +79,29 @@ Next, we need an `image` resource.  This will represent your Docker image in you
 
 ```
 resources:
-
-  - name: deploy-ecs-basic-image          # resource friendly name
+  - name: deploy-ecs-unmanaged-image      # resource friendly name
     type: image
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"   # image pointer
     seed:
-      versionName: "latest"     # Tag value for first deployment
+      versionName: "latest"               # Tag value for first deployment
+
 
 ```
 For a complete reference, check out the [image](/reference/resource-image/) page.
 
 ####gitRepo
 
-Finally, we need a `gitRepo` resource which is a pointer to the git repository that contains your static task definition json object, which we update any time we want to deploy a new image version.  
+Finally, we need a `gitRepo` resource which is a pointer to the git repository that contains your task definition json object, which we update any time we want to deploy a new image version.  In this example, we'll just use the same repo that we're using for our pipeline objects.
 
 ```
 resources:
-  - name: my-static-taskdef-repo           # resource friendly name
+  - name: deploy-ecs-unmanaged-repo       # resource friendly name
     type: gitRepo
-    integration: my-github                 # github integration created in step 1
+    integration: dr-github                # github integration from step 1
     pointer:
-      sourceName: shippablesamples/taskDefinitions  #repository containing task defs
-      branch: master                                # branch of repository
+      sourceName: devops-recipes/deploy-ecs-unmanaged #repository containing task defs
+      branch: master                      # branch of repository
 
 ```
 
@@ -116,44 +117,58 @@ Let's add a basic **runCLI** job which takes in the resources we created above.
 
 ```
 jobs:
-  - name: my-custom-ecs-deployment
+  - name: deploy-ecs-unmanaged-cli
     type: runCLI
     steps:
-      - IN: my-aws-config
-      - IN: my-static-taskdef-repo
-      - IN: deploy-ecs-basic-image
+      - IN: deploy-ecs-unmanaged-config
+      - IN: deploy-ecs-unmanaged-image
+      - IN: deploy-ecs-unmanaged-repo
+        switch: off
       - TASK:
-        - script: aws ecs describe-clusters
-        - script: aws ecs register-task-definition --cli-input-json file://${MYSTATICTASKDEFREPO_STATE}/taskdefinitions/sample.json > output.json
+        - script: shippable_replace ${DEPLOYECSUNMANAGEDREPO_STATE}/taskDefinitions/sampleTaskDef.json
+        - script: aws ecs register-task-definition --cli-input-json file://${DEPLOYECSUNMANAGEDREPO_STATE}/taskDefinitions/sampleTaskDef.json > output.json
         - script: REVISION=$(cat output.json | jq '.taskDefinition.revision')
         - script: echo "revision is $REVISION"
-        - script: aws ecs update-service --cluster cluster-test-1 --service ${JOB_NAME} --task-definition shippable:${REVISION} --desired-count 2
-
+        - script: aws ecs update-service --cluster deploy-ecs-basic --service ${JOB_NAME} --task-definition shippable:${REVISION} --desired-count 1
 ```
 
-The snippet below does the following:
+The snippet above does the following:
 
-- register a new task definition from a json file and capture the revision number
+- use `shippable_replace` utility to fill in environment variables for our task definition template
+- register a new task definition on Amazon ECS based on our json file
+- capture the revision number from the output, store it in the ENV, and echo it to the console
 - update the service using the `--task-definition family:revision` syntax
 
-Please note this assumes that a service already exists on the cluster with the same name as this job (myCustomDeployment).
+Please note this assumes that a service already exists on the cluster with the same name as this job (deploy-ecs-unmanaged-cli).
 
-Inside the `taskdefinitions` directory in my `gitRepo`, I have a file called `sample.json` that contains this task definition:
+Inside the `taskDefinitions` directory in my `gitRepo`, I have a file called `sampleTaskDef.json` that contains this task definition:
 
 ```
 {
     "family": "shippable",
     "containerDefinitions": [
         {
-            "name": "myapp",
-            "image": "trriplejay/simpleserver:master.58",
-            "cpu": 0,
-            "memory": 125,
+            "name": "node-app",
+            "image": "${DEPLOYECSUNMANAGEDIMAGE_SOURCENAME}/${DEPLOYECSUNMANAGEDIMAGE_VERSIONNAME}",
+
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80
+                }
+            ],
+            "memory": 100,
             "essential": true,
-            "privileged": true
+            "environment": [
+                {
+                    "name": "ENVIRONMENT",
+                    "value": "unmanaged"
+                }
+            ]
         }
     ]
 }
+
 
 ```
 
@@ -166,11 +181,21 @@ Your pipeline should look like this:
 
 ###5: Trigger your pipeline
 
-Right click on the **runCLI** job, and you should get some output from AWS like this:
+Right click on the **runCLI** job, select "run job", and you should get some output from AWS like this:
 <img src="../../images/deploy/amazon-ecs/basic-deployment-runcli-output.png" alt="runCLI Output">
 
 And if you check ECS, you should see your service running your task definition!
 <img src="../../images/deploy/amazon-ecs/basic-deployment-service.png" alt="Running service">
+
+## Sample project
+
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runCLI job.
+
+**Source code:**  [devops-recipes/deploy-ecs-unmanaged](https://github.com/devops-recipes/deploy-ecs-unmanaged)
+
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/591920dcc8458b0700d166f7/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-unmanaged)
+
 
 
 ##Deploying to multiple environments
@@ -181,45 +206,22 @@ You can run your awscli commands against any cluster and region that you want. D
 
 If your load balancer is already created on AWS, deploying with it in a **runCLI** job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
 
-Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable managed deploy jobs handle these scenarios automatically for you.
+Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../reference/job-deploy) handle scenarios like this automatically for you.
 
 ## Using custom service names
 
-You can specify the name of the task definition in **taskDefinition.json**. Service name can be changed via `--service` option in aws command line.
+You can specify the name of the task definition in **sampleTaskDef.json**. Service name can be changed via `--service` option in aws command line.  In the example, we created the service ahead of time, so you're welcome to name it anything you'd like.
 
 ## Using custom task definition templates
 
-Update your **taskDefinition.json** to include any additional settings you'd like, and when you register the task definition and update your service to use it, your settings should take effect! Refer directly to the Amazon ECS documentation for all possible available options.
+Update your **sampleTaskDef.json** to include any additional settings you'd like, and when you register the task definition and update your service to use it, your settings should take effect! Refer directly to the Amazon ECS [task defintion documentation](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) for all possible available options.
 
 ## Using State and Environment Variables
 
 Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
-First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [documentation](../ci/trigger-pipeline-jobs) for instructions on how to set that up.
+In the above sample project, we used an image IN along with `shippable_replace` to fill in our task definition on the fly.  This is utilizing Shippable's built-in resource ENVs.
 
-```
-resources:
-  - name: MyAppImage
-    type: image
-    pointer:
-      sourceName: devopsrecipes/basic-node-deploy-ecs
-    version:
-      versionName: master.7
-```
-
-Now we should add this image as an IN to our runCLI job.
-
-```
-jobs:
-  - name: myCustomDeployment
-    type: runCLI
-    steps:
-      - IN: MyAwsConfig
-      - IN: MyAppImage
-      - IN: MyStaticTaskDefRepo
-      - TASK:
-        - script: printenv
-```
 
 ### Environment Variables
 
@@ -227,7 +229,7 @@ By adding resources as `IN` steps, we have automatic access to several environme
 
 Resource-specific ENVs always start with the resource name. Job specific ENVs always start with the word `JOB`.  Shippable-added ENVs are always in all caps.
 
-Here are the ENVs generated for MyAppImage in the example above:
+Here are the ENVs that would be generated for an `image` type resource called MyAppImage:
 ```
 MYAPPIMAGE_SOURCENAME=devopsrecipes/basic-node-deploy-ecs
 MYAPPIMAGE_NAME=MyAppImage
@@ -251,34 +253,9 @@ docker pull ${MYAPPIMAGE_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}
 ```
 This way, every time your image tag is updated, the newest tag is pulled for use in the job.
 
-Or, you can add them to your task definition template and use `shippable_replace` to fill in the values:
+Or, you can add them to your task definition template and use `shippable_replace` to fill in the values as we showed above.  This is a great way to ensure that your deployment is always using the most recent tag for your image.
 
-from a `sample.json` file in the `MyStaticTaskDefRepo` resource described in the [basic scenario page here](./amazon-ecs):
-```
-{
-    "family": "shippable",
-    "containerDefinitions": [
-        {
-            "name": "myapp",
-            "image": "${MYAPPIMAGE_SOURCENAME}:${MYAPPIMAGE_VERSIONNAME}",
-            "cpu": 0,
-            "memory": 125,
-            "essential": true,
-            "privileged": true
-        }
-    ]
-}
-```
-
-Then in your script:
-```
-steps:
-  - script: shippable_replace ./taskdefinitions/sample.json
-```
-
-Now your task definition is using the latest image tag, and you can update your ECS service to use it.
-
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/job-runcli).
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/jobs-unmanaged).
 
 ### Resource State Management
 
@@ -305,13 +282,13 @@ steps:
   - IN: MyAwsConfig
   - IN: MyECSCluster
   - TASK:
-    - script: NEW_COUNT=$(checkload) # assume this script returns an integer
+    - script: NEW_COUNT=$(checkload) # assume this command returns an integer
                                      # based on some metric being queried
     - script: echo "desiredCount=$NEW_COUNT" >> $JOB_STATE/MyCountParams.env
   - OUT: MyCountParams
 ```
 
-When this job completes, it will detect if a change was made to the desiredCount value, and if so, it will post a new version of the params resource with the new value.
+When this job completes, it will detect if a change was made to the desiredCount value, and if so, it will post a new version of the params resource with the new value.  This action will trigger any subsequent pipeline jobs that use the params resource as an IN.
 
 Now, you'll want a second job that uses the `params` resource as an IN step.
 
@@ -319,22 +296,23 @@ Now, you'll want a second job that uses the `params` resource as an IN step.
 name: MyServiceUpdater
 type: runCLI
 steps:
-  - IN: MyAwsConfig
-  - IN: MyECSCluster
+  - IN: deploy-ecs-unmanaged-config
+  - IN: deploy-ecs-unmanaged-image
+  - IN: deploy-ecs-unmanaged-repo
+  switch: off
   - IN: MyCountParams
-  - IN: MyStaticTaskDefRepo
   - TASK:
-    - script: JSON_FILE=$MYSTATICTASKDEFREPO_STATE/taskdefinitions/sample.json
+    - script: JSON_FILE=$MYSTATICTASKDEFREPO_STATE/taskDefinitions/sampleService.json
     - script: shippable_replace $JSON_FILE
-    - script: aws ecs update-cluster --cli-input-json file://${JSON_FILE} > output.json
+    - script: aws ecs update-service --cli-input-json file://${JSON_FILE}
 ```
 
-Finally, make sure that your JSON file represents a service object with an environment variable that corresponds to your params resource like this:
+Finally, make sure that your service JSON file represents a service object with an environment variable that corresponds to your params resource like this:
 
 ```
 {
-    "cluster": "${MYECSCLUSTER_SOURCENAME}",
-    "service": "node_app",
+    "cluster": "deploy-ecs-basic",
+    "service": "${JOB_NAME}",
     "desiredCount": ${MYCOUNTPARAMS_DESIREDCOUNT},
     "deploymentConfiguration": {
         "maximumPercent": 0,
@@ -344,7 +322,7 @@ Finally, make sure that your JSON file represents a service object with an envir
 
 ```
 
-`shippable_replace` will automatically replace the variables with the values in the environment, and the `aws ecs update-cluster` command will send it to Amazon ECS.
+`shippable_replace` will automatically replace the variables with the values in the environment, and the `aws ecs update-service` command will send it to Amazon ECS.
 
 ### Job State Management
 
@@ -359,14 +337,12 @@ name: MyServiceUpdater
 type: runCLI
 steps:
   - IN: MyAwsConfig
-  - IN: MyECSCluster
   - IN: MyLoadChecker  #another runCLI job
   - TASK:
     - script: ls $MYLOADCHECKER_STATE
-    - script: JSON_FILE=$MYLOADCHECKER_STATE/taskdefinitions/sample.json
-    - script: shippable_replace $JSON_FILE
-    - script: aws ecs update-cluster --cli-input-json file://${JSON_FILE} > output.json
+    - script: JSON_FILE=$MYLOADCHECKER_STATE/myService.json
+    - script: aws ecs update-service --cli-input-json file://${JSON_FILE}
 
 ```
 
-Using this strategy, you could have the first job write the entire service JSON to a file with the appropriate `desiredCount`, then have this job simply send the update to aws.  In this example, any files that were written to the state directory in the job `MyLoadChecker` should also be visible in this job (`MyServiceUpdater`) when doing an `ls` on the incoming job's state directory.
+Using this strategy, you could have the `MyLoadChecker` job write the entire service JSON with whatever settings you'd like to a file in that job's `state` directory, then have this job simply read the result and send the update to aws.  In this example, any files that were written to the state directory in the job `MyLoadChecker` should also be visible in this job (`MyServiceUpdater`) when doing an `ls` on the incoming job's state directory.  We don't use `shippable_replace` here because we're assuming the first job has passed us a completed JSON with all appropriate values filled in.  Using this strategy, you could have one "service updater" job that takes input from multiple loadCheck jobs, each one responsible for a difference Amazon ECS service, and updates whichever one has changed.

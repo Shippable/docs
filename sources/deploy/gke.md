@@ -4,7 +4,7 @@ sub_section: GKE
 
 # Deploying with Google Container Engine (GKE)
 
-NOTE: [This page on kubernetes](./kubernetes) is the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
+NOTE: [This page on kubernetes](./kubernetes) describes the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
 
 ## The Goal
 The goal of this page is to accomplish the following scenario using Shippable Pipelines.
