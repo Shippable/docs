@@ -35,7 +35,7 @@ resources:
 	  * [Google Container Engine (GKE)](int-gke/)
     * [Docker Cloud](int-docker-cloud/)
     * [Docker Datacenter](int-docker-datacenter/)
-	  * Microsoft Azure Container Service(coming soon)
+	  * [Microsoft Azure Container Service](int-azure-dcos)
 
 * `sourceName` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
 
