@@ -364,7 +364,7 @@ Here are links to docs for each Container Service:
 
 * [Amazon ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
 * [Kubernetes](https://kubernetes.io/docs/reference/)
-* [Google Container Engine (GKE)](http://kubernetes.io/docs/api-reference/v1/definitions/)
+* [Google Container Engine (GKE)](https://cloud.google.com/container-engine/docs/apis)
 * [Joyent Triton](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 * [Docker Cloud](https://docs.docker.com/apidocs/docker-cloud/#service)
 * [Docker Datacenter](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
