@@ -9,7 +9,7 @@ provision infrastructure on AWS. You would do so with a `runCLI` or `runSh` job.
 ##Setup
 
 Before you start, you will need to store your AWS credentials as an [Account
-Integration](add link) so that your Shippable pipeline job can connect to AWS
+Integration](/reference/int-amazon-ecr) so that your Shippable pipeline job can connect to AWS
 without exposing your credentials in your config file. Once you add an account
 integration, you can use it for all your projects without needing to add it again.
 

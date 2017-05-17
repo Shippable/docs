@@ -34,9 +34,9 @@ We currently support the following jobs:
 
 - [runCI](job-runci/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
 
-- [runSh](job-runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+- [runSh](job-runsh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
 
-- [runCLI](job-runcLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
+- [runCLI](job-runcli/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 
 
 Jobs, [resources](resources-overview/), and triggers together can be used to model any deployment pipeline, regardless of the complexity of your application.
