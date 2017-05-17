@@ -206,6 +206,8 @@ pages:
       - With Terraform: provision/aws-with-terraform.md
       - With Ansible: provision/aws-with-ansible.md
   - Reference:
+    - Admiral:
+      - Shippable Server installer: reference/admiral.md
     - Configuration:
       - shippable.yml: reference/shippable-yml.md
       - shippable.jobs.yml: reference/shippable-jobs-yml.md
