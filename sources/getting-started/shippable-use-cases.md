@@ -17,7 +17,7 @@ To give you an overview of what you can achieve with the platform, we have put t
 
 However, it is important to remember that Shippable lets you automate almost anything. Want to deploy using voice commands on Alexa? Check. Want to set your smart coffee machine to start a pot at 8am every morning? Check.
 
-We have optimized the platform for DevOps with a bunch of [managed jobs](/getting-started/pipeline-basics#jobs) that make it very easy to automate DevOps workflows. However, for anyone with programming skills and an imagination, the sky is the limit.
+We have optimized the platform for DevOps with a bunch of [managed jobs](/getting-started/pipeline-basics/#jobs) that make it very easy to automate DevOps workflows. However, for anyone with programming skills and an imagination, the sky is the limit.
 
 <a name="ci"></a>
 ##Continuous Integration
@@ -103,7 +103,7 @@ All intermediate environments like Test and Staging should be perfect reproducti
 
 Shippable helps you automate infrastructure provisioning by providing the following functionality:
 
-- We integrate with popular tools like [Terraform](/provision/aws-with-terraform/), [Ansible]((/provision/aws-with-ansible/)), Chef, and Puppet to help automate provisioning of your environments. You can store your provisioning scripts in your source control repository and any time your scripts change, the environment is updated and this triggers the rest of your DevOps workflow. You can even manage your VPCs and Networking configuration as code.
+- We integrate with popular tools like [Terraform](/provision/aws-with-terraform/), [Ansible](/provision/aws-with-ansible/), Chef, and Puppet to help automate provisioning of your environments. You can store your provisioning scripts in your source control repository and any time your scripts change, the environment is updated and this triggers the rest of your DevOps workflow. You can even manage your VPCs and Networking configuration as code.
 - You have a complete history of your config and reproducing a previous config is a one click rollback action.
 - Your infrastructure provisioning is part of your overall DevOps workflow, so you can implement advanced scenarios like configuring Shippable to bring up on-demand Test environments when a new version of your application is available. You can also automate triggering your tests automatically and tearing down your test environment if all tests pass. Save big with transient test environments!
 
