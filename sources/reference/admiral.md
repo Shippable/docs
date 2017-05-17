@@ -1,13 +1,13 @@
 page_main_title: Shippable installer
 main_section: Reference
-sub_section: Admiral
+sub_section: Shippable installer
 page_title: Admiral - Installing Shippable
 page_description: How to install Shippable
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# Admiral - the Shippable installer
+# Admiral, the Shippable Server installer
 
-Admiral is used to install Shippable. It installs the services required to run Shippable and the Shippable microservices. A server license is required to install Shippable. For more information, <a href="https://www.shippable.com/contact.html">contact us</a>.
+Admiral is used to install Shippable Server. It installs the services required to run Shippable and the Shippable microservices. A server license is required to install Shippable. For more information, <a href="https://www.shippable.com/contact.html">contact us</a>.
 
 Admiral contains a CLI to install the basic dependencies and a user interface to complete the installation and manage the configuration of options. Both of these are available in the <a href="https://github.com/Shippable/admiral"> Admiral GitHub repository</a>.
 
