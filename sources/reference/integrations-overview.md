@@ -55,7 +55,6 @@ We currently support the following source control providers:
 - [GitHub](int-github/)
 - [GitHub Enterprise](int-github-enterprise/)
 - [Bitbucket](int-bitbucket/)
-- [Bitbucket Server](int-bitbucket-server/)
 - [GitLab](int-gitlab/)
 
 ### Notification Providers

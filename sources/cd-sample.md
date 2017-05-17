@@ -40,7 +40,7 @@ a different name, replace dr-ecr with your integration name in the `shippable.re
 
 The first step is to enable continuous integration for your forked repository.
 
-- On the [Shippable landing page](http://app.shippable.com) , select your subscription from the `Subscriptions` dropdown.
+- On the [Shippable landing page](https://app.shippable.com) , select your subscription from the `Subscriptions` dropdown.
 This should be the subscription where you forked the repository.
 
 <img src="/images/ci/list-subscriptions.png" alt="Add Account Integration">

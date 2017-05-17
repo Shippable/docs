@@ -21,7 +21,7 @@ In the end, your pipeline will look like this:
 
 For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to S3, so that the deployment can pull them.  Check out the sample project [source code](https://github.com/devops-recipes/deploy-nodecluster-basic) to see how to write a `shippable.yml` that does this.
 
-Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../reference/int-cluster-node) for instructions on creating the integration.
+Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../reference/int-node-cluster) for instructions on creating the integration.
 
 Now we need a cluster resource that references the integration we created:
 

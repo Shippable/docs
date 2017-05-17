@@ -24,7 +24,7 @@ Login to [Shippable](http://www.shippable.com) using your GitHub credentials.
 
 The first step is to enable continuous integration for your forked repository.
 
-- On the [Shippable landing page](http://app.shippable.com) , select your subscription from the `Subscriptions` dropdown. This should be the subscription where you forked the repository.
+- On the [Shippable landing page](https://www.shippable.com) , select your subscription from the `Subscriptions` dropdown. This should be the subscription where you forked the repository.
 
 <img src="../images/ci/list-subscriptions.png" alt="Add Account Integration">
 

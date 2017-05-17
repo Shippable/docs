@@ -175,7 +175,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 ```
 `links` allows containers to communicate with each other without the need for port mappings. The format for this is `"<container name>:<alias>"`, e.g. "shippabledb:db".
 
-This setting maps to Links in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a>  of the Docker Remote API and the --link option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Links in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a>  of the Docker Remote API and the --link option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     volumes:
@@ -184,7 +184,7 @@ This setting maps to Links in the <a href="https://docs.docker.com/reference/api
 ```
 `volumes` configures mount points for data volumes in your container. This is a list of objects, format for each object being `"<source volume>:<container path>:<options>"`. The source volume is a string specifying the name of the volume to mount; the container path is a string specifying the path on the container where volume should be mounted. Options can be set to `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
 
-This setting maps to Volumes in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volume option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Volumes in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volume option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     logConfig:
@@ -195,7 +195,7 @@ This setting maps to Volumes in the <a href="https://docs.docker.com/reference/a
 ```
 `logConfig` specifies the log configuration of the container. By default, containers use the same logging driver that the Docker daemon uses. To override this and specify a different logging driver, include this setting in your dockerOptions. The available logging drivers depend on your Container Service. For example, `type` can be set to `"syslog"` and you can specify options using key value pairs.
 
-This setting maps to LogConfig in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --log-driver option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to LogConfig in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --log-driver option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     entryPoint:
@@ -204,7 +204,7 @@ This setting maps to LogConfig in the <a href="https://docs.docker.com/reference
 ```
 `entryPoint` specifies the entry point(s) passed to the container. It is an array of strings.
 
-This setting maps to Entrypoint in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --entrypoint option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. Read more information about the Docker ENTRYPOINT parameter at <a href="https://docs.docker.com/reference/builder/#entrypoint" target="_blank">https://docs.docker.com/reference/builder/#entrypoint</a>.
+This setting maps to Entrypoint in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --entrypoint option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>. Read more information about the Docker ENTRYPOINT parameter at <a href="https://docs.docker.com/reference/builder/#entrypoint" target="_blank">https://docs.docker.com/reference/builder/#entrypoint</a>.
 
 ```
     cmd:
@@ -213,7 +213,7 @@ This setting maps to Entrypoint in the <a href="https://docs.docker.com/referenc
 ```
 `cmd` specifies the command(s) is passed to the container.
 
-This setting maps to Cmd in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the COMMAND parameter to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. For more information about the Docker CMD parameter, go to <a href="https://docs.docker.com/reference/builder/#cmd" target="_blank">https://docs.docker.com/reference/builder/#cmd</a>.
+This setting maps to Cmd in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the COMMAND parameter to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>. For more information about the Docker CMD parameter, go to <a href="https://docs.docker.com/reference/builder/#cmd" target="_blank">https://docs.docker.com/reference/builder/#cmd</a>.
 
 NOTE: Multiple commands provided on a single line are not parsed successfully. Splitting each command on separate lines will correctly create and pass the CMD array.
 
@@ -235,14 +235,14 @@ split each command on a separate line as shown below:
 ```
 `workingDir` specifies the working directory where commands are run inside the container.
 
-This setting maps to WorkingDir in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --workdir option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to WorkingDir in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --workdir option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     privileged: <boolean>
 ```
 `privileged` specifies the level of access the container has to the host container instance. When set to `true`, the container has elevated privileges on the host container instance, similar to the *root* user.
 
-This setting maps to Privileged in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --privileged option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Privileged in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --privileged option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     labels:
@@ -251,7 +251,7 @@ This setting maps to Privileged in the <a href="https://docs.docker.com/referenc
 ```
 `labels` specifies a list of key/value pairs of labels to add to the container.
 
-This setting maps to Labels in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --label option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Labels in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --label option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     volumesFrom:
@@ -261,7 +261,7 @@ This setting maps to Labels in the <a href="https://docs.docker.com/reference/ap
 ```
 `volumesFrom` specifies the list of data volumes to mount from another container.
 
-This setting maps to VolumesFrom in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volumes-from option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. `options` can be `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
+This setting maps to VolumesFrom in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volumes-from option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>. `options` can be `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
 
 ```
     ulimits:
@@ -274,7 +274,7 @@ This setting maps to VolumesFrom in the <a href="https://docs.docker.com/referen
 ```
 `ulimits` specifies a list of ulimits to be set in the container. For alist of
 
-This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --ulimit option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --ulimit option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     dnsServers:
@@ -283,7 +283,7 @@ This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/a
 ```
 `dnsServers` specifies a list of DNS servers that are presented to the container.
 
-This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 
 ```
@@ -292,14 +292,14 @@ This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/d
 ```
 `dnsSearch` specifies a list of DNS search domains that are presented to the container.
 
-This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns-search option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns-search option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 ```
     user: <string>
 ```
 `user` specifies the user name to be uses inside the container.
 
-This setting maps to User in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --user option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to User in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --user option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
 If you do not provide a dockerOptions resource to a manifest job, it will set memory to 400mb by default. No other default settings will be used.
 

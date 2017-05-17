@@ -27,7 +27,7 @@ resources:
 
 * The `pointer` section is used when the resource needs to reference something. For example, a [cluster](resource-cluster/) resource has a pointer section which needs cluster name, region name, etc.
 
-* The `version` section is relevant for resources that have versioned data. For example, [dockerOptions](resource-dockerOptions/) and [params](resource-params/) have several tags under the `version` section. Any time the information in this section changes, a new version of the resource is created.
+* The `version` section is relevant for resources that have versioned data. For example, [dockerOptions](resource-dockeroptions/) and [params](resource-params/) have several tags under the `version` section. Any time the information in this section changes, a new version of the resource is created.
 
 * The `seed` section is used to specify a starting value for a resource. This is relevant for resources like [image](resource-image/) since this tells Shippable what value to use for this resource when running for the first time.
 
@@ -36,12 +36,12 @@ For a detailed explanation of the yml for each resource type, visit the referenc
 - [ciRepo](resource-ciRepo/): Represents a project in Shippable CI
 - [cliConfig](resource-cliConfig/): Configuration information for command-line tools
 - [cluster](resource-cluster/): Cluster that defines a container service
-- [dockerOptions](resource-dockerOptions/): Options for docker images
+- [dockerOptions](resource-dockeroptions/): Options for docker images
 - [file](resource-file/): Specifies a file
 - [gitRepo](resource-gitRepo/): Source repository for your code
 - [image](resource-image/): Docker image definition
 - [integration](resource-integration/): Credentials for third party services
-- [loadBalancer](resource-loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
+- [loadBalancer](resource-loadbalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
 - [notification](resource-notification/): Notifications for job success or failure
 - [params](resource-params/): Parameters for your apps/services/microservices
 - [replicas](resource-replicas/): Number of copies of the service to run
