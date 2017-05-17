@@ -198,9 +198,9 @@ on_success:
 
 In the sample `config/deploy.sh` file above, we are using public GitHub repository to host the application code. If the repository is private,
 additional steps need to be taken in order to grant access for the DigitalOcean droplet. There are several methods of achieving it, but the
-most convenient one is to use [Shippable deployment key](/navigatingUI/subscriptions/settings/#deployment-key) by leveraging SSH agent key forwarding.
+most convenient one is to use [Shippable deployment key](/reference/int-key-ssh) by leveraging SSH agent key forwarding.
 
-First add the [Shippable Public SSH key](/navigatingUI/subscriptions/settings/#deployment-key) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
+First add the [Shippable Public SSH key](/reference/int-key-ssh) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
 `config/deploy.sh` to use SSH instead of HTTPS:
 
 ```
@@ -275,8 +275,6 @@ dokku@45.55.161.207:demo
 If you setup DNS for your app, this app name section will instead specify the subdomain at which you'll access your app. More information on app naming and subdomains can be found in the [Dokku docs](http://progrium.viewdocs.io/dokku/dns/).
 
 After making sure that the app builds property, you can find the URL by looking in the logs for `on_success` section
-
-![after_success Dokku](images/dokku_after_success.gif)
 
 ### Finishing Steps
 
