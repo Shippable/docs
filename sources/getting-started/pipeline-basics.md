@@ -28,7 +28,7 @@ Your pipelines are defined through four yml-based configuration files:
 
 **Pipeline config**
 
-- `shippable.jobs.yml` is contains definitions of the Jobs in your pipeline. If you only want to use Shippable for CI, you do not need this file. [Read more...](/reference/jobs-overview/)
+- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline. If you only want to use Shippable for CI, you do not need this file. [Read more...](/reference/jobs-overview/)
 
 - `shippable.resources.yml` contains definitions of the Resources in your pipeline. If you only want to use Shippable for CI, you do not need this file. [Read more...](/reference/resources-overview/)
 
