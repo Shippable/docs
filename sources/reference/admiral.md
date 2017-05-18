@@ -1,6 +1,6 @@
 page_main_title: Shippable installer
 main_section: Reference
-sub_section: Shippable installer
+sub_section: Admiral
 page_title: Admiral - Installing Shippable
 page_description: How to install Shippable
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
