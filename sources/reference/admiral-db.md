@@ -3,7 +3,7 @@ main_section: Reference
 sub_section: Admiral
 page_title: Admiral - Database Configuration
 page_description: Admiral Database Configuration
-page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, postgres
 
 # Admiral Database Configuration
 When installing Shippable, you might want to install the database on its own machine.  The Admiral installer can easily be configured to accomplish this.
