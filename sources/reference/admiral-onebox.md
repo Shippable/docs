@@ -1,7 +1,7 @@
 page_main_title: Shippable installer
 main_section: Reference
 sub_section: Admiral
-page_title: Admiral - Installing Shippable on One Machine
+page_title: Admiral - Installing on a single machine
 page_description: How to install Shippable
 page_keywords: install, onebox, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 

@@ -207,8 +207,6 @@ pages:
       - With Terraform: provision/aws-with-terraform.md
       - With Ansible: provision/aws-with-ansible.md
   - Reference:
-    - Admiral:
-      - Shippable Server installer: reference/admiral.md
     - Configuration:
       - shippable.yml: reference/shippable-yml.md
       - shippable.jobs.yml: reference/shippable-jobs-yml.md
@@ -278,5 +276,14 @@ pages:
       - Quay.io: reference/int-quay.md
       - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md
+    - Shippable Server:
+      - Installer: reference/admiral.md
+      - Installing on a single machine: reference/admiral-onebox.md
+      - Database Configuration: reference/admiral-db.md
+      - State Storage Configuration: reference/admiral-gitlab.md
+      - Message Configuration: reference/admiral-rabbitmq.md
+      - Redis Configuration: reference/admiral-redis.md
+      - Swarm Worker Configuration: reference/admiral-swarm-workers.md
+      - Vault Configuration: reference/admiral-vault.md
     - Glossary:
       - Complete list of terms: reference/glossary.md
