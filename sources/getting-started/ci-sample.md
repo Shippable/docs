@@ -26,7 +26,7 @@ The first step is to enable continuous integration for your forked repository.
 
 - On the [Shippable landing page](https://www.shippable.com) , select your subscription from the `Subscriptions` dropdown. This should be the subscription where you forked the repository.
 
-<img src="../images/ci/list-subscriptions.png" alt="Add Account Integration">
+<img src="/images/ci/list-subscriptions.png" alt="Add Account Integration">
 
 - On the Subscription page, click on the **Enable Project** button. If you have not enabled any projects on Shippable, you will be directly be taken to this page which shows a list of your repositories.
 
@@ -47,12 +47,12 @@ Your sample project already has a config file `shippable.yml` at the root of the
 
 **Congratulations!** You have successfully run your first build on Shippable.
 
-<img src="../images/getting-started/basic-node-console.png" alt="Console for basic-node sample">
+<img src="/images/getting-started/basic-node-console.png" alt="Console for basic-node sample">
 
 ###6. View tests and code coverage
 
 You can click on the **Tests** or **Code coverage** tabs on your build results page to see your Test report and Code coverage report.
 
-<img src="../images/getting-started/view-test-report.png" alt="Add Account Integration">
+<img src="/images/getting-started/view-test-report.png" alt="Add Account Integration">
 
-<img src="../images/getting-started/view-coverage-report.png" alt="Add Account Integration">
+<img src="/images/getting-started/view-coverage-report.png" alt="Add Account Integration">
