@@ -92,7 +92,7 @@ If needed, you can install your project dependencies using the `pip` command at 
 ```
 build:
   ci:
-    - "pip install -r requirements.txt --use-mirrors"
+    - "pip install -r requirements.txt"
 ```
 
 <a name="test-coverage-reports"></a>
@@ -132,7 +132,7 @@ env:
 build:
   ci:
     - pip install -q mock==0.8 Django==$DJANGO_VERSION
-    - pip install . --use-mirrors
+    - pip install .
 ```
 Please note that the config above tests against several versions, and will trigger a build matrix consisting of 3 builds.
 
@@ -143,7 +143,7 @@ Your dependencies can sometimes fail to install due to network glitches or other
 ```
 build:
   ci:
-    - shippable_retry pip install -r requirements.txt --use-mirrors
+    - shippable_retry pip install -r requirements.txt
 ```
 
 ### Default commands
