@@ -159,9 +159,6 @@ The Shippable UI used for enabling projects and viewing builds.
 
 ### Optional Services
 
-#### braintree
-This is used for processing payments and does not run by default.
-
 #### certgen
 This will run if either Kubernetes or Joyent Triton Public Cloud is enabled in the add-ons panel and is used to generate certificates.
 
@@ -173,9 +170,6 @@ Sends email notifications and will only be started if there is an email provider
 
 #### hipchat
 Sends Hipchat notifications and will only run if Hipchat is selected in the add-ons panel.
-
-#### hubspotSync
-This is used to update records in Hubspot and does not run by default.
 
 #### irc
 Sends IRC notifications and will only run if IRC is selected in the add-ons panel.
@@ -191,9 +185,6 @@ Part of the dynamic node provisioning; this will only run if AWS keys are provid
 
 #### provision
 Processes provision-type pipeline jobs; this will only run if Google Container Engine is enabled in add-ons.
-
-#### segmentListener
-This does not run by default.
 
 #### slack
 Sends Slack notifications; this only runs if Slack is selected in the add-ons section.

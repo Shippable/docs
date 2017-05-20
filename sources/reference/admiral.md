@@ -122,6 +122,7 @@ The following values are stored in `admiral.env`:
 - SECRET_KEY: The installer secret key entered when first running `./admiral.sh install`. This is used to pull Docker images.
 - SERVICE_USER_TOKEN: The Shippable API token created for the internal service user. This will be set by Admiral when initializing the database.
 - RELEASE: The current Admiral release version. Set by `./admiral.sh install`, this will be set to the repository tag.
+- IS_SERVER: This should be `true`.
 - DB_PORT: The database port, set by `./admiral.sh install`.
 - DB_USER: The user that Admiral and Shippable API will use to connect to the database. This will be `apiuser`.
 - DB_NAME: The name of the database used by Admiral and Shippable API. This will be `shipdb`.
