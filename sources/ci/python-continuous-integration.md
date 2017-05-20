@@ -116,7 +116,7 @@ build:
     - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
 ```
 
-Sample yml snippet using pytest require (pytest-cov required):
+Sample yml snippet using pytest (pytest-cov required):
 
 ```
 build:
