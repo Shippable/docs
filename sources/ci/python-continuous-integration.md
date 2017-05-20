@@ -116,6 +116,20 @@ build:
     - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
 ```
 
+Sample yml snippet using pytest require (pytest-cov required):
+
+```
+build:
+  ci:
+    #Create folders for test and code coverage
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+
+    #Run test and code coverage and output results to the right folder
+    - pytest --junitxml=shippable/testresults/nosetests.xml
+    - pytest --cov=modules --cov-report=xml:shippable/codecoverage/coverage.xml
+```
+
 <a name="advanced-config"></a>
 ##Advanced config
 
