@@ -15,51 +15,49 @@ The goal of this page is to accomplish the following scenario using Shippable Pi
 In the end, your pipeline will look like this:
 ![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
 
+## Building blocks
 
-## The Setup
+To deploy to Kubernetes, you need the following building blocks:
 
-Shippable will use a Kubernetes integration to communicate with your cluster on your behalf. You can add this to Shippable via Account Integrations.
+**Resources**
 
-- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-- Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
-- Locate **Kubernetes** of type **deploy** in the list and click **Create Integration**.
-- Give your integration a name, choose **Kubernete Master** in the Cluster Access type drop down and provide your kubeconfig file for your cluster.
-- Here is a an example config which we are using for deploying to our kube cluster:
-  ```
-  apiVersion: v1
-  clusters:
-  - cluster:
-      certificate-authority-data: <data has been removed since its confidential>
-      server: https://api.devops-recipes.com
-    name: devops-recipes.com
-  contexts:
-  - context:
-      cluster: devops-recipes.com
-      user: devops-recipes.com
-    name: devops-recipes.com
-  current-context: devops-recipes.com
-  kind: Config
-  preferences: {}
-  users:
-  - name: devops-recipes.com
-    user:
-      client-certificate-data: <data has been removed since its confidential>
-      client-key-data: <data has been removed since its confidential>
-      password: <data has been removed since its confidential>
-      username: admin
-  - name: devops-recipes.com-basic-auth
-    user:
-      password: <data has been removed since its confidential>
-      username: admin
-  ```
-- Your kubeconfig should have all those sections for your cluster.  
-- From the dropdown, select the subscription that you'll be using to create your pipelines.
-- Click **Save**
+- [cluster](/reference/resource-cluster/) resource, to point to a cluster
+- [image](/reference/resource-image/) resource, pointing to the Docker image
 
-<img src="../../images/deploy/kubernetes/create-kube-deploy-integration.png" alt="Add Kubernetes credentials">
+**Jobs**
 
+- [manifest](/reference/job-manifest/) which creates a deployable unit for your application
+- [deploy](/reference/job-deploy/), a managed job that does the deployment
 
-Now that the Kubernetes integration is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
+## Step-by-step instructions
+
+You will need two configuration files:
+
+- `shippable.resources.yml` which contains resource definitions
+- `shippable.jobs.yml` which contains job definitions
+
+These files should be in your [syncRepo](/reference/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+
+Follow the steps below to set up a basic deployment to your Kubernetes cluster.
+
+###1: Create account integrations
+
+You need two account integrations for this scenario:
+
+- **Kubernetes**
+
+Shippable will use your kubernetes configuration to communicate with your cluster on your behalf. [See here](../reference/int-kubernetes) for directions on adding a Kubernetes account integration to Shippable for this.
+
+- **Docker Hub**
+
+You also need to configure an integration to Docker hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/reference/int-docker-hub/) page.
+
+###2: Create resources
+
+You need the following three resources in your `shippable.resources.yml` file:
+
+####cluster
+First, we need a cluster resources which references a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
 
 ```
 resources:
@@ -72,17 +70,13 @@ resources:
 
 ```
 
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker hub, that was created by when the repository was built.
+For a complete reference, check out the [cluster](/reference/resource-cluster/) page.
+
+####image
+Next, we need an `image` resource. This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker hub.
 
 ```
 resources:
-
-  - name: deploy-kubernetes-basic-kube-cluster
-    type: cluster
-    integration: dr-kube-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-basic
-
   - name: deploy-kubernetes-basic-img
     type: image
     integration: dr-dockerhub    #replace with your Docker Hub integration name
@@ -95,11 +89,17 @@ resources:
       - deploy-kubernetes-basic
 ```
 
-With these resources, you're ready to start writing jobs that will help you deploy.
+For a complete reference, check out the [image](/reference/resource-image/) page.
 
-## Basic configuration
+###3: Define jobs
 
-Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+Jobs are defined in your `shippable.jobs.yml`.
+
+You need two jobs for this scenario:
+
+####manifest
+
+We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
 ```
 jobs:
@@ -110,9 +110,11 @@ jobs:
    - IN: deploy-kubernetes-basic-img
 
 ```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../reference/resource-dockeroptions).
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.
 
-Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on GKE.
+####deploy
+
+Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on Kubernetes cluster.
 
 ```
 jobs:
@@ -132,13 +134,16 @@ jobs:
 
 The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
 
-With these jobs and resources created, your pipeline should look something like this:
+###4: Add your pipeline
 
+Once you have these jobs and resources yml files as described above, push to your sync repository. You can then follow instructions to [add your pipeline to Shippable](/deploy/configuration/).
+
+Your pipeline should look like this:
 ![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
 
+###5: Trigger your pipeline
 
-
-Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
+When you're ready for deployment, right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
 - The manifest job will package your image with default settings
 - The deploy job will create the appropriate namespace if it doesn't already exist
@@ -155,21 +160,27 @@ default       kube-deploy-20bc938e-ea98-446b-8054-403d72eea3bd-359291515ltsvz   
 
 That's all there is to it!
 
-### Advanced Configuration
+## Advanced Configuration
 In the above scenario, several options are set by default that you might want to change.
 
-#### dockerOptions
-Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
+### dockerOptions
+Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. For example, you can change the memory allocated to the container and expose a port.
+
 ```
   - name: deploy-kubernetes-basic-img-options
     type: dockerOptions
     version:
+      memory: 100
       portMappings:
         - 80:80
     flags:
       - deploy-kubernetes-basic
 ```
-#### params
+The `dockerOptions` resource can then be an IN for your `manifest` or `deploy` job.
+
+For a complete reference of all customizable options, check out our [dockerOptions reference](/reference/resource-dockeroptions/)
+
+### params
 When [params resources](../reference/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
@@ -179,12 +190,12 @@ When [params resources](../reference/resource-params) are added to a manifest, t
       params:
         PORT: 80
         ENVIRONMENT: "dev"
-
-
 ```
-#### replicas
+These environment variables will be available in the running container.
 
-Using the [replicas resource](../reference/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+### Scaling instances
+
+You can use the [replicas resource](../reference/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
 
 ```
   - name: deploy-kubernetes-basic-replicas
@@ -192,6 +203,7 @@ Using the [replicas resource](../reference/resource-replicas) is quite simple. Y
     version:
       count: 2
 ```
+If you specify a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 
 ## Sample project
 
