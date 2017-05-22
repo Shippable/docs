@@ -1,7 +1,7 @@
 faq /support
 ci/overview /ci/why-continuous-integration
 ci/supported /ci/services-overview/
-ci/runFirstBuild /ci-sample
+ci/runFirstBuild /getting-started/ci-sample/
 ci/shippableyml /reference/shippable-yml
 ci/languages/node /ci/nodejs-continuous-integration
 ci/languages/python /ci/python-continuous-integration
@@ -117,7 +117,7 @@ tutorials/ci/hub-gcr-custom-ci-image /ci/custom-docker-image
 tutorials/ci/code-coverage-jacoco  /ci/jacoco-reports
 tutorials/ci/deploy-amazon-opsworks /ci/deploy-to-aws-opsworks
 tutorials/ci/deploy-amazon-codedeploy ci/deploy-to-ec2/
-tutorials/pipelines/samplePipeline /cd-sample
+tutorials/pipelines/samplePipeline /getting-started/cd-sample
 tutorials/pipelines/howToAddSyncRepos /reference/resource-syncrepo
 tutorials/pipelines/connectingCiPipelines /ci/trigger-pipeline-jobs
 tutorials/pipelines/migrateEventTrigger /ci/trigger-pipeline-jobs
