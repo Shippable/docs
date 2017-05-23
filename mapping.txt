@@ -40,9 +40,10 @@ ci/advancedOptions/testCoverage /ci/test-code-coverage-reports
 ci/advancedOptions/timeouts /ci/custom-timeouts
 ci/advancedOptions/console-logs /ci/console-logs
 ci/advancedOptions/machineImages /reference/machine-images-overview
-ci/troubleshoot lift it
+ci/troubleshoot /ci/troubleshooting
+ci/machine-images/overview /reference/machine-images-overview
 pipelines/overview /getting-started/pipeline-basics/
-pipelines/gettingStarted /getting-started/single-pane-of-glass-spog/
+pipelines/gettingStarted /getting-started/single-pane-of-glass-spog
 pipelines/resources/overview /reference/resources-overview
 pipelines/resources/ciRepo /reference/resource-cirepo
 pipelines/resources/cliConfig /reference/resource-cliconfig
