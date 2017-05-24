@@ -98,9 +98,10 @@ integrations/keys/ssh /reference/int-key-ssh
 integrations/keys/pem /reference/int-key-pem
 api/overview /getting-started/api-tokens/
 api/docs /reference/api-overview
-tutorials/continuous-integration /ci-sample
-tutorials/continuous-delivery-pipelines not needed
-tutorials/ci/runSampleCIBuild /ci-sample
+tutorials/continuous-integration /getting-started/ci-sample/
+tutorials/continuous-integration/#interacting-with-docker-registries /reference/integrations-overview/#docker-registries
+tutorials/continuous-delivery-pipelines /getting-started/cd-sample/
+tutorials/ci/runSampleCIBuild /getting-started/ci-sample/
 tutorials/ci/link-gitHub-bitbucket /reference/int-github/
 tutorials/ci/scm-gitlab /reference/int-gitlab/
 tutorials/ci/hub-amazon-ecr-pull-docker-image /ci/custom-docker-image
