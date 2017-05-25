@@ -77,7 +77,11 @@
 
             var matchingObject = iterateObject(suggestion._highlightResult) || partialMatchObject;
             if (matchingObject) {
-                matchingObject = findProperty(suggestion._snippetResult, key);
+                var snippetMatchingObject = findProperty(suggestion._snippetResult, key);
+                // workaround an algolia bug
+                if (snippetMatchingObject) {
+                  matchingObject = snippetMatchingObject;
+                }
 
                 searchResult = matchingObject.value;
                 searchResult = searchResult.replace(/<em>/g, "<font color='DarkBlue'>");
