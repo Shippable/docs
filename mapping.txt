@@ -128,3 +128,4 @@ tutorials/pipelines/rollback-deployments /deploy/rollback/
 tutorials/pipelines/deploy-to-kubernetes /deploy/kubernetes/
 tutorials/pipelines/runShUseIntegrations /reference/job-runsh/
 tutorials/pipelines/updateResourceVersion /release/increment-version-number/
+navigatingUI/accountSettings/api/#what-is-a-free-user-token /reference/api-tokens
