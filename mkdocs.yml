@@ -243,6 +243,7 @@ pages:
       - version: reference/resource-version.md
     - API:
       - Overview: reference/api-overview.md
+      - Tokens: reference/api-tokens.md
     - Machine Images:
       - Overview: reference/machine-images-overview.md
       - v5.5.1: reference/machine-image-v551.md
