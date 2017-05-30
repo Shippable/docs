@@ -42,7 +42,7 @@ in `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for awscli
+# config for doctl and ansible cli
   - name: myDOCliConfig
     type: cliConfig
     integration: myDOIntegration # replace with your digital ocean integration name
@@ -54,24 +54,18 @@ inputs to your pipeline:
     pointer:
       sourcename: source-code-org/repo
       branch: master
-
-# pem key for connecting to ec/2 instances
-  - name: myDOKeyPair
-    type: integration
-    integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
 in `shippable.jobs.yml`, define the following job in order to execute Ansible
 an Ansible playbook to provision on digital ocean from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision aws instances
+# job to execute Ansible script to provision droplets
   - name: myProvisionJob
     type: runCLI
     steps:
       - IN: myGithubRepo
       - IN: myDOCliConfig
-      - IN: myDOKeypair
       - TASK:
         # Execute Ansible playbook
         - script: |
@@ -113,7 +107,7 @@ recurring basis, add a `time` resource.
 
 `shippable.jobs.yml`:
 ```yaml
-# job to execute Ansible script to provision aws instances
+# job to execute Ansible script to provision droplet
   - name: myProvisionJob
     type: runCLI
     steps:
