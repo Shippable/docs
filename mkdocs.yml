@@ -206,7 +206,9 @@ pages:
       - Sending notifications: provision/send-notifications.md
     - Provisioning AWS infrastructure:
       - With Terraform: provision/aws-with-terraform.md
-      - With Ansible: provision/aws-with-ansible.md
+    - Provisioning with Ansible:
+      - AWS infrastructure: provision/aws-with-ansible.md
+      - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
   - Reference:
     - Configuration:
       - shippable.yml: reference/shippable-yml.md
