@@ -10,7 +10,7 @@ infrastructure on [Google Cloud](https://cloud.google.com/). You would do so wit
 ##Setup
 
 Before you start, you will need to store your Google Cloud credentials as an [Account
-Integration](add link) so that your Shippable pipeline job can connect to Digital Ocean without exposing your credentials in your config file. Once you add an account
+Integration](add link) so that your Shippable pipeline job can connect to Google Cloud without exposing your credentials in your config file. Once you add an account
 integration, you can use it for all your projects without needing to add it again.
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top
@@ -55,7 +55,7 @@ inputs to your pipeline:
 ```
 
 in `shippable.jobs.yml`, define the following job in order to execute Ansible
-an Ansible playbook to provision on digital ocean from your pipeline:
+an Ansible playbook to provision on google cloud from your pipeline:
 
 ```yaml
 # job to execute Ansible script to provision aws instances
@@ -71,7 +71,7 @@ an Ansible playbook to provision on digital ocean from your pipeline:
             ansible-playbook -v google-cloud-provision.yml
 ```
 
-`myGithubRepo` git repository should contain `google-cloud-provision.yml` which should be a valid ansible playbook having a provisioning task for digital ocean. Example of `google-cloud-provision.yml` might be
+`myGithubRepo` git repository should contain `google-cloud-provision.yml` which should be a valid ansible playbook having a provisioning task for google cloud. Example of `google-cloud-provision.yml` might be
 
 ```yaml
 
