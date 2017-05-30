@@ -2,7 +2,7 @@ page_main_title: Google Cloud Infrastructure
 main_section: Provision
 sub_section: Provisioning Google Cloud infrastructure
 
-# Digital Ocean with Ansible
+# Google Cloud with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
 infrastructure on [Google Cloud](https://cloud.google.com/). You would do so with a `runCLI` or
 `runSh` job. Both of those jobs have ansible command line tools and google module requirements (python >= 2.6 and apache-libcloud) installed already.
