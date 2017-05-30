@@ -204,8 +204,8 @@ pages:
       - Single pane of glass: provision/single-pane-of-glass-spog.md
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
-    - Provisioning AWS infrastructure:
-      - With Terraform: provision/aws-with-terraform.md
+    - Provisioning with Terraform:
+      - AWS infrastructure: provision/aws-with-terraform.md
     - Provisioning with Ansible:
       - AWS infrastructure: provision/aws-with-ansible.md
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
