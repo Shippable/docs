@@ -210,6 +210,7 @@ pages:
       - AWS infrastructure: provision/aws-with-ansible.md
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
+      - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Reference:
     - Configuration:
       - shippable.yml: reference/shippable-yml.md

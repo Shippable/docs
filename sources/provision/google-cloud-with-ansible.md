@@ -5,7 +5,7 @@ sub_section: Provisioning Google Cloud infrastructure
 # Google Cloud with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
 infrastructure on [Google Cloud](https://cloud.google.com/). You would do so with a `runCLI` or
-`runSh` job. Both of those jobs have ansible command line tools and google module requirements (python >= 2.6 and apache-libcloud) installed already.
+`runSh` job. Both of those jobs have ansible command line tools and [google module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#google) requirements (python >= 2.6 and apache-libcloud) installed already.
 
 ##Setup
 
@@ -40,7 +40,7 @@ in `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for awscli
+# config for google cloud cli
   - name: myGclCliConfig
     type: cliConfig
     integration: myGclIntegration # replace with your Google Cloud integration name
@@ -75,12 +75,12 @@ an Ansible playbook to provision on google cloud from your pipeline:
 
 ```yaml
 
-- name: google provison play
+- name: Google Cloud Provision
   hosts: localhost
   tasks:
-    - name: provision instance
+    - name: provision api instance
       gce:
-        instance_names: testing
+        instance_names: api-instance
         zone: us-central1-a
         machine_type: f1-micro
         image: debian-8
