@@ -224,10 +224,7 @@ resources:
 
   - name: mc-kube-cluster
     type: cluster
-    integration: dr-aws
-    pointer:
-      sourceName : "deploy-kubernetes-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
+    integration: dr-kube-cluster    #replace with your Kubernetes integration name
 ```
 
 ###2. Add a second manifest job and modify the deploy job to take both manifests as INs.

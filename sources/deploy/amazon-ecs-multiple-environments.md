@@ -45,7 +45,7 @@ resources:
     type: cluster
     integration: dr-aws
     pointer:
-      sourceName : "deploy-ecs-prod" #name of the cluster to which we are deploying
+      sourceName: "deploy-ecs-prod" #name of the cluster to which we are deploying
       region: "us-east-1"
 ```
 

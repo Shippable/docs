@@ -25,9 +25,9 @@ resources:
   - name: deploy-gke-strategy-gke-cluster
     type: cluster
 
-    integration: dr-aws
+    integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       region: "us-east-1"
 
   - name: deploy-gke-strategy-image
