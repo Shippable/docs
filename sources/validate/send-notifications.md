@@ -4,7 +4,7 @@ sub_section: Before you start
 
 # Sending job status notifications
 
-You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type.
+You can send notifications about job status by adding the `on_start`, `on_success`, `on_failure`, or `on_cancel` tags to any job of any type.
 
 To set up notifications, follow the step below:
 
@@ -78,12 +78,14 @@ You can use your resource in your `shippable.jobs.yml` to configure when notific
 
 ```
   - name: your-job-name
-    type: yout-job-type
+    type: your-job-type
     on_start:
       - NOTIFY: <notification resource name>
     on_success:
       - NOTIFY: <notification resource name>
     on_failure:
+      - NOTIFY: <notification resource name>
+    on_cancel:
       - NOTIFY: <notification resource name>
     always:
       - NOTIFY: <notification resource name>
@@ -92,4 +94,5 @@ You can use your resource in your `shippable.jobs.yml` to configure when notific
 * `on_start` specifies that notifications are sent when the job starts.
 * `on_success` specifies that notifications are sent when the job completes successfully.
 * `on_failure` specifies that notifications are sent when the job fails.
-* `always` specifies that notifications are sent when the job succeeds or fails.
+* `on_cancel` specifies that notifications are sent when the job is canceled.
+* `always` specifies that notifications are sent when the job succeeds, fails, errors, or is canceled.

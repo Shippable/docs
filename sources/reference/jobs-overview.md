@@ -167,7 +167,7 @@ In addition to viewing logs for the latest run, you can also view logs for histo
 <a name="jobNotifications"></a>
 ## Sending job status notifications
 
-You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type.
+You can send notifications about job status by adding the `on_start`, `on_success`, `on_failure`, or `on_cancel` tags to any job of any type.
 
 You will first need to define a [notification resource](/pipelines/resources/notification/) in your `shippable.resources.yml`.
 
@@ -182,6 +182,8 @@ Then, you can use that resource in your `shippable.jobs.yml` to configure when n
       - NOTIFY: <notification resource name>
     on_failure:
       - NOTIFY: <notification resource name>
+    on_cancel:
+      - NOTIFY: <notification resource name>
     always:
       - NOTIFY: <notification resource name>
 ```
@@ -189,4 +191,5 @@ Then, you can use that resource in your `shippable.jobs.yml` to configure when n
 * `on_start` specifies that notifications are sent when the job starts.
 * `on_success` specifies that notifications are sent when the job completes successfully.
 * `on_failure` specifies that notifications are sent when the job fails.
-* `always` specifies that notifications are sent when the job succeeds or fails.
+* `on_cancel` specifies that notifications are sent when the job is canceled.
+* `always` specifies that notifications are sent when the job succeeds, fails, errors, or is canceled.
