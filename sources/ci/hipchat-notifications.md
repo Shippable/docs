@@ -101,20 +101,21 @@ integrations:
         - "#channelTwo"
       on_success: always | change | never
       on_failure: always | change | never
+      on_cancel: always | change | never
       on_start: always | never
       on_pull_request: always | never
 
 ```
 
-You can set the following options for the `on_success`, `on_failure`, `on_start` and `on_pull_request` tags:
+You can set the following options for the `on_success`, `on_failure`, `on_cancel`, `on_start` and `on_pull_request` tags:
 
 - <i class="ion-ios-minus-empty"></i>`always` means that you will always receive a notification for that event.
 
 - <i class="ion-ios-minus-empty"></i> `never` means that you will never receive a notification for that event.
 
-- <i class="ion-ios-minus-empty"></i> `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively. This value isn't supported for `on_start` or `on_pull_request`.
+- <i class="ion-ios-minus-empty"></i> `change` for `on_success`, `on_failure` or `on_cancel` fields means you will receive notifications only when the build status changes to success, failure or canceled respectively. This value isn't supported for `on_start` or `on_pull_request`.
 
-If you do not specify any of these tags, the defaults are: `on_success` is set to `change`, `on_failure` is set to `always`, `on_start` is set to `never` and `on_pull_request` is set to `always`.
+If you do not specify any of these tags, the defaults are: `on_success` is set to `change`, `on_failure` is set to `always`, `on_cancel` is set to `on_failure`, `on_start` is set to `never` and `on_pull_request` is set to `always`.
 
 ##Removing Hipchat notifications
 
