@@ -78,7 +78,7 @@ You can use your resource in your `shippable.jobs.yml` to configure when notific
 
 ```
   - name: your-job-name
-    type: yout-job-type
+    type: your-job-type
     on_start:
       - NOTIFY: <notification resource name>
     on_success:

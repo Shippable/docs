@@ -22,7 +22,6 @@ jobs:
       - IN: awsCLIConfig
       - TASK:
         - script: aws s3 ls
-    on_start:
 ````
 
 The snippet above shows a basic example with required tags for configuring a runCLI job.
@@ -63,6 +62,8 @@ jobs:
     on_failure:                                 #optional
       - script: echo 'This block executes if the TASK section fails'
       - NOTIFY: slackNotification
+    on_cancel:                                  #optional
+      - NOTIFY: slackNotification
     always:                                     #optional
       - script: echo 'This block executes if the TASK section succeeds or fails'
       - NOTIFY: slackNotification
@@ -75,14 +76,18 @@ configure your runCLI job with the parameters described below:
 that are executed when the job starts.
 
   - [on_success](job-runcli.md#on_success): Specify `script` or `NOTIFY`
-sections that executed only if the `TASK` section succeeds.
+sections that are executed only if the `TASK` section succeeds.
 
-  - [on_failure](job-runcli.md#on_success): Specify `script` or `NOTIFY`
-sections that executed only if the `TASK` section fails.
+  - [on_failure](job-runcli.md#on_failure): Specify `script` or `NOTIFY`
+sections that are executed only if the `TASK` section fails.
+
+  - [on_cancel](job-runcli.md#on_cancel): Specify `NOTIFY` sections to send
+notifications if the job is canceled.  This cannot run scripts.
 
   - [always](job-runcli.md#always): Specify `script` or `NOTIFY` sections that
 are always executed at the end of the job, regardless of whether the `TASK`
-section failed or succeeded.
+section failed or succeeded.  Scripts will not run if the job is canceled,
+but notifications will be sent.
 
 ## Configured CLI tools
 
