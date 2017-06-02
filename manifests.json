@@ -1,0 +1,32 @@
+[{
+    "force": false,
+    "dockerOptions": {},
+    "replicas": 1,
+    "packages": [],
+    "images": [
+      {
+        "integration": {
+          "username": "ambarish2012",
+          "password": "dmisshiva2#",
+          "masterName": "Docker",
+          "id": "58d127d3dfdd950600e9c68f",
+          "email": "ambarish@shippable.com"
+        },
+        "versionNumber": 2,
+        "name": "demo-env-variable-image",
+        "dockerOptions": {
+          "publishAllPorts": true,
+          "portMappings": [
+            "80:80"
+          ],
+          "cpuShares": 256,
+          "memory": 128
+        },
+        "params": {},
+        "tag": "master.3",
+        "image": "ambarish2012/release-push-docker-hub"
+      }
+    ],
+    "name": "demo-env-variable-manifest-job"
+  }
+]

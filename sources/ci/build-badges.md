@@ -1,3 +1,4 @@
+page_main_title: Build badges
 main_section: CI
 sub_section: Advanced config
 
