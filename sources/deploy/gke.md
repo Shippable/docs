@@ -30,7 +30,8 @@ resources:
     type: cluster
     integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
+      region: "gke-cluster-region"  #name of the region where the cluster is deployed
 ```
 
 You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Google Container Registry since it integrates nicely with GKE.
@@ -42,7 +43,8 @@ resources:
     type: cluster
     integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
+      region: "gke-cluster-region"  #name of the region where the cluster is deployed
 
   - name: deploy-gke-basic-image
     type: image

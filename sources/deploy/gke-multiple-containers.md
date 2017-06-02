@@ -39,8 +39,9 @@ resources:
     type: cluster
     integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "shippable" # optional. deploys to 'default' if not specified
+      region: "gke-cluster-region"  #name of the region where the cluster is deployed
 ```
 
 `shippable.jobs.yml`
@@ -100,6 +101,7 @@ resources:
     pointer:
       sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "shippable"
+      region: "gke-cluster-region"  #name of the region where the cluster is deployed
 
 ```
 
@@ -196,8 +198,9 @@ resources:
     type: cluster
     integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "shippable"
+      region: "gke-cluster-region"  #name of the region where the cluster is deployed
 ```
 
 And now lets add a second manifest job and modify the deploy job to take both manifests as INs

@@ -7,7 +7,7 @@ There are many strategies that can be used to deploy containers to [Docker Data 
 
 ## Setup
 
-Shippable will use an API token to communicate with Docker Datacenter on your behalf. You can add this to Shippable via Account Integrations, so that we can internally use that token to make API calls to Docker Datacenter.
+Shippable will use your credentials to communicate with Docker Datacenter on your behalf. You can add this to Shippable via Account Integrations, so that we can internally use that token to make API calls to Docker Datacenter.
 
 - Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 - Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
@@ -19,8 +19,7 @@ Shippable will use an API token to communicate with Docker Datacenter on your be
 <img src="../../images/deploy/docker-datacenter/docker-datacenter-integration.png" alt="Add Docker Datacenter integration">
 
 
-Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Docker Datacenter.
-
+Now that the keys are added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.
 ```
 resources:
 
@@ -28,8 +27,6 @@ resources:
   - name: dddcb-cluster
     type: cluster
     integration: dr-docker-datacenter    #replace with your Docker Datacenter integration name
-    pointer:
-          sourceName: "deploy-docker-datacenter"
     flags:
       - deploy-dockerdatacenter-basic
 ```
@@ -43,8 +40,6 @@ resources:
   - name: dddcb-cluster
     type: cluster
     integration: dr-docker-datacenter    #replace with your Docker Datacenter integration name
-    pointer:
-          sourceName: "deploy-docker-datacenter"
     flags:
       - deploy-dockerdatacenter-basic
 
@@ -112,7 +107,7 @@ The deploy job expects a manifest and a cluster as input.  The cluster tells Shi
 
 Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
-- The manifest job will package your image with default settings
+- The manifest job will package your image with default settings.
 - The deploy job will upload the image to Docker Datacenter and start the container.
 
 After running, your pipeline will change color:

@@ -78,14 +78,14 @@ resources:
     type: cluster
     integration: dr-gke
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "beta"
 
   - name: deploy-gke-multi-env-prodcluster
     type: cluster
     integration: dr-aws
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "prod"
 
 ```
@@ -149,7 +149,7 @@ resources:
     type: cluster
     integration: dr-aws
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
       namespace: "shippable"
 
 ```

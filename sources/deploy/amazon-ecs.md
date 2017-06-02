@@ -72,7 +72,7 @@ resources:
     type: cluster
     integration: dr-aws                   # replace with integration name from step 1          
     pointer:
-      sourceName : "deploy-ecs-basic"     # name of the cluster to which we are deploying
+      sourceName: "deploy-ecs-basic"     # name of the cluster to which we are deploying
       region: "us-east-1"                 # AWS region where cluster is located
 ```
 
