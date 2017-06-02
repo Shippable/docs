@@ -105,6 +105,7 @@ pages:
     - Advanced config:
       - Caching: ci/caching.md
       - Using a custom Docker image: ci/custom-docker-image.md
+      - Using Docker Compose: ci/docker-compose.md
       - Triggering parallel jobs: ci/matrix-builds.md
       - Building pull requests: ci/pull-request-builds.md
       - Skipping a build: ci/skip-builds.md
