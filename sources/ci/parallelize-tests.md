@@ -25,7 +25,7 @@ env:
 ```
 
 - When you build the project, you will see two parallel builds in the project dashboard.
-![Build view](https://github.com/devops-recipes/ci-run-parallel-tests/blob/master/raw/resources/images/matrix-tests-view.png)
+![Build view](https://raw.githubusercontent.com/devops-recipes/ci-run-parallel-tests/master/public/resources/images/matrix-tests-view.png)
 
 - Each build has its console log output.
 ![test_suite_1](https://github.com/devops-recipes/ci-run-parallel-tests/raw/master/public/resources/images/console-testsuite1-view.png)

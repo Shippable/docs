@@ -53,3 +53,30 @@ If you no longer need the integration, you can delete it by following the steps 
     - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
     - Delete the integration.
 - Once you have delete the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+
+##Using your integration in Shippable CI
+
+Adding the integration to your CI workflow is quite simple.  Just update your `shippable.yml` file, adding an "integrations" section like this:
+```
+integrations:  # this section can contain several different types of integrations
+  generic:     # k/v pair should be under the 'generic' header
+    name: my-key-value-integration # whichever name you chose for your integration
+```
+
+Now when your CI runs, your key/value pairs will be exported as shell environment variables.
+
+##Using your integration in Shippable Pipelines
+
+In order to utilize this type of integration in your pipeline, you will need to create an [integration resource](../reference/resource-integration).  It should look like this:
+
+```
+resources:
+  - name: aws-kv-integration-resource  # a name for the resource itself
+    type: integration
+    integration: my-key-value-integration #this is the name you gave your integration
+
+```
+
+Now you can use this resource as an `IN` to your [runSh](../reference/job-runsh) or [runCLI](../reference/job-runcli) job.  If you do that, your key/value pairs will be available directly in the shell environment, so you can utilize them in your custom scripts.  This works well with command line tools that look in the environment for configuration options, such as the AWS CLI.
+
+This integration type isn't used for any managed pipeline jobs at this time.

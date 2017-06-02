@@ -20,6 +20,7 @@ pages:
       - Use cases: getting-started/shippable-use-cases.md
       - Pipeline basics: getting-started/pipeline-basics.md
       - Single Pane of Glass: getting-started/single-pane-of-glass-spog.md
+      - Concepts: getting-started/concepts.md
     - What is supported?:
       - Source control providers: getting-started/supported-scms.md
       - Languages: getting-started/supported-languages.md
@@ -40,8 +41,8 @@ pages:
       - Overview: getting-started/byon-overview.md
       - Managing nodes: getting-started/byon-manage-node.md
     - Run our samples:
-      - Run your first build: ci-sample.md
-      - Deploy your first app: cd-sample.md
+      - Run your first build: getting-started/ci-sample.md
+      - Deploy your first app: getting-started/cd-sample.md
     - Support: support.md
   - CI:
     - Overview:
@@ -75,6 +76,7 @@ pages:
     - Building and testing your project:
       - Configuring your CI: ci/build-and-test.md
       - Running tests in parallel:  ci/parallelize-tests.md
+      - Status code: ci/build_status.md
     - Configuring test/code coverage:
       - Basic config: ci/test-code-coverage-reports.md
       - JaCoCo reports: ci/jacoco-reports.md
@@ -202,9 +204,13 @@ pages:
       - Single pane of glass: provision/single-pane-of-glass-spog.md
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
-    - Provisioning AWS infrastructure:
-      - With Terraform: provision/aws-with-terraform.md
-      - With Ansible: provision/aws-with-ansible.md
+    - Provisioning with Terraform:
+      - AWS infrastructure: provision/aws-with-terraform.md
+    - Provisioning with Ansible:
+      - AWS infrastructure: provision/aws-with-ansible.md
+      - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
+      - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
+      - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Reference:
     - Configuration:
       - shippable.yml: reference/shippable-yml.md
@@ -241,6 +247,7 @@ pages:
       - version: reference/resource-version.md
     - API:
       - Overview: reference/api-overview.md
+      - Tokens: reference/api-tokens.md
     - Machine Images:
       - Overview: reference/machine-images-overview.md
       - v5.5.1: reference/machine-image-v551.md
@@ -275,5 +282,14 @@ pages:
       - Quay.io: reference/int-quay.md
       - Slack: reference/int-slack.md
       - SSH Keys: reference/int-key-ssh.md
+    - Shippable Server:
+      - Installer: reference/admiral.md
+      - Installing on a single machine: reference/admiral-onebox.md
+      - Database Configuration: reference/admiral-db.md
+      - State Storage Configuration: reference/admiral-gitlab.md
+      - Message Configuration: reference/admiral-rabbitmq.md
+      - Redis Configuration: reference/admiral-redis.md
+      - Swarm Worker Configuration: reference/admiral-swarm-workers.md
+      - Vault Configuration: reference/admiral-vault.md
     - Glossary:
       - Complete list of terms: reference/glossary.md

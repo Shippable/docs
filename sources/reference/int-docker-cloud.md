@@ -18,7 +18,7 @@ account by providing the credentials to access your Docker Cloud account.
 
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
 -  Locate **Docker Cloud** in the list and click on **Create Integration**
--  You need to [generate an API key](https://cloud.docker.com/account/#container-api-key) in your Docker Cloud account to use with shippable.
+-  You need to [generate an API key](https://docs.docker.com/apidocs/docker-cloud/#rest-api) in your Docker Cloud account to use with shippable.
 -  Name your integration and enter your Docker Cloud username and the API key/token.
 -  Choose the Subscription which contains the repository for which you want to deploy the containers.
 -  Click **Save**

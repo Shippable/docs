@@ -44,7 +44,7 @@ The `bump` directive in the Release job specifies how the version number should 
         bump: major 
 ```
 
-- Running the Release job will set the current version to 2.1.0 since `bump` was set to `major`.
+- Running the Release job will set the current version to 2.0.0 since `bump` was set to `major`.
 
 #### Incrementing minor version
 

@@ -1,7 +1,7 @@
 faq /support
 ci/overview /ci/why-continuous-integration
 ci/supported /ci/services-overview/
-ci/runFirstBuild /ci-sample
+ci/runFirstBuild /getting-started/ci-sample/
 ci/shippableyml /reference/shippable-yml
 ci/languages/node /ci/nodejs-continuous-integration
 ci/languages/python /ci/python-continuous-integration
@@ -40,9 +40,10 @@ ci/advancedOptions/testCoverage /ci/test-code-coverage-reports
 ci/advancedOptions/timeouts /ci/custom-timeouts
 ci/advancedOptions/console-logs /ci/console-logs
 ci/advancedOptions/machineImages /reference/machine-images-overview
-ci/troubleshoot lift it
+ci/troubleshoot /ci/troubleshooting
+ci/machine-images/overview /reference/machine-images-overview
 pipelines/overview /getting-started/pipeline-basics/
-pipelines/gettingStarted /getting-started/single-pane-of-glass-spog/
+pipelines/gettingStarted /getting-started/single-pane-of-glass-spog
 pipelines/resources/overview /reference/resources-overview
 pipelines/resources/ciRepo /reference/resource-cirepo
 pipelines/resources/cliConfig /reference/resource-cliconfig
@@ -97,9 +98,10 @@ integrations/keys/ssh /reference/int-key-ssh
 integrations/keys/pem /reference/int-key-pem
 api/overview /getting-started/api-tokens/
 api/docs /reference/api-overview
-tutorials/continuous-integration /ci-sample
-tutorials/continuous-delivery-pipelines not needed
-tutorials/ci/runSampleCIBuild /ci-sample
+tutorials/continuous-integration /getting-started/ci-sample/
+tutorials/continuous-integration/#interacting-with-docker-registries /reference/integrations-overview/#docker-registries
+tutorials/continuous-delivery-pipelines /getting-started/cd-sample/
+tutorials/ci/runSampleCIBuild /getting-started/ci-sample/
 tutorials/ci/link-gitHub-bitbucket /reference/int-github/
 tutorials/ci/scm-gitlab /reference/int-gitlab/
 tutorials/ci/hub-amazon-ecr-pull-docker-image /ci/custom-docker-image
@@ -117,7 +119,7 @@ tutorials/ci/hub-gcr-custom-ci-image /ci/custom-docker-image
 tutorials/ci/code-coverage-jacoco  /ci/jacoco-reports
 tutorials/ci/deploy-amazon-opsworks /ci/deploy-to-aws-opsworks
 tutorials/ci/deploy-amazon-codedeploy ci/deploy-to-ec2/
-tutorials/pipelines/samplePipeline /cd-sample
+tutorials/pipelines/samplePipeline /getting-started/cd-sample
 tutorials/pipelines/howToAddSyncRepos /reference/resource-syncrepo
 tutorials/pipelines/connectingCiPipelines /ci/trigger-pipeline-jobs
 tutorials/pipelines/migrateEventTrigger /ci/trigger-pipeline-jobs
@@ -126,3 +128,4 @@ tutorials/pipelines/rollback-deployments /deploy/rollback/
 tutorials/pipelines/deploy-to-kubernetes /deploy/kubernetes/
 tutorials/pipelines/runShUseIntegrations /reference/job-runsh/
 tutorials/pipelines/updateResourceVersion /release/increment-version-number/
+navigatingUI/accountSettings/api /reference/api-tokens

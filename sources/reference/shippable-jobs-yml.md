@@ -24,6 +24,8 @@ jobs:
       - NOTIFY: <notification resource name>
     on_failure:
       - NOTIFY: <notification resource name>
+    on_cancel:
+      - NOTIFY: <notification resource name>
     always:
       - NOTIFY: <notification resource name>
 
@@ -48,7 +50,9 @@ jobs:
 
 * `on_failure` specifies that notifications are sent when the job fails.
 
-* `always` specifies that notifications are sent when the job succeeds or fails.
+* `on_cancel` specifies that notifications are sent when the job is canceled.
+
+* `always` specifies that notifications are sent when the job succeeds, fails, errors, or is canceled.
 
 For a detailed explanation of the yml for each job type, visit the reference page for that specific job:
 

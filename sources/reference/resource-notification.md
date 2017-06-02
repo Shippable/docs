@@ -8,6 +8,7 @@ A `notification` resource is used to add a notification type so that you can sen
 * Job starts (on_start)
 * Job is completed successfully (on_success)
 * Job failed (on_failure)
+* Job canceled (on_cancel)
 
 Email, Hipchat, IRC and Slack notifications are supported for all job types as of now.
 
@@ -16,14 +17,14 @@ You can create a notification resource by adding it to `shippable.resources.yml`
 
 ```
 resources:
-  - name: <string>				        #required
-    type: notification					#required
-    integration: <string>				#required for Slack, Hipchat
+  - name: <string>              #required
+    type: notification          #required
+    integration: <string>       #required for Slack and Hipchat
     pointer:
-      method: email ! irc       #required for email and IRC
+      method: email | irc       #required for email and IRC
       recipients:
-        - "#beta"				        #required
-        - "@trriplejay"			                #optional
+        - "#beta"               #required
+        - "@trriplejay"         #optional
 ```
 
 The events for which this notification is sent out are configured in the jobs yml.

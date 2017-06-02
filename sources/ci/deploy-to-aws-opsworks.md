@@ -28,9 +28,9 @@ This is done during definition of your application on OpsWorks, by
 entering URL for the repository. Please note that for public access
 (without adding an SSH key), you need to use appropriate protocol for
 the endpoint, for example
-`https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks.git` or
-`git://gihub.com/Shippable/sample-nodejs-dynamo-opsworks.git`, instead of
-SSH URL, such as `github.com:Shippable/sample-nodejs-dynamo-opsworks.git`.
+`https://github.com/devops-recipes/basic-node.git` or
+`git://gihub.com/devops-recipes/basic-node.git`, instead of
+SSH URL, such as `github.com:devops-recipes/basic-node.git`.
 
 > **Note**
 >
@@ -247,7 +247,7 @@ file on the target OpsWorks instance. This can be done by registering a
 Chef deployment hook that will overwrite this file with values retrieved
 from Chef configuration. Hooks are registered by placing aptly named
 files in `deploy` directory in your repository root. Please refer to
-[AWS documentation](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-extend-hooks.html) and [Opscode documentation on deploy resource](http://docs.opscode.com/resource_deploy.html#deploy-phases) if you interested in details.
+[AWS documentation](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-extend-hooks.html) and [Chef documentation on deploy resource](https://docs.chef.io/resource_deploy.html#deploy-phases) if you interested in details.
 
 For your convenience, here (and in samples repositories) we provide a
 `before_restart` hook that will generate correct `aws.json`. Please note
@@ -369,7 +369,7 @@ $client->createTable(array(
 ));
 ```
 
-Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/aws-sdk-php/guide/latest/service-dynamodb.html) and [the full sample](https://github.com/shippableSamples/sample-php-dynamo-opsworks) on our GitHub account for details.
+Refer to the [DynamoDB client documentation](http://docs.aws.amazon.com/aws-sdk-php/guide/latest/service-dynamodb.html) and [the full sample](https://github.com/shippableSamples/sample-nodejs-dynamo-opsworks) on our GitHub account for details.
 
 ## Using DynamoDB with Node.js
 

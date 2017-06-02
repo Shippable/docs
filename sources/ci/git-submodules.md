@@ -35,7 +35,7 @@ If your submodules are in a private repository, you will need to add your Shippa
 git@github.com:someuser/somelibrary.git
 ```
 
-For more For a more detailed explanation, check out our ["SSH keys"](./ssh-keys) page.
+For a more detailed explanation, check out our ["SSH keys"](ssh-keys) page.
 
 ##Turning off submodules
 

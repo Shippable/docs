@@ -92,7 +92,7 @@ If needed, you can install your project dependencies using the `pip` command at 
 ```
 build:
   ci:
-    - "pip install -r requirements.txt --use-mirrors"
+    - "pip install -r requirements.txt"
 ```
 
 <a name="test-coverage-reports"></a>
@@ -116,6 +116,20 @@ build:
     - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
 ```
 
+Sample yml snippet using pytest (pytest-cov required):
+
+```
+build:
+  ci:
+    #Create folders for test and code coverage
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+
+    #Run test and code coverage and output results to the right folder
+    - pytest --junitxml=shippable/testresults/nosetests.xml
+    - pytest --cov=modules --cov-report=xml:shippable/codecoverage/coverage.xml
+```
+
 <a name="advanced-config"></a>
 ##Advanced config
 
@@ -132,7 +146,7 @@ env:
 build:
   ci:
     - pip install -q mock==0.8 Django==$DJANGO_VERSION
-    - pip install . --use-mirrors
+    - pip install .
 ```
 Please note that the config above tests against several versions, and will trigger a build matrix consisting of 3 builds.
 
@@ -143,7 +157,7 @@ Your dependencies can sometimes fail to install due to network glitches or other
 ```
 build:
   ci:
-    - shippable_retry pip install -r requirements.txt --use-mirrors
+    - shippable_retry pip install -r requirements.txt
 ```
 
 ### Default commands

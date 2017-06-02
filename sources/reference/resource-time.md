@@ -3,7 +3,7 @@ main_section: Reference
 sub_section: Resources
 
 # time
-A `time` resource type is used to to trigger a job based on a specific day and time. This resource can be used used as an IN input for [any job](jobs-overview/).
+A `time` resource type is used to to trigger a job based on a specific day and time. This resource can be used used as an IN input for [any job](jobs-overview/). The timezone used for triggering jobs is UTC.
 
 You can create this resource by adding it to `shippable.resources.yml`
 

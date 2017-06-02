@@ -6,80 +6,33 @@ sub_section: Kubernetes
 # Deploying Multiple Containers to Kubernetes
 The strength of Kubernetes is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to Kubernetes:
 
-1. separate pipelines
-2. two images, one manifest
-3. multi-manifest deployment
+- **Parallel pipelines:** You can define one container per manifest and have separate deploy jobs for each manifest. In this scenario, each container will be deployed independently when its pipeline is triggered.
 
-## Setup
-Make sure you have a cluster set up on Kubernetes, then create an integration and cluster resource [as described in the setup section here](./kubernetes)
+![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
 
-We'll start with some basic pipeline building blocks: one image, one manifest, one deploy job.
+- **Multiple images in a single [manifest](/reference/job-manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
 
-`shippable.resources.yml`
-```
-  - name: deploy-kubernetes-multi-container-image
-    type: image
-    integration: dr-dockerhub    #replace with your Docker Hub integration name
-    pointer:
-      sourceName: "docker.io/devopsrecipes/deploy-kubernetes-multi-container"  #replace with your image name on Docker Hub
-      isPull: false
-    seed:
-      versionName: "master.1"  #replace with your image tag on Docker Hub
-    flags:
-      - deploy-kubernetes-multi-container
+![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
 
-#kubernetes cluster
-  - name: deploy-mc-kube-cluster
-    type: cluster
-    integration: dr-kube-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-multi-container
+- **Multi-manifest deployment:** You can include one image per manifest, but choose to deploy several manifests together. In this scenario, all containers will be deployed at the same time, but only containers in the same manifest are guaranteed to be deployed on the same node.
 
-```
+![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy2-pipeline-view.png)
 
-`shippable.jobs.yml`
-```
-jobs:
+##Parallel pipelines
 
-  - name: deploy-kubernetes-multi-container-manifest
-    type: manifest
-    flags:
-      - deploy-kubernetes-multi-container
-    steps:
-     - IN: deploy-kubernetes-multi-container-image
+###1. Set up basic deployment
 
- - name: deploy-kubernetes-multi-container-deploy
-   type: deploy
-   flags:
-     - deploy-kubernetes-multi-container
-   steps:
-     - IN: deploy-kubernetes-multi-container-manifest
-     - IN: mc-kube-cluster
+As a pre-requisite for these instructions, you should already have set up a basic pipeline that deploys to Kubernetes.
 
-```
+You can follow the tutorial on [Managed deployments](/deploy/kubernetes/). This will give you the resources and jobs required to deploy a single container to Kubernetes.
 
-## Managed Deployments
+###2. Add a second pipeline
 
+Update `shippable.resources.yml` with an additional `image`. We're just using a standard nginx image here, but you can use the image you need.
 
-### Basic Configuration
-
-The main idea behind the basic configuration is that since the cluster resource is reusable, we can keep our workflows separate while deploying to the same endpoint.
-
-To accomplish this, we'll simply add another image, manifest, and deploy job in parallel to the original, while keeping the cluster input the same.
-
-Now the updated ymls should look like this:
 
 ```
 resources:
-
-  - name: deploy-kubernetes-multi-container-image
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-kubernetes-multi-container"
-    seed:
-      versionName: "latest"
-
   - name: deploy-kubernetes-multi-container-nginx
     type: image
     integration: dr-ecr
@@ -87,34 +40,17 @@ resources:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
     seed:
       versionName: "1.12.0"
-
-  - name: mc-kube-cluster
-    type: cluster
-    integration: dr-kube-cluster
-    pointer:
-      sourceName : "deploy-kubernetes-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
-
 ```
+
+Update `shippable.jobs.yml` with the new `manifest` and `deploy` jobs. We are adding a manifest for the nginx image, and updating the deploy job to accept the new manifest as an IN:
+
 
 ```
 jobs:
-
-  - name: deploy-kubernetes-multi-container-manifest-3a
-    type: manifest
-    steps:
-     - IN: deploy-kubernetes-multi-container-image
-
   - name: deploy-kubernetes-multi-container-manifest-3b
     type: manifest
     steps:
       - IN: deploy-kubernetes-multi-container-nginx
-
-  - name: dkmc-deploy-3a
-    type: deploy
-    steps:
-      - IN: deploy-kubernetes-multi-container-manifest-3a
-      - IN: mc-kube-cluster
 
   - name: dkmc-deploy-3b
     type: deploy
@@ -123,9 +59,15 @@ jobs:
       - IN: mc-kube-cluster
 ```
 
-Once you push these changes, your pipeline should look like this:
+###3. Push changes to sync repository
+
+Once you have these jobs and resources yml files as described above, push to your sync repository.
+
+Your pipeline should look like this:
 
 ![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
+
+Now each pipeline is handled separately, but is being deployed to the same cluster. Each deploy job will create its own service and task definition.
 
 ```
 Deployment data using kubectl
@@ -171,11 +113,11 @@ Events:
   38m		38m		1	deployment-controller			Normal		ScalingReplicaSet	Scaled up replica set dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a-4089932028 to 1
 ```
 
-### Advanced Configuration: two images in one manifest
+## Multiple images in one manifest
 
-When two containers depend on each other, it might make more sense to combine them into the same manifest.
+When two containers depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate on Kubernetes via localhost or container linking. Shippable natively supports this, and it's quite simple to implement.  
 
-Shippable natively supports this, and it's quite simple to implement.  In your manifest job, just include both images as separate IN statements like this:
+###1. In your manifest job, include both images as separate IN statements like this:
 
 ```
 jobs:
@@ -194,9 +136,13 @@ jobs:
 
 ```
 
-This will result in a single deployment object being created or updated with a single pod spec that contains two container definitions.  The pipeline should look like this:
+###2. Push changes to sync repository
 
+Once you have these jobs and resources yml files as described above, push to your sync repository. This will result in a single deployment object being created or updated with a single pod spec that contains two container definitions.  
+
+The pipeline should look like this:
 ![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
+
 ```
 Deployment data using kubectl
 
@@ -248,22 +194,25 @@ Events:
   27m		27m		1	deployment-controller			Normal		ScalingReplicaSet	Scaled up replica set dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4-948434943 to 1
 ```
 
-### Advanced Configuration: multiple manifest deployment
+## Multi-manifest deployment
 
 It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
 
-Lets start with our two images and our cluster:
+###1. Lets start with our two images and our cluster:
 
 ```
 resources:
 
-  - name: deploy-kubernetes-multi-container-image
+  - name: deploy-kubernetes-basic-img
     type: image
-    integration: dr-ecr
+    integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-kubernetes-multi-container"
+      sourceName: "docker.io/devopsrecipes/deploy-kubernetes-basic"  #replace with your image name on Docker Hub
+      isPull: false
     seed:
-      versionName: "latest"
+      versionName: "master.1"  #replace with your image tag on Docker Hub
+    flags:
+      - deploy-kubernetes-basic
 
   - name: deploy-kubernetes-multi-container-nginx
     type: image
@@ -281,7 +230,7 @@ resources:
       region: "us-east-1"
 ```
 
-And now lets add a second manifest job and modify the deploy job to take both manifests as INs
+###2. Add a second manifest job and modify the deploy job to take both manifests as INs.
 
 ```
 jobs:
@@ -305,7 +254,9 @@ jobs:
 
 ```
 
-Once these changes are pushed, your pipeline will look like this:
+###3. Push changes to sync repository
+
+Once you have these jobs and resources yml files as described above, push to your sync repository. Once these changes are pushed, your pipeline will look like this:
 
 ![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy2-pipeline-view.png)
 
@@ -363,3 +314,7 @@ the image to Docker hub. It also contains all of the pipelines configuration fil
 **Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-container/runs/6/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-container)
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

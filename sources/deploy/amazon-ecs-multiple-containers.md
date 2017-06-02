@@ -109,7 +109,7 @@ Now, any time either image is updated with a new version, the pipeline will be t
 
 It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
 
-Lets start with our two images and our cluster:
+###1: Lets start with our two images and our cluster:
 
 ```
 resources:
@@ -138,7 +138,7 @@ resources:
       region: "us-east-1"
 ```
 
-And now lets add a second manifest job and modify the deploy job to take both manifests as INs
+###2: Add a second manifest job and modify the deploy job to take both manifests as INs.
 
 ```
 jobs:
@@ -193,3 +193,7 @@ the image to Amazon ECR. It also contains all of the pipelines configuration fil
 **Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container)
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

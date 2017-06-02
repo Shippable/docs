@@ -6,43 +6,69 @@ sub_section: Kubernetes
 # Deploying to multiple Kubernetes Environments
 Most of the time, you'll want to utilize multiple environments in your pipeline.  One common example would be having automatic deployments to a test environment, followed by a manual deployment to production.  You can easily achieve this using Shippable pipelines, and this page will tell you how.
 
-## Setup
-Make sure you have a Kubernetes cluster set up, then create an integration and cluster resource [as described in the setup section here](./kubernetes)
+## The Goal
+This page will discuss two examples that utilize multiple environments on Kubernetes and manage them in the same pipeline.  
 
-Let's keep our example scenario simple.  One image and one manifest to start.
+- Serial environments (beta->prod)
+- Parallel environments (blue/green)
 
+In the end, your pipeline might look like this:
+![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
+
+## Serial environments
+
+###1. Set up basic deployment
+
+As a pre-requisite for these instructions, you should already have set up a basic pipeline that deploys to Kubernetes.
+
+You can follow the tutorial on [Managed deployments](/deploy/kubernetes/). This will give you the resources and jobs required to deploy a single container to Kubernetes.
+
+###2: Add a serial environment
+
+A serial environment scenario looks like this:
+
+```
+CI -> Docker hub -> manifest -> deploy to beta -> deploy to prod
+```
+
+If you followed the [Managed deployments](/deploy/kubernetes/) docs, you already have a pipeline that deploys to the first environment, beta.
+
+Now let's add the prod environment. We will need a new [cluster](/reference/resource-cluster/) for production, as well as a [deploy](/reference/job-deploy/) job.
+
+Cluster definition in `shippable.resources.yml`:
 ```
 resources:
-
-  - name: deploy-kubernetes-multi-env-image
-      type: image
-      integration: dr-dockerhub    #replace with your Docker Hub integration name
-      pointer:
-        sourceName: "docker.io/devopsrecipes/deploy-kubernetes-multi-env"  #replace with your image name on Docker Hub
-        isPull: false
-      seed:
-        versionName: "master.1"  #replace with your image tag on Docker Hub
-      flags:
-        - deploy-kubernetes-multi-env
+  - name: deploy-kubernetes-multi-env-prodcluster
+    type: cluster
+    integration: dr-kube-prod-cluster    #replace with your Kubernetes integration name
+    flags:
+      - deploy-kubernetes-multi-env
 ```
+
+Now we define the job in `shippable.jobs.yml`. Please note that this job will take the beta deploy job as an IN.
 
 ```
 jobs:
-
-  - name: deploy-kubernetes-multi-env-manifest
-    type: manifest
-    steps:
-      - IN: deploy-kubernetes-multi-env-image
+    - name: dkme-proddeploy
+      type: deploy
+      flags:
+        - deploy-kubernetes-multi-env
+      steps:
+        - IN: dkme-betadeploy
+          switch: off
+        - IN: deploy-kubernetes-multi-env-prodcluster
+          switch: off
 ```
+Using `switch: off` prevents automatic deployments to production when the previous job finishes.
 
+Your pipeline should look like this:
+![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
 
-## Managed deployments
-Shippable managed deployments give you a ton of flexibility in how you structure your pipeline.  Deploy jobs accept manifests as inputs, but can also accept other deploy jobs, by themselves or in combination with manifests.  This allows you to put your pipeline together in whatever way works best for your system while maintaining a simple visual on the whole process.  This page will discuss a couple of the most common scenarios invovling multiple deployment environments.
+###3. Specify environment specific settings
 
-### Serial Environments
-One common scenario for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate clusters.  Lets set this up in our pipeline so we can see how it works.
+To make our scenario more realistic, we're going to configure each environment with its own unique parameters and settings. **This is an optional step.**
 
-Start by adding two `params` resources, each one having a unique ENV for the cluster it will be deployed to.
+In your `shippable.resources.yml`, add two `params` resources, each one having a unique ENV for the cluster it will be deployed to.
 
 ```
 resources:
@@ -61,76 +87,110 @@ resources:
 
 ```
 
-We'll also need two clusters to deploy to.
+Now, change your `shippable.jobs.yml` to provide these params to your deploy jobs.
+
+```
+jobs:
+- name: dkme-betadeploy
+  type: deploy
+  flags:
+    - deploy-kubernetes-multi-env
+  steps:
+    - IN: deploy-kubernetes-multi-env-betaparams
+    - IN: deploy-kubernetes-multi-env-manifest-2
+    - IN: deploy-kubernetes-multi-env-betacluster
+
+- name: dkme-proddeploy
+  type: deploy
+  flags:
+    - deploy-kubernetes-multi-env
+  steps:
+    - IN: deploy-kubernetes-multi-env-prodparams
+      switch: off
+    - IN: dkme-betadeploy
+      switch: off
+    - IN: deploy-kubernetes-multi-env-prodcluster
+      switch: off
+```
+
+With this configuration, your container running in the Beta environment will have the $ENVIRONMENT variable set to "beta", while your container running in the Prod environment will have the $ENVIRONMENT variable set to "prod".
+
+###4. Specify different options
+
+You can set different options for your containers with the `dockerOptions` resource, depending on which environment they are running in.
+
+Add two [dockerOptions resources](../reference/resource-dockeroptions), one for each deploy job, to the pipeline in `shippable.resources.yml`. Here, we're allocating more memory for production since it runs with much higher load.
 
 ```
 resources:
 
-  - name: deploy-kubernetes-multi-env-betacluster
-    type: cluster
-    integration: dr-kube-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-multi-env
+- name: deploy-kubernetes-multi-env-prodopts
+  type: dockerOptions
+  flags:
+    - deploy-kubernetes-multi-env
+  version:
+    memory: 512
+    labels:
+      environment: prod
 
-  - name: deploy-kubernetes-multi-env-prodcluster
-    type: cluster
-    integration: dr-kube-prod-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-multi-env
+- name: deploy-kubernetes-multi-env-betaopts
+  type: dockerOptions
+  flags:
+    - deploy-kubernetes-multi-env
+  version:
+    memory: 128
+    labels:
+      environment: beta
 ```
 
-Finally, lets add two deploy jobs. The first one (beta) should take the beta params, beta cluster, and the manifest as `IN` statements.  The second deploy job (prod) should take the beta deploy job, prod params, and prod cluster as `IN` statements.
+These can be used as an IN to your deploy jobs in `shippable.jobs.yml`
 
 ```
 jobs:
+- name: dkme-betadeploy
+  type: deploy
+  flags:
+    - deploy-kubernetes-multi-env
+  steps:
+    - IN: deploy-kubernetes-multi-env-betaopts
+    - IN: deploy-kubernetes-multi-env-manifest-2
+    - IN: deploy-kubernetes-multi-env-betacluster
 
-  - name: dkme-betadeploy
-      type: deploy
-      flags:
-        - deploy-kubernetes-multi-env
-      steps:
-        - IN: deploy-kubernetes-multi-env-betaopts
-        - IN: deploy-kubernetes-multi-env-betaparams
-        - IN: deploy-kubernetes-multi-env-manifest-2
-        - IN: deploy-kubernetes-multi-env-betacluster
-
-    - name: dkme-proddeploy
-      type: deploy
-      flags:
-        - deploy-kubernetes-multi-env
-      steps:
-        - IN: deploy-kubernetes-multi-env-prodopts
-          switch: off
-        - IN: deploy-kubernetes-multi-env-prodparams
-          switch: off
-        - IN: dkme-betadeploy
-          switch: off
-        - IN: deploy-kubernetes-multi-env-prodcluster
-          switch: off
-
+- name: dkme-proddeploy
+  type: deploy
+  flags:
+    - deploy-kubernetes-multi-env
+  steps:
+    - IN: deploy-kubernetes-multi-env-prodopts
+      switch: off
+    - IN: dkme-betadeploy
+      switch: off
+    - IN: deploy-kubernetes-multi-env-prodcluster
+      switch: off
 ```
 
-Notice that the production deploy job has several `switch: off` statements.  We want to make sure that no one accidentally deploys to production by changing one of its inputs!
-
-Your pipeline should look like this:
-![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
-
-Notice the dotted lines connecting the resources to production. This is the visual representation of the break in automation that `switch: off` causes.
-
-Now, switch back to your SPOG view, right-click the dkme-betadeploy deploy job when you are ready for deployment, and click "run job".  Once the deployment has finished, you can examine the console log for it.
-![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-beta-deploy-view.png)
-
-Right-click the dkme-proddeploy deploy job when you are ready for deployment, and click "run job".  Once the deployment has finished, you can examine the console log for it.
-![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-prod-deploy-view.png)
-
 ### Parallel Environments
-Another common scenario is the blue-green deployment.  In this situation, you essentially have two separate copies of your application, ready to be deployed, with only one environment running at any given time.  When a change is made to your application, you deploy the second environment. Once that environment is running and validated, you can stop the old environment for a seamless transition.
+A parallel environment scenario looks like this:
 
-Another scenario is the ability to deploy to multiple regions at the same time. Imagine that your application is running in multiple regions across AWS, and on each region there is an kubernetes cluster.  Shippable allows you to take the same manifest and send it to as many endpoints as you like.  You can even add extra region-specific ENVs and docker options, while maintaining common core manifest settings.
+```
+CI -> Docker Hub -> manifest -> blue
+                             -> green
+```
 
-Lets look at a simple case of parallel deployments.  The concept of an "environment" depends heavily on the application.  Some users might divide their application into multiple environments on the same cluster, multiple clusters in the same region, or multiple regions each with their own set of clusters.  In this example, we're going to deploy to the same cluster endpoint.
+Some points to note:
 
-Start by adding some new resources.  We're going to use a `params` resource to distinguish the environments. Both environments will be deployed to the same cluster.
+- Both environments will be connected to the same manifest job
+- Each environment has its own cluster
+
+###1. Set up basic deployment
+
+As a pre-requisite for these instructions, you should already have set up a basic pipeline that deploys to Kubernetes.
+
+You can follow the tutorial on [Managed deployments](/deploy/kubernetes/). This will give you the resources and jobs required to deploy a single container to Kubernetes.
+
+###2. Add params
+
+Add a `params` resource to distinguish the different environments within the containers.  We'll deploy both images to the same cluster using different parameters.
 
 We are also going to set labels on the blue and green deployments so that the load balancer's selector can be updated to use the appropriate label after deployment is completed, depending on which environment is deployed to production.
 ```
@@ -166,16 +226,12 @@ resources:
     version:
       params:
         ENVIRONMENT: "green"
-
- - name: deploy-kubernetes-multi-env-maincluster
-    type: cluster
-    integration: dr-kube-prod-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-multi-env
-
 ```
 
-Now we should add two deploy jobs. One for our "blue" environment and one for our "green" environment.  These jobs will both take the same manifest as input.
+###3. Add deploy job
+
+Create a deploy job for the "blue" environment `dkme-bluedeploy` to accept `deploy-kubernetes-multi-env-blueparams` as input. Also, add another deploy job `dkme-greendeploy` that takes the same manifest and `deploy-kubernetes-multi-env-greenparams` as input.
+
 ```
 jobs:
 
@@ -203,68 +259,16 @@ jobs:
 
 ```
 
-Notice that on each deploy job, beneath the `IN` statement for the manifest there is a section that says `switch: off`.  This is how to tell Shippable not to automatically run the deployment on every change.  For this simple blue-green setup, we want to manually tell Shippable when each environment should be deployed, rather than have them both be deployed automatically on every change.
+Use `switch: off` if you want to prevent auto-deployments. In this case, we want both environments to be manual deployments.
 
-Once you add these to your pipeline, check out your SPOG. It should look something like this:
-
+Once you add these to your pipeline and push your changes, check out your SPOG. It should look something like this:
 ![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
 
-Since `switch: off` is present on the manifest input, you'll have to right-click and select 'Run Job' to start the deployment. Make sure that the manifest job has run first so that the latest version is available for deployment.
-
-Right-click the dkme-bluedeploy deploy job, and click "run job" when you are ready for deployment.  Once the deployment has finished, you can examine the console log for it.
+First, run the manifest job. Right-click the dkme-bluedeploy deploy job, and click "run job" when you are ready for deployment.  Once the deployment has finished, you can examine the console log for it.
 ![Beta deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-beta-deploy-view.png)
 
 Right-click the dkme-greendeploy deploy job, and click "run job" when you are ready for deployment.  Once the deployment has finished, you can examine the console log for it.
 ![Prod deploy job](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-prod-deploy-view.png)
-
-
-### Advanced
-The differences between environments often go beyond a simple cluster change.  Shippable lets you set and override a variety of options via `params` and `dockerOptions` resources.
-
-Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
-
-We'll add two more resources to the list which allow us to modify the different docker options.  In production, we want to allocate more memory to our container, since the usage is much higher. For a full list of available options, see the [reference page](/reference/resource-dockeroptions).
-```
-resources:
-
-  - name: deploy-kubernetes-multi-env-prodopts
-    type: dockerOptions
-    version:
-      memory: 512
-
-  - name: deploy-kubernetes-multi-env-betaopts
-    type: dockerOptions
-    version:
-      memory: 128
-
-```
-
-We should also modify our params resources.
-
-```
-resources:
-
-  - name: deploy-kubernetes-multi-env-betaparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "beta"
-
-  - name: deploy-kubernetes-multi-env-betaparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "prod"
-```
-
-Shippable by default implements a pattern of overrides for both `params` and `dockerOptions`. When these resources are added to a manifest, the settings pass forward through each step of the pipeline until the pipeline ends or they are overwritten by some other resource.  
-
-When deploying to prod, the `ENVIRONMENT` parameter that was carried forward from the beta environment will be overwritten to match the new settings added to the prod deploy job, and the `SLACK_TOKEN` will carry forward from the original manifest all the way through to the production deployment.
-
-With these new items, the pipeline should look like this:
-
-![Pipeline](https://github.com/devops-recipes/deploy-kubernetes-multi-env/raw/master/public/resources/images/dkme-pipeline-view.png)
-
 
 ## Sample project
 
@@ -276,4 +280,8 @@ the image to Docker hub. It also contains all of the pipelines configuration fil
 **Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-env/runs/8/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58ff7b2e28b7f006008c7b72/badge?branch=master
-)](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-env)
+)](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-env
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
