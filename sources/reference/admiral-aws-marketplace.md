@@ -1,0 +1,73 @@
+page_main_title: Shippable installer
+main_section: Reference
+sub_section: Admiral
+page_title: Admiral - AWS Marketplace
+page_description: How to install Shippable from AWS Marketplace
+page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, aws marketplace
+
+# Installing from AWS Marketplace
+
+Shippable Server is available on AWS Marketplace and can be installed by going
+through a one-click install process. This will bring up Shippable Server on an EC2
+instance of desired configuration.
+Admin panel will be available once the purchase process is complete. You will
+be able to configure the installation using the Admin panel.
+
+
+## Purchase process
+TBD
+
+## Admin panel
+
+Shippable Server admin panel can be accessed from a local browser using
+http-over-ssh. This ensures that the admin panel is only available to the users
+who have ssh permissions for the server.
+
+### Steps to access admin panel
+- If the IP address of the server is `1.2.3.4`, then run the following command
+  on your local system to access admin panel.
+```
+$ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
+```
+- This will establish a secure tunnel between the local system and Shippable
+  Server
+- To access the admin page, navigate to `http://localhost:50003` on your
+  browser.
+  - This should prompt for a login token
+  - The login token is the EC2 instance ID of the server. This can be fetched
+    from the AWS EC2 instances panel
+
+## Configuration
+
+- After successfully logging in, you should fill in the passwords for
+  `Messaging` and `State`. These should be more than 8 characters to be valid.
+
+- The `Installer Access Key` and `Installer Secret Key` fields can be left
+  blank.
+
+- Once passwords are set, click `Initialize`. This will prep the system with
+  core dependencies like database, message queue, secrets store, docker etc.
+
+- After initialization is complete, navigate to the next section `Configure and
+  Install` to set up authentication provider(s).
+
+- In the `Authorization and Source Control Management (SCM) Providers`,
+  section, select the SCM provider of choice. We'll configure Github as
+  a provider as an example.
+  - Check the box for `Github`, `Auth` column
+  - On `https://github.com/settings/developers` register a new application
+  - The callback URL should be `http://1.2.3.4:50001/auth/github`
+  - Save and copy the keys for this application into Github auth section of
+    Shippable admin panel
+
+- In the `Service Addresses` change the `API` IP address to the public IP
+  of server. The port should remain the same. For our example, the value will
+  be `http://1.2.3.4:50000`
+
+- In the `Service Addresses` change the `WWW` IP address to the public IP
+  of server. The port should remain the same. For our example, the value will
+  be `http://1.2.3.4:50001`
+
+- Click `Install`. This should set up Shippable services and bring up the UI.
+  Once complete, you should be able to navigate to `http://1.2.3.4:50001` and
+  log into Shippable using a Github account.
