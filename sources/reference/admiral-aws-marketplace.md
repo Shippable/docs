@@ -1,29 +1,38 @@
 page_main_title: Shippable installer
 main_section: Reference
 sub_section: Admiral
-page_title: Admiral - AWS Marketplace
+page_title: Shippable Server - AWS Marketplace
 page_description: How to install Shippable from AWS Marketplace
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, aws marketplace
 
 # Installing from AWS Marketplace
 
-Shippable Server is available on AWS Marketplace and can be installed by going
-through a one-click install process. This will bring up Shippable Server on an EC2
-instance of desired configuration.
-Admin panel will be available once the purchase process is complete. You will
-be able to configure the installation using the Admin panel.
-
+Shippable Server - Startup Edition (SE) is available on AWS Marketplace and can be installed by going
+through a one-click purchase and install process. This will bring up Shippable Server on an EC2
+instance of desired configuration. Once launched, you will configure the installation 
+to connect your third party services (like your source control system) using the Admin panel.
 
 ## Purchase process
-TBD
+When purchasing Shippable Server SE from the AWS Marketplace, you'll make the 
+purchase via your AWS account using the payment method associated with your account. All 
+Shippable Server SE purchases made through the AWS Marketplace come with a 30-day free trial 
+and have the option for hourly or annual billing, with annual billing provided at a 
+discount. 
+
+You will be notified by AWS prior to completion of your 30-day free trial with the option to 
+cancel your purchase prior to completing the trial period.
+
+If annual billing selected, you will be notified by AWS prior to your annual term 
+expiring with the option to extend for another annual term. If you choose not to renew, upon 
+completing the annual term, billing will automatically convert to hourly billing.
 
 ## Admin panel
 
-Shippable Server admin panel can be accessed from a local browser using
+Shippable Server Admin panel can be accessed from a local browser using
 http-over-ssh. This ensures that the admin panel is only available to the users
 who have ssh permissions for the server.
 
-### Steps to access admin panel
+### Steps to access Admin panel
 - If the IP address of the server is `1.2.3.4`, then run the following command
   on your local system to access admin panel.
 ```
