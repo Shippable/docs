@@ -48,7 +48,7 @@ $ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
 
 ## Configuration
 
-- After successfully logging in, you should fill in the passwords for
+- After successfully logging in, you must create passwords for
   `Messaging` and `State`. These should be more than 8 characters to be valid.
 
 - The `Installer Access Key` and `Installer Secret Key` fields can be left
