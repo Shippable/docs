@@ -8,7 +8,7 @@ You can push your image to Quay.io in any section [of your yml](../reference/shi
 
 ##Setup
 
-Before you start, you will need to connect your Quay.io account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/" target="_blank"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Quay.io account with Shippable so we have the credentials to push your image on your behalf.
 
 #### Generating access token for Quay.io
 -  Login to your Quay.io account and click on **Applications** in the top menu.
@@ -22,14 +22,7 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 -  **Authorize Application** and copy the **Access Token**.
 
 #### Adding Quay.io Integration to your Shippable Account
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Search **Quay.io** in the list and click on **Create Integration**.
--  Name your integration and enter your **Quay Username**,  **Quay Password**, **Access Token**,  **Quay Email**.
--  Choose the Subscription which contains the repository for which you want to push the image.
--  Click **Save**.
-
-<img src="../../images/ci/quay-hub-integration.png" alt="Add Quay.io keys">
+- Follow the steps outlined [here](/reference/int-quay/).
 
 ##Basic config
 
