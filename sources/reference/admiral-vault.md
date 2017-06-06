@@ -41,8 +41,11 @@ Now that initialization is complete, you can view the logs of the installation, 
 If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/docs/concepts/seal.html) state, it will be required to
 `unseal` it manually (for now). The following steps unseal the vault server.
 
-- ssh into the machine running vault server
-- run following commands
+- `ssh` into the machine that is running vault server.
+
+- run the following commands. Since three keys are required to
+  unseal vault, the command to unseal has to be run three times with different
+  keys.
 
 ```bash
 $ export VAULT_ADDR='http://127.0.0.1:8200'
