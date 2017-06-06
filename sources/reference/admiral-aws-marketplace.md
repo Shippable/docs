@@ -89,7 +89,7 @@ Shippable UI also provides an admin panel which helps users to
 - monitor builds across the system
 - manage build nodes for either the system or individual subscriptions
 - manage user accounts across the system
-- view and manage any build, project and subscription
+- view and manage build, project and subscription
 - Perform other housekeeping tasks
 
 Only the accounts that have been added to superuser list will be able to access
