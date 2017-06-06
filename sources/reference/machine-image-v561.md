@@ -1,48 +1,44 @@
-page_main_title: v5.3.2
+page_main_title: v5.6.1
 main_section: Reference
 sub_section: Machine Images
-page_title: Description of what is available in Machine Image v5.3.2
-page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.3.2
+page_title: Description of what is available in Machine Image v5.6.1
+page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.6.1
 page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker
 
-# Machine image v5.3.2 (Docker TAG v5.3.2)
+# Machine image v5.6.1 (Docker TAG v5.6.1)
 
-**Release Date:** March 11, 2017
+**Release Date:** June 05, 2017
 
 **What is installed**
 
 * Operating System: Ubuntu 14.04.5 LTS
-* Kernel Version: 3.19.0-51-generic
+* Kernel Version: 3.13.0-119-generic
 * **Docker Server Version: 1.13.0**
 * Storage Driver: aufs
 * Root Dir: /data/aufs
 * Backing Filesystem: extfs
-* Dirperm1 Supported: true
+* Dirperm1 Supported: false
 * Cgroup Driver: cgroupfs
-* Shippable Official Docker Images with TAG: `v5.3.2`
+* Shippable Official Docker Images with TAG: `v5.6.1`
 
 ## Shippable Official Docker Images
-These are the images used to run your CI jobs. The default image is picked up
-based on the `language` you set in your yml. All these images are available on
-our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is
-available on our [Github dry-dock org](https://github.com/dry-dock)
+These are the images used to run your CI jobs. The default image is picked up based on the `language` you set in your yml. All these images are available on our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is availabe on our [Github dry-dock org](https://github.com/dry-dock)
 
-If you would like to use your own CI images in place of the official images,
-instructions are [described here](/ci/custom-docker-image/)
+If you would like to use your own CI images in place of the official images, instructions are [described here](/ci/custom-docker-image/)
 
 These are the official language images in this version
 
-* [Nodejs](#nod-532)
-* [Python](#pyt-532)
-* [Java](#jav-532)
-* [Ruby](#rub-532)
-* [GO](#gol-532)
-* [PHP](#php-532)
-* [Clojure](#clo-532)
-* [Scala](#sca-532)
-* [C/C++](#cpp-532)
+* [Nodejs](#nod-561)
+* [Python](#pyt-561)
+* [Java](#jav-561)
+* [Ruby](#rub-561)
+* [GO](#gol-561)
+* [PHP](#php-561)
+* [Clojure](#clo-561)
+* [Scala](#sca-561)
+* [C/C++](#cpp-561)
 
-<a name="common-532"></a>
+<a name="common-561"></a>
 ### Common components installed
 
 All the images have these components pre-installed
@@ -76,7 +72,7 @@ All the images have these components pre-installed
 
 * awscli 1.11.44
 * awsebcli 3.9
-* gcloud 145.0.0
+* gcloud 157.0.0
 * jfrog-cli 1.7.0
 * kubectl 1.5.1
 * packer 0.12.2
@@ -95,14 +91,13 @@ All the images have these components pre-installed
 * redis 3.2
 * rethinkdb 2.3
 * riak 2.2.0
-* selenium 3.0.1
+* selenium 3.4.0
 * sqllite 3
-
 
 ## Pre-installed official Docker Images
 This image ships with these pre-installed images to speed up your CI build process
 
-<a name="nod-532"></a>
+<a name="nod-561"></a>
 ### Node.js
 **OS Versions**
 
@@ -134,14 +129,14 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * nvm
 * Java 1.8
 * Ruby 2.3.3
 
 ---
 
-<a name="pyt-532"></a>
+<a name="pyt-561"></a>
 ### Python
 **OS Versions**
 
@@ -167,7 +162,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * virtualenv
 * Java 1.8
 * Node 7.x
@@ -175,7 +170,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="jav-532"></a>
+<a name="jav-561"></a>
 ### Java
 **OS Versions**
 
@@ -196,14 +191,14 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * Node 7.x
 * Ruby 2.3.3
 
 ---
 
 
-<a name="rub-532"></a>
+<a name="rub-561"></a>
 ### Ruby
 **OS Versions**
 
@@ -235,14 +230,14 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * rvm
 * Java 1.8
 * Node 7.x
 
 ---
 
-<a name="gol-532"></a>
+<a name="gol-561"></a>
 ### GO
 **OS Versions**
 
@@ -269,7 +264,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * gvm
 * Java 1.8
 * Node 7.x
@@ -277,7 +272,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="php-532"></a>
+<a name="php-561"></a>
 ### PHP
 **OS Versions**
 
@@ -297,7 +292,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * phpenv
 * Java 1.8
 * Node 7.x
@@ -305,7 +300,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="clo-532"></a>
+<a name="clo-561"></a>
 ### Clojure
 **OS Versions**
 
@@ -328,7 +323,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * leiningen
 * Java 1.8
 * Node 7.x
@@ -336,7 +331,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="sca-532"></a>
+<a name="sca-561"></a>
 ### Scala
 **OS Versions**
 
@@ -358,7 +353,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * sbt
 * Java 1.8
 * Node 7.x
@@ -367,7 +362,7 @@ These versions are pre-installed on both the OS version images
 ---
 
 
-<a name="cpp-532"></a>
+<a name="cpp-561"></a>
 ### C/C++
 **OS Versions**
 
@@ -386,7 +381,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-532)
+* [Common components](#common-561)
 * Java 1.8
 * Node 7.x
 * Ruby 2.3.3

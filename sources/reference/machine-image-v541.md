@@ -3,7 +3,7 @@ main_section: Reference
 sub_section: Machine Images
 page_title: Description of what is available in Machine Image v5.3.2
 page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.3.2
-page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Dockee
+page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker
 
 # Machine image v5.4.1 (Docker TAG v5.4.1)
 

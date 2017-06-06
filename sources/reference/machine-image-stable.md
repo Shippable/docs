@@ -3,7 +3,7 @@ main_section: Reference
 sub_section: Machine Images
 page_title: Description of what is available in Machine Image Stable
 page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image Stable
-page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Dockee
+page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker
 
 # Machine image 'Stable'
 
