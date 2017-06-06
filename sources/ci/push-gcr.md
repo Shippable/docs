@@ -23,12 +23,7 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 -  For more on JSON keys and Service accounts, read
 <a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
 #### Adding GCR Integration to your Shippable Account
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Search **GCR** in the list and click on **Create Integration**.
--  Name your integration and enter your **JSON key** obtained from **GDC**.
--  Choose the Subscription which contains the repository for which you want to push the image.
--  Click **Save**.
+-  Please follow the steps mentioned [here](/reference/int-gcr/).
 
 <img src="../../images/ci/gcr-hub-integration.png" alt="Add  GCR credentials">
 

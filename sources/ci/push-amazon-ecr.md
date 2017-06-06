@@ -14,14 +14,7 @@ Before you start, you will need to connect your Amazon account with Shippable so
 - To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
 #### Adding Amazon ECR Integration to your Shippable Account
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Search **Amazon ECR** in the list and click on **Create Integration**.
--  Name your integration and enter your **aws_access_key_id** and **aws_secret_access_key**.
--  Choose the Subscription which contains the repository for which you want to push the image.
--  Click **Save**.
-
-<img src="../../images/ci/amazon-ecr-integration.png" alt="Add Amazon ECR keys">
+- Follow the steps [here](/reference/int-amazon-ecr/#amazon-ecr-integration).
 
 ##Basic config
 

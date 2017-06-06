@@ -8,16 +8,9 @@ You can push your artifacts to JFrog in any section [of your yml](../reference/s
 
 ##Setup
 
-Before you start, you will need to connect your JFrog account with Shippable so we have the credentials to push artifacts on your behalf. We do this through <a href="../../getting-started/integrations/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your JFrog account with Shippable so we have the credentials to push artifacts on your behalf.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Search **JFrog** in the list and click on **Create Integration**.
--  Name your integration and enter your **JFrog HTTP Endpoint**,  **JFrog Username** and **JFrog Password**.
--  Choose the Subscription which contains the repository for which you want to push the artifacts.
--  Click **Save**.
-
-<img src="../../images/ci/jfrog-artifact-integration.png" alt="Add JFrog Keys">
+Please follow the steps outlined [here](/reference/int-jfrog-artifactory/). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ## Basic Config
 
