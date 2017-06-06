@@ -45,7 +45,7 @@ If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/do
 - run following commands
 
 ```bash
-$ export VAULT_ADDR='http://127.0.0.1:8200
+$ export VAULT_ADDR='http://127.0.0.1:8200'
 
 $ vault status # this should show `Sealed true`
 
