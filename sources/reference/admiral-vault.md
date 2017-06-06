@@ -34,3 +34,26 @@ Now that initialization is complete, you can view the logs of the installation, 
 <img src="../../images/reference/admiral/admiral-vault-logs.png" alt="Vault logs">
 
 <img src="../../images/reference/admiral/admiral-vault-config.png" alt="Vault configuration">
+
+
+## Unsealing Vault
+
+If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/docs/concepts/seal.html) state, it will be required to
+`unseal` it manually (for now). The following steps unseal the vault server.
+
+- ssh into the machine running vault server
+- run following commands
+
+```bash
+$ export VAULT_ADDR='http://127.0.0.1:8200
+
+$ vault status # this should show `Sealed true`
+
+$ vault unseal # this will prompt for an unseal key. copy and enter UNSEAL_KEY1 from /etc/shippable/admiral.env
+
+$ vault unseal # copy and enter UNSEAL_KEY2 from /etc/shippable/admiral.env
+
+$ vault unseal # copy and enter UNSEAL_KEY3 from /etc/shippable/admiral.env
+
+$ vault status # this should now show `Sealed false`
+```

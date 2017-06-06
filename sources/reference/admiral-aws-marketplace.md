@@ -9,21 +9,21 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 
 Shippable Server - Startup Edition (SE) is available on AWS Marketplace and can be installed by going
 through a one-click purchase and install process. This will bring up Shippable Server on an EC2
-instance of desired configuration. Once launched, you will configure the installation 
+instance of desired configuration. Once launched, you will configure the installation
 to connect your third party services (like your source control system) using the Admin panel.
 
 ## Purchase process
-When purchasing Shippable Server SE from the AWS Marketplace, you'll make the 
-purchase via your AWS account using the payment method associated with your account. All 
-Shippable Server SE purchases made through the AWS Marketplace come with a 30-day free trial 
-and have the option for hourly or annual billing, with annual billing provided at a 
-discount. 
+When purchasing Shippable Server SE from the AWS Marketplace, you'll make the
+purchase via your AWS account using the payment method associated with your account. All
+Shippable Server SE purchases made through the AWS Marketplace come with a 30-day free trial
+and have the option for hourly or annual billing, with annual billing provided at a
+discount.
 
-You will be notified by AWS prior to completion of your 30-day free trial with the option to 
+You will be notified by AWS prior to completion of your 30-day free trial with the option to
 cancel your purchase prior to completing the trial period.
 
-If annual billing selected, you will be notified by AWS prior to your annual term 
-expiring with the option to extend for another annual term. If you choose not to renew, upon 
+If annual billing selected, you will be notified by AWS prior to your annual term
+expiring with the option to extend for another annual term. If you choose not to renew, upon
 completing the annual term, billing will automatically convert to hourly billing.
 
 ## Admin panel
