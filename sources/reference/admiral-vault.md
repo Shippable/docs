@@ -43,7 +43,7 @@ If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/do
 
 - `ssh` into the machine that is running vault server.
 
-- run the following commands. Since three keys are required to
+- Run the following commands. Since three keys are required to
   unseal vault, the command to unseal has to be run three times with different
   keys.
 
