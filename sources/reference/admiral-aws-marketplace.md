@@ -80,3 +80,27 @@ $ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
 - Click `Install`. This should set up Shippable services and bring up the UI.
   Once complete, you should be able to navigate to `http://1.2.3.4:50001` and
   log into Shippable using a Github account.
+
+
+### Setup superuser account
+
+Shippable UI also provides an admin panel which helps users to
+
+- monitor builds across the system
+- manage build nodes for either the system or individual subscriptions
+- manage user accounts across the system
+- view and manage build, project and subscription
+- Perform other housekeeping tasks
+
+Only the accounts that have been added to superuser list will be able to access
+this panel.
+
+- After successfully logging in using GitHub(or the configured auth provider), navigate to the accounts page and copy the account ID
+
+- Navigate back to Admiral UI and scroll down to `Manage System SuperUsers`
+  sub-section in `Add-ons`
+  - paste the account ID from the Accounts page into the text box and hit `Add`
+  - the account associated with the ID will now have superuser permissions
+  - refreshing the Shippable UI should now show a additional tab called `Admin`
+
+- Only the first superuser needs to be added using this method. Other superusers may be added from the Accounts subsection in the Admin pane
