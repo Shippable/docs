@@ -60,7 +60,7 @@ Adding the integration to your CI workflow is quite simple.  Just update your `s
 ```
 integrations:  # this section can contain several different types of integrations
   generic:     # k/v pair should be under the 'generic' header
-    name: my-key-value-integration # whichever name you chose for your integration
+    integrationName: my-key-value-integration # whichever name you chose for your integration
 ```
 
 Now when your CI runs, your key/value pairs will be exported as shell environment variables.
