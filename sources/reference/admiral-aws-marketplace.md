@@ -94,8 +94,8 @@ who have ssh permissions for the server.
 
 ### Add-ons
 
-In addition to the Shippable Server Admin panel, within the product UI, 
-Shippable also provides an Admin panel within the product UI to:
+In addition to the Shippable Server Admin panel, Shippable also provides an
+Admin panel within the product UI to:
 
 - Monitor builds across the system
 - Manage build nodes for either the system or individual subscriptions
