@@ -95,13 +95,12 @@ Shippable UI also provides an admin panel which helps users to
 Only the accounts that have been added to superuser list will be able to access
 this panel.
 
-- After successfully logging in using Github, navigate to the accounts page and copy the account ID
+- After successfully logging in using GitHub(or the configured auth provider), navigate to the accounts page and copy the account ID
 
 - Navigate back to Admiral UI and scroll down to `Manage System SuperUsers`
   sub-section in `Add-ons`
-  - paste the account ID from the previous step into the text box and hit `Add`
+  - paste the account ID from the Accounts page into the text box and hit `Add`
   - the account associated with the ID will now have superuser permissions
   - refreshing the Shippable UI should now show a additional tab called `Admin`
 
-- Only the first superuser needs to be added using this method. For any
-  subsequent user management, use the `Accounts` sub-section in `Admin` panel
+- Only the first superuser needs to be added using this method. Other superusers may be added from the Accounts subsection in the Admin pane
