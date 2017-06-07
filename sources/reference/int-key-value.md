@@ -73,7 +73,7 @@ In order to utilize this type of integration in your pipeline, you will need to 
 resources:
   - name: aws-kv-integration-resource  # a name for the resource itself
     type: integration
-    integration: my-key-value-integration #this is the name you gave your integration
+    integrationName: my-key-value-integration #this is the name you gave your integration
 
 ```
 
