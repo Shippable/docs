@@ -24,9 +24,11 @@ The following `shippable.yml` should get you started with a simple PHP project.
 language: php
 
 php:
-  - 7.0
+  - "7.0"
 ```
 The snippet above will run the default command `phpunit` with PHP 7.0. To customize this configuration, please read the sections below.
+
+Please note that the 7.0 version is inside double quotes. For any version ending with a 0, remember to use double quotes around the version number.
 
 <a name="language"></a>
 ##Setting language and runtime
