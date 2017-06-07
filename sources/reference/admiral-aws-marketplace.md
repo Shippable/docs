@@ -18,6 +18,9 @@ Marketplace](add link). When purchasing Shippable Server SE from the AWS
 Marketplace, you'll make the purchase via your AWS account using the payment
 method associated with your account. 
 
+Follow the prompts within the AWS Marketplace purchase process to launch your
+Shippable Server SE instance and proceed to the Admin panel.
+
 All Shippable Server SE purchases made through the AWS Marketplace come with a
 **30-day free trial**.
 
@@ -28,9 +31,6 @@ If annual billing is selected, you will be notified by AWS prior to your annual
 term expiring with the option to extend for another annual term. If you choose
 not to renew, upon completing the annual term, billing will automatically
 convert to hourly billing.
-
-Follow the prompts within the AWS Marketplace purchase process to launch your
-Shippable Server SE instance and proceed to the Admin panel.
 
 ## Admin panel
 
