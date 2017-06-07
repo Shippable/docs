@@ -7,24 +7,31 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 
 # Installing from AWS Marketplace
 
-Shippable Server - Startup Edition (SE) is available on AWS Marketplace and can be installed by going
-through a one-click purchase and install process. This will bring up Shippable Server on an EC2
-instance of desired configuration. Once launched, you will configure the installation 
-to connect your third party services (like your source control system) using the Admin panel.
+Shippable Server - Startup Edition (SE) is available on the AWS Marketplace to
+run on a single instance, ideal for evaluations/POCs or for small teams.  Once
+launched, you will configure the installation to connect your third party
+services (like your source control system) using the Admin panel.
 
-## Purchase process
-When purchasing Shippable Server SE from the AWS Marketplace, you'll make the 
-purchase via your AWS account using the payment method associated with your account. All 
-Shippable Server SE purchases made through the AWS Marketplace come with a 30-day free trial 
-and have the option for hourly or annual billing, with annual billing provided at a 
-discount. 
+## Purchase and install process 
+Purchase and install Shippable Server SE by visiting [its listing on the AWS
+Marketplace](add link). When purchasing Shippable Server SE from the AWS
+Marketplace, you'll make the purchase via your AWS account using the payment
+method associated with your account. 
 
-You will be notified by AWS prior to completion of your 30-day free trial with the option to 
-cancel your purchase prior to completing the trial period.
+All Shippable Server SE purchases made through the AWS Marketplace come with a
+**30-day free trial** with the option for hourly or annual billing. Annual 
+billing is provided at a discount to the hourly rate. 
 
-If annual billing selected, you will be notified by AWS prior to your annual term 
-expiring with the option to extend for another annual term. If you choose not to renew, upon 
-completing the annual term, billing will automatically convert to hourly billing.
+You will be notified by AWS prior to completion of your 30-day free trial with
+the option to cancel your purchase prior to completing the trial period.
+
+If annual billing is selected, you will be notified by AWS prior to your annual
+term expiring with the option to extend for another annual term. If you choose
+not to renew, upon completing the annual term, billing will automatically
+convert to hourly billing.
+
+Follow the prompts within the AWS Marketplace purchase process to launch your
+Shippable Server SE instance and proceed to the Admin panel.
 
 ## Admin panel
 
@@ -33,50 +40,54 @@ http-over-ssh. This ensures that the admin panel is only available to the users
 who have ssh permissions for the server.
 
 ### Steps to access Admin panel
-- If the IP address of the server is `1.2.3.4`, then run the following command
-  on your local system to access admin panel.
-```
-$ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
-```
-- This will establish a secure tunnel between the local system and Shippable
-  Server
-- To access the admin page, navigate to `http://localhost:50003` on your
-  browser.
-  - This should prompt for a login token
-  - The login token is the EC2 instance ID of the server. This can be fetched
-    from the AWS EC2 instances panel
+- Assuming the IP address of the EC/2 instance is `1.2.3.4`, run the following
+  command on your local system to establish a secure tunnel between the local
+  system and Shippable Server and access the admin panel:
+
+    ```bash
+    $ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
+    ```  
+
+- Navigate to `http://localhost:50003` from your browser
+- Login to the Admin panel with your login token
+    - The login token is the EC2 Instance ID of the server found in the AWS
+      Management Console > EC/2 > Instances, e.g. "i-0968e71046e294b56"
 
 ## Configuration
 
-- After successfully logging in, you must create passwords for
-  `Messaging` and `State`. These should be more than 8 characters to be valid.
+#### Initialize Infrastructure
+- After successfully logging in, you must create passwords for the `Messaging`
+  and `State` components in section 1. These must be 8 characters or more.
 
-- The `Installer Access Key` and `Installer Secret Key` fields can be left
-  blank.
+- The `Installer Access Key` and `Installer Secret Key` fields are not required
+  for the Startup Edition and can be left blank.
 
 - Once passwords are set, click `Initialize`. This will prep the system with
   core dependencies like database, message queue, secrets store, docker etc.
 
+#### Configure & Install
 - After initialization is complete, navigate to the next section `Configure and
-  Install` to set up authentication provider(s).
+  Install` to set up your authentication provider(s). Shippable leverages one 
+  of your SCM providers to manage auth/identity.
 
-- In the `Authorization and Source Control Management (SCM) Providers`,
-  section, select the SCM provider of choice. We'll configure Github as
-  a provider as an example.
-  - Check the box for `Github`, `Auth` column
-  - On `https://github.com/settings/developers` register a new application
+- In the `Authorization and Source Control Management (SCM) Providers` section,
+  section, select the SCM provider of choice. We'll configure GitHub as a
+  provider as an example.
+  - Check the box for `GitHub`, `Auth` column
+  - Go to `https://github.com/settings/developers` and register a new
+    application
   - The callback URL should be `http://1.2.3.4:50001/auth/github`
-  - Save and copy the keys for this application into Github auth section of
-    Shippable admin panel
+  - Save and copy the keys for this application into GitHub auth section of
+    Shippable Admin panel
 
-- In the `Service Addresses` change the `API` IP address to the public IP
-  of server. The port should remain the same. For our example, the value will
-  be `http://1.2.3.4:50000`
+- In the `Service Addresses` section, change the `API` IP address to the public
+  IP of server. The port should remain the same. For our example, the value
+  will be `http://1.2.3.4:50000`
 
-- In the `Service Addresses` change the `WWW` IP address to the public IP
-  of server. The port should remain the same. For our example, the value will
-  be `http://1.2.3.4:50001`
+- In the `Service Addresses` section, change the `WWW` IP address to the public
+  IP of server. The port should remain the same. For our example, the value
+  will be `http://1.2.3.4:50001`
 
 - Click `Install`. This should set up Shippable services and bring up the UI.
   Once complete, you should be able to navigate to `http://1.2.3.4:50001` and
-  log into Shippable using a Github account.
+  log into Shippable using a GitHub account.

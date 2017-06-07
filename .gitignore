@@ -49,3 +49,6 @@ site/
 venv
 venvs
 .idea
+
+# Vim session files
+Session.vim
