@@ -111,7 +111,7 @@ access this panel.
   configured auth provider), navigate to the Accounts page via the gear icon in 
   the upper right and copy your account ID.
 
-- Navigate back to Shippable Server Admin panel `Add-ons` section and scroll 
+- Navigate back to the Shippable Server Admin panel `Add-ons` section and scroll 
   down to `Manage System SuperUsers` sub-section
     - Paste the account ID from the Accounts page into the text box and hit 
     `Add`. The account associated with the ID will now have SuperUser 
