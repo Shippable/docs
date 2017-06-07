@@ -192,3 +192,4 @@ The `master` folder may contain a `data` folder. It's not used at this time.
 
 ### workers
 The `workers` folder contains a `data` folder. It's not used at this time.
+

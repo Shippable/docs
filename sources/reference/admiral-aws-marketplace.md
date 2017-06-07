@@ -7,6 +7,7 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 
 # Installing from AWS Marketplace
 
+<<<<<<< HEAD
 Shippable Server - Startup Edition (SE) is available on the AWS Marketplace to
 run on a single instance, ideal for evaluations/POCs or for small teams.  Once
 launched, you will configure the installation to connect your third party
@@ -32,6 +33,26 @@ convert to hourly billing.
 
 Follow the prompts within the AWS Marketplace purchase process to launch your
 Shippable Server SE instance and proceed to the Admin panel.
+=======
+Shippable Server - Startup Edition (SE) is available on AWS Marketplace and can be installed by going
+through a one-click purchase and install process. This will bring up Shippable Server on an EC2
+instance of desired configuration. Once launched, you will configure the installation
+to connect your third party services (like your source control system) using the Admin panel.
+
+## Purchase process
+When purchasing Shippable Server SE from the AWS Marketplace, you'll make the
+purchase via your AWS account using the payment method associated with your account. All
+Shippable Server SE purchases made through the AWS Marketplace come with a 30-day free trial
+and have the option for hourly or annual billing, with annual billing provided at a
+discount.
+
+You will be notified by AWS prior to completion of your 30-day free trial with the option to
+cancel your purchase prior to completing the trial period.
+
+If annual billing selected, you will be notified by AWS prior to your annual term
+expiring with the option to extend for another annual term. If you choose not to renew, upon
+completing the annual term, billing will automatically convert to hourly billing.
+>>>>>>> a30bb54e3808f82e50ccd57d27a84c5ac049e96a
 
 ## Admin panel
 
@@ -90,4 +111,32 @@ who have ssh permissions for the server.
 
 - Click `Install`. This should set up Shippable services and bring up the UI.
   Once complete, you should be able to navigate to `http://1.2.3.4:50001` and
+<<<<<<< HEAD
   log into Shippable using a GitHub account.
+=======
+  log into Shippable using a Github account.
+
+
+### Setup superuser account
+
+Shippable UI also provides an admin panel which helps users to
+
+- monitor builds across the system
+- manage build nodes for either the system or individual subscriptions
+- manage user accounts across the system
+- view and manage build, project and subscription
+- Perform other housekeeping tasks
+
+Only the accounts that have been added to superuser list will be able to access
+this panel.
+
+- After successfully logging in using GitHub(or the configured auth provider), navigate to the accounts page and copy the account ID
+
+- Navigate back to Admiral UI and scroll down to `Manage System SuperUsers`
+  sub-section in `Add-ons`
+  - paste the account ID from the Accounts page into the text box and hit `Add`
+  - the account associated with the ID will now have superuser permissions
+  - refreshing the Shippable UI should now show a additional tab called `Admin`
+
+- Only the first superuser needs to be added using this method. Other superusers may be added from the Accounts subsection in the Admin pane
+>>>>>>> a30bb54e3808f82e50ccd57d27a84c5ac049e96a
