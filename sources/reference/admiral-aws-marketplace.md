@@ -19,11 +19,10 @@ Marketplace, you'll make the purchase via your AWS account using the payment
 method associated with your account. 
 
 All Shippable Server SE purchases made through the AWS Marketplace come with a
-**30-day free trial** with the option for hourly or annual billing. Annual 
-billing is provided at a discount to the hourly rate. 
+**30-day free trial**.
 
-You will be notified by AWS prior to completion of your 30-day free trial with
-the option to cancel your purchase prior to completing the trial period.
+You will be notified by AWS with the option to cancel your purchase prior to
+completing the trial period.
 
 If annual billing is selected, you will be notified by AWS prior to your annual
 term expiring with the option to extend for another annual term. If you choose
@@ -49,7 +48,7 @@ who have ssh permissions for the server.
     ```  
 
 - Navigate to `http://localhost:50003` from your browser
-- Login to the Admin panel with your login token
+- Login to the Admin panel with your login token.
     - The login token is the EC2 Instance ID of the server found in the AWS
       Management Console > EC/2 > Instances, e.g. "i-0968e71046e294b56"
 
@@ -61,33 +60,33 @@ who have ssh permissions for the server.
   section. These must be 8 characters or more.
 
 - The `Installer Access Key` and `Installer Secret Key` fields are not required
-  for the Startup Edition and can be left blank.
+  for the Startup Edition and should be left blank.
 
 - Once passwords are set, click `Initialize`. This will prep the system with
   core dependencies like database, message queue, secrets store, docker etc.
 
 ### Configure & Install
-- After initialization is complete, navigate to the next section `Configure and
-  Install` to set up your authentication provider(s). Shippable leverages one 
+- After initialization is complete, navigate to the next section, `Configure &
+  Install`, to set up your authentication provider(s). Shippable leverages one 
   of your SCM providers to manage auth/identity.
 
 - In the `Authorization and Source Control Management (SCM) Providers` section,
   section, select the SCM provider of choice. We'll configure GitHub as a
   provider as an example.
-  - Check the box for `GitHub`, `Auth` column
+  - Check the box for `GitHub` in the `Auth` column
   - Go to `https://github.com/settings/developers` and register a new
     application
   - The callback URL should be `http://1.2.3.4:50001/auth/github`
-  - Save and copy the keys for this application into GitHub auth section of
+  - Save and copy the keys for this application into the GitHub auth section of
     Shippable Admin panel
 
 - In the `Service Addresses` section, change the `API` IP address to the public
   IP of server. The port should remain the same. For our example, the value
-  will be `http://1.2.3.4:50000`
+  will be `http://1.2.3.4:50000`.
 
 - In the `Service Addresses` section, change the `WWW` IP address to the public
   IP of server. The port should remain the same. For our example, the value
-  will be `http://1.2.3.4:50001`
+  will be `http://1.2.3.4:50001`.
 
 - Click `Install`. This should set up Shippable services and bring up the UI.
   Once complete, navigate to `http://1.2.3.4:50001` and log into Shippable 
@@ -96,7 +95,7 @@ who have ssh permissions for the server.
 ### Add-ons
 
 In addition to the Shippable Server Admin panel, within the product UI, 
-Shippable also provides an Admin panel to:
+Shippable also provides an Admin panel within the product UI to:
 
 - Monitor builds across the system
 - Manage build nodes for either the system or individual subscriptions
@@ -110,17 +109,17 @@ access this panel.
 
 - After successfully logging into the Shippable UI using GitHub (or the 
   configured auth provider), navigate to the Accounts page via the gear icon in 
-  the upper right and copy your account ID
+  the upper right and copy your account ID.
 
 - Navigate back to Shippable Server Admin panel `Add-ons` section and scroll 
   down to `Manage System SuperUsers` sub-section
     - Paste the account ID from the Accounts page into the text box and hit 
     `Add`. The account associated with the ID will now have SuperUser 
-    permissions
+    permissions.
 
 - Refresh the Shippable UI and you should now see an additional tab called
-  `Admin`
+  `Admin`.
 
 Note: Only the first SuperUser must be added using this method. Other
-SuperUsers may be added from the Accounts subsection in the Shippable UI Admin 
-pane.
+SuperUsers may be added from the Accounts subsection in the Admin panel within 
+the product UI.
