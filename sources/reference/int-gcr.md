@@ -16,7 +16,7 @@ An GCR integration lets you configure the following scenarios:
 
 1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img src="../../images/reference/integrations/account-settings.png" alt="Add ECR credentials">
+<img src="../../images/reference/integrations/account-settings.png" alt="Add GCR credentials">
 
 2. Select **hub** as the Integration family.
 3. Choose **GCR** from the list of integration types.
