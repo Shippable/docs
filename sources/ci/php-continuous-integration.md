@@ -39,13 +39,13 @@ For PHP projects, the `language` tag should always be set to `php`. You can set 
 language: php
 
 php:
-  - 7.0
+  - "7.0"
 ```
 
 Our official build images, which are used to run your builds by default, come installed with multiple versions of PHP. Currently, the following versions are pre-installed:
 
 -  5.6
--  7.0
+-  "7.0"
 -  7.1
 
 To find out which versions are supported out of the box for your build image, read our [Machine images overview](/reference/machine-images-overview/).
@@ -55,7 +55,7 @@ If you want to test against several versions of PHP, you can specify multiple ru
 ```
 php:
   - 5.6
-  - 7.0
+  - "7.0"
 ```
 
 **Important note:** The runtime tag only works with official CI images provided by Shippable. If you are using a custom image for your build, you will need to switch the runtime in the `ci` section of your yml.
