@@ -26,7 +26,7 @@ This page explains how you can add a Docker Hub integration to your account so t
 -  Choose the Subscription which contains the repository for which you want to push the image
 -  Click **Save**
 
-<img src="../../images/reference/integrations/docker-hub-integration.png" alt="Add Docker Hub credentials">
+<img src="/images/reference/integrations/docker-hub-integration.png" alt="Add Docker Hub credentials">
 
 ##Editing your Docker Hub integration
 

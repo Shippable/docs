@@ -34,21 +34,22 @@ We have written a detailed blog post on how to run scheduled CI builds with the 
 
 You can enable or disable triggering of builds for your project based on specific webhook events on your source control system.
 
+You can enable or disable triggering of builds for your project based on specific webhook events on your source control system.
+
 To do this:
 
-- Go to your Project in the UI and click on **Settings**
-- Click on **Runs config** in the left sidebar menu. You will see a section **Configuring webhook events for triggering builds**.
+- Go to your Project in the UI and click on the **wrench icon** which will render all your project settings.
 
-<img src="/images/ci/configure-job-triggers.png" alt="Configure webhook events to trigger builds">
+<img src="/images/ci/project-settings.png" alt="Configure webhook events to trigger builds">
 
 - You can configure the following:
     - **Pull Requests**: Default value is **Enabled**. Every pull request triggers a build on Shippable when opened. Click
 `Disable` to stop the triggering of builds for pull requests.
     - **Commits**: Default value is **Enabled**. Every commit to the repository triggers a build on Shippable. Click `Disable` to
 stop the triggering of builds for commits.
-    - **Tags**: Default value is **Disabled**. To trigger builds for git tag push events, click `Enable`.
+    - **Tags**: Default value is **Disabled**. To trigger builds for git tag push events, click on the control.
     - **Releases**: Default value is **Disabled**. To trigger builds for GitHub release
-events, click `Enable`.This feature is supported only for GitHub.
+events, click on the control.This feature is supported only for GitHub.
 
 ## Pausing your project
 
@@ -66,7 +67,7 @@ jobs have completed.
 You can further customize this by selecting the specific branches that you don't
 want running in parallel.
 
-<img src="/images/ci/run-parallel-jobs.png" alt="Run Parallel Jobs">
+<img src="/images/ci/project-settings.png" alt="Run Parallel Jobs">
 
 In this example, if jobs are triggered simultaneously for branches `master` and
 `prtest`, only one job will be allowed to run at a time, even if the subscription
