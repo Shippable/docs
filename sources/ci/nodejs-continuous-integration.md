@@ -25,11 +25,13 @@ The following `shippable.yml` should get you started with a simple Node.js proje
 language: node_js
 
 node_js:
-  - 4.2.3
+  - 5.12.0
 
 ```
 
-The snippet above will run the default commands `npm install` and `npm test` with Node.js 4.2.3. To customize this configuration, please read the sections below.
+The snippet above will run the default commands `npm install` and `npm test` with Node.js 5.12.0. To customize this configuration, please read the sections below.
+
+**Note:** If you have a `yarn.lock` file present in your repository we will run `yarn install` and `npm test` as the default commands.
 
 <a name="language"></a>
 ##Setting language and runtime
@@ -40,7 +42,7 @@ For Node.js projects, the `language` tag should always be set to `node_js`. You 
 language: node_js
 
 node_js:
-  - 4.2.3
+  - 5.12.0
 ```
 
 Our official build images, which are used to run your builds by default, come installed with multiple versions of Node. Currently, the following versions are pre-installed:
@@ -115,7 +117,7 @@ build:
 
 ```
 
-### Default behavior
+### Default behavior when no yarn.lock is present in the repository
 
 If the `ci` section is blank, then we will run the default command `npm install`, so it has the same effect the same as the yml snippet below:
 
@@ -124,6 +126,18 @@ build:
   ci:
     - npm install
 ```
+
+### Default behavior yarn.lock is present in the repository
+
+If the `ci` section is blank, then we will run the default command `yarn install`, so it has the same effect the same as the yml snippet below:
+
+```
+build:
+  ci:
+    - yarn install
+```
+
+**Note:** We will default to `npm install` instead of `yarn install` if yarn is not installed on your build image.
 
 <a name="test-coverage-reports"></a>
 ## Test and code coverage
