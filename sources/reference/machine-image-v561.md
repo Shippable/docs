@@ -186,7 +186,6 @@ These versions are pre-installed on both the OS version images
 
 * openjdk7
 * openjdk8
-* oraclejdk7
 * oraclejdk8
 
 **Additional packages**
