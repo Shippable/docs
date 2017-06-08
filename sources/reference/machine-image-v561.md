@@ -133,6 +133,7 @@ These versions are pre-installed on both the OS version images
 * nvm
 * Java 1.8
 * Ruby 2.3.3
+* Yarn 0.24.5-1
 
 ---
 
