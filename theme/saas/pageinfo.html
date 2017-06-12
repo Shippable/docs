@@ -24,6 +24,27 @@
       Get help
     </a>
   </li>
+  <li>
+    <a href="#" onclick="clickHandler()">
+      View previous version
+    </a>
+<script>
+function clickHandler()
+{
+  var path = "{{ current_page.input_path }}";
+  if (path == "index.md") {
+    path = "";
+  }
+
+  var url = "http://rcdocs1.shippable.com/" + path;
+  if (url.indexOf(".md") > 0) {
+    url = url.substring(0, url.length - 3);
+  }
+
+  window.location.href = url;
+}
+</script>
+  </li>
 {% if toc|first and toc|first|attr('children') %}
   <li>
     <span class="shipNav-item-title">ON THIS PAGE</span>
