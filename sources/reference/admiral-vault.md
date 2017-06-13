@@ -38,9 +38,38 @@ Now that initialization is complete, you can view the logs of the installation, 
 
 ## Unsealing Vault
 
-If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/docs/concepts/seal.html) state, it will be required to
-`unseal` it manually (for now). The following steps unseal the vault server.
+If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/docs/concepts/seal.html) state, it needs to be
+`unsealed` manually (for now). The following steps unseal the vault server.
 
+### Vault running as a Docker container
+- `ssh` into the machine that is running vault container.
+
+- Print vault keys on the console using `echo /etc/shippable/admiral.env`
+
+- Run the following commands. Since three keys are required to
+  unseal vault, the command to unseal has to be run three times with different
+  keys.
+
+```bash
+$ docker exec -it secrets /bin/sh #this should open a shell inside vault
+container
+
+$ export VAULT_ADDR='http://127.0.0.1:8200'
+
+$ vault status # this should show `Sealed true`
+
+$ vault unseal # this will prompt for an unseal key. copy and enter UNSEAL_KEY1 from /etc/shippable/admiral.env
+
+$ vault unseal # copy and enter UNSEAL_KEY2 from /etc/shippable/admiral.env
+
+$ vault unseal # copy and enter UNSEAL_KEY3 from /etc/shippable/admiral.env
+
+$ vault status # this should now show `Sealed false`
+
+$ exit # return to host
+```
+
+### Vault running on the host machine
 - `ssh` into the machine that is running vault server.
 
 - Run the following commands. Since three keys are required to
