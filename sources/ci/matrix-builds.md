@@ -25,9 +25,8 @@ To configure matrix builds, you just need to specify multiple language runtimes,
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx
-  - jruby
-
+  - 2.0.0
+ 
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
   - gemfiles/Gemfile.rails-3.0.x
@@ -76,9 +75,8 @@ You can also include only specific combinations in a build matrix by using the `
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx
-  - jruby
-
+  - 2.0.0
+  
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
   - gemfiles/Gemfile.rails-3.0.x
