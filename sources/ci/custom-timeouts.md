@@ -16,8 +16,6 @@ By default, your builds will time out if:
 -    the build runs for more than 60 minutes for a project in a free subscription
 -    the build runs for more than 120 minutes for a project on a paid subscription
 
-Timed out builds are shown with a purple colored status on your build dashboard:<img src="../../images/ci/build-timeout.png" alt="Build timeout status indicator">
-
 ##Customizing Timeouts
 You can customize the build timeout setting for any enabled project. This setting can be configured to be between 1 - 60 minutes for free subscriptions and 1 - 120 minutes for paid subscriptions.
 
