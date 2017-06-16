@@ -11,12 +11,12 @@ account by providing the credentials and URL to access your Private registry.
 
 ##Adding your Private registry integration
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img src="../../images/reference/integrations/account-settings.png" alt="Add Private registry credentials">
+<img src="../../images/reference/integrations/account-settings.png" alt="Add ECR credentials">
 
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **Private registry** in the list and click on **Create Integration**
+-  Select **hub** as the Integration family.
+-  Choose **Private registry** from the list of integration types.
 -  You need to generate an API token for your Private registry account to use with shippable.
 -  Name your integration.
 -  Enter the URL of your private registry and your credentials.
@@ -37,9 +37,9 @@ To pull an image, you'll need to do the following:
 To ensure your Subscription has access to the Private Docker Registry integration, do the following:
 
 1. Log in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `Add Integration` button and completing the required fields.
+2. Select your Subscription from the left sidebar menu.
+3. Click the 'gears' icon and then on 'Integrations'.
+4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `+` button and completing the required fields.
 
 ###Configure Private Docker Registry integration in the `shippable.yml`
 To enable Private Docker Registry integration for your project, add the following to the `shippable.yml` file for that project.
@@ -81,9 +81,9 @@ If you want to build your Docker image as part of your workflow for each CI run 
 To ensure your Subscription has access to the Private Docker Registry integration, do the following:
 
 1. Log in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `Add Integration` button and completing the required fields.
+2. Select your Subscription from the left sidebar menu.
+3. Click the 'gears' icon and then on 'Integrations'.
+4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `+` button and completing the required fields.
 
 ###Configure Private Docker Registry integration in the `shippable.yml`
 
@@ -132,9 +132,9 @@ To push an image to Private Docker Registry, do the following:
 To ensure your Subscription has access to the Private Docker Registry integration, do the following:
 
 1. Log in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `Add Integration` button and completing the required fields.
+2. Select your Subscription from the left sidebar menu.
+3. Click the 'gears' icon and then on 'Integrations'.
+4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `+` button and completing the required fields.
 
 ###Configure Private Docker Registry integration in the `shippable.yml`
 
@@ -181,20 +181,14 @@ integrations:
 
 ##Editing your Private registry integration
 
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Private registry integration. You can then change integration name, URL and credentials.
-
-However, you cannot edit the list of Subscriptions that are allowed to use the integration from this page. To add your integration to additional Subscriptions, read our [Adding your integration to additional Subscriptions section](integrations-overview/#add-subscriptions)
+Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name, URL and credentials.
 
 ##Deleting your Private registry integration
 
-If you no longer need the integration, you can delete it by following the steps below. Please note that if any projects are using this integration in their `yml` files, builds will fail after deleting the integration:
+If you no longer need the integration, you can delete it by following the steps below.
 
-- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-
-<img src="../../images/reference/integrations/account-settings.png" alt="Account settings">
-
-- Click on **Integrations** in the left sidebar menu.
-- Locate the integration you want to delete and click on the **Delete** button.
+- Click on **Integrations** in the left sidebar menu, and click on your integration.
+- Scroll to the bottom of the page and click on the **Delete** button.
 - If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
 
 <img src="../../images/reference/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
@@ -204,10 +198,11 @@ If you no longer need the integration, you can delete it by following the steps 
 <img src="../../images/reference/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
 
 - Go to each Subscription listed in the dependencies and delete it from each.
-    - From the Subsciption dropdown menu at the top left of your Dashboard, click on the dependent Subscription.
+    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
 
     <img src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
-    - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
+    - Click on the **gears** icon and then on **Integrations**.
+    - Click on the integration and the **Delete** button.
     - Delete the integration.
-- Once you have delete the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.

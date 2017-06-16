@@ -13,13 +13,12 @@ If you did not sign in to Shippable with GitLab credentials but want to connect 
 
 To add an integration for Gitlab, you will first need to sign in with GitHub or Bitbucket credentials.
 
-* Go to your **Account Settings** by clicking on the gear menu in the top navbar.
+- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
 <img src="../../images/reference/integrations/account-settings.png" alt="Add Gitlab credentials">
 
-* Click on **Integrations** in the sidebar menu.
-* Click on **Add Integration**.
-* Locate **Gitlab** in the list and click on **Create Integration**
+* Select **deploy** as the Integration family.
+* Choose **Gitlab** from the list of integration types.
 * Enter the following:
 	* Add a friendly name for your integration
 	* Enter the URL for your GitLab instance. The URL should be in the format `https://(GitLab URL)/api/v3`. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v3`
@@ -29,8 +28,6 @@ To add an integration for Gitlab, you will first need to sign in with GitHub or 
 ##Editing your Gitlab integration
 
 You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Gitlab integration. You can then change integration name ,url and gitlab api token.
-
-However, you cannot edit the list of Subscriptions that are allowed to use the integration from this page. To add your integration to additional Subscriptions, read our [Adding your integration to additional Subscriptions section](integrations-overview/#add-subscriptions)
 
 ##Deleting your Gitlab integration
 

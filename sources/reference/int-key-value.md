@@ -9,34 +9,28 @@ A key-value pair integration is a custom integration where you can give any key-
 
 ##Adding your Key-Value Pair integration
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
+- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img src="../../images/reference/integrations/account-settings.png" alt="Add key-values">
+<img src="../../images/reference/integrations/account-settings.png" alt="Add Key-Value pair credentials">
 
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **Key-Value pair** in the list and click on **Create Integration**
--  Name your integration and enter your key-value pairs
--  Choose the Subscription which contains the repository for which you want to use this integration
--  Click **Save**
+- Select **generic** as the Integration family.
+- Choose **Key-Value pair** from the list of integration types.
+- Name your integration and enter your key-value pairs
+- Choose the Subscription which contains the repository for which you want to use this integration
+- Click **Save**
 
 <img src="../../images/reference/integrations/key-value-integration.png" alt="Add Key-Value pair credentials">
 
 ##Editing your Key-Value pair integration
 
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Key-Value pair integration. You can then change integration name,  update keys or values and add or delete key-value pairs.
-
-However, you cannot edit the list of Subscriptions that are allowed to use the integration from this page. To add your integration to additional Subscriptions, read our Adding your integration to additional Subscriptions section
+Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name,  update keys or values and add or delete key-value pairs.
 
 ##Deleting your Key-Value pair integration
 
-If you no longer need the integration, you can delete it by following the steps below. Please note that if any projects are using this integration in their `yml` files, builds will fail after deleting the integration:
+If you no longer need the integration, you can delete it by following the steps below.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-
-<img src="../../images/reference/integrations/account-settings.png" alt="Account settings">
-
--  Click on **Integrations** in the left sidebar menu.
-- Locate the integration you want to delete and click on the **Delete** button.
+- Click on **Integrations** in the left sidebar menu, and click on your integration.
+- Scroll to the bottom of the page and click on the **Delete** button.
 - If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
 
 <img src="../../images/reference/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
@@ -46,13 +40,14 @@ If you no longer need the integration, you can delete it by following the steps 
 <img src="../../images/reference/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
 
 - Go to each Subscription listed in the dependencies and delete it from each.
-    - From the Subsciption dropdown menu at the top left of your Dashboard, click on the dependent Subscription.
+    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
 
     <img src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
-    - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
+    - Click on the **gears** icon and then on **Integrations**.
+    - Click on the integration and the **Delete** button.
     - Delete the integration.
-- Once you have delete the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
 
 ##Using your integration in Shippable CI
 

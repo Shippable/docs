@@ -25,7 +25,7 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 #### Adding GCR Integration to your Shippable Account
 -  Please follow the steps mentioned [here](/reference/int-gcr/).
 
-<img src="../../images/ci/gcr-hub-integration.png" alt="Add  GCR credentials">
+<img src="/images/reference/integrations/gcr-integration.png" alt="Add  GCR credentials">
 
 ##Basic config
 
