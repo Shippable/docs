@@ -43,13 +43,11 @@ To do this:
 <img src="/images/ci/project-settings.png" alt="Configure webhook events to trigger builds">
 
 - You can configure the following:
-    - **Pull Requests**: Default value is **Enabled**. Every pull request triggers a build on Shippable when opened. Click
-`Disable` to stop the triggering of builds for pull requests.
-    - **Commits**: Default value is **Enabled**. Every commit to the repository triggers a build on Shippable. Click `Disable` to
-stop the triggering of builds for commits.
-    - **Tags**: Default value is **Disabled**. To trigger builds for git tag push events, click on the control.
+    - **Pull Requests**: Default value is **Enabled**. Every pull request triggers a build on Shippable when opened. Toggle the control to stop the triggering of builds for pull requests.
+    - **Commits**: Default value is **Enabled**. Every commit to the repository triggers a build on Shippable. Toggle the control to stop the triggering of builds for commits.
+    - **Tags**: Default value is **Disabled**. To trigger builds for git tag push events, toggle the control.
     - **Releases**: Default value is **Disabled**. To trigger builds for GitHub release
-events, click on the control.This feature is supported only for GitHub.
+events, toggle the control.This feature is supported only for GitHub.
 
 ## Pausing your project
 
