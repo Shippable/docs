@@ -33,7 +33,7 @@ Once an integration is enabled for a Subscription, you can use it in any project
 If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
 
 - From the Subsciption dropdown menu at the top left of your Dashboard, click on the Subscription you need.
-<img src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
 - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
 - Click on the **Add integration** button

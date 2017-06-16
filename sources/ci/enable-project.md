@@ -11,7 +11,7 @@ To enable a project, first navigate to the subscription that contains the projec
 - [Sign in to Shippable](https://app.shippable.com)
 - Click on the subscription in the left sidebar and then on the `+` icon near the top right of your screen.
 
-<img src="/images/reference/integrations/list-subscriptions.png" alt="List all Subscriptions">
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List all Subscriptions">
 
 - Click on the Slider for the project that you want to enable.
 

@@ -11,7 +11,7 @@ Shippable will use a Azure DC/OS integration to communicate with your cluster on
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 
-<img src="../../images/reference/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
+<img width="75%" height="75%" src="../../images/reference/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
 
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
 -  Locate **Azure DC/OS** in the list and click on **Create Integration**
