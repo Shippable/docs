@@ -15,12 +15,14 @@ Follow the steps below to create an account integration with Joyent Triton Publi
 
 ## Adding Joyent Triton integration
 
-1. Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** tab. Click on **Add Integration**
+- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img src="../../images/reference/integrations/account-settings.png" alt="Joyent Triton credentials">
+<img src="../../images/reference/integrations/account-settings.png" alt="Add Joyent Triton Cloud credentials">
 
-2. **Integration type:** Locate and select **Joyent Triton Public Cloud**
-3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **jatin-tripub**
+- Select **deploy** as the Integration family.
+- Choose **Joyent Triton Cloud** from the list of integration types.
+2. **Integration type:** Locate and select **Joyent Triton Public Cloud**.
+3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **jatin-tripub**.
 4. Enter the username and validity period.
 5. Click **Save**. On clicking, it will generate a public key, which will be added in Joyent Triton Account Settings.
 6. After the key is added, click on **Done**.
@@ -31,20 +33,14 @@ You can now use this integration to set up your Environment and Deployment Pipel
 
 ##Editing your Joyent Triton integration
 
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Joyent TRITON integration. You can then change integration name, username and validity period.
-
-However, you cannot edit the list of Subscriptions that are allowed to use the integration from this page. To add your integration to additional Subscriptions, read our [Adding your integration to additional Subscriptions section](integrations-overview/#add-subscriptions)
+Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name, username and validity period.
 
 ##Deleting your Joyent Triton integration
 
 If you no longer need the integration, you can delete it by following the steps below.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-
-<img src="../../images/reference/integrations/account-settings.png" alt="Account settings">
-
--  Click on **Integrations** in the left sidebar menu
-- Locate the integration you want to delete and click on the **Delete** button.
+- Click on **Integrations** in the left sidebar menu, and click on your integration.
+- Scroll to the bottom of the page and click on the **Delete** button.
 - If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
 
 <img src="../../images/reference/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
@@ -54,10 +50,11 @@ If you no longer need the integration, you can delete it by following the steps 
 <img src="../../images/reference/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
 
 - Go to each Subscription listed in the dependencies and delete it from each.
-    - From the Subsciption dropdown menu at the top left of your Dashboard, click on the dependent Subscription.
+    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
 
     <img src="../../images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
-    - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
+    - Click on the **gears** icon and then on **Integrations**.
+    - Click on the integration and the **Delete** button.
     - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.

@@ -20,7 +20,7 @@ To enable either of these:
 
 - Click on **Runs config** in the left sidebar menu. You will see a **Run Settings** section.
 
-<img src="/images/ci/build-latest-pr-commit.png" alt="Cancel all old PR or Commit builds">
+<img src="/images/ci/project-settings.png" alt="Cancel all old PR or Commit builds">
 
 - You can set the following:
 
