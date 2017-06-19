@@ -73,9 +73,26 @@ Shippable requires 4 loadbalancers with listeners on these ports:
 - **Message queue, ports 443, 5671 and 15671**: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
 ## The Admiral CLI
-The CLI has three commands `install`, `info`, and `help`. The `help` command, run as `./admiral.sh help`, will print a short description of each of the available commands.
+The CLI supports the following commands.
 
-### Install
+```bash
+$ ./admiral.sh --help
+Usage:
+    ./admiral.sh <command> [flags]
+
+  Examples:
+    ./admiral.sh install --help
+
+  Commmands:
+    install         Run Shippable installation
+    upgrade         Run silent upgrade without any prompts
+    restart         Restart all services
+    help            Print this message
+    clean           Remove shippable containers and configurations
+    info            Print information about current installation
+```
+
+### install
 This command will install dependencies, pull any updated images, install the database, and start the Admiral UI. From the cloned Admiral repository, run `./admiral.sh install`.
 
 Install will first generate SSH keys for internal use (if they don't already exist), determine which version was selected from the checked-out tag, generate a login token for use with the UI, and prompt for any information it needs to set up. These are the things it will prompt for:
@@ -90,7 +107,22 @@ Confirm that the required values have been entered correctly. If you have decide
 
 Admiral will then install dependencies, pull Docker images, and install the database. This may take several minutes. When it is complete, the location of the Admiral UI and the login token are printed. Navigate to the UI location in a web browser and enter the given access key to access the installer UI. The rest of the services will be started from there.
 
-### Info
+### upgrade
+This command will upgrade the Shippable installation. To list the available
+versions, run `git tag` command inside `admiral` directory. To install the
+Shippable version corresponding to any tag, run `git checkout <tag>` and then
+run `./admiral.sh upgrade`.
+All Shippable services will be upgraded to the new tag.
+
+### restart
+This is a helper command to recover from unexpected machine shutdown or
+reboot. If one (or more) Shippable services go down for any reason,
+this command can be used to restart those services.
+`./admiral.sh restart` will go through all the components of the system and
+(re)start them. This command is idempotent, so running it multiple times has no
+side effects on the system.
+
+### info
 The `info` command displays some basic information about the current installation. Running `./admiral.sh info` from the cloned Admiral repository will print the current version installed, the addresses of the Admiral UI and database, and the login token for Admiral. The version shown may not be the version running if Admiral has been updated but the services have not yet been upgraded.
 
 ## The Admiral UI
