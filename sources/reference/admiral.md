@@ -73,7 +73,7 @@ Shippable requires 4 loadbalancers with listeners on these ports:
 - **Message queue, ports 443, 5671 and 15671**: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
 ## The Admiral CLI
-The CLI support following commands.
+The CLI supports following commands.
 
 ```bash
 $ ./admiral.sh --help
@@ -109,15 +109,14 @@ Admiral will then install dependencies, pull Docker images, and install the data
 
 ### upgrade
 This command will upgrade the Shippable installation. To list the available
-versions, run `git tag` command inside `admiral` directory. To install
+versions, run `git tag` command inside `admiral` directory. To install the
 Shippable version corresponding to any tag, run `git checkout <tag>` and then
-run `./admiral.sh upgrade` command.
-All the Shippable services will be upgraded to the new tag once the command is
-completed.
+run `./admiral.sh upgrade`.
+All Shippable services will be upgraded to the new tag.
 
 ### restart
 This is a helper command to recover from unexpected machine shutdown or
-reboots. Even if one(or more) Shippable services go down because of any reason,
+reboot. If one (or more) Shippable services go down because of any reason,
 this command can be used to restart those services.
 `./admiral.sh restart` will go through all the components of the system and
 (re)start them. This command is idempotent, so running it multiple times has no
