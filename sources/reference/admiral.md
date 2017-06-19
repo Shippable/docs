@@ -73,7 +73,7 @@ Shippable requires 4 loadbalancers with listeners on these ports:
 - **Message queue, ports 443, 5671 and 15671**: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
 ## The Admiral CLI
-The CLI supports following commands.
+The CLI supports the following commands.
 
 ```bash
 $ ./admiral.sh --help
@@ -116,7 +116,7 @@ All Shippable services will be upgraded to the new tag.
 
 ### restart
 This is a helper command to recover from unexpected machine shutdown or
-reboot. If one (or more) Shippable services go down because of any reason,
+reboot. If one (or more) Shippable services go down for any reason,
 this command can be used to restart those services.
 `./admiral.sh restart` will go through all the components of the system and
 (re)start them. This command is idempotent, so running it multiple times has no
