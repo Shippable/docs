@@ -14,7 +14,7 @@ services (like your source control system) using the Admin panel.
 
 ## Purchase and install process 
 Purchase and install Shippable Server SE by visiting [its listing on the AWS
-Marketplace](add link). When purchasing Shippable Server SE from the AWS
+Marketplace](https://aws.amazon.com/marketplace/pp/B072K2F5KF). When purchasing Shippable Server SE from the AWS
 Marketplace, you'll make the purchase via your AWS account using the payment
 method associated with your account. 
 
