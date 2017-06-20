@@ -53,10 +53,28 @@ Then you can clone the Admiral repository.
 $ git clone https://github.com/Shippable/admiral.git
 ```
 
-Navigate to that repository and select the version you would like to install by checking out the appropriate tag:
+Navigate to that repository and select the version you would like to install by checking out the appropriate tag.
+```
+ubuntu@ip-172-31-28-128:~/admiral$ git tag
+v5.4.1
+v5.4.2
+v5.4.3
+v5.4.4
+v5.5.1
+v5.5.2
+v5.5.3
+v5.5.4
+v5.5.5
+v5.6.1
+v5.6.2
+v5.6.3
+```
+
+To install v5.6.3, for example -
+
 ```
 $ cd admiral
-$ git checkout <selected tag>
+$ git checkout v5.6.3
 ```
 
 And start the installer CLI:
