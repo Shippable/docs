@@ -44,7 +44,7 @@ If the server reboots or vault goes in a [sealed](https://www.vaultproject.io/do
 ### Vault running as a Docker container
 - `ssh` into the machine that is running vault container.
 
-- Print vault keys on the console using `echo /etc/shippable/admiral.env`
+- Print vault keys on the console using `cat /etc/shippable/admiral.env`
 
 - Run the following commands. Since three keys are required to
   unseal vault, the command to unseal has to be run three times with different
