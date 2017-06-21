@@ -3720,6 +3720,8 @@ SwaggerClient.prototype.buildFromSpec = function (response) {
       else {
         this.scheme = location.scheme || 'http';
       }
+      if (this.scheme === 'http')
+        this.scheme = 'https';
     } else if (typeof window !== 'undefined' && typeof(window.location) !== 'undefined' && window.location.protocol.indexOf('chrome-extension') === 0) {
 		// if it is chrome swagger ui extension scheme then let swagger doc url scheme decide the protocol
 		this.scheme = location.scheme;
