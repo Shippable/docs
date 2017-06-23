@@ -141,3 +141,8 @@ Shippable [supports](/ci/services-overview/) lots of different services, tools a
 
 1. Use Shippable's default images based on the language you use & install 'mariadb' as a dependency in the `build: ci` step.
 2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci) and use it for CI. You can also [build your own Docker image](/ci/custom-docker-image/#building-an-image-to-use-for-ci) with all the dependencies including 'mariadb' and use it for CI.
+
+---
+## Why are some of the standard environment variables like `SHIPPABLE_POSTGRES_VERSION` not available in my CI environment?
+
+1. [Machine Images](/reference/machine-images-overview/) from versions v5.4.1 to v5.6.1 do not have some of the [standard environment variables](/ci/env-vars/#stdEnv) related to [shippable services](/ci/services-overview/) because of a bug. This is fixed in machine image version v5.7.1 onwards. Please [upgrade](/reference/machine-images-overview/#changing-the-subscription-machine-image) your machine image to v5.7.1 to use the shippable services related environment variables.
