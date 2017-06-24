@@ -20,7 +20,7 @@ We are working on an easy, single click UI action for rollback since we believe 
 
 In this scenario, you have a setup where the deploy job you want to rollback is preceded by a release job in your pipeline. The easiest way to roll back to a previous deployment here is:
 
-* Identify the versionName of the release you want to roll back to. To do this, go to the Pipelines page and click on the deploy job. Find the correct previous deploy version in the versions listed above the console logs.  Then click on "trace" in the sidebar to see which release was in that deploy.  Write down the `versionName` for the release.
+* Identify the versionName of the release you want to roll back to. To do this, go to the Pipelines page and click on the deploy job. Find the correct previous deploy version in the versions listed above the console logs.  Then click on "trace" to see which release was in that deploy.  Write down the `versionName` for the release.
 
  <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
