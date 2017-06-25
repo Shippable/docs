@@ -15,16 +15,9 @@ Treat your API token like an admin password. If your token does get compromised,
 
 To generate a new API token:
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **API tokens** in the left sidebar menu.
-- Click the **Add Token** button.
-
-<img src="../../images/getting-started/add-shippable-api-token.png" alt="listing subscriptions">
-
-- Enter a friendly name for the token and click on **Add** to create a new token.
+- Click on your Profile in the left sidebar menu and scroll to the **API AUTH TOKENS** section.
+- Click on '+'.
+- Enter a friendly name for the token and click on **Create** to create a new token.
 
 - IMPORTANT: Remember to copy the token. For security reasons, the token will never
 be displayed again.
@@ -33,15 +26,9 @@ be displayed again.
 
 ##Deleting a token
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **API tokens** in the left sidebar menu. This will show you a list of your tokens.
-
-<img src="../../images/getting-started/list-shippable-api-tokens.png" alt="List API tokens on Shippable">
-
-- To delete a token, click on the **Delete** button next to the token you want to delete.
+- Click on your Profile in the left sidebar menu and scroll to the **API AUTH TOKENS** section.. This will show you a list of your tokens.
+- Click on the token you want to delete.
+- Click on the **Delete** button and choose **Yes**.
 
 <a name="free-api-token"></a>
 

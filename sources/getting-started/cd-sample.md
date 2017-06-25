@@ -42,19 +42,18 @@ The first step is to enable continuous integration for your forked repository.
 
 - On the [Shippable landing page](https://app.shippable.com) , select your subscription from the `Subscriptions` dropdown.
 This should be the subscription where you forked the repository.
-
 <img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="Add Account Integration">
 
-- On the Subscription page, click on the **Enable Project** button. If you have not enabled any projects on Shippable,
+- On the Subscription page, click on the **+** button. If you have not enabled any projects on Shippable,
  you will be directly be taken to this page which shows a list of your repositories.
 
--  Find the `deploy-ecs-basic` project and click on the **Enable** button.
+-  Find the `deploy-ecs-basic` project and click on the toggle button.
 
 - If `deploy-ecs-basic` repo is not shown  in the list, click on the **Sync** button next to the Search box. This syncs your Shippable subscription with your source control account. Find the `deploy-ecs-basic` project and enable it.
 
 ###5. Run a build
 
-- After enabling the project, you will be redirected to the Project page for `deploy-ecs-basic`.
+- After enabling the project, navigate to the subscription page and click on the enabled project.
 
 - Click the **Build** button to trigger your build.
 

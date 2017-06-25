@@ -14,11 +14,10 @@ If you do not specify a build image for your CI, we will use a default image tag
 
 You can view which images are used for your Subscription by following the steps below:
 
-- From your Dashboard, click on the Subscriptions dropdown at the top left of your screen and select the Subscription you want to view.
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
 
-<img src="/images/ci/list-subscriptions.png" alt="List of subscriptions">
-
-- Click on **Settings** on the Subscription page.
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
 
 - You will see your current machine image in the **Machine images** section.
 
@@ -35,7 +34,9 @@ In most cases, the default images are sufficient to run your builds. You should 
 
 To change to a newer image tag, follow the steps below:
 
-- Click on **Settings** on the Subscription page.
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Select the image tag you want from the dropdown for **Machine images**:
 
 <img src="/images/ci/view-machine-image.png" alt="change machine image">
