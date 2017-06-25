@@ -381,7 +381,7 @@ The usual workflow for a pull request is:
 * Developer opens a pull request with the changes. This will trigger a pull request build if the branch that is being merged to is enabled on Shippable. We will execute your CI workflow on temporarily merged code and let you know if everything works as expected. A couple of things to know about pull request builds:
   - The YML is always picked from the destination(base) branch.
   - If the pull request comes from a private fork of the project and the subscription key is not added as a deploy key for the fork, the pull request build will fail at the `git_sync` CI step. This is due to the way Bitbucket handles permissions on private forks. To fix this:
-     - Copy the subscription deploy key from Shippable Subscription > Settings > Deployment Keys
+     - Copy the subscription deploy key from Shippable Subscription page > gear icon > Setting > Deployment Key section.
      - Next, add it as a deploy key for the private fork: Bitbucket Project Settings > Deploy Key > Add.
 * The pull request is merged. This will trigger a build if the destination (base) branch is enabled on Shippable.
 

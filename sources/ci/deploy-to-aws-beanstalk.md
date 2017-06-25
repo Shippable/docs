@@ -47,9 +47,9 @@ To enable Shippable to perform these steps, you will need to configure the follo
 ###1. Add AWS EB Integration to your Subscription
 
 1. Ensure you have logged in to [Shippable](https://app.shippable.com).
-2. Select your Subscription from the dropdown burger bar menu on the top left.
-3. Click the 'Settings' tab and go to the 'Integrations' section.
-4. Click the `Add Integration` button.
+2. From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+3. Click on the **gear icon** on the Subscription page and then on **Integrations**.
+4. Click the `+` button.
 5. Provide an easy-to-remember name for the AWS EB integration for your Subscription, such as `aws-eb-integration`, in the 'Name' field.
 **IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
 6. From the 'Account Integrations' dropdown select the AWS account integration created.

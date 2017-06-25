@@ -20,28 +20,17 @@ The following guides will help you manage your build infrastructure:
 ##Adding a build node
 Follow the steps below to add a build node:
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **Nodes** in the left sidebar menu. Choose the radio button for **My Node**
-
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+- Choose the radio button for **Custom**.
 <img src="../../images/getting-started/byon-select-my-node.png" alt="bring your own node">
-
-* To add a build machine, click on the **Add node** button. You will be redirected to the Add Node page.
-* Select the OS of the nodes you want to add.
-
-<img src="../../images/getting-started/select-os.png" alt="Selecting OS for your build node">
-
-* Enter a name for the node and its IP address.
-
+- To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
+- Select the OS of the nodes you want to add.
+- Enter a name for the node and its IP address.
 <img src="../../images/getting-started/byon-name-ip.png" alt="Enter name and IP">
-
-* Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
-
-<img src="../../images/getting-started/select-docker-version.png" alt="Select docker version">
-
-* You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `I will run the scripts myself`
+- Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
+- You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `Manual (script based)`
 
 * To initialize the node through Shippable,
     * Enter the SSH port for your build host. This is usually port 22, but is configurable.
@@ -77,41 +66,29 @@ will run on your machines. Your nodes can be seen by going to your Subscription 
 <a name="edit-node"></a>
 ##Editing a build node
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **Nodes** in the left sidebar menu. Choose the radio button for **My Node**. This will show you all nodes attached to your subscription.
-
-<img src="../../images/getting-started/list-byon-nodes.png" alt="bring your own node">
-
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+- Click on the node in the **NODE LISTS** section.
 - You can click on the **Edit** button for a build node to edit the node name. Nothing
 else can be edited for a node.
 
 <a name="reset-node"></a>
 ##Resetting a build node
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **Nodes** in the left sidebar menu. Choose the radio button for **My Node**. This will show you all nodes attached to your subscription.
-
-<img src="../../images/getting-started/list-byon-nodes.png" alt="bring your own node">
-
-- You can reset a node by clicking on the **Reset** button. This action will initialize/install everything from scratch.
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+- Click on the node in the **NODE LISTS** section.
+- You can reset a node by clicking on the **Re-initialize** button. This action will initialize/install everything from scratch.
 
 If you have added your own build nodes, you will need to re-download the initialization script and run it on your node.
 
 <a name="delete-node"></a>
 ##Deleting a build node
 
-- Go to your Subscription by clicking on the **Subscriptions** dropdown at the top left of your dashboard and selecting the subscription you want to attach the nodes to.
-
-<img src="../../images/getting-started/list-subscriptions.png" alt="listing subscriptions">
-
-- Click on the **Settings** tab and then click on **Nodes** in the left sidebar menu. Choose the radio button for **My Node**. This will show you all nodes attached to your subscription.
-
-<img src="../../images/getting-started/list-byon-nodes.png" alt="bring your own node">
-
-- Click on **Delete** to delete your build node. This action is final and cannot be undone.
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+- Click on the node in the **NODE LISTS** section.
+- Scroll to the bottom of the screen and click on **Delete** to delete your build node. This action is final and cannot be undone.
