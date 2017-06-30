@@ -243,6 +243,7 @@ pages:
       - notification: reference/resource-notification.md
       - params: reference/resource-params.md
       - replicas: reference/resource-replicas.md
+      - state: reference/resource-state.md
       - syncRepo: reference/resource-syncrepo.md
       - time: reference/resource-time.md
       - version: reference/resource-version.md
