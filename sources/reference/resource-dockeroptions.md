@@ -272,7 +272,7 @@ This setting maps to VolumesFrom in the <a href="https://docs.docker.com/referen
         soft: <number>
         hard: <number>
 ```
-`ulimits` specifies a list of ulimits to be set in the container. For alist of
+`ulimits` specifies a list of ulimits to be set in the container.
 
 This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --ulimit option to <a href="https://docs.docker.com/engine/reference/run/" target="_blank">docker run</a>.
 
