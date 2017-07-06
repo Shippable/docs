@@ -32,6 +32,7 @@ jobs:
         - script: <command>
       - OUT: <resource>
       - OUT: <resource>
+        replicate: <resource>
     on_success:                                 #optional
       - script: echo 'This block executes after the TASK section executes successfully'
       - NOTIFY: slackNotification
@@ -51,6 +52,7 @@ jobs:
 * `type` indicates type of job. In this case it is always `runSh`
 * `on_start` can be used to send a notification indicating the job has started running.
 * `steps` section is where the steps of your custom job should be entered. You can have any number of `IN` and `OUT` resources depending on what your job needs. You can also have one `TASK` section where you can enter one or more of your custom scripts. Keep in mind that everything under the `steps` section executes sequentially.
+    * `replicate`: Adding [replicate](jobs-unmanaged#replicating-an-input) to an `OUT` resource will copy an `IN` resource for the new version of the `OUT` resource.
 * `on_success` can be used to run scripts that only execute if the `TASK` section executes successfully. You can also use this to send a notification as shown in the example above. The `NOTIFY` tag is set to a [Slack notification resource](/reference/resource-notification/).
 * `on_failure` can be used to run scripts that only execute if the `TASK` section fails. You can also use this to send a notification as shown in the example above. The `NOTIFY` tag is set to a [Slack notification resource](/reference/resource-notification/).
 * `on_cancel` can be used to send notifications as shown in the example above. The `NOTIFY` tag is set to a [Slack notification resource](/reference/resource-notification/).
