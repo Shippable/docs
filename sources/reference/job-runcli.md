@@ -56,6 +56,7 @@ jobs:
         - script: <command>                     #optional
       - OUT: <resource>
       - OUT: <resource>
+        replicate: <resource>
     on_success:                                 #optional
       - script: echo 'This block executes after the TASK section executes successfully'
       - NOTIFY: slackNotification
@@ -88,6 +89,10 @@ notifications if the job is canceled.  This cannot run scripts.
 are always executed at the end of the job, regardless of whether the `TASK`
 section failed or succeeded.  Scripts will not run if the job is canceled,
 but notifications will be sent.
+
+  - [replicate](jobs-unmanaged#replicating-an-input): Adding `replicate` to
+an `OUT` resource will copy an `IN` resource for the new version of the `OUT`
+resource.
 
 ## Configured CLI tools
 

@@ -280,6 +280,29 @@ createOutState() {
 
 ```
 
+<a name="replicating-an-input"></a>
+###Replicating an input to OUT resources
+
+You might want to update a resource with a copy of another resource in your job.  For example, if you have two image resources and want to update the second with the same tag as the first at the end of your job.  To do this, you can use the `replicate` option.
+
+Let us assume you want to copy the tag from myImage to myNewImage. This can be accomplished with the following `shippable.jobs.yml`:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    steps:
+      - IN: myImage
+      - IN: myRepo
+      - TASK:
+        - script: ./IN/myRepo/gitRepo/doSomething.sh
+      - OUT: myNewImage
+        replicate: myImage
+```
+
+The `replicate` option will copy all of the version information from the input resource to the output resource and will work with all output resources in unmanaged jobs.  Additional information, such as a different tag or updated params, may also be added to this version in the same way as versions created without `replicate`.
+
+
 <a name="extract-resource-info"></a>
 ###Extract IN resource information
 
