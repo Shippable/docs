@@ -99,7 +99,8 @@ build:
 integrations:                               
   hub:
     - integrationName: ecr-integration    #replace with your integration name
-      type: ecr              
+      type: ecr
+      region: us-east-1                   #replace with your AWS region
 ```
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
