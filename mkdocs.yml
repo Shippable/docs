@@ -262,6 +262,7 @@ pages:
       - Overview: reference/integrations-overview.md
       - Amazon ECR: reference/int-amazon-ecr.md
       - Amazon ECS: reference/int-amazon-ecs.md
+      - Azure DC/OS: reference/int-azure-dcos.md
       - Bitbucket: reference/int-bitbucket.md
       - Docker Cloud: reference/int-docker-cloud.md
       - Docker Datacenter: reference/int-docker-datacenter.md
@@ -279,7 +280,6 @@ pages:
       - Joyent Triton: reference/int-tripub.md
       - Key-value: reference/int-key-value.md
       - Kubernetes: reference/int-kubernetes.md
-      - Azure DC/OS: reference/int-azure-dcos.md
       - Node Cluster: reference/int-node-cluster.md
       - PEM Keys: reference/int-key-pem.md
       - Private Registries: reference/int-private-registries.md
