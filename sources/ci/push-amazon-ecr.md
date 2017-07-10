@@ -28,6 +28,7 @@ build:
 integrations:
   hub:
     - integrationName: ecr-integration    #replace with your integration name
+      region: us-east-1                   #replace with your AWS region
       type: ecr
 ```
 
@@ -48,6 +49,7 @@ integrations:
   hub:
     - integrationName: ecr-integration    #replace with your integration name
       type: ecr
+      region: us-east-1                   #replace with your AWS region
       branches:
         only:
           - master
@@ -68,13 +70,15 @@ build:
 integrations:                               
   hub:
     - integrationName: master-ecr    #replace with your integration name
-      type: ecr    
+      type: ecr
+      region: us-east-1              #replace with your AWS region
       branches:
         only:
           - master
 
     - integrationName: dev-ecr    #replace with your integration name
-      type: ecr    
+      type: ecr
+      region: us-east-1           #replace with your AWS region
       branches:
         only:
           - dev
@@ -115,7 +119,7 @@ integrations:
   hub:
     - integrationName: ecr-integration    #replace with your integration name
       type: ecr
-
+      region: us-east-1                   #replace with your AWS region
 ```
 
 ### Using a custom image for CI
@@ -129,8 +133,9 @@ You can solve this in 2 ways:
 ```
 integrations:
   hub:
-    - integrationName: ecr-integration
+    - integrationName: ecr-integration  #replace with your integration name
       type: ecr
+      region: us-east-1                 #replace with your AWS region
       agent_only: true
 ```
 If `agent_only` is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to ECR in the `pre_ci` and `push` sections of the yml.
