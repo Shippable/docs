@@ -1,6 +1,6 @@
-page_main_title: MicrosftyInfrastructure
+page_main_title: Microsoft Infrastructure
 main_section: Provision
-sub_section: Provisioning Google Cloud infrastructure
+sub_section: Provisioning Microsoft Azure infrastructure
 
 # Microsoft Azure with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
