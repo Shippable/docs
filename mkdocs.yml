@@ -171,6 +171,7 @@ pages:
       - Custom deployments(runCLI): deploy/amazon-ecs-unmanaged.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
+      - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
     - GKE:

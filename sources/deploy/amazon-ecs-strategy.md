@@ -8,7 +8,7 @@ There are many ways to deploy a manifest on Shippable. This page will explain ea
 
 If you are deploying to Amazon ECS using the managed [deploy job](/reference/job-deploy/), you can specify one of the strategies below:
 
-- blue-green (default), where we wait for the new service to reach steady state before deleting the old service
+- blueGreen (default), where we wait for the new service to reach steady state before deleting the old service
 - upgrade, where existing services are updated with changes
 - replace, for use with smaller clusters when you are okay with some downtime
 
@@ -76,7 +76,7 @@ There are times when you might be working with a limited test environment where 
 
 ## Deploying manifests in parallel
 
-If you are deploying multiple manifests with the same **deploy** job, you might notice that deployments can a long time to reach steady state. This is because manifests are deployed serially by default.
+If you are deploying multiple manifests with the same **deploy** job, you might notice that deployments can take a long time to reach steady state. This is because manifests are deployed serially by default.
 
 You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
 
