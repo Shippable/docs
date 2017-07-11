@@ -195,7 +195,7 @@ These environment variables will be available in the running container.
 
 ### Scaling instances
 
-You can use the [replicas resource](../reference/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+You can use the [replicas resource](../reference/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. This maps directly to the 'replicas' setting in the pod template.  In this case we'll try to run two copies of our application.
 
 ```
   - name: deploy-kubernetes-basic-replicas
@@ -203,12 +203,73 @@ You can use the [replicas resource](../reference/resource-replicas) to scale the
     version:
       count: 2
 ```
-If you specify a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
+
+###Customizing deployment names
+
+We use a default naming convention for deployment names:
+
+| Deploy Method | Default Naming Convention |
+|--------------|---------------------------|
+| blueGreen (default) | deployJobName-manifestJobName-buildNumber |
+| upgrade | deployJobName-manifestJobName |
+| replace |deployJobName-manifestJobName |
+
+Read more on [deployment strategies](/deploy/kubernetes-strategy/) to understand them in detail.
+
+To override the default name, you can use the `deployName` tag.
+
+```
+jobs:
+  - name: deploy-kubernetes-basic-deploy
+    type: deploy
+    steps:
+      - IN: deploy-kubernetes-basic-manifest                  #required
+        deployName: myApplication
+      - IN: deploy-kubernetes-basic-cluster                   #required
+      - TASK: managed
+        deployMethod: upgrade | replace | blueGreen           #defaults to blueGreen
+```
+
+Some things to remember:
+
+- The name generated with the blueGreen strategy, will include a suffix of build number. So the deployment name will be of format deployName-buildNumber.
+
+- **upgrade** and **replace** deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
+
+Shippable also injects some labels into your deployment objects, so that you can more easily set up kube services that talk to your pods.
+
+| Label Key | Label Value |
+|--------------|---------------------------|
+| shippable.deploymentName | deployJobName-manifestJobName-buildNumber (buildNumber only if blueGreen)|
+| shippable.jobName | deployJobName |
+| shippable.manifestName | manifestJobName |
+
+The `shippable.deploymentName` label is also used as the deployment selector label.
+
+You can also add any custom labels that you wish by using the [dockerOptions resource](../reference/resource-dockeroptions)
+
+### Forcing deployments for static tags
+
+Shippable assumes that your images are versioned with unique names (we recommend tagging with `$BRANCH.$BUILD_NUMBER`). When your deploy job is triggered, it will deploy the latest version of the IN manifests if something has changed in the manifest, i.e. image tag, dockerOptions settings, or params.
+
+If you tag your images with static tags like `latest` or `$BRANCH_NAME`, Shippable cannot detect if the underlying image has changed, and hence it is not deployed. To force deployments in this scenario, you need to set a flag in your deploy job that tells Shippable to deploy the image each time the job is triggered, regardless of whether anything has changed in the manifest.
+
+You can set the `force` flag for a manifest in your deploy job as shown below:
+
+```
+jobs:
+  - name: deploy-kubernetes-basic-deploy
+    type: deploy
+    steps:
+      - IN: deploy-kubernetes-basic-manifest         #required
+        force: true
+      - IN: deploy-kubernetes-basic-cluster          #required
+```
 
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
+the image to Docker Hub. It also contains all of the pipelines configuration files for deploying to Kubernetes.
 
 **Source code:**  [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic).
 
