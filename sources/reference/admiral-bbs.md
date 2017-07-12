@@ -17,6 +17,7 @@ Steps to configure Bitbucket Server integration -
   * Follow the steps [here](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html).
 
     As an example,
+
     `
     ambarishs-MacBook-Pro:aws ambarish$ ssh-keygen
     Generating public/private rsa key pair.
@@ -69,25 +70,38 @@ Steps to configure Bitbucket Server integration -
   * Install the `Shippable CI/CD for Bitbucket Server` add-on by clicking on the `Install` button.
   * Install the `Shippable OAuth for Bitbucket Server` add-on by clicking on the `Install` button.
 
+  <img src="/images/reference/admiral/BBS-Addons.png" alt="Install add-ons">
+
 ## Enable BitBucket Server Auth and SCM in Shippable Server UI (Admiral).
 
   * Launch Admiral and click on `Configure & Install`.
   * Click on the `Bitbucket Server` checkbox.
   * Make a note of `WWW URL` and `Callback URL`.
 
+  <img src="/images/reference/admiral/BBS-SCM.png" alt="Install add-ons">
+
 ## Configure OAuth in your BitBucker Server.
 
   * Log into your Bitbucket Server dashboard and click on the gear/administration icon.
   * Click on `Application Links`.
-  * Enter the `WWW URL` (from step 3) and click Continue in the `Configure Application URL` popup.
+  * Enter the `WWW URL` (from step 3) in `Configure Application Links` popup and click on `Create new link`.
+
+  <img src="/images/reference/admiral/BBS-OAuth-1.png" alt="OAuth Step 1">
+  * Click `Continue` in the `Configure Application URL` popup.
+
+  <img src="/images/reference/admiral/BBS-OAuth-2.png" alt="OAuth Step 2">
   * Specify `Shippable` in `Application Name`.
   * Select `Generic Application` for `Application Type`.
   * Click on the `Create incoming link` checkbox.
   * Click `Continue` to proceed to the `Link Applications` popup.
+
+  <img src="/images/reference/admiral/BBS-OAuth-3.png" alt="OAuth Step 3">
   * Specify any secret/password in `Consumer Key` and make a note of it.
   * Specify `Shippable` in `Consumer Name`.
-  * Copy and paste the public key generated at the end of Step 1 in  `Public Key`.
+  * Copy and paste the public key generated at the end of Step 1 in `Public Key`.
   * Click on `Continue`.
+
+  <img src="/images/reference/admiral/BBS-OAuth-4.png" alt="OAuth Step 4">
 
 ## Configure OAuth in Admiral.
 
@@ -96,7 +110,11 @@ Steps to configure Bitbucket Server integration -
   * Enter the private key (contents of id_rsa file generated in step 1) in `Client Secret`.
   * Click on `Save` and `Restart Services`.
 
+  <img src="/images/reference/admiral/Admiral-BBS.png" alt="Admiral BBS Configuration">
+
 ## Login to Shippable Server.
   * Click on `Login` and `BITBUCKET SERVER`.
   * Grant access to the permissions requested in the OAuth dialog.
   * You should see the all your projects under Subscriptions in the left sidebar.
+
+  <img src="/images/reference/admiral/BBS-Shippable.png" alt="BitBucket Shippable OAuth">
