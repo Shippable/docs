@@ -39,7 +39,7 @@ You can zoom in or out of any part of the pipeline with your mouse scrollbar or 
 
 You can right click on any job to trigger a manual run or pause the job.
 
-<img src="/images/getting-started/spog-right-click-menu.jpg" alt="Run or pause a job">
+<img src="/images/getting-started/spog-right-click-menu.png" alt="Run or pause a job">
 
 Please note that if you choose to trigger a manual run, the job will run with the latest input values available to it.
 
