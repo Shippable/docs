@@ -129,6 +129,8 @@ pages:
       - Clojure: ci/clojure-continuous-integration.md
       - C/C++: ci/cpp-continuous-integration.md
       - Unsupported languages: ci/unsupported-languages.md
+    - Debugging:
+      - SSH Access to Build Machine: ci/ssh-access.md
   - Validate:
     - Before you start:
       - What is Validate?: validate/devops-validate.md
