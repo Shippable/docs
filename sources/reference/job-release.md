@@ -68,7 +68,7 @@ Releases are made to be deployed.  You can use your release job as an input to a
 
 By default, Shippable pipeline jobs will always use the latest version of the inputs when they are executed.  This means that when a deploy job runs, it will use the latest available release by default.  This is useful when you're deploying to a development or early testing environment, where you want every change to be deployed as quickly as possible.
 
-Release versions can also be [pinned](../reference/jobs-overview/#pinning-specific-resource-versions) in a deploy job yml section just like any other resource.  The release version becomes the `versionName` (Shippable always prepends it with a `v`), so if you want to make sure production only deploys a specific release, you can use a yml that looks like this:
+Release versions can also be [pinned](../reference/jobs-overview/#pinning-specific-resource-versions) in a deploy job yml section, or in the UI, just like any other resource.  The release version becomes the `versionName` (Shippable always prepends it with a `v`), so if you want to make sure production only deploys a specific release, you can use a yml that looks like this:
 
 ```
 - name: my-prod-deployment

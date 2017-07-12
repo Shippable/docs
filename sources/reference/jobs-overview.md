@@ -130,7 +130,9 @@ As shown above, the `switch: off` tag can be defined for IN resources or jobs in
 You can pause any jobs in your pipeline by right-clicking on the job, and clicking `Pause Jobs`. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
 
 ## Pinning specific resource versions
-By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason.
+By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason.  Input versions may be pinned either though the yml configuration or in the UI.
+
+### Pinning resource versions in shippable.jobs.yml
 
 You can pin a specific input version with the yml below:
 
@@ -156,6 +158,9 @@ You can use `versionNumber`, Shippable's internal incremental numbering system, 
 * dockerOptions
 * params
 * replicas
+
+### Pinning versions in the UI
+To pin a version of an input resource in the UI, first right-click on the job and click `Configure Job`. This will open a configuration page where you can select a version to pin for any of the inputs.  Versions may be unpinned on the same page by selecting `Latest version`.
 
 ##Viewing job console output
 
