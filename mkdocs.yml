@@ -171,6 +171,7 @@ pages:
       - Custom deployments(runCLI): deploy/amazon-ecs-unmanaged.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
+      - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
     - GKE:
@@ -296,5 +297,6 @@ pages:
       - Redis Configuration: reference/admiral-redis.md
       - Swarm Worker Configuration: reference/admiral-swarm-workers.md
       - Vault Configuration: reference/admiral-vault.md
+      - Bitbucket Server Configuration: reference/admiral-bbs.md
     - Glossary:
       - Complete list of terms: reference/glossary.md
