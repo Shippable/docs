@@ -297,5 +297,6 @@ pages:
       - Redis Configuration: reference/admiral-redis.md
       - Swarm Worker Configuration: reference/admiral-swarm-workers.md
       - Vault Configuration: reference/admiral-vault.md
+      - Bitbucket Server Configuration: reference/admiral-bbs.md
     - Glossary:
       - Complete list of terms: reference/glossary.md
