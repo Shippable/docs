@@ -49,7 +49,7 @@ Pausing a job turns off automatic triggers for the job. You can continue trigger
 
 You can trigger a manual build for your job by going to the  jobs dashboard page and clicking on the Build button.
 
-<img src="/images/getting-started/manual-build-button.jpg" alt="Manual build">
+<img src="/images/getting-started/manual-build-button.png" alt="Manual build">
 
 On-click of build button, you get few options which allow you to customize the build that you want to run manually
 
