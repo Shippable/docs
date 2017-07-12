@@ -11,7 +11,7 @@ There are three types of rollback actions as explained in the sections below.
 
 We all hope that our tests are perfect and once a release is 'blessed' to be deployed to an environment, it will all 'just work'. Unfortunately, that is not always the case. In some cases, you discover problems with the new release that were not caught during testing. In these situations, you might want to roll back your environment to a previous release while you can work on fixing the problems.
 
-We are working on an easy, single click UI action for rollback since we believe this is an important scenario. However, there are some easy ways to roll back your deployments using your jobs yml configuration.
+We are working on an easy, single click UI action for rollback since we believe this is an important scenario. However, there are some easy ways to roll back your deployments by pinning input versions.
 
 
 ##Rolling back a release
@@ -24,49 +24,22 @@ In this scenario, you have a setup where the deploy job you want to rollback is 
 
  <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-* Pin the versionName of the release you want to go back to in your yml config for deploy.
+ * Navigate to the configuration page for the deploy job. From the "trace" view, click the job name in the breadcrumb at the top of the page, and then the "configure job" wrench in the top right. Find and select the desired `versionName` for the release version. This will pin the release input so that future deployments will use this version. Alternatively, `versionName` may be [pinned in shippable.jobs.yml](../reference/jobs-overview/#pinning-specific-resource-versions).
 
-```
-jobs:
-
-  - name: deploy-to-prod
-    type: deploy
-    steps:
-      - IN: release-job-name
-        versionName: "v1.1.0"  #This needs to contain the versionName you want to pin
-```
-
-* Commit the yml to your source control repository.
 * Re-run the deploy job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on `Run`
 
-Your deployment should roll back to the desired release. However, please remember that all future runs of the deploy job will deploy the same release since it is now pinned in your yml. When you decide to deploy the latest release, you can go back to the yml and remove the  `versionName: "v1.1.0"` line and all future runs should deploy the latest release available.
+Your deployment should roll back to the desired release. However, please remember that all future runs of the deploy job will deploy the same release since it is now pinned. When you decide to deploy the latest release, you can go back to the deploy job configuration page and unpin the release input so that all future runs deploy the latest release available.
 
 ##Rolling back a manifest
 
 <img src="/images/deploy/rollback-manifest.png" alt="Shippable Continuous Integration and Delivery" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-In this scenario, you have a setup where the deploy job you want to rollback is preceded by a manifest job in your pipeline.The easiest way to roll back to a previous deployment here is:
+In this scenario, you have a setup where the deploy job you want to rollback is preceded by a manifest job in your pipeline. The easiest way to roll back to a previous deployment here is:
 
-* You will first need to identify which image tag you want to roll back to. To go this, go to your Pipelines page and click on the image resource.
+* Navigate to the configuration page for the manifest job by right-clicking the job and clicking the "configure job" wrench. Find and select the desired image tag for the image input. This will pin the image so that future manifests will use this version. Alternatively, the tag may be pinned as `versionName` [in shippable.jobs.yml](../reference/jobs-overview/#pinning-specific-resource-versions).
 
- <img src="/images/deploy/rollbackDeployImageVersions.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-* This will show you a list of versions that were created for your image resource. Look up the `versionName` column and find the tag you want to roll back to. Write this down.
-* Pin the versionName of the image you want to go back to in your yml config for the manifest job.
-
-```
-jobs:
-
-  - name: manifest-job-name
-    type: manifest
-    steps:
-      - IN: image-res-name
-        versionName: "master.3"  #This needs to contain the tag you want to pin
-```
-
-* Commit the yml to your source control repository.
 * Re-run the manifest job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on `Run`
 * If the deploy job is set to run automatically after the manifest job, it will be triggered and will deploy the desired image.
 * If the deploy job is not set to run automatically, you will need to right click on that and run it in order to trigger the deployment.
 
-Please remember that all future runs of the deploy job will deploy the same image tag since it is now pinned in your yml. When you decide to deploy the latest image version, you can go back to the yml and remove the  `versionName: "master.3"` line and all future runs should deploy the latest image available.
+Please remember that all future runs of the deploy job will deploy the same image tag since it is now pinned. When you decide to deploy the latest image version, you can go back and unpin the image input so that future runs deploy the latest image available.
