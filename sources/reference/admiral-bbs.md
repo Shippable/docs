@@ -1,8 +1,8 @@
 page_main_title: Shippable installer
 main_section: Reference
 sub_section: Admiral
-page_title: Admiral - BitBucket Server Integration
-page_description: Shippable Server (SE/EE) and BitBucket Server Integration
+page_title: Admiral - Bitbucket Server Integration
+page_description: Shippable Server (SE/EE) and Bitbucket Server Integration
 
 # Bitbucket Server integration
 
@@ -72,7 +72,7 @@ Steps to configure Bitbucket Server integration -
 
   <img src="/images/reference/admiral/BBS-Addons.png" alt="Install add-ons">
 
-## Enable BitBucket Server Auth and SCM in Shippable Server UI (Admiral).
+## Enable Bitbucket Server Auth and SCM in Shippable Server UI (Admiral).
 
   * Launch Admiral and click on `Configure & Install`.
   * Click on the `Bitbucket Server` checkbox.
@@ -80,7 +80,7 @@ Steps to configure Bitbucket Server integration -
 
   <img src="/images/reference/admiral/BBS-SCM.png" alt="Install add-ons">
 
-## Configure OAuth in your BitBucker Server.
+## Configure OAuth in your Bitbucket Server.
 
   * Log into your Bitbucket Server dashboard and click on the gear/administration icon.
   * Click on `Application Links`.
@@ -117,4 +117,4 @@ Steps to configure Bitbucket Server integration -
   * Grant access to the permissions requested in the OAuth dialog.
   * You should see the all your projects under Subscriptions in the left sidebar.
 
-  <img src="/images/reference/admiral/BBS-Shippable.png" alt="BitBucket Shippable OAuth">
+  <img src="/images/reference/admiral/BBS-Shippable.png" alt="Bitbucket Shippable OAuth">
