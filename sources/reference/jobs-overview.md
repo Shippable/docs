@@ -101,6 +101,11 @@ In this configuration, Job-3 will be triggered in one of 4 ways:
 - User commits to the [trigger resource](/reference/shippable-triggers-yml/), which is an `IN` for Job-3 , and hence triggers Job-3.
 - User right clicks on Job-3 in the SPOG UI and clicks on `Run` or selects `Run` for Job-3 in the Jobs list on the Jobs tab.
 
+In this configuration, Job-3 will **NOT** be triggered if:
+
+1. Job-1, which is an `IN` for Job-3 is inconsistent, not built or not in success state.
+- resource-1, which is an `IN` for Job-3 is inconsistent.
+
 **Please note that changing resource-1 or resource-2 manually through a yml commit will not automatically trigger Job-3.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automaticallly run your job.
 
 <a name="switchOff"></a>
