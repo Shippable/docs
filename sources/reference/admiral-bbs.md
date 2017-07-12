@@ -7,7 +7,7 @@ page_description: Shippable Server (SE/EE) and BitBucket Server Integration
 # Bitbucket Server integration
 
 Bitbucket Server integration is supported with Shippable Server SE and EE editions. To build repositories
-hosted on BitBucket Server with Shippable Server, you will need to sign into Shippable with your Bitbucket
+hosted on Bitbucket Server with Shippable Server, you will need to sign into Shippable with your Bitbucket
 Server account.
 
 Steps to configure Bitbucket Server integration -
