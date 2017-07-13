@@ -12,11 +12,11 @@ run on a single instance, ideal for evaluations/POCs or for small teams.  Once
 launched, you will configure the installation to connect your third party
 services (like your source control system) using the Admin panel.
 
-## Purchase and install process 
+## Purchase and install process
 Purchase and install Shippable Server SE by visiting [its listing on the AWS
 Marketplace](https://aws.amazon.com/marketplace/pp/B072K2F5KF). When purchasing Shippable Server SE from the AWS
 Marketplace, you'll make the purchase via your AWS account using the payment
-method associated with your account. 
+method associated with your account.
 
 Follow the prompts within the AWS Marketplace purchase process to launch your
 Shippable Server SE instance and proceed to the Admin panel.
@@ -45,7 +45,7 @@ who have ssh permissions for the server.
 
     ```
     $ ssh -L 50003:1.2.3.4:50003 -C ubuntu@1.2.3.4
-    ```  
+    ```
 
 - Navigate to `http://localhost:50003` from your browser
 - Login to the Admin panel with your login token.
@@ -56,7 +56,7 @@ who have ssh permissions for the server.
 
 ### Initialize Infrastructure
 - After successfully logging in to the Admin panel, you must create passwords
-  for the `Messaging` and `State` components in the `Initialize Infrastructure` 
+  for the `Messaging` and `State` components in the `Initialize Infrastructure`
   section. These must be 8 characters or more.
 
 - The `Installer Access Key` and `Installer Secret Key` fields are not required
@@ -67,7 +67,7 @@ who have ssh permissions for the server.
 
 ### Configure & Install
 - After initialization is complete, navigate to the next section, `Configure &
-  Install`, to set up your authentication provider(s). Shippable leverages one 
+  Install`, to set up your authentication provider(s). Shippable leverages one
   of your SCM providers to manage auth/identity.
 
 - In the `Authorization and Source Control Management (SCM) Providers` section,
@@ -89,7 +89,7 @@ who have ssh permissions for the server.
   will be `http://1.2.3.4:50001`.
 
 - Click `Install`. This should set up Shippable services and bring up the UI.
-  Once complete, navigate to `http://1.2.3.4:50001` and log into Shippable 
+  Once complete, navigate to `http://1.2.3.4:50001` and log into Shippable
   using a GitHub account.
 
 ### Add-ons
@@ -103,23 +103,54 @@ Admin panel within the product UI to:
 - View and manage builds, projects and subscriptions
 - Perform other housekeeping tasks
 
-To access it, you'll specify users to be SuperUsers in the `Add-ons` section. 
+To access it, you'll specify users to be SuperUsers in the `Add-ons` section.
 Only the accounts that have been added to the SuperUser list will be able to
 access this panel.
 
-- After successfully logging into the Shippable UI using GitHub (or the 
-  configured auth provider), navigate to the Accounts page via the gear icon in 
+- After successfully logging into the Shippable UI using GitHub (or the
+  configured auth provider), navigate to the Accounts page via the gear icon in
   the upper right and copy your account ID.
 
-- Navigate back to the Shippable Server Admin panel `Add-ons` section and scroll 
+- Navigate back to the Shippable Server Admin panel `Add-ons` section and scroll
   down to `Manage System SuperUsers` sub-section
-    - Paste the account ID from the Accounts page into the text box and hit 
-    `Add`. The account associated with the ID will now have SuperUser 
+    - Paste the account ID from the Accounts page into the text box and hit
+    `Add`. The account associated with the ID will now have SuperUser
     permissions.
 
 - Refresh the Shippable UI and you should now see an additional tab called
   `Admin`.
 
 Note: Only the first SuperUser must be added using this method. Other
-SuperUsers may be added from the Accounts subsection in the Admin panel within 
+SuperUsers may be added from the Accounts subsection in the Admin panel within
 the product UI.
+
+## Upgrading
+
+To upgrade Shippable Server installation, you'll need to enter the `Installer
+Access Key` and `Installer Secret Key` in the Admiral dashboard. [Contact Us](http://www.shippable.com/contact.html) to get the keys.
+
+Once you get the keys, execute the following steps to upgrade Shippable
+Server.
+
+- `ssh` into the instance that is running Shippble Server.
+```bash
+$ cd admiral
+$ git checkout master
+$ git fetch origin
+$ git rebase origin/master
+$ git tag
+v5.6.2
+v5.6.3
+v5.6.4
+v5.6.5
+v5.7.1
+... more tags
+
+$ git checkout v5.7.1 # or the latest version
+$ sudo ./admiral.sh upgrade
+```
+
+- Once the previous command succeeds, log into the Admiral dashboard and
+  navigate to the second panel with label `Upgrade`. This will show the
+  running version and the available version of Shippable Server. Hit `Upgrade`
+  button to upgrade the installation to the new version.
