@@ -146,7 +146,7 @@ v5.6.5
 v5.7.1
 ... more tags
 
-$ git checkout v5.7.1 (or the latest version)
+$ git checkout v5.7.1 # or the latest version
 $ sudo ./admiral.sh upgrade
 ```
 
