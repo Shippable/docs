@@ -250,3 +250,19 @@ authorization provider.
 * Click on `Add-ons`
 * Select the account integrations (you can always enable / disable) add-ons later.
 * Click `Install Add-ons`
+
+
+###7. Login to Shippable Server and setup Super user account.
+* Login to Shippable server with your admin account for the SCM provider.You should see your team/organizations/repositories sync. To find the Login URL, click on `Configure and Install`. The URL is in the `Shippable UI` section.
+* After Logging in, grant permissions in the OAuth dialog.
+* Click to `Profile` in the left sidebar and note down the `Account Id` at the bottom of the screen.
+* Switch back to Admiral and scroll the screen all the way down to the `Manage System SuperUsers` section.
+* Paste the Account id and click Add.
+
+###8. Setup System or BYON node.
+* After step 7, login to Shippable Server as super user account.
+* If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
+setup the system or custom nodes to run your builds as well as runSh, and runCLI jobs.
+* System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
+* To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
+* To setup System nodes, click on Admin -> Nodes -> System and click on '+' button.
