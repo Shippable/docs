@@ -65,7 +65,7 @@ By default, Slack notifications are sent for builds for all branches. If you wan
 
 ```
 integrations:                               
-  hub:
+  notifications:
     - integrationName: slack-integration     #replace with your integration name   
       type: slack  
       recipients:
@@ -92,7 +92,7 @@ You can further customize these defaults with the following config:
 
 ```
 integrations:                               
-  hub:
+  notifications:
     - integrationName: slack-integration     #replace with your integration name   
       type: slack  
       recipients:
