@@ -230,9 +230,14 @@ a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
 
 * Select `New Node` check box for the `Secrets` and `State` sections. Specify IP address
 and password where ever required.
+
+<img src="/images/reference/admiral/Admiral-2server-1.png" alt="Admiral-2-server">
+
 * Click on `Initialize`.
 * Once initialization is complete, you should see `Initilized` status for every section in the
 `Initialize Infrastructure` section.
+
+<img src="/images/reference/admiral/Admiral-2server-2.png" alt="Admiral-2-server">
 
 ###4. Specify Authorization and Source Control Management (SCM) Providers
 * Click on `Configure & Install`.
@@ -241,23 +246,31 @@ authorization provider.
 * As an example, we will configure GitHub.
 * Click `Install`.
 
+<img src="/images/reference/admiral/Admiral-github.png" alt="Admiral-github">
+
 ###5. Configure Services
 * Click on `Services`.
 * Configure the #replicas (or use the default values) and click `Save`.
-
 
 ###6. Configure add-ons
 * Click on `Add-ons`
 * Select the account integrations (you can always enable / disable) add-ons later.
 * Click `Install Add-ons`
 
-
 ###7. Login to Shippable Server and setup Super user account.
 * Login to Shippable server with your admin account for the SCM provider.You should see your team/organizations/repositories sync. To find the Login URL, click on `Configure and Install`. The URL is in the `Shippable UI` section.
+
+<img src="/images/reference/admiral/Admiral-login.png" alt="Admiral-github">
+
 * After Logging in, grant permissions in the OAuth dialog.
 * Click to `Profile` in the left sidebar and note down the `Account Id` at the bottom of the screen.
+
+<img src="/images/reference/admiral/Admiral-accountid.png" alt="Admiral-github">
+
 * Switch back to Admiral and scroll the screen all the way down to the `Manage System SuperUsers` section.
 * Paste the Account id and click Add.
+
+<img src="/images/reference/admiral/Admiral-superuser.png" alt="Admiral-github">
 
 ###8. Setup System or BYON node.
 * After step 7, login to Shippable Server as super user account.
@@ -265,4 +278,5 @@ authorization provider.
 setup the system or custom nodes to run your builds as well as runSh, and runCLI jobs.
 * System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
 * To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
-* To setup System nodes, click on Admin -> Nodes -> System and click on '+' button.
+* To setup System nodes, click on Admin -> Nodes -> System and click on '+' button. Follow the instructions
+on that screen.
