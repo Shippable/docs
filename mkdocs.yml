@@ -292,6 +292,7 @@ pages:
       - Installing SE from AWS Marketplace: reference/admiral-aws-marketplace.md
       - Installing SE on a single machine: reference/admiral-onebox.md
       - Installing EE on two machines: reference/admiral-two-server.md
+      - Installing EE on three machines: reference/admiral-three-server.md
       - Database Configuration: reference/admiral-db.md
       - State Storage Configuration: reference/admiral-gitlab.md
       - Message Configuration: reference/admiral-rabbitmq.md

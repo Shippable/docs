@@ -1,11 +1,11 @@
 page_main_title: Shippable installer
 main_section: Reference
 sub_section: Admiral
-page_title: Shippable Server installation with 2 servers
+page_title: Shippable Server installation with 3 servers
 page_description: Shippable Server installation with 2 servers with persistent state on one machine and everything else on
 another machine.
 
-# Shippable Server EE edition - two server installation scenario
+# Shippable Server EE Edition - three server installation scenario
 
 Shippable Server EE comprises of the following -
 * Stateless micro services
@@ -13,11 +13,21 @@ Shippable Server EE comprises of the following -
 * Transient State Components - Redis and RabbitMQ
 * Shippable Server Installer and webapp (Admiral)
 
-This document describes the steps to install Shippable Server EE onto two servers -
-* Server 1 - Admiral web app, transient state, micro services
+This document describes the steps to install Shippable Server EE onto three servers -
+* Server 1 - Admiral web app, micro services
 Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
 * Server 2 - Stateful Components
 Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
+* Server 3 - Transient state
+Machine minimum requirements - [T2.medium](https://aws.amazon.com/ec2/instance-types/) or equivalent
+
+##Server 3
+###Ports to open
+- 22: ssh into the machine
+- 5672: amqp
+- 15672: amqp admin
+- 6379: redis
+- 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
 ##Server 2
 ###Ports to open
@@ -31,14 +41,10 @@ Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-ty
 ##Server 1
 ###Ports to open
 - 22: ssh into the machine
-- 5672: amqp
-- 15672: amqp admin
-- 6379: redis
 - 50000: Shippable api
 - 50001: Shippable post-login ui
 - 50002: Shippable pre-login ui
 - 50003: Shippable admin panel
-- 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
 ###Packages to be pre-installed
 Git and SSH must be installed before running Admiral.  Install these by running the following on the instance:
@@ -228,10 +234,10 @@ a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
 |___ Command successfully completed !!!
 ```
 
-* Select `New Node` check box for the `Secrets` and `State` sections. Specify IP address
-of **Server 2** and passwords.
+* Select `New Node` check box for the `Secrets` and `State` sections. Specify IP address of **Server 2** and password wherever required for the above two sections. Run the script on Server 2.
 
-<img src="/images/reference/admiral/Admiral-2server-1.png" alt="Admiral-2-server">
+* Select `New Node` check box for the `Messaging` and `Redis` sections. Specify IP address
+of **Server 3** and password wherever required. Run the script on Server 3.
 
 * Click on `Initialize`.
 * Once initialization is complete, you should see `Initilized` status for every section in the
