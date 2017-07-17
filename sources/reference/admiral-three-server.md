@@ -2,18 +2,18 @@ page_main_title: Shippable installer
 main_section: Reference
 sub_section: Admiral
 page_title: Shippable Server installation with 3 servers
-page_description: Shippable Server installation with 2 servers with persistent state on one machine and everything else on
-another machine.
+page_description: Shippable Server installation with 3 servers
 
 # Shippable Server EE Edition - three server installation scenario
 
-Shippable Server EE comprises of the following -
+
 * Stateless micro services
 * Stateful Components - Database(Postgres), Secret Store and SCM.
 * Transient State Components - Redis and RabbitMQ
 * Shippable Server Installer and webapp (Admiral)
 
 This document describes the steps to install Shippable Server EE onto three servers -
+
 * Server 1 - Admiral web app, micro services
 Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
 * Server 2 - Stateful Components
@@ -218,8 +218,7 @@ ALTER TABLE
 ```
 
 ###3. Connect to Admiral web app in your browser.
-* You will see a message like this once Admiral installation completes. Launch the browser and navigate
-to the specified host and port.
+* You will see a message like this once Admiral installation completes.
 ```
 # 22:05:48 #######################################
 # Booting Admiral UI
@@ -233,7 +232,7 @@ a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
 |___ Login Token: 16a31009-0faa-460d-957a-0a98740fa1e4
 |___ Command successfully completed !!!
 ```
-
+* Launch the browser and navigate to the specified host and port.
 * Select `New Node` check box for the `Secrets` and `State` sections. Specify IP address of **Server 2** and password wherever required for the above two sections. Run the script on Server 2.
 
 * Select `New Node` check box for the `Messaging` and `Redis` sections. Specify IP address
