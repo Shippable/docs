@@ -44,13 +44,14 @@
           function () {
             var apiToken = $('#apiToken')[0].value;
             window.swaggerUi.api.clientAuthorizations.remove('apiToken');
-            if (apiToken)
-              if(!apiToken.startsWith('apiToken'))
+            if (apiToken) {
+              if (!apiToken.startsWith('apiToken'))
                 apiToken = 'apiToken ' + apiToken;
               window.swaggerUi.api.clientAuthorizations.add('apiToken',
                 new SwaggerClient.ApiKeyAuthorization('Authorization',
                 apiToken, 'header')
               );
+            }
           }
         );
         $('#authorizeButton').click(
