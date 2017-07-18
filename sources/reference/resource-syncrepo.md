@@ -6,6 +6,8 @@ sub_section: Resources
 
 The `syncRepo` resource is at the heart of your deployment pipelines. This resource is a pointer to the source control repository containing the files that define your pipelines:  `shippable.resources.yml` and `shippable.jobs.yml`.
 
+**Note:** Shippable will only read the contents of your `shippable.resources.yml` and `shippable.jobs.yml` files in the source control repository for which you want to add the syncRepo. If you have a file like `shippable.resources.yml.example` in that repository, then shippable won't be parsing the contents of those files and it will be ignored in the creation of your pipeline resources.
+
 When you add a `syncRepo`, Shippable will read the jobs and resources ymls and create your pipeline. We also add a webhook on the source repository that notifies Shippable each time anything in the repository is changed. This webhook notification will automatically sync any changes you make to the jobs and resources ymls and reflect them in your pipeline.
 
 **You need to add at least one syncRepo resource from the Shippable UI.** Subsequent sync repositories can also be added through the UI following the same process.
