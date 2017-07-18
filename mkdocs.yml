@@ -171,11 +171,13 @@ pages:
       - Multi-container services: deploy/amazon-ecs-multiple-containers.md
       - Multiple environments: deploy/amazon-ecs-multiple-environments.md
       - Custom deployments(runCLI): deploy/amazon-ecs-unmanaged.md
+      - Naming conventions: deploy/amazon-ecs-naming-conventions.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
+      - Naming conventions: deploy/kubernetes-naming-conventions.md
     - GKE:
       - Basic scenario: deploy/gke.md
       - Specifying deployment strategy: deploy/gke-strategy.md
