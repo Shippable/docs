@@ -3,8 +3,11 @@ main_section: CI
 sub_section: Debugging
 
 # SSH Access to Build Machine
-
 SSH access to build machine allows you to debug problems that arise due to differences in your local and Shippable environment. It also gives you a chance to play around with different commands to get to the best `shippable.yml` possible. Here is a list of FAQs to get you started:
+
+## Which Machine image supports SSH access for debugging?
+SSH debugging is supported on all AMI's for dynamic nodes. This option is now shown for Custom / System nodes since it is
+inherently possible to SSH into these nodes.
 
 ## Which subscriptions can debug?
 Only paid subscriptions using Shippable nodes can run debug builds.
