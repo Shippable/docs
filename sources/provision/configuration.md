@@ -6,11 +6,11 @@ sub_section: Before you start
 
 Your pipelines are defined through three yml-based configuration files:
 
-- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline. Check out our [reference for jobs configuration](/reference/shippable-jobs-yml/).
+- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline. Check out our [reference for jobs configuration](/platform/shippable-jobs-yml/).
 
-- `shippable.resources.yml` contains definitions of the Resources in your pipeline. Check out our [reference for resources configuration](/reference/shippable-resources-yml/).
+- `shippable.resources.yml` contains definitions of the Resources in your pipeline. Check out our [reference for resources configuration](/platform/shippable-resources-yml/).
 
-- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. Check out our [reference for triggers configuration](/reference/shippable-triggers-yml/)
+- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. Check out our [reference for triggers configuration](/platform/shippable-triggers-yml/)
 
 Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 
@@ -29,10 +29,10 @@ You may have the entire pipeline configuration maintained in one repository, spl
 <a name="seedPipeline"></a>
 ### Adding a syncRepo
 
-* First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/reference/integrations-overview#source-control-providers).
+* First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/platform/integrations-overview#source-control-providers).
 * Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the Subscriptions menu at the top left of your screen:
 
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List of subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List of subscriptions">
 
 * Click on the **Pipelines** tab
 * If you have never added a sync repository, your Single Pane of Glass will be empty. Click the **+** button at upper right to add a sync repository.

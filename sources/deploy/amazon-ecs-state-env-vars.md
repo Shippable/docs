@@ -11,7 +11,7 @@ Make sure you have a cluster set up on Amazon ECS, then create an integration an
 
 ## Managed
 
-Managed jobs maintain their own state, and it cannot be customized.  To set environment variables for managed jobs, use the [params](../reference/resource-params) resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
+Managed jobs maintain their own state, and it cannot be customized.  To set environment variables for managed jobs, use the [params](../platform/resource-params) resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
 
 ## Unmanaged
 
@@ -102,7 +102,7 @@ steps:
 
 Now your task definition is using the latest image tag, and you can update your ECS service to use it.
 
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/job-runcli).
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/job-runcli).
 
 ### Resource State Management
 

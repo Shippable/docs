@@ -4,14 +4,14 @@ sub_section: Pushing artifacts
 
 #Pushing Artifacts to S3
 
-You can push your artifacts to S3 in any section [of your yml](../reference/shippable-yml/).
+You can push your artifacts to S3 in any section [of your yml](../platform/shippable-yml/).
 
 ##Setup
 
 Before you start, you will need to connect your Amazon S3 account with Shippable so we have the credentials to push artifacts on your behalf.
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Settings**.
 -  Locate the **Encrypt** section.
 -  Enter the **AWS_SECRET_ACCESS_KEY** and **AWS_ACCESS_KEY_ID** name-value pairs separated by a space.

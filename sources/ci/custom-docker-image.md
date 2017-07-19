@@ -52,11 +52,11 @@ To pull a private image, you will first need to add an account integration for t
 Follow the steps below to pull a private image:
 
 - Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
-    - [Docker Hub](../reference/int-docker-hub/)
-    - [Amazon ECR](../reference/int-amazon-ecr/)    
-    - [GCR](../reference/int-gcr/)
-    - [Docker Trusted/Private registry](../reference/int-docker-trusted-registry/)
-    - [Quay](../reference/int-quay/)      
+    - [Docker Hub](../platform/int-docker-hub/)
+    - [Amazon ECR](../platform/int-amazon-ecr/)    
+    - [GCR](../platform/int-gcr/)
+    - [Docker Trusted/Private registry](../platform/int-docker-trusted-registry/)
+    - [Quay](../platform/int-quay/)      
 
 - Add the following to your `shippable.yml`
 
@@ -113,11 +113,11 @@ build:
 
 * If your Dockerfile contains a `FROM` command that needs a private image, you will also need to follow a couple of additional steps:
     * Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
-        - [Docker Hub](../reference/int-docker-hub/)
-        - [Amazon ECR](../reference/int-amazon-ecr/)    
-        - [GCR](../reference/int-gcr/)
-        - [Docker Trusted/Private registry](../reference/int-docker-trusted-registry/)
-        - [Quay](../reference/int-quay/)      
+        - [Docker Hub](../platform/int-docker-hub/)
+        - [Amazon ECR](../platform/int-amazon-ecr/)    
+        - [GCR](../platform/int-gcr/)
+        - [Docker Trusted/Private registry](../platform/int-docker-trusted-registry/)
+        - [Quay](../platform/int-quay/)      
     *  Add the integration name to your `yml`:
 
 ```

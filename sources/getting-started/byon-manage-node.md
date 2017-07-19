@@ -21,7 +21,7 @@ The following guides will help you manage your build infrastructure:
 Follow the steps below to add a build node:
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Choose the radio button for **Custom**.
 <img src="../../images/getting-started/byon-select-my-node.png" alt="bring your own node">
@@ -67,7 +67,7 @@ will run on your machines. Your nodes can be seen by going to your Subscription 
 ##Editing a build node
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
 - You can click on the **Edit** button for a build node to edit the node name. Nothing
@@ -77,7 +77,7 @@ else can be edited for a node.
 ##Resetting a build node
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
 - You can reset a node by clicking on the **Re-initialize** button. This action will initialize/install everything from scratch.
@@ -88,7 +88,7 @@ If you have added your own build nodes, you will need to re-download the initial
 ##Deleting a build node
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
 - Scroll to the bottom of the screen and click on **Delete** to delete your build node. This action is final and cannot be undone.

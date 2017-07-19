@@ -14,13 +14,13 @@ This step is only required for Slack or Hipchat notifications. For email and IRC
 
 Instructions are at :
 
-- [Create Slack integration](/reference/int-slack/)
-- [Create Hipchat integration](/reference/int-hipchat/)
+- [Create Slack integration](/platform/int-slack/)
+- [Create Hipchat integration](/platform/int-hipchat/)
 
 
 ###Step 2: Update shippable.resources.yml
 
-Next, you should define a [notification resource](/reference/resource-notification/) in your `shippable.resources.yml`.
+Next, you should define a [notification resource](/platform/resource-notification/) in your `shippable.resources.yml`.
 
 
 ####Example: Slack

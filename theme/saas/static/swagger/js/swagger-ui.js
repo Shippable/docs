@@ -1359,7 +1359,7 @@ window.Docs = {
 
     // ES5 15.4.3.2
     // http://es5.github.com/#x15.4.3.2
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/Array/isArray
     defineProperties($Array, { isArray: isArray });
 
     // The IsCallable() check in the Array functions
@@ -1376,7 +1376,7 @@ window.Docs = {
 
     // ES5 15.4.4.18
     // http://es5.github.com/#x15.4.4.18
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/array/forEach
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/array/forEach
 
     // Check failure of by-index access of string characters (IE < 9)
     // and failure of `0 in boxedString` (Rhino)
@@ -1440,7 +1440,7 @@ window.Docs = {
 
     // ES5 15.4.4.19
     // http://es5.github.com/#x15.4.4.19
-    // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
+    // https://developer.mozilla.org/en/Core_JavaScript_1.5_platform/Objects/Array/map
     defineProperties(ArrayPrototype, {
         map: function map(callbackfn/*, thisArg*/) {
             var object = ES.ToObject(this);
@@ -1472,7 +1472,7 @@ window.Docs = {
 
     // ES5 15.4.4.20
     // http://es5.github.com/#x15.4.4.20
-    // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/filter
+    // https://developer.mozilla.org/en/Core_JavaScript_1.5_platform/Objects/Array/filter
     defineProperties(ArrayPrototype, {
         filter: function filter(callbackfn/*, thisArg*/) {
             var object = ES.ToObject(this);
@@ -1504,7 +1504,7 @@ window.Docs = {
 
     // ES5 15.4.4.16
     // http://es5.github.com/#x15.4.4.16
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/every
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/Array/every
     defineProperties(ArrayPrototype, {
         every: function every(callbackfn/*, thisArg*/) {
             var object = ES.ToObject(this);
@@ -1531,7 +1531,7 @@ window.Docs = {
 
     // ES5 15.4.4.17
     // http://es5.github.com/#x15.4.4.17
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/some
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/Array/some
     defineProperties(ArrayPrototype, {
         some: function some(callbackfn/*, thisArg */) {
             var object = ES.ToObject(this);
@@ -1558,7 +1558,7 @@ window.Docs = {
 
     // ES5 15.4.4.21
     // http://es5.github.com/#x15.4.4.21
-    // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
+    // https://developer.mozilla.org/en/Core_JavaScript_1.5_platform/Objects/Array/reduce
     var reduceCoercesToObject = false;
     if (ArrayPrototype.reduce) {
         reduceCoercesToObject = typeof ArrayPrototype.reduce.call('es5', function (_, __, ___, list) {
@@ -1611,7 +1611,7 @@ window.Docs = {
 
     // ES5 15.4.4.22
     // http://es5.github.com/#x15.4.4.22
-    // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduceRight
+    // https://developer.mozilla.org/en/Core_JavaScript_1.5_platform/Objects/Array/reduceRight
     var reduceRightCoercesToObject = false;
     if (ArrayPrototype.reduceRight) {
         reduceRightCoercesToObject = typeof ArrayPrototype.reduceRight.call('es5', function (_, __, ___, list) {
@@ -1668,7 +1668,7 @@ window.Docs = {
 
     // ES5 15.4.4.14
     // http://es5.github.com/#x15.4.4.14
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/Array/indexOf
     var hasFirefox2IndexOfBug = ArrayPrototype.indexOf && [0, 1].indexOf(1, 2) !== -1;
     defineProperties(ArrayPrototype, {
         indexOf: function indexOf(searchElement/*, fromIndex */) {
@@ -1697,7 +1697,7 @@ window.Docs = {
 
     // ES5 15.4.4.15
     // http://es5.github.com/#x15.4.4.15
-    // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/lastIndexOf
+    // https://developer.mozilla.org/en/JavaScript/platform/Global_Objects/Array/lastIndexOf
     var hasFirefox2LastIndexOfBug = ArrayPrototype.lastIndexOf && [0, 1].lastIndexOf(0, -3) !== -1;
     defineProperties(ArrayPrototype, {
         lastIndexOf: function lastIndexOf(searchElement/*, fromIndex */) {
@@ -14469,7 +14469,7 @@ var nativeMax = Math.max;
  * Creates a function that invokes `func` with the `this` binding of the
  * created function and arguments from `start` and beyond provided as an array.
  *
- * **Note:** This method is based on the [rest parameter](https://developer.mozilla.org/Web/JavaScript/Reference/Functions/rest_parameters).
+ * **Note:** This method is based on the [rest parameter](https://developer.mozilla.org/Web/JavaScript/platform/Functions/rest_parameters).
  *
  * @static
  * @memberOf _

@@ -6,7 +6,7 @@ sub_section: Amazon ECS
 
 Load balancers are a must-have for any containerized application that wants to run on an Amazon ECS cluster.  When running on ECS, the agent has control over when and where your tasks spawn.  This means that you cannot necessarily depend on any particular machine running your service at any particular time.  A load balancer helps mitigate this uncertainty by directing traffic to the correct spot, no matter where the container is running.
 
-If you are deploying to Amazon ECS using the managed [deploy job](/reference/job-deploy/), you can easily add a Classic or Application load balancer and apply it to the specific image/port that you want exposed. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
+If you are deploying to Amazon ECS using the managed [deploy job](/platform/job-deploy/), you can easily add a Classic or Application load balancer and apply it to the specific image/port that you want exposed. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
 
 Amazon ECS supports two types of load balancers:
 
@@ -56,7 +56,7 @@ The `role` value needs to be the name of an AWS IAM role that has the appropriat
 
 ####dockerOptions
 
-Since we plan to expose a port, we need to add a [dockerOptions](/reference/resource-dockeroptions/) resource like this:
+Since we plan to expose a port, we need to add a [dockerOptions](/platform/resource-dockeroptions/) resource like this:
 
 ```
 - name: deploy-ecs-lb-docker-options

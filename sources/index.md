@@ -42,4 +42,4 @@ We have scenario based documentation for each of the steps above:
 
 ###Reference
 
-Once you get the hang of how to set up CI or build a pipeline using Shippable, you will just need a reference of everything that is supported. Please read our [Reference Section](/reference/shippable-yml/) for a complete listing of everything supported, along with configuration details.
+Once you get the hang of how to set up CI or build a pipeline using Shippable, you will just need a reference of everything that is supported. Please read our [Reference Section](/platform/shippable-yml/) for a complete listing of everything supported, along with configuration details.

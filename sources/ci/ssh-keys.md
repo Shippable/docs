@@ -20,7 +20,7 @@ We recommend you use the subscription SSH key to pull other repositories (for ex
 ssh-agent bash -c 'ssh-add /tmp/ssh/01_deploy; git clone git@github.com/orgName/repoName.git /path/to/clone/'
 ```
 
-Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control. For example, create a ["SSH key integration"](/reference/int-key-ssh/). Add this newly created key integration to both the 'Subscription' Settings and the shippable.yml of every project you want to use it in.
+Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control. For example, create a ["SSH key integration"](/platform/int-key-ssh/). Add this newly created key integration to both the 'Subscription' Settings and the shippable.yml of every project you want to use it in.
 
 Example `shippable.yml` integration:
 

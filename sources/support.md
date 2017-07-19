@@ -145,4 +145,4 @@ Shippable [supports](/ci/services-overview/) lots of different services, tools a
 ---
 ## Why are some of the standard environment variables like `SHIPPABLE_POSTGRES_VERSION` not available in my CI environment?
 
-1. [Machine Images](/reference/machine-images-overview/) from versions v5.4.1 to v5.6.1 do not have some of the [standard environment variables](/ci/env-vars/#stdEnv) related to [shippable services](/ci/services-overview/) because of a bug. This is fixed in machine image version v5.7.1 onwards. Please [upgrade](/reference/machine-images-overview/#changing-the-subscription-machine-image) your machine image to v5.7.1 to use the shippable services related environment variables.
+1. [Machine Images](/platform/machine-images-overview/) from versions v5.4.1 to v5.6.1 do not have some of the [standard environment variables](/ci/env-vars/#stdEnv) related to [shippable services](/ci/services-overview/) because of a bug. This is fixed in machine image version v5.7.1 onwards. Please [upgrade](/platform/machine-images-overview/#changing-the-subscription-machine-image) your machine image to v5.7.1 to use the shippable services related environment variables.

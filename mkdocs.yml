@@ -218,94 +218,106 @@ pages:
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
-  - Reference:
+  - Platform:
+    - Concepts: platform/platform-overview.md
+    - Job Runtime:
+      - Concepts: platform/job-runtime-overview.md
+      - Machine Images: platform/machine-images-overview.md
+      - v5.7.1: platform/machine-image-v571.md
+      - v5.6.1: platform/machine-image-v561.md
+      - v5.5.1: platform/machine-image-v551.md
+      - v5.4.1: platform/machine-image-v541.md
+      - v5.3.2: platform/machine-image-v532.md
+      - Stable: platform/machine-image-stable.md
+    - Workflow:
+      - Concepts: platform/workflow-overview.md
     - Configuration:
-      - shippable.yml: reference/shippable-yml.md
-      - shippable.jobs.yml: reference/shippable-jobs-yml.md
-      - shippable.resources.yml: reference/shippable-resources-yml.md
-      - shippable.triggers.yml: reference/shippable-triggers-yml.md
+      - shippable.yml: platform/shippable-yml.md
+      - shippable.jobs.yml: platform/shippable-jobs-yml.md
+      - shippable.resources.yml: platform/shippable-resources-yml.md
+      - shippable.triggers.yml: platform/shippable-triggers-yml.md
     - Jobs:
-      - Overview: reference/jobs-overview.md
-      - Unmanaged jobs: reference/jobs-unmanaged.md
-      - deploy: reference/job-deploy.md
-      - manifest: reference/job-manifest.md
-      - provision: reference/job-provision.md
-      - release: reference/job-release.md
-      - runCI: reference/job-runci.md
-      - runCLI: reference/job-runcli.md
-      - runSH: reference/job-runsh.md
-      - jenkinsJob: reference/job-jenkinsjob.md
+      - Overview: platform/jobs-overview.md
+      - Unmanaged jobs: platform/jobs-unmanaged.md
+      - deploy: platform/job-deploy.md
+      - manifest: platform/job-manifest.md
+      - provision: platform/job-provision.md
+      - release: platform/job-release.md
+      - runCI: platform/job-runci.md
+      - runCLI: platform/job-runcli.md
+      - runSH: platform/job-runsh.md
+      - jenkinsJob: platform/job-jenkinsjob.md
     - Resources:
-      - Overview: reference/resources-overview.md
-      - ciRepo: reference/resource-cirepo.md
-      - cliConfig: reference/resource-cliconfig.md
-      - cluster: reference/resource-cluster.md
-      - dockerOptions: reference/resource-dockeroptions.md
-      - file: reference/resource-file.md
-      - gitRepo: reference/resource-gitrepo.md
-      - image: reference/resource-image.md
-      - integration: reference/resource-integration.md
-      - loadBalancer: reference/resource-loadbalancer.md
-      - notification: reference/resource-notification.md
-      - params: reference/resource-params.md
-      - replicas: reference/resource-replicas.md
-      - state: reference/resource-state.md
-      - syncRepo: reference/resource-syncrepo.md
-      - time: reference/resource-time.md
-      - version: reference/resource-version.md
+      - Overview: platform/resources-overview.md
+      - ciRepo: platform/resource-cirepo.md
+      - cliConfig: platform/resource-cliconfig.md
+      - cluster: platform/resource-cluster.md
+      - dockerOptions: platform/resource-dockeroptions.md
+      - file: platform/resource-file.md
+      - gitRepo: platform/resource-gitrepo.md
+      - image: platform/resource-image.md
+      - integration: platform/resource-integration.md
+      - loadBalancer: platform/resource-loadbalancer.md
+      - notification: platform/resource-notification.md
+      - params: platform/resource-params.md
+      - replicas: platform/resource-replicas.md
+      - state: platform/resource-state.md
+      - syncRepo: platform/resource-syncrepo.md
+      - time: platform/resource-time.md
+      - version: platform/resource-version.md
     - API:
-      - Overview: reference/api-overview.md
-      - Tokens: reference/api-tokens.md
+      - Overview: platform/api-overview.md
+      - Tokens: platform/api-tokens.md
     - Machine Images:
-      - Overview: reference/machine-images-overview.md
-      - v5.7.3: reference/machine-image-v573.md
-      - v5.6.1: reference/machine-image-v561.md
-      - v5.5.1: reference/machine-image-v551.md
-      - v5.4.1: reference/machine-image-v541.md
-      - v5.3.2: reference/machine-image-v532.md
-      - Stable: reference/machine-image-stable.md
+      - Overview: platform/machine-images-overview.md
+      - v5.7.3: platform/machine-image-v573.md
+      - v5.6.1: platform/machine-image-v561.md
+      - v5.5.1: platform/machine-image-v551.md
+      - v5.4.1: platform/machine-image-v541.md
+      - v5.3.2: platform/machine-image-v532.md
+      - Stable: platform/machine-image-stable.md
     - Integrations:
-      - Overview: reference/integrations-overview.md
-      - Amazon ECR: reference/int-amazon-ecr.md
-      - Amazon ECS: reference/int-amazon-ecs.md
-      - Azure DC/OS: reference/int-azure-dcos.md
-      - Bitbucket: reference/int-bitbucket.md
-      - Docker Cloud: reference/int-docker-cloud.md
-      - Docker Datacenter: reference/int-docker-datacenter.md
-      - Docker Hub: reference/int-docker-hub.md
-      - Docker Trusted Registry: reference/int-docker-trusted-registry.md
-      - Event Trigger: reference/int-event-trigger.md
-      - Git Credential: reference/int-git-credential.md
-      - GitHub: reference/int-github.md
-      - GitHub Enterprise: reference/int-github-enterprise.md
-      - Gitlab: reference/int-gitlab.md
-      - Google Container Engine: reference/int-gke.md
-      - Google Container Registry: reference/int-gcr.md
-      - Hipchat: reference/int-hipchat.md
-      - Jenkins: reference/int-jenkins.md
-      - JFrog Artifactory: reference/int-jfrog-artifactory.md
-      - Joyent Triton: reference/int-tripub.md
-      - Key-value: reference/int-key-value.md
-      - Kubernetes: reference/int-kubernetes.md
-      - Node Cluster: reference/int-node-cluster.md
-      - PEM Keys: reference/int-key-pem.md
-      - Private Registries: reference/int-private-registries.md
-      - Quay.io: reference/int-quay.md
-      - Slack: reference/int-slack.md
-      - SSH Keys: reference/int-key-ssh.md
+      - Overview: platform/integrations-overview.md
+      - Amazon ECR: platform/int-amazon-ecr.md
+      - Amazon ECS: platform/int-amazon-ecs.md
+      - Azure DC/OS: platform/int-azure-dcos.md
+      - Bitbucket: platform/int-bitbucket.md
+      - Docker Cloud: platform/int-docker-cloud.md
+      - Docker Datacenter: platform/int-docker-datacenter.md
+      - Docker Hub: platform/int-docker-hub.md
+      - Docker Trusted Registry: platform/int-docker-trusted-registry.md
+      - Event Trigger: platform/int-event-trigger.md
+      - Git Credential: platform/int-git-credential.md
+      - GitHub: platform/int-github.md
+      - GitHub Enterprise: platform/int-github-enterprise.md
+      - Gitlab: platform/int-gitlab.md
+      - Google Container Engine: platform/int-gke.md
+      - Google Container Registry: platform/int-gcr.md
+      - Hipchat: platform/int-hipchat.md
+      - Jenkins: platform/int-jenkins.md
+      - JFrog Artifactory: platform/int-jfrog-artifactory.md
+      - Joyent Triton: platform/int-tripub.md
+      - Key-value: platform/int-key-value.md
+      - Kubernetes: platform/int-kubernetes.md
+      - Node Cluster: platform/int-node-cluster.md
+      - PEM Keys: platform/int-key-pem.md
+      - Private Registries: platform/int-private-registries.md
+      - Quay.io: platform/int-quay.md
+      - Slack: platform/int-slack.md
+      - SSH Keys: platform/int-key-ssh.md
     - Shippable Server:
-      - Installer: reference/admiral.md
-      - Installing SE from AWS Marketplace: reference/admiral-aws-marketplace.md
-      - Installing SE on a single machine: reference/admiral-onebox.md
-      - Installing EE on two machines: reference/admiral-two-server.md
-      - Installing EE on three machines: reference/admiral-three-server.md
-      - Installing EE on three machines with an existing DB: reference/admiral-three-server-existing-db.md
-      - Database Configuration: reference/admiral-db.md
-      - State Storage Configuration: reference/admiral-gitlab.md
-      - Message Configuration: reference/admiral-rabbitmq.md
-      - Redis Configuration: reference/admiral-redis.md
-      - Swarm Worker Configuration: reference/admiral-swarm-workers.md
-      - Vault Configuration: reference/admiral-vault.md
-      - Bitbucket Server Configuration: reference/admiral-bbs.md
+      - Installer: platform/admiral.md
+      - Installing SE from AWS Marketplace: platform/admiral-aws-marketplace.md
+      - Installing SE on a single machine: platform/admiral-onebox.md
+      - Installing EE on two machines: platform/admiral-two-server.md
+      - Installing EE on three machines: platform/admiral-three-server.md
+      - Installing EE on three machines with an existing DB: platform/admiral-three-server-existing-db.md
+      - Database Configuration: platform/admiral-db.md
+      - State Storage Configuration: platform/admiral-gitlab.md
+      - Message Configuration: platform/admiral-rabbitmq.md
+      - Redis Configuration: platform/admiral-redis.md
+      - Swarm Worker Configuration: platform/admiral-swarm-workers.md
+      - Vault Configuration: platform/admiral-vault.md
+      - Bitbucket Server Configuration: platform/admiral-bbs.md
     - Glossary:
-      - Complete list of terms: reference/glossary.md
+      - Complete list of terms: platform/glossary.md

@@ -63,7 +63,7 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/reference/int-slack/#slack-integration) and [hub](/reference/integrations-overview/) integration for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/platform/int-slack/#slack-integration) and [hub](/platform/integrations-overview/) integration for more details.
 
 ---
 ### common2| cleanRunYml|callerId:
@@ -291,14 +291,14 @@ integrations:
 
 Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
-Read more about [configuring Slack notifications](/reference/int-slack/#slack-integration) in our documentation.
+Read more about [configuring Slack notifications](/platform/int-slack/#slack-integration) in our documentation.
 
 ---
 ### I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [reference/example](/reference/shippable-yml/#shippable.yml-reference) of a `shippable.yml` file
+(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [platform/example](/platform/shippable-yml/#shippable.yml-reference) of a `shippable.yml` file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
@@ -387,7 +387,7 @@ The usual workflow for a pull request is:
 
 ---
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](/reference/int-amazon-ecr/#amazon-ecr-integration), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [Amazon ECR integration](/platform/int-amazon-ecr/#amazon-ecr-integration), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:

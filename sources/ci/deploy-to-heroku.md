@@ -20,7 +20,7 @@ associated with your Shippable account to authorized keys in [Heroku
 Account Settings](https://dashboard.heroku.com/account).
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Settings**.
 - Go to the **Deployment Key** section. Copy what you see there.
 ![deployment-key](../../images/ci/deploy-key.png)

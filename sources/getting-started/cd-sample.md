@@ -42,7 +42,7 @@ The first step is to enable continuous integration for your forked repository.
 
 - On the [Shippable landing page](https://app.shippable.com) , select your subscription from the `Subscriptions` dropdown.
 This should be the subscription where you forked the repository.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="Add Account Integration">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="Add Account Integration">
 
 - On the Subscription page, click on the **+** button. If you have not enabled any projects on Shippable,
  you will be directly be taken to this page which shows a list of your repositories.
@@ -65,7 +65,7 @@ This should be the subscription where you forked the repository.
 
 ###7. Add ECS integration
 
-- Add an ECS cluster integration using the directions specified [here](/reference/int-amazon-ecs/). This is the cluster to which the
+- Add an ECS cluster integration using the directions specified [here](/platform/int-amazon-ecs/). This is the cluster to which the
 Node.js docker image will be deployed to. Name the integration dr-aws.
 If you choose a different name, replace dr-aws with your integration name in the `shippable.resources.yml` file.
 
@@ -75,9 +75,9 @@ region.
 ###8. Add your pipeline
 
 - Your pipeline configuration is defined in the `shippable.resources.yml` and `shippable.jobs.yml` files in the root of your forked repository.
-This forked repository is called a [sync repo resource](/reference/resource-syncrepo) since it contains pipeline configuration.
+This forked repository is called a [sync repo resource](/platform/resource-syncrepo) since it contains pipeline configuration.
 
-- Add your syncRepo resource following the instructions [here](/reference/resource-syncrepo/#adding-a-syncrepo-from-the-ui). The project should
+- Add your syncRepo resource following the instructions [here](/platform/resource-syncrepo/#adding-a-syncrepo-from-the-ui). The project should
 be your forked repository.
 
 - You should not be able to see all your pipeline jobs and resources in the single pane of glass (SPOG) view.

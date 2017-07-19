@@ -11,7 +11,7 @@ Jobs can be triggered in multiple ways, including both automated and manual trig
 In this configuration, **my-runSh** will be triggered in one of 4 ways:
 
 1. **my-job**, which is an `IN` for **my-runSh** finishes running and triggers it. This trigger can be [switched off](#switchOff) if needed.
-- User commits to the [trigger resource](/reference/shippable-triggers-yml), which is an `IN` for **my-runSh**, and hence triggers it.
+- User commits to the [trigger resource](/platform/shippable-triggers-yml), which is an `IN` for **my-runSh**, and hence triggers it.
 - User right clicks on **my-runSh** in the SPOG UI and clicks on `Run` or selects `Run` for **my-runSh** in the Jobs list in the [Grid view](/validate/single-pane-of-glass-spog/#grid-view).
 
 **Please note that changing the params resource manually through a yml commit will not automatically trigger my-runSh.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a `trigger` input for the job and include a change to the trigger resource in the commit every time you want to automatically run your job.

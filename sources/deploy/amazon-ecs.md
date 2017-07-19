@@ -4,7 +4,7 @@ sub_section: Amazon ECS
 
 # Deploying to Amazon ECS
 
-There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can use the managed [**deploy job**](/reference/job-deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
+There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can use the managed [**deploy job**](/platform/job-deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
 
 For unmanaged deployments where you write all the deployment scripts yourself, check out our tutorial on [unmanaged deployments](/deploy/amazon-ecs-unmanaged/).
 
@@ -24,13 +24,13 @@ To deploy to Amazon ECS, you need the following building blocks:
 
 **Resources**
 
-- [cluster](/reference/resource-cluster/) resource, to point to a cluster
-- [image](/reference/resource-image/) resource, pointing to the Docker image
+- [cluster](/platform/resource-cluster/) resource, to point to a cluster
+- [image](/platform/resource-image/) resource, pointing to the Docker image
 
 **Jobs**
 
-- [manifest](/reference/job-manifest/) which creates a deployable unit for your application
-- [deploy](/reference/job-deploy/), a managed job that does the deployment
+- [manifest](/platform/job-manifest/) which creates a deployable unit for your application
+- [deploy](/platform/job-deploy/), a managed job that does the deployment
 
 
 ## Step-by-step instructions
@@ -40,7 +40,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/reference/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to ECS.
 
@@ -49,12 +49,12 @@ Follow the steps below to set up a basic deployment to ECS.
 You need two account integrations for this scenario:
 
 ####AWS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
 
-This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+This key should have the appropriate permissions and roles described [here](../platform/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
 ####Amazon ECR
-You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/reference/int-amazon-ecr/) page.
+You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/platform/int-amazon-ecr/) page.
 
 
 ###2: Create resources
@@ -76,7 +76,7 @@ resources:
       region: "us-east-1"                 # AWS region where cluster is located
 ```
 
-For a complete reference, check out the [cluster](/reference/resource-cluster/) page.
+For a complete reference, check out the [cluster](/platform/resource-cluster/) page.
 
 ####image
 
@@ -95,7 +95,7 @@ resources:
 
 ```
 
-For a complete reference, check out the [image](/reference/resource-image/) page.
+For a complete reference, check out the [image](/platform/resource-image/) page.
 
 ###3: Define jobs
 
@@ -188,11 +188,11 @@ You can use the `dockerOptions` resource to customize your task definitions. For
 ```
 The `dockerOptions` resource can then be an IN for your `manifest` or `deploy` job.
 
-For a complete reference of all customizable options, check out our [dockerOptions reference](/reference/resource-dockeroptions/)
+For a complete reference of all customizable options, check out our [dockerOptions reference](/platform/resource-dockeroptions/)
 
 ### params
 
-When [params resources](../reference/resource-params) are added as an IN to a `manifest`, they become environment variables for containers in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+When [params resources](../platform/resource-params) are added as an IN to a `manifest`, they become environment variables for containers in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-ecs-basic-params
@@ -207,7 +207,7 @@ These environment variables will be available in the running container.
 
 ### Scaling instances
 
-You can use the [replicas resource](../reference/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+You can use the [replicas resource](../platform/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
 
 ```
   - name: deploy-ecs-basic-replicas
