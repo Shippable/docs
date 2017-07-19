@@ -275,6 +275,7 @@ pages:
       - Docker Hub: reference/int-docker-hub.md
       - Docker Trusted Registry: reference/int-docker-trusted-registry.md
       - Event Trigger: reference/int-event-trigger.md
+      - Git Credential: reference/int-git-credential.md
       - GitHub: reference/int-github.md
       - GitHub Enterprise: reference/int-github-enterprise.md
       - Gitlab: reference/int-gitlab.md
