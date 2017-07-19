@@ -25,7 +25,7 @@ what is pre-installed on that image:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
-| [v5.7.1](machine-image-v571/)        | Jul 06, 2017    |
+| [v5.7.3](machine-image-v573/)        | Jul 20, 2017    |
 | [v5.6.1](machine-image-v561/)        | Jun 05, 2017    |
 | [v5.5.1](machine-image-v551/)        | Apr 26, 2017    |
 | [v5.4.1](machine-image-v541/)        | Mar 30, 2017    |
