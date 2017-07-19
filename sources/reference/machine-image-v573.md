@@ -12,7 +12,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 **What is installed**
 
 * Operating System: Ubuntu 14.04.5 LTS
-* Kernel Version: 3.13.0-119-generic
+* Kernel Version: 3.13.0-121-generic
 * **Docker Server Version: 1.13.0**
 * Storage Driver: aufs
 * Root Dir: /data/aufs
@@ -28,17 +28,17 @@ If you would like to use your own CI images in place of the official images, ins
 
 These are the official language images in this version
 
-* [Nodejs](#nod-571)
-* [Python](#pyt-571)
-* [Java](#jav-571)
-* [Ruby](#rub-571)
-* [GO](#gol-571)
-* [PHP](#php-571)
-* [Clojure](#clo-571)
-* [Scala](#sca-571)
-* [C/C++](#cpp-571)
+* [Nodejs](#nod-573)
+* [Python](#pyt-573)
+* [Java](#jav-573)
+* [Ruby](#rub-573)
+* [GO](#gol-573)
+* [PHP](#php-573)
+* [Clojure](#clo-573)
+* [Scala](#sca-573)
+* [C/C++](#cpp-573)
 
-<a name="common-571"></a>
+<a name="common-573"></a>
 ### Common components installed
 
 All the images have these components pre-installed
@@ -116,7 +116,7 @@ All the images have these components pre-installed
 ## Pre-installed official Docker Images
 This image ships with these pre-installed images to speed up your CI build process
 
-<a name="nod-571"></a>
+<a name="nod-573"></a>
 ### Node.js
 **OS Versions**
 
@@ -138,23 +138,23 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
-* nvm 
+* [Common components](#common-573)
+* nvm
 * Java  1.8.0
 * Ruby 2.3.3
 * Yarn 0.24.5
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
-* nvm 
+* [Common components](#common-573)
+* nvm
 * Java  1.8.0
 * Ruby 2.3.3
 * Yarn 0.24.5
 
 ---
 
-<a name="pyt-571"></a>
+<a name="pyt-573"></a>
 ### Python
 **OS Versions**
 
@@ -166,18 +166,27 @@ These versions are pre-installed on both the OS version images
 	* [Github](https://github.com/dry-dock/u16pytall)
 
 **Language Versions**
-These versions are pre-installed on both the OS version images
+These versions are pre-installed on ubuntu 14.04 image
 
-* 2.7.13
-* 3.4.6
+* 2.7.12
+* 3.4.3
 * 3.5.3
+* 3.6.1
+* pypy2 5.8.0
+* pypy3 5.8.0
+
+These versions are pre-installed on ubuntu 16.04 image
+
+* 2.7.12
+* 3.4.5
+* 3.5.2
 * 3.6.1
 * pypy2 5.8.0
 * pypy3 5.8.0
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * virtualenv
 * Java 1.8.0
 * Node 4.8.3
@@ -185,7 +194,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * virtualenv
 * Java 1.8.0
 * Node 7.10.0
@@ -193,7 +202,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="jav-571"></a>
+<a name="jav-573"></a>
 ### Java
 **OS Versions**
 
@@ -205,7 +214,14 @@ These versions are pre-installed on both the OS version images
 	* [Github](https://github.com/dry-dock/u16javall)
 
 **Language Versions**
-These versions are pre-installed on both the OS version images
+These versions are pre-installed on Ubuntu 14.04 image
+
+* openjdk7
+* openjdk8
+* oraclejdk8
+* oraclejdk9
+
+These versions are pre-installed on Ubuntu 16.04 image
 
 * openjdk7
 * openjdk8
@@ -215,20 +231,20 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * Node 4.8.3
 * Ruby 2.3.3
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * Node 7.10.0
 * Ruby 2.3.3
 
 ---
 
 
-<a name="rub-571"></a>
+<a name="rub-573"></a>
 ### Ruby
 **OS Versions**
 
@@ -251,21 +267,21 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * rvm 1.29.2
 * Java 1.8.0
 * Node 4.8.3
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * rvm 1.29.1
 * Java 1.8.0
 * Node 4.8.3
 
 ---
 
-<a name="gol-571"></a>
+<a name="gol-573"></a>
 ### GO
 **OS Versions**
 
@@ -284,7 +300,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * gvm 1.0.22
 * Java 1.8.10
 * Node 4.8.3
@@ -292,7 +308,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="php-571"></a>
+<a name="php-573"></a>
 ### PHP
 **OS Versions**
 
@@ -312,7 +328,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * phpenv 1.1.1-2-g615f844
 * Java 1.8.0
 * Node 4.8.3
@@ -320,14 +336,14 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * phpenv 1.1.1-2-g615f844
 * Java 1.8.0
 * Node 7.10.0
 * Ruby 2.3.3
 ---
 
-<a name="clo-571"></a>
+<a name="clo-573"></a>
 ### Clojure
 **OS Versions**
 
@@ -350,7 +366,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * leiningen
 * Java 1.8
 * Node 7.x
@@ -358,7 +374,7 @@ These versions are pre-installed on both the OS version images
 
 ---
 
-<a name="sca-571"></a>
+<a name="sca-573"></a>
 ### Scala
 **OS Versions**
 
@@ -379,7 +395,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * sbt
 * Java 1.8.0
 * Node 4.8.3
@@ -387,7 +403,7 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * sbt
 * Java 1.8.0
 * Node 7.10.0
@@ -396,7 +412,7 @@ These versions are pre-installed on both the OS version images
 ---
 
 
-<a name="cpp-571"></a>
+<a name="cpp-573"></a>
 ### C/C++
 **OS Versions**
 
@@ -415,14 +431,14 @@ These versions are pre-installed on both the OS version images
 
 **Additional packages on ubuntu 14.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * Java 1.8.0
 * Node 4.8.3
 * Ruby 2.3.3
 
 **Additional packages on ubuntu 16.04**
 
-* [Common components](#common-571)
+* [Common components](#common-573)
 * Java 1.8.0
 * Node 7.10.0
 * Ruby 2.3.3

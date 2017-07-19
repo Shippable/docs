@@ -258,7 +258,7 @@ pages:
       - Tokens: reference/api-tokens.md
     - Machine Images:
       - Overview: reference/machine-images-overview.md
-      - v5.7.1: reference/machine-image-v571.md
+      - v5.7.3: reference/machine-image-v573.md
       - v5.6.1: reference/machine-image-v561.md
       - v5.5.1: reference/machine-image-v551.md
       - v5.4.1: reference/machine-image-v541.md
