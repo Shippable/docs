@@ -223,7 +223,7 @@ pages:
     - Job Runtime:
       - Concepts: platform/job-runtime-overview.md
       - Machine Images: platform/machine-images-overview.md
-      - v5.7.1: platform/machine-image-v571.md
+      - v5.7.3: platform/machine-image-v573.md
       - v5.6.1: platform/machine-image-v561.md
       - v5.5.1: platform/machine-image-v551.md
       - v5.4.1: platform/machine-image-v541.md
@@ -268,14 +268,6 @@ pages:
     - API:
       - Overview: platform/api-overview.md
       - Tokens: platform/api-tokens.md
-    - Machine Images:
-      - Overview: platform/machine-images-overview.md
-      - v5.7.3: platform/machine-image-v573.md
-      - v5.6.1: platform/machine-image-v561.md
-      - v5.5.1: platform/machine-image-v551.md
-      - v5.4.1: platform/machine-image-v541.md
-      - v5.3.2: platform/machine-image-v532.md
-      - Stable: platform/machine-image-stable.md
     - Integrations:
       - Overview: platform/integrations-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md
