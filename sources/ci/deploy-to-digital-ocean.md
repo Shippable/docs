@@ -198,9 +198,9 @@ on_success:
 
 In the sample `config/deploy.sh` file above, we are using public GitHub repository to host the application code. If the repository is private,
 additional steps need to be taken in order to grant access for the DigitalOcean droplet. There are several methods of achieving it, but the
-most convenient one is to use [Shippable deployment key](/reference/int-key-ssh) by leveraging SSH agent key forwarding.
+most convenient one is to use [Shippable deployment key](/platform/int-key-ssh) by leveraging SSH agent key forwarding.
 
-First add the [Shippable Public SSH key](/reference/int-key-ssh) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
+First add the [Shippable Public SSH key](/platform/int-key-ssh) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
 `config/deploy.sh` to use SSH instead of HTTPS:
 
 ```
@@ -243,7 +243,7 @@ DigitalOcean has streamlined the process by providing a droplet image with dokku
 After your droplet is created, visit its IP address, can be found under the Droplet name and should also be emailed to you. Here you will find a web console to finish setting up Dokku. We'll come back to this in a moment. Before going any further on this screen, you need to grab your deployment key from your Shippable account.
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Settings**.
 - Go to the **Deployment Key** section. Copy what you see there.
 ![deployment-key](../../images/ci/deploy-key.png)

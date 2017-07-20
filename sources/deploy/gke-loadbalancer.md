@@ -9,7 +9,7 @@ Load balancers are a must-have for any containerized application that wants to r
 This page will explain how you can connect a Kubernetes service with a replicationController created by a managed GKE deployment in Shippable Pipelines
 
 - deploy to GKE from Shippable pipelines
-- create a service manually or via [provision job](../reference/job-provision).
+- create a service manually or via [provision job](../platform/job-provision).
 - connect that service with your deployed RC
 
 This is an enhancement to the pipeline described in the basic GKE scenario.
@@ -39,7 +39,7 @@ Shippable adds 3 labels to every pod spec:
 
 By using a combination of manifestName and jobName, you can be certain that your GKE service will always pinpoint the exact pods from the replicationController that was deployed.  Shippable recommends using these two labels in your service selector.
 
-If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](../reference/resource-dockeroptions) to set your own labels.  It might look something like this:
+If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](../platform/resource-dockeroptions) to set your own labels.  It might look something like this:
 
 ```
 - name: myLabels
@@ -75,7 +75,7 @@ First, you should create a loadBalancer resource to represent your service:
 
 ```
 
-The loadBalancer resource supports a range of fields in this case, allowing you to set almost any field that you'd want.  [See here](../reference/resource-loadbalancer) for the full reference page.
+The loadBalancer resource supports a range of fields in this case, allowing you to set almost any field that you'd want.  [See here](../platform/resource-loadbalancer) for the full reference page.
 
 Now you have a representation of your loadBalancer in Shippable, but you haven't actually created it on your kube cluster yet.  For that you need a provision job:
 
@@ -92,10 +92,10 @@ You can use a single provision job to provision multiple services. Just include 
 
 
 ## Unmanaged
-Unmanaged refers to the use of [runCLI jobs](../reference/job-runcli), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../reference/resource-cliconfig).
+Unmanaged refers to the use of [runCLI jobs](../platform/job-runcli), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../platform/resource-cliconfig).
 
 These unmanaged jobs provide you with unlimited scripting ability which you can use to do the following:
 
 - set labels directly when creating your own RCs or pods.
 - create services on the command line via auto-configured kubectl
-- use a [params resource](../reference/resource-params) to get labels into the job environment for easy usage across jobs.
+- use a [params resource](../platform/resource-params) to get labels into the job environment for easy usage across jobs.

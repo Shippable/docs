@@ -4,9 +4,9 @@ sub_section: Amazon ECS
 
 # Custom deployments to Amazon ECS
 
-The managed [deploy job](/reference/job-deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
+The managed [deploy job](/platform/job-deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
 
-These are called "unmanaged" or "custom" deployments and are implemented with a [runCLI job](/reference/job-runcli/).
+These are called "unmanaged" or "custom" deployments and are implemented with a [runCLI job](/platform/job-runcli/).
 
 This page walks through an example of deploying to Amazon ECS using runCLI.
 
@@ -16,13 +16,13 @@ You need the following building blocks for this scenario:
 
 **Resources**
 
-- [cliConfig](/reference/resource-cliconfig/) resource, to configure the aws cli
-- [image](/reference/resource-image/) resource, pointing to the Docker image
-- [gitRepo](/reference/resource-gitrepo/) resource, pointing to the Git repository containing your task definitions
+- [cliConfig](/platform/resource-cliconfig/) resource, to configure the aws cli
+- [image](/platform/resource-image/) resource, pointing to the Docker image
+- [gitRepo](/platform/resource-gitrepo/) resource, pointing to the Git repository containing your task definitions
 
 **Jobs**
 
-- [runCLI](/reference/job-runcli/)
+- [runCLI](/platform/job-runcli/)
 
 ## Basic deployment
 
@@ -31,7 +31,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/reference/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to ECS.
 
@@ -40,19 +40,19 @@ Follow the steps below to set up a basic deployment to ECS.
 You need the following two account integrations.  Once created, make sure to add them to the subscription that will contain your pipeline.  You can do this at the time of creation, or you can later navigate to your subscription settings page and add them from the "integrations" tab.
 
 ####Amazon ECS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../reference/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.  Make sure to specify the subscription that you'd like to use this integration with.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.  Make sure to specify the subscription that you'd like to use this integration with.
 
-This key should have the appropriate permissions and roles described [here](../reference/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+This key should have the appropriate permissions and roles described [here](../platform/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
 ####GitHub (or your source control provider)
 
-Create an account integration for GitHub by following [instructions here](/reference/int-github/).  By default, you will already have an account integration with whichever SCM provider you've used to log into Shippable.
+Create an account integration for GitHub by following [instructions here](/platform/int-github/).  By default, you will already have an account integration with whichever SCM provider you've used to log into Shippable.
 
 For other source control providers, go to one of these:
 
-- [Bitbucket](/reference/int-bitbucket/)
-- [Gitlab](/reference/int-gitlab/)
-- [GitHub Enterprise](/reference/int-github-enterprise/)
+- [Bitbucket](/platform/int-bitbucket/)
+- [Gitlab](/platform/int-gitlab/)
+- [GitHub Enterprise](/platform/int-github-enterprise/)
 
 
 ###2: Create resources
@@ -71,7 +71,7 @@ resources:
       region: us-east-1                 # region where you want to deploy
 
 ```
-For a complete reference, check out the [cliConfig](/reference/resource-cliconfig/) page.
+For a complete reference, check out the [cliConfig](/platform/resource-cliconfig/) page.
 
 
 ####image
@@ -88,7 +88,7 @@ resources:
 
 
 ```
-For a complete reference, check out the [image](/reference/resource-image/) page.
+For a complete reference, check out the [image](/platform/resource-image/) page.
 
 ####gitRepo
 
@@ -105,7 +105,7 @@ resources:
 
 ```
 
-For a complete reference, check out the [gitRepo](/reference/resource-gitrepo/) page.
+For a complete reference, check out the [gitRepo](/platform/resource-gitrepo/) page.
 
 
 ###3: Define jobs
@@ -206,7 +206,7 @@ You can run your awscli commands against any cluster and region that you want. D
 
 If your load balancer is already created on AWS, deploying with it in a **runCLI** job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
 
-Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../reference/job-deploy) handle scenarios like this automatically for you.
+Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../platform/job-deploy) handle scenarios like this automatically for you.
 
 ## Using custom service names
 
@@ -255,7 +255,7 @@ This way, every time your image tag is updated, the newest tag is pulled for use
 
 Or, you can add them to your task definition template and use `shippable_replace` to fill in the values as we showed above.  This is a great way to ensure that your deployment is always using the most recent tag for your image.
 
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/jobs-unmanaged).
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/jobs-unmanaged).
 
 ### Resource State Management
 

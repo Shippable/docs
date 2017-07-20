@@ -4,13 +4,13 @@ sub_section: Pushing artifacts
 
 #Pushing Artifacts to JFrog
 
-You can push your artifacts to JFrog in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your artifacts at the end of the `ci` section.
+You can push your artifacts to JFrog in any section [of your yml](../platform/shippable-yml/). Typically, you would want to push your artifacts at the end of the `ci` section.
 
 ##Setup
 
 Before you start, you will need to connect your JFrog account with Shippable so we have the credentials to push artifacts on your behalf.
 
-Please follow the steps outlined [here](/reference/int-jfrog-artifactory/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+Please follow the steps outlined [here](/platform/int-jfrog-artifactory/). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ## Basic Config
 

@@ -11,7 +11,7 @@ Shippable will use a Azure DC/OS integration to communicate with your cluster on
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
 
-<img width="75%" height="75%" src="../../images/reference/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
+<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
 
 -  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
 -  Locate **Azure DC/OS** in the list and click on **Create Integration**
@@ -20,7 +20,7 @@ Shippable will use a Azure DC/OS integration to communicate with your cluster on
 -  Click **Save**. It will generate an public SSH key which should be added to the Mesos master VM.
 -  After adding the SSH key, Click **Done**.
 
-<img src="../../images/reference/integrations/azure-dcos-int.png" alt="Add Azure DC/OS credentials">
+<img src="../../images/platform/integrations/azure-dcos-int.png" alt="Add Azure DC/OS credentials">
 
 Now that the Azure DC/OS integration is added on Shippable, we can reference it when we create pipeline yml blocks. In this case, we want to create a cluster type block in our shippable.resources.yml file. This must reference a cluster that has been deployed in your environment and for which we created the Azure DC/OS integration in the previous step.
 
@@ -74,7 +74,7 @@ That's all there is to it!
 In the above scenario, several options are set by default that you might want to change.
 
 #### dockerOptions
-Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
+Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
 ```
   - name: deploy-azure-basic-img-options
     type: dockerOptions
@@ -86,7 +86,7 @@ Using [dockerOptions](../reference/resource-dockeroptions), all of the advanced 
 
 #### replicas
 
-[Replicas](../reference/resource-replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
+[Replicas](../platform/resource-replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
 
 ```
   - name: deploy-azure-basic-replicas

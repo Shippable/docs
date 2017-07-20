@@ -231,7 +231,7 @@ The differences between environments often go beyond a simple cluster change.  S
 
 Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
 
-Modify our existing params resource to help us [integrate with Slack](../reference/int-slack).  We'll want to send messages to a different channel depending on which environment we're in.
+Modify our existing params resource to help us [integrate with Slack](../platform/int-slack).  We'll want to send messages to a different channel depending on which environment we're in.
 
 ```
 resources:
@@ -274,4 +274,4 @@ Now run the production deploy job.  Once the deployment has finished, you can ag
 
 ## Unmanaged deployments
 
-In an unmanaged scenario, you'll be using a runCLI or runSh job where you can directly add ssh keys that allow you to connect to your nodeClusters.  You're free to do any scripting you want within these job types.  [See here](../reference/jobs-unmanaged) for more information on unmanaged jobs.
+In an unmanaged scenario, you'll be using a runCLI or runSh job where you can directly add ssh keys that allow you to connect to your nodeClusters.  You're free to do any scripting you want within these job types.  [See here](../platform/jobs-unmanaged) for more information on unmanaged jobs.

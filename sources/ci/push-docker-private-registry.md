@@ -4,13 +4,13 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to Private Registry
 
-You can push your image to Docker Private Registry in any section [of your yml](../reference/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to Docker Private Registry in any section [of your yml](../platform/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 
 Before you start, you will need to connect your Docker Private Registry with Shippable so we have the credentials to push your image on your behalf.
 
-Please follow the steps outlined [here](/reference/int-private-registries/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+Please follow the steps outlined [here](/platform/int-private-registries/). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ##Basic config
 

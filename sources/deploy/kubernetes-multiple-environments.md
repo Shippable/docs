@@ -33,7 +33,7 @@ CI -> Docker hub -> manifest -> deploy to beta -> deploy to prod
 
 If you followed the [Managed deployments](/deploy/kubernetes/) docs, you already have a pipeline that deploys to the first environment, beta.
 
-Now let's add the prod environment. We will need a new [cluster](/reference/resource-cluster/) for production, as well as a [deploy](/reference/job-deploy/) job.
+Now let's add the prod environment. We will need a new [cluster](/platform/resource-cluster/) for production, as well as a [deploy](/platform/job-deploy/) job.
 
 Cluster definition in `shippable.resources.yml`:
 ```
@@ -119,7 +119,7 @@ With this configuration, your container running in the Beta environment will hav
 
 You can set different options for your containers with the `dockerOptions` resource, depending on which environment they are running in.
 
-Add two [dockerOptions resources](../reference/resource-dockeroptions), one for each deploy job, to the pipeline in `shippable.resources.yml`. Here, we're allocating more memory for production since it runs with much higher load.
+Add two [dockerOptions resources](../platform/resource-dockeroptions), one for each deploy job, to the pipeline in `shippable.resources.yml`. Here, we're allocating more memory for production since it runs with much higher load.
 
 ```
 resources:

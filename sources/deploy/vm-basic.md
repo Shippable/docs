@@ -3,7 +3,7 @@ main_section: Deploy
 sub_section: Node Cluster on any cloud
 
 # Deploying Artifacts to a Node Cluster
-Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../reference/int-node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
+Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/int-node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
 
 ## The Goal
 The goal of this page is to accomplish the following scenario using Shippable Pipelines.
@@ -21,7 +21,7 @@ In the end, your pipeline will look like this:
 
 For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to S3, so that the deployment can pull them.  Check out the sample project [source code](https://github.com/devops-recipes/deploy-nodecluster-basic) to see how to write a `shippable.yml` that does this.
 
-Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../reference/int-node-cluster) for instructions on creating the integration.
+Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/int-node-cluster) for instructions on creating the integration.
 
 Now we need a cluster resource that references the integration we created:
 
@@ -45,7 +45,7 @@ Next we'll need a resource that acts as a representation of our software package
 ```
 
 ## Managed
-Shippable provides a type of managed job called [deploy](../reference/job-deploy), which can take an input of a [manifest job](../reference/job-manifest).  A manifest is made up of one or more files that you'd like to deploy to your nodecluster.  Each manifest can have its own set of customizable environment variables.
+Shippable provides a type of managed job called [deploy](../platform/job-deploy), which can take an input of a [manifest job](../platform/job-manifest).  A manifest is made up of one or more files that you'd like to deploy to your nodecluster.  Each manifest can have its own set of customizable environment variables.
 
 To run this deployment using Shippable managed jobs, we'll need a few more resources:
 
@@ -71,7 +71,7 @@ resources:
         PORT: 8888
         ENVIRONMENT: nodeCluster
 ```
-This is a [params](../reference/resource-params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
+This is a [params](../platform/resource-params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
 
 We'll also need some jobs that utilize these new resources.
 ```
@@ -92,7 +92,7 @@ jobs:
 
 ```
 
-Here we've got one [manifest job](../reference/job-manifest) and one [deploy job](../reference/job-deploy).  The manifest job takes the file resource and params resource inputs.  The deploy job takes the manifest job and the cluster resource as inputs.
+Here we've got one [manifest job](../platform/job-manifest) and one [deploy job](../platform/job-deploy).  The manifest job takes the file resource and params resource inputs.  The deploy job takes the manifest job and the cluster resource as inputs.
 
 Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
 

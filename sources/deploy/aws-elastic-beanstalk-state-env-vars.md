@@ -113,7 +113,7 @@ Make sure you're in the correct location to access the directory!
 
 Now your Dockerrun file is using the latest image tag, and you can update your beanstalk environment to deploy it.
 
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../reference/job-runcli).
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/job-runcli).
 
 ### Resource State Management
 
