@@ -90,6 +90,8 @@ Usage:
     help            Print this message
     clean           Remove shippable containers and configurations
     info            Print information about current installation
+    list            Print available admiral versions
+    switch          Switch admiral to a given version
 ```
 
 ### install
@@ -124,6 +126,12 @@ side effects on the system.
 
 ### info
 The `info` command displays some basic information about the current installation. Running `./admiral.sh info` from the cloned Admiral repository will print the current version installed, the addresses of the Admiral UI and database, and the login token for Admiral. The version shown may not be the version running if Admiral has been updated but the services have not yet been upgraded.
+
+## list
+The `list` command will list all the available versions for admiral. Running `./admiral.sh list` command will fetch latest tags from git and list them. You can switch admiral to any given version using `./admiral.sh switch <version_name>`. This command is available for `v5.7.4` and above.
+
+## switch
+The `switch` command checks out the admiral version listed in `./admiral.sh list` command. You can update your admiral server using `./admiral switch <version_name>` then run `./admiral.sh upgrade` to run against the version that has been checked out. Please note that this feature is available for admiral `v5.7.4` and above, so switching to an earlier version would mean manually checking out latest version using `git checkout tags/<version>`
 
 ## The Admiral UI
 After running `./admiral.sh install`, the Admiral UI will be available. All further configuration of a new installation takes place here.
