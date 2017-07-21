@@ -231,40 +231,40 @@ pages:
       - Stable: platform/machine-image-stable.md
     - Workflow:
       - Concepts: platform/workflow-overview.md
+      - Jobs:
+        - Overview: platform/jobs-overview.md
+        - Unmanaged jobs: platform/jobs-unmanaged.md
+        - deploy: platform/job-deploy.md
+        - manifest: platform/job-manifest.md
+        - provision: platform/job-provision.md
+        - release: platform/job-release.md
+        - runCI: platform/job-runci.md
+        - runCLI: platform/job-runcli.md
+        - runSH: platform/job-runsh.md
+        - jenkinsJob: platform/job-jenkinsjob.md
+      - Resources:
+        - Overview: platform/resources-overview.md
+        - ciRepo: platform/resource-cirepo.md
+        - cliConfig: platform/resource-cliconfig.md
+        - cluster: platform/resource-cluster.md
+        - dockerOptions: platform/resource-dockeroptions.md
+        - file: platform/resource-file.md
+        - gitRepo: platform/resource-gitrepo.md
+        - image: platform/resource-image.md
+        - integration: platform/resource-integration.md
+        - loadBalancer: platform/resource-loadbalancer.md
+        - notification: platform/resource-notification.md
+        - params: platform/resource-params.md
+        - replicas: platform/resource-replicas.md
+        - state: platform/resource-state.md
+        - syncRepo: platform/resource-syncrepo.md
+        - time: platform/resource-time.md
+        - version: platform/resource-version.md
     - Configuration:
       - shippable.yml: platform/shippable-yml.md
       - shippable.jobs.yml: platform/shippable-jobs-yml.md
       - shippable.resources.yml: platform/shippable-resources-yml.md
       - shippable.triggers.yml: platform/shippable-triggers-yml.md
-    - Jobs:
-      - Overview: platform/jobs-overview.md
-      - Unmanaged jobs: platform/jobs-unmanaged.md
-      - deploy: platform/job-deploy.md
-      - manifest: platform/job-manifest.md
-      - provision: platform/job-provision.md
-      - release: platform/job-release.md
-      - runCI: platform/job-runci.md
-      - runCLI: platform/job-runcli.md
-      - runSH: platform/job-runsh.md
-      - jenkinsJob: platform/job-jenkinsjob.md
-    - Resources:
-      - Overview: platform/resources-overview.md
-      - ciRepo: platform/resource-cirepo.md
-      - cliConfig: platform/resource-cliconfig.md
-      - cluster: platform/resource-cluster.md
-      - dockerOptions: platform/resource-dockeroptions.md
-      - file: platform/resource-file.md
-      - gitRepo: platform/resource-gitrepo.md
-      - image: platform/resource-image.md
-      - integration: platform/resource-integration.md
-      - loadBalancer: platform/resource-loadbalancer.md
-      - notification: platform/resource-notification.md
-      - params: platform/resource-params.md
-      - replicas: platform/resource-replicas.md
-      - state: platform/resource-state.md
-      - syncRepo: platform/resource-syncrepo.md
-      - time: platform/resource-time.md
-      - version: platform/resource-version.md
     - API:
       - Overview: platform/api-overview.md
       - Tokens: platform/api-tokens.md
