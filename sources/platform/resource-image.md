@@ -2,28 +2,31 @@ page_main_title: image
 main_section: Platform
 sub_section: Resources
 
-# image
-An `image` resource is used to add a reference to a docker image to your pipeline. It is used as an input for [manifest jobs](job-manifest/).
+# TODO
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
+| Need to pointer for each integration type|  Open |
 
-You can create an `image` resource by adding it to `shippable.resources.yml`:
+# image
+`image` resource is used to add a reference to a docker image to your pipeline.
+
+You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
-  - name: <string>                           	 #required
-    type: image                               	 #required
-    integration: <string>                   	 #required
-    pointer:
-      sourceName: "org/repo"                    #required
-    seed:
-      versionName: "<string>"                	 #optional
+  - name: 			<string>
+    type: 			image
+    integration: 	<string>
+    pointer:		<object>
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* **`name`** -- should be an easy to remember text string
 
-* `type` is always set to 'image'.
+* **`type`** -- is set to `image`
 
-* `integration` should be the name of the integration that connects to the Docker Registry provider where the image is located. To learn how to create integrations for a specific Docker Registry, please select from the list below and read the **Adding an integration** section on that page:
-
+* **`integration`** -- name of the integration. Currently supported integrations are 
 	- [Docker Hub](int-docker-hub/)
 	- [Docker Private Registry](int-docker-trusted-registry/)
 	- [Docker Trusted Registry](int-docker-trusted-registry/)
@@ -31,9 +34,29 @@ resources:
 	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
 	- [Quay.io](int-quay/)
 
-Please make sure your integration is also enabled for your subscription and you use that integration name here.
+* **`pointer`** -- is an object which contains integration specific properties
 
-* `pointer` section provides information about the image.
-	* `sourceName` is the fully qualified name of the image. This is dependent on the registry where the image is located. For Docker Hub, this can be <repo name>/<image name>, e.g. manishas/demoImage
+```
+  pointer:
+    sourceName: < Fully Qualified Name of the image, can be just repo/image in case of Docker Hub
+```
+* **`seed`** -- is an object which contains initial version properties
 
-* `versionName` should be set to a starting value for the image tag. It will be used by the first run of any job that has this image as an input, unless the `versionName` is changed prior to the first run by an upstream job or CI workflow. The default value for this is `latest`. You can also use this to re-seed the image resource with a specific tag.
+```
+  seed:
+    versionName: <Name of the image tag>
+```
+
+# Used in JOBs
+This resource is used as an IN for the following jobs
+
+* runCLI
+* runSH
+* runCI
+* manifest
+
+
+# Further Reading
+* GKE integration
+* AWS integration
+* how to ourput image tag from runCI or runSH

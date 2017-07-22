@@ -11,6 +11,12 @@ Using an integration is a two step process:
 
 <img src="../../images/platform/integrations/account-integrations-explained.png" alt="Google Container Registry integration">
 
+
+Shippable is designed to separate out sensitive authentication information from resources.
+This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
+
+
+
 ##Basic config
 ###1. Adding an integration to your account
 

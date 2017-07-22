@@ -42,7 +42,7 @@ resources:
 
 * **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](resource-dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
 
-
+<a name="adding"></a>
 ## Adding resources
 Resources are defined in a configuration file `shippable.resources.yml` present and this file is added to the root of a source control repository. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to resources defined in the repo. 
 

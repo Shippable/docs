@@ -5,45 +5,74 @@ page_title: Unified Pipeline Resources - cluster
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
+# TODO
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
+| Need to pointer for each integration type|  Open |
+
 # cluster
-This resource type is used to specify a cluster in any Container Service to which you can deploy your application or service.
+`cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole. 
 
-**A `cluster` resource is an `IN` resource for [a deploy job](job-deploy/). Please note that the resource just points to an existing cluster and does not create a cluster.**
+You can create an cluster resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
-
-##Configuration reference
-
-You can define a cluster resource by adding it to `shippable.resources.yml`
 ```
 resources:
-  - name: <string>                              #required
-    type: cluster                               #required
-    integration: <integration name>             #required
-    pointer:
-      sourceName: "<string>"                    #required
-      region: "<string>"                        #required for some container services
-      namespace: "<string>"                     #optional
+  - name: 			<string>
+    type: 			cluster
+    integration: 	<string>
+    pointer:		<object>
 ```
 
-* resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* **`name`** -- should be an easy to remember text string
 
-* `type` is always set to 'cluster'.
+* **`type`** -- is set to `cluster`
 
-* `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the Container Service of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
-	  * [AWS Elastic Container Service (ECS)](int-amazon-ecs/)
-    * [Kubernetes](int-kubernetes/)
-	  * [Google Container Engine (GKE)](int-gke/)
-    * [Docker Cloud](int-docker-cloud/)
-    * [Docker Datacenter](int-docker-datacenter/)
-	  * [Microsoft Azure Container Service](int-azure-dcos)
+* **`integration`** -- name of the integration. Currently supported integrations 
+	* [AWS Elastic Container Service (ECS)](int-amazon-ecs/)
+	* [Kubernetes](int-kubernetes/)
+	* [Google Container Engine (GKE)](int-gke/)
+	* [Docker Cloud](int-docker-cloud/)
+	* [Docker Datacenter](int-docker-datacenter/)
+	* [Microsoft Azure Container Service](int-azure-dcos)
+	* Node Cluster
+	* AWS
 
-* `sourceName` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
+* **`pointer`** -- is an object which contains integration specific properties
+	* in case of AWS 
+	
+	```
+	    pointer:
+	      region: <aws region for e.g us-east-1, us-west-1 etc.>
+	      sourceName: contains ECS cluster name
+	```
 
-* `region` is the region where the cluster resides, e.g. "us-east-1". Specify this value in double quotes. This is required for the following types of integrations and will take
-in the values that the provider supports:
-    * AWS Elastic Container Service (ECS)
-    * Google Container Engine (GKE)
-    * Joyent Triton
-    * Microsoft Azure Container Service (ACS)
+	* in case of GKE
 
-* `namespace` is an option for deployments to Google Container Engine (GKE). If a namespace is specified, deployments will be made to that namespace. Otherwise deployments will be in the default namespace.
+	```
+	    pointer:
+	      region: <aws region for e.g us-east-1, us-west-1 etc.>
+	      sourceName: <cluster of type Google Container Engine>
+	      namespace: optional if you want to specify which namespace you want to deploy to
+	```
+
+	* Joyent
+	* Azure
+	* Custom kubernetes
+
+
+# Used in JOBs
+This resource is used as an IN for the following jobs
+
+* deploy
+* runCLI
+* runSH
+
+# Further Reading
+* GKE integration
+* AWS integration
+* Azure
+* Docker
+* deploy job
+* runSH
