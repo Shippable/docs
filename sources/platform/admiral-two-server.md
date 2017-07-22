@@ -17,8 +17,10 @@ Shippable Server EE comprises of the following -
 This document describes the steps to install Shippable Server EE onto two servers -
 
 * **Server 1** - Admiral web app, transient state, micro services
+
 Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
 * **Server 2** - Stateful Components
+
 Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
 
 ##Server 2
