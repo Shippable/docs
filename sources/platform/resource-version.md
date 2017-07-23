@@ -3,21 +3,38 @@ main_section: Platform
 sub_section: Resources
 
 # version
-A `version` resource is used to create version numbers for releases. It uses <a href="http://www.semver.org/">the semantic version</a> methodology to increment versions.
+`version` resource is used to store <a href="http://www.semver.org/">the semantic version</a> numbers.
 
-`version` resources are used as inputs to [release jobs](job-release/).
+You can create a version resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
-You can create this resource by adding it to `shippable.resources.yml`
 ```
 resources:
-  - name: <string>                         	#required
-    type: version                            	#required
-    seed:
-      versionName: "0.0.1"                    	#required
+  - name: 			<string>
+    type: 			version
+    seed:			<object>
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* **`name`** -- should be an easy to remember text string
 
-* `type` is always set to 'version'.
+* **`type`** -- is set to `version`
 
-* `versionName` is a string that represents a semantic version that is used as a starting point. This will get incremented in the IN operations of [jobs](#jobs). You can also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
+* **`seed`** -- is an object which contains specific properties that applies to this resource. 
+	
+	```
+		seed:
+		  versionName: "0.0.1"
+	```
+`versionName` is a string that represents a semantic version that is used as a starting point when used with a release job. You can also also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
+
+# Used in JOBs
+This resource is used as an IN for the following jobs
+
+* [release](job-release/)
+* runSH
+* runCLI
+* runCI
+
+# Further Reading
+* How to push semantic tags to Git
+* How to tag a docker image with semantic versions
+* How to create immutable service definitions with version numbers

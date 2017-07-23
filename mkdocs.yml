@@ -165,6 +165,10 @@ pages:
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
+    - How To:
+      - Configure environment variables during deployment?:  deploy/howto-configure-deploy-envs.md
+      - Configure replicas during deployment?:  deploy/howto-configure-deploy-replicas.md
+
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
@@ -231,6 +235,8 @@ pages:
         - Stable: platform/machine-image-stable.md
     - Workflow:
       - What is it?: platform/workflow-overview.md
+      - How To?:
+        - Share data between Jobs: platform/howto-share-data-between-jobs.md
       - Resources:
         - Overview: platform/resources-overview.md
         - Working with resources: platform/resources-working-with.md

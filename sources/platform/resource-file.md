@@ -35,13 +35,13 @@ resources:
 	
 	```
 	    pointer:
-	      sourceName: points to publicly accessible file URI
+	      sourceName: <points to publicly accessible file URI>
 	```
 	* in case of JFrog
 
 	```
 	    pointer:
-	      sourceName: in format "repositoryName/path" of a artifactory respository file
+	      sourceName: <in format "repositoryName/path" of a artifactory respository file>
 	```
 
 # Used in JOBs

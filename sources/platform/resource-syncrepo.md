@@ -4,15 +4,14 @@ sub_section: Resources
 
 # syncRepo
 
-The `syncRepo` resource is at the heart of your deployment pipelines. This resource is a pointer to the source control repository containing the files that define your pipelines:  `shippable.resources.yml` and `shippable.jobs.yml`.
+`syncRepo` is a special resource. It is at the heart of Shippable DevOps Assembly Lines. This resource is a pointer to the source control repository containing the files that define your CI/CD workflow namely,  `shippable.resources.yml` and `shippable.jobs.yml`.
 
 **Note:** Shippable will only read the contents of your `shippable.resources.yml` and `shippable.jobs.yml` files in the source control repository for which you want to add the syncRepo. If you have a file like `shippable.resources.yml.example` in that repository, then shippable won't be parsing the contents of those files and it will be ignored in the creation of your pipeline resources.
 
 When you add a `syncRepo`, Shippable will read the jobs and resources ymls and create your pipeline. We also add a webhook on the source repository that notifies Shippable each time anything in the repository is changed. This webhook notification will automatically sync any changes you make to the jobs and resources ymls and reflect them in your pipeline.
 
-**You need to add at least one syncRepo resource from the Shippable UI.** Subsequent sync repositories can also be added through the UI following the same process.
 
-This is the only resource type that can be added from the UI. You should not add the same repository as a sync repo more than once. This can lead to unexpected behavior.
+This is the only resource type that can be added from the UI. You should not add the same repository/branch as a sync repo more than once. This can lead to unexpected behavior.
 
 ## Adding a syncRepo from the UI
 
@@ -31,3 +30,11 @@ This is the only resource type that can be added from the UI. You should not add
 * Click on **Save** to apply your sync repository configuration.
 
 At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml` in the Single Pane of Glass (SPOG).
+
+# Further Reading
+* JFrog integration
+* AWS integration
+* runCLI job
+* cli pre-installed in job runtime
+* how to deploy a file to a VM cluster
+* Output a file from runSH

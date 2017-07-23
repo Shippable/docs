@@ -2,32 +2,45 @@ page_main_title: replicas
 main_section: Platform
 sub_section: Resources
 
-# replicas
-This resource type is used to control the number of instances of an application or service
-that will be started in the target environment. This is used as an input resource to [manifest jobs](job-manifest/) or [deploy jobs](job-deploy/).
+# TODO
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
 
-You can create this resource by adding it to `shippable.resources.yml`
+# replicas
+`replicas` is a resource holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers 
+
+You can create a replicas resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+
 ```
 resources:
-  - name: <string>                          	#required
-    type: replicas                            	#required
-    version:
-      count: 1                                	#required
+  - name: 			<string>
+    type: 			replicas
+    version:		<object>
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* **`name`** -- should be an easy to remember text string
 
-* `type` is always set to 'replicas'.
+* **`type`** -- is set to `replicas`
 
-* `count` is an integer that represents the number of instances to run.
+* **`version`** -- is an object which contains specific properties that applies to this resource. Anytime this is changed in the YML a new version of the resource get created and it might trigger your workflow depending on how it is setup
+	
+	```
+	    version:
+	      count: 1			#integer value > 0
+	```
 
-A new version of this resource is created everytime anything in the version section changes.
+# Used in JOBs
+This resource is used as an IN for the following jobs
 
-##Overriding replicas
-`replicas` can also be used to override settings that were set in an upstream stage of the pipeline.
+* [deploy jobs](job-deploy/)
+* [manifest jobs](job-manifest/)
 
-For example, if you want to use different number of replicas in Test and Production environments, you can do so by overriding the resource.
-
-<img src="../../images/platform/resources/overrideReplicas.png" alt="Overriding replicas">
-
-In the picture above, `deploy-test` takes `replicas-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `replicas-2` as an input. For the production deployment, value of count in `replicas-2` will override the setting from `replicas-1`.
+# Further Reading
+* JFrog integration
+* AWS integration
+* runCLI job
+* cli pre-installed in job runtime
+* how to deploy a file to a VM cluster
+* Output a file from runSH

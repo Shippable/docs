@@ -10,9 +10,11 @@ sub_section: Resources
 | Need to pointer for each integration type|  Open |
 
 # cliconfig
-`cliConfig` resource is used to supply configuration information required to setup Command Line Interface (CLI) so that commands can be executed by a [runCLI job](job-runcli/). Multiple cliConfig resources may be used as INs to a single runCLI job and the respective CLIs are configured. If more than one cliConfig resource for the same integration type is added, the last one IN wins. 
+`cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface. 
 
 You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+
+Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins. 
 
 ```
 resources:
@@ -49,8 +51,8 @@ resources:
 # Used in JOBs
 This resource is used as an IN for the following jobs
 
-* runCLI
-* runSH
+* [runCLI](job-runcli/)
+* [runSH](job-runsh/)
 
 # Further Reading
 * GKE integration
