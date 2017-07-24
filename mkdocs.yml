@@ -168,7 +168,6 @@ pages:
     - How To:
       - Configure environment variables during deployment?:  deploy/howto-configure-deploy-envs.md
       - Configure replicas during deployment?:  deploy/howto-configure-deploy-replicas.md
-
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
@@ -226,51 +225,50 @@ pages:
     - Overview: platform/platform-overview.md
     - Job Runtime:
       - Concepts: platform/job-runtime-overview.md
-      - Machine Images: platform/machine-images-overview.md
-        - v5.7.3: platform/machine-image-v573.md
-        - v5.6.1: platform/machine-image-v561.md
-        - v5.5.1: platform/machine-image-v551.md
-        - v5.4.1: platform/machine-image-v541.md
-        - v5.3.2: platform/machine-image-v532.md
-        - Stable: platform/machine-image-stable.md
+      - Overview: platform/machine-images-overview.md
+      - v5.7.3: platform/machine-image-v573.md
+      - v5.6.1: platform/machine-image-v561.md
+      - v5.5.1: platform/machine-image-v551.md
+      - v5.4.1: platform/machine-image-v541.md
+      - v5.3.2: platform/machine-image-v532.md
+      - Stable: platform/machine-image-stable.md
     - Workflow:
-      - What is it?: platform/workflow-overview.md
-      - How To?:
-        - Share data between Jobs: platform/howto-share-data-between-jobs.md
-      - Resources:
-        - Overview: platform/resources-overview.md
-        - Working with resources: platform/resources-working-with.md
-        - ciRepo: platform/resource-cirepo.md
-        - cliConfig: platform/resource-cliconfig.md
-        - cluster: platform/resource-cluster.md
-        - dockerOptions: platform/resource-dockeroptions.md
-        - file: platform/resource-file.md
-        - gitRepo: platform/resource-gitrepo.md
-        - image: platform/resource-image.md
-        - integration: platform/resource-integration.md
-        - loadBalancer: platform/resource-loadbalancer.md
-        - notification: platform/resource-notification.md
-        - params: platform/resource-params.md
-        - replicas: platform/resource-replicas.md
-        - state: platform/resource-state.md
-        - syncRepo: platform/resource-syncrepo.md
-        - time: platform/resource-time.md
-        - version: platform/resource-version.md
-      - Jobs:
-        - Overview: platform/jobs-overview.md
-        - Unmanaged jobs: platform/jobs-unmanaged.md
-        - deploy: platform/job-deploy.md
-        - manifest: platform/job-manifest.md
-        - provision: platform/job-provision.md
-        - release: platform/job-release.md
-        - runCI: platform/job-runci.md
-        - runCLI: platform/job-runcli.md
-        - runSH: platform/job-runsh.md
-        - jenkinsJob: platform/job-jenkinsjob.md
-      - Triggers:
-        - Overview: platform/resources-overview.md
-        - Working with triggers: platform/resources-overview.md
-        - shippable.triggers.yml: platform/shippable-triggers-yml.md
+      - What is it: platform/workflow-overview.md
+      - How to share data between Jobs: platform/howto-share-data-between-jobs.md
+    - Resources:
+      - Overview: platform/resources-overview.md
+      - Working with resources: platform/resources-working-with.md
+      - ciRepo: platform/resource-cirepo.md
+      - cliConfig: platform/resource-cliconfig.md
+      - cluster: platform/resource-cluster.md
+      - dockerOptions: platform/resource-dockeroptions.md
+      - file: platform/resource-file.md
+      - gitRepo: platform/resource-gitrepo.md
+      - image: platform/resource-image.md
+      - integration: platform/resource-integration.md
+      - loadBalancer: platform/resource-loadbalancer.md
+      - notification: platform/resource-notification.md
+      - params: platform/resource-params.md
+      - replicas: platform/resource-replicas.md
+      - state: platform/resource-state.md
+      - syncRepo: platform/resource-syncrepo.md
+      - time: platform/resource-time.md
+      - version: platform/resource-version.md
+    - Jobs:
+      - Overview: platform/jobs-overview.md
+      - Unmanaged jobs: platform/jobs-unmanaged.md
+      - deploy: platform/job-deploy.md
+      - manifest: platform/job-manifest.md
+      - provision: platform/job-provision.md
+      - release: platform/job-release.md
+      - runCI: platform/job-runci.md
+      - runCLI: platform/job-runcli.md
+      - runSH: platform/job-runsh.md
+      - jenkinsJob: platform/job-jenkinsjob.md
+    - Triggers:
+      - Overview: platform/resources-overview.md
+      - Working with triggers: platform/resources-overview.md
+      - shippable.triggers.yml: platform/shippable-triggers-yml.md
     - Configuration:
       - shippable.yml: platform/shippable-yml.md
       - shippable.jobs.yml: platform/shippable-jobs-yml.md
