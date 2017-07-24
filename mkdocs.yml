@@ -226,6 +226,7 @@ pages:
     - Job Runtime:
       - Concepts: platform/job-runtime-overview.md
       - Nodes: platform/job-runtime-nodes.md
+      - Environment variables: platform/job-runtime-environment-variables.md
       - Caching: platform/job-runtime-caching.md
       - Images: platform/machine-images-overview.md
     - Workflow:
