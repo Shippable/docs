@@ -12,9 +12,17 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 
 # Resources
-Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](/platform/jobs-overview/).
+Resources are the basic building blocks of your pipelines. They typically contain information needed for [Jobs](/platform/jobs-overview/) to execute and sometimes they also are used to store information produced in a Job.
 
 A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns the same result every single time it is fetched. For e.g., git commit sha is always idempotent.
+
+They are predominantly used for the following reasons
+
+* Provide 3rd party secrets to the Job Runtime so that environment is configured with the right level of access rights to connect to external services. E.g. integration, cliConfig etc.
+* Supply information to set the context for the Jobs to execute. E.g. params, version etc.
+* A trigger to changes to the repo on the source control system. E.g. gitRepo, ciRepo, syncRepo
+* A trigger to execute a Job. E.g. time etc.
+* Act as an entitry to store stateful information produced during the execution of a Job. E.g. state, any resource to store key-value info
 
 ## Definition
 Resources can be defined using declarative `YML` based code snippets as below

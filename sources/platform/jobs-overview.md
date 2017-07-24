@@ -5,10 +5,30 @@ page_title: Unified Pipeline Jobs
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
+# TODO
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
+
 # Jobs
-Jobs are the executable units of your pipelines. They take one or more [resources](resources-overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.
+Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job. 
+
+Jobs are simple to understand, they take inputs of information in the form of [Resources](resources-overview/), execute tasks that perform the operations necessary and then produce a result i.e. output of the job. Now these outputs can become inputs to other jobs and so on forming a dependency based, event driven DevOps Assembly Lines.
 
 <img src="/images/platform/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+They are typically used in these cases
+
+* Executing webhook triggered Continuous Integration (CI) on a repo
+* Build, Test and Push Docker images to registries like Docker Hub. Quay, JFrog etc.
+* Build deployable machine images with tools like Packer etc.
+* Provisioning infrastructure using various automation tools like Chef, Puppet, Terraform, Ansible etc.
+* Deploying applications to container services like Kubernetes, Google Container Engine, Amazon ECS, Azure Container Service as well as to plain VM based clusters
+* Create immutable service definitions so that applications can roll-forward and roll-back
+* Deploying applications with Continuous Deployment (CD) tools like Capistrano, Distelli, Ansible etc.
+* Implementing deployment strategies like Blue/Green, Upgrades and Replace
+* Perform timely backups of DB, key-value stores etc.
 
 Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
