@@ -1,6 +1,7 @@
-page_main_title: How to share data between Jobs?
+page_main_title: Share data between Jobs
 main_section: Platform
-sub_section: HowTo
+sub_section: How To
+page_title: Share data between Jobs
 
 # state
 A `state` resource type is used to create a central state that can be used across the entire pipelines. This resource can be used as IN and OUT step for [any job](jobs-overview/).
@@ -83,4 +84,3 @@ createOutStateRes
 
 * When tfDeploy-1 job is completed, there is an state resource as an OUT, which will update the files in the resource and save the state files.
 * Since the state resource is also an input to tfDeploy-2. When Job 2 will be triggered we will fetch the latest state files for the state resource based on the version being used and on completion of tfDeploy-2 job, we will again do an OUT on the same state resource to update the files.
-
