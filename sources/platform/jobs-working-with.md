@@ -71,42 +71,30 @@ Any special `YML` tags that are job specific is defined in respective job pages.
 * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports both `script` and `NOTIFY` tags
 * **`always `** -- this section is executed no matter what the status is. Supports both `script` and `NOTIFY` tags
 
+## Folder structure of a Job
+When Jobs execute in the minion (instance of Job Runtime) the underly create a specific set of folders on disk
 
 <a name="adding"></a>
 ## Adding Jobs
-Jobs are defined in a configuration file `shippable.jobs.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 job files are present in the repository, the first one is used. This is done in order to reduce conflict due to the same job being defined in multiple places.
+Jobs are defined in a configuration file `shippable.jobs.yml` and this file is added to the root of a source control repository. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Jobs defined in the repo. 
 
-To learn how to add this file and connect it to pipelines, [click here](/tutorials/pipelines/howToAddSyncRepos/)
+Once the Jobs are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/resource-syncrepo)
+
+After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately
+
+## Migrating a Job from one YML to another
+There are some situations where you might need to reorganize where your Jobs are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative
+
+Here are the steps to migrate
+
 
 ## Deleting Jobs
-Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a job can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of job(s) in ymls, we have made deletion of job a 2 step process.
+Deleting Job is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Job means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow. 
 
-First, you need to soft-delete a job by removing it from your `shippable.jobs.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted jobs at the bottom of the `Jobs` tab. If soft-deleted jobs are added back to the jobs yml, the system will undelete them and you will retain version history for the undeleted jobs.
+Here are the steps to delete a Job
 
-To completely remove a job from the system, you need to hard delete it through the UI. To do this:
-
-* Go to your Subscription page and click on the `Pipelines` tab
-* You will find a list of soft deleted jobs at the bottom of your SPOG. To hard delete, just right click on the job and click `Delete`.
-
-A job must be soft deleted before it can be hard deleted.
-
-
-## Pausing jobs
-
-You can pause any jobs in your pipeline by right-clicking on the job, and clicking `Pause Jobs`. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
-
-
-##Viewing job console output
-
-Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run.
-
-You can view console output for a job by clicking on it in the SPOG view. The job console looks like this:
-
-<img src="../../images/platform/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-Please note that in most cases, the logs you are interested in will be under the **Executing Task -> /home/shippable/micro/nod/stepExec/managed/run.sh** section. This section is shown as expanded in the screenshot above.
-
-In addition to viewing logs for the latest run, you can also view logs for historical runs by choosing a past run in the UI.
+1. Delete the Job definition from the YML and commit the change to the repo. Automatic sync process will execute and mark the removed Job as soft deleted. All version data is still available and no data is lost at this stage. If any Jobs are still using this deleted Job and they are still active, those Jobs will be marked inconsistent and will not be triggered until fixed 
+1. Now log into your SPOG, make sure that you have not hidden deleted Job from your view. All the soft deleted Jobs will appear on the bottom of your SPOG. Right click on each of them and delete. If these Jobs are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Job. Once you delete from the SPOG, all data is permanently destroyed
 
 
 # Further Reading

@@ -1,8 +1,8 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Jobs
-page_title: Unified Pipeline Jobs
-page_description: List of supported jobs
+sub_section: Visibility
+page_title: Visibility Overview
+page_description: Overview of Visibility capabilities of Shippable DevOps Assembly Lines Platform
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
@@ -12,84 +12,18 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 | Add link to inconsistencies to rSync|  Open |
 
-# Jobs
-Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job. 
 
-Jobs are simple to understand, they take inputs of information in the form of [Resources](resources-overview/), execute tasks that perform the operations necessary and then produce a result i.e. output of the job. Now these outputs can become inputs to other jobs and so on forming a dependency based, event driven DevOps Assembly Lines.
+##Viewing job console output
+Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run.
 
-<img src="/images/platform/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+You can view console output for a job by clicking on it in the SPOG view. The job console looks like this:
 
-They are typically used in these cases
+<img src="../../images/platform/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-* Executing webhook triggered Continuous Integration (CI) on a repo
-* Build, Test and Push Docker images to registries like Docker Hub. Quay, JFrog etc.
-* Build deployable machine images with tools like Packer etc.
-* Provisioning infrastructure using various automation tools like Chef, Puppet, Terraform, Ansible etc.
-* Deploying applications to container services like Kubernetes, Google Container Engine, Amazon ECS, Azure Container Service as well as to plain VM based clusters
-* Create immutable service definitions so that applications can roll-forward and roll-back
-* Deploying applications with Continuous Deployment (CD) tools like Capistrano, Distelli, Ansible etc.
-* Implementing deployment strategies like Blue/Green, Upgrades and Replace
-* Perform timely backups of DB, key-value stores etc.
+Please note that in most cases, the logs you are interested in will be under the **Executing Task -> /home/shippable/micro/nod/stepExec/managed/run.sh** section. This section is shown as expanded in the screenshot above.
 
+In addition to viewing logs for the latest run, you can also view logs for historical runs by choosing a past run in the UI.
 
-## Definition
-Jobs are defined through the `YML` based code snippets as below
-
-```
-jobs:
-  - name: <string>
-    type: <job type name>
-    steps:
-      - IN: <resource>
-        switch: off
-      - IN: <job>
-      - IN: <resource>
-        versionName: <name of the version you want to pin>
-      - IN: <resource>
-        versionNumber: <number of the version you want to pin>
-      - TASK: 
-        - script: <any shell command>
-        - script: <any shell command>
-      - OUT: <resource> 
-	 on_start:
-	   - NOTIFY: <notification resource name>
-	 on_success:
-      - script: echo "SUCCESS"
-	 on_failure:
-      - script: echo "FAILED"
-      - NOTIFY: <notification resource name>
-	 on_cancel:
-      - script: echo "CANCEL"
-	 always:
-      - script: pwd
-```
-
-For more information, read [Working with Jobs](/platform/jobs-working-with/)
-
-## When does a Job execute?
-A Job is queued by the DevOps Assembly Line platform when one of the following cases occur
-
-* A new version was created for the `IN` resource. This might occur due to a `YML` change or some other job updated the state of this resource
-* `IN` job executed and successfuly completed it's tasks. This means the preceding job ran and since its an input to this Job, it needs to run. There are some cases due to which the Job does not get triggered, namely
-	* If any Jobs defined as `IN`s are currently processing, have queued builds or in a failed state 
-	* If the Job is in [inconsistent]() state due to dependency failures
-
-<a name="types"></a>
-## Types
-These are the types of resources that Shippable Workflow supports:
-
-| Job Type   |      Description    | 
-|----------|-------------|
-| [deploy](job-deploy/) | Deploy apps/services to Container Platforms or VM clusters | 
-| [manifest](job-manifest/) | Create App/Service definition (configuration) that is immutable |
-| [provision](job-provision/) | Provision specific resources needed by Container Orchestration Platforms |
-| [release](job-release/) | Release management for Apps/Services |
-| [jenkinsJob](job-jenkinsJob/) | Execute a Jenkins Job from Assembly Lines |
-| [runCI](job-runci/) | Execute Shippable CI Job |
-| [runSh](job-runsh/) | Execute any Shell command |
-| [runCLI](job-runcli/) | Execute any supported Command Line Interface command |
-
-If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 
 # Further Reading
