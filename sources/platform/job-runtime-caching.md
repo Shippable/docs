@@ -10,3 +10,5 @@ page_title: Caching
 ## Matrix builds
 
 ## Clearing Cache
+
+## Typical Usecases
