@@ -221,6 +221,11 @@ pages:
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
+
+  - Visibility:
+    - Overview: visibility/visibility-overview.md
+  - Operations:
+    - Overview: operations/operations-overview.md
   - Platform:
     - Overview: platform/platform-overview.md
     - Job Runtime:
