@@ -225,13 +225,9 @@ pages:
     - Overview: platform/platform-overview.md
     - Job Runtime:
       - Concepts: platform/job-runtime-overview.md
-      - Overview: platform/machine-images-overview.md
-      - v5.7.3: platform/machine-image-v573.md
-      - v5.6.1: platform/machine-image-v561.md
-      - v5.5.1: platform/machine-image-v551.md
-      - v5.4.1: platform/machine-image-v541.md
-      - v5.3.2: platform/machine-image-v532.md
-      - Stable: platform/machine-image-stable.md
+      - Nodes: platform/job-runtime-nodes.md
+      - Caching: platform/job-runtime-caching.md
+      - Images: platform/machine-images-overview.md
     - Workflow:
       - What is it: platform/workflow-overview.md
       - How to share data between Jobs: platform/howto-share-data-between-jobs.md

@@ -5,34 +5,29 @@ page_title: Job Runtime Overview
 
 # Job Runtime
 
-## Execution environment
-Job Runtime prepares the environment in which your DevOps activity executes. This involves installation of all the packages and their dependencies, logging into specific third party services such as AWS with your credentials. It reliably creates your build machine or laptop environment that is often manually setup, prior to running a script that accomplishes a specific task.
+Job Runtime prepares the execution environment for your DevOps activity. This involves setting up the operating system image, installation of packages, CLI's and their dependencies required by the activity. It thus reliably creates your build machine
+or your laptop environment that is often manually setup, prior to running your scripts.
 
-For example, if you need to push a docker image to ECR, the Job Runtime will provide an environment which has AWS CLI installed and automatically authenticates to AWS using your credentials.
+Job Runtime consists of the following components -
+
+## [Docker Images](/platform/machine-images-overview)
+You can either use Shippable provided images or your own custom image.
+
+## [Nodes](/platform/job-runtime-nodes)
+You can run your jobs on Shippable's hosted infrastructure (Dynamic Nodes), or Bring Your Own Node (BYON).
 
 ## Inject credentials and authenticate your CLIs with those credentials if needed
-AWS CLI
+Let's take the example of pushing a file to AWS Elastic Container Registry (ECR) after your build completes.
+You need to have the AWS CLI credentials and the docker login completed before you can push the docker image that you have
+built to ECR. Job Runtime automatically injects your credentials (defined in a resource) and completes the docker login so
+that you can focus on simply writing the single of code that pushes the image to ECR.  
 
-## Provides environment variables that give you context of the DevOps activity
-Branch, Commit SHA
+## [Provides environment variables that give you context of the DevOps activity](/platform/environment-variables)
+We automatically generate and inject environment variables for all your job inputs, which can be used in your automation scripts. A great example of some environment variables is the branch you are building, the commit SHA, the build number, whether the build is running in context of a PR etc.
 
-## Caching
-
-Job Runtime comprises of the following components -
-
-* Runtime
-  The Runtime consists of two components:
-
-  * Shippable Agent
-    Shippable Agent (a.k.a GenExec) is also a Docker Container that is spun up on build node machine. The main function of the Shippable Agent is to interact with the Shippable platform, Build Container and perform actions outside the build container. Within the [shippable.yml file](/platform/shippable-yml/), the pre_ci, pre_ci_boot and the push sections are executed on the Shippable Agent. Some [pipeline jobs](/platform/jobs-unmanaged/) are also executed on the Shippable Agent.
-
-  * Build Container
-
-    A Build Container (a.k.a cexec) is a Docker Container that is spun up on the build node machine that executes the Continuous Integration related tasks. These include installing the required dependencies, cloning information from the source control system repository, executing unit tests and running test/code coverage reports, all of which have to be specified in the [shippable.yml](/platform/shippable-yml/) file.
-
-* Image Library
-
-  You can use our standard, ready-to-go job runtime images or use your own custom images.
+## [Caching](/platform/job-runtime-caching)
+Caching speeds up your build by automatically setting up your static dependencies. Typical usecases are caching node modules,
+ruby gems and static binaries.
 
   * Shippable Official Docker Images
 
@@ -55,18 +50,3 @@ Job Runtime comprises of the following components -
     * Build an image and use it to spin up your CI container
 
     For more information, go [here](http://docs.shippable.com/ci/custom-docker-image/).
-
-* Automatic Env Variables
-
-  We automatically generate and inject environment variables for all your job inputs, which can be used in your automation scripts. Learn more [here](/ci/env-vars/#working-with-environment-variables).
-
-* Flexible infrastructure
-
-  Run your jobs on Shippable's hosted infrastructure (Dynamic Nodes), or Bring Your Own Node (BYON).
-
-  * Dynamic nodes
-    Shippable offers a free 2 core, 3.75GB RAM node to run your builds. You can also upgrade to a paid plan for more powerful nodes. Learn more [here](https://www.shippable.com/pricing.html).
-
-  * Custom Nodes
-    BYON lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. Your code also never leaves your network.
-    Learn more [here](/getting-started/byon-overview/).
