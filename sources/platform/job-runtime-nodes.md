@@ -5,9 +5,17 @@ page_title: Job Runtime Nodes Overview
 
 # Nodes
 
-* [Free Dynamic nodes](https://www.shippable.com/pricing.html)
+Jobs run on one following types of Nodes -
+
+* [Dedicated Dynamic nodes](/platform/job-runtime-dynamic-nodes)
+
   Shippable offers a free 2 core, 3.75GB RAM node to run your builds. You can also upgrade to a paid plan
   for more powerful nodes if you need additional memory or faster processors to speed up your builds.
 
-* [Custom Nodes](/getting-started/byon-overview/)
-  Custom Noes lets you run builds on your own infrastructure. It enabled you to attach your machines to your Shippable subscription and route all builds to those machines. Your code thus never leaves your network.
+* [Dedicated Custom Nodes](/platform/job-runtime-custom-nodes)
+
+  Custom Nodes lets you run builds on your own infrastructure. It enables you to attach your machines to your Shippable subscription and route all builds to those machines. Your code thus never leaves your network.
+
+* Shared Nodes
+
+  Shared nodes are a common pool of nodes that run certain jobs. These jobs run very quickly and do not allow custom scripting. Since they run very quickly, we use a dedicated pool of nodes to save on node provisioning time.
