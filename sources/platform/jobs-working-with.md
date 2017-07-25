@@ -15,6 +15,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Working with Jobs
 Shippable DevOps Platform leverages a declarative syntax for CRUD operations on Jobs. A YML `shippable.jobs.yml` config file is used to define them. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and sync the definitions. 
 
+<a name="jobanatomy"></a>
 ## Anatomy of shippable.jobs.yml
 The anatomy of the jobs configuration generally follows the structure below
 
@@ -30,6 +31,10 @@ jobs:
         versionName: <name of the version you want to pin>
       - IN: <resource>
         versionNumber: <number of the version you want to pin>
+      - IN: <params/dockerOption resource>
+        applyTo:
+          - <image resource>
+          - <image resource>        
       - TASK: 
         - script: <any shell command>
         - script: <any shell command>
@@ -57,6 +62,7 @@ Any special `YML` tags that are job specific is defined in respective job pages.
 		* `switch` -- this determines whether a chance to the input entity will trigger a new run or not. default is `on` and can be set to `off` to turn of auto triggering
 		* `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and will take in the first matching one from the list of versions chronologically descending
 		* `versionNumber` -- this is used to pin a particular version of the input entity. Since every versionNumber is unique, this is guaranteed to give you predictable results
+		* `applyTo` - this is allowed only for [image]() & [dockerOptions]() Resources when used in conjuction with a [deploy]() or [manifest]() Job. In all other cases, it is ignored. 
 	
 		Note: `versionName` or `versionNumber` are mutually exclusive, in other words only one of them can be used
 	

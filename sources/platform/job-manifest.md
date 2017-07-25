@@ -5,77 +5,86 @@ page_title: Unified Pipeline Jobs - manifest
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
+# TODO
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
+
 # manifest
+`manifest` is Job that is used to create a versioned immutable service definition of your app. It is the definition of a deployment unit. This can be then supplied as an input to a [deploy]() Job which will then deploy the app to the desired target. A `manifest` is made up of either an [image]() or a [file]() Resources as the basic deployable unit. It can be appended with [params]() to inject environment variables during deployment in both cases and [dockerOptions]() in case its using a Docker iamge. A manifest is deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one of it changed. If you want them to deployed independently, then create multiple manifests to represent them. 
 
-A `manifest` is versioned immutable design time definition of a unit of deployment for your application. Everything in a manifest is always deployed as a whole on to a single node(virtual machine, physical machine etc). Manifests are also scaled as a whole, so creating multiple replicas of a manifest leads to multiple copies of the entire manifest.
+A new version is created anytime this Job is executed
 
-Depending on your architecture and requirements, your unit of deployment can be a service, microservice, or even the entire application. If you need your apps/service/microservice to be separately deployed, you need to separate different manifests for each.
+You can create a `manifest` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and `manifest` Jobs execute on Shippable provided [Shared Nodes]()
 
-Manifest jobs are used to generate a new version of the manifest each time anything in the manifest changes.
 
-Manifest jobs can be of 2 types:
-
-* [Single package manifest](#single): The manifest definition contains only one deployable image or file.
-* [Multi package manifest](#multi): The manifest definition contains more than one deployable image or file. All services in the manifest are deployed on the same node and scaled together.
-
-<a name="single"></a>
-## Single package manifest pattern
-
-A single package manifest has only one input `image` or `file` resource. If your microservices/services in your application are decoupled and versioned, then you might want to independently deploy and manage them by using single package manifests.
-
-<img src="../../images/platform/jobs/manifest/singlePackageManifest.png" alt="Single package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-A manifest is configured in `shippable.jobs.yml` as shown below:
+## YML Definition
 
 ```
 jobs:
-  - name: <string>                             #required
-    type: manifest                             #required
+  - name: 			<string>
+    type: 			manifest
     steps:
-      - IN: <image/file>                     	#required
-        versionName: <string>           		#optional
-      - IN: <dockerOptions>                   	#optional
-      - IN: <params>                      		#optional
-```
-
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
-* `type` is always set to manifest
-* One `image` or `file` resource is mandatory an an input for a manifest job. Please read documentation on how to define an [image](resource-image/) or [file](resource-file/) resource in your resources yml.
-	* By default, the latest version of the image/file resource will be used to generate the manifest. If you want to pin a specific version of the image/file, you can do so by including the `versionName` or `versionNumber` tags.
-* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](resource-dockeroptions/).
-* `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](resource-params/).
-* `replicas` is an optional input resource that lets you scale the number of instances of your manifest that you want to deploy. The default value for replicas is 1. Read more on [replicas resource](resource-replicas/).
-
-<a name="multi"></a>
-## Multi package manifest pattern
-There are some cases where your services are not completely decoupled. For example, your UI component might be tightly coupled with your caching component. In those cases, a manifest with 2 different images might be required. This is defined with the multi package manifest pattern.
-
-<img src="../../images/platform/jobs/manifest/multiPackageManifest.png" alt="Multi package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
-
-```
-jobs:
-  - name: <string>                             #required
-    type: manifest                            	#required
-    steps:
-      - IN: <image/file>                       #required
-        versionName: <string>            		#optional
-      - IN: <image/file>                       #required
-        versionNumber: <number>           		#optional
-      - IN: <dockerOptions>                	#optional
-      - IN: <replicas>							#optional
-      - IN: <params>                      		#optional
+      - IN: 		<image/file>				# required
+      - IN: 		<image/file>				# optional
+      - IN: 		<dockerOptions> 			# optional
+      - IN: 		<dockerOptions> 			# optional
         applyTo:
+          - <image> 
           - <image>
+      - IN: 		<params> 					# optional
+      - IN: 		<params> 					# optional
+        applyTo:
+          - <image> 
+          - <image>
+      - IN: 		<replicas> 				# optional
+      - IN: 		<replicas> 				# optional
+        applyTo:
+          - <image> 
+          - <image>
+      - IN: 		<release job> 			# optional
+      - IN: 		<version> 				# optional
+      - IN: 		<any job or resource>  # optional 
+	 on_start:
+	   - NOTIFY: <notification resource name>
+	 on_success:
+	   - NOTIFY: <notification resource name>
+	 on_failure:
+	   - NOTIFY: <notification resource name>
+	 on_cancel:
+	   - NOTIFY: <notification resource name>
+	 always:
+	   - NOTIFY: <notification resource name>
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
-* `type` is always set to manifest
-* You can define as many `image` or `file` resources as needed. Please read documentation on how to define an [image](resource-image/) or [file](resource-file/) resource in your resources yml.
-	* By default, the latest version of the image/file resource will be used to generate the manifest. If you want to pin a specific version of the image/file, you can do so by including the `versionName` or `versionNumber` tags.
-* `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](resource-dockeroptions/).
-	* 	By default, values specified in dockerOptions apply to all images in the manifest. If you want the custom values to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
-* `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](resource-params/).
-	* 	By default, values specified in params applies to all images in the manifest. If you want them to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
-* `replicas` is an optional input resource that lets you scale the number of instances of your manifest that you want to deploy. The default value for replicas is 1. Read more on [replicas resource](resource-replicas/).
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `manifest`
+
+* **`steps `** -- is an object which contains specific instructions to run this Job
+	* `IN` -- You need atleast 1 `image` or 1 `file` as an input. You have can more than one, but they all need to be of the same type. If you use multiple of them, then they will be deployed as a whole. Below is the list of all Resources and Jobs that can be supplied as `IN`
+		* [image]() -- Required input, You can add 1 or many of it
+
+		* [file]() -- Required input if `image` is not used, otherwise invalid. You can add 1 or many of it
+
+		* [dockerOptions]() -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. If you want `dockerOptions` Resource to apply to only 1 then use `applyTo` tag
+
+		* [replicas]() -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for an image. If more than 1 is provided, the last one gets applied to all the `image` resources. If you want `replicas` Resource to apply to only 1 then use `applyTo` tag
+
+		* [params]() -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. If you want `params` Resource to apply to only 1 then use `applyTo` tag
+
+		* [version]() -- optional input, but cannot be used along with `release` Job as input. It is used to tag the `manifest` with a semantic version number
+
+		* [release]() -- optional input, but cannot be used along with `version` as input. It is used to tag the `manifest` versionName property of the Job
+
+		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
+
+	
+Note: Since `manifest` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+
+# Further Reading
+* Working with Resources
+* Working with Integrations
+* Jobs
+

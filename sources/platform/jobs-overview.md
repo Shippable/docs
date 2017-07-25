@@ -32,7 +32,7 @@ They are typically used in these cases
 * Perform timely backups of DB, key-value stores etc.
 
 
-## Definition
+## YML Definition
 Jobs are defined through the `YML` based code snippets as below
 
 ```
@@ -47,6 +47,10 @@ jobs:
         versionName: <name of the version you want to pin>
       - IN: <resource>
         versionNumber: <number of the version you want to pin>
+      - IN: <params/dockerOption resource>
+        applyTo:
+          - <image resource>
+          - <image resource>
       - TASK: 
         - script: <any shell command>
         - script: <any shell command>
