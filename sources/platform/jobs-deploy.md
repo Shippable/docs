@@ -21,9 +21,9 @@ You can create a `deploy` Job by [adding](jobs-working-wth#adding) it to `shippa
 
 ```
 jobs:
-  - name: 				<string>
-    type: 				deploy
-	 on_start:
+  - name: 				<string>			#required
+    type: 				deploy				#required
+	 on_start:								# optional
 	   - NOTIFY: 		<notification resource name>
     steps:
       - IN: 			<cluster>			# required
@@ -57,13 +57,13 @@ jobs:
         deployMethod:	<deploy strategies> # optional
           - script: 	<bash script>		# optional
           - script: 	<bash script>		# optional
-	 on_success:
+	 on_success:							# optional
 	   - NOTIFY: 		<notification resource name>
-	 on_failure:
+	 on_failure:							# optional
 	   - NOTIFY: 		<notification resource name>
-	 on_cancel:
+	 on_cancel:							# optional
 	   - NOTIFY: 		<notification resource name>
-	 always:
+	 always:								# optional
 	   - NOTIFY:		<notification resource name>
 ```
 A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page

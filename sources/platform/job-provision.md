@@ -5,39 +5,60 @@ page_title: Unified Pipeline Jobs - provision
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
+| Tasks   |      Status    | 
+|----------|-------------|
+| Hotlinking |  Open | 
+| Further Reading needs thinking|  Open |
+
 # provision
+`provision` is a Job that is used to create ancillary objects like load-balancers on Container Orchestration Platform. 
 
-Provision jobs are used to create objects on a [supported Container Service](integrations-overview/#container-services). When provision jobs are deleted, the resulting objects are also deleted from the container service.
-
-Provision jobs are supported for
+Currently we support provisioning of load-balancers on clusters that are hosted on 
 
 - Google Container Engine (GKE) services.
 - Kubernetes services.
 
-A provision job is configured in the `shippable.jobs.yml` file. Here is an example:
+When provision jobs are deleted, the resulting objects are also deleted from the container service.
+
+A new version is created anytime this Job is executed
+
+You can create a `provision` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
 
 ```
 jobs:
-  - name: <string>                                                   #required
-    type: provision                                                  #required
+  - name: 				<string>			#required
+    type: 				provision			#required
+	 on_start:								# optional
+	   - NOTIFY: 		<notification resource name>
     steps:
-      - IN: <name of the resource to be provisioned>                 #required
-      - IN: <additional resource to be provisioned>                  #optional
-
+      - IN: 			<loadBalancer>		# required
+      - IN: 			<loadBalancer>		# optional
+      - IN: 			<any job or resource>  # optional 
+	 on_success:							# optional
+	   - NOTIFY: 		<notification resource name>
+	 on_failure:							# optional
+	   - NOTIFY: 		<notification resource name>
+	 on_cancel:								# optional
+	   - NOTIFY: 		<notification resource name>
+	 always:								# optional
+	   - NOTIFY:		<notification resource name>
 ```
-- `name` is a text string of your choice. This will appear in the visualization of this job in the SPOG view.  If you have spaces in your name, you'll need to surround the value with quotes. However, as a best practice, we recommend not including spaces in your names.
-- `type` is always set to `provision`.
-- `IN` steps: Each `IN` step specifies the `name` of a resource you wish to provision. Provision jobs take one or more resources as inputs. The resource to be provisioned is defined in the `shippable.resources.yml` file, and must be one of our supported objects (listed below).
 
+A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
 
-## Supported Objects
+* **`name`** -- should be an easy to remember text string
 
-The resources you can provision vary by container service. Below is a list of currently supported objects for each service.
+* **`type`** -- is set to `provision`
 
-### Google Container Engine
-#### Services
-All four Kubernetes [service](https://kubernetes.io/docs/user-guide/services/) types are supported: LoadBalancer, NodePort, ExternalName, and ClusterIP. Services are configured as [loadBalancer](resource-loadbalancer/) resources in the `shippable.resources.yml`.
+* **`steps `** -- is an object which contains specific instructions to run this Job
+	* `IN` -- You need atleast 1 or more `loadBalancer` Resource as an input. Currently we only support `loadBalancer`  Resource on GKE or Kubernetes services. If you need other entities please let us know
 
-### Kubernetes
-#### Services
-All four Kubernetes [service](https://kubernetes.io/docs/user-guide/services/) types are supported: LoadBalancer, NodePort, ExternalName, and ClusterIP. Services are configured as [loadBalancer](resource-loadbalancer/) resources in the `shippable.resources.yml`.
+Note: Since `provision` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+
+# Further Reading
+* JFrog integration
+* AWS integration
+* runCLI job
+* cli pre-installed in job runtime
+* how to deploy a file to a VM cluster
+* Output a file from runSH
