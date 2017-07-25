@@ -17,7 +17,7 @@ You can create an cliConfig resource by [adding](resources-working-wth#adding) i
 ```
 resources:
   - name: 			<string>
-    type: 			cliConfig
+    type: 			integration
     integration: 	<string>
 ```
 

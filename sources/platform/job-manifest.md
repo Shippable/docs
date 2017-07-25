@@ -26,15 +26,15 @@ jobs:
   - name: 			<string>
     type: 			manifest
     steps:
-      - IN: 		<image/file>				# required
-      - IN: 		<image/file>				# optional
-      - IN: 		<dockerOptions> 			# optional
-      - IN: 		<dockerOptions> 			# optional
+      - IN: 		<image/file>			# required
+      - IN: 		<image/file>			# optional
+      - IN: 		<dockerOptions> 		# optional
+      - IN: 		<dockerOptions> 		# optional
         applyTo:
           - <image> 
           - <image>
-      - IN: 		<params> 					# optional
-      - IN: 		<params> 					# optional
+      - IN: 		<params> 				# optional
+      - IN: 		<params> 				# optional
         applyTo:
           - <image> 
           - <image>
@@ -45,7 +45,7 @@ jobs:
           - <image>
       - IN: 		<release job> 			# optional
       - IN: 		<version> 				# optional
-      - IN: 		<any job or resource>  # optional 
+      - IN: 		<any job or resource>  	# optional 
 	 on_start:
 	   - NOTIFY: <notification resource name>
 	 on_success:
@@ -74,9 +74,9 @@ jobs:
 
 		* [params]() -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. If you want `params` Resource to apply to only 1 then use `applyTo` tag
 
-		* [version]() -- optional input, but cannot be used along with `release` Job as input. It is used to tag the `manifest` with a semantic version number
+		* [version]() -- Optional input, but cannot be used along with `release` Job as input. It is used to tag the `manifest` with a semantic version number
 
-		* [release]() -- optional input, but cannot be used along with `version` as input. It is used to tag the `manifest` versionName property of the Job
+		* [release]() -- Optional input, but cannot be used along with `version` as input. It is used to tag the `manifest` versionName property of the Job
 
 		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
 
