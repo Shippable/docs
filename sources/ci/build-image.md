@@ -10,7 +10,7 @@ We have an official list of Docker images that are used to spin up CI containers
 
 If you do not specify a build image for your CI, we will use a default image tag depending on the `language` tag in your `yml` config. In most cases, this is sufficient to run your builds.
 
-##Viewing your current default tag
+##Viewing your current machine image
 
 You can view which images are used for your Subscription by following the steps below:
 
@@ -25,14 +25,14 @@ You can view which images are used for your Subscription by following the steps 
 
 - For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](../platform/machine-images-overview/)
 
-##Changing your default tag
+##Changing your default machine image
 
 In most cases, the default images are sufficient to run your builds. You should consider overriding the default for the following reasons:
 
 - You need newer versions of languages, services, or tools that are available in a newer image tag.
 - You have your own custom Docker image that you want to use for your builds. To do this, please read our [custom docker image docs.](custom-docker-image/)
 
-To change to a newer image tag, follow the steps below:
+To change to a newer image, follow the steps below:
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
