@@ -25,6 +25,8 @@ You can create a `manifest` Job by [adding](jobs-working-wth#adding) it to `ship
 jobs:
   - name: 			<string>
     type: 			manifest
+	 on_start:
+	   - NOTIFY: <notification resource name>
     steps:
       - IN: 		<image/file>			# required
       - IN: 		<image/file>			# optional
@@ -46,8 +48,6 @@ jobs:
       - IN: 		<release job> 			# optional
       - IN: 		<version> 				# optional
       - IN: 		<any job or resource>  	# optional 
-	 on_start:
-	   - NOTIFY: <notification resource name>
 	 on_success:
 	   - NOTIFY: <notification resource name>
 	 on_failure:
@@ -57,6 +57,7 @@ jobs:
 	 always:
 	   - NOTIFY: <notification resource name>
 ```
+A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
 
 * **`name`** -- should be an easy to remember text string
 

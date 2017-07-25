@@ -23,6 +23,8 @@ The anatomy of the jobs configuration generally follows the structure below
 jobs:
   - name: <string>
     type: <job type name>
+	 on_start:
+	   - NOTIFY: <notification resource name>
     steps:
       - IN: <resource>
         switch: off
@@ -34,13 +36,15 @@ jobs:
       - IN: <params/dockerOption resource>
         applyTo:
           - <image resource>
-          - <image resource>        
+          - <image resource>
+      - IN: <gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus: true
       - TASK: 
         - script: <any shell command>
         - script: <any shell command>
       - OUT: <resource>
-	 on_start:
-	   - NOTIFY: <notification resource name>
+      - OUT: <resource>
+        replicate: <IN resource>
 	 on_success:
       - script: echo "SUCCESS"
 	 on_failure:
@@ -60,14 +64,24 @@ Any special `YML` tags that are job specific is defined in respective job pages.
 * **`steps`** -- is an object that is the heart of the Job. It usually is made up of and array of INs, TASK & OUTs
 	* `IN` -- represents the input Resource or a preceding Job. Whenever there is a change to these inputs, this job will be triggered to run. `IN`s have attributes that are used to control the flow
 		* `switch` -- this determines whether a chance to the input entity will trigger a new run or not. default is `on` and can be set to `off` to turn of auto triggering
+		
 		* `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and will take in the first matching one from the list of versions chronologically descending
-		* `versionNumber` -- this is used to pin a particular version of the input entity. Since every versionNumber is unique, this is guaranteed to give you predictable results
+		* `versionNumber` -- this is a special used to pin a particular version of the input entity. Since every versionNumber is unique, this is guaranteed to give you predictable results. Both `versionName` and `versionNumber` cannot be used for the same `IN`
 		* `applyTo` - this is allowed only for [image]() & [dockerOptions]() Resources when used in conjuction with a [deploy]() or [manifest]() Job. In all other cases, it is ignored. 
-	
-		Note: `versionName` or `versionNumber` are mutually exclusive, in other words only one of them can be used
-	
+		* `showBuildStatus ` - this is allowed only for [gitRepo]() Resource with `buildOnPullRequest` option turned on. This setting will push execution status message to the open PR. For example, the following messages are shown in the GitHub UI:
+
+			* Job is processing 
+			<img src="/images/platform/jobs/runSh/processingBuildStatus.png" alt="Build Status Processing" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+			* Job was successful
+			<img src="/images/platform/jobs/runSh/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+			* Job was canceled or failed
+			<img src="/images/platform/jobs/runSh/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
 	* `TASK` -- is an array of single line scripts that are executed as part of the Job. These are executed in series and will stop processing the moment an exit code is encountered
-	* `OUT` -- only Resources can be `OUT`s. This means the current Job is altering the state of the Resource that is defined in the `OUT`. Any Resource can be used for storing key-value pairs are output of the Job. But a special Resource [state]() can be used for both key-value pairs and files. A Resource cannot both IN and OUT for the same Job unless it is a `state` Resource. This is to avoid circular dependencies which will cause a loop in your DevOps Assembly Lines. 
+	* `OUT` -- only Resources can be `OUT`s. This means the current Job is altering the state of the Resource that is defined in the `OUT`. Any Resource can be used for storing key-value pairs are output of the Job. But a special Resource [state]() can be used for both key-value pairs and files. A Resource cannot both IN and OUT for the same Job unless it is a `state` Resource. This is to avoid circular dependencies which will cause a loop in your DevOps Assembly Lines
+		* `replicate` -- an optional setting, that allows you to copy the current version of an `IN` Resource in the context of the Job to the desired `OUT` Resource. This is useful if you need some pre-processing for example "validate commit message of a git commit before you execute the actual Job". A word of caution; this if used improperly can lead to unexpected behaviour in your workflow
  
 * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
 	* `script` -- any single line shell script can be executed here

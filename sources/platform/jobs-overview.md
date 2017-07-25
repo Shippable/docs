@@ -11,6 +11,8 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Hotlinking |  Open | 
 | Further Reading needs thinking|  Open |
 | Add link to inconsistencies to rSync|  Open |
+| Environment variables|  Open |
+| Folder Structure|  Open |
 
 # Jobs
 Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job. 
@@ -39,6 +41,8 @@ Jobs are defined through the `YML` based code snippets as below
 jobs:
   - name: <string>
     type: <job type name>
+	 on_start:
+	   - NOTIFY: <notification resource name>
     steps:
       - IN: <resource>
         switch: off
@@ -51,12 +55,14 @@ jobs:
         applyTo:
           - <image resource>
           - <image resource>
+      - IN: <gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus: true
       - TASK: 
         - script: <any shell command>
         - script: <any shell command>
-      - OUT: <resource> 
-	 on_start:
-	   - NOTIFY: <notification resource name>
+      - OUT: <resource>
+      - OUT: <resource>
+        replicate: <IN resource>
 	 on_success:
       - script: echo "SUCCESS"
 	 on_failure:
@@ -95,6 +101,9 @@ These are the types of resources that Shippable Workflow supports:
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
+## Folder Structure
+
+## Environment Variables
 
 # Further Reading
 * Working with Resources
