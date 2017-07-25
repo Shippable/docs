@@ -95,7 +95,7 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 			* `image` -- Required for loadBalancer. Name of the image i.e. container running the Docker image within the manifest.
 			* `port` -- Required for loadBalancer. The container port that will be exposed to the load balancer
 					
-		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
+		* Any other Job or Resource will only participate in triggering `deploy` Job but not in of the processing of it
 
 	* `TASK` -- Optional, but needs to be set to value `managed` is used. It is needed in case you want to control `deployMethod`
 		* `deployMethod` -- This is used to control the strategy used to deploy the service. The following are accepted values
@@ -105,9 +105,9 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 			* `replace` -- the old version of the service is brought down before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel
 
+		* `script` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](int-node-cluster/)
+
 Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
-		
-		* `scipt` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](int-node-cluster/)
 
 # Further Reading
 * Working with Resources

@@ -262,7 +262,7 @@ pages:
         - deploy: platform/jobs-deploy.md
         - manifest: platform/jobs-manifest.md
         - provision: platform/jobs-provision.md
-        - release: platform/job-release.md
+        - release: platform/jobs-release.md
         - runCI: platform/jobs-runci.md
         - runCLI: platform/job-runcli.md
         - runSH: platform/jobs-runsh.md

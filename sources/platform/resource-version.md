@@ -29,7 +29,7 @@ resources:
 # Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [release](job-release/)
+* [release](jobs-release/)
 * runSH
 * runCLI
 * runCI
