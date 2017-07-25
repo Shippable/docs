@@ -22,9 +22,9 @@ You can create a `manifest` Job by [adding](jobs-working-wth#adding) it to `ship
 
 ```
 jobs:
-  - name: 			<string>
-    type: 			manifest
-	 on_start:
+  - name: 			<string>				# required
+    type: 			manifest				# required
+	 on_start:								# optional
 	   - NOTIFY: <notification resource name>
     steps:
       - IN: 		<image/file>			# required
@@ -45,13 +45,13 @@ jobs:
           - <image> 
           - <image>
       - IN: 		<any job or resource>  	# optional 
-	 on_success:
+	 on_success:							# optional
 	   - NOTIFY: <notification resource name>
-	 on_failure:
+	 on_failure:							# optional
 	   - NOTIFY: <notification resource name>
-	 on_cancel:
+	 on_cancel:								# optional
 	   - NOTIFY: <notification resource name>
-	 always:
+	 always:								# optional
 	   - NOTIFY: <notification resource name>
 ```
 A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page

@@ -26,8 +26,8 @@ You can create a `provision` Job by [adding](jobs-working-wth#adding) it to `shi
 
 ```
 jobs:
-  - name: 				<string>			#required
-    type: 				provision			#required
+  - name: 				<string>			# required
+    type: 				provision			# required
 	 on_start:								# optional
 	   - NOTIFY: 		<notification resource name>
     steps:

@@ -21,8 +21,8 @@ You can create a `deploy` Job by [adding](jobs-working-wth#adding) it to `shippa
 
 ```
 jobs:
-  - name: 				<string>			#required
-    type: 				deploy				#required
+  - name: 				<string>			# required
+    type: 				deploy				# required
 	 on_start:								# optional
 	   - NOTIFY: 		<notification resource name>
     steps:

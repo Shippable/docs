@@ -34,7 +34,7 @@ Now if you want to interact with your **runCI** Job with other entities of the A
 
 ```
 jobs:
-  - name: <name of the runCI>
+  - name: <name of the runCI>				
     type: runCI
 	 on_start:
 	   - NOTIFY: <notification resource name>
