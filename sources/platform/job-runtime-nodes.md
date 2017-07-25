@@ -9,8 +9,8 @@ Jobs run on one following types of Nodes -
 
 * [Dedicated Dynamic nodes](/platform/job-runtime-dynamic-nodes)
 
-  Shippable offers a free 2 core, 3.75GB RAM node to run your builds. You can also upgrade to a paid plan
-  for more powerful nodes if you need additional memory or faster processors to speed up your builds.
+  Dedicated Dynamic nodes are dynamically provisioned when a job runs and terminated after the job completes.
+  We offer a free 2 core, 3.75GB RAM node to run your builds. You can also upgrade to a paid plan for more powerful nodes if you need additional memory or faster processors to speed up your builds.
 
 * [Dedicated Custom Nodes](/platform/job-runtime-custom-nodes)
 
