@@ -117,7 +117,7 @@ Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not al
 
 
 ##Attaching a Load Balancer
-As part of your job, you can choose to deploy an image in your manifest behind a load balancer. Please note that this option currently only works with AWS Classic and Application Load Balancers. (Google Container Engine load balancer-type services can be created using a [provision](job-provision/) job.) Also, the load balancer must be already created on AWS and then configured on Shippable. We do not handle creation of the load balancer as part of deploy jobs.
+As part of your job, you can choose to deploy an image in your manifest behind a load balancer. Please note that this option currently only works with AWS Classic and Application Load Balancers. (Google Container Engine load balancer-type services can be created using a [provision](jobs-provision/) job.) Also, the load balancer must be already created on AWS and then configured on Shippable. We do not handle creation of the load balancer as part of deploy jobs.
 
 ```
 jobs:

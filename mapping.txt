@@ -63,7 +63,7 @@ pipelines/resources/version /platform/resource-version
 pipelines/jobs/overview /platform/jobs-overview
 pipelines/jobs/deploy /platform/jobs-deploy
 pipelines/jobs/manifest /platform/jobs-manifest
-pipelines/jobs/provision /platform/job-provision
+pipelines/jobs/provision /platform/jobs-provision
 pipelines/jobs/release /platform/job-release
 pipelines/jobs/runCI /platform/jobs-runci
 pipelines/jobs/runCLI /platform/job-runcli

@@ -87,7 +87,7 @@ resources:
 This resource is used as an IN for the following jobs
 
 * [deploy](jobs-deploy/)
-* [provision](job-provision/)
+* [provision](jobs-provision/)
 
 # Further Reading
 * JFrog integration
