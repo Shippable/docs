@@ -237,36 +237,36 @@ pages:
     - Workflow:
       - What is it: platform/workflow-overview.md
       - How to share data between Jobs: platform/howto-share-data-between-jobs.md
-    - Resources:
-      - Overview: platform/resources-overview.md
-      - Working with resources: platform/resources-working-with.md
-      - ciRepo: platform/resource-cirepo.md
-      - cliConfig: platform/resource-cliconfig.md
-      - cluster: platform/resource-cluster.md
-      - dockerOptions: platform/resource-dockeroptions.md
-      - file: platform/resource-file.md
-      - gitRepo: platform/resource-gitrepo.md
-      - image: platform/resource-image.md
-      - integration: platform/resource-integration.md
-      - loadBalancer: platform/resource-loadbalancer.md
-      - notification: platform/resource-notification.md
-      - params: platform/resource-params.md
-      - replicas: platform/resource-replicas.md
-      - state: platform/resource-state.md
-      - syncRepo: platform/resource-syncrepo.md
-      - time: platform/resource-time.md
-      - version: platform/resource-version.md
-    - Jobs:
-      - Overview: platform/jobs-overview.md
-      - Unmanaged jobs: platform/jobs-unmanaged.md
-      - deploy: platform/job-deploy.md
-      - manifest: platform/job-manifest.md
-      - provision: platform/job-provision.md
-      - release: platform/job-release.md
-      - runCI: platform/job-runci.md
-      - runCLI: platform/job-runcli.md
-      - runSH: platform/job-runsh.md
-      - jenkinsJob: platform/job-jenkinsjob.md
+      - Resources:
+        - Overview: platform/resources-overview.md
+        - Working with resources: platform/resources-working-with.md
+        - ciRepo: platform/resource-cirepo.md
+        - cliConfig: platform/resource-cliconfig.md
+        - cluster: platform/resource-cluster.md
+        - dockerOptions: platform/resource-dockeroptions.md
+        - file: platform/resource-file.md
+        - gitRepo: platform/resource-gitrepo.md
+        - image: platform/resource-image.md
+        - integration: platform/resource-integration.md
+        - loadBalancer: platform/resource-loadbalancer.md
+        - notification: platform/resource-notification.md
+        - params: platform/resource-params.md
+        - replicas: platform/resource-replicas.md
+        - state: platform/resource-state.md
+        - syncRepo: platform/resource-syncrepo.md
+        - time: platform/resource-time.md
+        - version: platform/resource-version.md
+      - Jobs:
+        - Overview: platform/jobs-overview.md
+        - Unmanaged jobs: platform/jobs-unmanaged.md
+        - deploy: platform/job-deploy.md
+        - manifest: platform/job-manifest.md
+        - provision: platform/job-provision.md
+        - release: platform/job-release.md
+        - runCI: platform/job-runci.md
+        - runCLI: platform/job-runcli.md
+        - runSH: platform/job-runsh.md
+        - jenkinsJob: platform/job-jenkinsjob.md
     - Triggers:
       - Overview: platform/resources-overview.md
       - Working with triggers: platform/resources-overview.md

@@ -24,9 +24,18 @@
                     <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
                     <nav class="shipNav-item-nav">
                       {% for section in section.children %}
-                        <a class="shipNav-item-link" href="{{ section.url }}">
-                          {{ section.title }}
-                        </a>
+                        {% if section.children %}
+                          <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
+                          {% for section in section.children %}
+                            <a class="shipNav-item-link" href="{{ section.url }}">
+                              {{ section.title }}
+                            </a>
+                          {% endfor %}
+                        {% else %}
+                          <a class="shipNav-item-link" href="{{ section.url }}">
+                            {{ section.title }}
+                          </a>
+                        {% endif %}
                       {% endfor %}
                     </nav>
                 </li>
