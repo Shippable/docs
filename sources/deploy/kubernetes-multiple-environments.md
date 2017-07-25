@@ -33,7 +33,7 @@ CI -> Docker hub -> manifest -> deploy to beta -> deploy to prod
 
 If you followed the [Managed deployments](/deploy/kubernetes/) docs, you already have a pipeline that deploys to the first environment, beta.
 
-Now let's add the prod environment. We will need a new [cluster](/platform/resource-cluster/) for production, as well as a [deploy](/platform/job-deploy/) job.
+Now let's add the prod environment. We will need a new [cluster](/platform/resource-cluster/) for production, as well as a [deploy](/platform/jobs-deploy/) job.
 
 Cluster definition in `shippable.resources.yml`:
 ```

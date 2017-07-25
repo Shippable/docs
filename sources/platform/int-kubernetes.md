@@ -32,7 +32,7 @@ Follow the steps below to create an account integration with Google's Kubernetes
 
 You can now use this integration in your pipeline YML config to deploy to your Kubernetes pods.
 
-For more information on this, please check out our docs on [deploy job](./job-deploy.md) and [cluster resource](./resource-cluster.md).
+For more information on this, please check out our docs on [deploy job](./jobs-deploy.md) and [cluster resource](./resource-cluster.md).
 
 ### Kubernetes master with no public IP address
 
@@ -74,7 +74,7 @@ $ cat /etc/kubernetes/admin.conf
 
 You can now use this integration in your pipeline YML config to deploy to your Kubernetes pod.
 
-For more information on this, please check out our docs on [deploy job](./job-deploy.md) and [cluster resource](./resource-cluster.md)..
+For more information on this, please check out our docs on [deploy job](./jobs-deploy.md) and [cluster resource](./resource-cluster.md)..
 
 
 ##Creating a kubeconfig file for a Service Account

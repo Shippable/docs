@@ -34,7 +34,7 @@ resources:
 # Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [deploy jobs](job-deploy/)
+* [deploy jobs](jobs-deploy/)
 * [manifest jobs](jobs-manifest/)
 
 # Further Reading

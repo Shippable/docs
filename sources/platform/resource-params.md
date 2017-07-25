@@ -41,7 +41,7 @@ This resource is used as an IN for the following jobs
 * [runCLI](job-runcli/)
 * [runSh](jobs-runsh/)
 * [runCI](jobs-runci/)
-* [deploy](job-deploy/)
+* [deploy](jobs-deploy/)
 * [manifest](jobs-manifest/) 
 
 # Further Reading

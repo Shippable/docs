@@ -6,7 +6,7 @@ sub_section: Kubernetes
 
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Kubernetes.
 
-If you are deploying to Kubernetes using the managed [deploy job](/platform/job-deploy/), you can specify one of the strategies below:
+If you are deploying to Kubernetes using the managed [deploy job](/platform/jobs-deploy/), you can specify one of the strategies below:
 
 - blueGreen (default), where we wait for the new deployment to reach steady state before removing the old deployment
 - upgrade, where the pod template is updated within the existing deployment object

@@ -4,7 +4,7 @@ sub_section: Amazon ECS
 
 # Custom deployments to Amazon ECS
 
-The managed [deploy job](/platform/job-deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
+The managed [deploy job](/platform/jobs-deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
 
 These are called "unmanaged" or "custom" deployments and are implemented with a [runCLI job](/platform/job-runcli/).
 
@@ -206,7 +206,7 @@ You can run your awscli commands against any cluster and region that you want. D
 
 If your load balancer is already created on AWS, deploying with it in a **runCLI** job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
 
-Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../platform/job-deploy) handle scenarios like this automatically for you.
+Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../platform/jobs-deploy) handle scenarios like this automatically for you.
 
 ## Using custom service names
 

@@ -5,7 +5,7 @@ page_title: From Single Service / Component
 
 # Creating a release for a single service / component
 
-This tutorial demonstrates how to semantically version a single component before it is deployed to an environment. The component can be any artifact that is deployed to an environment such as a JAR/WAR file or a Docker image. In a broader end-to-end context, the `release` job usually should be an `IN` for a [deploy job](/platform/job-deploy/) as shown below:
+This tutorial demonstrates how to semantically version a single component before it is deployed to an environment. The component can be any artifact that is deployed to an environment such as a JAR/WAR file or a Docker image. In a broader end-to-end context, the `release` job usually should be an `IN` for a [deploy job](/platform/jobs-deploy/) as shown below:
 
 <img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 

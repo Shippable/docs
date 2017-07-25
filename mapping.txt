@@ -61,7 +61,7 @@ pipelines/resources/syncRepo /platform/resource-syncrepo
 pipelines/resources/time /platform/resource-time
 pipelines/resources/version /platform/resource-version
 pipelines/jobs/overview /platform/jobs-overview
-pipelines/jobs/deploy /platform/job-deploy
+pipelines/jobs/deploy /platform/jobs-deploy
 pipelines/jobs/manifest /platform/jobs-manifest
 pipelines/jobs/provision /platform/job-provision
 pipelines/jobs/release /platform/job-release

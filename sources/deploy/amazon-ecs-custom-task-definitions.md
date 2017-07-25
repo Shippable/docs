@@ -4,7 +4,7 @@ sub_section: Amazon ECS
 
 # Customizing your Amazon ECS Task Definitions
 
-Task definitions are loaded with features to fit various scenarios. This page will describe how you can set up some of the more advanced sections in your Shippable pipeline when deploying using the managed [deploy job](/platform/job-deploy/).
+Task definitions are loaded with features to fit various scenarios. This page will describe how you can set up some of the more advanced sections in your Shippable pipeline when deploying using the managed [deploy job](/platform/jobs-deploy/).
 
 Task definitions are fully customizable through the `dockerOptions` type resource, so you'll need one of those:
 ```

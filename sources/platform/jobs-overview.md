@@ -97,7 +97,7 @@ These are the types of resources that Shippable Workflow supports:
 
 | Job Type   |      Description    | 
 |----------|-------------|
-| [deploy](job-deploy/) | Deploy apps/services to Container Platforms or VM clusters | 
+| [deploy](jobs-deploy/) | Deploy apps/services to Container Platforms or VM clusters | 
 | [manifest](jobs-manifest/) | Create App/Service definition (configuration) that is immutable |
 | [provision](job-provision/) | Provision specific resources needed by Container Orchestration Platforms |
 | [release](job-release/) | Release management for Apps/Services |

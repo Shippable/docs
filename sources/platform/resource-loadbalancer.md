@@ -86,7 +86,7 @@ resources:
 # Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [deploy](job-deploy/)
+* [deploy](jobs-deploy/)
 * [provision](job-provision/)
 
 # Further Reading
