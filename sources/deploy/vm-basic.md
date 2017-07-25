@@ -45,7 +45,7 @@ Next we'll need a resource that acts as a representation of our software package
 ```
 
 ## Managed
-Shippable provides a type of managed job called [deploy](../platform/job-deploy), which can take an input of a [manifest job](../platform/job-manifest).  A manifest is made up of one or more files that you'd like to deploy to your nodecluster.  Each manifest can have its own set of customizable environment variables.
+Shippable provides a type of managed job called [deploy](../platform/job-deploy), which can take an input of a [manifest job](../platform/jobs-manifest).  A manifest is made up of one or more files that you'd like to deploy to your nodecluster.  Each manifest can have its own set of customizable environment variables.
 
 To run this deployment using Shippable managed jobs, we'll need a few more resources:
 
@@ -92,7 +92,7 @@ jobs:
 
 ```
 
-Here we've got one [manifest job](../platform/job-manifest) and one [deploy job](../platform/job-deploy).  The manifest job takes the file resource and params resource inputs.  The deploy job takes the manifest job and the cluster resource as inputs.
+Here we've got one [manifest job](../platform/jobs-manifest) and one [deploy job](../platform/job-deploy).  The manifest job takes the file resource and params resource inputs.  The deploy job takes the manifest job and the cluster resource as inputs.
 
 Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
 

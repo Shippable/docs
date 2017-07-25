@@ -35,7 +35,7 @@ resources:
 This resource is used as an IN for the following jobs
 
 * [deploy jobs](job-deploy/)
-* [manifest jobs](job-manifest/)
+* [manifest jobs](jobs-manifest/)
 
 # Further Reading
 * JFrog integration

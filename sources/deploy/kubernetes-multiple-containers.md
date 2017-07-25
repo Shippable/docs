@@ -10,7 +10,7 @@ The strength of Kubernetes is in its ability to orchestrate multi-container appl
 
 ![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
 
-- **Multiple images in a single [manifest](/platform/job-manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
+- **Multiple images in a single [manifest](/platform/jobs-manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
 
 ![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
 

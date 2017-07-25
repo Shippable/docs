@@ -42,7 +42,7 @@ This resource is used as an IN for the following jobs
 * [runSh](jobs-runsh/)
 * [runCI](job-runci/)
 * [deploy](job-deploy/)
-* [manifest](job-manifest/) 
+* [manifest](jobs-manifest/) 
 
 # Further Reading
 * JFrog integration

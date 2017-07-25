@@ -7,7 +7,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 
 # deploy
-This job is used to deploy [a manifest](job-manifest/) to [a cluster](resource-cluster/) on any [supported Container Service](integrations-overview/). As a part of the deployment, you can include any necessary environment parameters.
+This job is used to deploy [a manifest](jobs-manifest/) to [a cluster](resource-cluster/) on any [supported Container Service](integrations-overview/). As a part of the deployment, you can include any necessary environment parameters.
 
 The definition of a `deploy` job should be included in your `shippable.jobs.yml`.
 
@@ -33,7 +33,7 @@ jobs:
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to deploy
-* You will need one `manifest` job as an input. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](job-manifest/) in your jobs yml.
+* You will need one `manifest` job as an input. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](jobs-manifest/) in your jobs yml.
 * `cluster` is also a required input resource. This gives us information about where you want your manifest to be deployed, i.e. your deployment target. Read more on [cluster resource](resource-cluster/).
 
 Additional overrides:
@@ -73,7 +73,7 @@ jobs:
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to deploy
-* You can add any number of `manifest` jobs as an input for this job. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](job-manifest/) in your jobs yml.
+* You can add any number of `manifest` jobs as an input for this job. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](jobs-manifest/) in your jobs yml.
 * `cluster` is also a required input. This gives us information about where you want your manifest to be deployed, i.e. your deployment target. All manifests from your deploy job will be deployed to a single cluster. Read more on [cluster resource](resource-cluster/).
 
 Additional overrides:
@@ -188,7 +188,7 @@ jobs:
 This feature is supported only for `deploy` jobs obeying the following conditions.
 
 * Must have a [cluster resource](resource-cluster/) with [Node Cluster integration](int-node-cluster/)
-* Must have a [manifest](job-manifest/) with a [file resource](resource-file/).
+* Must have a [manifest](jobs-manifest/) with a [file resource](resource-file/).
 
 After the file is deployed to the node cluster successfully, one or more scripts can be run on the nodes by defining a `TASK` in the deploy job.
 

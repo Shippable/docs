@@ -260,7 +260,7 @@ pages:
         - Overview: platform/jobs-overview.md
         - Unmanaged jobs: platform/jobs-unmanaged.md
         - deploy: platform/job-deploy.md
-        - manifest: platform/job-manifest.md
+        - manifest: platform/jobs-manifest.md
         - provision: platform/job-provision.md
         - release: platform/job-release.md
         - runCI: platform/job-runci.md

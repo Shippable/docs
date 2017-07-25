@@ -19,4 +19,4 @@ For example, let's assume your [deploy job](/platform/job-deploy/) just ran and 
 
 <img src="/images/deploy/deploy-trace.png" alt="majestic trace tab">
 
-In the image above, the deploy job has two inputs: a [manifest job](/platform/job-manifest/) and a [cluster resource](/platform/resource-cluster/). You can click on the image resource in the manifest to see which tag was deployed.
+In the image above, the deploy job has two inputs: a [manifest job](/platform/jobs-manifest/) and a [cluster resource](/platform/resource-cluster/). You can click on the image resource in the manifest to see which tag was deployed.
