@@ -26,35 +26,35 @@ You can create a `runSh` Job by [adding](jobs-working-wth#adding) it to `shippab
 ## YML Definition
 ```
 jobs:
-  - name: <string>
-    type: runSh
+  - name: 					<string>
+    type: 					runSh
 	 on_start:
-	   - NOTIFY: <notification resource name>
+	   - NOTIFY: 			<notification resource name>
     steps:
-      - IN: <resource>
-        switch: off
-      - IN: <job>
-      - IN: <resource>
-        versionName: <name of the version you want to pin>
-      - IN: <resource>
-        versionNumber: <number of the version you want to pin>        
-      - IN: <gitRepoResource with buildOnPullRequest: true>
-        showBuildStatus: true       
+      - IN: 				<resource>
+        switch: 			off
+      - IN: 				<job>
+      - IN: 				<resource>
+        versionName: 		<name of the version you want to pin>
+      - IN: 				<resource>
+        versionNumber: 		<number of the version you want to pin>        
+      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus:	true       
       - TASK: 
-        - script: <any shell command>
-        - script: <any shell command>
-      - OUT: <resource>
-      - OUT: <resource>
-        replicate: <resource>
+        - script: 			<any shell command>
+        - script: 			<any shell command>
+      - OUT: 				<resource>
+      - OUT: 				<resource>
+        replicate: 			<resource>
 	 on_success:
-      - script: echo "SUCCESS"
+      - script: 			echo "SUCCESS"
 	 on_failure:
-      - script: echo "FAILED"
-      - NOTIFY: <notification resource name>
+      - script: 			echo "FAILED"
+      - NOTIFY: 			<notification resource name>
 	 on_cancel:
-      - script: echo "CANCEL"
+      - script: 			echo "CANCEL"
 	 always:
-      - script: pwd
+      - script: 			pwd
 ```
 A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
 
