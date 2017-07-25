@@ -39,39 +39,46 @@ Jobs are defined through the `YML` based code snippets as below
 
 ```
 jobs:
-  - name: <string>
-    type: <job type name>
+  - name: 					<string>
+    type: 					<job type name>
 	 on_start:
-	   - NOTIFY: <notification resource name>
+      - NOTIFY: 			<notification resource name>
     steps:
-      - IN: <resource>
-        switch: off
-      - IN: <job>
-      - IN: <resource>
-        versionName: <name of the version you want to pin>
-      - IN: <resource>
-        versionNumber: <number of the version you want to pin>
-      - IN: <params/dockerOption resource>
+      - IN: 				<resource>
+        switch: 			off
+      - IN: 				<job>
+      - IN: 				<resource>
+        versionName: 		<name of the version you want to pin>
+      - IN: 				<resource>
+        versionNumber: 		<number of the version you want to pin>
+      - IN: 				<params/dockerOption/replicas resource>
         applyTo:
-          - <image resource>
-          - <image resource>
-      - IN: <gitRepoResource with buildOnPullRequest: true>
-        showBuildStatus: true
+          - 				<image/manifest/release> 
+          - 				<image/manifest/release> 
+      - IN: 				<loadBalancer resource>
+        applyTo:
+          - manifest: 		<manifest>
+            image: 			<image>              
+            port: 			<number>
+      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus: 	true
+      - IN: 				<manifest/release>
+        force: 				true
       - TASK: 
-        - script: <any shell command>
-        - script: <any shell command>
-      - OUT: <resource>
-      - OUT: <resource>
-        replicate: <IN resource>
+        - script: 			<any shell command>
+        - script: 			<any shell command>
+      - OUT: 				<resource>
+      - OUT: 				<resource>
+        replicate: 			<IN resource>
 	 on_success:
-      - script: echo "SUCCESS"
+      - script: 			echo "SUCCESS"
 	 on_failure:
-      - script: echo "FAILED"
-      - NOTIFY: <notification resource name>
+      - script: 			echo "FAILED"
+      - NOTIFY: 			<notification resource name>
 	 on_cancel:
-      - script: echo "CANCEL"
+      - script: 			echo "CANCEL"
 	 always:
-      - script: pwd
+      - script: 			pwd
 ```
 
 For more information, read [Working with Jobs](/platform/jobs-working-with/)

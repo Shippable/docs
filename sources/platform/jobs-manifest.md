@@ -16,8 +16,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 A new version is created anytime this Job is executed
 
-You can create a `manifest` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and `manifest` Jobs execute on Shippable provided [Shared Nodes]()
-
+You can create a `manifest` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
 
 ## YML Definition
 
@@ -45,8 +44,6 @@ jobs:
         applyTo:
           - <image> 
           - <image>
-      - IN: 		<release job> 			# optional
-      - IN: 		<version> 				# optional
       - IN: 		<any job or resource>  	# optional 
 	 on_success:
 	   - NOTIFY: <notification resource name>
@@ -74,10 +71,6 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 		* [replicas]() -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for an image. If more than 1 is provided, the last one gets applied to all the `image` resources. If you want `replicas` Resource to apply to only 1 then use `applyTo` tag
 
 		* [params]() -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. If you want `params` Resource to apply to only 1 then use `applyTo` tag
-
-		* [version]() -- Optional input, but cannot be used along with `release` Job as input. It is used to tag the `manifest` with a semantic version number
-
-		* [release]() -- Optional input, but cannot be used along with `version` as input. It is used to tag the `manifest` versionName property of the Job
 
 		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
 

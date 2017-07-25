@@ -21,39 +21,47 @@ The anatomy of the jobs configuration generally follows the structure below
 
 ```
 jobs:
-  - name: <string>
-    type: <job type name>
+  - name: 					<string>
+    type: 					<job type name>
 	 on_start:
-	   - NOTIFY: <notification resource name>
+      - NOTIFY: 			<notification resource name>
     steps:
-      - IN: <resource>
-        switch: off
-      - IN: <job>
-      - IN: <resource>
-        versionName: <name of the version you want to pin>
-      - IN: <resource>
-        versionNumber: <number of the version you want to pin>
-      - IN: <params/dockerOption resource>
+      - IN: 				<resource>
+        switch: 			off
+      - IN: 				<job>
+      - IN: 				<resource>
+        versionName: 		<name of the version you want to pin>
+      - IN: 				<resource>
+        versionNumber: 		<number of the version you want to pin>
+      - IN: 				<params/dockerOption/replicas resource>
         applyTo:
-          - <image resource>
-          - <image resource>
-      - IN: <gitRepoResource with buildOnPullRequest: true>
-        showBuildStatus: true
+          - 				<image/manifest/release> 
+          - 				<image/manifest/release> 
+      - IN: 				<loadBalancer resource>
+        applyTo:
+          - manifest: 		<manifest>
+            image: 			<image>              
+            port: 			<number>
+      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus: 	true
+      - IN: 				<manifest/release>
+        force: 				true
       - TASK: 
-        - script: <any shell command>
-        - script: <any shell command>
-      - OUT: <resource>
-      - OUT: <resource>
-        replicate: <IN resource>
+        - script: 			<any shell command>
+        - script: 			<any shell command>
+      - OUT: 				<resource>
+      - OUT: 				<resource>
+        replicate: 			<IN resource>
 	 on_success:
-      - script: echo "SUCCESS"
+      - script: 			echo "SUCCESS"
 	 on_failure:
-      - script: echo "FAILED"
-      - NOTIFY: <notification resource name>
+      - script: 			echo "FAILED"
+      - NOTIFY: 			<notification resource name>
 	 on_cancel:
-      - script: echo "CANCEL"
+      - script: 			echo "CANCEL"
 	 always:
-      - script: pwd
+      - script: 			pwd
+
 ```
 Any special `YML` tags that are job specific is defined in respective job pages. 
 
@@ -67,7 +75,8 @@ Any special `YML` tags that are job specific is defined in respective job pages.
 		
 		* `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and will take in the first matching one from the list of versions chronologically descending
 		* `versionNumber` -- this is a special used to pin a particular version of the input entity. Since every versionNumber is unique, this is guaranteed to give you predictable results. Both `versionName` and `versionNumber` cannot be used for the same `IN`
-		* `applyTo` - this is allowed only for [image]() & [dockerOptions]() Resources when used in conjuction with a [deploy]() or [manifest]() Job. In all other cases, it is ignored. 
+		* `applyTo` - Optional setting and this is allowed only for [loadBalancer]() [image]() & [dockerOptions]() Resources when used in conjuction with a [deploy]() or [manifest]() Job. In all other cases, it is ignored. If it is set in the context of a loadBalancer, it takes in an object which sets the manifest that the loadBalancer connects to, the container image and port to create is listner to needs to be set. In other cases, it expects either a manifest, release or an image name. 
+		* `force` -- and Optional setting and it is used only when the context is a `manifest` or `release` Resource and its used in a [deploy]() Job. This setting will force the deployment even if the manifest or release entity has not change. Typically used if your images use static tags.
 		* `showBuildStatus ` - this is allowed only for [gitRepo]() Resource with `buildOnPullRequest` option turned on. This setting will push execution status message to the open PR. For example, the following messages are shown in the GitHub UI:
 
 			* Job is processing 
