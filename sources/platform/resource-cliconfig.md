@@ -52,7 +52,7 @@ resources:
 This resource is used as an IN for the following jobs
 
 * [runCLI](job-runcli/)
-* [runSH](job-runsh/)
+* [runSH](jobs-runsh/)
 
 # Further Reading
 * GKE integration

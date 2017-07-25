@@ -190,7 +190,7 @@ variable's name.
 For example, say you wanted to insert the current job name into two different
 files: `file1.json` and `test/file2.txt`. The name of the environment variable
 containing the job name is `JOB_NAME`. (See the [runSh
-documentation](job-runsh.md) for the list of available environment
+documentation](jobs-runsh.md) for the list of available environment
 variables.)
 
 `file1.json` might look like this:

@@ -265,7 +265,7 @@ pages:
         - release: platform/job-release.md
         - runCI: platform/job-runci.md
         - runCLI: platform/job-runcli.md
-        - runSH: platform/job-runsh.md
+        - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md
     - Triggers:
       - Overview: platform/resources-overview.md

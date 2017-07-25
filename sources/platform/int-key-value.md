@@ -72,6 +72,6 @@ resources:
 
 ```
 
-Now you can use this resource as an `IN` to your [runSh](../platform/job-runsh) or [runCLI](../platform/job-runcli) job.  If you do that, your key/value pairs will be available directly in the shell environment, so you can utilize them in your custom scripts.  This works well with command line tools that look in the environment for configuration options, such as the AWS CLI.
+Now you can use this resource as an `IN` to your [runSh](../platform/jobs-runsh) or [runCLI](../platform/job-runcli) job.  If you do that, your key/value pairs will be available directly in the shell environment, so you can utilize them in your custom scripts.  This works well with command line tools that look in the environment for configuration options, such as the AWS CLI.
 
 This integration type isn't used for any managed pipeline jobs at this time.

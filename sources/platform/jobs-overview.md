@@ -96,7 +96,7 @@ These are the types of resources that Shippable Workflow supports:
 | [release](job-release/) | Release management for Apps/Services |
 | [jenkinsJob](job-jenkinsJob/) | Execute a Jenkins Job from Assembly Lines |
 | [runCI](job-runci/) | Execute Shippable CI Job |
-| [runSh](job-runsh/) | Execute any Shell command |
+| [runSh](jobs-runsh/) | Execute any Shell command |
 | [runCLI](job-runcli/) | Execute any supported Command Line Interface command |
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)

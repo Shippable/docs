@@ -11,7 +11,7 @@ Unmanaged jobs are available to provide you complete flexibility to do pretty mu
 
 - [runCI](job-runci/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
 
-- [runSh](job-runsh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+- [runSh](jobs-runsh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
 
 - [runCLI](job-runcli/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 

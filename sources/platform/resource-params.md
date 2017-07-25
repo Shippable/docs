@@ -39,7 +39,7 @@ You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any ke
 This resource is used as an IN for the following jobs
 
 * [runCLI](job-runcli/)
-* [runSh](job-runsh/)
+* [runSh](jobs-runsh/)
 * [runCI](job-runci/)
 * [deploy](job-deploy/)
 * [manifest](job-manifest/) 
