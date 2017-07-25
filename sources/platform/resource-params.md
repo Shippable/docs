@@ -40,7 +40,7 @@ This resource is used as an IN for the following jobs
 
 * [runCLI](job-runcli/)
 * [runSh](jobs-runsh/)
-* [runCI](job-runci/)
+* [runCI](jobs-runci/)
 * [deploy](job-deploy/)
 * [manifest](jobs-manifest/) 
 

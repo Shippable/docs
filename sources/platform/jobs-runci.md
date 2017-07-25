@@ -1,8 +1,8 @@
-page_main_title: runSH
+page_main_title: runCI
 main_section: Platform
 sub_section: Jobs
-page_title: Unified Pipeline Jobs - runSh
-page_description: List of supported jobs
+page_title: DevOps pipeline runCI job
+page_description: Description of the runCI job
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
@@ -13,21 +13,29 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Add Environment variables|  Open |
 | Add Folder Structure|  Open |
 
-# runSh
-`runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized. 
+# runCI
+`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create a complex workflows in 1 single YML was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other Jobs since the actual configuration is driven through [`shippable.yml`](/platform/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your pipeline.
 
-You should use this job type if you need the freedom that some of the pre-packaged Jobs like `deploy`, `manifest` do not provide the flexibility that you need or do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a Job of type `runSh`.
+`runCI` Jobs execute on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
 
-A new version is created anytime this Job is executed
+## How do you create a runCI Job?
+When you enable your repo for [CI](/ci/enable-project/), an internal representation of `runCI` job is automatically created along with [ciRepo]() as an `IN`
 
-You can create a `runSh` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
+Note: If your `CI` project was enabled before March 2017, you can create these objects by clicking on **Hook** button on the Project Settings page.
+
+<img src="/images/platform/jobs/runCI/hookPipeline.png" alt="Hook button on project settings page." style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+
+## How do you use it in Assembly Lines?
+Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
 
 
 ## YML Definition
+
 ```
 jobs:
-  - name: <string>
-    type: runSh
+  - name: <name of the runCI>
+    type: runCI
 	 on_start:
 	   - NOTIFY: <notification resource name>
     steps:
@@ -40,9 +48,6 @@ jobs:
         versionNumber: <number of the version you want to pin>        
       - IN: <gitRepoResource with buildOnPullRequest: true>
         showBuildStatus: true       
-      - TASK: 
-        - script: <any shell command>
-        - script: <any shell command>
       - OUT: <resource>
       - OUT: <resource>
         replicate: <resource>
@@ -55,19 +60,20 @@ jobs:
       - script: echo "CANCEL"
 	 always:
       - script: pwd
+
 ```
 A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
 
-* **`name`** -- Required, should be an easy to remember text string
+* **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view
 
-* **`type`** -- Required, is set to `runSh`
+* **`type`** -- Required, is set to `runCI`
 
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
 	* `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
 	
-	* `TASK` -- Required, atleast 1 script needs to be present 
+	* `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/shippable-yml/)
 	* `OUT` -- Optional, any Resource can be used here and as many as you need
 		* `replicate` -- Optional, any `IN` Resource of same type can be used 
 
@@ -80,13 +86,14 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 ## Environment variables
-
-In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job.
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job.
 
 A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/platform/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
+
+Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/env-vars/).
 
 # Further Reading
 * Working with Resources
 * Working with Integrations
 * Jobs
-
+* [How to connect CI with Assembly Lines](/ci/trigger-pipeline-jobs/)

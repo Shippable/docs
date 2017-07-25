@@ -65,7 +65,7 @@ pipelines/jobs/deploy /platform/job-deploy
 pipelines/jobs/manifest /platform/jobs-manifest
 pipelines/jobs/provision /platform/job-provision
 pipelines/jobs/release /platform/job-release
-pipelines/jobs/runCI /platform/job-runci
+pipelines/jobs/runCI /platform/jobs-runci
 pipelines/jobs/runCLI /platform/job-runcli
 pipelines/jobs/runSh /platform/jobs-runsh
 pipelines/jobs/jenkinsJob /platform/job-jenkinsjob

@@ -263,7 +263,7 @@ pages:
         - manifest: platform/jobs-manifest.md
         - provision: platform/job-provision.md
         - release: platform/job-release.md
-        - runCI: platform/job-runci.md
+        - runCI: platform/jobs-runci.md
         - runCLI: platform/job-runcli.md
         - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md

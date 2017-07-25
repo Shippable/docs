@@ -95,7 +95,7 @@ These are the types of resources that Shippable Workflow supports:
 | [provision](job-provision/) | Provision specific resources needed by Container Orchestration Platforms |
 | [release](job-release/) | Release management for Apps/Services |
 | [jenkinsJob](job-jenkinsJob/) | Execute a Jenkins Job from Assembly Lines |
-| [runCI](job-runci/) | Execute Shippable CI Job |
+| [runCI](jobs-runci/) | Execute Shippable CI Job |
 | [runSh](jobs-runsh/) | Execute any Shell command |
 | [runCLI](job-runcli/) | Execute any supported Command Line Interface command |
 
