@@ -1,10 +1,11 @@
 page_main_title: params
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
@@ -31,7 +32,7 @@ resources:
 		params:
 		  key1: "value1"                     #requires at least one
 		  key2: "value2"                     #optional
-		  secure: <encrypted value>          #optional 
+		  secure: <encrypted value>          #optional
 	```
 You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.
 
@@ -42,7 +43,7 @@ This resource is used as an IN for the following jobs
 * [runSh](jobs-runsh/)
 * [runCI](jobs-runci/)
 * [deploy](jobs-deploy/)
-* [manifest](jobs-manifest/) 
+* [manifest](jobs-manifest/)
 
 # Further Reading
 * JFrog integration

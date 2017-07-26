@@ -1,20 +1,21 @@
 page_main_title: cliConfig
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
 # cliconfig
-`cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface. 
+`cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
 
 You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
-Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins. 
+Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins.
 
 ```
 resources:
@@ -28,13 +29,13 @@ resources:
 
 * **`type`** -- is set to `cliConfig`
 
-* **`integration`** -- name of the integration. Currently supported integrations are 
+* **`integration`** -- name of the integration. Currently supported integrations are
 	* AWS
 	* GKE
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* in case of AWS 
-	
+	* in case of AWS
+
 	```
 	    pointer:
 	      region: <aws region for e.g us-east-1, us-west-1 etc.>

@@ -1,9 +1,10 @@
 page_main_title: loadBalancer
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # loadBalancer
-`loadBalancer` resource is used to represent a loadbalancer as the name suggests. 
+`loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
 You can create a loadbalancer resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
@@ -19,33 +20,33 @@ resources:
 
 * **`type`** -- is set to `file`
 
-* **`integration`** -- name of the integration. Currently supported integrations are 
+* **`integration`** -- name of the integration. Currently supported integrations are
 	* AWS
 	* Google Cloud
 
 * **`pointer`** -- is an object which contains integration specific properties
 	* in case of [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/)		
-	
+
 	```
 	    pointer:
 	      sourceName: <name of the Classic Load Balancer>
 	      method: classic
-	      role: <AWS IAM role used to update the Load Balancer> 
-	      
+	      role: <AWS IAM role used to update the Load Balancer>
+
 	```
 	Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, shippable will search for one that has the right level of trust automatically. If none found, the job where this resource is used will fail
 
 	* in case of [AWS Application Load Balancers](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/)
-		
+
 	```
 	    pointer:
 	      sourceName: <name of the target group ARN>
 	      method: application
-	      role: <AWS IAM role used to update the Load Balancer> 
-	      
+	      role: <AWS IAM role used to update the Load Balancer>
+
 	```
 	Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, shippable will search for one that has the right level of trust automatically. If none found, the job where this resource is used will fail
-	
+
 	* in case of [GKE loadbalancers](https://kubernetes.io/docs/user-guide/services/) used in `deploy` jobs
 
 	```
@@ -63,7 +64,7 @@ resources:
 		method: 		clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
 		namespace: 		<name of the namespace where pod is deployed on>    #optional
 		clusterName: 	<name of the GKE cluster>
-		region: <name of the region>	
+		region: <name of the region>
 		version:
 		  ports:
 		    - name: 			<string>

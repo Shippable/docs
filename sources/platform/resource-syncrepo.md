@@ -1,6 +1,7 @@
 page_main_title: syncRepo
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # syncRepo
 

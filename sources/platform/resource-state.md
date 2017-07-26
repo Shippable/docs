@@ -1,9 +1,10 @@
 page_main_title: state
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # state
-`state` resource is a special resource used to store data that can be shared between jobs. Shippable DevOps Assembly lines do not allow workflow that have circular dependency. There are certain situations where data needs to be passed back and forth between Jobs. For e.g. Terraform tasks create a state that needs to be persisted across the jobs. `state` resource was specifically designed to achieve circular dependencies in DevOps Assembly Lines. 
+`state` resource is a special resource used to store data that can be shared between jobs. Shippable DevOps Assembly lines do not allow workflow that have circular dependency. There are certain situations where data needs to be passed back and forth between Jobs. For e.g. Terraform tasks create a state that needs to be persisted across the jobs. `state` resource was specifically designed to achieve circular dependencies in DevOps Assembly Lines.
 
 You can create a replicas resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 

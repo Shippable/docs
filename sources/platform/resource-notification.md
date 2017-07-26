@@ -1,11 +1,12 @@
 page_main_title: notification
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 #TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
@@ -38,7 +39,7 @@ resources:
 
 * **`type`** -- is set to `cliConfig`
 
-* **`integration`** -- name of the integration. Currently supported integrations are 
+* **`integration`** -- name of the integration. Currently supported integrations are
 	* Slack
 	* Hipchat
 	* Email - no integration is required
@@ -46,7 +47,7 @@ resources:
 
 * **`pointer`** -- is an object which contains integration specific properties
 	* in case of email
-	
+
 	```
 	  pointer:
 		method: email
@@ -64,7 +65,7 @@ resources:
 	       - "#beta"
 	       - "@botnot"
 	```
-	
+
 	* in case of slack
 
 	```
@@ -82,7 +83,7 @@ resources:
 	     recipients:
 	       - "#beta"
 	       - "@botnot"
-	```	
+	```
 
 # Used in JOBs
 This resource is used as an IN for the following jobs

@@ -1,11 +1,12 @@
 page_main_title: image
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
@@ -26,7 +27,7 @@ resources:
 
 * **`type`** -- is set to `image`
 
-* **`integration`** -- name of the integration. Currently supported integrations are 
+* **`integration`** -- name of the integration. Currently supported integrations are
 	- [Docker Hub](int-docker-hub/)
 	- [Docker Private Registry](int-docker-trusted-registry/)
 	- [Docker Trusted Registry](int-docker-trusted-registry/)

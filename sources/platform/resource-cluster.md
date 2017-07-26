@@ -1,19 +1,20 @@
 page_main_title: cluster
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 page_title: Unified Pipeline Resources - cluster
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
 # cluster
-`cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole. 
+`cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole.
 
 You can create an cluster resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 
@@ -29,7 +30,7 @@ resources:
 
 * **`type`** -- is set to `cluster`
 
-* **`integration`** -- name of the integration. Currently supported integrations 
+* **`integration`** -- name of the integration. Currently supported integrations
 	* [AWS Elastic Container Service (ECS)](int-amazon-ecs/)
 	* [Kubernetes](int-kubernetes/)
 	* [Google Container Engine (GKE)](int-gke/)
@@ -40,8 +41,8 @@ resources:
 	* AWS
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* in case of AWS 
-	
+	* in case of AWS
+
 	```
 	    pointer:
 	      region: <aws region for e.g us-east-1, us-west-1 etc.>

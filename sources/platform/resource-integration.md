@@ -1,16 +1,17 @@
 page_main_title: integration
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
 
 # integration
-`integration` resource is used to represent credentials that has been encrypted using Shippable Integrations. 
+`integration` resource is used to represent credentials that has been encrypted using Shippable Integrations.
 
 You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
 

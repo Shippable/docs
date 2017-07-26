@@ -1,11 +1,12 @@
 page_main_title: time
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 
 # time
@@ -24,14 +25,14 @@ resources:
 
 * **`type`** -- is set to `time`
 
-* **`seed`** -- is an object which contains specific properties that applies to this resource. 
-	
+* **`seed`** -- is an object which contains specific properties that applies to this resource.
+
 	```
 		seed:
 		  interval: "*/2 * * * *"
 	```
 The `interval` follows the [standard Cron format](https://en.wikipedia.org/wiki/Cron). For example, the snippet above will trigger the job at 2 min intervals.
- 
+
 # Used in JOBs
 This resource is used as an IN for any type of Job
 

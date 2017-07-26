@@ -1,6 +1,7 @@
 page_main_title: version
 main_section: Platform
-sub_section: Resources
+sub_section: Workflow
+sub_sub_section: Resources
 
 # version
 `version` resource is used to store <a href="http://www.semver.org/">the semantic version</a> numbers.
@@ -18,8 +19,8 @@ resources:
 
 * **`type`** -- is set to `version`
 
-* **`seed`** -- is an object which contains specific properties that applies to this resource. 
-	
+* **`seed`** -- is an object which contains specific properties that applies to this resource.
+
 	```
 		seed:
 		  versionName: "0.0.1"
