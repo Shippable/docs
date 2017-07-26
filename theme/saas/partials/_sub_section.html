@@ -1,0 +1,21 @@
+{% if sub_sub_section.children %}
+  {# If the sub-sub-section contains children, then display a dropdown. #}
+  {% if sub_sub_section.title in meta.sub_sub_section %}
+  <li class="subSubSection active">
+  {% else %}
+  <li class="subSubSection">
+  {% endif %}
+    <a class="subSubSectionHeader hasChildren">{{ sub_sub_section.title }}</a>
+    <nav class="subSubSectionNav">
+      {% for article in sub_sub_section.children %}
+        <a class="subSubSectionLink" href="{{ article.url }}">
+          {{ article.title }}
+        </a>
+      {% endfor %}
+    </nav>
+  </li>
+{% else %}
+  <li>
+    <a class="subSubSectionLink" href="{{ sub_sub_section.url }}">{{ sub_sub_section.title }}</a>
+  </li>
+{% endif %}

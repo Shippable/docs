@@ -1,17 +1,25 @@
 $(document).ready(
   function () {
-    $('.shipNav-item-nav').click(
-      function (e) {
-        e.stopPropagation();
+    $('.subSectionHeader').click(
+      function () {
+        var parent = $(this).parent();
+        if (!parent.hasClass('active')) {
+          $('.subSection').removeClass('active');
+          parent.addClass('active');
+        } else {
+          $('.subSection').removeClass('active');
+        }
       }
     );
-    $('.shipNav-item').click(
+
+    $('.subSubSectionHeader').click(
       function () {
-        if (!$(this).hasClass('active')) {
-          $('.shipNav-item').removeClass('active');
-          $(this).addClass('active');
+        var parent = $(this).parent();
+        if (!parent.hasClass('active')) {
+          $('.subSubSection').removeClass('active');
+          parent.addClass('active');
         } else {
-          $('.shipNav-item').removeClass('active');
+          $('.subSubSection').removeClass('active');
         }
       }
     );
