@@ -238,7 +238,7 @@ pages:
       - How to share data between Jobs: platform/howto-share-data-between-jobs.md
       - Resources:
         - Overview: platform/resources-overview.md
-        - Working with resources: platform/resources-working-with.md
+        - Working with Resources: platform/resources-working-with.md
         - ciRepo: platform/resource-cirepo.md
         - cliConfig: platform/resource-cliconfig.md
         - cluster: platform/resource-cluster.md
@@ -257,6 +257,7 @@ pages:
         - version: platform/resource-version.md
       - Jobs:
         - Overview: platform/jobs-overview.md
+        - Working with Jobs: platform/jobs-working-with.md
         - Unmanaged jobs: platform/jobs-unmanaged.md
         - deploy: platform/jobs-deploy.md
         - manifest: platform/jobs-manifest.md
@@ -266,6 +267,8 @@ pages:
         - runCLI: platform/job-runcli.md
         - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md
+      - State:
+        - Overview: platform/state-overview.md
     - Triggers:
       - Overview: platform/resources-overview.md
       - Working with triggers: platform/resources-overview.md
