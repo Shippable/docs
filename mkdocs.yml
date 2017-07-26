@@ -235,10 +235,8 @@ pages:
       - Images: platform/machine-images-overview.md
     - Workflow:
       - What is it: platform/workflow-overview.md
-      - How to share data between Jobs: platform/howto-share-data-between-jobs.md
       - Resources:
         - Overview: platform/resources-overview.md
-        - Working with Resources: platform/resources-working-with.md
         - ciRepo: platform/resource-cirepo.md
         - cliConfig: platform/resource-cliconfig.md
         - cluster: platform/resource-cluster.md
@@ -257,8 +255,6 @@ pages:
         - version: platform/resource-version.md
       - Jobs:
         - Overview: platform/jobs-overview.md
-        - Working with Jobs: platform/jobs-working-with.md
-        - Unmanaged jobs: platform/jobs-unmanaged.md
         - deploy: platform/jobs-deploy.md
         - manifest: platform/jobs-manifest.md
         - provision: platform/jobs-provision.md
@@ -274,7 +270,7 @@ pages:
         - Overview: platform/triggers-overview.md
     - Visibility:
       - Overview: platform/state-overview.md
-    - Ops: 
+    - Ops:
       - Overview: platform/state-overview.md
     - Integrations:
       - Overview: platform/integrations-overview.md
@@ -305,22 +301,29 @@ pages:
       - Quay.io: platform/int-quay.md
       - Slack: platform/int-slack.md
       - SSH Keys: platform/int-key-ssh.md
-    - API:
-      - Overview: platform/api-overview.md
-      - Tokens: platform/api-tokens.md
-    - Shippable Server:
-      - Installer: platform/admiral.md
-      - Installing SE from AWS Marketplace: platform/admiral-aws-marketplace.md
-      - Installing SE on a single machine: platform/admiral-onebox.md
-      - Installing EE on two machines: platform/admiral-two-server.md
-      - Installing EE on three machines: platform/admiral-three-server.md
-      - Installing EE on three machines with an existing DB: platform/admiral-three-server-existing-db.md
-      - Database Configuration: platform/admiral-db.md
-      - State Storage Configuration: platform/admiral-gitlab.md
-      - Message Configuration: platform/admiral-rabbitmq.md
-      - Redis Configuration: platform/admiral-redis.md
-      - Swarm Worker Configuration: platform/admiral-swarm-workers.md
-      - Vault Configuration: platform/admiral-vault.md
-      - Bitbucket Server Configuration: platform/admiral-bbs.md
-    - Glossary:
-      - Complete list of terms: platform/glossary.md
+    - Tutorials:
+      - Resources:
+        - Working with Resources: platform/resources-working-with.md
+      - Jobs:
+        - Working with Jobs: platform/jobs-working-with.md
+        - How to share data between Jobs: platform/howto-share-data-between-jobs.md
+        - Unmanaged jobs: platform/jobs-unmanaged.md
+      - API:
+        - Overview: platform/api-overview.md
+        - Tokens: platform/api-tokens.md
+      - Shippable Server:
+        - Installer: platform/admiral.md
+        - Installing SE from AWS Marketplace: platform/admiral-aws-marketplace.md
+        - Installing SE on a single machine: platform/admiral-onebox.md
+        - Installing EE on two machines: platform/admiral-two-server.md
+        - Installing EE on three machines: platform/admiral-three-server.md
+        - Installing EE on three machines with an existing DB: platform/admiral-three-server-existing-db.md
+        - Database Configuration: platform/admiral-db.md
+        - State Storage Configuration: platform/admiral-gitlab.md
+        - Message Configuration: platform/admiral-rabbitmq.md
+        - Redis Configuration: platform/admiral-redis.md
+        - Swarm Worker Configuration: platform/admiral-swarm-workers.md
+        - Vault Configuration: platform/admiral-vault.md
+        - Bitbucket Server Configuration: platform/admiral-bbs.md
+      - Glossary:
+        - Complete list of terms: platform/glossary.md
