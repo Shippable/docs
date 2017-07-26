@@ -1,18 +1,19 @@
 page_main_title: manifest
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - manifest
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 
 # manifest
-`manifest` is Job that is used to create a versioned immutable service definition of your app. It is the definition of a deployment unit. This can be then supplied as an input to a [deploy]() Job which will then deploy the app to the desired target. A `manifest` is made up of either an [image]() or a [file]() Resources as the basic deployable unit. It can be appended with [params]() to inject environment variables during deployment in both cases and [dockerOptions]() in case its using a Docker iamge. A manifest is deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one of it changed. If you want them to deployed independently, then create multiple manifests to represent them. 
+`manifest` is Job that is used to create a versioned immutable service definition of your app. It is the definition of a deployment unit. This can be then supplied as an input to a [deploy]() Job which will then deploy the app to the desired target. A `manifest` is made up of either an [image]() or a [file]() Resources as the basic deployable unit. It can be appended with [params]() to inject environment variables during deployment in both cases and [dockerOptions]() in case its using a Docker iamge. A manifest is deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one of it changed. If you want them to deployed independently, then create multiple manifests to represent them.
 
 A new version is created anytime this Job is executed
 
@@ -32,19 +33,19 @@ jobs:
       - IN: 		<dockerOptions> 		# optional
       - IN: 		<dockerOptions> 		# optional
         applyTo:
-          - <image> 
+          - <image>
           - <image>
       - IN: 		<params> 				# optional
       - IN: 		<params> 				# optional
         applyTo:
-          - <image> 
+          - <image>
           - <image>
       - IN: 		<replicas> 				# optional
       - IN: 		<replicas> 				# optional
         applyTo:
-          - <image> 
           - <image>
-      - IN: 		<any job or resource>  	# optional 
+          - <image>
+      - IN: 		<any job or resource>  	# optional
 	 on_success:							# optional
 	   - NOTIFY: <notification resource name>
 	 on_failure:							# optional
@@ -74,11 +75,10 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
 
-	
+
 Note: Since `manifest` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 
 # Further Reading
 * Working with Resources
 * Working with Integrations
 * Jobs
-

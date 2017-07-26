@@ -1,6 +1,6 @@
 page_main_title: Share data between Jobs
 main_section: Platform
-sub_section: How To
+sub_section: Workflow
 page_title: Share data between Jobs
 
 # state

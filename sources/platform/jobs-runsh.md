@@ -1,20 +1,21 @@
 page_main_title: runSH
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - runSh
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Add Environment variables|  Open |
 | Add Folder Structure|  Open |
 
 # runSh
-`runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized. 
+`runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized.
 
 You should use this job type if you need the freedom that some of the pre-packaged Jobs like `deploy`, `manifest` do not provide the flexibility that you need or do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a Job of type `runSh`.
 
@@ -40,7 +41,7 @@ jobs:
         versionNumber: 		<number of the version you want to pin>        
       - IN: 				<gitRepoResource with buildOnPullRequest: true>
         showBuildStatus:	true       
-      - TASK: 
+      - TASK:
         - script: 			<any shell command>
         - script: 			<any shell command>
       - OUT: 				<resource>
@@ -66,10 +67,10 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
 	* `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
-	
-	* `TASK` -- Required, atleast 1 script needs to be present 
+
+	* `TASK` -- Required, atleast 1 script needs to be present
 	* `OUT` -- Optional, any Resource can be used here and as many as you need
-		* `replicate` -- Optional, any `IN` Resource of same type can be used 
+		* `replicate` -- Optional, any `IN` Resource of same type can be used
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
@@ -89,4 +90,3 @@ A complete list of these variables is available in the [Environment variables fo
 * Working with Resources
 * Working with Integrations
 * Jobs
-

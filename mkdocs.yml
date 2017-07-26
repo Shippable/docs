@@ -267,6 +267,7 @@ pages:
         - runCLI: platform/job-runcli.md
         - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md
+        - rSync: platform/jobs-rSync.md
       - State:
         - Overview: platform/state-overview.md
     - Triggers:
