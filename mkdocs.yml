@@ -268,10 +268,8 @@ pages:
         - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md
         - rSync: platform/jobs-rSync.md
-      - State:
-        - Overview: platform/state-overview.md
-      - Triggers:
-        - Overview: platform/triggers-overview.md
+      - State: platform/state-overview.md
+      - Triggers: platform/triggers-overview.md
     - API:
       - Overview: platform/api-overview.md
       - Tokens: platform/api-tokens.md
