@@ -1,21 +1,22 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Add link to inconsistencies to rSync|  Open |
 | Environment variables|  Open |
 | Folder Structure|  Open |
 
 # Jobs
-Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job. 
+Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job.
 
 Jobs are simple to understand, they take inputs of information in the form of [Resources](resources-overview/), execute tasks that perform the operations necessary and then produce a result i.e. output of the job. Now these outputs can become inputs to other jobs and so on forming a dependency based, event driven DevOps Assembly Lines.
 
@@ -53,8 +54,8 @@ jobs:
         versionNumber: 		<number of the version you want to pin>
       - IN: 				<params/dockerOption/replicas resource>
         applyTo:
-          - 				<image/manifest/release> 
-          - 				<image/manifest/release> 
+          - 				<image/manifest/release>
+          - 				<image/manifest/release>
       - IN: 				<loadBalancer resource>
         applyTo:
           - manifest: 		<manifest>
@@ -64,7 +65,7 @@ jobs:
         showBuildStatus: 	true
       - IN: 				<manifest/release>
         force: 				true
-      - TASK: 
+      - TASK:
         - script: 			<any shell command>
         - script: 			<any shell command>
       - OUT: 				<resource>
@@ -88,16 +89,16 @@ A Job is queued by the DevOps Assembly Line platform when one of the following c
 
 * A new version was created for the `IN` resource. This might occur due to a `YML` change or some other job updated the state of this resource
 * `IN` job executed and successfuly completed it's tasks. This means the preceding job ran and since its an input to this Job, it needs to run. There are some cases due to which the Job does not get triggered, namely
-	* If any Jobs defined as `IN`s are currently processing, have queued builds or in a failed state 
+	* If any Jobs defined as `IN`s are currently processing, have queued builds or in a failed state
 	* If the Job is in [inconsistent]() state due to dependency failures
 
 <a name="types"></a>
 ## Types
 These are the types of resources that Shippable Workflow supports:
 
-| Job Type   |      Description    | 
+| Job Type   |      Description    |
 |----------|-------------|
-| [deploy](jobs-deploy/) | Deploy apps/services to Container Platforms or VM clusters | 
+| [deploy](jobs-deploy/) | Deploy apps/services to Container Platforms or VM clusters |
 | [manifest](jobs-manifest/) | Create App/Service definition (configuration) that is immutable |
 | [provision](jobs-provision/) | Provision specific resources needed by Container Orchestration Platforms |
 | [release](jobs-release/) | Release management for Apps/Services |

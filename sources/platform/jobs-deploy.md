@@ -1,13 +1,14 @@
 page_main_title: deploy
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - deploy
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 
 # deploy
@@ -34,17 +35,17 @@ jobs:
       - IN: 			<dockerOptions> 	# optional
       - IN: 			<dockerOptions> 	# optional
         applyTo:
-          - 			<image/manifest/release> 
+          - 			<image/manifest/release>
           - 			<image/manifest/release>
       - IN: 			<params> 			# optional
       - IN: 			<params> 			# optional
         applyTo:
-          - 			<image/manifest/release> 
+          - 			<image/manifest/release>
           - 			<image/manifest/release>
       - IN: 			<replicas> 			# optional
       - IN: 			<replicas> 			# optional
         applyTo:
-          - 			<image/manifest/release> 
+          - 			<image/manifest/release>
           - 			<image/manifest/release>
       - IN: 			<loadBalancer>		#optional
         applyTo:
@@ -52,7 +53,7 @@ jobs:
             image: 		<image>              
             port: 		<number>              
       - IN: 			<release job> 		# optional
-      - IN: 			<any job or resource>  # optional 
+      - IN: 			<any job or resource>  # optional
       - TASK: managed
         deployMethod:	<deploy strategies> # optional
           - script: 	<bash script>		# optional
@@ -78,10 +79,10 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 			* `force` -- Optional input, if you need to deploy the `release` even if nothing has changed. Deployment could have been triggered by some other change		
 		* [manifest]() -- Required input, you can add 1 or many of it. If you add more than 1, they will be deployed as seperate entities. This means if only 1 of the manifest changes, only that one will be deployed
 			* `force` -- Optional input, if you need to deploy the `manifest` even if nothing has changed. Deployment could have been triggered by some other change
-		
+
 		* [release]() -- Required input, you can add 1 or many of it. `release` Jobs could also contain 1 or many `manifests` that have been semantically tagged with a release version number. If you have more than 1 `release` Jobs as `IN` they are deployed as seperately and only the ones that change are deployed
-		 		
-		* [image]() -- Optional input, but invalid if the manifest is not for an image. You can add 1 or many of it and this will override the references to this Resource in all `manifest`/`release` inputs. The `versionName` of this Resources contains the tag, so all references to this `image` in the `manifest` is replaced with the new tag. 
+
+		* [image]() -- Optional input, but invalid if the manifest is not for an image. You can add 1 or many of it and this will override the references to this Resource in all `manifest`/`release` inputs. The `versionName` of this Resources contains the tag, so all references to this `image` in the `manifest` is replaced with the new tag.
 
 		* [dockerOptions]() -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. If you want `dockerOptions` Resource to specific entities use `applyTo` tag
 
@@ -90,11 +91,11 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 		* [params]() -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources in a`manifest` or in a `release`. If you want `params` Resource to apply to specific entities use `applyTo` tag
 
 		* [loadBalancer]() -- Optional input,  applies only to `image` based deploys. If provided the below attributes are required. It is used to attach a load balancer to a particular service and automatically update routing information upon subsequent deployments
-			* `manifest` -- Required for loadBalancer. Name of the manifest i.e. service to which the loadBalancer will be attached to 
-			
+			* `manifest` -- Required for loadBalancer. Name of the manifest i.e. service to which the loadBalancer will be attached to
+
 			* `image` -- Required for loadBalancer. Name of the image i.e. container running the Docker image within the manifest.
 			* `port` -- Required for loadBalancer. The container port that will be exposed to the load balancer
-					
+
 		* Any other Job or Resource will only participate in triggering `deploy` Job but not in of the processing of it
 
 	* `TASK` -- Optional, but needs to be set to value `managed` is used. It is needed in case you want to control `deployMethod`

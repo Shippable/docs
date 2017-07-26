@@ -1,14 +1,15 @@
 page_main_title: runCI
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: DevOps pipeline runCI job
 page_description: Description of the runCI job
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Add Environment variables|  Open |
 | Add Folder Structure|  Open |
@@ -72,10 +73,10 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
 	* `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
-	
+
 	* `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/shippable-yml/)
 	* `OUT` -- Optional, any Resource can be used here and as many as you need
-		* `replicate` -- Optional, any `IN` Resource of same type can be used 
+		* `replicate` -- Optional, any `IN` Resource of same type can be used
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 

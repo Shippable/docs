@@ -1,19 +1,20 @@
 page_main_title: provision
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - provision
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 
 # provision
-`provision` is a Job that is used to create ancillary objects like load-balancers on Container Orchestration Platform. 
+`provision` is a Job that is used to create ancillary objects like load-balancers on Container Orchestration Platform.
 
-Currently we support provisioning of load-balancers on clusters that are hosted on 
+Currently we support provisioning of load-balancers on clusters that are hosted on
 
 - Google Container Engine (GKE) services.
 - Kubernetes services.
@@ -33,7 +34,7 @@ jobs:
     steps:
       - IN: 			<loadBalancer>		# required
       - IN: 			<loadBalancer>		# optional
-      - IN: 			<any job or resource>  # optional 
+      - IN: 			<any job or resource>  # optional
 	 on_success:							# optional
 	   - NOTIFY: 		<notification resource name>
 	 on_failure:							# optional

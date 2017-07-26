@@ -1,6 +1,7 @@
 page_main_title: runCLI
 main_section: Platform
-sub_section: Jobs
+sub_section: Workflow
+sub_sub_section: Jobs
 
 # runCLI job
 
