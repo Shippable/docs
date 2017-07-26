@@ -1,0 +1,22 @@
+{% for sub_section in main_section.children %}
+  {# If the sub-section contains children, then display a dropdown. #}
+  {% if sub_section.children %}
+    {% if sub_section.title in meta.sub_section %}
+    <li class="subSection active">
+    {% else %}
+    <li class="subSection">
+    {% endif %}
+      <a class="subSectionHeader hasChildren">{{ sub_section.title }}</a>
+      <nav class="subSectionNav">
+        {% for sub_sub_section in sub_section.children %}
+          {% include 'partials/_sub_section.html' %}
+        {% endfor %}
+      </nav>
+    </li>
+  {# If the sub-section does not contain children, then display a link. #}
+  {% else %}
+    <li>
+      <a class="subSectionHeader" href="{{ sub_section.url }}" name="{{ sub_section.title }}">{{ sub_section.title }}</a>
+    </li>
+  {% endif %}
+{% endfor %}

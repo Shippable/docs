@@ -314,26 +314,78 @@ menu,ol.shipNav,ul.shipNav {
   opacity: .5;
 }
 
-.shipNav {
-  position: relative;
-  margin-bottom: 20px;
+/* ------------------ */
+/* Navigation styling */
+
+/* Main container */
+.leftNav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.shipNav-item {
+/* Subsection styling */
+.subSection {
   margin-bottom: .5rem;
 }
 
-.shipNav-item.active {
-  z-index: 100;
+/* Subsubsection styling */
+.subSubSection {
+  margin-left: 3rem;
 }
 
-.shipNav-item-header {
+/* Hide all subsection navigation first. */
+.subSection > .subSectionNav {
+  display: none;
+}
+
+.subSubSection > .subSubSectionNav {
+  display: none;
+}
+
+/* Display only the active subsection. */
+.subSection.active > .subSectionNav {
+  display: block;
+}
+
+.subSubSection.active > .subSubSectionNav {
+  display: block;
+}
+
+.subSection.active > .subSectionHeader {
+  color: #006cd1;
+}
+
+.subSubSection.active > .subSubSectionHeader {
+  color: #006cd1;
+}
+
+.subSection.active > .subSectionHeader::before {
+  transform: rotate(90deg);
+}
+
+.subSubSection.active > .subSubSectionHeader::before {
+  transform: rotate(90deg);
+}
+
+/* Subsection navigation styling */
+.subSectionNav {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subSubSectionNav {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Subsection header styling */
+.subSectionHeader {
   color: #333;
   font-size: 16px;
-  text-decoration: none;
 }
 
-.shipNav-item-header:before {
+.subSectionHeader::before {
   content: "";
   display: inline-block;
   width: 11px;
@@ -343,62 +395,47 @@ menu,ol.shipNav,ul.shipNav {
   background-size: contain;
 }
 
-.shipNav-item-header--hasChildren:before {
+.subSubSectionHeader {
+  color: #333;
+  font-size: 16px;
+}
+
+.subSectionHeader.hasChildren::before {
   background-image: url(../ionicons/css/caret-closed.svg);
 }
 
-.shipNav-item-header:empty,.shipNav-item-nav {
-  display: none;
+.subSubSectionHeader::before {
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: .5em;
+  background: no-repeat 50%;
+  background-size: contain;
 }
 
-.shipNav-item-link {
+.subSubSectionHeader.hasChildren::before {
+  background-image: url(../ionicons/css/caret-closed.svg);
+}
+
+/* Subsection link styling */
+.subSubSectionLink {
   display: block;
   cursor: pointer;
   line-height: 21px;
-  padding-left: 4rem;
+  padding-left: 3rem;
   color: #6c89a5;
   transition: opacity .2s;
   margin-bottom: 1rem;
   font-size: 15px;
 }
 
-.shipNav-item-link:focus,.shipNav-item-link:hover {
+.subSubSectionLink:focus, .subSubSectionLink:hover {
   color: #49b882;
 }
 
-.shipNav-item.active .shipNav-item-header {
-  color: #006cd1;
-}
-
-.shipNav-item.active .shipNav-item-header:before {
-  transform: rotate(90deg);
-}
-
-.shipNav-item.active .shipNav-item-nav {
-  display: block;
-  margin-bottom: 1rem;
-  margin-top: .5rem;
-}
-
-.shipNav-item.active .shipNav-item-nav::empty {
-  display: none;
-}
-
-.shipNav-item-link.active {
-  color: #00386c;
-  opacity: 1;
-}
-
-.shipNav-item.active .shipNav-item-nav:empty {
-  display: none;
-}
-
-.shipNav-item-title {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-
+/* ---------------------- */
+/* End navigation styling */
 
 .shipContent-sidebar-title {
   font-size: 1em;

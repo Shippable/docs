@@ -1,52 +1,15 @@
+{# Search form #}
 <form class="shipDocsNav-search-form">
   <i class="shipDocsNav-search-icon"></i>
   <input id="shippable-search" type="search" class="shipDocsNav-search-input st-search-input" placeholder="Search...">
 </form>
-<ul class="shipNav">
-  {% for section in nav %}
-    {% if section.children %}
-      {% if section.title in meta.main_section %}
-          {% for section in section.children %}
-            {% if section.children %}
-              {% if section.title in meta.sub_section %}
-                <li class="shipNav-item active">
-                    <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
-                    <nav class="shipNav-item-nav">
-                      {% for section in section.children %}
-                        <a class="shipNav-item-link" href="{{ section.url }}">
-                          {{ section.title }}
-                        </a>
-                      {% endfor %}
-                    </nav>
-                </li>
-              {% else %}
-                <li class="shipNav-item">
-                    <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
-                    <nav class="shipNav-item-nav">
-                      {% for section in section.children %}
-                        {% if section.children %}
-                          <a class="shipNav-item-header shipNav-item-header--hasChildren"> {{ section.title }} </a>
-                          {% for section in section.children %}
-                            <a class="shipNav-item-link" href="{{ section.url }}">
-                              {{ section.title }}
-                            </a>
-                          {% endfor %}
-                        {% else %}
-                          <a class="shipNav-item-link" href="{{ section.url }}">
-                            {{ section.title }}
-                          </a>
-                        {% endif %}
-                      {% endfor %}
-                    </nav>
-                </li>
-              {% endif %}
-            {% else %}
-              <li>
-                <a class="shipNav-item-header" href="{{ section.url }}" name="{{section.title}}">{{ section.title }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
-      {% endif %}
+
+<ul class="leftNav">
+  {# Loop through all the main sections in the navigation. #}
+  {% for main_section in nav %}
+    {# If the main section matches the main section of the current page, display it. Skip otherwise. #}
+    {% if main_section.title in meta.main_section %}
+      {% include 'partials/_section.html' %}
     {% endif %}
   {% endfor %}
 </ul>
