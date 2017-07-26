@@ -39,7 +39,7 @@ Shippable Assembly Lines platform has three forms of state.
 
 * **File based state**: is available only in Jobs and state files upto 1MB can be stored for every version i.e. run of a Job. Every subsequent Job that has this as an input has access to those files. This makes it easy to trasfer stateful data from one Job to another
 
-* **Shared State Resource**: state always flows from left to right. However, there are some scenarios where a shared state is needed. For e.g. Terraform creates a statefile when `terraform apply` is run. But if you need to run this in a mult-stage manner where subsequent Jobs make changes to this state, it some needs to flow back to the first job that created it. Our Assembly Lines has a special shared `state resource` that allows this state to be stored centrally and shared across the jobs.  
+* **Shared State Resource**: state always flows from left to right. However, there are some scenarios where a shared state is needed. For e.g. Terraform creates a statefile when `terraform apply` is run. But if you need to run this in a mult-stage manner where subsequent Jobs make changes to this state, it some needs to flow back to the first job that created it. Our Assembly Lines has a special shared `state` Resource that allows this state to be stored centrally and shared across the jobs.  
 
 
 # Further Reading

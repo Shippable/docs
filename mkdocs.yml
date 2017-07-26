@@ -268,11 +268,14 @@ pages:
         - runSH: platform/jobs-runsh.md
         - jenkinsJob: platform/job-jenkinsjob.md
         - rSync: platform/jobs-rSync.md
-      - State: platform/state-overview.md
-      - Triggers: platform/triggers-overview.md
-    - API:
-      - Overview: platform/api-overview.md
-      - Tokens: platform/api-tokens.md
+      - State:
+        - Overview: platform/state-overview.md
+      - Triggers:
+        - Overview: platform/triggers-overview.md
+    - Visibility:
+      - Overview: platform/state-overview.md
+    - Ops: 
+      - Overview: platform/state-overview.md
     - Integrations:
       - Overview: platform/integrations-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md
@@ -302,6 +305,9 @@ pages:
       - Quay.io: platform/int-quay.md
       - Slack: platform/int-slack.md
       - SSH Keys: platform/int-key-ssh.md
+    - API:
+      - Overview: platform/api-overview.md
+      - Tokens: platform/api-tokens.md
     - Shippable Server:
       - Installer: platform/admiral.md
       - Installing SE from AWS Marketplace: platform/admiral-aws-marketplace.md
