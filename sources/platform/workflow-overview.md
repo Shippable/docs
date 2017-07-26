@@ -20,7 +20,7 @@ With workflow, both single step and multi-stage actitvites are repeatable, relia
 
 
 ## Elements of Workflow
-Workflow is made up of 3 key elements; Resources, Jobs and State.
+Workflow is made up of 4 key elements
 
 ### Resources
 [Resources](/platform/resources-overview/) are objects that can be supplied as inputs and outputs to your activities, in our case Jobs e.g params resource stores environmental variables that are injected to Job Runtime if used as an input to a job. Every change made to the resource is persisted as an immutable version. This is similar to creting a SHA on git.
@@ -31,6 +31,8 @@ Workflow is made up of 3 key elements; Resources, Jobs and State.
 ### State
 State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD. The platform has this capability built-in so that you dont need to maintain external spreadsheets, file storage, slack rooms etc. to share this information
 
+### Trigger
+[Triggers](/platform/trigger-overview/) represent DevOps activities in your workflows. For e.g. building an Amazon Machine Image using Packer or running CI on your source code. Jobs can take Resources as inputs or other even other Jobs the result of a job could affect the state of a Resource persisted as a version. Jobs can also act as inputs to other jobs.
 
 ## Further Reading
 * Job Runtime

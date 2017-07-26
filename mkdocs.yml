@@ -270,10 +270,10 @@ pages:
         - rSync: platform/jobs-rSync.md
       - State:
         - Overview: platform/state-overview.md
-    - Triggers:
-      - Overview: platform/resources-overview.md
-      - Working with triggers: platform/resources-overview.md
-      - shippable.triggers.yml: platform/shippable-triggers-yml.md
+      - Triggers:
+        - Overview: platform/resources-overview.md
+        - Working with triggers: platform/resources-overview.md
+        - shippable.triggers.yml: platform/shippable-triggers-yml.md
     - Configuration:
       - shippable.yml: platform/shippable-yml.md
       - shippable.jobs.yml: platform/shippable-jobs-yml.md
