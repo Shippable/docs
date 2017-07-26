@@ -271,12 +271,7 @@ pages:
       - State:
         - Overview: platform/state-overview.md
       - Triggers:
-        - Overview: platform/resources-overview.md
-        - Working with triggers: platform/resources-overview.md
-        - shippable.triggers.yml: platform/shippable-triggers-yml.md
-    - Configuration:
-      - shippable.yml: platform/shippable-yml.md
-      - shippable.jobs.yml: platform/shippable-jobs-yml.md
+        - Overview: platform/triggers-overview.md
     - API:
       - Overview: platform/api-overview.md
       - Tokens: platform/api-tokens.md
