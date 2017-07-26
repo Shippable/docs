@@ -64,7 +64,7 @@ Deleting Resources is a 2 step process. Deleting from the YML causes it to be so
 Here are the steps to delete a Resource
 
 1. Delete the Resource definition from the YML and commit the change to the repo. Automatic sync process will execute and mark the removed Resource as soft deleted. All version data is still available and no data is lost at this stage. If any Jobs are still using this deleted Resource and they are still active, those Jobs will be marked inconsistent and will not be triggered until fixed
-1. Now log into your SPOG, make sure that you have not hidden deleted Resources from your view. All the soft deleted Resources will appear on the bottom of your SPOG. Right click on each of them and delete. If these Resources are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Resource. Once you delete from the SPOG, all data is permanently destroyed
+1. Now log into your SPOG, make sure that you have not hidden deleted Objects from your view. All the soft deleted Resources will appear on the bottom of your SPOG. Right click on each of them and delete. If these Resources are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Resource. Once you delete from the SPOG, all data is permanently destroyed
 
 ## Deleting all resources at the same time
 If you right click on the `syncRepo` resource you added to create the assembly lines and delete it from the UI, all the resources defined in the YML file will all be marked soft-deleted along with the syncRepo resource. Now hard delete the syncRepo resource as any other resource, Shippable will delete all the resources automatically now. Only the syncRepo resource can be soft-deleted from the UI. All other resources needs to be managed from the YML.
@@ -77,7 +77,6 @@ Shippable is designed to separate out sensitive authentication information from 
 This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
 
 To learn how to create integrations and use them in your ymls, [click here](integrations-overview/)
-
 
 
 # Further Reading

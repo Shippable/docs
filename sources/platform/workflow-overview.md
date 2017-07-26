@@ -32,7 +32,7 @@ Workflow is made up of 4 key elements
 State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD. The platform has this capability built-in so that you dont need to maintain external spreadsheets, file storage, slack rooms etc. to share this information
 
 ### Trigger
-[Triggers](/platform/trigger-overview/) represent DevOps activities in your workflows. For e.g. building an Amazon Machine Image using Packer or running CI on your source code. Jobs can take Resources as inputs or other even other Jobs the result of a job could affect the state of a Resource persisted as a version. Jobs can also act as inputs to other jobs.
+[Triggers](/platform/triggers-overview/) are used to manually start a Job. You could also achive this by triggering through UI, but this is for those who like to do it with code
 
 ## Further Reading
 * Job Runtime
