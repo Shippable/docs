@@ -231,7 +231,7 @@ pages:
       - Concepts: platform/job-runtime-overview.md
       - Nodes: platform/job-runtime-nodes.md
       - Caching: platform/job-runtime-caching.md
-      - Images: platform/machine-images-overview.md
+      - Images: platform/job-runtime-image.md
     - Workflow:
       - What is it: platform/workflow-overview.md
       - Resources:
