@@ -229,9 +229,12 @@ pages:
     - Overview: platform/platform-overview.md
     - Job Runtime:
       - Concepts: platform/job-runtime-overview.md
-      - Nodes: platform/job-runtime-nodes.md
       - Caching: platform/job-runtime-caching.md
       - Images: platform/job-runtime-image.md
+      - Nodes:
+        - Overview: platform/job-runtime-nodes.md
+        - Dynamic Nodes: platform/job-runtime-dynamic-nodes.md
+        - Custom Nodes: platform/job-runtime-custom-nodes.md
       - Languages:
         - Nodejs: platform/language-nodejs.md
         - Python: platform/language-python.md

@@ -1,6 +1,7 @@
 page_main_title: Dynamic Nodes Overview
 main_section: Platform
 sub_section: Job Runtime
+sub_sub_section: Nodes
 page_title: Dynamic Nodes Overview
 
 # TODO
@@ -16,8 +17,8 @@ More information on the pricing of these nodes can be found [here](https://www.s
 
 ## Sizes of Dynamic nodes
 
-* C4.Large 
-* C4.xlarge 
+* C4.Large
+* C4.xlarge
 * C4.2xlarge
 
 More information on the pricing of these nodes can be found [here](https://www.shippable.com/pricing.html).
@@ -80,6 +81,3 @@ affect all projects and builds in your Subscription.
 
 <img src="../../images/ci/change-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
- 
-
-

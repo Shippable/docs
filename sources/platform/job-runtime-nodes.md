@@ -1,6 +1,7 @@
 page_main_title: Job Runtime Nodes Overview
 main_section: Platform
 sub_section: Job Runtime
+sub_sub_section: Nodes
 page_title: Job Runtime Nodes Overview
 
 # Nodes
