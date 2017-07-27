@@ -15,8 +15,8 @@ you can also boot the job runtime with any image.
 
 | Version  |  Tag    | Ubuntu 14.04 | Ubuntu 16.04 | Available AMIs|  
 |----------|---------|-----------|-----------|---------------|
-|8.1.4  |   8.1.4      |  [Ubuntu 14.04](https://hub.docker.com/r/drydock/u14nodall/tags/) |  [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16nodall/tags/)         |   [v5.7.3](/platform/machine-image-v573)            |
-|7.10.1 |         |           |           |               |
+|8.1.4  |   v5.7.3      |  [Ubuntu 14.04](https://hub.docker.com/r/drydock/u14nodall/tags/) |  [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16nodall/tags/)         |   [v5.7.3](/platform/machine-image-v573)            |
+|7.10.1  |   v5.7.3      |  [Ubuntu 14.04](https://hub.docker.com/r/drydock/u14nodall/tags/) |  [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16nodall/tags/)         |   [v5.7.3](/platform/machine-image-v573)            |
 |7.4.0  |         |           |           |               |
 |7.3.0       |         |           |           |               |
 |7.2.1       |         |           |           |               |
