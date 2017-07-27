@@ -174,7 +174,7 @@ pages:
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
       - Multi-container services: deploy/amazon-ecs-multiple-containers.md
       - Multiple environments: deploy/amazon-ecs-multiple-environments.md
-      - Custom deployments(runCLI): deploy/amazon-ecs-unmanaged.md
+      - Custom deployments(runCLI.md: deploy/amazon-ecs-unmanaged.md
       - Naming conventions: deploy/amazon-ecs-naming-conventions.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
@@ -232,6 +232,31 @@ pages:
       - Nodes: platform/job-runtime-nodes.md
       - Caching: platform/job-runtime-caching.md
       - Images: platform/job-runtime-image.md
+      - Languages:
+        - Nodejs: platform/language-nodejs.md
+        - Python: platform/language-python.md
+        - Java: platform/language-java.md
+        - Ruby: platform/language-ruby.md
+        - GO: platform/language-go.md
+        - PHP: platform/language-php.md
+        - Clojure: platform/language-clojure.md
+        - Scala: platform/language-scala.md
+        - C/C++: platform/language-cplusplus.md
+      - Services:
+        - Cassandra: platform/service-cassandra.md
+        - Couchdb: platform/service-couchdb.md
+        - Elasticsearch: platform/service-elasticsearch.md
+        - Neo4j: platform/service-neo4j.md
+        - Memcached: platform/service-memcached.md
+        - Mongodb: platform/service-mongodb.md
+        - Mysql: platform/service-mysql.md
+        - Postgres: platform/service-postgres.md
+        - Rabbitmq: platform/service-rabbitmq.md
+        - Redis: platform/service-redis.md
+        - Rethinkdb: platform/service-rethinkdb.md
+        - Riak: platform/service-riak.md
+        - Selenium: platform/service-selenium.md
+        - Sqllite: platform/service-sqllite.md
     - Workflow:
       - What is it: platform/workflow-overview.md
       - Resources:
