@@ -15,11 +15,11 @@ you can also boot the job runtime with any image.
 ## Supported Version Tags
 The drydock docker image is tagged when the image is updated. These are the supported tags -
 
-* v5.7.3                
-* v5.6.1                
-* v5.5.1                
-* v5.4.1                
-* v5.3.2                
+* v5.7.3
+* v5.6.1
+* v5.5.1
+* v5.4.1
+* v5.3.2
 
 ## Supported OS Versions
 Language versions are available on the drydock links specified below for these OS versions.
