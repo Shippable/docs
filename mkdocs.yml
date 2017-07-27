@@ -257,6 +257,12 @@ pages:
         - Riak: platform/service-riak.md
         - Selenium: platform/service-selenium.md
         - Sqllite: platform/service-sqllite.md
+      - AMIs:
+        - v5.7.3: platform/machine-image-v573.md
+        - v5.6.1: platform/machine-image-v561.md
+        - v5.5.1: platform/machine-image-v551.md
+        - v5.4.1: platform/machine-image-v541.md
+        - v5.3.2: platform/machine-image-v532.md
     - Workflow:
       - What is it: platform/workflow-overview.md
       - Resources:
