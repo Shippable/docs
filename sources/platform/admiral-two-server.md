@@ -1,6 +1,7 @@
 page_main_title: Shippable installer
 main_section: Platform
-sub_section: Admiral
+sub_section: Tutorials
+sub_sub_section: Shippable Server
 page_title: Shippable Server installation with 2 servers
 page_description: Shippable Server installation with 2 servers with persistent state on one machine and everything else on
 another machine.

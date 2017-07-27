@@ -1,6 +1,7 @@
 page_main_title: Shippable installer
 main_section: Platform
-sub_section: Admiral
+sub_section: Tutorials
+sub_sub_section: Shippable Server
 page_title: Admiral - Database Configuration
 page_description: Admiral Database Configuration
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, postgres

@@ -1,6 +1,7 @@
 page_main_title: Shippable installer
 main_section: Platform
-sub_section: Admiral
+sub_section: Tutorials
+sub_sub_section: Shippable Server
 page_title: Shippable Server installation with 3 servers and an existing database.
 page_description: Shippable Server installation with 3 servers and an existing database.
 

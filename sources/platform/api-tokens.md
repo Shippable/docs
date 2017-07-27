@@ -1,6 +1,7 @@
 page_main_title: API Tokens
 main_section: Platform
-sub_section: API
+sub_section: Tutorials
+sub_sub_section: API
 page_description: Overview of Shippable's Account Settings API section UI
 
 #API Tokens

@@ -302,9 +302,9 @@ pages:
       - Triggers:
         - Overview: platform/triggers-overview.md
     - Visibility:
-      - Overview: platform/state-overview.md
-    - Ops:
-      - Overview: platform/state-overview.md
+      - Overview: visibility/visibility-overview.md
+    - Operations:
+      - Overview: operations/operations-overview.md
     - Integrations:
       - Overview: platform/integrations-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md

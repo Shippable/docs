@@ -1,6 +1,7 @@
 page_main_title: Shippable installer
 main_section: Platform
-sub_section: Admiral
+sub_section: Tutorials
+sub_sub_section: Shippable Server
 page_title: Admiral - Installing Shippable
 page_description: How to install Shippable
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
@@ -232,4 +233,3 @@ The `master` folder may contain a `data` folder. It's not used at this time.
 
 ### workers
 The `workers` folder contains a `data` folder. It's not used at this time.
-

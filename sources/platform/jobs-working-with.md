@@ -1,6 +1,6 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Workflow
+sub_section: Tutorials
 sub_sub_section: Jobs
 page_title: DevOps Assembly Line Jobs
 page_description: How to add, delete and update resources
