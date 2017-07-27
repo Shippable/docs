@@ -1,6 +1,7 @@
 page_main_title: DevOps Glossary
 main_section: Platform
-sub_section: Glossary
+sub_section: Tutorials
+sub_sub_section: Glossary
 page_title: DevOps Glossary
 
 #Glossary of Terms
