@@ -228,14 +228,13 @@ pages:
   - Platform:
     - Overview: platform/platform-overview.md
     - Job Runtime:
-      - Concepts: platform/job-runtime-overview.md
-      - Caching: platform/job-runtime-caching.md
-      - Images: platform/job-runtime-image.md
-      - Nodes:
-        - Overview: platform/job-runtime-nodes.md
-        - Dynamic Nodes: platform/job-runtime-dynamic-nodes.md
-        - Custom Nodes: platform/job-runtime-custom-nodes.md
+      - Overview: platform/job-runtime-overview.md
+      - Operating System:
+        - Overview: platform/job-runtime-os.md
+        - Ubuntu 14:04: platform/job-runtime-ubuntu14.md
+        - Ubuntu 16:04: platform/job-runtime-ubuntu16.md
       - Languages:
+        - Overview: platform/language-overview.md
         - Nodejs: platform/language-nodejs.md
         - Python: platform/language-python.md
         - Java: platform/language-java.md
@@ -246,6 +245,7 @@ pages:
         - Scala: platform/language-scala.md
         - C/C++: platform/language-cplusplus.md
       - Services:
+        - Overview: platform/services-overview.md
         - Cassandra: platform/service-cassandra.md
         - Couchdb: platform/service-couchdb.md
         - Elasticsearch: platform/service-elasticsearch.md
@@ -260,12 +260,14 @@ pages:
         - Riak: platform/service-riak.md
         - Selenium: platform/service-selenium.md
         - Sqllite: platform/service-sqllite.md
-      - AMIs:
-        - v5.7.3: platform/machine-image-v573.md
-        - v5.6.1: platform/machine-image-v561.md
-        - v5.5.1: platform/machine-image-v551.md
-        - v5.4.1: platform/machine-image-v541.md
-        - v5.3.2: platform/machine-image-v532.md
+      - Nodes:
+        - Overview: platform/job-runtime-nodes.md
+        - Dynamic Nodes: platform/job-runtime-dynamic-nodes.md
+        - Custom Nodes: platform/job-runtime-custom-nodes.md
+      - Environment Variables:
+        - Overview: platform/job-runtime-environment-variables.md
+      - Caching:
+        - Overview: platform/job-runtime-caching.md
     - Workflow:
       - What is it: platform/workflow-overview.md
       - Resources:
@@ -358,5 +360,11 @@ pages:
         - Swarm Worker Configuration: platform/admiral-swarm-workers.md
         - Vault Configuration: platform/admiral-vault.md
         - Bitbucket Server Configuration: platform/admiral-bbs.md
+      - AMIs:
+        - v5.7.3: platform/machine-image-v573.md
+        - v5.6.1: platform/machine-image-v561.md
+        - v5.5.1: platform/machine-image-v551.md
+        - v5.4.1: platform/machine-image-v541.md
+        - v5.3.2: platform/machine-image-v532.md
       - Glossary:
         - Complete list of terms: platform/glossary.md
