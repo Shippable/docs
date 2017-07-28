@@ -12,22 +12,13 @@ is published in Docker hub as an image with a specific tag. The Docker hub accou
 If you specify the language and os in Shippable.yml, the platform automatically selects the right image for you. However,
 you can also boot the job runtime with any image.
 
-## Supported Version Tags
-The drydock docker image is tagged when the image is updated. These are the supported tags -
-
-* v5.7.3                
-* v5.6.1                
-* v5.5.1                
-* v5.4.1                
-* v5.3.2                
-
 ## Supported OS Versions
 Language versions are available on the drydock links specified below for these OS versions.
 
-|OS version| Docker image |
-|--------------------|-----------------------|
-|Ubuntu 14.04|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14cloall)|
-|Ubuntu 16.04|[Ubuntu 16.04](https://hub.docker.com/r/drydock/u16cloall)|
+|OS version| Docker image name | Tags |
+|----------|------------|-----|
+|Ubuntu 14.04|[drydock/u14cloall](https://hub.docker.com/r/drydock/u14cloall)|v5.7.3  v5.6.1  v5.5.1  v5.4.1  v5.3.2 |
+|Ubuntu 16.04|[drydock/u16cloall](https://hub.docker.com/r/drydock/u16cloall)|v5.7.3  v5.6.1  v5.5.1  v5.4.1  v5.3.2 |
 
 ## Supported Language Versions
 This table helps you choose the right tag for the language version that you are interested in and the
