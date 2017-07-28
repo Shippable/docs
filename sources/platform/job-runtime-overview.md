@@ -3,6 +3,12 @@ main_section: Platform
 sub_section: Job Runtime
 page_title: Job Runtime Overview
 
+# TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
+
 # Job Runtime
 Every activity in your DevOps Assembly Line requires a place to execute that activity. Job Runtime provides that so that the environment is prepped with all the necessary OS, software tools and packages, runtime configurations as well as secrets to authenticate to 3rd party services that the activity might interact with. 
 
@@ -74,7 +80,12 @@ Majority of the apps today run on cloud. Each cloud provider has a native CLI an
 [Nodes](/platform/job-runtime-nodes) are host machines on which the desired Job Runtime image is instantiated. One of the key differentiators of Shippable is that you can use Nodes that run behind your firewall and connect them to the DevOps Assembly Lines SaaS Platform. If you dont need that capability, you can run your [Jobs]() on on Shippable's hosted infrastructure (Dynamic Nodes)
 
 ## Environment variables
-[Environment variables](/platform/job-runtime-environment-variables) are used to control the context of your DevOps activity. This can be very error prone and missed configurations can cause serious trouble as you might be working on production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. For example AWS Credentials to connect to your VPC; Keys to access your VMs; Login to your Docker hub etc.
+[Environment variables](/platform/job-runtime-environment-variables) are used to control the context of your DevOps activity. This can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. For example AWS Credentials to connect to your VPC; Keys to access your VMs; Login to your Docker hub etc.
 
 ## Caching
 [Caching](/platform/job-runtime-caching) speeds up your build by automatically setting up your static dependencies. Typical usecases are caching node modules, ruby gems and static binaries.
+
+# Further Reading
+* Working with Resources
+* Working with Integrations
+* Jobs
