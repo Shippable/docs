@@ -9,6 +9,7 @@ sub_sub_section: Resources
 | Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Need to pointer for each integration type|  Open |
+| Update Utility functions section|  Open |
 
 # cliconfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
@@ -58,7 +59,7 @@ resources:
 	```
 
 <a name="cliConfigTools"></a>
-# Configured CLI tools
+## Configured CLI tools
 
 The runCLI and runSh job uses the subscription integration specified in the
 cliConfig to determine which CLI tools to configure.
@@ -78,13 +79,36 @@ integration. Here is a list of the tools configured for each integration type:
 | Private Docker Registry             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
 | Quay.io                             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
 
-# Used in JOBs
+## Used in JOBs
 This resource is used as an IN for the following jobs
 
 * [runCLI](job-runcli/)
 * [runSH](jobs-runsh/)
 
-# Further Reading
+## Default Environment Variables
+Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+
+`<NAME>` is the the friendly name of the Resource
+
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`_NAME 								| The name of the resource. |
+| `<NAME>`_ID 								| The ID of the resource. |
+| `<NAME>`_TYPE 								| The type of the resource. In this case `cliConfig`|
+| `<NAME>`_PATH 								| The directory containing files for the resource. |
+| `<NAME>`_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
+| `<NAME>`_VERSIONNUMBER 					| The number of the version of the resource being used. |
+| `<NAME>`_VERSIONID    					| The ID of the version of the resource being used. |
+| `<NAME>`_POINTER\_REGION 				| Available only if the integration is AWS or Google |
+| `<NAME>`_POINTER\_CLUSTERNAME 			| Available only if the integration is Google |
+| `<NAME>`_INTEGRATION\_`<FIELDNAME>`	| Depends on the [Integration]() used. Look at Integration page|
+
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+
+These utility functions are [documented here]()
+
+## Further Reading
 * GKE integration
 * AWS integration
 * runCLI job
