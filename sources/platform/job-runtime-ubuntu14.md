@@ -16,7 +16,7 @@ The image name is `drydock/u14`.
 ### Tag v573
 #### Languages installed
 | Language | Version |
-|----------|---------|
+|---|---|
 | Java | 1.8.0 |
 | NodeJs | 4.8.3 |
 | Ruby | |

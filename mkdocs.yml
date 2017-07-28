@@ -234,7 +234,6 @@ pages:
         - Ubuntu 14:04: platform/job-runtime-ubuntu14.md
         - Ubuntu 16:04: platform/job-runtime-ubuntu16.md
       - Languages:
-        - Overview: platform/language-overview.md
         - Nodejs: platform/language-nodejs.md
         - Python: platform/language-python.md
         - Java: platform/language-java.md
@@ -244,8 +243,17 @@ pages:
         - Clojure: platform/language-clojure.md
         - Scala: platform/language-scala.md
         - C/C++: platform/language-cplusplus.md
+      - CLIs:
+        - AWS: platform/cli-aws.md
+        - AWSEB: platform/cli-awseb.md
+        - GKE: platform/cli-gke.md
+        - Terraform: platform/cli-terraform.md
+        - Ansible: platform/cli-ansible.md
+        - JFrog: platform/cli-jfrog.md
+        - Azure: platform/cli-azure.md
+        - Packer: platform/cli-packer.md
+        - Docker: platform/cli-docker.md
       - Services:
-        - Overview: platform/services-overview.md
         - Cassandra: platform/service-cassandra.md
         - Couchdb: platform/service-couchdb.md
         - Elasticsearch: platform/service-elasticsearch.md

@@ -1,5 +1,5 @@
 page_main_title: Git Credential
-main_section: Reference
+main_section: Platform
 sub_section: Integrations
 page_title: Git credential integration
 

@@ -49,9 +49,6 @@ If you no longer need the integration, you can delete it by following the steps 
 
 - Go to each Subscription listed in the dependencies and delete it from each.
     - From the Subsciption dropdown menu at the top left of your Dashboard, click on the dependent Subscription.
-
-    <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-
     - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
     - Delete the integration.
 - Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
