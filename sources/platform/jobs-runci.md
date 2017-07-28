@@ -86,14 +86,32 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
-## Environment variables
-In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job.
+## Default Environment Variables
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
 
-A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/platform/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
+In addition, the Job itself comes with its own default set of variables. This is the list for this Job type
+
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| JOB_NAME 									| The name of the Job, given in the YML |
+| JOB_TYPE 									| The type of the Job. In this case `runCI`|
+| BUILD_ID 									| Internal Id of the current build thats executing|
+| BUILD_NUMBER 								| Sequentional number for the Job thats executing|
+| BUILD_JOB_ID    							| Internal ID of the currently running Job |
+| BUILD_JOB_NUMBER    						| Sequential number of the Job |
+| SUBSCRIPTION_ID    						| Shippable ID that represents git organization uniquely |
+| JOB_PATH    								| The path of the directory containing files critical for this job |
+| JOB_STATE      							| The location of the `state` directory for this job|
+| JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
 
 Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/env-vars/).
 
-# Further Reading
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+
+These utility functions are [documented here]()
+
+## Further Reading
 * Working with Resources
 * Working with Integrations
 * Jobs

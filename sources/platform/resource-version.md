@@ -35,6 +35,31 @@ This resource is used as an IN for the following jobs
 * runCLI
 * runCI
 
+## Default Environment Variables
+Whenever `version` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+
+`<NAME>` is the the friendly name of the Resource
+
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_NAME 							| The name of the resource. |
+| `<NAME>`\_ID 								| The ID of the resource. |
+| `<NAME>`\_TYPE 							| The type of the resource. In this case `version`|
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
+| `<NAME>`\_PATH 							| The directory containing files for the resource. |
+| `<NAME>`\_SEED\_VERSIONNAME				| VersionName defined in the seed section |
+| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer |
+| `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
+| `<NAME>`\_VERSIONNAME						| versionName of the version of the resource being used. |
+| `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
+
+
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+
+These utility functions are [documented here]()
+
 # Further Reading
 * How to push semantic tags to Git
 * How to tag a docker image with semantic versions

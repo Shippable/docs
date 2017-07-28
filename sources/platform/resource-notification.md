@@ -3,13 +3,6 @@ main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
 
-#TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
-
 # notification
 `notification` resource is used to connect DevOps Assembly Lines to notification providers of your choice. These are providers we currently support
 
@@ -37,7 +30,7 @@ resources:
 
 * **`name`** -- should be an easy to remember text string
 
-* **`type`** -- is set to `cliConfig`
+* **`type`** -- is set to `notification`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
 	* Slack
@@ -85,14 +78,45 @@ resources:
 	       - "@botnot"
 	```
 
-# Used in JOBs
+## Used in JOBs
 This resource is used as an IN for the following jobs
 
 * All job types
 
-# Further Reading
+## Default Environment Variables
+Whenever `notification` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+
+`<NAME>` is the the friendly name of the Resource
+
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_NAME 							| The name of the resource. |
+| `<NAME>`\_ID 								| The ID of the resource. |
+| `<NAME>`\_TYPE 							| The type of the resource. In this case `notification`|
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
+| `<NAME>`\_PATH 							| The directory containing files for the resource. |
+| `<NAME>`\_POINTER\_METHOD 				| Method defined in the pointer. Available if set |
+| `<NAME>`\_POINTER\RECIPIENTS_0 			| Recipients array values 0 to N depending on how many of them are set |
+| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer |
+| `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
+| `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
+
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+
+These utility functions are [documented here]()
+
+## Further Reading
 * Integrations overview
 * AWS integration
 * runCLI job
 * Sending notifications when a Job starts, finishes or errors
 * Alerting teams with key metrics from CI
+
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
+| Need to pointer for each integration type|  Open |

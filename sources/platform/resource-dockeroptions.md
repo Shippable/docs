@@ -15,48 +15,35 @@ resources:
   - name: <string>                              #required
     type: dockerOptions                         #required
     version:
-
       memory: <integer>                         #optional, in MiB
-
       cpuShares: <number>                       #optional
-
       portMappings:                             #optional
         - "80:80/tcp"                           #hostPort:containerPort/protocol (udp|tcp)
-
       links:                                    #optional, containerName:alias
         - <container name>:<alias>
         - <container name>:<alias>
-
       volumes:                                  #optional
         - "<source>:<container path>:<options>"
         - "<source>:<container path>:<options>"
-
       logConfig:                                #optional
         type: <string>                          #optional
         options:                                #optional
           <key1>: <value1>
           <key2>: <value2>
-
       entryPoint:                               #optional
         - <string>
         - <string>
-
       cmd:
         - <string>
         - <string>
-
       workingDir: <path to working dir>
-
       privileged: <boolean>                     # May be true or false
-
       labels:
         <key1>: <value1>
         <key2>: <value2>
-
       volumesFrom:
         - "<container name>:<options>"
         - "<container name>:<options>"
-
       ulimits:
         - name: <name of limit>                 # e.g. cpu
           soft: <number>                        # soft Limit
@@ -64,68 +51,42 @@ resources:
         - name: <name of limit>                 # e.g. nofile
           soft: <number>                        # soft Limit, e.g. 50
           hard: <number>                        # hard Limit, e.g. 100
-
       dnsServers:
         - "<ip address>"
-
       dnsSearch:
         - "<ip address>"
-
       user: <string>                            # For GKE, this should be the UID (a number)
-
       hostName: <string>
-
       domainName: <string>
-
       memorySwap: <number>
-
       attachStdin: <boolean>                    # May be true or false
-
       attachStdout: <boolean>                   # May be true or false
-
       attachStderr: <boolean>                   # May be true or false
-
       tty: <boolean>                            # May be true or false
-
       stdin: <boolean>                          # May be true or false
-
       stdinOnce: <boolean>                      # May be true or false
-
       networkDisabled: <boolean>                # May be true or false
-
       publishAllPorts: <boolean>                # May be true or false
-
       readOnlyRootFilesystem: <boolean>         # May be true or false
-
       extraHosts:                               # Optional
         - "host:ip address"
         - "host:ip address"
-
       capAdd:                                   # Optional
         - <string>
-
       capDrop:                                  # Optional
         - <string>
-
       restartPolicy:                            # For GKE and DCL, this should be a string (eg- "Always")
         - name: <string>
         - maximumRetryCount: <number>
-
       securityOptions:                          # Optional
         - <string>
         - <string>
-
       cGroupParent: <string>                    # Optional
-
       memoryReservation: <number>               # This should be given in MB
-
       pid : <string>                            # Optional
-
       network: <string>                         # Optional
-
       devices:                                  # For DCL
         - <string>
-
       devices:                                  # For DDC
         - pathOnHost: <string>
           pathInContainer: <string>

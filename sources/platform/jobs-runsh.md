@@ -6,14 +6,6 @@ page_title: Unified Pipeline Jobs - runSh
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Add Environment variables|  Open |
-| Add Folder Structure|  Open |
-
 # runSh
 `runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized.
 
@@ -82,13 +74,38 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
-## Environment variables
+## Default Environment Variables
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
 
-In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job.
+In addition, the Job itself comes with its own default set of variables. This is the list for this Job type
 
-A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/platform/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| JOB_NAME 									| The name of the Job, given in the YML |
+| JOB_TYPE 									| The type of the Job. In this case `runSh`|
+| BUILD_ID 									| Internal Id of the current build thats executing|
+| BUILD_NUMBER 								| Sequentional number for the Job thats executing|
+| BUILD_JOB_ID    							| Internal ID of the currently running Job |
+| BUILD_JOB_NUMBER    						| Sequential number of the Job |
+| SUBSCRIPTION_ID    						| Shippable ID that represents git organization uniquely |
+| JOB_PATH    								| The path of the directory containing files critical for this job |
+| JOB_STATE      							| The location of the `state` directory for this job|
+| JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
 
-# Further Reading
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+
+These utility functions are [documented here]()
+
+## Further Reading
 * Working with Resources
 * Working with Integrations
 * Jobs
+
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
+| Add Environment variables|  Open |
+| Add Folder Structure|  Open |

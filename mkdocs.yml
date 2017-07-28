@@ -342,6 +342,10 @@ pages:
       - Jobs:
         - Working with Jobs: platform/jobs-working-with.md
         - How to share data between Jobs: platform/howto-share-data-between-jobs.md
+        - Persisting state from one run to another: platform/howto-share-data-between-runs.md
+        - How to output key-values into a Resource: platform/howto-output-keyvalues-to-resources.md
+        - How to replicate IN Resource to a OUT Resource: platform/howto-replicate-in-to-out-resource.md
+        - How to additional version info from a Resource: platform/howto-extract-addtional-resource-version-info.md
         - Unmanaged jobs: platform/jobs-unmanaged.md
       - API:
         - Overview: platform/api-overview.md
