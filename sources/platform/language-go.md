@@ -33,7 +33,7 @@ Language versions are available on the drydock links specified below for these O
 This table helps you choose the right tag for the language version that you are interested in and the
 AMI that you should set for your subscription.
 
-| Version  |  Tags    | Supported OS| AvaAvailable AMIs|  
+| Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
 |1.8.3   |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
 |1.7.6   |   v5.7.3    |  All | [v5.7.3](/platform/machine-image-v573)  |

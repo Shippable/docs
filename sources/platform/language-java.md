@@ -33,7 +33,7 @@ Language versions are available on the drydock links specified below for these O
 This table helps you choose the right tag for the language version that you are interested in and the
 AMI that you should set for your subscription.
 
-| Version  |  Tags    | Supported OS| AvaAvailable AMIs|  
+| Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
 |openjdk9  |   v5.7.3    | Ubuntu 16.04 | [v5.7.3](/platform/machine-image-v573)   |
 |openjdk8  |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |
