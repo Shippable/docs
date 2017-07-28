@@ -79,7 +79,23 @@ All the images have these components pre-installed
 -  packer 0.12.2
 -  terraform 0.8.7
 
-**Services**
+**Services on ubuntu 14.04**
+
+-  couchdb 1.6
+-  elasticsearch 5.1.2
+-  neo4j 3.1.1
+-  memcached 1.4.34
+-  mongodb 3.4
+-  mysql 5.6
+-  postgres 9.6
+-  rabbitmq 3.6
+-  redis 3.2
+-  rethinkdb 2.3
+-  riak 2.2.0
+-  selenium 3.0.1
+-  sqllite 3
+
+**Services on ubuntu 16.04**
 
 -  couchdb 1.6
 -  elasticsearch 5.1.2
@@ -362,11 +378,11 @@ These versions are pre-installed on both the OS version images
 **OS Versions**
 
 -  Ubuntu 14.04
-	-  [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/)
-	-  [Github](https://github.com/dry-dock/u14scaall)
+	-  [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/)
+	-  [Github](https://github.com/dry-dock/u14cppall)
 -  Ubuntu 16.04
-	-  [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/)
-	-  [Github](https://github.com/dry-dock/u16scaall)
+	-  [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/)
+	-  [Github](https://github.com/dry-dock/u16cppall)
 
 **Language Versions**
 These versions are pre-installed on both the OS version images

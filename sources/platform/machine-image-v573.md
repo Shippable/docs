@@ -418,11 +418,11 @@ These versions are pre-installed on both the OS version images
 **OS Versions**
 
 * Ubuntu 14.04
-	* [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/)
-	* [Github](https://github.com/dry-dock/u14scaall)
+	* [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/)
+	* [Github](https://github.com/dry-dock/u14cppall)
 * Ubuntu 16.04
-	* [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/)
-	* [Github](https://github.com/dry-dock/u16scaall)
+	* [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/)
+	* [Github](https://github.com/dry-dock/u16cppall)
 
 **Language Versions**
 These versions are pre-installed on both the OS version images

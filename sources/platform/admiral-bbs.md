@@ -1,6 +1,7 @@
 page_main_title: Shippable installer
 main_section: Platform
-sub_section: Admiral
+sub_section: Tutorials
+sub_sub_section: Shippable Server
 page_title: Admiral - Bitbucket Server Integration
 page_description: Shippable Server (SE/EE) and Bitbucket Server Integration
 
@@ -118,4 +119,3 @@ Steps to configure Bitbucket Server integration -
   * You should see the all your projects under Subscriptions in the left sidebar.
 
   <img src="/images/platform/admiral/BBS-Shippable.png" alt="BitBucket Shippable OAuth">
-  

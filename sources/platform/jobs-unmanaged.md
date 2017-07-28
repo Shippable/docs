@@ -1,6 +1,6 @@
 page_main_title: Unmanaged jobs
 main_section: Platform
-sub_section: Workflow
+sub_section: Tutorials
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs
 page_description: List of supported jobs
