@@ -19,7 +19,7 @@ The drydock docker image is tagged when the image is updated. These are the supp
 ## Supported OS-Language Versions
 Cassandra service is available on the drydock links specified below for these OS and language versions.
 
-|Language| Ubuntu 14.04 Docker hub                    | Ubuntu 16.04 Docker hub                                    |
+|Language| Ubuntu 14.04 Docker image name                    | Ubuntu 16.04 Docker image name                                    |
 |--------------------|--------------------------------------------|------------------------------------------------------------|
 |Nodejs|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14nodall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16nodall)|
 |Python|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14pytall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16pytall)|

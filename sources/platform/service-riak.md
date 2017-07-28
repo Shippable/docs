@@ -23,22 +23,22 @@ The drydock docker image is tagged when the image is updated. These are the supp
 ## Supported OS-Language Versions
 Riak service is available on the drydock links specified below for these OS and language versions.
 
-|Language| Ubuntu 14.04 Docker hub                    | Ubuntu 16.04 Docker hub                                    |
+|Language| Ubuntu 14.04 Docker image name                    | Ubuntu 16.04 Docker image name                                    |
 |--------------------|--------------------------------------------|------------------------------------------------------------|
-|Nodejs|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14nodall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16nodall)|
-|Python|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14pytall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16pytall)|
-|Java|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14javall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16javall)|
-|Ruby|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14ruball)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u14ruball)|
-|GO|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14golall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16golall)|
-|Clojure|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14cloall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16cloall)|
-|Scala|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14scaall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16scaall)|
-|C/C++|[Ubuntu 14.04](https://hub.docker.com/r/drydock/u14cppall)| [Ubuntu 16.04](https://hub.docker.com/r/drydock/u16cppall)|
+|Nodejs|[drydock/u14nodall](https://hub.docker.com/r/drydock/u14nodall)| [drydock/u16nodall](https://hub.docker.com/r/drydock/u16nodall)|
+|Python|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14pytall)| [drydock/u16pytall](https://hub.docker.com/r/drydock/u16pytall)|
+|Java|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14javall)| [drydock/u16javall](https://hub.docker.com/r/drydock/u16javall)|
+|Ruby|[drydock/u14ruball](https://hub.docker.com/r/drydock/u14ruball)| [drydock/u16ruball](https://hub.docker.com/r/drydock/u14ruball)|
+|GO|[drydock/u14golall](https://hub.docker.com/r/drydock/u14golall)| [drydock/u16golall](https://hub.docker.com/r/drydock/u16golall)|
+|Clojure|[drydock/u14cloall](https://hub.docker.com/r/drydock/u14cloall)| [drydock/u16cloall](https://hub.docker.com/r/drydock/u16cloall)|
+|Scala|[drydock/u14scaall](https://hub.docker.com/r/drydock/u14scaall)| [drydock/u16scaall](https://hub.docker.com/r/drydock/u16scaall)|
+|C/C++|[drydock/u14cppall](https://hub.docker.com/r/drydock/u14cppall)| [drydock/u16cppall](https://hub.docker.com/r/drydock/u16cppall)|
 
 ## Supported Versions
 This table helps you choose the right tag for the language version that you are interested in and the
 AMI that you should set for your subscription.
 
-| Version  |  Tags    | Supported OS| AvaAvailable AMIs|  
-|----------|---------|-----------|---------------------|
-|2.2.3  | v5.7.3 | All | [v5.7.3](/platform/machine-image-v573) |
-|2.2.0  | v5.6.1 and earlier | All | [v5.6.1](/platform/machine-image-v561) and earlier |
+| Version  |  Tags    | Supported OS|
+|----------|---------|-----------|
+|2.2.3  | v5.7.3 | Ubuntu 14.04 and Ubuntu 16.04 |
+|2.2.0  | v5.6.1 and earlier | Ubuntu 14.04 and Ubuntu 16.04 |
