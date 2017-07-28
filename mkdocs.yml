@@ -355,6 +355,8 @@ pages:
         - How to replicate IN Resource to a OUT Resource: platform/howto-replicate-in-to-out-resource.md
         - How to additional version info from a Resource: platform/howto-extract-addtional-resource-version-info.md
         - Unmanaged jobs: platform/jobs-unmanaged.md
+      - Integrations:
+        - Working with Integrations: platform/int-working-with.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
