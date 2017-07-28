@@ -71,7 +71,7 @@ You may have the entire pipeline configuration maintained in one repository, spl
 
 You can add a sync repository by following the steps below:
 
-* First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/platform/integrations-overview#source-control-providers).
+* First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](/platform/int-overview#source-control-providers).
 * Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the Subscriptions menu at the top left of your screen:
 
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List of subscriptions">

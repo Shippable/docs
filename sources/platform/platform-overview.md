@@ -28,7 +28,7 @@ will automatically install the AWS CLI, and login to the CLI using your AWS cred
 [Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
 
 ## Integrations
-[Integrations](/platform/integrations-overview/) are used to connect your workflows to third party platforms and services.
+[Integrations](/platform/int-overview/) are used to connect your workflows to third party platforms and services.
 
 
 Now, lets look take a deeper look at a [Workflow](/platform/workflow-overview/).

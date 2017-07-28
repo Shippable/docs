@@ -10,7 +10,7 @@ infrastructure on AWS. You would do so with a `runCLI` or
 ##Setup
 
 Before you start, you will need to store your AWS credentials as an [Account 
-Integration](../platform/integrations-overview.md) so that your Shippable pipeline job can connect to AWS 
+Integration](../platform/int-overview.md) so that your Shippable pipeline job can connect to AWS 
 without exposing your credentials in your config file. Once you add an account 
 integration, you can use it for all your projects without needing to add it again.
 

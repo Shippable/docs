@@ -316,7 +316,7 @@ pages:
     - Operations:
       - Overview: operations/operations-overview.md
     - Integrations:
-      - Overview: platform/integrations-overview.md
+      - Overview: platform/int-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md
       - Amazon ECS: platform/int-amazon-ecs.md
       - Azure DC/OS: platform/int-azure-dcos.md

@@ -70,7 +70,7 @@ pipelines/jobs/runCLI /platform/job-runcli
 pipelines/jobs/runSh /platform/jobs-runsh
 pipelines/jobs/jenkinsJob /platform/job-jenkinsjob
 pipelines/trace /deploy/trace-pipeline/
-integrations/overview /platform/integrations-overview
+integrations/overview /platform/int-overview
 integrations/scm/github /platform/int-github
 integrations/scm/githubEnterprise /platform/int-github-enterprise
 integrations/scm/bitbucket /platform/int-bitbucket
@@ -99,7 +99,7 @@ integrations/keys/pem /platform/int-key-pem
 api/overview /getting-started/api-tokens/
 api/docs /platform/api-overview
 tutorials/continuous-integration /getting-started/ci-sample/
-tutorials/continuous-integration/#interacting-with-docker-registries /platform/integrations-overview/#docker-registries
+tutorials/continuous-integration/#interacting-with-docker-registries /platform/int-overview/#docker-registries
 tutorials/continuous-delivery-pipelines /getting-started/cd-sample/
 tutorials/ci/runSampleCIBuild /getting-started/ci-sample/
 tutorials/ci/link-gitHub-bitbucket /platform/int-github/
