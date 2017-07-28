@@ -1,23 +1,24 @@
-page_main_title: Cassandra Service Overview
+page_main_title: AWS CLI Overview
 main_section: Platform
 sub_section: Job Runtime
-sub_sub_section: Services
-page_title: Cassandra Service Overview
+sub_sub_section: CLIs
+page_title: AWS CLI Overview
 
-# Cassandra Job Images
+# AWS CLI
 
-Job Images for Cassandra are available for multiple operating systems, languages and versions. Each os-language-version combination is published in Docker hub as an image with a specific tag. The Docker hub account where we publish these images is drydock.
-
-If you specify the version in Shippable.yml, the platform automatically selects the right image for you. However,
-you can also script the install of any prior or later release of the service if you so desire.
+Job Images with AWS CLI pre-installed are available for multiple operating systems, languages and versions. Each os-language-version combination is published in Docker hub as an image with a specific tag. The Docker hub account where we publish these images is `drydock`.
 
 ## Supported Version Tags
-The drydock docker image is tagged when the image is updated. These are the supported tags -
+The `drydock` Docker image is tagged with a new version when the image is updated. These are the supported tags -
 
 * v5.7.3                
+* v5.6.1                
+* v5.5.1                
+* v5.4.1                
+* v5.3.2               
 
 ## Supported OS-Language Versions
-Cassandra service is available on the drydock links specified below for these OS and language versions.
+AWS CLI is available on the drydock links specified below for these OS and language versions.
 
 |Language| Ubuntu 14.04 Docker image name                    | Ubuntu 16.04 Docker image name                                    |
 |--------------------|--------------------------------------------|------------------------------------------------------------|
@@ -31,9 +32,8 @@ Cassandra service is available on the drydock links specified below for these OS
 |C/C++|[drydock/u14cppall](https://hub.docker.com/r/drydock/u14cppall)| [drydock/u16cppall](https://hub.docker.com/r/drydock/u16cppall)|
 
 ## Supported Versions
-This table helps you choose the right tag for the language version that you are interested in and the
-AMI that you should set for your subscription.
+This table helps you choose the right tag for the language version that you are interested in.
 
 | Version  |  Tags    | Supported OS|
 |----------|---------|-----------|
-|3.11  | v5.7.3 | Ubuntu 14.04 and Ubuntu 16.04 |
+|1.11.44  | v5.7.3 and below | Ubuntu 14.04 and Ubuntu 16.04 |
