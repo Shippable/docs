@@ -19,7 +19,7 @@ The image name is `drydock/u14`.
 |---|---|
 | Java | 1.8.0 |
 | NodeJs | 4.8.3 |
-| Ruby | |
+| Ruby | 2.3.1|
 
 #### CLIs installed
 | CLI | Version |
@@ -35,29 +35,28 @@ The image name is `drydock/u14`.
 #### Packages installed
 | Package | Version |
 |----------|---------|
-| build-essential| |
-| curl| 7.35.0 |
-| gcc| 4.8.4 |
-| gettext | 0.18.3 |
-| git| 2.13.0 |
-| htop| 1.0.2 |
-| jq| 1.3 |
-| libxml2-dev| 2.9.1 |
-| libxslt-dev| 1.1.28 |
-| make| 3.81 |
-| nano| 2.2.6 |
-| openssh-client| 6.6.1 |
-| openssl| 1.0.1 |
-| psmisc| |
-| python-dev| |
-| python-pip| 9.0.1 |
-| python-software-properties| |
-| software-properties-common| |
-| sudo| 1.8.9 |
-| texinfo| |
-| unzip| 6.00 |
-| virtualenv| 15.1.0|
-| wget| 1.15 |
+| build-essential | 11.6ubuntu6|
+| curl| 7.35.0-1ubuntu2.10 |
+| gcc|  4:4.8.2-1ubuntu6 |
+| gettext| 0.18.3.1-1ubuntu3 |
+| git| 1:2.13.0-0ppa1~ubuntu14.04.1 |
+| htop| 1.0.2-3 |
+| jq| 1.3-1.1ubuntu1|
+| libxml2-dev| 2.9.1+dfsg1-3ubuntu4.9 |
+| libxslt-dev| 1.1.28-2ubuntu0.1 |
+| make| 3.81-8.2ubuntu3 |
+| nano| 2.2.6-1ubuntu1 |
+| openssh-client| 1:6.6p1-2ubuntu2.8 |
+| openssl| 1.0.1f-1ubuntu2.22 |
+| python-dev| 2.7.5-5ubuntu3|
+| python-software-properties|0.92.37.8|
+| sudo| 1.8.9p5-1ubuntu1 |
+| texinfo| 5.2.0.dfsg.1-2 |
+| unzip| 6.0-9ubuntu1.5 |
+| virtualenv| 15.1.0 |
+| wget| 1.15-1ubuntu1.14.04.2 |
+|dopy| 0.3.7a|
+|doctl|jq=1.5+dfsg-1|
 
 ### Tag v561
 #### Languages installed
@@ -65,7 +64,7 @@ The image name is `drydock/u14`.
 |----------|---------|
 | Java | 1.8.0 |
 | NodeJs | 4.8.3|
-| Ruby | |
+| Ruby | 2.3.1|
 
 #### CLIs installed
 | CLI | Version |
@@ -79,33 +78,28 @@ The image name is `drydock/u14`.
 | terraform | 0.8.7 |
 
 #### Packages installed
-
-| Package | Version |
-|----------|---------|
-| build-essential| |
-| curl| 7.35.0 |
-| gcc| 4.8.4 |
-| gettext| 0.18.3 |
-| git| 2.13.0 |
-| htop| 1.0.2|
-| jq| 1.3 |
-| libxml2-dev| 2.9.1 |
-| libxslt-dev| 1.1.28 |
-| make| 3.81 |
-| nano| 2.2.6 |
-| openssh-client| 6.6.1 |
-| openssl| 1.0.1 |
-| psmisc| |
-| python-dev| |
-| python-pip| 9.0.1 |
-| python-software-properties| |
-| software-properties-common| |
-| sudo| 1.8.9 |
-| texinfo| |
-| unzip| 6.00 |
-| virtualenv| 15.1.0 |
-| wget| 1.15 |
-
+```curl
+gcc
+gettext
+git
+htop
+jq
+libxml2-dev
+libxslt-dev
+make
+nano
+openssh-client
+openssl
+python-dev
+python-pip
+python-software-properties
+software-properties-common
+sudo
+texinfo
+unzip
+virtualenv
+wget
+```
 
 ### Tag v551
 #### Languages installed
@@ -113,7 +107,7 @@ The image name is `drydock/u14`.
 |----------|---------|
 | Java | 1.8.0  |
 | NodeJs | 4.8.2|
-| Ruby | |
+| Ruby | 2.3.1|
 
 #### CLIs installed
 | CLI | Version |
@@ -127,32 +121,28 @@ The image name is `drydock/u14`.
 | terraform | 0.8.7 |
 
 #### Packages installed
-
-| Package | Version |
-|----------|---------|
-| build-essential| |
-| curl| 7.35.0 |
-| gcc| 4.8.4|
-| gettext| 0.18.3 |
-| git| 2.11.0 |
-| htop| 1.0.2 |
-| jq| 1.3 |
-| libxml2-dev| 2.9.1 |
-| libxslt-dev| 1.1.28 |
-| make| 3.81 |
-| nano| 2.2.6 |
-| openssh-client| 6.6.1 |
-| openssl| 1.0.1 |
-| psmisc| |
-| python-dev| |
-| python-pip| 9.0.1 |
-| python-software-properties| |
-| software-properties-common| |
-| sudo| 1.8.9 |
-| texinfo| |
-| unzip| 6.00|
-| virtualenv| 15.1.0|
-| wget| 1.15 |
+```curl
+gcc
+gettext
+git
+htop
+jq
+libxml2-dev
+libxslt-dev
+make
+nano
+openssh-client
+openssl
+python-dev
+python-pip
+python-software-properties
+software-properties-common
+sudo
+texinfo
+unzip
+virtualenv
+wget
+```
 
 ### Tag v541
 #### Languages installed
@@ -160,7 +150,7 @@ The image name is `drydock/u14`.
 |----------|---------|
 | Java | 1.8.0 |
 | NodeJs | 4.8.1 |
-| Ruby | |
+| Ruby | 2.3.1|
 
 #### CLIs installed
 | CLI | Version |
@@ -174,32 +164,28 @@ The image name is `drydock/u14`.
 | terraform | 0.8.7 |
 
 #### Packages installed
-
-| Package | Version |
-|----------|---------|
-| build-essential| |
-| curl| 7.35.0 |
-| gcc| 4.8.4 |
-| gettext | 0.18.3 |
-| git| 2.11.0 |
-| htop| 1.0.2 |
-| jq| 1.3 |
-| libxml2-dev| 2.9.1 |
-| libxslt-dev| 1.1.28 |
-| make| 3.81 |
-| nano| 2.2.6 |
-| openssh-client| 6.6.1 |
-| openssl| 1.0.1 |
-| psmisc| |
-| python-dev| |
-| python-pip| 9.0.1 |
-| python-software-properties| |
-| software-properties-common| |
-| sudo| 1.8.9 |
-| texinfo| |
-| unzip| 6.00 |
-| virtualenv| 15.1.0 |
-| wget| 1.15 |
+```curl
+gcc
+gettext
+git
+htop
+jq
+libxml2-dev
+libxslt-dev
+make
+nano
+openssh-client
+openssl
+python-dev
+python-pip
+python-software-properties
+software-properties-common
+sudo
+texinfo
+unzip
+virtualenv
+wget
+```
 
 ### Tag v532
 #### Languages installed
@@ -219,34 +205,6 @@ The image name is `drydock/u14`.
 | kubectl | 1.5.1 |
 | packer | 0.12.2 |
 | terraform | 0.8.7 |
-
-#### Packages installed
-
-| Package | Version |
-|----------|---------|
-| build-essential| |
-| curl| 7.35.0 |
-| gcc| 4.8.4 |
-| gettext| 0.18.3 |
-| git| 2.11.0|
-| htop| 1.0.2 |
-| jq| 1.3 |
-| libxml2-dev| 2.9.1 |
-| libxslt-dev| 1.1.28|
-| make| 3.81 |
-| nano| 2.2.6 |
-| openssh-client| 6.6.1 |
-| openssl| 1.0.1 |
-| psmisc| |
-| python-dev| |
-| python-pip| 9.0.1 |
-| python-software-properties| |
-| software-properties-common| |
-| sudo| 1.8.9 |
-| texinfo| |
-| unzip| 6.00 |
-| virtualenv| 15.1.0 |
-| wget| 1.15 |
 
 ## Base image with services
 
@@ -279,7 +237,6 @@ The image name is `drydock/u14all`.
 
 | Services | Version |
 |----------|---------|
-| cassandra |   |
 | couchdb | 1.6 |
 | elasticsearch | 5.1.2 |
 | neo4j | 3.1.1 |
@@ -299,7 +256,6 @@ The image name is `drydock/u14all`.
 
 | Services | Version |
 |----------|---------|
-| cassandra | |
 | couchdb | 1.6  |
 | elasticsearch | 5.1.2 |
 | neo4j | 3.1.1 |
@@ -319,7 +275,6 @@ The image name is `drydock/u14all`.
 
 | Services | Version |
 |----------|---------|
-| cassandra | |
 | couchdb | 1.6 |
 | elasticsearch | 5.1.2 |
 | neo4j | 3.1.1 |
@@ -339,7 +294,6 @@ The image name is `drydock/u14all`.
 
 | Services | Version |
 |----------|---------|
-| cassandra | |
 | couchdb | 1.6 |
 | elasticsearch | 5.1.2 |
 | neo4j | 3.1.1 |
