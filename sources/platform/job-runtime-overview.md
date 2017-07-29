@@ -80,6 +80,7 @@ Here is a list of CLIs we have available as part of Job Runtime -
 * [JFrog](/platform/cli-jfrog)
 * [Packer](/platform/cli-packer)
 * [Terraform](/platform/cli-terraform)
+* [Kubectl](/platform/cli-kubectl)
 
 ## Nodes
 [Nodes](/platform/job-runtime-nodes) are host machines on which the desired Job Runtime image is instantiated. One of the key differentiators of Shippable is that you can use Nodes that run behind your firewall and connect them to the DevOps Assembly Lines SaaS Platform. If you dont need that capability, you can run your [Jobs]() on on Shippable's hosted infrastructure (Dynamic Nodes)
