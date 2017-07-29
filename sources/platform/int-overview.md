@@ -31,85 +31,46 @@ We are big believers of the concept where secrets needs to be seperated from scr
 
 ## Supported Integrations 
 The following are integrations that Shippable currently supports. Detailed information is available on individual integration pages.
+- [Amazon Elastic Beanstalk](../deploy/aws-elastic-beanstalk/)
+- [Digital Ocean]()
 
-- [GitHub](/platform/int-github/)
-- [GitHub Enterprise](/platform/int-github-enterprise/)
-- [Bitbucket](/platform/int-bitbucket/)
-- [GitLab](/platform/int-gitlab/)
-- [AWS](int-amazon-ecs/)
-- [AWS IAM]()
+- [AWS](int-aws)
+- [AWS ECR](int-amazon-ecr/)
+- [AWS IAM](int-amazon-ecs/)
 - [Azure Container Service]()
 - [Azure DCOS]()
+- [Bitbucket](/platform/int-bitbucket/)
 - [Docker Cloud](int-docker-cloud/)
 - [Docker Datacenter](int-docker-datacenter/)
-- [Google Container Engine (GKE)](int-gke/)
-- [Joyent Triton]()
-- [Kubernetes](int-kubernetes/)
-- [Node Cluster]()
-- [Amazon Elastic Beanstalk](../deploy/aws-elastic-beanstalk/)
-- [Git Credential]()
-- [Google Cloud]() 
-- [Microsoft Azure]()
-- [Key-Value Pair]()
-- [Git Credential]()
-- [Digital Ocean]()
-- [PEM keys](int-key-pem/)
-- [SSH keys](int-key-ssh/)
-- [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/)
 - [Docker Hub](int-docker-hub/)
 - [Docker Trusted Registry](int-docker-trusted-registry/)
-- [Any private registry](int-docker-trusted-registry/)
-- [JFrog]()
-- [Google Container Registry](int-gcr/)
-- [Quay](int-quay/)
+- [Docker Private Registry](int-docker-trusted-registry/)
 - [Email]()
 - [Event Trigger]()
-- [Slack](int-slack/)
+- [Git Credential]()
+- [GitHub](/platform/int-github/)
+- [GitHub Enterprise](/platform/int-github-enterprise/)
+- [GitLab](/platform/int-gitlab/)
+- [Google Cloud]() 
+- [Google Container Registry](int-gcr/)
+- [Google Container Engine (GKE)](int-gke/)
 - [HipChat](int-hipchat/)
 - [IRC]()
-
-<a name="listIntegrations"></a>
-##List of available integrations
-
-### Source control providers
-You need a source control integration if:
-
-- You want to build repositories on Bitbucket Server, Gitlab, or GitHub Enterprise using Shippable Hosted
-- You want to set up Continuous Deployment pipelines
-
-We currently support the following source control providers:
-
-
-### Notification Providers
-
-You need a Slack or Hipchat integration if you want to send notifications for your CI or CD workflows through these providers.
+- [JFrog]()
+- [Joyent Triton]()
+- [Key-Value Pair]()
+- [Kubernetes](int-kubernetes/)
+- [Microsoft Azure]()
+- [Node Cluster]()
+- [PEM keys](int-key-pem/)
+- [Quay](int-quay/)
+- [Slack](int-slack/)
+- [SSH keys](int-key-ssh/)
 
 
-### Docker registries
-You will need Docker registry integration if you want to do the following -
-
-- Pull a private image  
-- Build a Docker image which has a `FROM` that pulls a private image
-- Push an image
-- Use an [image resource](resource-image/) as part of your CD pipelines
-
-We support the following Docker registries:
 
 
-### Container Services
-
-You need a Container Service integration if you want to push your application to a container service as part of your CD workflow.
-
-We support the following Container Services:
 
 
-### Deploy
-
-You can push to Amazon elastic beanstalk as part of your CI workflow by adding the integration:
-
-
-### Keys
-
-You need a key integration if you want to integrate with a third party service that is not natively supported with Shippable. You should use these integrations so that you don't have to expose your keys in your CI yml configuration:
 
 
