@@ -247,6 +247,7 @@ pages:
         - AWS: platform/cli-aws.md
         - AWSEB: platform/cli-awseb.md
         - GKE: platform/cli-gke.md
+        - Kubectl: platform/cli-kubectl.md
         - Terraform: platform/cli-terraform.md
         - Ansible: platform/cli-ansible.md
         - JFrog: platform/cli-jfrog.md

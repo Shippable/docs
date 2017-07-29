@@ -20,6 +20,7 @@ The image name is `drydock/u16`.
 | Java | 1.8.0_131 |
 | NodeJs | 7.10.1 |
 | Ruby |  2.3.3|
+| Yarn | 0.24.5-1 |
 
 #### CLIs installed
 | CLI | Version |
@@ -33,7 +34,6 @@ The image name is `drydock/u16`.
 | terraform | 0.8.7 |
 | azure | 0.2.8-1 |
 | terraform | 0.8.7 |
-
 
 #### Packages installed
 | Package | Version |

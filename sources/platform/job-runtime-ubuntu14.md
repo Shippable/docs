@@ -18,7 +18,7 @@ The image name is `drydock/u14`.
 | Language | Version |
 |---|---|
 | Java | 1.8.0 |
-| NodeJs | 4.8.3 |
+| NodeJs | 4.8.4 |
 | Ruby | 2.3.1|
 
 #### CLIs installed
