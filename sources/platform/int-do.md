@@ -1,21 +1,21 @@
-page_main_title: Key-value
+page_main_title: Amazon ECR
 main_section: Platform
 sub_section: Integrations
-page_title: Key-value integration
+page_title: Amazon ECR integration
 
-# Key-Value Pair Integration
+# Digital Ocean Integration
 
-Available under the Integration Family: **Generic**
+Available under the Integration Family: **generic**
 
-`Key-Value Pair` Integration is used to inject configurations into Shippable DevOps Assembly Lines activities.
+`Digital Ocean` Integration is used to connect Shippable DevOps Assembly Lines platform to Digital Ocean cloud to interact with it cloud services to provision machines.
 
 You can create this from the integrations page. This is the information you would require to create this integration
 
 * **Name** -- friendly name for the integration
-* **Key Values** -- A collection of Key-Values
+* **API Token** -- Token to connect to Digitial Ocean API
 
 ## Resources that use this Integration
-Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Key-Value Pair` Integration 
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Digital Ocean` Integration 
 
 * [integration]()
 
@@ -24,11 +24,10 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 
 `<NAME>` is the the friendly name of the Resource
 
-| Environment variable						| Description                         |
-| ------------- 								|------------------------------------ |
-| `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
-| KEY											| Name of the First Key defined and will have value set |
-| KEY											| Name of the Nth Key defined and will have value set |
+| Environment variable						         | Description        |
+| ------			 							         |----------------- |
+| `<NAME>`\_INTEGRATION\_NAME       | Name supplied in the integration |
+| `<NAME>`\_INTEGRATION\_APITOKEN   | API Token supplied in the integration |
 
 ## Further Reading
 * GKE integration
@@ -43,4 +42,3 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 |----------|-------------|
 | Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
-

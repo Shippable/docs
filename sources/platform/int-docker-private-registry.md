@@ -1,13 +1,13 @@
-page_main_title: Docker Trusted Registry
+page_main_title: Docker Private Registry
 main_section: Platform
 sub_section: Integrations
-page_title: Docker Private/Trusted Registry integration
+page_title: Docker Private Registry integration
 
-# Docker Trusted Registry Integration
+# Docker Private Registry Integration
 
 Available under the Integration Family: **Hub**
 
-`Docker Trusted Registry` Integration is used to connect Shippable DevOps Assembly Lines platform to a privatelty hosted Docker Hub so that you can pull and push Docker images. 
+`Docker Private Registry` Integration is used to connect Shippable DevOps Assembly Lines platform to a privatelty hosted Docker Hub so that you can pull and push Docker images. 
 
 You can create this from the integrations page. This is the information you would require to create this integration
 
@@ -18,7 +18,7 @@ You can create this from the integrations page. This is the information you woul
 * **Email** -- email of your Docker Registry Account
 
 ## Resources that use this Integration
-Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Docker Trusted Registry` Integration 
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Docker Private Registry` Integration 
 
 * [image]()
 * [cluster]()

@@ -3,70 +3,48 @@ main_section: Platform
 sub_section: Integrations
 page_title: Git credential integration
 
-# Git credential integration
+# Git Credential Integration
 
-You can setup a Git credential integration to be used by Git operations which specifically need to happen over HTTP(S).
+Available under the Integration Family: **generic**
 
-For CI, this applies to the `git_sync` section which Shippable runs. This is not available beyond this section.
+`Git Credential` Integration is used to connect Shippable DevOps Assembly Lines platform to Source Control Systems over HTTP protocol. Typically this happens for public projects by default, but for private projects we always use SSH. In some cases, especially using Git LFS on Bitbucket, it breaks. Hence this is a way you can override the default cloning method
 
+You can create this from the integrations page. This is the information you would require to create this integration
 
-## Adding a Git credential integration
-To create an account integration for a Git credential, do the following:
+* **Name** -- friendly name for the integration
+* **Host** -- Http/s address to your source control system
+* **Port** -- Connection Port on your host
+* **Username** -- Username to connect to your SCM
+* **Password** -- Password to connect to your SCM
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Git Credential` Integration 
 
-<img width="75%" height="75%" src="../../images/reference/integrations/account-settings.png" alt="Add SSH Key credentials">
+* [ciRepo]()
 
-- Select **generic** as the integration family.
-- Choose **Git Credential** from the list of integration types.
-- Enter a name of the integration.
-- Enter the following fields:
-    - **Host:** This is the SCM host. For Github, this will be `github.com` and for Bitbucket, this is `bitbucket.org`.
-    - **Port:** Port used to connect to the SCM host. Generally this is 443 if the connection is HTTPS.
-    - **Username:** The username used to connect to the Git host.
-    - **Password:** The secure password used to connect to the Git host.
-- Click **Save**
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-<img width="75%" height="75%" src="../../images/reference/integrations/int-git-credential.png" alt="Add Git credential integration">
+`<NAME>` is the the friendly name of the Resource
 
-You can also pick the subscriptions/projects that have access to this integration. You can do this later too.
+| Environment variable						         | Description        |
+| ------			 							         |----------------- |
+| `<NAME>`\_INTEGRATION\_NAME       	| Name supplied in the integration |
+| `<NAME>`\_INTEGRATION\_HOST   		| Host supplied in the integration |
+| `<NAME>`\_INTEGRATION\_PORT   		| Port supplied in the integration |
+| `<NAME>`\_INTEGRATION\_USERNAME   	| Username supplied in the integration |
+| `<NAME>`\_INTEGRATION\_PASSWORD   	| Password supplied in the integration |
 
-### Usage
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-Example `shippable.yml` integration:
-```
-integrations:
-  generic:
-    - integrationName: git-cred-1
-```
-
-* `integrationName` is the name of the Git integration you added to the 'Subscription' settings.
-* This credential will then be available to the `git_sync` steps.
-
-## Editing your Git credential integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and Git credential.
-
-## Deleting your Git credential integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/reference/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/reference/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-
-    <img width="30%" height="30%" src="/images/reference/integrations/list-subscriptions.png" alt="List subscriptions">
-
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

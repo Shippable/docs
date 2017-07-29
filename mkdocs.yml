@@ -341,7 +341,7 @@ pages:
       - Kubernetes: platform/int-kubernetes.md
       - Node Cluster: platform/int-node-cluster.md
       - PEM Keys: platform/int-key-pem.md
-      - Private Registries: platform/int-private-registries.md
+      - Private Registries: platform/int-docker-private-registry.md
       - Quay.io: platform/int-quay.md
       - Slack: platform/int-slack.md
       - SSH Keys: platform/int-key-ssh.md
@@ -360,6 +360,9 @@ pages:
         - How to create a kubeconfig file: platform/howto-create-kubeconfig.md
         - How to install kubectl: platform/howto-install-kubectl.md
         - How to connect Shippable through AWS IAM: platform/howto-create-AWS-IAM-access.md
+        - How to use Key-Value Integration in runCI: platform/howto-use-key-value-in-runci.md
+        - How to use Key-Value Integration in runSh: platform/howto-use-key-value-in-runsh.md
+        - How to use Docker Private Registry Integration in runCI: platform/howto-user-docker-private-registry-in-runci.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
