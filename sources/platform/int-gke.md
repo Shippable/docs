@@ -3,50 +3,44 @@ main_section: Platform
 sub_section: Integrations
 page_title: GKE integration
 
-# GKE integration
+# Google Container Engine Integration
 
-To deploy applications to GKE, you need to configure an account integration with credentials to access your GKE account.
+Available under the Integration Family: **deploy**
 
-##Adding the GKE Integration
+`Google Container Engine` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Engine that runs Kubernetes behind the scenes so that you can deploy Docker based applications
 
-1. Go to your <a href="https://console.cloud.google.com" target="_blank"> Google Cloud Platform (GCP) Console</a>.
-2. Create a new Service account by following the instructions in Google's documentation for <a href="https://cloud.google.com/storage/docs/authentication#service_accounts" target="_blank"> generating a service account credential</a>.
-3. Generate a private key in JSON format.
-4. Copy the JSON key you generated for your Service account.
-5. Sign in to <a href="https://app.shippable.com" target="_blank"> Shippable</a>.
-6. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Google Container Engine credentials">
+* **Name** -- friendly name for the integration
+* **JSON Key** -- JSON Security Key for Google Cloud
 
-7. Select **deploy** as the Integration family.
-8. Choose **Google Container Engine** from the list of integration types.
-9. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **GKE-Integration**.
-10. Paste your JSON key.
-11. Click on **Save**.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Google Container Engine` Integration 
 
-<img src="../../images/platform/integrations/gke-integration.png" alt="Add GKE integration">
+* [image]()
+* [cluster]()
+* [integration]()
+* [provision]()
 
-##Editing your GKE integration
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and JSON key(service account credentials from google developer console).
+`<NAME>` is the the friendly name of the Resource
 
-##Deleting your GKE integration
+| Environment variable						| Description      |
+| ------			 							|----------------- |
+| `<NAME>`\_INTEGRATION\_JSON_KEY			| Access Key supplied in the integration |
 
-If you no longer need the integration, you can delete it by following the steps below.
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

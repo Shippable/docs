@@ -5,61 +5,43 @@ page_title: Amazon ECR integration
 
 # Amazon ECR integration
 
-An ECR integration lets you configure the following scenarios:
+Available under the Integration Family: **Hub**
 
-- Pull a private image for your CI workflow
-- Build a Docker image which has a `FROM` that pulls a private image
-- Push an image as part of CI
-- Use an [image resource](resource-image/) as part of your CD pipeline.
+`Amazon ECR` Integration is used to connect Shippable DevOps Assembly Lines platform to Amazon Elastic Container Registry so that you can pull and push Docker images. 
 
-##Adding the ECR Integration
+You can create this from the integrations page. This is the information you would require to create this integration
 
-You will need to configure this integration to pull from or push images to Amazon ECR.
+* **Name** -- friendly name for the integration
+* **AWS Access Key ID** -- Key ID to AWS IAM Account
+* **AWS Secret Access Key** -- Secret Key to AWS IAM Account
 
-1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Amazon ECR` Integration 
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add ECR credentials">
+* [image]()
+* [cluster]()
+* [integration]()
 
-2. Select **hub** as the Integration family.
-3. Choose **Amazon ECR** from the list of integration types.
-4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **ecr-integration**
-5. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html"> Amazon's guide for Creating and Managing access keys</a>.
-6. Assign this integration to either all Subscription(s) or the subscriptions you want to use it in from the **Selected Subscriptions** dropdown's in the Subscription scopes. section Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-7. Assign this integration to the Projects in the chosen Subscription(s).
-8. Click on **Create**
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-The integration will now be available to all your Continuous Integration and Deployment workflows.
+`<NAME>` is the the friendly name of the Resource
 
-<img src="../../images/platform/integrations/ecr-integration.png" alt="Add ECR credentials">
+| Environment variable						         | Description        |
+| ------			 							         |----------------- |
+| `<NAME>`\_INTEGRATION\_AWS\_ACCESS\_KEY\_ID       | Access Key supplied in the integration |
+| `<NAME>`\_INTEGRATION\_AWS\_SECRET\_ACCESS\_KEY   | Access Key supplied in the integration |
 
-To learn how to use the integration for your scenario, check out the tutorials below.
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-* [Pulling and building a docker image from any registry](/ci/custom-docker-image)
-
-* [Push a Docker image to ECR](../ci/push-amazon-ecr/)
-
-##Editing your ECR integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name ,aws access key id and secret access key.
-
-
-##Deleting your ECR integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

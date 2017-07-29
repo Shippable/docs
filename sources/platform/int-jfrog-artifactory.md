@@ -3,52 +3,46 @@ main_section: Platform
 sub_section: Integrations
 page_title: JFrog Artifactory integration
 
-# JFrog Artifactory integration
+# JFrog Artifactory Integration
 
-You will need JFrog Artifactory integration if you want to do the following -
+Available under the Integration Family: **hub**
 
-- Upload files to JFrog Artifactory
-- Download files from JFrog Artifactory
-- Deploy files from JFrog Artifactory to a cluster of nodes
+`JFrog Artifactory` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Registry so that you can pull and push artifacts including Docker images.
 
-##Adding the JFrog Artifactory Integration.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-You will need to configure this integration to store credentials to artifactory.
+* **Name** -- friendly name for the integration
+* **HTTP Endpoint** -- Enter the HTTP Endpoint(url) of your artifact repository
+* **Username** -- Username of your JFrog account 
+* **Password** -- Password of your JFrog account
 
-1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `JFrog Artifactory` Integration 
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add JFrog Artifactory credentials">
+* [image]()
+* [integration]()
 
-2. Select **hub** as the Integration family.
-3. Choose **JFrog Artifactory** from the list of integration types.
-4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **jfrog-integration**
-5. Enter your HTTP Endpoint(url), username and password. You can follow instructions in <a href="https://www.jfrog.com/confluence/display/RTF/JFrog+CLI#JFrogCLI-Authentication" target="_blank"> JFrogCLI-Authentication</a>.
-* Choose the subscriptions, in which the integration can be accessible.
-* Click on **Save**
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-<img src="../../images/platform/integrations/jfrog-int.png" alt="Add JFrog Artifactory credentials">
+`<NAME>` is the the friendly name of the Resource
 
-##Editing your JFrog Artifactory integration
+| Environment variable						| Description      |
+| ------			 							|----------------- |
+| `<NAME>`\_INTEGRATION\_URL				| URL supplied in the integration |
+| `<NAME>`\_INTEGRATION\_USERNAME			| USERNAME supplied in the integration |
+| `<NAME>`\_INTEGRATION\_PASSWORD			| PASSWORD supplied in the integration |
 
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and http endpoint, username and password.
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-##Deleting your JFrog Artifactory integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

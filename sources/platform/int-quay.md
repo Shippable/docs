@@ -3,48 +3,48 @@ main_section: Platform
 sub_section: Integrations
 page_title: Quay integration
 
-# Quay integration
+# Quay Integration
 
-You will need to configure this integration in order to pull or push images to Quay.io.
+Available under the Integration Family: **Hub**
 
-##Adding Quay.io Integration on Shippable
+`Quay` Integration is used to connect Shippable DevOps Assembly Lines platform to Quay Docker Registry so that you can pull and push Docker images. 
 
-1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Quay credentials">
+* **Name** -- friendly name for the integration
+* **Username** -- login to your Quay Account
+* **Password** -- password of your Quay Account
+* **Email** -- email of your Quay Account
+* **Access Token** -- access token of your Quay Account
 
-2. Select **hub** as the Integration family.
-3. Choose **Quay.io** from the list of integration types.
-4. For **Integration Name**, use a distinctive name that's easy to associate to the integration and recall. Example: **quay_integration**.
-5. Enter your credentials.
-6. Assign this integration to the Subscription(s) you want to use it in. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-7. Click on `Save`.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Docker Hub` Integration 
 
-<img src="../../images/platform/integrations/quay-integration.png" alt="Add Quay credentials">
+* [image]()
+* [cluster]()
 
-The integration will now be available to all your continuous integration and deployment workflows.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-##Editing your Quay.io integration
+`<NAME>` is the the friendly name of the Resource
 
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name, username, password, email and accessToken.
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_USERNAME   		| Username supplied in the integration |
+| `<NAME>`\_INTEGRATION\_PASSWORD			| Password supplied in the integration |
+| `<NAME>`\_INTEGRATION\_EMAIL			| Email supplied in the integration |
+| `<NAME>`\_INTEGRATION\_ACCESSTOKEN		| Access Token supplied in the integration |
 
-##Deleting your Quay.io integration
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

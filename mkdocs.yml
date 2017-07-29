@@ -357,6 +357,8 @@ pages:
         - Unmanaged jobs: platform/jobs-unmanaged.md
       - Integrations:
         - Working with Integrations: platform/int-working-with.md
+        - How to create a kubeconfig file: platform/howto-create-kubeconfig.md
+        - How to install kubectl: platform/howto-install-kubectl.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
