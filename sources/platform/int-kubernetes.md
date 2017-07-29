@@ -21,7 +21,6 @@ You can create this from the integrations page. This is the information you woul
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Kubernetes` Integration 
 
-* [image]()
 * [cluster]()
 * [integration]()
 * [provision]()
@@ -33,6 +32,7 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						            | Description      |
 | ------			 							            |----------------- |
+| `<NAME>`\_INTEGRATION\_NAME          	            | Name supplied in the integration |
 | `<NAME>`\_INTEGRATION\_CLUSTERACCESSTYPE          | Access Type supplied in the integration |
 | `<NAME>`\_INTEGRATION\_MASTERKUBECONFIGCONTENT    | Kube config when kube master was chosen as access type |
 | `<NAME>`\_INTEGRATION\_BASTIONKUBECONFIGCONTENT   | Kube config when bastion was chosen as access type |

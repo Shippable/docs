@@ -360,6 +360,7 @@ pages:
         - Working with Integrations: platform/int-working-with.md
         - How to create a kubeconfig file: platform/howto-create-kubeconfig.md
         - How to install kubectl: platform/howto-install-kubectl.md
+        - How to connect Shippable through AWS IAM: platform/howto-create-AWS-IAM-access.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md

@@ -3,109 +3,44 @@ main_section: Platform
 sub_section: Integrations
 page_title: Amazon ECS integration
 
-# Amazon ECS integration
+# AWS IAM Integration
 
-Shippable lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS).
+Available under the Integration Family: **deploy**
 
-You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Pipelines.
+`AWS IAM` Integration is used to connect Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with it cloud services like ECR, ECS, EC2, S3 and so on.
 
-To actually use it for CI or Pipelines, you will also need to add this integration to the Subscription that contains your CI or Pipelines.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-Follow the steps below to create an account integration with AWS ECS.
+* **Name** -- friendly name for the integration
+* **Assume Role ARN** -- Role to Assume when connecting to AWS
 
-## Adding Amazon ECS integration
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `AWS` Integration 
 
-### Amazon Web Services (IAM)
+* [image]()
+* [cluster]()
+* [integration]()
 
-1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
+`<NAME>` is the the friendly name of the Resource
 
-2. Select **deploy** as the Integration family.
-3. Choose **AWS (IAM)** from the list of integration types.
-4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
-5. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
-6. Click **Save**
+| Environment variable						         | Description        |
+| ------			 							         |----------------- |
+| `<NAME>`\_INTEGRATION\_NAME       		| Name supplied in the integration |
+| `<NAME>`\_INTEGRATION\_ASSUMEROLEARN 	| ARN Role supplied in the integration |
 
-<img src="../../images/platform/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-### Amazon EC2 Container Service Using Account Keys
-
-1. Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** section.
-
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Amazon ECS credentials">
-
-2. Click on the **Add Integration** button.
-3. For **Integration type**, locate **AWS** from the list of integrations.
-4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **AWS-Integration**.
-5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.  These keys should be associated with an account that has access to a policy with rules described [here](#policy).
-6. Click on **Save**.
-
-<img src="../../images/platform/integrations/ecs-integration.png" alt="Amazon ECS credentials">
-
-Please remember that before you can use this integration to set up your Pipelines, you will need to enable the integration for the Subscription that contains your Pipelines.
-
-
-##Editing your Amazon ECS integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and aws_access_key and aws_secret_id.
-
-##Deleting your Amazon ECS integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-
-    <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
-
-## Policy
-
-The following policy document is required for Shippable to manage your deployments to ECS.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "elasticloadbalancing:ConfigureHealthCheck",
-                "elasticloadbalancing:DescribeLoadBalancers",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "ec2:DescribeRegions",
-                "ec2:DescribeInstances",
-                "ecs:DescribeClusters",
-                "ecs:ListClusters",
-                "ecs:RegisterTaskDefinition",
-                "ecs:DeregisterTaskDefinition",
-                "ecs:ListTaskDefinitions",
-                "ecs:DescribeServices",
-                "ecs:UpdateService",
-                "ecs:DeleteService",
-                "ecs:CreateService",
-                "ecs:ListTasks",
-                "ecs:ListContainerInstances",
-                "ecs:DescribeContainerInstances"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

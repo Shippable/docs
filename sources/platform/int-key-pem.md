@@ -3,57 +3,42 @@ main_section: Platform
 sub_section: Integrations
 page_title: PEM integration
 
-# PEM keys integration
+# PEM Key Integration
 
-##Adding a PEM key integration
-To create an account integration for a PEM key, do the following:
+Available under the Integration Family: **Keys**
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+`PEM Key` Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow PEM based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform, Ansible need this to execute scripts on the machine
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add PEM Key credentials">
+You can create this from the integrations page. This is the information you would require to create this integration
 
-- Select **key** as the Integration family.
-- Choose **PEM Key** from the list of integration types.
-- Enter a name for your key and then paste your key into the textbox labeled `key`.
-- `Save` your key.
+* **Name** -- friendly name for the integration
+* **Key** -- Encrypted Key in PEM format
 
-<img src="../../images/platform/integrations/pem-key-int.png" alt="Add PEM Key">
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `PEM Key` Integration 
 
-You will need to add this key to both the 'Subscription' Settings **and** the `shippable.yml` of every project you want to use it in.
+* [integration]()
 
-Example `shippable.yml` integration:
-```
-integrations:
-  key:
-    - integrationName: MyPEMKeyIntegration
-      type: pem-key
-```
- * `integrationName` is the name of the PEM integration you added to the 'Subscription' settings.
- * `type` is pem-key
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-Your PEM key will be available on your build minion in the `/tmp/ssh/` directory, and can be used in your `shippable.yml`.
+`<NAME>` is the the friendly name of the Resource
 
-##Editing your PEM Keys
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
+| `<NAME>`\_INTEGRATION\_KEY				| PEM Key supplied in the integration |
 
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and pem key.
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-##Deleting your PEM Keys integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
