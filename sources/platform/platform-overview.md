@@ -14,8 +14,7 @@ The Platform allows you automate the following activities in your software deliv
 * [Release management](/release/devops-release-management/)
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
-`TODO: Replace State with Workflow in the diagram.`
-<img src="/images/platform/platform/devops-cube.png" alt="Shippable Platform">
+<img src="/images/platform/assembly-lines.jpg" alt="Shippable DevOps Assembly Lines Platform">
 
 ## Job Runtime
 [Job Runtime](/platform/job-runtime-overview/) prepares the environment, installs all the packages and their dependencies required by the scripts in your job. For example, if you are authoring a job that copies a file to S3, the Job Runtime
