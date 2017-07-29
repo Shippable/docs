@@ -25,7 +25,7 @@ These are some of the usecases of Software Delivery that the platform enables na
 [Workflow](workflow-overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
 
 ## Runtime
-[Runtime](/platform/runtime/runtime-overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
+[Runtime](/platform/runtime/overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
 
 ## Visibility
 [Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.

@@ -259,7 +259,7 @@ pages:
       - Triggers:
         - Overview: platform/triggers-overview.md
     - Runtime:
-      - Overview: platform/runtime/runtime-overview.md
+      - Overview: platform/runtime/overview.md
       - Operating System:
         - Overview: platform/runtime-os.md
         - Ubuntu 14:04: platform/runtime-ubuntu14.md
