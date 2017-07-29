@@ -3,52 +3,45 @@ main_section: Platform
 sub_section: Integrations
 page_title: Gitlab integration
 
-# Gitlab integration
+# Gitlab Integration
 
-In order to integrate with GitLab, you need to sign into Shippable using your GitHub/Bitbucket account and then add GitLab as an account integration.
+Available under the Integration Family: **SCM**
 
-If you did not sign in to Shippable with GitLab credentials but want to connect to your Gitlab account for CI or Pipelines, you should add an account integration for Gitlab.
+`Gitlab` Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of Gitlab. 
 
-##Adding a Gitlab integration
+You can create this from the integrations page. This is the information you would require to create this integration
 
-To add an integration for Gitlab, you will first need to sign in with GitHub or Bitbucket credentials.
+* **Name** -- friendly name for the integration
+* **URL** -- location of your Gitlab API. The URL should be in the format `https://(GitLab URL)/api/v3`. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v3`
+* **Token** -- Gitlab private token with the right levels of permission
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Gitlab` Integration 
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Gitlab credentials">
+* [gitRepo]()
+* [ciRepo]()
+* [syncRepo]()
 
-* Select **deploy** as the Integration family.
-* Choose **Gitlab** from the list of integration types.
-* Enter the following:
-	* Add a friendly name for your integration
-	* Enter the URL for your GitLab instance. The URL should be in the format `https://(GitLab URL)/api/v3`. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v3`
-	* Copy your **Gitlab private token** and paste it in the **Token** textbox. To get your token,  go to your GitLab profile settings, select **Account** from the left menu, and copy the private token provided
-* Click on **Save**. You should now see the integration in your list of integrations.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-##Editing your Gitlab integration
+`<NAME>` is the the friendly name of the Resource
 
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Gitlab integration. You can then change integration name ,url and gitlab api token.
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_URL    			| Gitlab API location |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to Gitlab |
 
-##Deleting your Gitlab integration
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-If you no longer need the integration, you can delete it by following the steps below.
-
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Account settings">
-
--  Click on **Integrations** in the left sidebar menu
-- Locate the integration you want to delete and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - From the Subsciption dropdown menu at the top left of your Dashboard, click on the dependent Subscription.
-    - Go to the **Settings** tab and click on **Integrations** in the left sidebar.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to **Account Settings** and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

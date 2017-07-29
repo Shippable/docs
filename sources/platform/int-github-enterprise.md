@@ -3,61 +3,45 @@ main_section: Platform
 sub_section: Integrations
 page_title: GitHub Enterprise integration
 
-# GitHub Enterprise integration
+# GitHub Enterprise Integration
 
-We support GitHub Enterprise in 2 flavors:
+Available under the Integration Family: **SCM**
 
-* Using Shippable Hosted, you can sign in to Shippable with your GitHub or Bitbucket credentials, and then add an integration to your account that enables you to build repositories hosted on your GitHub Enterprise instance. This is described in the sections below.
+`Github Enterprise` Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of Github Enterprise Server. 
 
-* You can also buy Shippable Server and run it on-premises or behind your firewall in your private cloud. In this setup, we support authenticating against GitHub Enterprise directly. If you are interested in this model, please send us an email to our <a href="mailto:sales@shippable.com"> Sales team</a>.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-##Adding a GitHub Enterprise integration
+* **Name** -- friendly name for the integration
+* **URL** -- location of your GHE server API. The format is in `https://(Github Enterprise URL)/api/v3`
+* **Token** -- personal access token with the right levels of permission
 
-To add an integration for GitHub Enterprise, you will first need to sign in with GitHub or Bitbucket credentials.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Github Enterprise` Integration 
 
-Adding an integration is achieved as follows:
+* [gitRepo]()
+* [ciRepo]()
+* [syncRepo]()
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Github Enterprise credentials">
+`<NAME>` is the the friendly name of the Resource
 
-* Select **scm** as the Integration family.
-* Choose **Github EnterpriseS** from the list of integration types.
-* Enter the following:
-	* Add a friendly name for your integration
-	* Enter the URL for your GitHub Enterprise instance. The URL should be in the format `https://(git hub enterprise URL)/api/v3`
-	* Create a **GitHub Enterprise API token** with the permissions you need
-		- Go to your GitHub Enterprise account settings and in the left menu, select
-   **Personal access tokens**
-    	- Click on **Generate token** and on the Generate Token page, select the following permissions as shown below:
-			<img src="../../images/platform/integrations/permissions.png" alt="Add GHE credentials">
-    	- Click on **Generate token**, and copy the generated token immediately. This is important since you will not see the token once you navigate away from this page.
-	* Paste it in the **Token** textbox in Shippable
-* Click on **Save**. You should now see the integration in your list of integrations.
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_URL    			| Github Enterprise API location |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to Github Enterprise |
 
-<img src="../../images/platform/integrations/ghe-integration.png" alt="Add GHE credentials">
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-##Editing your Github Enterprise Integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name ,url and github enterprise api token.
-
-##Deleting your Github Enterprise integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

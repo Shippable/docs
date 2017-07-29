@@ -26,9 +26,47 @@ In case of Shippable Integrations,
 * Removing access is as simple as removing the scope to a repo and the immediate next run will start to fail
 * It is a more secure way of maning secrets
 
-
 We are big believers of the concept where secrets needs to be seperated from scripts for better security and privacy. All integrations are stored in our <a href="https://www.vaultproject.io/">Vault store</a> for maximum security.
 
+
+## Supported Integrations 
+The following are integrations that Shippable currently supports. Detailed information is available on individual integration pages.
+
+- [GitHub](/platform/int-github/)
+- [GitHub Enterprise](/platform/int-github-enterprise/)
+- [Bitbucket](/platform/int-bitbucket/)
+- [GitLab](/platform/int-gitlab/)
+- [AWS](int-amazon-ecs/)
+- [AWS IAM]()
+- [Azure Container Service]()
+- [Azure DCOS]()
+- [Docker Cloud](int-docker-cloud/)
+- [Docker Datacenter](int-docker-datacenter/)
+- [Google Container Engine (GKE)](int-gke/)
+- [Joyent Triton]()
+- [Kubernetes](int-kubernetes/)
+- [Node Cluster]()
+- [Amazon Elastic Beanstalk](../deploy/aws-elastic-beanstalk/)
+- [Git Credential]()
+- [Google Cloud]() 
+- [Microsoft Azure]()
+- [Key-Value Pair]()
+- [Git Credential]()
+- [Digital Ocean]()
+- [PEM keys](int-key-pem/)
+- [SSH keys](int-key-ssh/)
+- [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/)
+- [Docker Hub](int-docker-hub/)
+- [Docker Trusted Registry](int-docker-trusted-registry/)
+- [Any private registry](int-docker-trusted-registry/)
+- [JFrog]()
+- [Google Container Registry](int-gcr/)
+- [Quay](int-quay/)
+- [Email]()
+- [Event Trigger]()
+- [Slack](int-slack/)
+- [HipChat](int-hipchat/)
+- [IRC]()
 
 <a name="listIntegrations"></a>
 ##List of available integrations
@@ -41,17 +79,11 @@ You need a source control integration if:
 
 We currently support the following source control providers:
 
-- [GitHub](/platform/int-github/)
-- [GitHub Enterprise](/platform/int-github-enterprise/)
-- [Bitbucket](/platform/int-bitbucket/)
-- [GitLab](/platform/int-gitlab/)
 
 ### Notification Providers
 
 You need a Slack or Hipchat integration if you want to send notifications for your CI or CD workflows through these providers.
 
-- [Slack](int-slack/)
-- [HipChat](int-hipchat/)
 
 ### Docker registries
 You will need Docker registry integration if you want to do the following -
@@ -63,12 +95,6 @@ You will need Docker registry integration if you want to do the following -
 
 We support the following Docker registries:
 
-- [Docker Hub](int-docker-hub/)
-- [Amazon EC2 Container Registry (ECR)](int-amazon-ecr/)
-- [Google Container Registry](int-gcr/)
-- [Quay](int-quay/)
-- [Docker Trusted Registry](int-docker-trusted-registry/)
-- [Any private registry](int-docker-trusted-registry/)
 
 ### Container Services
 
@@ -76,21 +102,14 @@ You need a Container Service integration if you want to push your application to
 
 We support the following Container Services:
 
-- [Amazon EC2 Container Service (ECS)](int-amazon-ecs/)
-- [Kubernetes](int-kubernetes/)
-- [Google Container Engine (GKE)](int-gke/)
-- [Docker Cloud](int-docker-cloud/)
-- [Docker Datacenter](int-docker-datacenter/)
 
 ### Deploy
 
 You can push to Amazon elastic beanstalk as part of your CI workflow by adding the integration:
 
-- [Amazon Elastic Beanstalk](../deploy/aws-elastic-beanstalk/)
 
 ### Keys
 
 You need a key integration if you want to integrate with a third party service that is not natively supported with Shippable. You should use these integrations so that you don't have to expose your keys in your CI yml configuration:
 
-- [PEM keys](int-key-pem/)
-- [SSH keys](int-key-ssh/)
+

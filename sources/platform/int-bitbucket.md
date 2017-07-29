@@ -3,66 +3,45 @@ main_section: Platform
 sub_section: Integrations
 page_title: Bitbucket integration
 
-# Bitbucket integration
+# Bitbucket Integration
 
-Bitbucket integration is enabled for your Shippable account in one of 2 ways:
+Available under the Integration Family: **SCM**
 
-* You sign in to Shippable with your Bitbucket credentials. In this case, we automatically set up an Account Integration for you. You can see this integration by going to your Account Settings (gear menu in top navbar) and clicking on **Integrations** in the sidebar menu.
+`Bitbucket` Integration is used to connect Shippable DevOps Assembly Lines platform to bitbucket.org. There are 3 ways in which this type of integration can be added
 
-* You sign in to Shippable with another supported source control provider, and add a Bitbucket integrations through Account Settings -> Integrations. To learn how to do this, read the [Adding a Bitbucket integration section](#addBitbucket).
+* You sign in to Shippable with Bitbucket credentials. In this case, we automatically set up an Account Integration named `Bitbucket` for you. This integration is the default one that we use when you enable CI projects for your repos and sync your permissions with github
+* Second, you can manually add this to your account integrations. This takes in Bitbucket APO `Token` value as input and gives you whatever level of access as the token has
+* Third, if you used another method of signing into Shippable, then from your _Account Profile_ you can connect your Bitbucket account to have multi-provider login to your account
 
-##Signing in with Bitbucket
-To build repositories hosted on Bitbucket. you will need to authorize Shippable to access your repositories.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Bitbucket` Integration 
 
-To enable Bitbucket for public and private repositories:
+* [gitRepo]()
+* [ciRepo]()
+* [syncRepo]()
 
-- Log in to <a href="https://app.shippable.com" target="_blank"> Shippable</a>.
-- Click on **Authorize application** button to authorize Shippable to access your public and private  repositories on Bitbucket (This is a one-time step). Provide your Bitbucket password, if prompted.
-- Your subscription is ready to use after this step.
-- You can click on the top left menu icon to see a list of your Subscriptions. Choose the subscription you want.
-- In the **CI** tab, click the **Enable Project** section to view all your public and private repositories in Bitbucket.
-- If you don't see your projects in the above step, click on the Account settings (gear icon on the top navigation bar). In the **Accounts** section click the **Sync** button.
-- No additional step required for private repositories as the above step provides access to both public and private repositories hosted on Bitbucket.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-<a name="addBitbucket"></a>
-##Adding a Bitbucket integration
+`<NAME>` is the the friendly name of the Resource
 
-If you did not sign in to Shippable with Bitbucket credentials but want to connect to your Bitbucket account for CI or Pipelines, you should add an account integration for Bitbucket.
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_URL    			| Bitbucket API location |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to Bitbucket |
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Bitbucket credentials">
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-- Select **scm** as the Integration family.
-- Choose **Bitbucket** from the list of integration types.
-- Enter the following:
-	- Add a friendly name for your integration
-	- Create a **Bitbucket API token** with the right settings and paste it in the **Token** textbox
-- Click on **Save**. You should now see the integration in your list of integrations.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
 
-<img src="../../images/platform/integrations/bitbucket-integration.png" alt="Add bitbucket integration">
-
-##Editing your Bitbucket integration
-
-You can go to your **Account Settings** at any time, click on **Integrations** in the left sidebar menu, and click the **Edit** button for your Bitbucket integration. You can then change integration name and bitbucket api token.
-
-##Deleting your Bitbucket integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.

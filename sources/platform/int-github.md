@@ -3,68 +3,44 @@ main_section: Platform
 sub_section: Integrations
 page_title: GitHub integration
 
-# GitHub integration
+# GitHub Integration
 
-GitHub integration is enabled for your Shippable account in one of 2 ways:
+Available under the Integration Family: **SCM**
 
-* You sign in to Shippable with your GitHub credentials. In this case, we automatically set up an Account Integration for you. You can see this integration by going to your Account Settings (gear menu in top navbar) and clicking on **Integrations** in the sidebar menu.
+`Github` Integration is used to connect Shippable DevOps Assembly Lines platform to github.com. There are 3 ways in which this type of integration can be added
 
-* You sign in to Shippable with another supported source control provider, and add a GitHub integrations through Account Settings -> Integrations. To learn how to do this, read the [Adding a GitHub integration section](#addGithub).
+* You sign in to Shippable with Github credentials. In this case, we automatically set up an Account Integration named `Github` for you. This integration is the default one that we use when you enable CI projects for your repos and sync your permissions with github
+* Second, you can manually add this to your account integrations. This takes in `Token` value as input and gives you whatever level of access as the token has
+* Third, if you used another method of signing into Shippable, then from your _Account Profile_ you can connect your github account to have multi-provider login to your account
 
-## Signing in with Github
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `github` Integration 
 
-To build repositories hosted on GitHub. you will need to authorize Shippable to access your repositories.
+* [gitRepo]()
+* [ciRepo]()
+* [syncRepo]()
 
-To enable public repositories:
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-- Log in to <a href="https://app.shippable.com" target="_blank"> Shippable</a>.
-- Click on **Authorize application** button to authorize Shippable to access your public
-  repositories on GitHub (This is a one-time step). Provide your GitHub password, if prompted.
-- Your account is ready to use after this step.
-- You can click on the top left menu icon to see a list of your Subscriptions. Choose the subscription you want.
-- In the **CI** tab, click the 'Enable Project' section to view all your public and private repositories. Proceed to enabling a project.
-- If you don't see your projects in the above step, click on the Account settings (gear icon on the top navigation bar). In the 'Accounts' section click the **Sync** button.
+`<NAME>` is the the friendly name of the Resource
 
-To enable private repositories:
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_URL    			| Github API location |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to correct to Github |
 
-- Go to your **Account Settings** by clicking on the gear icon on the right of the top navbar.
-- In the **Git identities** section, authorize Shippable for private repositories.
 
-<a name="addGithub"></a>
-## Adding your GitHub integration
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
-
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add GitHub credentials">
-
-- Select **scm** as the Integration family.
-- Choose **GitHub** from the list of integration types.
--  Name your integration and enter your github api token.
--  Click **Save**
-
-<img src="../../images/platform/integrations/github-integration.png" alt="Add GitHub credentials">
-
-##Editing your GitHub integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and your github api token.
-
-##Deleting your GitHub integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

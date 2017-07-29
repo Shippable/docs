@@ -3,70 +3,51 @@ main_section: Platform
 sub_section: Integrations
 page_title: Event Trigger integration
 
-# Event Trigger integration
-Shippable supports triggers on user-specified webhook URLs or other enabled projects.
-By default, configured triggers are hit only if a commit build succeeds.
+# Event Trigger Integration
+Available under the Integration Family: **Notifications**
 
-This page explains how you can add a Event Trigger integration to your
-account by providing the Project name or Webhook URL and the Authorization.
+`Event Trigger` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can
 
-##Adding an Event Trigger integration
-You can add the integration for a Project or for a Generic Webhook.
+* Create daisy chain of projects, so that you can trigger one from another
+* Send a webhook to an external service with custom payloads 
 
-###Adding the Account Integration for a Project
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Event Trigger** panel.
+You can create this from the integrations page. This is the information you would require to create this integration
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Event Trigger">
+* **Name** -- friendly name for the integration
+* **Trigger endpoint** -- Dropdown with following values
+	* project -- used to trigger other CI projects on Shippable. (Deprecated feature - You can achieve this more easily with Assembly Lines)
+		* Authorization -- Shippable API Token. Format `apiToken ae45edaa-adfa-bgdf-ae45edaaae45`
+	* Generic Webhook -- used to send payload to external entities
+		* WebhookURL -- endpoint to send payload to
+		* Authorization -- Token based auth to the external URL
 
-- Select **Notification** as the Integration family.
-- Choose **Event Trigger** from the list of integration types.
--  Name your integration..
--  Under 'What would you like to trigger?' select `Project` from the dropdown choices.
--  [Optional] Select the Project that you want to associate the integration.
--  In the 'Authorization' field, you'll need to specify the Shippable API Token.
--  Assign this integration to the Subscription(s) you want to use it in. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
--  Click on `Save`.
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Event Trigger` Integration 
 
-<img src="../../images/platform/integrations/event-trigger-project-integration.png" alt="Add Event Trigger Project">
+* [notification]()
+* [ciRepo]()
 
-The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-###Adding the Account Integration for a Generic Webhook
+`<NAME>` is the the friendly name of the Resource
 
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **Event Trigger** in the list and click on **Create Integration**
--  Name your integration..
--  Under 'What would you like to trigger?' select `Generic Webhook` from the dropdown choices.
--  Specify a webhook URL you want to trigger in the 'WebhookURL' field.
--  In the Authorization field, specify the HTTP Authorization Header required to hit the specified webhook URL. If no authorization is required, this field can be left blank.
--  Assign this integration to the Subscription(s) you want to use it in. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
--  Click on `Save`.
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_PROJECT			| Shippable Project ID  |
+| `<NAME>`\_INTEGRATION\_WEBHOOKURL		| Webhook URL, it is available for Generic Webhooks only |
+| `<NAME>`\_INTEGRATION\_AUTHORIZATION	| Authorization token that was set in the integration  |
 
-<img src="../../images/platform/integrations/event-trigger-webhook-integration.png" alt="Add Event Trigger WebhookURL">
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-The integration will now be available to all your Continuous Integration and Pipelines settings within the Shippable portal.
-
-##Editing your Event Trigger integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name, URL, Event Trigger username and API key/token.
-
-##Deleting your Event Trigger integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |

@@ -3,58 +3,43 @@ main_section: Platform
 sub_section: Integrations
 page_title: Hipchat integration
 
-# Hipchat integration
+# Hipchat Integration
 
-You can send HipChat notifications for any status changes for CI and monitored Docker images.
+Available under the Integration Family: **Notifications**
 
-To send these notifications to HipChat channel(s), you will first need to add an integration to your Account Integrations.
+`Hipchat` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms. 
 
-##Adding a HipChat integration
+You can create this from the integrations page. This is the information you would require to create this integration
 
-There are two actions to set up the HipChat integration through the UI. They are:
+* **Name** -- friendly name for the integration
+* **Token** -- Hipchat account token
 
-- Generate a token for API access
-- Add the Hipchat integration to your subscription
+## Resources that use this Integration
+Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Hipchat` Integration 
 
-###Generate a token for API access
+* [notification]()
+* [ciRepo]()
 
-1. Sign in to your HipChat account using [this link to generate a token](https://www.hipchat.com/account/api).
-     - Provide credentials to your HipChat account, if prompted.
-2. Create a token with `Send Message` and `Send Notification` scopes.
+## Default Environment Variables
+When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
 
-###Add the HipChat integration to your Account
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
+`<NAME>` is the the friendly name of the Resource
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add HipChat credentials">
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to Hipchat |
 
-- Select **Notification** as the Integration family.
-- Choose **HipChat** from the list of integration types.
-- Name your integration and enter the HipChat token.
-- Click on **Save**. You should now see the integration in your list of integrations.
+## Further Reading
+* GKE integration
+* AWS integration
+* runSH job
+* runCLI job
+* runCI job
+* How to setup CI for my git repo
 
-<img src="../../images/platform/integrations/hipchat-integration.png" alt="Add Hipchat credentials">
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
 
-##Editing your Hipchat integration
-
-YClick on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name and your hipchat token.
-
-##Deleting your Hipchat integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.
