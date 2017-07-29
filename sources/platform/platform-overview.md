@@ -21,7 +21,6 @@ These are some of the usecases of Software Delivery that the platform enables na
 * [Release management](/release/devops-release-management/)
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
-
 ## Workflow
 [Workflow](workflow-overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
 

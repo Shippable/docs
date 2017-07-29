@@ -221,10 +221,6 @@ pages:
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
-  - Visibility:
-    - Overview: visibility/visibility-overview.md
-  - Operations:
-    - Overview: management/management-overview.md
   - Platform:
     - Overview: platform/platform-overview.md
     - Workflow:
@@ -313,9 +309,9 @@ pages:
       - Caching:
         - Overview: platform/runtime-caching.md
     - Visibility:
-      - Overview: visibility/visibility-overview.md
+      - Overview: platform/visibility/visibility-overview.md
     - Management:
-      - Overview: management/management-overview.md
+      - Overview: platform/management/management-overview.md
     - Integrations:
       - Overview: platform/int-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md
