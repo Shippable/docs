@@ -31,8 +31,8 @@ These are some of the usecases of Software Delivery that the platform enables na
 ## Visibility
 [Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
 
-## Visibility
-[Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
+## Management
+[Management]((/platform/management-overview/)) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
 
 ## Integrations
 [Integrations](/platform/int-overview/) are used to connect your workflows to third party platforms and services.
