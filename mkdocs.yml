@@ -275,16 +275,16 @@ pages:
         - Scala: platform/runtime/language/scala.md
         - C/C++: platform/runtime/language/cplusplus.md
       - CLIs:
-        - AWS: platform/cli-aws.md
-        - AWSEB: platform/cli-awseb.md
-        - GKE: platform/cli-gke.md
-        - Kubectl: platform/cli-kubectl.md
-        - Terraform: platform/cli-terraform.md
-        - Ansible: platform/cli-ansible.md
-        - JFrog: platform/cli-jfrog.md
-        - Azure: platform/cli-azure.md
-        - Packer: platform/cli-packer.md
-        - Docker: platform/cli-docker.md
+        - AWS: platform/runtime/cli/aws.md
+        - AWSEB: platform/runtime/cli/awseb.md
+        - GKE: platform/runtime/cli/gke.md
+        - Kubectl: platform/runtime/cli/kubectl.md
+        - Terraform: platform/runtime/cli/terraform.md
+        - Ansible: platform/runtime/cli/ansible.md
+        - JFrog: platform/runtime/cli/jfrog.md
+        - Azure: platform/runtime/cli/azure.md
+        - Packer: platform/runtime/cli/packer.md
+        - Docker: platform/runtime/cli/docker.md
       - Services:
         - Cassandra: platform/service-cassandra.md
         - Couchdb: platform/service-couchdb.md

@@ -71,16 +71,16 @@ Majority of the apps today run on cloud. Each cloud provider has a native CLI an
 
 Here is a list of CLIs we have available as part of Job Runtime -
 
-* [Ansible](/platform/cli-ansible)
-* [AWS](/platform/cli-aws)
-* [AWS Elastic Beanstalk](/platform/cli-awseb)
-* [Azure](/platform/cli-azure)
-* [Docker](/platform/cli-docker)
-* [GKE](/platform/cli-gke)
-* [JFrog](/platform/cli-jfrog)
-* [Packer](/platform/cli-packer)
-* [Terraform](/platform/cli-terraform)
-* [Kubectl](/platform/cli-kubectl)
+* [Ansible](/platform/runtime/cli/ansible)
+* [AWS](/platform/runtime/cli/aws)
+* [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
+* [Azure](/platform/runtime/cli/azure)
+* [Docker](/platform/runtime/cli/docker)
+* [GKE](/platform/runtime/cli/gke)
+* [JFrog](/platform/runtime/cli/jfrog)
+* [Packer](/platform/runtime/cli/packer)
+* [Terraform](/platform/runtime/cli/terraform)
+* [Kubectl](/platform/runtime/cli/kubectl)
 
 ## Nodes
 [Nodes](/platform/runtime/nodes) are host machines on which the desired Job Runtime image is instantiated. One of the key differentiators of Shippable is that you can use Nodes that run behind your firewall and connect them to the DevOps Assembly Lines SaaS Platform. If you dont need that capability, you can run your [Jobs]() on on Shippable's hosted infrastructure (Dynamic Nodes)
