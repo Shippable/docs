@@ -361,8 +361,8 @@ pages:
         - How to install kubectl: platform/howto-install-kubectl.md
         - How to connect Shippable through AWS IAM: platform/howto-create-AWS-IAM-access.md
         - How to use Key-Value Integration in runCI: platform/howto-use-key-value-in-runci.md
-        - How to use Key-Value Integration in runSh: platform/howto-use-key-value-in-runsh.md
-        - How to use Docker Private Registry Integration in runCI: platform/howto-user-docker-private-registry-in-runci.md
+        - How to use Key-Value Integration in runSh: platform/howto-use-key-value-in-runSh.md
+        - How to use Docker Private Registry Integration in runCI: platform/howto-use-docker-private-registry-in-runci.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
