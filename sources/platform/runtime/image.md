@@ -33,20 +33,20 @@ a language or language version or some dependencies and build tool-chain compone
 
 ## Services supported in Shippable Provided Images
 
-* [Cassandra](/platform/service-cassandra)
-* [Couchdb](/platform/service-couchdb)
-* [Elasticsearch](/platform/service-elasticsearch)
-* [Neo4j](/platform/service-neo4j)
-* [Memcached](/platform/service-memcached)
-* [Mongodb](/platform/service-mongodb)
-* [Mysql](/platform/service-mysql)
-* [Postgres](/platform/service-postgres)
-* [Rabbitmq](/platform/service-rabbitmq)
-* [Redis](/platform/service-redis)
-* [Rethinkdb](/platform/service-rethinkdb)
-* [Riak](/platform/service-riak)
-* [Selenium](/platform/service-selenium)
-* [Sqllite](/platform/service-sqllite)
+* [Cassandra](/platform/runtime/service/cassandra)
+* [Couchdb](/platform/runtime/service/couchdb)
+* [Elasticsearch](/platform/runtime/service/elasticsearch)
+* [Neo4j](/platform/runtime/service/neo4j)
+* [Memcached](/platform/runtime/service/memcached)
+* [Mongodb](/platform/runtime/service/mongodb)
+* [Mysql](/platform/runtime/service/mysql)
+* [Postgres](/platform/runtime/service/postgres)
+* [Rabbitmq](/platform/runtime/service/rabbitmq)
+* [Redis](/platform/runtime/service/redis)
+* [Rethinkdb](/platform/runtime/service/rethinkdb)
+* [Riak](/platform/runtime/service/riak)
+* [Selenium](/platform/runtime/service/selenium)
+* [Sqllite](/platform/runtime/service/sqllite)
 
 ## CLI's supported in Shippable Provided Images
 
