@@ -10,11 +10,11 @@ Platform supports two operating systems -
 
 * Ubuntu 14.04
 
-  For additional details, go [here](/platform/job-runtime-ubuntu14).
+  For additional details, go [here](/platform/runtime/ubuntu14).
 
 * Ubuntu 16.04
 
-  For additional details, go [here](/platform/job-runtime-ubuntu16).
+  For additional details, go [here](/platform/runtime/ubuntu16).
 
 * Support for Windows is on our roadmap.
 

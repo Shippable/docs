@@ -261,9 +261,9 @@ pages:
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
-        - Overview: platform/runtime-os.md
-        - Ubuntu 14:04: platform/runtime-ubuntu14.md
-        - Ubuntu 16:04: platform/runtime-ubuntu16.md
+        - Overview: platform/runtime/os.md
+        - Ubuntu 14:04: platform/runtime/ubuntu14.md
+        - Ubuntu 16:04: platform/runtime/ubuntu16.md
       - Languages:
         - Nodejs: platform/language-nodejs.md
         - Python: platform/language-python.md
@@ -301,13 +301,13 @@ pages:
         - Selenium: platform/service-selenium.md
         - Sqllite: platform/service-sqllite.md
       - Nodes:
-        - Overview: platform/runtime-nodes.md
-        - Dynamic Nodes: platform/runtime-dynamic-nodes.md
-        - Custom Nodes: platform/runtime-custom-nodes.md
+        - Overview: platform/runtime/nodes.md
+        - Dynamic Nodes: platform/runtime/dynamic-nodes.md
+        - Custom Nodes: platform/runtime/custom-nodes.md
       - Environment Variables:
-        - Overview: platform/runtime-environment-variables.md
+        - Overview: platform/runtime/environment-variables.md
       - Caching:
-        - Overview: platform/runtime-caching.md
+        - Overview: platform/runtime/caching.md
     - Visibility:
       - Overview: platform/visibility/visibility-overview.md
     - Management:
