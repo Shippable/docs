@@ -3,10 +3,17 @@ main_section: Platform
 sub_section: Overview
 page_title: Platform Overview
 
-# Overview
-Shippable provides an [Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html) that connects all your disparate DevOps activities. The Platform allows you to automate in code your entire software delivery lifecycle.
+# Platform Overview
+Today, majority of DevOps activities are getting automated in functional silos. The tools and the functional silos are creating what we call as "Islands of Automation". Valuable resources and time is being spent on trying to connect these "Islands of Automation" with adhoc homegrown scripts. This both expensive to build and hard to maintain and scale. So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html).
 
-The Platform allows you automate the following activities in your software delivery lifecycle  -
+Our platform connects all your disparate DevOps activities in a event driven workflows and enables your organization to automate your entire software delivery lifecycle.
+
+<img src="/images/platform/platform/devops-cube.png" alt="Shippable Platform">
+
+The best way to visualize the platform is to think of it as an exploded view of the cube as shown above;
+
+## Use Cases
+These are some of the usecases of Software Delivery that the platform enables natively
 
 * [Continuous Integration](/ci/why-continuous-integration/)
 * [Validation](/validate/devops-validate/)
@@ -14,14 +21,15 @@ The Platform allows you automate the following activities in your software deliv
 * [Release management](/release/devops-release-management/)
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
-<img src="/images/platform/assembly-lines.jpg" alt="Shippable DevOps Assembly Lines Platform">
-
-## Job Runtime
-[Job Runtime](/platform/job-runtime-overview/) prepares the environment, installs all the packages and their dependencies required by the scripts in your job. For example, if you are authoring a job that copies a file to S3, the Job Runtime
-will automatically install the AWS CLI, and login to the CLI using your AWS credentials.  
 
 ## Workflow
-[Workflow](/platform/workflow-overview/) connects all your jobs using a simple declarative language.
+[Workflow](workflow-overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
+
+## Runtime
+[Runtime](/platform/job-runtime-overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
+
+## Visibility
+[Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
 
 ## Visibility
 [Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.

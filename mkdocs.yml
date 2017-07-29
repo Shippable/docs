@@ -224,7 +224,7 @@ pages:
   - Visibility:
     - Overview: visibility/visibility-overview.md
   - Operations:
-    - Overview: operations/operations-overview.md
+    - Overview: management/management-overview.md
   - Platform:
     - Overview: platform/platform-overview.md
     - Workflow:
@@ -314,8 +314,8 @@ pages:
         - Overview: platform/runtime-caching.md
     - Visibility:
       - Overview: visibility/visibility-overview.md
-    - Operations:
-      - Overview: operations/operations-overview.md
+    - Management:
+      - Overview: management/management-overview.md
     - Integrations:
       - Overview: platform/int-overview.md
       - Amazon ECR: platform/int-amazon-ecr.md
