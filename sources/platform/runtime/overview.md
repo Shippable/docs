@@ -34,17 +34,17 @@ Job Runtime is designed to work on any Linux distro. Most of our SaaS customers 
 Since we are a Docker based platform, any custom image based on a Linux distro can be used in Job Runtime. For more details visit the [Operating Systems page](/platform/runtime/os)
 
 ## Language
-For both the OS versions, we maintain [language](platform/language-overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
+For both the OS versions, we maintain [language](platform/language/overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
 We support the following languages -
 
-* [Clojure](/platform/language-clojure)
-* [GO](/platform/language-go)
-* [Java](/platform/language-java)
-* [Node JS](/platform/language-nodejs)
-* [PHP](/platform/language-php)
-* [Python](/platform/language-python)
-* [Ruby](/platform/language-ruby)
-* [Scala](/platform/language-scala)
+* [Clojure](/platform/runtime/language/clojure.md)
+* [GO](/platform/runtime/language/go.md)
+* [Java](/platform/runtime/language/java)
+* [Node JS](/platform/runtime/language/nodejs)
+* [PHP](/platform/runtime/language/php)
+* [Python](/platform/runtime/language/python)
+* [Ruby](/platform/runtime/language/ruby)
+* [Scala](/platform/runtime/language/scala)
 
 ## Services
 To make your builds even faster, we also pre-install a bunch of Services that your application may need. These are also updated on a monthly cadence.

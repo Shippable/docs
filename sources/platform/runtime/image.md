@@ -21,15 +21,15 @@ a language or language version or some dependencies and build tool-chain compone
 
 ## Languages supported in Shippable Provided Images
 
-* [Nodejs](/platform/language-nodejs)
-* [Python](/platform/language-python)
-* [Java](/platform/language-java)
-* [Ruby](/platform/language-ruby)
-* [GO](/platform/language-go)
-* [PHP](/platform/language-php)
-* [Clojure](/platform/language-clojure)
-* [Scala](/platform/language-scala)
-* [C/C++](/platform/language-cplusplus)
+* [Nodejs](/platform/runtime/language/nodejs)
+* [Python](/platform/runtime/language/python)
+* [Java](/platform/runtime/language/java)
+* [Ruby](/platform/runtime/language/ruby)
+* [GO](/platform/runtime/language/go)
+* [PHP](/platform/runtime/language/php)
+* [Clojure](/platform/runtime/language/clojure)
+* [Scala](/platform/runtime/language/scala)
+* [C/C++](/platform/runtime/language/cplusplus)
 
 ## Services supported in Shippable Provided Images
 

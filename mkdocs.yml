@@ -265,15 +265,15 @@ pages:
         - Ubuntu 14:04: platform/runtime/ubuntu14.md
         - Ubuntu 16:04: platform/runtime/ubuntu16.md
       - Languages:
-        - Nodejs: platform/language-nodejs.md
-        - Python: platform/language-python.md
-        - Java: platform/language-java.md
-        - Ruby: platform/language-ruby.md
-        - GO: platform/language-go.md
-        - PHP: platform/language-php.md
-        - Clojure: platform/language-clojure.md
-        - Scala: platform/language-scala.md
-        - C/C++: platform/language-cplusplus.md
+        - Nodejs: platform/runtime/language/nodejs.md
+        - Python: platform/runtime/language/python.md
+        - Java: platform/runtime/language/java.md
+        - Ruby: platform/runtime/language/ruby.md
+        - GO: platform/language/go.md
+        - PHP: platform/runtime/language/php.md
+        - Clojure: platform/runtime/language/clojure.md
+        - Scala: platform/runtime/language/scala.md
+        - C/C++: platform/runtime/language/cplusplus.md
       - CLIs:
         - AWS: platform/cli-aws.md
         - AWSEB: platform/cli-awseb.md
