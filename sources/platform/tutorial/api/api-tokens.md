@@ -5,7 +5,7 @@ sub_sub_section: API
 page_description: Overview of Shippable's Account Settings API section UI
 
 #API Tokens
-This is where you generate, view and manage access tokens to use our [API](/platform/api-overview).
+This is where you generate, view and manage access tokens to use our [API](/platform/tutorial/api/api-overview).
 
 ##Adding a token
 To add a token:

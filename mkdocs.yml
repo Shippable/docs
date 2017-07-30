@@ -366,8 +366,8 @@ pages:
         - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
         - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
       - API:
-        - Overview: platform/api-overview.md
-        - Tokens: platform/api-tokens.md
+        - Overview: platform/tutorial/api/api-overview.md
+        - Tokens: platform/tutorial/api/api-tokens.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
@@ -383,4 +383,4 @@ pages:
         - Vault Configuration: platform/tutorial/server/install-vault.md
         - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
       - Glossary:
-        - Complete list of terms: platform/glossary.md
+        - Complete list of terms: platform/tutorial/glossary.md

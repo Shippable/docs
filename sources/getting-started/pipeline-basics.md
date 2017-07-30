@@ -16,7 +16,7 @@ Your pipeline is a bunch of jobs that are triggered in sequence or in parallel, 
 
 ##Terminology
 
-A glossary of terms is available in our [Reference](/platform/glossary/).
+A glossary of terms is available in our [Reference](/platform/tutorial/glossary/).
 
 ##Configuration
 
