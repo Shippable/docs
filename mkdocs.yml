@@ -363,19 +363,19 @@ pages:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
       - Shippable Server:
-        - Installer: platform/admiral.md
-        - Installing SE from AWS Marketplace: platform/admiral-aws-marketplace.md
-        - Installing SE on a single machine: platform/admiral-onebox.md
-        - Installing EE on two machines: platform/admiral-two-server.md
-        - Installing EE on three machines: platform/admiral-three-server.md
-        - Installing EE on three machines with an existing DB: platform/admiral-three-server-existing-db.md
-        - Database Configuration: platform/admiral-db.md
-        - State Storage Configuration: platform/admiral-gitlab.md
-        - Message Configuration: platform/admiral-rabbitmq.md
-        - Redis Configuration: platform/admiral-redis.md
-        - Swarm Worker Configuration: platform/admiral-swarm-workers.md
-        - Vault Configuration: platform/admiral-vault.md
-        - Bitbucket Server Configuration: platform/admiral-bbs.md
+        - Installer: platform/tutorial/server/install.md
+        - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
+        - Installing SE on a single machine: platform/tutorial/server/install-onebox.md
+        - Installing EE on two machines: platform/tutorial/server/install-two-server.md
+        - Installing EE on three machines: platform/tutorial/server/install-three-server.md
+        - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md
+        - Database Configuration: platform/tutorial/server/install-db.md
+        - State Storage Configuration: platform/tutorial/server/install-gitlab.md
+        - Message Configuration: platform/tutorial/server/install-rabbitmq.md
+        - Redis Configuration: platform/tutorial/server/install-redis.md
+        - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
+        - Vault Configuration: platform/tutorial/server/install-vault.md
+        - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
       - AMIs:
         - v5.7.3: platform/machine-image-v573.md
         - v5.6.1: platform/machine-image-v561.md
