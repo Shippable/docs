@@ -27,13 +27,13 @@ jobs:
 
 The snippet above shows a basic example with required tags for configuring a runCLI job.
 
-- [name](workflow/job/runcli.md#name): The name of your job. Set it to something that
+- [name](workflow/job/runcli.md): The name of your job. Set it to something that
 describes what the job does and is easy to remember. This will be the display
 name of the job in your pipeline visualization.
 
-- [type](workflow/job/runcli.md#type): The type of your job. This must be `runCLI`.
+- [type](workflow/job/runcli.md): The type of your job. This must be `runCLI`.
 
-- [steps](workflow/job/runcli.md#steps): The steps that should be executed in your job.
+- [steps](workflow/job/runcli.md): The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are
 [cliConfig](workflow/resource/cliconfig.md) will configure the appropriate CLI tools
 before your job starts running. You can have a single `TASK` property in your
@@ -74,24 +74,24 @@ jobs:
 In addition to the required parameters described in the **Basic reference** section above, you can also
 configure your runCLI job with the parameters described below:
 
-  - [on_start](workflow/job/runcli.md#on_start): Specify `script` or `NOTIFY` sections
+  - [on_start](workflow/job/runcli.md): Specify `script` or `NOTIFY` sections
 that are executed when the job starts.
 
-  - [on_success](workflow/job/runcli.md#on_success): Specify `script` or `NOTIFY`
+  - [on_success](workflow/job/runcli.md): Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section succeeds.
 
-  - [on_failure](workflow/job/runcli.md#on_failure): Specify `script` or `NOTIFY`
+  - [on_failure](workflow/job/runcli.md): Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section fails.
 
-  - [on_cancel](workflow/job/runcli.md#on_cancel): Specify `NOTIFY` sections to send
+  - [on_cancel](workflow/job/runcli.md): Specify `NOTIFY` sections to send
 notifications if the job is canceled.  This cannot run scripts.
 
-  - [always](workflow/job/runcli.md#always): Specify `script` or `NOTIFY` sections that
+  - [always](workflow/job/runcli.md): Specify `script` or `NOTIFY` sections that
 are always executed at the end of the job, regardless of whether the `TASK`
 section failed or succeeded.  Scripts will not run if the job is canceled,
 but notifications will be sent.
 
-  - [replicate](jobs-unmanaged#replicating-an-input): Adding `replicate` to
+  - [replicate](jobs-unmanaged): Adding `replicate` to
 an `OUT` resource will copy an `IN` resource for the new version of the `OUT`
 resource.
 
