@@ -22,7 +22,7 @@ These are some of the usecases of Software Delivery that the platform enables na
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
 ## Workflow
-[Workflow](workflow-overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
+[Workflow](workflow/overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
 
 ## Runtime
 [Runtime](/platform/runtime/overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
@@ -37,4 +37,4 @@ These are some of the usecases of Software Delivery that the platform enables na
 [Integrations](/platform/int-overview/) are used to connect your workflows to third party platforms and services.
 
 
-Now, lets look take a deeper look at a [Workflow](/platform/workflow-overview/).
+Now, lets look take a deeper look at a [Workflow](/platform/workflow/overview/).

@@ -18,7 +18,7 @@ Your final pipeline will look like this:
 Start with our basic [nodeCluster sample](./vm-basic)
 
 ## Configuration
-In our basic example, we're already using environment variables via [params resource](../platform/resource-params).  This page will describe what's happening behind the scenes when deploying with params to a node cluster.
+In our basic example, we're already using environment variables via [params resource](../platform/workflow/resource/params).  This page will describe what's happening behind the scenes when deploying with params to a node cluster.
 
 To best demonstrate, we should start by adding two more `params` resources (for a total of 3) so we can see in detail how they are treated during a deployment.
 

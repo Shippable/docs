@@ -10,7 +10,7 @@ Resource updates for `OUT` resources are automatically handled by managed jobs, 
 
 Updating the `versionName` for `OUT` resources will trigger a new version of the resource and any jobs that depend on the resource will be triggered.
 
-Let us assume you have an unmanaged job `myCustomJob` that takes two input resources: a [gitRepo resource](/platform/resource-gitrepo/) `myRepo` and a Docker registry [integration resource](/platform/resource-integration/) `myIntegration`. It builds a Docker image `myImage` as part of the custom script `doSomething.sh` and wants to push the image to a Docker registry. The next job in the pipeline, `nextJob` depends on myImage, so every time myImage changes, the version needs to be updated. Visually, it looks like this:
+Let us assume you have an unmanaged job `myCustomJob` that takes two input resources: a [gitRepo resource](/platform/workflow/resource/gitrepo/) `myRepo` and a Docker registry [integration resource](/platform/workflow/resource/integration/) `myIntegration`. It builds a Docker image `myImage` as part of the custom script `doSomething.sh` and wants to push the image to a Docker registry. The next job in the pipeline, `nextJob` depends on myImage, so every time myImage changes, the version needs to be updated. Visually, it looks like this:
 
 <img src="/images/platform/jobs/runSh/runShUpdateResource.png" alt="Updating a custom job's resource" style="width:700px;"/>
 <br>

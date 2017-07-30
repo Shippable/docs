@@ -74,7 +74,7 @@ That's all there is to it!
 In the above scenario, several options are set by default that you might want to change.
 
 #### dockerOptions
-Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
+Using [dockerOptions](../platform/workflow/resource/dockeroptions), all of the advanced configurations of docker are available to you. In this example, we're simply exposing a port.
 ```
   - name: deploy-azure-basic-img-options
     type: dockerOptions
@@ -86,7 +86,7 @@ Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced c
 
 #### replicas
 
-[Replicas](../platform/resource-replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
+[Replicas](../platform/workflow/resource/replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.
 
 ```
   - name: deploy-azure-basic-replicas

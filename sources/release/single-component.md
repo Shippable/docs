@@ -13,7 +13,7 @@ In general, creating releases helps you version your component and keep track of
 
 ## Basic Config
 
-A release job needs a [manifest](/platform/jobs-manifest/) job and a [version](/platform/resource-version/) resource as inputs.
+A release job needs a [manifest](/platform/jobs-manifest/) job and a [version](/platform/workflow/resource/version/) resource as inputs.
 
 <img src="/images/release/release-inputs.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 

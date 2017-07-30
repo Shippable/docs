@@ -12,7 +12,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 
 # rSync
-`rSync` is a job that is created internally by shippable when you add a [syncRepo](/platform/resource-syncrepo/). The name of the rSync job is syncRepo's name + `_rSync`. This job is built when you add your syncRepo and whenever you make any changes to your pipeline config files(`shippable.jobs.yml`, `shippable.resources.yml` or `shippable.triggers.yml`) in the source repository. It gets the latest state of your repository(for the branch specified in syncRepo) and creates the jobs, resources and triggers from config files.
+`rSync` is a job that is created internally by shippable when you add a [syncRepo](/platform/workflow/resource/syncrepo/). The name of the rSync job is syncRepo's name + `_rSync`. This job is built when you add your syncRepo and whenever you make any changes to your pipeline config files(`shippable.jobs.yml`, `shippable.resources.yml` or `shippable.triggers.yml`) in the source repository. It gets the latest state of your repository(for the branch specified in syncRepo) and creates the jobs, resources and triggers from config files.
 
 If your rSync job fails due to `invalid` integration name present in resource definitions, After adding/updating the integration you can build it manually and it'll create your missing resources or jobs.
 

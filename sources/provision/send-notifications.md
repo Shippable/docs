@@ -20,7 +20,7 @@ Instructions are at :
 
 ###Step 2: Update shippable.resources.yml
 
-Next, you should define a [notification resource](/platform/resource-notification/) in your `shippable.resources.yml`.
+Next, you should define a [notification resource](/platform/workflow/resource/notification/) in your `shippable.resources.yml`.
 
 
 ####Example: Slack

@@ -8,7 +8,7 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 
 ##Using your integration in Shippable Pipelines
 
-In order to utilize this type of integration in your pipeline, you will need to create an [integration resource](../platform/resource-integration).  It should look like this:
+In order to utilize this type of integration in your pipeline, you will need to create an [integration resource](../platform/workflow/resource/integration).  It should look like this:
 
 ```
 resources:

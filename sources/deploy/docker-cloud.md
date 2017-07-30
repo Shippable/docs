@@ -82,7 +82,7 @@ jobs:
       - deploy-dockercloud-basic
 
 ```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this](/platform/resource-dockeroptions/) section.
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this](/platform/workflow/resource/dockeroptions/) section.
 
 Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on Docker Cloud.
 
@@ -138,7 +138,7 @@ In the above scenario, several options are set by default that you might want to
 These settings can all be customized by creating additional Pipelines Resources.
 
 #### dockerOptions
-Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced configurations of docker are available to you. Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
+Using [dockerOptions](../platform/workflow/resource/dockeroptions), all of the advanced configurations of docker are available to you. Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
 - name: deploy-dockercloud-basic-docker-options
   type: dockerOptions
@@ -148,7 +148,7 @@ Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced c
       - 80:80
 ```
 #### params
-When [params resources](../platform/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-dockercloud-basic-params
@@ -160,7 +160,7 @@ When [params resources](../platform/resource-params) are added to a manifest, th
 ```
 
 #### replicas
-[Replicas](../platform/resource-replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
+[Replicas](../platform/workflow/resource/replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
 ```
   - name: deploy-dockercloud-basic-replicas
     type: replicas

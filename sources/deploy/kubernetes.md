@@ -21,8 +21,8 @@ To deploy to Kubernetes, you need the following building blocks:
 
 **Resources**
 
-- [cluster](/platform/resource-cluster/) resource, to point to a cluster
-- [image](/platform/resource-image/) resource, pointing to the Docker image
+- [cluster](/platform/workflow/resource/cluster/) resource, to point to a cluster
+- [image](/platform/workflow/resource/image/) resource, pointing to the Docker image
 
 **Jobs**
 
@@ -36,7 +36,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/platform/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to your Kubernetes cluster.
 
@@ -70,7 +70,7 @@ resources:
 
 ```
 
-For a complete reference, check out the [cluster](/platform/resource-cluster/) page.
+For a complete reference, check out the [cluster](/platform/workflow/resource/cluster/) page.
 
 ####image
 Next, we need an `image` resource. This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker hub.
@@ -89,7 +89,7 @@ resources:
       - deploy-kubernetes-basic
 ```
 
-For a complete reference, check out the [image](/platform/resource-image/) page.
+For a complete reference, check out the [image](/platform/workflow/resource/image/) page.
 
 ###3: Define jobs
 
@@ -164,7 +164,7 @@ That's all there is to it!
 In the above scenario, several options are set by default that you might want to change.
 
 ### dockerOptions
-Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced configurations of docker are available to you. For example, you can change the memory allocated to the container and expose a port.
+Using [dockerOptions](../platform/workflow/resource/dockeroptions), all of the advanced configurations of docker are available to you. For example, you can change the memory allocated to the container and expose a port.
 
 ```
   - name: deploy-kubernetes-basic-img-options
@@ -178,10 +178,10 @@ Using [dockerOptions](../platform/resource-dockeroptions), all of the advanced c
 ```
 The `dockerOptions` resource can then be an IN for your `manifest` or `deploy` job.
 
-For a complete reference of all customizable options, check out our [dockerOptions reference](/platform/resource-dockeroptions/)
+For a complete reference of all customizable options, check out our [dockerOptions reference](/platform/workflow/resource/dockeroptions/)
 
 ### params
-When [params resources](../platform/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-kubernetes-basic-params
@@ -195,7 +195,7 @@ These environment variables will be available in the running container.
 
 ### Scaling instances
 
-You can use the [replicas resource](../platform/resource-replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. This maps directly to the 'replicas' setting in the pod template.  In this case we'll try to run two copies of our application.
+You can use the [replicas resource](../platform/workflow/resource/replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. This maps directly to the 'replicas' setting in the pod template.  In this case we'll try to run two copies of our application.
 
 ```
   - name: deploy-kubernetes-basic-replicas
@@ -246,7 +246,7 @@ Shippable also injects some labels into your deployment objects, so that you can
 
 The `shippable.deploymentName` label is also used as the deployment selector label.
 
-You can also add any custom labels that you wish by using the [dockerOptions resource](../platform/resource-dockeroptions)
+You can also add any custom labels that you wish by using the [dockerOptions resource](../platform/workflow/resource/dockeroptions)
 
 ### Forcing deployments for static tags
 

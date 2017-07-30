@@ -224,25 +224,25 @@ pages:
   - Platform:
     - Overview: platform/platform-overview.md
     - Workflow:
-      - What is it: platform/workflow-overview.md
+      - What is it: platform/workflow/overview.md
       - Resources:
-        - Overview: platform/resources-overview.md
-        - ciRepo: platform/resource-cirepo.md
-        - cliConfig: platform/resource-cliconfig.md
-        - cluster: platform/resource-cluster.md
-        - dockerOptions: platform/resource-dockeroptions.md
-        - file: platform/resource-file.md
-        - gitRepo: platform/resource-gitrepo.md
-        - image: platform/resource-image.md
-        - integration: platform/resource-integration.md
-        - loadBalancer: platform/resource-loadbalancer.md
-        - notification: platform/resource-notification.md
-        - params: platform/resource-params.md
-        - replicas: platform/resource-replicas.md
-        - state: platform/resource-state.md
-        - syncRepo: platform/resource-syncrepo.md
-        - time: platform/resource-time.md
-        - version: platform/resource-version.md
+        - Overview: platform/workflow/resource/overview.md
+        - ciRepo: platform/workflow/resource/cirepo.md
+        - cliConfig: platform/workflow/resource/cliconfig.md
+        - cluster: platform/workflow/resource/cluster.md
+        - dockerOptions: platform/workflow/resource/dockeroptions.md
+        - file: platform/workflow/resource/file.md
+        - gitRepo: platform/workflow/resource/gitrepo.md
+        - image: platform/workflow/resource/image.md
+        - integration: platform/workflow/resource/integration.md
+        - loadBalancer: platform/workflow/resource/loadbalancer.md
+        - notification: platform/workflow/resource/notification.md
+        - params: platform/workflow/resource/params.md
+        - replicas: platform/workflow/resource/replicas.md
+        - state: platform/workflow/resource/state.md
+        - syncRepo: platform/workflow/resource/syncrepo.md
+        - time: platform/workflow/resource/time.md
+        - version: platform/workflow/resource/version.md
       - Jobs:
         - Overview: platform/jobs-overview.md
         - deploy: platform/jobs-deploy.md
@@ -343,14 +343,14 @@ pages:
       - SSH Keys: platform/int-key-ssh.md
     - Tutorials:
       - Resources:
-        - Working with Resources: platform/resources-working-with.md
+        - Working with Resources: platform/workflow/resource/working-with.md
       - Jobs:
         - Working with Jobs: platform/jobs-working-with.md
         - How to share data between Jobs: platform/howto-share-data-between-jobs.md
         - Persisting state from one run to another: platform/howto-share-data-between-runs.md
         - How to output key-values into a Resource: platform/howto-output-keyvalues-to-resources.md
         - How to replicate IN Resource to a OUT Resource: platform/howto-replicate-in-to-out-resource.md
-        - How to additional version info from a Resource: platform/howto-extract-additional-resource-version-info.md
+        - How to additional version info from a Resource: platform/howto-extract-additional-workflow/resource/version-info.md
       - Integrations:
         - Working with Integrations: platform/int-working-with.md
         - How to create a kubeconfig file: platform/howto-create-kubeconfig.md

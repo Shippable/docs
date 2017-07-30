@@ -194,7 +194,7 @@ The differences between environments often go beyond a simple cluster change.  S
 
 Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
 
-We'll add two more resources to the list which allow us to modify the different docker options.  In production, we want to allocate more memory to our container, since the usage is much higher. For a full list of available options, see the [reference page](../platform/resource-dockeroptions).
+We'll add two more resources to the list which allow us to modify the different docker options.  In production, we want to allocate more memory to our container, since the usage is much higher. For a full list of available options, see the [reference page](../platform/workflow/resource/dockeroptions).
 ```
 resources:
 

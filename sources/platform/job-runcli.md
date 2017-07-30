@@ -8,7 +8,7 @@ sub_sub_section: Jobs
 runCLI jobs combine the unlimited flexibility of runSh jobs with the added
 convenience of automatically configured environments and tools. In addition to
 running custom scripts as described in runSh, you can also add
-[cliConfig](resource-cliconfig.md) resources as inputs to this job. The relevant
+[cliConfig](workflow/resource/cliconfig.md) resources as inputs to this job. The relevant
 CLI tools will be preconfigured for your scripts to use. runCLI jobs also give
 you access to the `shippable_replace` tool to help with replacing placeholders
 in files with values from the environment.
@@ -35,7 +35,7 @@ name of the job in your pipeline visualization.
 
 - [steps](job-runcli.md#steps): The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are
-[cliConfig](resource-cliconfig.md) will configure the appropriate CLI tools
+[cliConfig](workflow/resource/cliconfig.md) will configure the appropriate CLI tools
 before your job starts running. You can have a single `TASK` property in your
 steps to specify your script commands. Everything under the `steps` section
 executes sequentially.
@@ -98,7 +98,7 @@ resource.
 ## Configured CLI tools
 
 The runCLI job uses the subscription integration specified in the
-[cliConfig](resource-cliconfig.md) to determine which CLI tools to configure.
+[cliConfig](workflow/resource/cliconfig.md) to determine which CLI tools to configure.
 These tools are configured with the credentials contained in the subscription
 integration. Here is a list of the tools configured for each integration type:
 
@@ -124,7 +124,7 @@ A complete list of these variables is available in the [Environment variables fo
 
 ## Status notifications for Pull Requests
 
-If you have a [`gitRepo`](/platform/resource-gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
+If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
 
 You can turn this ON or OFF using the `showBuildStatus` tag in the `gitRepo` resource.
 

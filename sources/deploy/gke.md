@@ -73,7 +73,7 @@ jobs:
    - IN: deploy-gke-basic-image
 
 ```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../platform/resource-dockeroptions).
+It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../platform/workflow/resource/dockeroptions).
 
 Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on GKE.
 
@@ -124,7 +124,7 @@ In the above scenario, several options are set by default that you might want to
 These settings (and more) can all be customized by creating additional Pipelines Resources.
 
 #### dockerOptions
-Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../platform/resource-dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
+Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../platform/workflow/resource/dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
 ```
 - name: deploy-gke-basic-docker-options
   type: dockerOptions
@@ -134,7 +134,7 @@ Using dockerOptions, all of the advanced configurations of docker are available 
       - 80:80
 ```
 #### params
-When [params resources](../platform/resource-params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
 
 ```
   - name: deploy-gke-basic-params
@@ -149,7 +149,7 @@ When [params resources](../platform/resource-params) are added to a manifest, th
 
 #### replicas
 
-Using the [replicas resource](../platform/resource-replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+Using the [replicas resource](../platform/workflow/resource/replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
 ```
   - name: deploy-gke-basic-replicas
     type: replicas
@@ -178,7 +178,7 @@ resources:
     type: cliConfig
     integration: MyGKECredentials
 ```
-For more details on the `cliConfig` resource, [see here](../platform/resource-cliconfig). Now you'll need a particular job that can utilize that resource
+For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig). Now you'll need a particular job that can utilize that resource
 
 ```
 jobs:

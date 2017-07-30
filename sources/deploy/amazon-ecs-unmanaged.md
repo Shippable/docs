@@ -16,9 +16,9 @@ You need the following building blocks for this scenario:
 
 **Resources**
 
-- [cliConfig](/platform/resource-cliconfig/) resource, to configure the aws cli
-- [image](/platform/resource-image/) resource, pointing to the Docker image
-- [gitRepo](/platform/resource-gitrepo/) resource, pointing to the Git repository containing your task definitions
+- [cliConfig](/platform/workflow/resource/cliconfig/) resource, to configure the aws cli
+- [image](/platform/workflow/resource/image/) resource, pointing to the Docker image
+- [gitRepo](/platform/workflow/resource/gitrepo/) resource, pointing to the Git repository containing your task definitions
 
 **Jobs**
 
@@ -31,7 +31,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/platform/resource-syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to ECS.
 
@@ -71,7 +71,7 @@ resources:
       region: us-east-1                 # region where you want to deploy
 
 ```
-For a complete reference, check out the [cliConfig](/platform/resource-cliconfig/) page.
+For a complete reference, check out the [cliConfig](/platform/workflow/resource/cliconfig/) page.
 
 
 ####image
@@ -88,7 +88,7 @@ resources:
 
 
 ```
-For a complete reference, check out the [image](/platform/resource-image/) page.
+For a complete reference, check out the [image](/platform/workflow/resource/image/) page.
 
 ####gitRepo
 
@@ -105,7 +105,7 @@ resources:
 
 ```
 
-For a complete reference, check out the [gitRepo](/platform/resource-gitrepo/) page.
+For a complete reference, check out the [gitRepo](/platform/workflow/resource/gitrepo/) page.
 
 
 ###3: Define jobs

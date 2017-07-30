@@ -18,7 +18,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Jobs
 Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job.
 
-Jobs are simple to understand, they take inputs of information in the form of [Resources](resources-overview/), execute tasks that perform the operations necessary and then produce a result i.e. output of the job. Now these outputs can become inputs to other jobs and so on forming a dependency based, event driven DevOps Assembly Lines.
+Jobs are simple to understand, they take inputs of information in the form of [Resources](workflow/resource/overview/), execute tasks that perform the operations necessary and then produce a result i.e. output of the job. Now these outputs can become inputs to other jobs and so on forming a dependency based, event driven DevOps Assembly Lines.
 
 <img src="/images/platform/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 

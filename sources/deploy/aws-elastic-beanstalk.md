@@ -71,7 +71,7 @@ resources:
     pointer:
       region: us-east-1
 ```
-For more details on the `cliConfig` resource, [see here](../platform/resource-cliconfig).
+For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig).
 Next you'll need a particular job that can utilize that resource. [runCLI jobs](../platform/job-runcli) consume `cliConfig` resource and use them to set up various tools with your included credentials,
 
 ```

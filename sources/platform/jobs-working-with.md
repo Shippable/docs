@@ -108,7 +108,7 @@ When Jobs execute in the minion (instance of Job Runtime) the underly create a s
 ## Adding Jobs
 Jobs are defined in a configuration file `shippable.jobs.yml` and this file is added to the root of a source control repository. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Jobs defined in the repo.
 
-Once the Jobs are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/resource-syncrepo)
+Once the Jobs are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/workflow/resource/syncrepo)
 
 After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately
 

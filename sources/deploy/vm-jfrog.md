@@ -71,7 +71,7 @@ resources:
         PORT: 8888
         ENVIRONMENT: nodeCluster
 ```
-This is a [params](../platform/resource-params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
+This is a [params](../platform/workflow/resource/params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
 
 We'll also need some jobs that utilize these new resources.
 ```

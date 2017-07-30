@@ -20,7 +20,7 @@ resources:
       # add settings here
 
 ```
-You can also look at the complete reference for this type of resource [here](../platform/resource-dockeroptions).
+You can also look at the complete reference for this type of resource [here](../platform/workflow/resource/dockeroptions).
 
 ## Managed
 

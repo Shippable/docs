@@ -75,9 +75,9 @@ region.
 ###8. Add your pipeline
 
 - Your pipeline configuration is defined in the `shippable.resources.yml` and `shippable.jobs.yml` files in the root of your forked repository.
-This forked repository is called a [sync repo resource](/platform/resource-syncrepo) since it contains pipeline configuration.
+This forked repository is called a [sync repo resource](/platform/workflow/resource/syncrepo) since it contains pipeline configuration.
 
-- Add your syncRepo resource following the instructions [here](/platform/resource-syncrepo/#adding-a-syncrepo-from-the-ui). The project should
+- Add your syncRepo resource following the instructions [here](/platform/workflow/resource/syncrepo/#adding-a-syncrepo-from-the-ui). The project should
 be your forked repository.
 
 - You should not be able to see all your pipeline jobs and resources in the single pane of glass (SPOG) view.

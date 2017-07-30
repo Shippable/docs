@@ -23,7 +23,7 @@ With workflow, both single step and multi-stage actitvites are repeatable, relia
 Workflow is made up of 4 key elements
 
 ### Resources
-[Resources](/platform/resources-overview/) are objects that can be supplied as inputs and outputs to your activities, in our case Jobs e.g params resource stores environmental variables that are injected to Job Runtime if used as an input to a job. Every change made to the resource is persisted as an immutable version. This is similar to creting a SHA on git.
+[Resources](/platform/workflow/resource/overview/) are objects that can be supplied as inputs and outputs to your activities, in our case Jobs e.g params resource stores environmental variables that are injected to Job Runtime if used as an input to a job. Every change made to the resource is persisted as an immutable version. This is similar to creting a SHA on git.
 
 ### Jobs
 [Jobs](/platform/jobs-overview/) represent DevOps activities in your workflows. For e.g. building an Amazon Machine Image using Packer or running CI on your source code. Jobs can take Resources as inputs or other even other Jobs the result of a job could affect the state of a Resource persisted as a version. Jobs can also act as inputs to other jobs.

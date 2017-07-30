@@ -33,7 +33,7 @@ resources:
 
 * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represent e.g. `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to Jobs.
 
-* **`type`** -- Name of the resource type that this resource is an instance of. [Here](resources-overview#types) is a list of all types
+* **`type`** -- Name of the resource type that this resource is an instance of. [Here](workflow/resource/overview#types) is a list of all types
 
 * **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on. Get more infromation [here](int-overview/)
 
@@ -41,13 +41,13 @@ resources:
 
 * **`seed`** -- is an object that allows users to set an initial version for the resource. For e.g. the initial tag of a docker image resource. When new versions are created, the initial seed values are ignored. If you want to reset the resource to start with a new seed, change the seed in the YML and when sync process executes, it will create a new version on top of all versions as a new starting point
 
-* **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](resource-dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
+* **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](workflow/resource/dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
 
 <a name="adding"></a>
 ## Adding Resources
 Resources are defined in a configuration file `shippable.resources.yml` and this file is added to the root of a source control repository. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Resources defined in the repo.
 
-Once the Resources are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/resource-syncrepo)
+Once the Resources are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/workflow/resource/syncrepo)
 
 After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Resource adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately
 

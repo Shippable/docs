@@ -11,7 +11,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 You should use this job type if you need the freedom that some of the pre-packaged Jobs like `deploy`, `manifest` do not provide the flexibility that you need or do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a Job of type `runSh`.
 
-You can also add `cliConfig` resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](resource-cliconfig#cliConfigTools).
+You can also add `cliConfig` resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](workflow/resource/cliconfig#cliConfigTools).
 
 A new version is created anytime this Job is executed.
 

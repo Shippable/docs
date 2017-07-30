@@ -56,7 +56,7 @@ The `role` value needs to be the name of an AWS IAM role that has the appropriat
 
 ####dockerOptions
 
-Since we plan to expose a port, we need to add a [dockerOptions](/platform/resource-dockeroptions/) resource like this:
+Since we plan to expose a port, we need to add a [dockerOptions](/platform/workflow/resource/dockeroptions/) resource like this:
 
 ```
 - name: deploy-ecs-lb-docker-options
