@@ -222,7 +222,7 @@ pages:
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Platform:
-    - Overview: platform/platform-overview.md
+    - Overview: platform/overview.md
     - Workflow:
       - What is it: platform/workflow/overview.md
       - Resources:
