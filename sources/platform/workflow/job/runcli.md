@@ -8,7 +8,7 @@ sub_sub_section: Jobs
 runCLI jobs combine the unlimited flexibility of runSh jobs with the added
 convenience of automatically configured environments and tools. In addition to
 running custom scripts as described in runSh, you can also add
-[cliConfig](workflow/resource/cliconfig.md) resources as inputs to this job. The relevant
+[cliConfig](../resource/cliconfig.md) resources as inputs to this job. The relevant
 CLI tools will be preconfigured for your scripts to use. runCLI jobs also give
 you access to the `shippable_replace` tool to help with replacing placeholders
 in files with values from the environment.
@@ -27,15 +27,15 @@ jobs:
 
 The snippet above shows a basic example with required tags for configuring a runCLI job.
 
-- [name](workflow/job/runcli.md): The name of your job. Set it to something that
+- name: The name of your job. Set it to something that
 describes what the job does and is easy to remember. This will be the display
 name of the job in your pipeline visualization.
 
-- [type](workflow/job/runcli.md): The type of your job. This must be `runCLI`.
+- type: The type of your job. This must be `runCLI`.
 
-- [steps](workflow/job/runcli.md): The steps that should be executed in your job.
+- steps: The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are
-[cliConfig](workflow/resource/cliconfig.md) will configure the appropriate CLI tools
+[cliConfig](../resource/cliconfig.md) will configure the appropriate CLI tools
 before your job starts running. You can have a single `TASK` property in your
 steps to specify your script commands. Everything under the `steps` section
 executes sequentially.
@@ -74,31 +74,31 @@ jobs:
 In addition to the required parameters described in the **Basic reference** section above, you can also
 configure your runCLI job with the parameters described below:
 
-  - [on_start](workflow/job/runcli.md): Specify `script` or `NOTIFY` sections
+  - on_start: Specify `script` or `NOTIFY` sections
 that are executed when the job starts.
 
-  - [on_success](workflow/job/runcli.md): Specify `script` or `NOTIFY`
+  - on_success: Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section succeeds.
 
-  - [on_failure](workflow/job/runcli.md): Specify `script` or `NOTIFY`
+  - on_failure: Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section fails.
 
-  - [on_cancel](workflow/job/runcli.md): Specify `NOTIFY` sections to send
+  - on_cancel: Specify `NOTIFY` sections to send
 notifications if the job is canceled.  This cannot run scripts.
 
-  - [always](workflow/job/runcli.md): Specify `script` or `NOTIFY` sections that
+  - always: Specify `script` or `NOTIFY` sections that
 are always executed at the end of the job, regardless of whether the `TASK`
 section failed or succeeded.  Scripts will not run if the job is canceled,
 but notifications will be sent.
 
-  - [replicate](jobs-unmanaged): Adding `replicate` to
+  - replicate: Adding `replicate` to
 an `OUT` resource will copy an `IN` resource for the new version of the `OUT`
 resource.
 
 ## Configured CLI tools
 
 The runCLI job uses the subscription integration specified in the
-[cliConfig](workflow/resource/cliconfig.md) to determine which CLI tools to configure.
+[cliConfig](../resource/cliconfig.md) to determine which CLI tools to configure.
 These tools are configured with the credentials contained in the subscription
 integration. Here is a list of the tools configured for each integration type:
 
@@ -124,7 +124,7 @@ A complete list of these variables is available in the [Environment variables fo
 
 ## Status notifications for Pull Requests
 
-If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
+If you have a [`gitRepo`](../resource/gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
 
 You can turn this ON or OFF using the `showBuildStatus` tag in the `gitRepo` resource.
 
@@ -191,7 +191,7 @@ variable's name.
 For example, say you wanted to insert the current job name into two different
 files: `file1.json` and `test/file2.txt`. The name of the environment variable
 containing the job name is `JOB_NAME`. (See the [runSh
-documentation](workflow/job/runsh.md) for the list of available environment
+documentation](runsh.md) for the list of available environment
 variables.)
 
 `file1.json` might look like this:
