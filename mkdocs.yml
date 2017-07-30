@@ -18,7 +18,6 @@ pages:
     - Overview:
       - What is Shippable?: index.md
       - Use cases: getting-started/shippable-use-cases.md
-      - Pipeline basics: getting-started/pipeline-basics.md
       - Single Pane of Glass: getting-started/single-pane-of-glass-spog.md
       - Custom Views: getting-started/custom-views.md
       - Concepts: getting-started/concepts.md
