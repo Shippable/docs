@@ -3,7 +3,7 @@ main_section: Deploy
 sub_section: Node Cluster on any cloud
 
 # Deploying Artifacts to a Node Cluster
-Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/int-node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
+Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/integration/node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
 
 ## The Goal
 The goal of this page is to accomplish the following scenario using Shippable Pipelines.
@@ -21,7 +21,7 @@ In the end, your pipeline will look like this:
 
 For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to S3, so that the deployment can pull them.  Check out the sample project [source code](https://github.com/devops-recipes/deploy-nodecluster-basic) to see how to write a `shippable.yml` that does this.
 
-Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/int-node-cluster) for instructions on creating the integration.
+Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/integration/node-cluster) for instructions on creating the integration.
 
 Now we need a cluster resource that references the integration we created:
 

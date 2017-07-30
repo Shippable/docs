@@ -23,7 +23,7 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 -  For more on JSON keys and Service accounts, read
 <a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
 #### Adding GCR Integration to your Shippable Account
--  Please follow the steps mentioned [here](/platform/int-gcr/).
+-  Please follow the steps mentioned [here](/platform/integration/gcr/).
 
 <img src="/images/platform/integrations/gcr-integration.png" alt="Add  GCR credentials">
 

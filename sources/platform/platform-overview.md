@@ -34,7 +34,7 @@ These are some of the usecases of Software Delivery that the platform enables na
 [Management]((/platform/management-overview/)) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
 
 ## Integrations
-[Integrations](/platform/int-overview/) are used to connect your workflows to third party platforms and services.
+[Integrations](/platform/integration/overview/) are used to connect your workflows to third party platforms and services.
 
 
 Now, lets look take a deeper look at a [Workflow](/platform/workflow/overview/).

@@ -3,7 +3,7 @@ main_section: Deploy
 sub_section: Node Cluster on any cloud
 
 # Deploying From JFrog Artifactory to a Node Cluster
-Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/int-node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
+Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/integration/node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
 
 ## The Goal
 The goal of this page is to accomplish the following scenario using Shippable Pipelines.
@@ -18,9 +18,9 @@ In the end, your pipeline will look like this:
 
 ## Setup
 
-For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to Artifactory, so that the deployment can pull them.  This means you'll need an [artifactory integration](../platform/int-jfrog-artifactory).
+For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to Artifactory, so that the deployment can pull them.  This means you'll need an [artifactory integration](../platform/integration/jfrog-artifactory).
 
-For our pipeline, we'll start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/int-node-cluster) for instructions on creating the integration.
+For our pipeline, we'll start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/integration/node-cluster) for instructions on creating the integration.
 
 Now we need a cluster resource that references the integration we created:
 

@@ -16,7 +16,7 @@ However, since we support connecting multiple source control providers, the term
 
 ###Integration
 
-[Integrations](/platform/int-overview/) store your credentials to connect to third party providers as part of your CI workflows. These are stored in our Secret Store and are encrypted, so that sensitive information like passwords, tokens, or keys are not exposed by accident.
+[Integrations](/platform/integration/overview/) store your credentials to connect to third party providers as part of your CI workflows. These are stored in our Secret Store and are encrypted, so that sensitive information like passwords, tokens, or keys are not exposed by accident.
 
 ###Minion
 

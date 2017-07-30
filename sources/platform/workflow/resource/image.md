@@ -21,12 +21,12 @@ resources:
 * **`type`** -- is set to `image`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	- [Docker Hub](int-docker-hub/)
-	- [Docker Private Registry](int-docker-trusted-registry/)
-	- [Docker Trusted Registry](int-docker-trusted-registry/)
-	- [Google Container Registry (GCR)](int-gcr/)
-	- [Amazon Elastic Container Registry (ECR)](int-amazon-ecr/)
-	- [Quay.io](int-quay/)
+	- [Docker Hub](integration/docker-hub/)
+	- [Docker Private Registry](integration/docker-trusted-registry/)
+	- [Docker Trusted Registry](integration/docker-trusted-registry/)
+	- [Google Container Registry (GCR)](integration/gcr/)
+	- [Amazon Elastic Container Registry (ECR)](integration/aws-ecr/)
+	- [Quay.io](integration/quay/)
 
 * **`pointer`** -- is an object which contains integration specific properties
 

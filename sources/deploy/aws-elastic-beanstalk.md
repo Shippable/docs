@@ -22,7 +22,7 @@ This sample will use Shippable CI to build and push an image to ECR, which will 
 
 We are going to need an AWS key/secret pair to communicate with EB on our behalf. You can add this to Shippable via [Account Integrations](../../getting-started/integrations), so that we can internally configure the aws cli.
 
-In our example, we're using an [Amazon ECR integration](../platform/int-amazon-ecr) since it works nicely with EB.  You'll have to make sure you use an integration that has appropriate permissions for the different actions required for beantaslk deployments.
+In our example, we're using an [Amazon ECR integration](../platform/integration/aws-ecr) since it works nicely with EB.  You'll have to make sure you use an integration that has appropriate permissions for the different actions required for beantaslk deployments.
 
 
 Now we can set up our pipeline objects.  Start by adding a type `image` resource.  This will represent your Docker image in your pipeline.  

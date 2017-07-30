@@ -21,10 +21,10 @@ resources:
 * **`type`** -- is set to `gitRepo`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	* [GitHub](int-github/)
-	* [Bitbucket](int-bitbucket/)
-	* [Bitbucket Server](int-bitbucket-server/)
-	* [Gitlab/GitlabServer](int-gitlab/)
+	* [GitHub](integration/github/)
+	* [Bitbucket](integration/bitbucket/)
+	* [Bitbucket Server](integration/bitbucket-server/)
+	* [Gitlab/GitlabServer](integration/gitlab/)
 
 * **`pointer`** -- is an object which contains integration specific properties
 

@@ -14,7 +14,7 @@ Before you start, you will need to connect your Amazon account with Shippable so
 - To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
 #### Adding Amazon ECR Integration to your Shippable Account
-- Follow the steps [here](/platform/int-amazon-ecr/#amazon-ecr-integration).
+- Follow the steps [here](/platform/integration/aws-ecr/#amazon-ecr-integration).
 
 ##Basic config
 

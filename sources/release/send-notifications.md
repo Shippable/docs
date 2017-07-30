@@ -14,8 +14,8 @@ This step is only required for Slack or Hipchat notifications. For email and IRC
 
 Instructions are at :
 
-- [Create Slack integration](/platform/int-slack/)
-- [Create Hipchat integration](/platform/int-hipchat/)
+- [Create Slack integration](/platform/integration/slack/)
+- [Create Hipchat integration](/platform/integration/hipchat/)
 
 
 ###Step 2: Update shippable.resources.yml

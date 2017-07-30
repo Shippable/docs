@@ -106,7 +106,7 @@ A full detailed description of each tag is available on the [Job Anatomy](jobs-w
 
 			* `replace` -- the old version of the service is brought down before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel
 
-		* `script` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](int-node-cluster/)
+		* `script` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](integration/node-cluster/)
 
 Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 

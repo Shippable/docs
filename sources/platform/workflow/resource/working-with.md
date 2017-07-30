@@ -35,7 +35,7 @@ resources:
 
 * **`type`** -- Name of the resource type that this resource is an instance of. [Here](workflow/resource/overview#types) is a list of all types
 
-* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on. Get more infromation [here](int-overview/)
+* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on. Get more infromation [here](integration/overview/)
 
 * **`pointer`** -- is an object that stores the information the resource contains. This usually does not change and every unique entity is represented by a resource. For example, in case of `gitRepo` resource pointer will contain `sourceName` that points to the repo name along with other pieces of information like `branch` etc.
 
@@ -76,7 +76,7 @@ Shippable is designed to separate out sensitive authentication information from 
 
 This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
 
-To learn how to create integrations and use them in your ymls, [click here](int-overview/)
+To learn how to create integrations and use them in your ymls, [click here](integration/overview/)
 
 
 # Further Reading

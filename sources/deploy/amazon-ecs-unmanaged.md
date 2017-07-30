@@ -40,19 +40,19 @@ Follow the steps below to set up a basic deployment to ECS.
 You need the following two account integrations.  Once created, make sure to add them to the subscription that will contain your pipeline.  You can do this at the time of creation, or you can later navigate to your subscription settings page and add them from the "integrations" tab.
 
 ####Amazon ECS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.  Make sure to specify the subscription that you'd like to use this integration with.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable for this.  Make sure to specify the subscription that you'd like to use this integration with.
 
-This key should have the appropriate permissions and roles described [here](../platform/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+This key should have the appropriate permissions and roles described [here](../platform/integration/aws-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
 ####GitHub (or your source control provider)
 
-Create an account integration for GitHub by following [instructions here](/platform/int-github/).  By default, you will already have an account integration with whichever SCM provider you've used to log into Shippable.
+Create an account integration for GitHub by following [instructions here](/platform/integration/github/).  By default, you will already have an account integration with whichever SCM provider you've used to log into Shippable.
 
 For other source control providers, go to one of these:
 
-- [Bitbucket](/platform/int-bitbucket/)
-- [Gitlab](/platform/int-gitlab/)
-- [GitHub Enterprise](/platform/int-github-enterprise/)
+- [Bitbucket](/platform/integration/bitbucket/)
+- [Gitlab](/platform/integration/gitlab/)
+- [GitHub Enterprise](/platform/integration/github-enterprise/)
 
 
 ###2: Create resources

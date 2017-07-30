@@ -46,11 +46,11 @@ You need two account integrations for this scenario:
 
 - **Kubernetes**
 
-Shippable will use your kubernetes configuration to communicate with your cluster on your behalf. [See here](../platform/int-kubernetes) for directions on adding a Kubernetes account integration to Shippable for this.
+Shippable will use your kubernetes configuration to communicate with your cluster on your behalf. [See here](../platform/integration/kubernetes) for directions on adding a Kubernetes account integration to Shippable for this.
 
 - **Docker Hub**
 
-You also need to configure an integration to Docker hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/platform/int-docker-hub/) page.
+You also need to configure an integration to Docker hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/platform/integration/docker-hub/) page.
 
 ###2: Create resources
 

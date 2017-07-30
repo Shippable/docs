@@ -22,7 +22,7 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 -  **Authorize Application** and copy the **Access Token**.
 
 #### Adding Quay.io Integration to your Shippable Account
-- Follow the steps outlined [here](/platform/int-quay/).
+- Follow the steps outlined [here](/platform/integration/quay/).
 
 ##Basic config
 

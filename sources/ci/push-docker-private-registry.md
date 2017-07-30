@@ -10,7 +10,7 @@ You can push your image to Docker Private Registry in any section [of your yml](
 
 Before you start, you will need to connect your Docker Private Registry with Shippable so we have the credentials to push your image on your behalf.
 
-Please follow the steps outlined [here](/platform/int-docker-private-registry/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+Please follow the steps outlined [here](/platform/integration/docker-private-registry/). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ##Basic config
 

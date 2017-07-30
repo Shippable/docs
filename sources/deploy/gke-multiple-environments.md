@@ -210,7 +210,7 @@ resources:
 
 ```
 
-We should also modify our params resources.  We're going to add some settings to help our container integrate with slack. [Here are some instructions for creating the integration](../platform/int-slack).  We want our application to communicate with a different channel based on whether its running in beta or in production, but in both cases, the token being used is the same.
+We should also modify our params resources.  We're going to add some settings to help our container integrate with slack. [Here are some instructions for creating the integration](../platform/integration/slack).  We want our application to communicate with a different channel based on whether its running in beta or in production, but in both cases, the token being used is the same.
 
 ```
 resources:

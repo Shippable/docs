@@ -231,7 +231,7 @@ The differences between environments often go beyond a simple cluster change.  S
 
 Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
 
-Modify our existing params resource to help us [integrate with Slack](../platform/int-slack).  We'll want to send messages to a different channel depending on which environment we're in.
+Modify our existing params resource to help us [integrate with Slack](../platform/integration/slack).  We'll want to send messages to a different channel depending on which environment we're in.
 
 ```
 resources:

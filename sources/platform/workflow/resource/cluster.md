@@ -24,12 +24,12 @@ resources:
 * **`type`** -- is set to `cluster`
 
 * **`integration`** -- name of the integration. Currently supported integrations
-	* [AWS Elastic Container Service (ECS)](int-amazon-ecs/)
-	* [Kubernetes](int-kubernetes/)
-	* [Google Container Engine (GKE)](int-gke/)
-	* [Docker Cloud](int-docker-cloud/)
-	* [Docker Datacenter](int-docker-datacenter/)
-	* [Microsoft Azure Container Service](int-azure-dcos)
+	* [AWS Elastic Container Service (ECS)](integration/aws-ecs/)
+	* [Kubernetes](integration/kubernetes/)
+	* [Google Container Engine (GKE)](integration/gke/)
+	* [Docker Cloud](integration/docker-cloud/)
+	* [Docker Datacenter](integration/docker-datacenter/)
+	* [Microsoft Azure Container Service](integration/azure-dcos)
 	* Node Cluster
 	* AWS
 

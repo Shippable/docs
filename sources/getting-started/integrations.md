@@ -6,7 +6,7 @@ sub_section: Your account
 
 Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your yml configuration.
 
-A complete list of all supported third-party integrations is [available in our reference](/platform/int-overview/).
+A complete list of all supported third-party integrations is [available in our reference](/platform/integration/overview/).
 
 This page shows you how to manage your integrations and perform the following actions:
 

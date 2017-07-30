@@ -10,7 +10,7 @@ You can push your image to Docker Hub in any section [of your yml](../platform/s
 
 Before you start, you will need to connect your Docker Hub account with Shippable so we have the credentials to push your image on your behalf.
 
-To add the Docker hub account, please follow steps [here](/platform/int-docker-hub/#docker-hub-integration). Once you add an account integration, you can use it for all your projects without needing to add it again.
+To add the Docker hub account, please follow steps [here](/platform/integration/docker-hub/#docker-hub-integration). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ##Basic config
 

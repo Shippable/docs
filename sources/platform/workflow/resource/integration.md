@@ -19,7 +19,7 @@ resources:
 
 * **`type`** -- is set to `integration`
 
-* **`integration`** -- name of the integration. All [Shippable Integrations](int-overview/) can be used here
+* **`integration`** -- name of the integration. All [Shippable Integrations](integration/overview/) can be used here
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
@@ -48,7 +48,7 @@ Whenever `integration` is used as an `IN` or `OUT` into a Job that can execute u
 
 **Some special cases depending on the `integration` used**
 
-* If the integration of type [Key-Value pair](/platform/int-key-value.md), the key-values are exported as it is without adding `RESOURCENAME_INTEGRATION_` in the key name. They act like [params]() resource, but in this case they are stored encrypted for security reasons
+* If the integration of type [Key-Value pair](/platform/integration/key-value.md), the key-values are exported as it is without adding `RESOURCENAME_INTEGRATION_` in the key name. They act like [params]() resource, but in this case they are stored encrypted for security reasons
 
 * If the integration of type [ssh-key]() or [pem-key]() is used, the environment variable will mess up the key structure due to carriage returns. Hence the platform will extract the private key into a file and puts the location in the environment variable below
 

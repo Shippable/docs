@@ -49,12 +49,12 @@ Follow the steps below to set up a basic deployment to ECS.
 You need two account integrations for this scenario:
 
 ####AWS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/int-amazon-ecs) for directions on adding an ECS account integration to Shippable for this.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable for this.
 
-This key should have the appropriate permissions and roles described [here](../platform/int-amazon-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
+This key should have the appropriate permissions and roles described [here](../platform/integration/aws-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
 ####Amazon ECR
-You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/platform/int-amazon-ecr/) page.
+You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/platform/integration/aws-ecr/) page.
 
 
 ###2: Create resources
