@@ -33,7 +33,7 @@ Job Runtime is designed to work on any Linux distro. Most of our SaaS customers 
 
 Since we are a Docker based platform, any custom image based on a Linux distro can be used in Job Runtime. For more details visit the [Operating Systems page](/platform/runtime/os)
 
-## Language
+### Language
 For both the OS versions, we maintain [language](platform/language-overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
 We support the following languages -
 
@@ -46,7 +46,7 @@ We support the following languages -
 * [Ruby](/platform/runtime/language/ruby)
 * [Scala](/platform/runtime/language/scala)
 
-## Services
+### Services
 To make your builds even faster, we also pre-install a bunch of Services that your application may need. These are also updated on a monthly cadence.
 
 Following are the service that are pre-installed -
@@ -66,7 +66,7 @@ Following are the service that are pre-installed -
 * [Selenium](/platform/runtime/service/selenium)
 * [SqlLite](/platform/runtime/service/sqllite)
 
-## Command Line Interfaces (CLI)
+### Command Line Interfaces (CLI)
 Majority of the apps today run on cloud. Each cloud provider has a native CLI and we want to avoid you having to install and configure them. In addition we also pre-install some popular DevOps tools also. The goals is to try and prep the build environment as close to your desired state so that you can spend less time prepping and more time developing applications.
 
 Here is a list of CLIs we have available as part of Job Runtime -
@@ -82,13 +82,13 @@ Here is a list of CLIs we have available as part of Job Runtime -
 * [Terraform](/platform/runtime/cli/terraform)
 * [Kubectl](/platform/runtime/cli/kubectl)
 
-## Nodes
-[Nodes](/platform/runtime/nodes) are host machines on which the desired Job Runtime image is instantiated. One of the key differentiators of Shippable is that you can use Nodes that run behind your firewall and connect them to the DevOps Assembly Lines SaaS Platform. If you dont need that capability, you can run your [Jobs]() on on Shippable's hosted infrastructure (Dynamic Nodes)
+### Nodes
+[Nodes](/platform/runtime/node/overview) are host machines on which the desired Job Runtime image is instantiated. One of the key differentiators of Shippable is that you can use Nodes that run behind your firewall and connect them to the DevOps Assembly Lines SaaS Platform. If you dont need that capability, you can run your [Jobs]() on on Shippable's hosted infrastructure (Dynamic Nodes)
 
-## Environment variables
+### Environment variables
 [Environment variables](/platform/runtime/environment-variables) are used to control the context of your DevOps activity. This can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. For example AWS Credentials to connect to your VPC; Keys to access your VMs; Login to your Docker hub etc.
 
-## Caching
+### Caching
 [Caching](/platform/runtime/caching) speeds up your build by automatically setting up your static dependencies. Typical usecases are caching node modules, ruby gems and static binaries.
 
 # Further Reading

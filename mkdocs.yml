@@ -301,9 +301,9 @@ pages:
         - Selenium: platform/runtime/service/selenium.md
         - Sqllite: platform/runtime/service/sqllite.md
       - Nodes:
-        - Overview: platform/runtime/nodes.md
-        - Dynamic Nodes: platform/runtime/dynamic-nodes.md
-        - Custom Nodes: platform/runtime/custom-nodes.md
+        - Overview: platform/runtime/node/overview.md
+        - Dynamic Nodes: platform/runtime/node/dynamic-nodes.md
+        - Custom Nodes: platform/runtime/node/custom-nodes.md
       - Environment Variables:
         - Overview: platform/runtime/environment-variables.md
       - Caching:
