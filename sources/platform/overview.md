@@ -13,12 +13,12 @@ So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippa
 A cube is formed by 6 equal squares, so is our DevOps Platform.  With 6 equally important areas of focus we believe we have a clear solution to "DevOps Nirvana"
 
 ## Use Cases
-These are some of the usecases of Software Delivery that the platform enables natively
+DevOps activities span the entire Software Delivery Lifecycle. These are performed by many teams and many many tools. We broadly classify them into 5 blocks
 
 * [Continuous Integration](/ci/why-continuous-integration/)
 * [Validation](/validate/devops-validate/)
-* [Deployment](/deploy/why-deploy/)
-* [Release management](/release/devops-release-management/)
+* [Continuous Deployment](/deploy/why-deploy/)
+* [Release Management](/release/devops-release-management/)
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
 ## Workflow
