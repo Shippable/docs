@@ -255,9 +255,9 @@ pages:
         - jenkinsJob: platform/workflow/job/jenkinsjob.md
         - rSync: platform/workflow/job/rSync.md
       - State:
-        - Overview: platform/state-overview.md
+        - Overview: platform/workflow/state/overview.md
       - Triggers:
-        - Overview: platform/triggers-overview.md
+        - Overview: platform/workflow/trigger/overview.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
