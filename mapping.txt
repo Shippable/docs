@@ -43,7 +43,7 @@ ci/advancedOptions/machineImages /platform/tutorial/runtime/ami-overview
 ci/troubleshoot /ci/troubleshooting
 ci/machine-images/overview /platform/tutorial/runtime/ami-overview
 pipelines/overview /getting-started/pipeline-basics/
-pipelines/gettingStarted /getting-started/single-pane-of-glass-spog
+pipelines/gettingStarted /platform/visibility/single-pane-of-glass-spog
 pipelines/resources/overview /platform/workflow/resource/overview
 pipelines/resources/ciRepo /platform/workflow/resource/cirepo
 pipelines/resources/cliConfig /platform/workflow/resource/cliconfig

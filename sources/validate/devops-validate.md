@@ -19,7 +19,7 @@ Let us consider a typical scenario:
 - As soon as the deployment happens, your integration/functional test suite is automatically triggered. The results are communicated to the Test team.
 - The application manifest is then deployed into Beta. This triggers your performance test suite. Once again, results are communicated to the Test team.
 - Depending on the results of the tests and your configuration, the manifest is then deployed to the next environment, or awaits a manual action.
-- Your team can clearly see what is deployed in each environment by [going to a central UI](/getting-started/single-pane-of-glass-spog/).
+- Your team can clearly see what is deployed in each environment by [going to a central UI](/platform/visibility/single-pane-of-glass-spog/).
 
 
 <img src="/images/validate/validate-workflow.png" alt="Validating your application">

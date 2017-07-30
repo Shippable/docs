@@ -67,7 +67,7 @@ Let us consider a typical scenario:
 - As soon as the deployment happens, your integration/functional test suite is automatically triggered. The results are communicated to the Test team.
 - The application manifest is then deployed into Beta. This triggers your performance test suite. Once again, results are communicated to the Test team.
 - Depending on the results of the tests and your configuration, the manifest is then deployed to the next environment, or awaits a manual action.
-- Your team can clearly see what is deployed in each environment by [going to a central UI](/getting-started/single-pane-of-glass-spog/).
+- Your team can clearly see what is deployed in each environment by [going to a central UI](/platform/visibility/single-pane-of-glass-spog/).
 
 Automated validation is a very important part of DevOps and eliminates the need for error-prone manual handoffs.
 
@@ -88,7 +88,7 @@ Consider the following scenario:
 
 Shippable supports the scenario above with the following features:
 
-- [Single Pane of Glass (SPOG)](/getting-started/single-pane-of-glass-spog/) view that gives you visibility into the entire end to end workflow.
+- [Single Pane of Glass (SPOG)](/platform/visibility/single-pane-of-glass-spog/) view that gives you visibility into the entire end to end workflow.
 - Semantic versioning at any stage for consistently identifying a version of the software package.
 - Configurable manual and automated gates for complete flexibility in managing the release.
 

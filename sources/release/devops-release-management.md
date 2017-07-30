@@ -8,7 +8,7 @@ Automating release management helps you avoid manual handoffs and keeps everyone
 
 Shippable helps with release management with the following features:
 
-- [Single Pane of Glass (SPOG)](/getting-started/single-pane-of-glass-spog/) view that gives you visibility into the entire end to end workflow.
+- [Single Pane of Glass (SPOG)](/platform/visibility/single-pane-of-glass-spog/) view that gives you visibility into the entire end to end workflow.
 - Semantic versioning at any stage for consistently identifying a version of the software package.
 - Configurable manual and automated gates for complete flexibility in managing the release.
 
