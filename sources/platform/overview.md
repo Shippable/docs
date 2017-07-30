@@ -4,13 +4,13 @@ sub_section: Overview
 page_title: Platform Overview
 
 # Platform Overview
-Today, majority of DevOps activities are getting automated in functional silos. The tools and the functional silos are creating what we call as "Islands of Automation". Valuable resources and time is being spent on trying to connect these "Islands of Automation" with adhoc homegrown scripts. This both expensive to build and hard to maintain and scale. So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html).
+There are a plethora of DevOps tools for provisioning, configuration management, CI/CD and so on. Today, majority of DevOps activities are getting automated in functional silos. Valuable resources and time is being spent on trying to connect these "Islands of Automation" with adhoc homegrown scripts. These solutions are brittle and cumbersome to create and maintain. More importantly they add friction to your Continuous Delivery initiatives
 
-Our platform connects all your disparate DevOps activities in a event driven workflows and enables your organization to automate your entire software delivery lifecycle.
+So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html). The best way to visualize the platform is to think of it as an exploded view of the cube as shown above.  
 
 <img src="/images/platform/assembly-lines.jpg" alt="Shippable DevOps Assembly Lines Platform">
 
-The best way to visualize the platform is to think of it as an exploded view of the cube as shown above;
+A cube is formed by 6 equal squares, so is our DevOps Platform.  With 6 equally important areas of focus we believe we have a clear solution to "DevOps Nirvana"
 
 ## Use Cases
 These are some of the usecases of Software Delivery that the platform enables natively
@@ -22,7 +22,8 @@ These are some of the usecases of Software Delivery that the platform enables na
 * [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
 
 ## Workflow
-[Workflow](workflow/overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
+
+[Workflow](workflow/overview) makes it easy to connect all of the "Islands of Automation" into DevOps assembly lines across all environments, projects, and tools. They are actually dependency charts where upstream activities broadcast events and job state to downstream relying activities. This helps co-ordinate tasks centrally across diverse DevOps activities without having to custom build custom DIY scripts to integrate them along with a state database to persist the job output information. Workflows are authored through a simple declarative language
 
 ## Runtime
 [Runtime](/platform/runtime/overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. 
@@ -30,7 +31,7 @@ These are some of the usecases of Software Delivery that the platform enables na
 For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
 
 ## Integrations
-[Integrations](/platform/integration/overview) are used to connect your workflows to third party platforms and services.
+[Integrations](/platform/integration/overview) are used to connect your Shippable CI or CD workflows to third party platforms or services and also manage secrets that might be needed by your applications. They are owned by users of our platform and the scope feature allows you to decide which organizations/repos have access to use it in their DevOps activities. 
 
 ## Visibility
 [Visibility](/platform/visibility/overview) offers reporting, audit and analytics on the status and performance of all DevOps activities.

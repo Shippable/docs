@@ -12,12 +12,10 @@ page_title: Workflow Overview
 | Further Reading needs thinking|  Open |
 
 # Workflow Overview
-There are a plethora of DevOps tools for provisioning, configuration management, CI/CD and so on. Today, custom DIY scripts are the only option to bridge all these "Islands of Automation". These solutions are brittle and cumbersome to create and maintain. More importantly they add friction to your Continuous Delivery initiatives.
 
-Workflow makes it easy to connect all of these fragmented tools into DevOps assembly lines across all environments, projects, and tools. They are actually dependency charts where upstream activities broadcast events and job state to downstream relying activities. This helps co-ordinate tasks centrally across diverse DevOps activities without having to custom build custom DIY scripts to integrate them along with a state database to persist the job output information.
+Workflow makes it easy to connect all of the "Islands of Automation" into DevOps assembly lines across all environments, projects, and tools. They are actually dependency charts where upstream activities broadcast events and job state to downstream relying activities. This helps co-ordinate tasks centrally across diverse DevOps activities without having to custom build custom DIY scripts to integrate them along with a state database to persist the job output information. Workflows are authored through a simple declarative language
 
 With workflow, both single step and multi-stage actitvites are repeatable, reliable and gracefully handle errors in a stateful manner. This coupled with the ability to control the workflow with necessary approval gates and notifications helps you achieve truly frictionless CI/CD, i.e. utopia of DevOps
-
 
 ## Elements of Workflow
 Workflow is made up of 4 key elements
