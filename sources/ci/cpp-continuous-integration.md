@@ -68,7 +68,7 @@ You can define any custom environment variables in the `env` section of your yml
 
 ###Overriding the default build image
 
-Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/machine-images-overview/).
+Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/tutorial/runtime/ami-overview/).
 
 If the default image does not satisfy your requirements, you can do one of three things:
 

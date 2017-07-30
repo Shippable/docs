@@ -26,15 +26,15 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|1.8.3   |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|1.7.6   |   v5.7.3    |  All | [v5.7.3](/platform/machine-image-v573)  |
-|1.7.5   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.7     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.6.4   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.6     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|1.5.4   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.5     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.4     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.3     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.2     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|1.1     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
+|1.8.3   |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|1.7.6   |   v5.7.3    |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573)  |
+|1.7.5   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.7     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.6.4   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.6     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|1.5.4   |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.5     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.4     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.3     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.2     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|1.1     |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |

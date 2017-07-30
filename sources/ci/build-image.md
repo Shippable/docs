@@ -23,7 +23,7 @@ You can view which images are used for your Subscription by following the steps 
 
 <img src="/images/ci/view-machine-image.png" alt="view machine image">
 
-- For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](../platform/machine-images-overview/)
+- For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](../platform/tutorial/runtime/ami-overview/)
 
 ##Changing your default machine image
 

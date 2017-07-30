@@ -26,18 +26,18 @@ AMI that you should set for your subscription.
 
 | Version     |           Tags         | Supported OS |                    Available AMIs                  |
 |-------------|------------------------|--------------|----------------------------------------------------|
-|3.6.1        |   v5.7.3               | All          | [v5.7.3](/platform/machine-image-v573)             |
-|3.6.0        |   v5.5.1 and earlier   | All          | [v5.5.1](/platform/machine-image-v551) and earlier |
-|3.5.3        |   v5.7.3               | ubuntu 14.04 | [v5.7.3](/platform/machine-image-v573)             |
-|3.5.2        |   v5.5.1 and earlier   | All          | [v5.5.1](/platform/machine-image-v551) and earlier |
-|3.4.5        |   v5.7.3 and earlier   | ubuntu 16.04 | [v5.7.3](/platform/machine-image-v573) and earlier |
-|3.4.3        |   v5.7.3 and earlier   | ubuntu 14.04 | [v5.7.3](/platform/machine-image-v573) and earlier |
-|3.3.6        |   v5.7.3 and earlier   | All          | [v5.7.3](/platform/machine-image-v573)             |
-|3.2.6        |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.7.12       |   v5.7.3               | All          | [v5.7.3](/platform/machine-image-v573)             |
-|2.7.6        |   v5.6.1 and earlier   | ubuntu 14.04 | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.6.9        |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/machine-image-v561) and earlier |
-|pypy2-v5.8.0 |   v5.7.3               | All          | [v5.7.3](/platform/machine-image-v573)             |
-|pypy3-v5.8.0 |   v5.7.3               | All          | [v5.7.3](/platform/machine-image-v573)             |
-|pypy2-v4.0.1 |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/machine-image-v561) and earlier |
-|pypy3-v2.4.0 |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/machine-image-v561) and earlier |
+|3.6.1        |   v5.7.3               | All          | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|3.6.0        |   v5.5.1 and earlier   | All          | [v5.5.1](/platform/tutorial/runtime/ami-v551) and earlier |
+|3.5.3        |   v5.7.3               | ubuntu 14.04 | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|3.5.2        |   v5.5.1 and earlier   | All          | [v5.5.1](/platform/tutorial/runtime/ami-v551) and earlier |
+|3.4.5        |   v5.7.3 and earlier   | ubuntu 16.04 | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier |
+|3.4.3        |   v5.7.3 and earlier   | ubuntu 14.04 | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier |
+|3.3.6        |   v5.7.3 and earlier   | All          | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|3.2.6        |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.7.12       |   v5.7.3               | All          | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|2.7.6        |   v5.6.1 and earlier   | ubuntu 14.04 | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.6.9        |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|pypy2-v5.8.0 |   v5.7.3               | All          | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|pypy3-v5.8.0 |   v5.7.3               | All          | [v5.7.3](/platform/tutorial/runtime/ami-v573)             |
+|pypy2-v4.0.1 |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|pypy3-v2.4.0 |   v5.6.1 and earlier   | All          | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |

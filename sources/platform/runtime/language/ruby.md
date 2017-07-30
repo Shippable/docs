@@ -27,23 +27,23 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|2.4.1 |   v5.7.3    | All  | [v5.7.3](/platform/machine-image-v573)   |
-|2.3.4 |   v5.7.3    | All  | [v5.7.3](/platform/machine-image-v573)   |
-|2.3.3 |  v5.6.1 and earlier | All  | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.3.2 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.3.1 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.3.0 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|2.2.7 |   v5.7.3    | All  | [v5.7.3](/platform/machine-image-v573)   |
-|2.2.5 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.2.1 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.1.5 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|2.0.0 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|1.9.3 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|1.8.7 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|jruby 9.1.12        |   v5.7.3    | All  | [v5.7.3](/platform/machine-image-v573)   |
-|jruby 9.1.5         |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|jruby 9.1.2         |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|jruby 9.0.0         |  v5.7.3 and earlier |  All | [v5.7.3](/platform/machine-image-v573) and earlier |  
-|jruby 1.7.27        |   v5.7.3    | All  | [v5.7.3](/platform/machine-image-v573)   |   
-|jruby 1.7.19        |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|ree 1.8.7           |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
+|2.4.1 |   v5.7.3    | All  | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|2.3.4 |   v5.7.3    | All  | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|2.3.3 |  v5.6.1 and earlier | All  | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.3.2 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.3.1 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.3.0 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|2.2.7 |   v5.7.3    | All  | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|2.2.5 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.2.1 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.1.5 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|2.0.0 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|1.9.3 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|1.8.7 |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|jruby 9.1.12        |   v5.7.3    | All  | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|jruby 9.1.5         |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|jruby 9.1.2         |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|jruby 9.0.0         |  v5.7.3 and earlier |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier |  
+|jruby 1.7.27        |   v5.7.3    | All  | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |   
+|jruby 1.7.19        |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|ree 1.8.7           |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |

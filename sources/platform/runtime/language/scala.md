@@ -27,10 +27,10 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|2.12.2  |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|2.12.1  |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/machine-image-v561) and earlier  |
-|2.12.0  |   v5.5.1 and earlier    |  All | [v5.5.1](/platform/machine-image-v551) and earlier  |
-|2.11.11 |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|2.11.8  |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/machine-image-v561) and earlier  |
-|2.10.6  |   v5.7.3 and earlier    |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |  
-|2.9.3   |   v5.7.3 and earlier    |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |  
+|2.12.2  |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|2.12.1  |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier  |
+|2.12.0  |   v5.5.1 and earlier    |  All | [v5.5.1](/platform/tutorial/runtime/ami-v551) and earlier  |
+|2.11.11 |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|2.11.8  |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier  |
+|2.10.6  |   v5.7.3 and earlier    |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier  |  
+|2.9.3   |   v5.7.3 and earlier    |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier  |  

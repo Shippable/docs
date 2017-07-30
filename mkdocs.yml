@@ -342,23 +342,29 @@ pages:
       - Slack: platform/integration/slack.md
       - SSH Keys: platform/integration/key-ssh.md
     - Tutorials:
-      - Resources:
+      - Workflow:
         - Working with Resources: platform/workflow/resource/working-with.md
-      - Jobs:
         - Working with Jobs: platform/workflow/job/working-with.md
-        - How to share data between Jobs: platform/howto-share-data-between-jobs.md
-        - Persisting state from one run to another: platform/howto-share-data-between-runs.md
-        - How to output key-values into a Resource: platform/howto-output-keyvalues-to-resources.md
-        - How to replicate IN Resource to a OUT Resource: platform/howto-replicate-in-to-out-resource.md
-        - How to additional version info from a Resource: platform/howto-extract-additional-resource-version-info.md
+        - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
+        - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
+        - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
+        - Persisting state from one run to another: platform/tutorial/workflow/howto-share-data-between-runs.md
+        - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
       - Integrations:
         - Working with Integrations: platform/integration/working-with.md
-        - How to create a kubeconfig file: platform/howto-create-kubeconfig.md
-        - How to install kubectl: platform/howto-install-kubectl.md
-        - How to connect Shippable through AWS IAM: platform/howto-create-AWS-IAM-access.md
-        - How to use Key-Value Integration in runCI: platform/howto-use-key-value-in-runci.md
-        - How to use Key-Value Integration in runSh: platform/howto-use-key-value-in-runSh.md
-        - How to use Docker Private Registry Integration in runCI: platform/howto-use-docker-private-registry-in-runci.md
+        - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
+        - How to install kubectl: platform/tutorial/integration/howto-install-kubectl.md
+        - How to connect Shippable through AWS IAM: platform/tutorial/integration/howto-create-AWS-IAM-access.md
+        - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
+        - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
+        - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+      - Runtime:
+        - AMI Overview: platform/tutorial/runtime/ami-overview.md
+        - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
+        - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
+        - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
+        - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
+        - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
       - API:
         - Overview: platform/api-overview.md
         - Tokens: platform/api-tokens.md
@@ -376,11 +382,5 @@ pages:
         - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
         - Vault Configuration: platform/tutorial/server/install-vault.md
         - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
-      - AMIs:
-        - v5.7.3: platform/machine-image-v573.md
-        - v5.6.1: platform/machine-image-v561.md
-        - v5.5.1: platform/machine-image-v551.md
-        - v5.4.1: platform/machine-image-v541.md
-        - v5.3.2: platform/machine-image-v532.md
       - Glossary:
         - Complete list of terms: platform/glossary.md

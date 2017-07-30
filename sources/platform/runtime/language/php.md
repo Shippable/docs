@@ -26,9 +26,9 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|7.1.6     |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)  |
-|7.1       |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|7.0.20  |  v5.7.3      | All | [v5.7.3](/platform/machine-image-v573)  |
-|7.0       |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|5.6.30  |  v5.7.3      | All | [v5.7.3](/platform/machine-image-v573)  |
-|5.6       |    v5.6.1 and earlier   |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
+|7.1.6     |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)  |
+|7.1       |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|7.0.20  |  v5.7.3      | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)  |
+|7.0       |   v5.6.1 and earlier    |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|5.6.30  |  v5.7.3      | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)  |
+|5.6       |    v5.6.1 and earlier   |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  

@@ -27,9 +27,9 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|openjdk9  |   v5.7.3    | Ubuntu 16.04 | [v5.7.3](/platform/machine-image-v573)   |
-|openjdk8  |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |
-|openjdk7  |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |
-|oraclejdk9      |   v5.7.3    | All | [v5.7.3](/platform/machine-image-v573)   |
-|oraclejdk8      |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/machine-image-v573) and earlier  |
-|oraclejdk7      |   v5.5.1 and earlier  |  All | [v5.5.1](/platform/machine-image-v551) and earlier  |  
+|openjdk9  |   v5.7.3    | Ubuntu 16.04 | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|openjdk8  |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier  |
+|openjdk7  |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier  |
+|oraclejdk9      |   v5.7.3    | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|oraclejdk8      |   v5.7.3 and earlier  |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573) and earlier  |
+|oraclejdk7      |   v5.5.1 and earlier  |  All | [v5.5.1](/platform/tutorial/runtime/ami-v551) and earlier  |  

@@ -35,7 +35,7 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|gcc 7.1 |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|gcc 6   |  v5.6.1 and earlier | All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|clang 4.0.0 |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|clang 3.9.0 |   v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
+|gcc 7.1 |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|gcc 6   |  v5.6.1 and earlier | All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|clang 4.0.0 |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|clang 3.9.0 |   v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |

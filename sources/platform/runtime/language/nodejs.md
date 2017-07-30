@@ -30,22 +30,22 @@ AMI that you should set for your subscription.
 
 | Version  |  Tags    | Supported OS| Available AMIs|  
 |----------|---------|-----------|---------------------|
-|8.1.4  |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|7.10.1 |   v5.7.3    |  All | [v5.7.3](/platform/machine-image-v573)  |
-|7.4.0  |  v5.6.1 and earlier | All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|7.3.0       |   v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|7.2.1       |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|7.0.0         |    v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|6.11.1        |   v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|6.9.4          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|6.8.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|6.7.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|5.12.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|4.8.4        |    v5.7.3     | All | [v5.7.3](/platform/machine-image-v573)   |
-|4.6.0          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
-|4.2.3          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|0.12          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|0.10          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|iojs 1.0  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |  
-|iojs 2.0  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |    
-|iojs 3.3.1  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/machine-image-v561) and earlier |
+|8.1.4  |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|7.10.1 |   v5.7.3    |  All | [v5.7.3](/platform/tutorial/runtime/ami-v573)  |
+|7.4.0  |  v5.6.1 and earlier | All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|7.3.0       |   v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|7.2.1       |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|7.0.0         |    v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|6.11.1        |   v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|6.9.4          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|6.8.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|6.7.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|5.12.0          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|4.8.4        |    v5.7.3     | All | [v5.7.3](/platform/tutorial/runtime/ami-v573)   |
+|4.6.0          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
+|4.2.3          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|0.12          |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|0.10          |   v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|iojs 1.0  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |  
+|iojs 2.0  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |    
+|iojs 3.3.1  |  v5.6.1 and earlier |  All | [v5.6.1](/platform/tutorial/runtime/ami-v561) and earlier |
