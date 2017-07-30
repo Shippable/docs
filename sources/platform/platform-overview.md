@@ -8,7 +8,7 @@ Today, majority of DevOps activities are getting automated in functional silos. 
 
 Our platform connects all your disparate DevOps activities in a event driven workflows and enables your organization to automate your entire software delivery lifecycle.
 
-<img src="/images/platform/assembly-lines.jpg" alt="Shippable Platform">
+<img src="/images/platform/assembly-lines.jpg" alt="Shippable DevOps Assembly Lines Platform">
 
 The best way to visualize the platform is to think of it as an exploded view of the cube as shown above;
 
@@ -25,16 +25,15 @@ These are some of the usecases of Software Delivery that the platform enables na
 [Workflow](workflow/overview/) is an event driven dependency management system of all your DevOps activities. It supports most of the popular tools and connects all your automation jobs using a simple declarative language. 
 
 ## Runtime
-[Runtime](/platform/runtime/overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
+[Runtime](/platform/runtime/overview/) is used to execute the DevOps activities involved in the Assembly Line. The platform prepares the runtime by installing all the packages and their dependencies needed by your automation script, securely injecting the secrets that are necessary and also configuring the CLIs that are needed for the activity. 
 
-## Visibility
-[Visibility]((/platform/visibility-overview/)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
-
-## Management
-[Management]((/platform/management-overview/)) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
+For example, if you are authoring a job that copies a file to `S3`, Runtime will automatically spin up an environment that has AWS CLI, configure it with the supplied AWS credentials and get it fully ready to run your first `S3` command.  
 
 ## Integrations
-[Integrations](/platform/integration/overview/) are used to connect your workflows to third party platforms and services.
+[Integrations](/platform/integration/overview) are used to connect your workflows to third party platforms and services.
 
+## Visibility
+[Visibility]((/platform/visibility/overview)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
 
-Now, lets look take a deeper look at a [Workflow](/platform/workflow/overview/).
+## Management
+[Management]((/platform/management/overview)) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with

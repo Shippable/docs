@@ -309,9 +309,9 @@ pages:
       - Caching:
         - Overview: platform/runtime/caching.md
     - Visibility:
-      - Overview: platform/visibility/visibility-overview.md
+      - Overview: platform/visibility/overview.md
     - Management:
-      - Overview: platform/management/management-overview.md
+      - Overview: platform/management/overview.md
     - Integrations:
       - Overview: platform/integration/overview.md
       - Amazon ECR: platform/integration/aws-ecr.md
