@@ -4,7 +4,7 @@ sub_section: Overview
 page_title: Platform Overview
 
 # Platform Overview
-There are a plethora of DevOps tools for provisioning, configuration management, CI/CD and so on. Today, majority of DevOps activities are getting automated in functional silos. Valuable resources and time is being spent on trying to connect these "Islands of Automation" with adhoc homegrown scripts. These solutions are brittle and cumbersome to create and maintain. More importantly they add friction to your Continuous Delivery initiatives
+There are a plethora of DevOps tools for provisioning, configuration management, continuous integration, deployments and so on. Today, a majority of DevOps activities are getting automated in functional silos making the software delivery process disjointed. Valuable resources and time is being spent on trying to connect these "Islands of Automation" with adhoc homegrown scripts. These solutions are brittle and cumbersome to create, maintain and reuse. More importantly they add friction to your Continuous Delivery initiatives.
 
 So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html). The best way to visualize the platform is to think of it as an exploded view of the cube as shown above.  
 
@@ -13,13 +13,19 @@ So we came up with [Shippable DevOps Assembly Lines Platform](https://www.shippa
 A cube is formed by 6 equal squares, so is our DevOps Platform.  With 6 equally important areas of focus we believe we have a clear solution to "DevOps Nirvana"
 
 ## Use Cases
-DevOps activities span the entire Software Delivery Lifecycle. These are performed by many teams and many many tools. We broadly classify them into 5 blocks
+DevOps activities span the entire Software Delivery Lifecycle. These are performed by many teams and many many tools. However most of these activities can be broadly classified into 5 buckets
 
-* [Continuous Integration](/ci/why-continuous-integration/)
-* [Validation](/validate/devops-validate/)
-* [Continuous Deployment](/deploy/why-deploy/)
-* [Release Management](/release/devops-release-management/)
-* [Infrastructure Provisioning](/provision/why-infrastructure-provisioning/)
+- [Continuous Integration (CI)](/ci/why-continuous-integration/): For every commit, build, unit test, and package your application.You can also push your package to a PaaS/IaaS or artifact repository.
+
+- [Validate](/validate/devops-validate/): Run functional/integration/performance tests when your application is deployed to a Test environment
+
+- [Release](/release/devops-release-management/): At any point in your workflow, apply a semantic version to your package to identify it. Configure approval gates for specific parts of the pipeline, such as production deployments.
+
+- [Deploy](/deploy/why-deploy/): Deploy your application to any endpoint, including Docker orchestration platforms like Kubernetes or Amazon ECS, PaaS endpoints like AWS Elastic Beanstalk, or just a Virtual Machine cluster running on any cloud.
+
+- [Provision](/provision/why-infrastructure-provisioning/): Automate your provisioning workflows with Ansible, Terraform, or Chef.
+
+Our DevOps platform that makes it easy to automate activities in these buckets to achieve Continuous Delivery. It is highly flexible and provides a lot of native functionality, while also integrating with your favorite tools.
 
 ## Workflow
 
