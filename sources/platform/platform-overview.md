@@ -8,7 +8,7 @@ Today, majority of DevOps activities are getting automated in functional silos. 
 
 Our platform connects all your disparate DevOps activities in a event driven workflows and enables your organization to automate your entire software delivery lifecycle.
 
-<img src="/images/platform/platform/devops-cube.png" alt="Shippable Platform">
+<img src="/images/platform/assembly-lines.jpg" alt="Shippable Platform">
 
 The best way to visualize the platform is to think of it as an exploded view of the cube as shown above;
 
