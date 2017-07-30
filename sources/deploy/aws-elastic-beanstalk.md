@@ -72,7 +72,7 @@ resources:
       region: us-east-1
 ```
 For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig).
-Next you'll need a particular job that can utilize that resource. [runCLI jobs](../platform/job-runcli) consume `cliConfig` resource and use them to set up various tools with your included credentials,
+Next you'll need a particular job that can utilize that resource. [runCLI jobs](../platform/workflow/job/runcli) consume `cliConfig` resource and use them to set up various tools with your included credentials,
 
 ```
 jobs:
@@ -228,7 +228,7 @@ jobs:
 
 ```
 
-Note that these variables come automatically from the `params` resource that we created earlier. Check out [this page](../platform/job-runcli#resource-variables) to learn all of the different supported environment variables in `runCLI` jobs.
+Note that these variables come automatically from the `params` resource that we created earlier. Check out [this page](../platform/workflow/job/runcli#resource-variables) to learn all of the different supported environment variables in `runCLI` jobs.
 
 
 Run your job, and you should see your modified files in the console output like this:

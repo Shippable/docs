@@ -6,7 +6,7 @@ sub_section: Amazon ECS
 
 Load balancers are a must-have for any containerized application that wants to run on an Amazon ECS cluster.  When running on ECS, the agent has control over when and where your tasks spawn.  This means that you cannot necessarily depend on any particular machine running your service at any particular time.  A load balancer helps mitigate this uncertainty by directing traffic to the correct spot, no matter where the container is running.
 
-If you are deploying to Amazon ECS using the managed [deploy job](/platform/jobs-deploy/), you can easily add a Classic or Application load balancer and apply it to the specific image/port that you want exposed. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
+If you are deploying to Amazon ECS using the managed [deploy job](/platform/workflow/job/deploy/), you can easily add a Classic or Application load balancer and apply it to the specific image/port that you want exposed. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
 
 Amazon ECS supports two types of load balancers:
 

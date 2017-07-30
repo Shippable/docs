@@ -33,11 +33,11 @@ You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any ke
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [runCLI](job-runcli/)
-* [runSh](jobs-runsh/)
-* [runCI](jobs-runci/)
-* [deploy](jobs-deploy/)
-* [manifest](jobs-manifest/)
+* [runCLI](workflow/job/runcli/)
+* [runSh](workflow/job/runsh/)
+* [runCI](workflow/job/runci/)
+* [deploy](workflow/job/deploy/)
+* [manifest](workflow/job/manifest/)
 
 ## Default Environment Variables
 Whenever `params` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used

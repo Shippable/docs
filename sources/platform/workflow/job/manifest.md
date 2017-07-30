@@ -55,7 +55,7 @@ jobs:
 	 always:								# optional
 	   - NOTIFY: <notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- should be an easy to remember text string
 

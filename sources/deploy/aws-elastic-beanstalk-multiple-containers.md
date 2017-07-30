@@ -14,7 +14,7 @@ Shippable does not support managed beanstalk deployments at this time.
 
 ## Unmanaged Deployments
 
-Shippable allows you to communicate with AWS via a job type called `runCLI`.  You can read the full reference on the job [here](../platform/job-runcli).  This type of job gives you the power to script whatever workflow is necessary for your environment.
+Shippable allows you to communicate with AWS via a job type called `runCLI`.  You can read the full reference on the job [here](../platform/workflow/job/runcli).  This type of job gives you the power to script whatever workflow is necessary for your environment.
 
 On this page, we'll use the basic beanstalk example as a starting point, and simply make some small changes so that it can be used to deploy multiple containers.
 

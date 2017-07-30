@@ -6,7 +6,7 @@ sub_section: Amazon ECS
 
 There are many ways to deploy a manifest on Shippable. This page will explain each method and how it impacts deployments to Amazon ECS.
 
-If you are deploying to Amazon ECS using the managed [deploy job](/platform/jobs-deploy/), you can specify one of the strategies below:
+If you are deploying to Amazon ECS using the managed [deploy job](/platform/workflow/job/deploy/), you can specify one of the strategies below:
 
 - blueGreen (default), where we wait for the new service to reach steady state before deleting the old service
 - upgrade, where existing services are updated with changes

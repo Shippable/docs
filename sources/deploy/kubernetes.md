@@ -26,8 +26,8 @@ To deploy to Kubernetes, you need the following building blocks:
 
 **Jobs**
 
-- [manifest](/platform/jobs-manifest/) which creates a deployable unit for your application
-- [deploy](/platform/jobs-deploy/), a managed job that does the deployment
+- [manifest](/platform/workflow/job/manifest/) which creates a deployable unit for your application
+- [deploy](/platform/workflow/job/deploy/), a managed job that does the deployment
 
 ## Step-by-step instructions
 

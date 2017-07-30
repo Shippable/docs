@@ -12,7 +12,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 
 # deploy
-`deploy` is a Job that deploys a app/service definition ([manifest](jobs-manifest/)) to a [cluster](workflow/resource/cluster/). One very powerful concept with this Job is that if you add resources like [params](), [dockerOptions]() and [replicas](), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
+`deploy` is a Job that deploys a app/service definition ([manifest](workflow/job/manifest/)) to a [cluster](workflow/resource/cluster/). One very powerful concept with this Job is that if you add resources like [params](), [dockerOptions]() and [replicas](), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
 
 A new version is created anytime this Job is executed
 
@@ -67,7 +67,7 @@ jobs:
 	 always:								# optional
 	   - NOTIFY:		<notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- should be an easy to remember text string
 

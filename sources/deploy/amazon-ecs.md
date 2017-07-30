@@ -4,7 +4,7 @@ sub_section: Amazon ECS
 
 # Deploying to Amazon ECS
 
-There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can use the managed [**deploy job**](/platform/jobs-deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
+There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Pipelines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
 
 For unmanaged deployments where you write all the deployment scripts yourself, check out our tutorial on [unmanaged deployments](/deploy/amazon-ecs-unmanaged/).
 
@@ -29,8 +29,8 @@ To deploy to Amazon ECS, you need the following building blocks:
 
 **Jobs**
 
-- [manifest](/platform/jobs-manifest/) which creates a deployable unit for your application
-- [deploy](/platform/jobs-deploy/), a managed job that does the deployment
+- [manifest](/platform/workflow/job/manifest/) which creates a deployable unit for your application
+- [deploy](/platform/workflow/job/deploy/), a managed job that does the deployment
 
 
 ## Step-by-step instructions

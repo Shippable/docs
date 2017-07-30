@@ -82,11 +82,11 @@ The trace view shows the inputs to a given job. To get to the trace view:
 - Click on a job in the SPOG to open the console.
 - Click the **Trace** tab above the console. This opens a list of the job's inputs. You can drill down to see the versions of the inputs and all data for that version.
 
-For example, let's assume your [deploy job](/platform/jobs-deploy/) just ran and you want to see what was deployed. When you click **Trace**, the list shows the inputs to that deploy job:
+For example, let's assume your [deploy job](/platform/workflow/job/deploy/) just ran and you want to see what was deployed. When you click **Trace**, the list shows the inputs to that deploy job:
 
 <img src="/images/deploy/deploy-trace.png" alt="majestic trace tab">
 
-In the image above, the deploy job has two inputs: a [manifest job](/platform/jobs-manifest/) and a [cluster resource](/platform/workflow/resource/cluster/). You can click on the image resource in the manifest to see which tag was deployed.
+In the image above, the deploy job has two inputs: a [manifest job](/platform/workflow/job/manifest/) and a [cluster resource](/platform/workflow/resource/cluster/). You can click on the image resource in the manifest to see which tag was deployed.
 
 <a name="grid-view"></a>
 ##View in tabular format

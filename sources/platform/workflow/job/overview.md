@@ -82,7 +82,7 @@ jobs:
       - script: 			pwd
 ```
 
-For more information, read [Working with Jobs](/platform/jobs-working-with/)
+For more information, read [Working with Jobs](/platform/workflow/job/working-with/)
 
 ## When does a Job execute?
 A Job is queued by the DevOps Assembly Line platform when one of the following cases occur
@@ -98,14 +98,14 @@ These are the types of resources that Shippable Workflow supports:
 
 | Job Type   |      Description    |
 |----------|-------------|
-| [deploy](jobs-deploy/) | Deploy apps/services to Container Platforms or VM clusters |
-| [manifest](jobs-manifest/) | Create App/Service definition (configuration) that is immutable |
-| [provision](jobs-provision/) | Provision specific resources needed by Container Orchestration Platforms |
-| [release](jobs-release/) | Release management for Apps/Services |
-| [jenkinsJob](job-jenkinsJob/) | Execute a Jenkins Job from Assembly Lines |
-| [runCI](jobs-runci/) | Execute Shippable CI Job |
-| [runSh](jobs-runsh/) | Execute any Shell command |
-| [runCLI](job-runcli/) | Execute any supported Command Line Interface command |
+| [deploy](workflow/job/deploy/) | Deploy apps/services to Container Platforms or VM clusters |
+| [manifest](workflow/job/manifest/) | Create App/Service definition (configuration) that is immutable |
+| [provision](workflow/job/provision/) | Provision specific resources needed by Container Orchestration Platforms |
+| [release](workflow/job/release/) | Release management for Apps/Services |
+| [jenkinsJob](workflow/job/jenkinsjob/) | Execute a Jenkins Job from Assembly Lines |
+| [runCI](workflow/job/runci/) | Execute Shippable CI Job |
+| [runSh](workflow/job/runsh/) | Execute any Shell command |
+| [runCLI](workflow/job/runcli/) | Execute any supported Command Line Interface command |
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 

@@ -34,7 +34,7 @@ CI -> Amazon ECR -> manifest -> deploy to beta -> deploy to prod
 
 If you followed the [Managed deployments](/deploy/amazon-ecs/) docs, you already have a pipeline that deploys to the first environment, beta.
 
-Now let's add the prod environment. We will need a new [cluster](/platform/workflow/resource/cluster/) for production, as well as a [deploy](/platform/jobs-deploy/) job.
+Now let's add the prod environment. We will need a new [cluster](/platform/workflow/resource/cluster/) for production, as well as a [deploy](/platform/workflow/job/deploy/) job.
 
 Cluster definition in `shippable.resources.yml`:
 

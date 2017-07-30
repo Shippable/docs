@@ -51,7 +51,7 @@ jobs:
 	 always:
       - script: 			pwd
 ```
-A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- Required, should be an easy to remember text string
 

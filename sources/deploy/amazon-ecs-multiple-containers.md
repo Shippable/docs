@@ -12,7 +12,7 @@ This page will discuss the three most common ways to use Shippable to deploy mul
 
 <img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline"y>
 
-- **Multiple images in a single [manifest](/platform/jobs-manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
+- **Multiple images in a single [manifest](/platform/workflow/job/manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
 
 <img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
 

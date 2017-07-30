@@ -30,7 +30,7 @@ resources:
 # Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [release](jobs-release/)
+* [release](workflow/job/release/)
 * runSH
 * runCLI
 * runCI

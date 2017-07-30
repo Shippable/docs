@@ -63,7 +63,7 @@ jobs:
       - script: pwd
 
 ```
-A full detailed description of each tag is available on the [Job Anatomy](jobs-working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view
 

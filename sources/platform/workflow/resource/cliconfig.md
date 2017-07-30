@@ -74,8 +74,8 @@ integration. Here is a list of the tools configured for each integration type:
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [runCLI](job-runcli/)
-* [runSH](jobs-runsh/)
+* [runCLI](workflow/job/runcli/)
+* [runSH](workflow/job/runsh/)
 
 ## Default Environment Variables
 Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used

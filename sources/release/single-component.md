@@ -5,7 +5,7 @@ page_title: From Single Service / Component
 
 # Creating a release for a single service / component
 
-This tutorial demonstrates how to semantically version a single component before it is deployed to an environment. The component can be any artifact that is deployed to an environment such as a JAR/WAR file or a Docker image. In a broader end-to-end context, the `release` job usually should be an `IN` for a [deploy job](/platform/jobs-deploy/) as shown below:
+This tutorial demonstrates how to semantically version a single component before it is deployed to an environment. The component can be any artifact that is deployed to an environment such as a JAR/WAR file or a Docker image. In a broader end-to-end context, the `release` job usually should be an `IN` for a [deploy job](/platform/workflow/job/deploy/) as shown below:
 
 <img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -13,7 +13,7 @@ In general, creating releases helps you version your component and keep track of
 
 ## Basic Config
 
-A release job needs a [manifest](/platform/jobs-manifest/) job and a [version](/platform/workflow/resource/version/) resource as inputs.
+A release job needs a [manifest](/platform/workflow/job/manifest/) job and a [version](/platform/workflow/resource/version/) resource as inputs.
 
 <img src="/images/release/release-inputs.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -72,7 +72,7 @@ We have a working sample for the scenario described here. Instructions to run th
 The scenario in our sample project covers the following steps:
 
 - Set up your CI workflow which pushes a Docker image to Docker Hub
-- Every time the image is updated, a [**manifest** job](/platform/jobs-manifest/) updates the manifest.
+- Every time the image is updated, a [**manifest** job](/platform/workflow/job/manifest/) updates the manifest.
 - The **release job** will version your manifest with [semantic versioning](http://semver.org/)
 - This will trigger a **deploy** job which will deploy your versioned component to a target endpoint of your choice. [Read more on deployments](/deploy/why-deploy/).
 

@@ -5,7 +5,7 @@ sub_sub_section: Jobs
 page_title: Share data between Jobs
 
 # state
-A `state` resource type is used to create a central state that can be used across the entire pipelines. This resource can be used as IN and OUT step for [any job](jobs-overview/).
+A `state` resource type is used to create a central state that can be used across the entire pipelines. This resource can be used as IN and OUT step for [any job](workflow/job/overview/).
 
 You can create this resource by adding it to `shippable.resources.yml`
 

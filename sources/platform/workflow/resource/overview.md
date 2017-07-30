@@ -13,7 +13,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 
 # Resources
-Resources are the basic building blocks of your pipelines. They typically contain information needed for [Jobs](/platform/jobs-overview/) to execute and sometimes they also are used to store information produced in a Job.
+Resources are the basic building blocks of your pipelines. They typically contain information needed for [Jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced in a Job.
 
 A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns the same result every single time it is fetched. For e.g., git commit sha is always idempotent.
 

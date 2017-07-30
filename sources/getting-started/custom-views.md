@@ -5,7 +5,7 @@ sub_section: Overview
 # Custom Views
 
 When you have a lot of enabled projects or pipeline jobs, it is difficult to check the status of a particular job or project from home dashboard.
-Custom views allows you to add customized dashboards by enabling you to choose projects, pipeline [flags](/validate/single-pane-of-glass-spog/#filter-spog)  and pipeline [jobs](/reference/jobs-overview/).
+Custom views allows you to add customized dashboards by enabling you to choose projects, pipeline [flags](/validate/single-pane-of-glass-spog/#filter-spog)  and pipeline [jobs](/reference/workflow/job/overview/).
 You can also choose to make a custom view your default account dashboard.
 
 <a name="create-custom-view"></a>

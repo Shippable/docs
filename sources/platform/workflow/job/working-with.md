@@ -68,7 +68,7 @@ Any special `YML` tags that are job specific is defined in respective job pages.
 
 * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does e.g. `prov_test_env` to represent a job that provisions test environment.
 
-* **`type`** -- Name of the job type that this job is an instance of. [Here](jobs-overview#types) is a list of all types
+* **`type`** -- Name of the job type that this job is an instance of. [Here](workflow/job/overview#types) is a list of all types
 
 * **`steps`** -- is an object that is the heart of the Job. It usually is made up of and array of INs, TASK & OUTs
 	* `IN` -- represents the input Resource or a preceding Job. Whenever there is a change to these inputs, this job will be triggered to run. `IN`s have attributes that are used to control the flow

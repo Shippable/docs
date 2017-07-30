@@ -29,8 +29,8 @@ resources:
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [deploy jobs](jobs-deploy/)
-* [manifest jobs](jobs-manifest/)
+* [deploy jobs](workflow/job/deploy/)
+* [manifest jobs](workflow/job/manifest/)
 
 ## Default Environment Variables
 Whenever `replicas` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used

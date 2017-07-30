@@ -9,7 +9,7 @@ Load balancers are a must-have for any containerized application that wants to r
 This page will explain how you can connect a Kubernetes service with a replicationController created by a managed GKE deployment in Shippable Pipelines
 
 - deploy to GKE from Shippable pipelines
-- create a service manually or via [provision job](../platform/jobs-provision).
+- create a service manually or via [provision job](../platform/workflow/job/provision).
 - connect that service with your deployed RC
 
 This is an enhancement to the pipeline described in the basic GKE scenario.
@@ -92,7 +92,7 @@ You can use a single provision job to provision multiple services. Just include 
 
 
 ## Unmanaged
-Unmanaged refers to the use of [runCLI jobs](../platform/job-runcli), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../platform/workflow/resource/cliconfig).
+Unmanaged refers to the use of [runCLI jobs](../platform/workflow/job/runcli), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../platform/workflow/resource/cliconfig).
 
 These unmanaged jobs provide you with unlimited scripting ability which you can use to do the following:
 
