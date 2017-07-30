@@ -33,7 +33,7 @@ For example, if you are authoring a job that copies a file to `S3`, Runtime will
 [Integrations](/platform/integration/overview) are used to connect your workflows to third party platforms and services.
 
 ## Visibility
-[Visibility]((/platform/visibility/overview)) offers reporting, audit and analytics on the status and performance of all DevOps activities.
+[Visibility](/platform/visibility/overview) offers reporting, audit and analytics on the status and performance of all DevOps activities.
 
 ## Management
-[Management]((/platform/management/overview)) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
+[Management](/platform/management/overview) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
