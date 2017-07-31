@@ -19,7 +19,6 @@ pages:
       - What is Shippable?: index.md
       - What do we support?: getting-started/what-is-supported.md
       - How much does it cost?: getting-started/billing-overview.md
-      - Concepts: getting-started/concepts.md
     - Run our samples:
       - Run your first build: getting-started/ci-sample.md
       - Deploy your first app: getting-started/cd-sample.md

@@ -34,15 +34,56 @@ DevOps activities span the entire Software Delivery Lifecycle. These are perform
 
 - [Provision](/provision/why-infrastructure-provisioning/): Automate your provisioning workflows with Ansible, Terraform, or Chef.
 
-
 Our DevOps platform that makes it easy to automate activities in these buckets to achieve Continuous Delivery. It is highly flexible and provides a lot of native functionality, while also integrating with your favorite tools.
 
 However, it is important to remember that Shippable lets you automate almost anything. Want to deploy using voice commands on Alexa? Check. Want to set your smart coffee machine to start a pot at 8am every morning? Check.
 
 We have optimized the platform for DevOps with a bunch of [pre-canned Jobs]() that make it very easy to automate DevOps activities. However, for anyone with programming skills and an imagination, the sky is the limit with a plain old [shell Job](). 
 
-## How this documentation is structured?
+## How do I get Shippable?
+Shippable is available as a Hosted SaaS offering as well as a Server. 
 
+
+### Using Shippable SaaS
+You do not need to explicitly create an account on the Hosted version of Shippable to start using it. You can sign in using your GitHub or Bitbucket credentials. We use OAuth authentication so you will need to authorize Shippable the first time you sign in. We sync all organizations/repos from your source control based on the access granted. You can then click into any organization to [enable projects](/ci-sample/#3-enable-the-project).
+
+
+### Using Shippable Server
+
+
+
+## How this documentation is structured?
 We believe achieving Continuous Delivery through DevOps is a journey that needs a systematic approach. The idea is to automate the different buckets of DevOps activities mentioned above in a structured manner. 
 
 As a result, we have structured our documentation to mimic DevOps use case buckets. You can choose to embark on this journey across any or all of these buckets, depending on what your organization needs. On the other hand, if you want to understand everything that the Platform does, there is a dedicated section that gives you an overview of the [Platform](). 
+
+## Some core concepts 
+These are some of the core concepts that we use across the docs. 
+
+### Account
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to emcompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services.
+
+### Subscription
+A subscription on Shippable corresponds to an organization or personal account in your source control provider. So if you sign in to Shippable with GitHub credentials and your username is abcfoo and you're a member of orgs org1foo and org2foo, you will have 3 subscriptions on Shippable.
+
+Billing is handled per subscription.
+
+### Projects
+A project on Shippable corresponds to a repository on your source control provider. As with subscriptions, project permissions are also synced with your source control provider.
+
+### Minions
+Minions are the build machines that are spun up to run your builds on Shippable Hosted. They are also called build machines or build containers at some places in the documentation.
+
+
+## Further Reading
+* Working with Resources
+* Working with Integrations
+* Jobs
+
+
+## TODO
+| Tasks   |      Status    |
+|----------|-------------|
+| Hotlinking |  Open |
+| Further Reading needs thinking|  Open |
+| Update how to get server|  Open |
