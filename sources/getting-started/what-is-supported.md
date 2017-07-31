@@ -1,21 +1,84 @@
-page_main_title: Source control providers
+page_main_title: What does Shippable support?
 main_section: Getting started
 sub_section: What is supported?
 
-# Source control providers
+# What is supported?
 
-Shippable supported the source control providers listed below.
+Shippable DevOps Assembly Line Platform supports most of the popular tools and technology used today to build, test, deploy and operate applications/services/micro-services
 
-**Shippable Hosted service**
+Here are some of the major things we support out of the box. With that being said, Shippable Platform is built with Docker in mind. Hence, anything that can be installed inside of a Docker image is supported by the platform
 
--  GitHub
--  GitHub Enterprise
--  Bitbucket
--  GitLab
+## Operating System
+The platform is designed to work on any Linux distro. We natively support the following 
 
-Please note that GitHub and Bitbucket are supported through OAuth, so you can directly sign in with your credentials and start building. The other providers are supported as integrations, where you sign in with Github/Bitbucket and then add an integration for the source control provider you need.
+* [Ubuntu 14.04 LTS](/platform/runtime/ubuntu14)
+* [Ubuntu 16.04 LTS](/platform/runtime/ubuntu16)
 
-**Shippable Server**
+As mentioned before, we are a Docker based platform. Hence any custom image based on a Linux distro can be used in Job Runtime. For more details visit the [Operating Systems page](/platform/runtime/os)
+
+## Language
+For both the OS versions, we maintain language specific images that are updated every month so that the latest and greatest versions are always available.
+We support the following languages
+
+* [Clojure](/platform/runtime/language/clojure)
+* [GO](/platform/runtime/language/go)
+* [Java](/platform/runtime/language/java)
+* [Node JS](/platform/runtime/language/nodejs)
+* [PHP](/platform/runtime/language/php)
+* [Python](/platform/runtime/language/python)
+* [Ruby](/platform/runtime/language/ruby)
+* [Scala](/platform/runtime/language/scala)
+
+## Services
+To make your builds even faster, we also pre-install a bunch of Services that your application may need. These are also updated on a monthly cadence.
+
+Following are the service that are pre-installed
+
+* [Cassandra](/platform/runtime/service/cassandra)
+* [CouchDB](/platform/runtime/service/couchdb)
+* [ElasticSearch](/platform/runtime/service/elasticsearch)
+* [Memcached](/platform/runtime/service/memcached)
+* [MongoDB](/platform/runtime/service/mongodb)
+* [MySQL](/platform/runtime/service/mongodb)
+* [Neo4j](/platform/runtime/service/neo4j)
+* [Postgres](/platform/runtime/service/postgres)
+* [RabbitMQ](/platform/runtime/service/rabbitmq)
+* [Redis](/platform/runtime/service/redis)
+* [RethidDB](/platform/runtime/service/rethinkdb)
+* [Riak](/platform/runtime/service/riak)
+* [Selenium](/platform/runtime/service/selenium)
+* [SqlLite](/platform/runtime/service/sqllite)
+
+## Testing Frameworks
+Our images also come pre-installed with all the tooling necessary to runs tests based on a plethora of frameworks. Some of the popular ones are
+
+* JUnit
+* XUnit
+* RSpec
+* Nosetest
+* Chai/Mocha
+* ...and more
+
+## Command Line Interfaces (CLI)
+Majority of the apps today run on cloud. Each cloud provider has a native CLI and we want to avoid you having to install and configure them. In addition we also pre-install some popular DevOps tools also. The goals is to try and prep the build environment as close to your desired state so that you can spend less time prepping and more time developing applications.
+
+Here is a list of CLIs we have available as part of Job Runtime
+
+* [Ansible](/platform/runtime/cli/ansible)
+* [AWS](/platform/runtime/cli/aws)
+* [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
+* [Azure](/platform/runtime/cli/azure)
+* [Docker](/platform/runtime/cli/docker)
+* [GKE](/platform/runtime/cli/gke)
+* [JFrog](/platform/runtime/cli/jfrog)
+* [Packer](/platform/runtime/cli/packer)
+* [Terraform](/platform/runtime/cli/terraform)
+* [Kubectl](/platform/runtime/cli/kubectl)
+
+## 3rd Party Integrations
+In addition we support a multitude of integrations into external providers. This makes it easy to plug in any of your existing tooling seamlessly into Shippable Assembly Line Platform
+
+### Source Control Management
 
 -  GitHub
 -  GitHub Enterprise
@@ -23,4 +86,65 @@ Please note that GitHub and Bitbucket are supported through OAuth, so you can di
 -  Bitbucket Server
 -  GitLab
 
-All the providers above are supported through OAuth so you can sign in to Shippable Server with your source control provider credentials.
+### Cloud Providers
+
+-  Amazon Web Services
+-  Google Cloud
+-  Microsoft Azure
+-  Digital Ocean
+
+### Container Orchestration Systems
+
+- Mesos DC/OS
+- Kubernetes
+- Google Container Engine
+- AWS Elastic Container Service
+- Azure Container Service
+- Joyent Triton
+- Docker Datacenter
+
+### Artifact Repositories
+
+- Docker Hub
+- Docker Trusted Registry
+- AWS Elastic Container Registry
+- Google Container Registry
+- Quay
+- JFrog Artifactory
+- AWS S3
+
+### Messaging Providers
+
+- Slack
+- Hipchat
+- IRC
+- Email
+- Custom Webhooks
+
+### PaaS Providers
+
+- AWS Opsworks
+- AWS Elastic Beanstalk
+- Heroku
+
+### IaaS Providers
+
+-  AWS EC2
+-  Google Cloud
+-  Microsoft Azure
+-  Digital Ocean
+
+### DevOps Tools
+
+- Ansible
+- Chef
+- Puppet
+- Saltstack
+- AWS Cloud Formations
+- Terraform
+- Packer
+
+### Deployment Tools
+
+- AWS Codedeploy
+- Capistrano
