@@ -17,7 +17,7 @@ pages:
   - Getting started:
     - Overview:
       - What is Shippable?: index.md
-      - What is supported?: getting-started/what-is-supported.md
+      - What do we support?: getting-started/what-is-supported.md
       - How much does it cost?: getting-started/billing-overview.md
       - Concepts: getting-started/concepts.md
     - Run our samples:
