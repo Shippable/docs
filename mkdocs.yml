@@ -240,9 +240,8 @@ pages:
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
-        - Overview: platform/runtime/os.md
-        - Ubuntu 14:04: platform/runtime/ubuntu14.md
-        - Ubuntu 16:04: platform/runtime/ubuntu16.md
+        - Ubuntu 14:04: platform/runtime/os/ubuntu14.md
+        - Ubuntu 16:04: platform/runtime/os/ubuntu16.md
       - Languages:
         - Nodejs: platform/runtime/language/nodejs.md
         - Python: platform/runtime/language/python.md
@@ -280,7 +279,6 @@ pages:
         - Selenium: platform/runtime/service/selenium.md
         - Sqllite: platform/runtime/service/sqllite.md
       - Nodes:
-        - Overview: platform/runtime/node/overview.md
         - Dynamic Nodes: platform/runtime/node/dynamic-nodes.md
         - Custom Nodes: platform/runtime/node/custom-nodes.md
       - Environment Variables:

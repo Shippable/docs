@@ -9,7 +9,6 @@ Shippable DevOps Assembly Line Platform supports most of the popular tools and t
 Here are some of the major things we support out of the box. With that being said, Shippable Platform is built with Docker in mind. Hence, anything that can be installed inside of a Docker image is supported by the platform
 
 ## Node Types
-
 To run you DevOps activities, you need a Node (virtual machine). Shippable support 2 types of Nodes
 
 * [Dedicated Dynamic Nodes](/platform/runtime/dynamic-nodes) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need
@@ -23,8 +22,8 @@ To run you DevOps activities, you need a Node (virtual machine). Shippable suppo
 ## Operating System
 The platform is designed to work on any Linux distro. We natively support the following 
 
-* [Ubuntu 14.04 LTS](/platform/runtime/ubuntu14)
-* [Ubuntu 16.04 LTS](/platform/runtime/ubuntu16)
+* [Ubuntu 14.04 LTS](/platform/runtime/os/ubuntu14)
+* [Ubuntu 16.04 LTS](/platform/runtime/os/ubuntu16)
 
 As mentioned before, we are a Docker based platform. Hence any custom image based on a Linux distro can be used in Job Runtime. For more details visit the [Operating Systems page](/platform/runtime/os)
 

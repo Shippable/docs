@@ -45,4 +45,4 @@ We have optimized the platform for DevOps with a bunch of [pre-canned Jobs]() th
 
 We believe achieving Continuous Delivery through DevOps is a journey that needs a systematic approach. The idea is to automate the different buckets of DevOps activities mentioned above in a structured manner. 
 
-As a result, we have structured our documentation to mimic DevOps use case buckets. You can choose to embark on this journey across any or all of these buckets, depending on your organization needs. On the other hand, if you want to understand everything that the Platform offers you, there is a dedicated section that gives you an overview of everything the [Platform]() does and supports. 
+As a result, we have structured our documentation to mimic DevOps use case buckets. You can choose to embark on this journey across any or all of these buckets, depending on what your organization needs. On the other hand, if you want to understand everything that the Platform does, there is a dedicated section that gives you an overview of the [Platform](). 
