@@ -27,15 +27,19 @@ A glossary of terms is available [here](/platform/tutorial/glossary/).
 ## Elements of Workflow
 At a very fundamental level, Workflow is made up of 4 key elements.
 
+<a name="resource"></a>
 ### Resources
 [Resources](/platform/workflow/resource/overview/) are versioned objects that hold configuration and other information required to execute your DevOps activity. They are inputs for and sometimes outputs from Jobs. Examples of resources include source code repositories, docker images, container clusters, environment variables, etc.
 
+<a name="job"></a>
 ### Jobs
 [Jobs](/platform/workflow/job/overview/) represent DevOps activities i.e. executable units of your workflow. They take one or more Resources as inputs, perform some operation on the inputs, and can output to other Resources. Jobs can also act as inputs for other Jobs, which serve to daisy-chain a series of Jobs into a connected workflow. For e.g. building an Amazon Machine Image using Packer or running CI on your source code.
 
+<a name="state"></a>
 ### State
 State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD. The platform has this capability built-in so that you dont need to maintain external spreadsheets, file storage, slack rooms etc. to share this information
 
+<a name="trigger"></a>
 ### Trigger
 [Triggers](/platform/workflow/trigger/overview/) are used to manually start a Job. You could also achive this by triggering through UI, but this is for those who like to do it with code
 
