@@ -1,12 +1,13 @@
 page_main_title: Operating system overview
 main_section: Platform
-sub_section: Job Runtime
+sub_section: Runtime
 sub_sub_section: Operating System
 page_title: Operating system overview
 
 # Ubuntu 14.04
 
-Platform offers three operating system docker images for Ubuntu 14.04. These images are hosted on Docker hub in the `drydock` account.
+Ubuntu 14.04 based images for Shippable Continuous Integration is available as part of the platform. All our [Language](/platform/)
+
 
 ## Base image
 The base image consists of the core operating system, CLI's and three languages with their latest version preinstalled. This image is updated monthly with a specific tag.

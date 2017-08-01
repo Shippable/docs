@@ -3,7 +3,7 @@ main_section: Platform
 sub_section: Runtime
 page_title: Job Runtime Overview
 
-# Job Runtime
+# Runtime
 Every activity in your DevOps Assembly Line requires a place to execute that activity. Job Runtime provides that so that the environment is prepped with all the necessary OS, software tools and packages, runtime configurations as well as secrets to authenticate to 3rd party services that the activity might interact with.
 
 Some of the key benefits of this are
