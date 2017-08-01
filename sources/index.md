@@ -18,7 +18,7 @@ Our DevOps Assembly Line Platform helps you to easily and rapidly build end-to-e
 
 <img src="/images/getting-started/codeToProdPipelines.png" alt="Shippable Continuous Integration and Delivery" style="width:1200px;"/>
 
-In addition, we offer a very practical, systematic, and measurable approach to DevOps. We believe that DevOps efforts must start with automation and that you need a standard platform on which you can build reusable automation rapidly. Your first pipeline can take a couple of days, but the next pipeline should take a day, the third half a day, and so on. You can read more about this philosophy in our <a href="https://www.shippable.com/devops-playbook.html">DevOps Playbook</a> and <a href="https://www.shippable.com/devops-platform.html">Platform</a> pages.
+In addition, we offer a very practical, systematic, and measurable approach to DevOps. We believe that DevOps efforts must start with automation and that you need a standard platform on which you can build reusable automation rapidly. Your first pipeline can take a couple of days, but the next pipeline should take a day, the third half a day, and so on. You can read more about this philosophy in our <a href="https://www.shippable.com/devops-playbook.html">DevOps Playbook</a> [Platform](platform/overview) pages. 
 
 
 ## Use Cases
