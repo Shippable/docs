@@ -1,6 +1,6 @@
 page_main_title: What does Shippable support?
 main_section: Getting started
-sub_section: What is supported?
+sub_section: Overview
 
 # What is supported?
 

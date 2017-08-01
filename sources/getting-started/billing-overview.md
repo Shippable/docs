@@ -1,6 +1,6 @@
 page_main_title: Pricing plans
 main_section: Getting started
-sub_section: Plans and Billing
+sub_section: Overview
 
 # Shippable Plans and Pricing
 
