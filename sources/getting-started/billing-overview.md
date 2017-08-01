@@ -16,6 +16,12 @@ In a nutshell, our Hosted service pricing is:
 | c4.large (2 cores, 3.75GB) 	|                                   One node included                                   	|                             $25/month for each build node                             	|
 | c4.xlarge (4 cores, 7.5GB) 	|                                           X                                           	|                             $75/month for each build node                             	|
 | c4.2xlarge (8 cores, 15GB) 	|                                           X                                           	|                             $150/month for each build node                            	|
-| [BYON](/getting-started/byon-overview/) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
+| [BYON](platform/runtime/overview#nodes) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
 
-We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our <a href="https://www.shippable.com/pricing.html">Pricing page</a> or <a href="https://www.shippable.com/contact.html">Contact us</a>. 
+We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our  or <a href="https://www.shippable.com/contact.html">Contact us</a>. 
+
+
+## Further Reading
+* [Platform Overview](platform/overview)
+* <a href="https://www.shippable.com/enterprise.html">Shippable Server Trial</a>
+* <a href="https://www.shippable.com/pricing.html">Shippable Server Pricing</a>
