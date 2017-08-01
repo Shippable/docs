@@ -1,23 +1,22 @@
-page_main_title: Operating system overview
+page_main_title: Ubuntu 14.04 Image for CI
 main_section: Platform
 sub_section: Runtime
 sub_sub_section: Operating System
-page_title: Operating system overview
+page_title: Ubuntu 14.04 Image for CI
 
 # Ubuntu 14.04
 
-Ubuntu 14.04 based images for Shippable Continuous Integration is available as part of the platform. All our [Language](/platform/runtime/languages/overview) are derived from this base image. This image comes pre-installed with latest version of Java, Ruby & Node along with the OS default version of Python. 
+Ubuntu 14.04 based images for Shippable Continuous Integration is available as part of the platform. All our [Language Images](/platform/runtime/languages/overview) are derived from this base image. This image comes pre-installed with latest version of Java, Ruby & Node along with the OS default version of Python. We also install all the [Services](/platform/runtime/service/overview) we support on this image.
 
 We update this image `drydock/u14all` on a monthly candence and push a unique tag to our [drydock repository](https://hub.docker.com/r/drydock/u14all/) on Docker hub. The tag is of format `<Shippable Version>.<Month>.<Release Number>`
 
-
 These are the version currently supported 
 
-* [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573) - July 2017 - Latest Version
-* [drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561) - June 2017
+* [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573) - Jul 2017 - Latest Version
+* [drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561) - Jun 2017
 * [drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551) - May 2017
-* [drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541) - April 2017
-* [drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532) - March 2017
+* [drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541) - Apr 2017
+* [drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532) - Mar 2017
 
 We support a minimum of 12 tags i.e. 12 months for backward compatability. 
 
