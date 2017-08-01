@@ -60,7 +60,7 @@ Following are the service that are pre-installed
 * [SqlLite](/platform/runtime/service/sqllite)
 
 ## Testing Frameworks
-Our [Images](/platform/runtime/image) also come pre-installed with all the tooling necessary to runs tests based on a plethora of frameworks. Some of the popular ones are
+Our [Images](/platform/runtime/overview) also come pre-installed with all the tooling necessary to runs tests based on a plethora of frameworks. Some of the popular ones are
 
 * JUnit
 * XUnit
@@ -161,3 +161,8 @@ In addition we support a multitude of integrations into external providers. This
 
 - [AWS Codedeploy](/platform/runtime/cli/aws)
 - Capistrano
+
+## Further Reading
+* [Platform Overview](platform/overview)
+* [Quick Start to CI](getting-started/ci-sample)
+* [Quick Start to CD](getting-started/cd-sample)

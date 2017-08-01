@@ -7,7 +7,7 @@ sub_section: Overview
 
 Shippable has several tiers of pricing plans which cater to different types of customers. We are a freemium service with a very competitive free tier which is usually enough for individual users as well as small development teams.
 
-As your team grows or you need more capacity, we have several paid options that address your needs. For a detailed look at Pricing plans, please visit our <a href="https://www.shippable.com/pricing.html">Pricing page</a>.
+As your team grows or you need more capacity, we have several paid options that address your needs. For a detailed look at Pricing plans, please visit our [Pricing page](https://www.shippable.com/pricing.html).
 
 In a nutshell, our Hosted service pricing is:
 
@@ -18,10 +18,9 @@ In a nutshell, our Hosted service pricing is:
 | c4.2xlarge (8 cores, 15GB) 	|                                           X                                           	|                             $150/month for each build node                            	|
 | [BYON](platform/runtime/overview#nodes) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
 
-We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our  or <a href="https://www.shippable.com/contact.html">Contact us</a>. 
-
+We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our  or [Contact us](https://www.shippable.com/contact.html).
 
 ## Further Reading
 * [Platform Overview](platform/overview)
-* <a href="https://www.shippable.com/enterprise.html">Shippable Server Trial</a>
-* <a href="https://www.shippable.com/pricing.html">Shippable Server Pricing</a>
+* [Shippable Server Trial](https://www.shippable.com/enterprise.html)
+* [Shippable Server Pricing](https://www.shippable.com/pricing.html)

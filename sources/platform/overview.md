@@ -44,3 +44,7 @@ For example, if you are authoring a job that copies a file to `S3`, Runtime will
 
 ## Management
 [Management](/platform/management/overview) is about managing the assembly line. Creating secrets, ability to pause unpause actitvities, rolling back, upgrades etc. are all activities that Management can help with
+
+## Further Reading
+* [Quick Start to CI](getting-started/ci-sample)
+* [Quick Start to CD](getting-started/cd-sample)

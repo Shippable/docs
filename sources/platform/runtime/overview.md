@@ -27,11 +27,37 @@ Job Runtime is designed to work on any Linux distro. Most of our SaaS customers 
 * [Ubuntu 14.04 LTS](/platform/runtime/os/ubuntu14)
 * [Ubuntu 16.04 LTS](/platform/runtime/os/ubuntu16)
 
+#### Common components installed
+All our images come pre-installed with the following packages....
+
+* build-essential
+* curl
+* gcc
+* gettext
+* git
+* htop
+* jq
+* libxml2-dev
+* libxslt-dev
+* make
+* nano
+* openssh-client
+* openssl
+* psmisc
+* python-dev
+* python-pip
+* python-software-properties
+* software-properties-common
+* sudo
+* texinfo
+* unzip
+* virtualenv
+
 Since we are a Docker based platform, any custom image based on a Linux distro can be used in Job Runtime.
 
 <a name="language"></a>
 ### Language
-For both the OS versions, we maintain [language](platform/language-overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
+For both the OS versions, we maintain [language](platform/runtime/language/overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
 We support the following languages -
 
 * [Clojure](/platform/runtime/language/clojure)
@@ -45,7 +71,7 @@ We support the following languages -
 
 <a name="service"></a>
 ### Services
-To make your builds even faster, we also pre-install a bunch of Services that your application may need. These are also updated on a monthly cadence.
+To make your builds even faster, we also pre-install a bunch of [Services](platform/runtime/service/overview) that your application may need. These are also updated on a monthly cadence.
 
 Following are the service that are pre-installed -
 
@@ -94,19 +120,30 @@ To run you DevOps activities, you need a Node (virtual machine). Shippable suppo
 
 <a name="env"></a>
 ### Environment variables
-[Environment variables](/platform/runtime/environment-variables) are used to control the context of your DevOps activity. This can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. For example AWS Credentials to connect to your VPC; Keys to access your VMs; Login to your Docker hub etc.
+Environment variables are used to control the context of your DevOps activity. Setting this manually everytime you execute a particular activity can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. 
+
+Typical use cases for this are
+
+* Configuring your AWS Credentials to connect to a VPC
+* SSH Keys to access your VMs 
+* Login to your Docker hub
+* Stage specific application configurations e.g. Dev Settings vs Test Settings
+* Logging verbosity for different stages of Software Delivery 
+* Docker options for multi stage deployments
+
+We provide multiple ways to control how environment variables are injected into your Job Runtime. This also varies a bit depending on the [Resource Types](/platform/workflow/resource/overview) you are using. This is applicable to [RunSh](/platform/workflow/job/runsh) and [RunCI](/platform/workflow/job/runci) Job types. 
 
 <a name="cache"></a>
 ### Caching
-[Caching](/platform/runtime/caching) speeds up your build by automatically setting up your static dependencies. Typical usecases are caching node modules, ruby gems and static binaries.
+Caching speeds up your build by automatically setting up your static dependencies. It can be used to speed up builds by 
+
+- caching node modules
+- ruby gems 
+- static binaries from external sources
+- ... and so on
 
 ## Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
-* Working with other flavors of linux
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Further Reading needs thinking|  Open |
+* [Build Images](/platform/tutorial/runtime/ami-overview)
+* [More about Environment Variables](/platform/tutorial/runtime/environment-variables)
+* [More about Caching](/platform/tutorial/runtime/caching)
+* [Jobs Overview](/platform/workflow/job/overview)
