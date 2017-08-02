@@ -35,10 +35,6 @@ This service is installed on to the base OS image along with other services. The
 ## Supported Languages
 Since all [Language](/platform/runtime/language/overview) images are built from the the `all` versions of the OS as above, this service is also available if you use language specific images. Shippable platform automatically picks the latest language image based on your [CI YML settings](ci/set-language/), but if you need finer grain control, you can use the image tag sections of the YML.
 
-
-## Supported Version Tags
-The drydock docker image is tagged when the image is updated. These are the supported tags -
-
 * [Clojure](/platform/runtime/language/clojure)
 * [GO](/platform/runtime/language/go)
 * [Java](/platform/runtime/language/java)
@@ -49,8 +45,7 @@ The drydock docker image is tagged when the image is updated. These are the supp
 * [Scala](/platform/runtime/language/scala)
 
 ## Supported Versions
-This table helps you choose the right tag for the language version that you are interested in and the
-AMI that you should set for your subscription.
+This table helps you choose the right tag based on the version of the service you might want to use
 
 | Version  |  Tags   
 |----------|---------

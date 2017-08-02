@@ -1,39 +1,47 @@
 page_main_title: JFrog CLI Overview
 main_section: Platform
-sub_section: Job Runtime
+sub_section: Runtime
 sub_sub_section: CLIs
 page_title: JFrog CLI Overview
 
 # JFrog CLI
 
-Job Images with JFrog CLI pre-installed are available for multiple operating systems, languages and versions. Each os-language-version combination is published in Docker hub as an image with a specific tag. The Docker hub account where we publish these images is `drydock`.
+JFrog CLI is available for all [Jobs](/platform/workflow/job/overview) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
 
-## Supported Version Tags
-The `drydock` Docker image is tagged with a new version when the image is updated. These are the supported tags -
+## Supported OS Versions
+This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image
 
-* v5.7.3                
-* v5.6.1                
-* v5.5.1                
-* v5.4.1                
-* v5.3.2               
+### Ubuntu 16.04
 
-## Supported OS-Language Versions
-JFrog CLI is available on the drydock links specified below for these OS and language versions.
+|Image| Release Date |Available in AMI | 
+|----------|------------|-----|
+[drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u16all:v5.6.1](/platform/runtime/os/ubuntu16#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
+[drydock/u16all:v5.5.1](/platform/runtime/os/ubuntu16#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
+[drydock/u16all:v5.4.1](/platform/runtime/os/ubuntu16#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
+[drydock/u16all:v5.3.2](/platform/runtime/os/ubuntu16#v532)  | Mar 2017 | [v5.3.2](/platform/tutorial/runtime/ami-v532)
 
-|Language| Ubuntu 14.04 Docker image name                    | Ubuntu 16.04 Docker image name                                    |
-|--------------------|--------------------------------------------|------------------------------------------------------------|
-|Nodejs|[drydock/u14nodall](https://hub.docker.com/r/drydock/u14nodall)| [drydock/u16nodall](https://hub.docker.com/r/drydock/u16nodall)|
-|Python|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14pytall)| [drydock/u16pytall](https://hub.docker.com/r/drydock/u16pytall)|
-|Java|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14javall)| [drydock/u16javall](https://hub.docker.com/r/drydock/u16javall)|
-|Ruby|[drydock/u14ruball](https://hub.docker.com/r/drydock/u14ruball)| [drydock/u16ruball](https://hub.docker.com/r/drydock/u14ruball)|
-|GO|[drydock/u14golall](https://hub.docker.com/r/drydock/u14golall)| [drydock/u16golall](https://hub.docker.com/r/drydock/u16golall)|
-|Clojure|[drydock/u14cloall](https://hub.docker.com/r/drydock/u14cloall)| [drydock/u16cloall](https://hub.docker.com/r/drydock/u16cloall)|
-|Scala|[drydock/u14scaall](https://hub.docker.com/r/drydock/u14scaall)| [drydock/u16scaall](https://hub.docker.com/r/drydock/u16scaall)|
-|C/C++|[drydock/u14cppall](https://hub.docker.com/r/drydock/u14cppall)| [drydock/u16cppall](https://hub.docker.com/r/drydock/u16cppall)|
+
+### Ubuntu 14.04
+
+|Image| Release Date |Available in AMI | 
+|----------|------------|-----|
+[drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
+[drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
+[drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
+[drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532)  | Mar 2017 | [v5.3.2](/platform/tutorial/runtime/ami-v532)
+
 
 ## Supported Versions
-This table helps you choose the right tag for the language version that you are interested in.
+This table helps you choose the right tag based on the version of the CLI you might want to use
 
-| Version  |  Tags    | Supported OS|
-|----------|---------|-----------|
-|1.7.0  | v5.7.3 and below  | Ubuntu 16.04 and Ubuntu 14.04 |
+| Version  |  Tags    
+|----------|---------
+|1.7.0  | v5.7.3 and below
+
+## Further Reading
+* [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
+* [Quick Start to CI](/getting-started/ci-sample)
+* [CI YML](/ci/yml-structure)
+* [RunSh Job](/platform/workflow/job/runsh)
