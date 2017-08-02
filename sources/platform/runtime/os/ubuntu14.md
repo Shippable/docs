@@ -24,8 +24,7 @@ We support a minimum of 12 tags i.e. 12 months for backward compatability.
 
 These images are pre-packaged into an Amazon Machine Image (AMI) for faster build time. This AMI to boot the VM on which your [runCI](/platform/workflow/job/runci) will execute. You can set which AMI to use for your organization following these [instructions](/ci/build-image).
 
-You can configure different OS images for your [runCI](/platform/workflow/job/runci) Jobs or even [build](/ci/custom-docker-image) your own from scratch.
-
+You can configure different images or even [build](/ci/custom-docker-image) your own from scratch for your [runCI](/platform/workflow/job/runci) Jobs.
 
 <a name="v573"></a>
 ## Image `drydock/u14all:v5.7.3`

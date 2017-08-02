@@ -15,7 +15,7 @@ We update this image `drydock/u16all` on a monthly candence and push a unique ta
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-[drydock/u164all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 [drydock/u16all:v5.6.1](/platform/runtime/os/ubuntu16#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 [drydock/u16all:v5.5.1](/platform/runtime/os/ubuntu16#v551) | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551) 
 [drydock/u16all:v5.4.1](/platform/runtime/os/ubuntu16#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
@@ -25,7 +25,7 @@ We support a minimum of 12 tags i.e. 12 months for backward compatability.
 
 These images are pre-packaged into an Amazon Machine Image (AMI) for faster build time. This AMI to boot the VM on which your [runCI](/platform/workflow/job/runci) will execute. You can set which AMI to use for your organization following these [instructions](/ci/build-image).
 
-You can configure different OS images for your [runCI](/platform/workflow/job/runci) Jobs or even [build](/ci/custom-docker-image) your own from scratch.
+You can configure different images or even [build](/ci/custom-docker-image) your own from scratch for your [runCI](/platform/workflow/job/runci) Jobs.
 
 
 <a name="v573"></a>
