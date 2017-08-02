@@ -1,7 +1,7 @@
 page_main_title: Dynamic Nodes Overview
 main_section: Platform
-sub_section: Runtime
-sub_sub_section: Nodes
+sub_section: Tutorial
+sub_sub_section: Runtime
 page_title: Dynamic Nodes Overview
 
 # TODO
