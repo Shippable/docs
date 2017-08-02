@@ -1,6 +1,6 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Tutorial
+sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Machine Images on Shippable
 page_description: An explanation of the images used for CI

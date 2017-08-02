@@ -1,6 +1,6 @@
 page_main_title: Custom Nodes Overview
 main_section: Platform
-sub_section: Tutorial
+sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Custom Nodes Overview
 

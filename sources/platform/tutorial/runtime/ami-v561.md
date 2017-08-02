@@ -1,6 +1,6 @@
 page_main_title: v5.6.1
 main_section: Platform
-sub_section: Tutorial
+sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Description of what is available in Machine Image v5.6.1
 page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.6.1
