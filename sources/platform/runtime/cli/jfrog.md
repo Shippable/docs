@@ -6,7 +6,9 @@ page_title: JFrog CLI Overview
 
 # JFrog CLI
 
-JFrog CLI is available for all [Jobs](/platform/workflow/job/overview) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+JFrog CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+
+More information is present on [JFrog CLI page](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory)
 
 ## Supported OS Versions
 This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image

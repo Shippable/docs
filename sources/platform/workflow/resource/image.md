@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # image
 `image` resource is used to add a reference to a docker image to your pipeline.
 
-You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -21,18 +21,20 @@ resources:
 * **`type`** -- is set to `image`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	- [Docker Hub](integration/docker-hub/)
-	- [Docker Private Registry](integration/docker-trusted-registry/)
-	- [Docker Trusted Registry](integration/docker-trusted-registry/)
-	- [Google Container Registry (GCR)](integration/gcr/)
-	- [Amazon Elastic Container Registry (ECR)](integration/aws-ecr/)
-	- [Quay.io](integration/quay/)
+	- [Amazon Elastic Container Registry (ECR)](/platform/integration/aws-ecr)
+	- [Docker Hub](/platform/integration/docker-hub)
+	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
+	- [Docker Private Registry](/platform/integration/docker-private-registry)
+	- [Google Container Registry (GCR)](/platform/integration/gcr)
+	- [JFrog Artifactory](/platform/integration/jfrog-artifactory)
+	- [Quay.io](/platform/integration/quay)
 
 * **`pointer`** -- is an object which contains integration specific properties
 
 ```
   pointer:
     sourceName: < Fully Qualified Name of the image, can be just repo/image in case of Docker Hub
+    isPull: <boolean - default is false, but if true, then then image is pulled into your runSh runntime>
 ```
 * **`seed`** -- is an object which contains initial version properties
 
@@ -44,10 +46,9 @@ resources:
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* runCLI
-* runSH
-* runCI
-* manifest
+* [deploy](/platform/workflow/job/deploy)
+* [runSh](/platform/workflow/job/runSh)
+* [manifest](/platform/workflow/job/manifest)
 
 ## Default Environment Variables
 Whenever `image` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -59,7 +60,7 @@ Whenever `image` is used as an `IN` or `OUT` into a Job that can execute user de
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `image`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer |
@@ -74,13 +75,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* how to ourput image tag from runCI or runSH
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

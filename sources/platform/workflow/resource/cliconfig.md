@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # cliconfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
 
-You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins.
 
@@ -23,16 +23,17 @@ resources:
 * **`type`** -- is set to `cliConfig`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	* AWS
-	* Amazon EC2 Container Registry (ECR)
-	* Docker Hub
-	* Docker Trusted Registry
-	* Google Container Engine (GKE)
-	* Google Container Registry (GCR)
-	* JFrog Artifactory
-	* Kubernetes
-	* Private Docker Registry
-	* Quay.io
+	* [AWS](integration/aws)
+	* [AWS ECR](integration/aws-ecr)
+	* [Docker Hub](integration/docker-hub)
+	* [Docker Trusted Registry](integration/docker-trusted-registry)
+	* [Docker Private Registry](integration/docker-private-registry)
+	* [Google Cloud](integration/gce) 
+	* [Google Container Registry](integration/gcr)
+	* [Google Container Engine](integration/gke)
+	* [JFrog](integration/jfrog-artifactory)
+	* [Kubernetes](integration/kubernetes)
+	* [Quay](integration/quay)
 
 * **`pointer`** -- is an object which contains integration specific properties
 	* in case of AWS
@@ -42,7 +43,7 @@ resources:
 	      region: <aws region for e.g us-east-1, us-west-1 etc.>
 	```
 
-	* in case of GKE, if region and clusterName is provided `gcloud` and `kubectl` will be sutomatically configured to use it. If not provided, just the authentication to google cloud is done automatically
+	* in case of Google Integrations, if region and clusterName is provided `gcloud` and `kubectl` will be sutomatically configured to use it. If not provided, just the authentication to google cloud is done automatically
 
 	```
 	    pointer:
@@ -60,22 +61,22 @@ integration. Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools           |
 | ------------------------------------|-------------|
-| AWS                                 | [AWS CLI](https://aws.amazon.com/cli/); [EB (Elastic Beanstalk) CLI](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) |
-| Amazon EC2 Container Registry (ECR) | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| Docker Hub                          | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| Docker Trusted Registry             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| Google Container Engine             | [gcloud](https://cloud.google.com/sdk/gcloud/); [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
-| Google Container Registry (GCR)     | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| JFrog Artifactory                   | [JFrog CLI](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory) |
-| Kubernetes                          | [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
-| Private Docker Registry             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| Quay.io                             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
+| AWS                                 | [AWS CLI](/platform/runtime/cli/aws); [AWS Elastic Beanstalk CLI](/platform/runtime/cli/awseb) |
+| Amazon EC2 Container Registry (ECR) | [Docker Engine](/platform/runtime/cli/docker) |
+| Docker Hub                          | [Docker Engine](/platform/runtime/cli/docker) |
+| Docker Private Registry             | [Docker Engine](/platform/runtime/cli/docker) |
+| Docker Trusted Registry             | [Docker Engine](/platform/runtime/cli/docker) |
+| Google Container Engine             | [gcloud](/platform/runtime/cli/gke); [kubectl](/platform/runtime/cli/kubectl) |
+| Google Container Registry (GCR)     | [Docker Engine](/platform/runtime/cli/docker) |
+| JFrog Artifactory                   | [JFrog CLI](/platform/runtime/cli/jfrog) |
+| Kubernetes                          | [kubectl](/platform/runtime/cli/kubectl) |
+| Quay.io                             | [Docker Engine](/platform/runtime/cli/docker) |
 
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [runCLI](workflow/job/runcli/)
-* [runSH](workflow/job/runsh/)
+* [runCI](workflow/job/runci/)
+* [runSh](workflow/job/runsh/)
 
 ## Default Environment Variables
 Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -87,7 +88,7 @@ Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute use
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `cliConfig`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on Integration page|
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_POINTER\_REGION 				| Region defined in the pointer. Available if the integration is AWS or Google |
@@ -102,15 +103,11 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* runCLI job
-* cli pre-installed in job runtime
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)
+* [Supported CLIs](/platform/runtime/overview#cli)
 
 ## TODO
 | Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
 | Update Utility functions section|  Open |

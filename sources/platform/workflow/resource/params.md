@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # params
 `params` resource stores user defined key-value pairs. This can be then used to inject it into an Job Runtime environment where your DevOps activity runs or can be used to set environment variables of your deploy target (VMs or containers). There are two ways params resources can be used.
 
-You can create a file resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -33,11 +33,10 @@ You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any ke
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [runCLI](workflow/job/runcli/)
-* [runSh](workflow/job/runsh/)
-* [runCI](workflow/job/runci/)
-* [deploy](workflow/job/deploy/)
-* [manifest](workflow/job/manifest/)
+* [runSh](/platform/workflow/job/runsh)
+* [runCI](/platform/workflow/job/runci)
+* [deploy](/platform/workflow/job/deploy)
+* [manifest](/platform/workflow/job/manifest)
 
 ## Default Environment Variables
 Whenever `params` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -71,9 +70,6 @@ These utility functions are [documented here]()
 * how to deploy a file to a VM cluster
 * Output a file from runSH
 
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
+## Further Reading
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

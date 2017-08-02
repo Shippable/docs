@@ -7,13 +7,13 @@ sub_sub_section: Resources
 # time
 `time` resource provides cron like functionality. It is used to to trigger a job in a cron like manner. This resource can be used used as an IN input for [any job](workflow/job/overview/). The timezone used for triggering jobs is UTC.
 
-You can create a replicas resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
   - name: 			<string>
     type: 			time
-    seed:		<object>
+    seed:			<object>
 ```
 
 * **`name`** -- should be an easy to remember text string
@@ -41,7 +41,6 @@ Whenever `time` is used as an `IN` or `OUT` into a Job that can execute user def
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `time`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_SEED\_INTERVAL 				| Interval defined in the seed section |
@@ -55,10 +54,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* How to run schedule CI runs
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

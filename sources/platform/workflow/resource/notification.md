@@ -6,10 +6,10 @@ sub_sub_section: Resources
 # notification
 `notification` resource is used to connect DevOps Assembly Lines to notification providers of your choice. These are providers we currently support
 
-* E-mail
+* Email
 * Hipchat
-* Slack
 * IRC
+* Slack
 
 You can send notifications upon following events occuring in your workflow:
 
@@ -18,7 +18,7 @@ You can send notifications upon following events occuring in your workflow:
 * Job failed (on_failure)
 * Job canceled (on_cancel)
 
-You can create a notification resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -33,10 +33,10 @@ resources:
 * **`type`** -- is set to `notification`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	* Slack
-	* Hipchat
-	* Email - no integration is required
-	* IRC - no integration is required
+	- [Email](integration/email)
+	- [HipChat](integration/hipchat)
+	- [IRC](integration/irc) - Not required
+	- [Slack](integration/slack) - Not required
 
 * **`pointer`** -- is an object which contains integration specific properties
 	* in case of email
@@ -93,7 +93,7 @@ Whenever `notification` is used as an `IN` or `OUT` into a Job that can execute 
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `notification`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_POINTER\_METHOD 				| Method defined in the pointer. Available if set |
@@ -108,15 +108,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* Integrations overview
-* AWS integration
-* runCLI job
-* Sending notifications when a Job starts, finishes or errors
-* Alerting teams with key metrics from CI
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

@@ -340,7 +340,6 @@ pages:
         - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
         - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
         - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
-
       - API:
         - Overview: platform/tutorial/api/api-overview.md
         - Tokens: platform/tutorial/api/api-tokens.md

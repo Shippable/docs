@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with with webhook payload. This will trigger any jobs that have this resource as an `IN`.
 
-You can create an cliConfig resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -21,10 +21,10 @@ resources:
 * **`type`** -- is set to `gitRepo`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	* [GitHub](integration/github/)
-	* [Bitbucket](integration/bitbucket/)
-	* [Bitbucket Server](integration/bitbucket-server/)
-	* [Gitlab/GitlabServer](integration/gitlab/)
+	* [Bitbucket](/platform/integration/bitbucket)
+	* [Bitbucket Server](/platform/integration/bitbucket-server)
+	* [GitHub](/platform/integration/github)
+	* [Gitlab/GitlabServer](/platform/integration/gitlab)
 
 * **`pointer`** -- is an object which contains integration specific properties
 
@@ -69,9 +69,8 @@ resources:
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* runCLI
-* runSH
-* runCI
+* [runSh](/platform/workflow/job/runsh)
+* [runCI](/platform/workflow/job/runci)
 
 ## Default Environment Variables
 Whenever `gitRepo` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -91,7 +90,7 @@ Whenever `gitRepo` is used as an `IN` or `OUT` into a Job that can execute user 
 | `<NAME>`\_GIT\_TAG\_NAME      			| If a Tag Name was present in the current version, Supported only if the Integration is GitHub.|
 | `<NAME>`\_HEAD\_BRANCH       			| If the version in context is a pull requests, then this is the name of the branch the pull request was opened from. |
 | `<NAME>`\_HTTPS\_URL       				| The HTTPS URL for the Git repository. |
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_IS\_GIT\_TAG        			| Set to `TRUE` if the version in context is a git tag based build. Supported only if the Integration is GitHub. |
 | `<NAME>`\_IS\_RELEASE        			| Set to `TRUE` if the version in context is a git release based build. Supported only if the Integration is GitHub. |
 | `<NAME>`\_KEYPATH           			| Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo |
@@ -121,37 +120,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
-
-## This to consider
-
-1. To create a `gitRepo` that creates new versions only for tag or release event
-
-```
-  pointer:
-    sourceName: org/foo
-    tags:
-      except:
-        - <tag name>		<string>
-        - <tag name>		<string>
-      only:
-        - <tag name>		<string>
-        - <tag name>		<string>
-	buildOnCommit:  false
-	buildOnRelease: true
-	buildOnTagPush: true
-```
-
-  2. Either `branch` or `branches` needs to be set if a new version of `gitRepo` is posted on webhook for `buildOnCommit` or `buildOnPullRequest`.
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

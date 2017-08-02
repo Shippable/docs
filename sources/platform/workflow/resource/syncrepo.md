@@ -38,9 +38,5 @@ At this point, Shippable will create `syncRepo` resource and `rSync` job. After 
 <img src="/images/platform/resources/syncRepo/syncRepo-flag.png" alt="syncRepo flag">
 
 # Further Reading
-* JFrog integration
-* AWS integration
-* runCLI job
-* cli pre-installed in job runtime
-* how to deploy a file to a VM cluster
-* Output a file from runSH
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

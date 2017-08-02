@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # loadBalancer
 `loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
-You can create a loadbalancer resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -21,12 +21,12 @@ resources:
 * **`type`** -- is set to `file`
 
 * **`integration`** -- name of the integration. Currently supported integrations are
-	* AWS
-	* Google Cloud
+	* [AWS](/platform/integration/aws)
+	* [Google Container Engine (GKE)](/platform/integration/gke)
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* in case of [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/)		
-
+	* in case of [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/)	
+	
 	```
 	    pointer:
 	      sourceName: 	<name of the Classic Load Balancer>
@@ -34,6 +34,7 @@ resources:
 	      role: 		<AWS IAM role used to update the Load Balancer>
 
 	```
+	
 	Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, shippable will search for one that has the right level of trust automatically. If none found, the job where this resource is used will fail
 
 	* in case of [AWS Application Load Balancers](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/)
@@ -87,8 +88,8 @@ resources:
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* [deploy](workflow/job/deploy/)
-* [provision](workflow/job/provision/)
+* [deploy](/platform/workflow/job/deploy/)
+* [provision](/platform/workflow/job/provision/)
 
 ## Default Environment Variables
 Whenever `loadBalancer` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -100,7 +101,7 @@ Whenever `loadBalancer` is used as an `IN` or `OUT` into a Job that can execute 
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `loadBalancer`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_POINTER\_METHOD 				| Region defined in the pointer. Available if the integration is AWS or Google |
@@ -117,16 +118,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* JFrog integration
-* AWS integration
-* runCLI job
-* cli pre-installed in job runtime
-* how to deploy a file to a VM cluster
-* Output a file from runSH
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

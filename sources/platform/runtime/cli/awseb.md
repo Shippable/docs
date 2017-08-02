@@ -6,7 +6,9 @@ page_title: AWS Elastic Beanstalk CLI Overview
 
 # AWS Elastic Beanstalk CLI
 
-AWS Elastic Beanstalk CLI is available for all [Jobs](/platform/workflow/job/overview) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+AWS Elastic Beanstalk CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+
+More information is present on [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html)
 
 ## Supported OS Versions
 This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image

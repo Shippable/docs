@@ -9,7 +9,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # cluster
 `cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole.
 
-You can create an cluster resource by [adding](resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -24,17 +24,17 @@ resources:
 * **`type`** -- is set to `cluster`
 
 * **`integration`** -- name of the integration. Currently supported integrations
-	* [AWS Elastic Container Service (ECS)](integration/aws-ecs/)
-	* [Kubernetes](integration/kubernetes/)
-	* [Google Container Engine (GKE)](integration/gke/)
-	* [Docker Cloud](integration/docker-cloud/)
-	* [Docker Datacenter](integration/docker-datacenter/)
-	* [Microsoft Azure Container Service](integration/azure-dcos)
-	* Node Cluster
-	* AWS
+	* [AWS](/platform/integration/aws)
+	* [AWS Elastic Container Service (ECS)](/platform/integration/aws-ecs)
+	* [Azure Container Service](/platform/integration/azure-dcos)
+	* [Docker Cloud](/platform/integration/docker-cloud)
+	* [Docker Datacenter](/platform/integration/docker-datacenter)
+	* [Google Container Engine (GKE)](/platform/integration/gke)
+	* [Kubernetes](/platform/integration/kubernetes)
+	* [Node Cluster](/platform/integration/node-cluster)
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* in case of AWS
+	* For AWS integration 
 
 	```
 	    pointer:
@@ -42,7 +42,18 @@ resources:
 	      sourceName: contains ECS cluster name
 	```
 
-	* in case of GKE
+	* For Azure integration - NA
+	* For Kubernetes integration - NA
+	* For Docker Cloud integration
+	
+	```
+	    pointer:
+	      sourceName: <Docker Cloud Cluster Name> 
+	```
+
+	* For Docker Datacenter - NA	
+	* For Kubernetes integration - NA
+	* For GKE integration
 
 	```
 	    pointer:
@@ -50,18 +61,14 @@ resources:
 	      sourceName: <cluster of type Google Container Engine>
 	      namespace: optional if you want to specify which namespace you want to deploy to
 	```
-
-	* Joyent
-	* Azure
-	* Custom kubernetes
-
+	
+	* For node Cluster - NA
 
 ## Used in JOBs
 This resource is used as an IN for the following jobs
 
-* deploy
-* runCLI
-* runSH
+* [deploy](/platform/workflow/job/deploy)
+* [runSh](/platform/workflow/job/runSh)
 
 ## Default Environment Variables
 Whenever `cluster` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -73,7 +80,7 @@ Whenever `cluster` is used as an `IN` or `OUT` into a Job that can execute user 
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `cluster`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the [Integration]() depending on which was used. More info on integration page |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_POINTER\_REGION 				| Region defined in the pointer. Available if the integration is AWS or Google |
@@ -90,16 +97,5 @@ To make it easy to GET and SET with these Environment Variables, the platform pr
 These utility functions are [documented here]()
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* Azure
-* Docker
-* deploy job
-* runSH
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Need to pointer for each integration type|  Open |
+* [manifest Job](/platform/workflow/job/manifest)
+* [release Job](/platform/workflow/job/release)
