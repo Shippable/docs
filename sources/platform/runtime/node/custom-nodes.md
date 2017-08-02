@@ -1,6 +1,6 @@
 page_main_title: Custom Nodes Overview
 main_section: Platform
-sub_section: Job Runtime
+sub_section: Runtime
 sub_sub_section: Nodes
 page_title: Custom Nodes Overview
 
