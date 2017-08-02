@@ -8,20 +8,27 @@ page_title: Ubuntu 14.04 Image for CI
 
 Ubuntu 14.04 based images for Shippable Continuous Integration is available as part of the platform. All our [Language Images](/platform/runtime/languages/overview) are derived from this base image. This image comes pre-installed with latest version of Java, Ruby & Node along with the OS default version of Python. We also install all the [Services](/platform/runtime/service/overview) we support on this image.
 
-We update this image `drydock/u14all` on a monthly candence and push a unique tag to our [drydock repository](https://hub.docker.com/r/drydock/u14all/) on Docker hub. The tag is of format `<Shippable Version>.<Month>.<Release Number>`
+We update this image `drydock/u14all` on a monthly candence and push a unique tag to our [drydock repository](https://hub.docker.com/r/drydock/u14all/) on Docker hub. The tag is of format `<Version>.<Month>.<Release Number>`
 
-These are the version currently supported 
+## Currently Supported Images
 
-* [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573) - Jul 2017 - Latest Version
-* [drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561) - Jun 2017
-* [drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551) - May 2017
-* [drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541) - Apr 2017
-* [drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532) - Mar 2017
+|Image| Release Date |Available in AMI | 
+|----------|------------|-----|
+[drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
+[drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551) | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551) 
+[drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
+[drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532)  | Mar 2017 | [v5.3.2](/platform/tutorial/runtime/ami-v532)
 
 We support a minimum of 12 tags i.e. 12 months for backward compatability. 
 
+These images are pre-packaged into an Amazon Machine Image (AMI) for faster build time. This AMI to boot the VM on which your [runCI](/platform/workflow/job/runci) will execute. You can set which AMI to use for your organization following these [instructions](/ci/build-image).
+
+You can configure different OS images for your [runCI](/platform/workflow/job/runci) Jobs or even [build](/ci/custom-docker-image) your own from scratch.
+
+
 <a name="v573"></a>
-## Image `drydock/u14all:v5.7.1`
+## Image `drydock/u14all:v5.7.3`
 
 These are the **Languages** installed
 
