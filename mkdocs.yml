@@ -277,9 +277,6 @@ pages:
         - Riak: platform/runtime/service/riak.md
         - Selenium: platform/runtime/service/selenium.md
         - Sqllite: platform/runtime/service/sqllite.md
-      - Nodes:
-        - Dynamic Nodes: platform/runtime/node/dynamic-nodes.md
-        - Custom Nodes: platform/runtime/node/custom-nodes.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md

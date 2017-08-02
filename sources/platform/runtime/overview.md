@@ -21,6 +21,8 @@ Some of the key benefits of this are
 Job Runtime consists of the following components
 
 <a name="os"></a>
+
+
 ### Operating System
 Job Runtime is designed to work on any Linux distro. Most of our SaaS customers use Ubuntu and we supply pre-built images for
 
@@ -56,6 +58,8 @@ All our images come pre-installed with the following packages....
 Since we are a Docker based platform, any custom image based on a Linux distro can be used in Job Runtime.
 
 <a name="language"></a>
+
+
 ### Language
 For both the OS versions, we maintain [language](platform/runtime/language/overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
 We support the following languages -
@@ -70,6 +74,8 @@ We support the following languages -
 * [Scala](/platform/runtime/language/scala)
 
 <a name="service"></a>
+
+
 ### Services
 To make your builds even faster, we also pre-install a bunch of [Services](platform/runtime/service/overview) that your application may need. These are also updated on a monthly cadence.
 
@@ -91,6 +97,8 @@ Following are the service that are pre-installed -
 * [SqlLite](/platform/runtime/service/sqllite)
 
 <a name="cli"></a>
+
+
 ### Command Line Interfaces (CLI)
 Majority of the apps today run on cloud. Each cloud provider has a native CLI and we want to avoid you having to install and configure them. In addition we also pre-install some popular DevOps tools also. The goals is to try and prep the build environment as close to your desired state so that you can spend less time prepping and more time developing applications.
 
@@ -108,17 +116,21 @@ Here is a list of CLIs we have available as part of Job Runtime -
 * [Kubectl](/platform/runtime/cli/kubectl)
 
 <a name="nodes"></a>
+
+
 ### Nodes
 To run you DevOps activities, you need a Node (virtual machine). Shippable support 2 types of Nodes
 
-* [Dedicated Dynamic Nodes](/platform/runtime/dynamic-nodes) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need
+* [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need
 	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
 	
-* [Dedicated Custom Nodes](/platform/runtime/custom-nodes) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
+* [Dedicated Custom Nodes](/platform/runtime/tutorial/custom-nodes) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
 
 <a name="env"></a>
+
+
 ### Environment variables
 Environment variables are used to control the context of your DevOps activity. Setting this manually everytime you execute a particular activity can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. 
 
