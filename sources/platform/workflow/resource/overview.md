@@ -2,15 +2,9 @@ page_main_title: Overview
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
-page_title: Unified Pipeline Resources
+page_title: DevOps Assembly Line Resources
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
-
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
 
 # Resources
 Resources are the basic building blocks of your pipelines. They typically contain information needed for [Jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced in a Job.
@@ -48,26 +42,26 @@ These are the types of resources that Shippable Workflow supports:
 
 | Resource Type   |      Description    |
 |----------|-------------|
-| [ciRepo](workflow/resource/cirepo/) | Represents a CI project for a git repo |
-| [cliConfig](workflow/resource/cliconfig/) | Configuration information for command-line tools |
-| [cluster](workflow/resource/cluster/) | Cluster defines a collection of servers |
-| [dockerOptions](workflow/resource/dockeroptions/) | Configuration information for a container |
-| [file](workflow/resource/file/) | Location of a file |
-| [gitRepo](workflow/resource/gitrepo/) | Represents a source code repo |
-| [image](workflow/resource/image/) | Represents a package on a registry |
-| [integration](workflow/resource/integration/) | Encrypted connection information to 3rd party services |
-| [loadBalancer](workflow/resource/loadbalancer/) | Represents load-balancer resources offered by cloud providers |
-| [notification](workflow/resource/notification/) | Resource to send alerts from the workflow |
-| [params](workflow/resource/params/) | Environment variables used to prime your job runtime |
-| [replicas](workflow/resource/replicas/) | Number of copies of the service to run |
-| [syncRepo](workflow/resource/gitrepo/) | Used to define DevOps Assembly Lines |
-| [time](workflow/resource/time/) | Trigger a job at a specific day and time |
-| [version](workflow/resource/version/) | Semantic versions |
+| [ciRepo](/platform/workflow/resource/cirepo/) | Represents a CI project for a git repo |
+| [cliConfig](/platform/workflow/resource/cliconfig/) | Configuration information for command-line tools |
+| [cluster](/platform/workflow/resource/cluster/) | Cluster defines a collection of servers |
+| [dockerOptions](/platform/workflow/resource/dockeroptions/) | Configuration information for a container |
+| [file](/platform/workflow/resource/file/) | Location of a file |
+| [gitRepo](/platform/workflow/resource/gitrepo/) | Represents a source code repo |
+| [image](/platform/workflow/resource/image/) | Represents a package on a registry |
+| [integration](/platform/workflow/resource/integration/) | Encrypted connection information to 3rd party services |
+| [loadBalancer](/platform/workflow/resource/loadbalancer/) | Represents load-balancer resources offered by cloud providers |
+| [notification](/platform/workflow/resource/notification/) | Resource to send alerts from the workflow |
+| [params](/platform/workflow/resource/params/) | Environment variables used to prime your job runtime |
+| [replicas](/platform/workflow/resource/replicas/) | Number of copies of the service to run |
+| [syncRepo](/platform/workflow/resource/gitrepo/) | Used to define DevOps Assembly Lines |
+| [time](/platform/workflow/resource/time/) | Trigger a job at a specific day and time |
+| [version](/platform/workflow/resource/version/) | Semantic versions |
 
 If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 ## Further Reading
 * [Working with Resources](/platform/workflow/resource/working-with/)
-* How to store custom key-values in resource versions
-* Working with Integrations
-* Jobs
+* [Jobs](/platform/workflow/job/overview)
+* [Integrations](/platform/workflow/integration/overview)
+
