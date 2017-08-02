@@ -330,12 +330,17 @@ pages:
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
+        - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
+        - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
+        - Caching: platform/tutorial/runtime/caching.md
+        - Environment Variables: platform/tutorial/runtime/environment-variables.md
         - AMI Overview: platform/tutorial/runtime/ami-overview.md
         - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
         - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
         - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
         - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
         - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
+
       - API:
         - Overview: platform/tutorial/api/api-overview.md
         - Tokens: platform/tutorial/api/api-tokens.md
