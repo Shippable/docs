@@ -1,6 +1,7 @@
 page_main_title: Managing nodes
-main_section: Getting started
-sub_section: Using your own infrastructure
+main_section: Platform
+sub_section: Tutorial
+sub_sub_section: Runtime
 
 # Managing your build infrastructure
 

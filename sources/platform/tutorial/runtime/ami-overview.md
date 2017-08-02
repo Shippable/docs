@@ -1,6 +1,7 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Machine Images
+sub_section: Tutorial
+sub_sub_section: Runtime
 page_title: Machine Images on Shippable
 page_description: An explanation of the images used for CI
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker, version, 1.11, 1.12

@@ -1,6 +1,7 @@
 page_main_title: Overview
-main_section: Getting started
-sub_section: Using your own infrastructure
+main_section: Platform
+sub_section: Tutorial
+sub_sub_section: Runtime
 
 #Running builds on your own infrastructure
 By default, all your builds run in build containers hosted on Shippable's infrastructure.
