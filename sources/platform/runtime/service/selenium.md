@@ -1,44 +1,64 @@
 page_main_title: Selenium Service Overview
 main_section: Platform
-sub_section: Job Runtime
+sub_section: Runtime
 sub_sub_section: Services
 page_title: Service Overview
 
 # Selenium Job Images
 
-Job Images for Selenium are available for multiple operating systems, languages and versions. Each os-language-version combination is published in Docker hub as an image with a specific tag. The Docker hub account where we publish these images is drydock.
+Selenium is available as an [optional service](/ci/selenium) that you can start as part of your CI process. All language images and all Operating Systems support this service
 
-If you specify the version in Shippable.yml, the platform automatically selects the right image for you. However,
-you can also script the install of any prior or later release of the service if you so desire.
+## Supported OS Versions
+This service is installed on to the base OS image along with other services. The following are tags and release dates of the base OS Image
+
+### Ubuntu 16.04
+
+|Image| Release Date |Available in AMI | 
+|----------|------------|-----|
+[drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u16all:v5.6.1](/platform/runtime/os/ubuntu16#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
+[drydock/u16all:v5.5.1](/platform/runtime/os/ubuntu16#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
+[drydock/u16all:v5.4.1](/platform/runtime/os/ubuntu16#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
+[drydock/u16all:v5.3.2](/platform/runtime/os/ubuntu16#v532)  | Mar 2017 | [v5.3.2](/platform/tutorial/runtime/ami-v532)
+
+
+### Ubuntu 14.04
+
+|Image| Release Date |Available in AMI | 
+|----------|------------|-----|
+[drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
+[drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
+[drydock/u14all:v5.4.1](/platform/runtime/os/ubuntu14#v541)  | Apr 2017 | [v5.4.1](/platform/tutorial/runtime/ami-v541)
+[drydock/u14all:v5.3.2](/platform/runtime/os/ubuntu14#v532)  | Mar 2017 | [v5.3.2](/platform/tutorial/runtime/ami-v532)
+
+
+## Supported Languages
+Since all [Language](/platform/runtime/language/overview) images are built from the the `all` versions of the OS as above, this service is also available if you use language specific images. Shippable platform automatically picks the latest language image based on your [CI YML settings](ci/set-language/), but if you need finer grain control, you can use the image tag sections of the YML.
+
 
 ## Supported Version Tags
 The drydock docker image is tagged when the image is updated. These are the supported tags -
 
-* v5.7.3                
-* v5.6.1                
-* v5.5.1                
-* v5.4.1                
-* v5.3.2   
-
-## Supported OS-Language Versions
-Selenium service is available on the drydock links specified below for these OS and language versions.
-
-|Language| Ubuntu 14.04 Docker Image                    | Ubuntu 16.04 Docker Image                                    |
-|--------------------|--------------------------------------------|------------------------------------------------------------|
-|Nodejs|[drydock/u14nodall](https://hub.docker.com/r/drydock/u14nodall)| [drydock/u16nodall](https://hub.docker.com/r/drydock/u16nodall)|
-|Python|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14pytall)| [drydock/u16pytall](https://hub.docker.com/r/drydock/u16pytall)|
-|Java|[drydock/u14pytall](https://hub.docker.com/r/drydock/u14javall)| [drydock/u16javall](https://hub.docker.com/r/drydock/u16javall)|
-|Ruby|[drydock/u14ruball](https://hub.docker.com/r/drydock/u14ruball)| [drydock/u16ruball](https://hub.docker.com/r/drydock/u14ruball)|
-|GO|[drydock/u14golall](https://hub.docker.com/r/drydock/u14golall)| [drydock/u16golall](https://hub.docker.com/r/drydock/u16golall)|
-|Clojure|[drydock/u14cloall](https://hub.docker.com/r/drydock/u14cloall)| [drydock/u16cloall](https://hub.docker.com/r/drydock/u16cloall)|
-|Scala|[drydock/u14scaall](https://hub.docker.com/r/drydock/u14scaall)| [drydock/u16scaall](https://hub.docker.com/r/drydock/u16scaall)|
-|C/C++|[drydock/u14cppall](https://hub.docker.com/r/drydock/u14cppall)| [drydock/u16cppall](https://hub.docker.com/r/drydock/u16cppall)|
+* [Clojure](/platform/runtime/language/clojure)
+* [GO](/platform/runtime/language/go)
+* [Java](/platform/runtime/language/java)
+* [Node JS](/platform/runtime/language/nodejs)
+* [PHP](/platform/runtime/language/php)
+* [Python](/platform/runtime/language/python)
+* [Ruby](/platform/runtime/language/ruby)
+* [Scala](/platform/runtime/language/scala)
 
 ## Supported Versions
 This table helps you choose the right tag for the language version that you are interested in and the
 AMI that you should set for your subscription.
 
-| Version  |  Tags    | Supported OS|
-|----------|---------|-----------|
-|3.4.0  | v5.7.3, v 5.6.1 | Ubuntu 14.04 and Ubuntu 16.04 |
-|3.0.1  | v5.5.1 and earlier | Ubuntu 14.04 and Ubuntu 16.04 |
+| Version  |  Tags   
+|----------|---------
+|3.4.0 | v5.7.3  
+|3.0.1  | v5.5.1 and earlier  
+
+## Further Reading
+* [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
+* [Quick Start to CI](/getting-started/ci-sample)
+* [CI YML](ci/yml-structure)
