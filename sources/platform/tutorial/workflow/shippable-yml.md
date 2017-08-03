@@ -1,14 +1,16 @@
-page_main_title: shippable.yml
+page_main_title: Anatomy of shippable.yml
 main_section: Platform
-sub_section: Configuration
+sub_section: Tutorials
+sub_sub_section: Workflow
+page_title: shippable.yml
+page_description: Structure of shippable.yml
+page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# shippable.yml reference
+# Anatomy of shippable.yml
 
-All configuration for CI happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. The following sections describe the overall structure of the shippable.yml file, as well as detailed descriptions of every section in it.
+Shippable DevOps Platform leverages a declarative syntax for Continuous Integration. A YML `shippable.yml` config file is used to define the tasks. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and fires CI Runs.
 
-##Anatomy of shippable.yml
-
-The structure of a basic shippable.yml is shown below. The sections below explore each section of the yml in greater detail.
+The anatomy of the jobs configuration generally follows the structure below
 
 ```
 language:

@@ -6,11 +6,6 @@ page_title: Unified Pipeline Jobs - release
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-
 # Release
 `release` is a Job that is used to create a semantically versioned object that represents and immutable list of service definitions, in our case a [manifest](). This big benefit of using this job would be if you have multiple services that make up your application and you want them all to be deployed as a unit.
 
@@ -22,7 +17,7 @@ Shippable DevOps Assembly Lines stores the service definition in the versions of
 
 All of the above jobs can be used as `IN`s to create a new release. A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
+You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided shared runtime.
 
 ## YML Definition
 
@@ -59,7 +54,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 	* `IN` -- You need atleast 1 `image` or 1 `file` as an input. You have can more than one, but they all need to be of the same type. If you use multiple of them, then they will be deployed as a whole. Below is the list of all Resources and Jobs that can be supplied as `IN`
 		* [version]() -- Required input, what is the seed version you want to start from.
 			* `force` -- Optional input, if you need to deploy the `release` even if nothing has changed. Deployment could have been triggered by some other change		
-		* [manifest]()/[release]()/[deploy]() -- Required input, you can add 1 or many of it. If you add more than 1, they will all be packaged into a single release
+		* [manifest](/platform/workflow/job/manifest)/[release](/platform/workflow/job/release)/[deploy](/platform/workflow/job/deploy) -- Required input, you can add 1 or many of it. If you add more than 1, they will all be packaged into a single release
 
 		* Any other Job or Resource will only participate in triggering `release` Job but not in of the processing of it
 
@@ -73,10 +68,8 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 			* `rc` -- this increments the alpha bit of the supplied version. So, first pass it will be `v1.0.0-rc` and next one will be `v1.0.0-rc.1`
 			* `final` -- any pre-release flags on your incoming version will be removed, so if your input was `v4.0.0-rc.5`, then output version would be `v4.0.0`
 
-Note: Since `release` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+Note: Since `release` Jobs run on shared runtime, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* [Rolling back deployments](/deploy/rollback)
-* Using load balancers in docker based deployments
+## Further Reading
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)

@@ -119,5 +119,3 @@ How to use these utility functions are [documented here](/platform/tutorial/work
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resource](/platform/workflow/resource/overview)
-
-

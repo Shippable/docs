@@ -6,17 +6,12 @@ page_title: Unified Pipeline Jobs - deploy
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-
 # deploy
-`deploy` is a Job that deploys a app/service definition ([manifest](/platform/workflow/job/manifest)) to a [cluster](/platform/workflow/resource/cluster/). One very powerful concept with this Job is that if you add resources like [params](), [dockerOptions]() and [replicas](), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
+`deploy` is a Job that deploys a app/service definition ([manifest](/platform/workflow/job/manifest)) to a [cluster](/platform/workflow/resource/cluster). One very powerful concept with this Job is that if you add resources like [params](/platform/workflow/resource/params), [dockerOptions](/platform/workflow/resource/dockeroptions) and [replicas](/platform/workflow/resource/replicas), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
 
 A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
+You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided runtime.
 
 ## YML Definition
 
@@ -75,22 +70,22 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
 	* `IN` -- You need atleast 1 `image` or 1 `file` as an input. You have can more than one, but they all need to be of the same type. If you use multiple of them, then they will be deployed as a whole. Below is the list of all Resources and Jobs that can be supplied as `IN`
-		* [cluster]() -- Required input, location of where you want your services to be deployed
+		* [cluster](/platform/workflow/resource/cluster) -- Required input, location of where you want your services to be deployed
 			* `force` -- Optional input, if you need to deploy the `release` even if nothing has changed. Deployment could have been triggered by some other change		
-		* [manifest]() -- Required input, you can add 1 or many of it. If you add more than 1, they will be deployed as seperate entities. This means if only 1 of the manifest changes, only that one will be deployed
+		* [manifest](/platform/workflow/job/manifest) -- Required input, you can add 1 or many of it. If you add more than 1, they will be deployed as seperate entities. This means if only 1 of the manifest changes, only that one will be deployed
 			* `force` -- Optional input, if you need to deploy the `manifest` even if nothing has changed. Deployment could have been triggered by some other change
 
-		* [release]() -- Required input, you can add 1 or many of it. `release` Jobs could also contain 1 or many `manifests` that have been semantically tagged with a release version number. If you have more than 1 `release` Jobs as `IN` they are deployed as seperately and only the ones that change are deployed
+		* [release](/platform/workflow/job/release) -- Required input, you can add 1 or many of it. `release` Jobs could also contain 1 or many `manifests` that have been semantically tagged with a release version number. If you have more than 1 `release` Jobs as `IN` they are deployed as seperately and only the ones that change are deployed
 
-		* [image]() -- Optional input, but invalid if the manifest is not for an image. You can add 1 or many of it and this will override the references to this Resource in all `manifest`/`release` inputs. The `versionName` of this Resources contains the tag, so all references to this `image` in the `manifest` is replaced with the new tag.
+		* [image](/platform/workflow/resource/image) -- Optional input, but invalid if the manifest is not for an image. You can add 1 or many of it and this will override the references to this Resource in all `manifest`/`release` inputs. The `versionName` of this Resources contains the tag, so all references to this `image` in the `manifest` is replaced with the new tag.
 
-		* [dockerOptions]() -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. If you want `dockerOptions` Resource to specific entities use `applyTo` tag
+		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. If you want `dockerOptions` Resource to specific entities use `applyTo` tag
 
-		* [replicas]() -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for all images in a`manifest` or `release`. If you want `replicas` Resource to apply to specific entities use `applyTo` tag
+		* [replicas](/platform/workflow/resource/replicas) -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for all images in a`manifest` or `release`. If you want `replicas` Resource to apply to specific entities use `applyTo` tag
 
-		* [params]() -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources in a`manifest` or in a `release`. If you want `params` Resource to apply to specific entities use `applyTo` tag
+		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources in a`manifest` or in a `release`. If you want `params` Resource to apply to specific entities use `applyTo` tag
 
-		* [loadBalancer]() -- Optional input,  applies only to `image` based deploys. If provided the below attributes are required. It is used to attach a load balancer to a particular service and automatically update routing information upon subsequent deployments
+		* [loadBalancer](/platform/workflow/resource/loadbalancer) -- Optional input,  applies only to `image` based deploys. If provided the below attributes are required. It is used to attach a load balancer to a particular service and automatically update routing information upon subsequent deployments
 			* `manifest` -- Required for loadBalancer. Name of the manifest i.e. service to which the loadBalancer will be attached to
 
 			* `image` -- Required for loadBalancer. Name of the image i.e. container running the Docker image within the manifest.
@@ -110,8 +105,6 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* [Rolling back deployments](/deploy/rollback)
-* Using load balancers in docker based deployments
+## Further Reading
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)
