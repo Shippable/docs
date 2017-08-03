@@ -7,7 +7,7 @@ sub_sub_section: Resources
 # time
 `time` resource provides cron like functionality. It is used to to trigger a job in a cron like manner. This resource can be used used as an IN input for [any job](workflow/job/overview/). The timezone used for triggering jobs is UTC.
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `time` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -49,7 +49,7 @@ Whenever `time` is used as an `IN` or `OUT` into a Job that can execute user def
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

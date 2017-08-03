@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # loadBalancer
 `loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `loadBalancer` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -25,8 +25,8 @@ resources:
 	* [Google Container Engine (GKE)](/platform/integration/gke)
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* in case of [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/)	
-	
+	* in case of [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/)
+
 	```
 	    pointer:
 	      sourceName: 	<name of the Classic Load Balancer>
@@ -34,7 +34,7 @@ resources:
 	      role: 		<AWS IAM role used to update the Load Balancer>
 
 	```
-	
+
 	Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, shippable will search for one that has the right level of trust automatically. If none found, the job where this resource is used will fail
 
 	* in case of [AWS Application Load Balancers](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/)
@@ -113,7 +113,7 @@ Whenever `loadBalancer` is used as an `IN` or `OUT` into a Job that can execute 
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 
