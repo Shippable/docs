@@ -1,4 +1,3 @@
-
 page_main_title: Anatomy of shippable.jobs.yml
 main_section: Platform
 sub_section: Tutorials
