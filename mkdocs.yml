@@ -283,6 +283,12 @@ pages:
       - Custom Views: platform/visibility/custom-views.md
     - Management:
       - Overview: platform/management/overview.md
+      - Setting your plan: platform/management/manage-plan.md
+      - Setting your payment methods: platform/management/manage-payment-methods.md
+      - Setting up Integrations: platform/management/integrations.md
+      - Generating API Tokens: platform/management/api-tokens.md
+      - Setting up your Shippable Account: platform/management/git-identities.md
+      - Setting Acount email: platform/management/set-email.md
     - Integrations:
       - Overview: platform/integration/overview.md
       - Amazon ECR: platform/integration/aws-ecr.md

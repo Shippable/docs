@@ -1,10 +1,10 @@
 page_main_title: API tokens
-main_section: Getting started
-sub_section: Your account
+main_section: Platform
+sub_section: Management
 
 #API Tokens
 
-The [REST-based Shippable API](../../platform/tutorial/api/api-overview/) is fully documented and you can implement custom workflows by calling the API as needed. You need an API token in order to make calls to our API.
+The [REST-based Shippable API](/platform/tutorial/api/api-overview/) is fully documented and you can implement custom workflows by calling the API as needed. You need an API token in order to make calls to our API.
 
 All paid subscriptions have complete access to all available APIs. Free subscriptions can only call a subset of APIs [documented here.](#free-api-token).
 
@@ -22,7 +22,7 @@ To generate a new API token:
 - IMPORTANT: Remember to copy the token. For security reasons, the token will never
 be displayed again.
 
-<img src="../../images/getting-started/list-shippable-api-tokens.png" alt="List API tokens on Shippable">
+<img src="/images/getting-started/list-shippable-api-tokens.png" alt="List API tokens on Shippable">
 
 ##Deleting a token
 

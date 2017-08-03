@@ -1,10 +1,10 @@
 page_main_title: Managing your plan
-main_section: Getting started
-sub_section: Plans and Billing
+main_section: Platform
+sub_section: Management
 
 # Managing your plan
 
-A Subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at a Subscription level, so you need to determine your build minion and pipeline needs for each subscription. Only a Subscription Owner has permission to edit billing. 
+A Subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket. Your pricing plans are enforced at a Subscription level, so you need to determine your build minion and pipeline needs for each subscription. Only a Subscription Owner has permission to edit billing.
 
 By default, each Subscription is on the free plan which includes:
 
@@ -33,7 +33,7 @@ To get to the Subscription Billing page:
 - Click on the `Subscriptions` icon at the top left of your screen and select the subscription you want to view.
 - Click on the **Settings** tab and then on **Billing** in the left sidebar menu.
 
-<img src="../../images/getting-started/billing-plan.png" alt="View current plan">
+<img src="/images/getting-started/billing-plan.png" alt="View current plan">
 
 
 ##Upgrade your plan

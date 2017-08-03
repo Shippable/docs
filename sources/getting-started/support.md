@@ -5,6 +5,9 @@ sub_section: support
 # Support
 This document lists the FAQs that we've received through our [Support repository](https://github.com/Shippable/support/issues) and speaking with our customers, on running Continuous Integration. If you have specific CI errors that you would like to troubleshoot, then refer troubleshooting sections under [Continuous Integration](/ci/troubleshooting/).
 
+## How can I create a support ticket to get help from Shippable with a problem I am having?
+Please submit the issue/problem you have are having [here](https://github.com/Shippable/support/issues/new). A support engineer will get in touch with you promptly.
+
 ## How can I upgrade or downgrade my plan?
 
 The Continuous Delivery plan gives you a minimum of 1 free minion & 1 free pipeline. Upgrading or downgrading your CI  simply means increasing or decreasing the number of build minions in your subscription. Similarly upgrading or downgrading your Pipelines means increasing or decreasing the number of pipelines and containers in your subscription.

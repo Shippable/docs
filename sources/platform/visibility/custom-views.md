@@ -1,6 +1,6 @@
 page_main_title: Custom View
-main_section: Getting started
-sub_section: Overview
+main_section: Platform
+sub_section: Visibility
 
 # Custom Views
 
