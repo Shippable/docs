@@ -82,7 +82,7 @@ jobs:
       - script: 			pwd
 ```
 
-For more information, read [Working with Jobs](/platform/workflow/job/working-with/)
+For more information, read [Working with Jobs](/platform/tutorial/workflow/howto-crud-job)
 
 ## When does a Job execute?
 A Job is queued by the DevOps Assembly Line platform when one of the following cases occur

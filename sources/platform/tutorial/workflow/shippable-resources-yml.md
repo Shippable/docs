@@ -3,7 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: shippable.resources.yml
-page_description: How to add, delete and update resources
+page_description: Structure of shippable.resources.yml
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Anatomy of shippable.resources.yml

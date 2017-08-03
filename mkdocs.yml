@@ -223,7 +223,6 @@ pages:
         - version: platform/workflow/resource/version.md
       - Jobs:
         - Overview: platform/workflow/job/overview.md
-        - Working with Jobs: platform/workflow/job/working-with.md
         - deploy: platform/workflow/job/deploy.md
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
@@ -315,49 +314,50 @@ pages:
       - SSH Keys: platform/integration/key-ssh.md
     - Tutorials:
       - Workflow:
-        - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
-        - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
-        - How to work with Jobs: platform/workflow/job/working-with.md
-        - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
-        - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
-        - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
-        - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
-        - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
+        - Anatomy of shippable.resources.yml: /platform/tutorial/workflow/shippable-resources-yml.md
+        - How to work with Resources: /platform/tutorial/workflow/howto-crud-resource.md
+        - How to work with Jobs: /platform/tutorial/workflow/howto-crud-job.md
+        - How to work with syncRepo: /platform/workflow/job/howto-crud-syncrepo.md
+        - How to output key-values into a Resource: /platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
+        - How to additional version info from a Resource: /platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
+        - How to replicate IN Resource to a OUT Resource: /platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
+        - How to share data between Runs: /platform/tutorial/workflow/howto-share-data-between-runs.md
+        - How to share data between Jobs: /platform/tutorial/workflow/howto-share-data-between-jobs.md
       - Integrations:
-        - Working with Integrations: platform/integration/working-with.md
-        - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
-        - How to install kubectl: platform/tutorial/integration/howto-install-kubectl.md
-        - How to connect Shippable through AWS IAM: platform/tutorial/integration/howto-create-AWS-IAM-access.md
-        - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
-        - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
-        - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - Working with Integrations: /platform/integration/working-with.md
+        - How to create a kubeconfig file: /platform/tutorial/integration/howto-create-kubeconfig.md
+        - How to install kubectl: /platform/tutorial/integration/howto-install-kubectl.md
+        - How to connect Shippable through AWS IAM: /platform/tutorial/integration/howto-create-AWS-IAM-access.md
+        - How to use Key-Value Integration in runCI: /platform/tutorial/integration/howto-use-key-value-in-runci.md
+        - How to use Key-Value Integration in runSh: /platform/tutorial/integration/howto-use-key-value-in-runSh.md
+        - How to use Docker Private Registry Integration in runCI: /platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
-        - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
-        - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
-        - Caching: platform/tutorial/runtime/caching.md
-        - Environment Variables: platform/tutorial/runtime/environment-variables.md
-        - AMI Overview: platform/tutorial/runtime/ami-overview.md
-        - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
-        - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
-        - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
-        - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
-        - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
+        - Dynamic Nodes: /platform/tutorial/runtime/dynamic-nodes.md
+        - Custom Nodes: /platform/tutorial/runtime/custom-nodes.md
+        - Caching: /platform/tutorial/runtime/caching.md
+        - Environment Variables: /platform/tutorial/runtime/environment-variables.md
+        - AMI Overview: /platform/tutorial/runtime/ami-overview.md
+        - AMI v5.7.3: /platform/tutorial/runtime/ami-v573.md
+        - AMI v5.6.1: /platform/tutorial/runtime/ami-v561.md
+        - AMI v5.5.1: /platform/tutorial/runtime/ami-v551.md
+        - AMI v5.4.1: /platform/tutorial/runtime/ami-v541.md
+        - AMI v5.3.2: /platform/tutorial/runtime/ami-v532.md
       - API:
-        - Overview: platform/tutorial/api/api-overview.md
-        - Tokens: platform/tutorial/api/api-tokens.md
+        - Overview: /platform/tutorial/api/api-overview.md
+        - Tokens: /platform/tutorial/api/api-tokens.md
       - Shippable Server:
-        - Installer: platform/tutorial/server/install.md
-        - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
-        - Installing SE on a single machine: platform/tutorial/server/install-onebox.md
-        - Installing EE on two machines: platform/tutorial/server/install-two-server.md
-        - Installing EE on three machines: platform/tutorial/server/install-three-server.md
-        - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md
-        - Database Configuration: platform/tutorial/server/install-db.md
-        - State Storage Configuration: platform/tutorial/server/install-gitlab.md
-        - Message Configuration: platform/tutorial/server/install-rabbitmq.md
-        - Redis Configuration: platform/tutorial/server/install-redis.md
-        - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
-        - Vault Configuration: platform/tutorial/server/install-vault.md
-        - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
+        - Installer: /platform/tutorial/server/install.md
+        - Installing SE from AWS Marketplace: /platform/tutorial/server/install-aws-marketplace.md
+        - Installing SE on a single machine: /platform/tutorial/server/install-onebox.md
+        - Installing EE on two machines: /platform/tutorial/server/install-two-server.md
+        - Installing EE on three machines: /platform/tutorial/server/install-three-server.md
+        - Installing EE on three machines with an existing DB: /platform/tutorial/server/install-three-server-existing-db.md
+        - Database Configuration: /platform/tutorial/server/install-db.md
+        - State Storage Configuration: /platform/tutorial/server/install-gitlab.md
+        - Message Configuration: /platform/tutorial/server/install-rabbitmq.md
+        - Redis Configuration: /platform/tutorial/server/install-redis.md
+        - Swarm Worker Configuration: /platform/tutorial/server/install-swarm-workers.md
+        - Vault Configuration: /platform/tutorial/server/install-vault.md
+        - Bitbucket Server Configuration: /platform/tutorial/server/install-bbs.md
       - Glossary:
-        - Complete list of terms: platform/tutorial/glossary.md
+        - Complete list of terms: /platform/tutorial/glossary.md

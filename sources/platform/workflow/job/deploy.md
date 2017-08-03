@@ -16,7 +16,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
+You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
 
 ## YML Definition
 
@@ -67,7 +67,7 @@ jobs:
 	 always:								# optional
 	   - NOTIFY:		<notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- should be an easy to remember text string
 

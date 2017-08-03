@@ -28,7 +28,7 @@ Note: If your `CI` project was enabled before March 2017, you can create these o
 
 
 ## How do you use it in Assembly Lines?
-Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
+Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
 
 
 ## YML Definition
@@ -63,7 +63,7 @@ jobs:
       - script: pwd
 
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view
 

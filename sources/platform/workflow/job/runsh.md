@@ -15,7 +15,7 @@ You can also add `cliConfig` resources as inputs to this job. The relevant CLI t
 
 A new version is created anytime this Job is executed.
 
-You can create a `runSh` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
+You can create a `runSh` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
 
 
 ## YML Definition
@@ -51,7 +51,7 @@ jobs:
 	 always:
       - script: 			pwd
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- Required, should be an easy to remember text string
 
