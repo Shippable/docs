@@ -17,347 +17,347 @@ pages:
   - Getting started:
     - Overview:
       - What is Shippable?: index.md
-      - What do we support?: /getting-started/what-is-supported.md
-      - How much does it cost?: /getting-started/billing-overview.md
+      - What do we support?: getting-started/what-is-supported.md
+      - How much does it cost?: getting-started/billing-overview.md
     - Run our samples:
-      - Run your first build: /getting-started/ci-sample.md
-      - Deploy your first app: /getting-started/cd-sample.md
-    - FAQ: /getting-started/support.md
+      - Run your first build: getting-started/ci-sample.md
+      - Deploy your first app: getting-started/cd-sample.md
+    - FAQ: getting-started/support.md
   - CI:
     - Overview:
-      - Why CI?: /ci/why-continuous-integration.md
-      - Enabling a project: /ci/enable-project.md
-      - Yml structure: /ci/yml-structure.md
-      - Triggering your CI job: /ci/trigger-job.md
-      - Triggering other jobs after CI: /ci/trigger-pipeline-jobs.md
-      - Permissions: /ci/permissions.md
-      - Troubleshooting: /ci/troubleshooting.md
+      - Why CI?: ci/why-continuous-integration.md
+      - Enabling a project: ci/enable-project.md
+      - Yml structure: ci/yml-structure.md
+      - Triggering your CI job: ci/trigger-job.md
+      - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
+      - Permissions: ci/permissions.md
+      - Troubleshooting: ci/troubleshooting.md
     - Preparing your environment:
-      - Setting language and runtime: /ci/set-language.md
-      - Choosing a build image: /ci/build-image.md
-      - Specifying branches to build: /ci/specify-branches.md
-      - Working with env variables: /ci/env-vars.md
+      - Setting language and runtime: ci/set-language.md
+      - Choosing a build image: ci/build-image.md
+      - Specifying branches to build: ci/specify-branches.md
+      - Working with env variables: ci/env-vars.md
     - Working with services:
-      - Overview: /ci/services-overview.md
+      - Overview: ci/services-overview.md
       - CouchDB:  /ci/couchdb.md
-      - Elasticsearch: /ci/elasticsearch.md
-      - Memcached: /ci/memcached.md
-      - MongoDB: /ci/mongodb.md
-      - MySQL: /ci/mysql.md
-      - Neo4j: /ci/neo4j.md
-      - PostgreSQL: /ci/postgresql.md
-      - RabbitMQ: /ci/rabbitmq.md
-      - Redis: /ci/redis.md
-      - Riak: /ci/riak.md
-      - RethinkDB: /ci/rethinkdb.md
-      - Selenium: /ci/selenium.md
-      - SQLite: /ci/sqlite.md
+      - Elasticsearch: ci/elasticsearch.md
+      - Memcached: ci/memcached.md
+      - MongoDB: ci/mongodb.md
+      - MySQL: ci/mysql.md
+      - Neo4j: ci/neo4j.md
+      - PostgreSQL: ci/postgresql.md
+      - RabbitMQ: ci/rabbitmq.md
+      - Redis: ci/redis.md
+      - Riak: ci/riak.md
+      - RethinkDB: ci/rethinkdb.md
+      - Selenium: ci/selenium.md
+      - SQLite: ci/sqlite.md
     - Building and testing your project:
-      - Configuring your CI: /ci/build-and-test.md
-      - Running tests in parallel: /ci/parallelize-tests.md
-      - Status code: /ci/build_status.md
+      - Configuring your CI: ci/build-and-test.md
+      - Running tests in parallel: ci/parallelize-tests.md
+      - Status code: ci/build_status.md
     - Configuring test/code coverage:
-      - Basic config: /ci/test-code-coverage-reports.md
-      - JaCoCo reports: /ci/jacoco-reports.md
+      - Basic config: ci/test-code-coverage-reports.md
+      - JaCoCo reports: ci/jacoco-reports.md
     - Sending notifications:
-      - Overview: /ci/send-notifications.md
-      - Sending messages to Slack: /ci/slack-notifications.md
-      - Sending messages to Email: /ci/email-notifications.md
-      - Sending messages to Hipchat: /ci/hipchat-notifications.md
-      - Sending messages to IRC: /ci/irc-notifications.md
+      - Overview: ci/send-notifications.md
+      - Sending messages to Slack: ci/slack-notifications.md
+      - Sending messages to Email: ci/email-notifications.md
+      - Sending messages to Hipchat: ci/hipchat-notifications.md
+      - Sending messages to IRC: ci/irc-notifications.md
     - Pushing artifacts:
-      - Overview: /ci/push-artifacts.md
-      - Push artifacts to S3: /ci/push-to-s3.md
-      - Push to JFrog Artifactory: /ci/push-to-artifactory.md
-      - Push Docker image to Docker Hub: /ci/push-docker-hub.md
-      - Push Docker image to Amazon ECR: /ci/push-amazon-ecr.md
-      - Push Docker image to GCR: /ci/push-gcr.md
-      - Push Docker image to Quay: /ci/push-quay.md
-      - Push Docker image to Docker Private/Trusted registry: /ci/push-docker-private-registry.md
+      - Overview: ci/push-artifacts.md
+      - Push artifacts to S3: ci/push-to-s3.md
+      - Push to JFrog Artifactory: ci/push-to-artifactory.md
+      - Push Docker image to Docker Hub: ci/push-docker-hub.md
+      - Push Docker image to Amazon ECR: ci/push-amazon-ecr.md
+      - Push Docker image to GCR: ci/push-gcr.md
+      - Push Docker image to Quay: ci/push-quay.md
+      - Push Docker image to Docker Private/Trusted registry: ci/push-docker-private-registry.md
     - Deployments:
-      - Overview: /ci/deployment-overview.md
-      - Heroku: /ci/deploy-to-heroku.md
-      - Amazon EC2: /ci/deploy-to-ec2.md
-      - AWS Opsworks: /ci/deploy-to-aws-opsworks.md
-      - AWS EBS: /ci/deploy-to-aws-beanstalk.md
-      - Digital Ocean: /ci/deploy-to-digital-ocean.md
+      - Overview: ci/deployment-overview.md
+      - Heroku: ci/deploy-to-heroku.md
+      - Amazon EC2: ci/deploy-to-ec2.md
+      - AWS Opsworks: ci/deploy-to-aws-opsworks.md
+      - AWS EBS: ci/deploy-to-aws-beanstalk.md
+      - Digital Ocean: ci/deploy-to-digital-ocean.md
     - Advanced config:
-      - Caching: /ci/caching.md
-      - Using a custom Docker image: /ci/custom-docker-image.md
-      - Using Docker Compose: /ci/docker-compose.md
-      - Triggering parallel jobs: /ci/matrix-builds.md
-      - Building pull requests: /ci/pull-request-builds.md
-      - Skipping a build: /ci/skip-builds.md
-      - Using git submodules: /ci/git-submodules.md
-      - Retrying a command: /ci/retry-command.md
-      - Using SSH keys: /ci/ssh-keys.md
-      - Canceling builds: /ci/cancel-builds.md
-      - Customizing timeouts: /ci/custom-timeouts.md
-      - Console logs: /ci/console-logs.md
-      - Build badges: /ci/build-badges.md
-      - Scheduled builds: /ci/scheduled-builds.md
+      - Caching: ci/caching.md
+      - Using a custom Docker image: ci/custom-docker-image.md
+      - Using Docker Compose: ci/docker-compose.md
+      - Triggering parallel jobs: ci/matrix-builds.md
+      - Building pull requests: ci/pull-request-builds.md
+      - Skipping a build: ci/skip-builds.md
+      - Using git submodules: ci/git-submodules.md
+      - Retrying a command: ci/retry-command.md
+      - Using SSH keys: ci/ssh-keys.md
+      - Canceling builds: ci/cancel-builds.md
+      - Customizing timeouts: ci/custom-timeouts.md
+      - Console logs: ci/console-logs.md
+      - Build badges: ci/build-badges.md
+      - Scheduled builds: ci/scheduled-builds.md
     - Language guide:
-      - Overview: /ci/supported-languages.md
-      - Node.js: /ci/nodejs-continuous-integration.md
-      - Python: /ci/python-continuous-integration.md
-      - Java: /ci/java-continuous-integration.md
-      - Ruby: /ci/ruby-continuous-integration.md
-      - Go: /ci/go-continuous-integration.md
-      - Scala: /ci/scala-continuous-integration.md
-      - PHP: /ci/php-continuous-integration.md
-      - Clojure: /ci/clojure-continuous-integration.md
-      - C/C++: /ci/cpp-continuous-integration.md
-      - Unsupported languages: /ci/unsupported-languages.md
+      - Overview: ci/supported-languages.md
+      - Node.js: ci/nodejs-continuous-integration.md
+      - Python: ci/python-continuous-integration.md
+      - Java: ci/java-continuous-integration.md
+      - Ruby: ci/ruby-continuous-integration.md
+      - Go: ci/go-continuous-integration.md
+      - Scala: ci/scala-continuous-integration.md
+      - PHP: ci/php-continuous-integration.md
+      - Clojure: ci/clojure-continuous-integration.md
+      - C/C++: ci/cpp-continuous-integration.md
+      - Unsupported languages: ci/unsupported-languages.md
     - Debugging:
-      - SSH Access to Build Machine: /ci/ssh-access.md
+      - SSH Access to Build Machine: ci/ssh-access.md
   - Validate:
     - Before you start:
-      - What is Validate?: /validate/devops-validate.md
-      - Configuration: /validate/configuration.md
-      - Single pane of glass: /validate/single-pane-of-glass-spog.md
-      - Triggering jobs: /validate/trigger-job.md
-      - Sending notifications: /validate/send-notifications.md
+      - What is Validate?: validate/devops-validate.md
+      - Configuration: validate/configuration.md
+      - Single pane of glass: validate/single-pane-of-glass-spog.md
+      - Triggering jobs: validate/trigger-job.md
+      - Sending notifications: validate/send-notifications.md
     - Running performance tests:
-      - Nouvola: /validate/nouvola.md
+      - Nouvola: validate/nouvola.md
     - Running integration tests:
-      - Sauce Labs: /validate/sauce-labs.md
+      - Sauce Labs: validate/sauce-labs.md
   - Release:
     - Before you start:
-      - What is release management?: /release/devops-release-management.md
-      - Configuration: /release/configuration.md
-      - Single pane of glass: /release/single-pane-of-glass-spog.md
-      - Triggering release jobs: /release/trigger-job.md
-      - Sending notifications: /release/send-notifications.md
+      - What is release management?: release/devops-release-management.md
+      - Configuration: release/configuration.md
+      - Single pane of glass: release/single-pane-of-glass-spog.md
+      - Triggering release jobs: release/trigger-job.md
+      - Sending notifications: release/send-notifications.md
     - Creating a release:
-      - From Single Service/Component: /release/single-component.md
-      - From Multiple Services/Components: /release/mutiple-components.md
-      - From upstream releases: /release/upstream-releases.md
+      - From Single Service/Component: release/single-component.md
+      - From Multiple Services/Components: release/mutiple-components.md
+      - From upstream releases: release/upstream-releases.md
     - Managing release versions:
-      - Setting version number: /release/set-version-number.md
-      - Incrementing version numbers: /release/increment-version-number.md
+      - Setting version number: release/set-version-number.md
+      - Incrementing version numbers: release/increment-version-number.md
   - Deploy:
     - Before you start:
-      - Why deploy?: /deploy/why-deploy.md
-      - Configuration: /deploy/configuration.md
-      - Single pane of glass: /deploy/single-pane-of-glass-spog.md
-      - Triggering deploy jobs: /deploy/trigger-job.md
-      - Sending notifications: /deploy/send-notifications.md
-      - Tracing resources: /deploy/trace-pipeline.md
+      - Why deploy?: deploy/why-deploy.md
+      - Configuration: deploy/configuration.md
+      - Single pane of glass: deploy/single-pane-of-glass-spog.md
+      - Triggering deploy jobs: deploy/trigger-job.md
+      - Sending notifications: deploy/send-notifications.md
+      - Tracing resources: deploy/trace-pipeline.md
     - How To:
-      - Configure environment variables during deployment?: /deploy/howto-configure-deploy-envs.md
-      - Configure replicas during deployment?: /deploy/howto-configure-deploy-replicas.md
+      - Configure environment variables during deployment?: deploy/howto-configure-deploy-envs.md
+      - Configure replicas during deployment?: deploy/howto-configure-deploy-replicas.md
     - Amazon ECS:
-      - Basic managed deployment: /deploy/amazon-ecs.md
-      - Specifying deployment strategy: /deploy/amazon-ecs-strategy.md
-      - Using an ELB/ALB: /deploy/amazon-ecs-elb-alb.md
-      - Multi-container services: /deploy/amazon-ecs-multiple-containers.md
-      - Multiple environments: /deploy/amazon-ecs-multiple-environments.md
-      - Custom deployments(runCLI.md: /deploy/amazon-ecs-unmanaged.md
-      - Naming conventions: /deploy/amazon-ecs-naming-conventions.md
+      - Basic managed deployment: deploy/amazon-ecs.md
+      - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
+      - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
+      - Multi-container services: deploy/amazon-ecs-multiple-containers.md
+      - Multiple environments: deploy/amazon-ecs-multiple-environments.md
+      - Custom deployments(runCLI.md: deploy/amazon-ecs-unmanaged.md
+      - Naming conventions: deploy/amazon-ecs-naming-conventions.md
     - Kubernetes:
-      - Default scenario: /deploy/kubernetes.md
-      - Specifying deployment strategy: /deploy/kubernetes-strategy.md
-      - Deploying multi-container services: /deploy/kubernetes-multiple-containers.md
-      - Deploying to multiple environments: /deploy/kubernetes-multiple-environments.md
-      - Naming conventions: /deploy/kubernetes-naming-conventions.md
+      - Default scenario: deploy/kubernetes.md
+      - Specifying deployment strategy: deploy/kubernetes-strategy.md
+      - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
+      - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
+      - Naming conventions: deploy/kubernetes-naming-conventions.md
     - GKE:
-      - Basic scenario: /deploy/gke.md
-      - Specifying deployment strategy: /deploy/gke-strategy.md
-      - Using a load balancer: /deploy/gke-loadbalancer.md
-      - Deploying multi-container services: /deploy/gke-multiple-containers.md
-      - Deploying to multiple environments: /deploy/gke-multiple-environments.md
-      - Working with state and environment variables: /deploy/gke-state-env-vars.md
-      - Using custom pod templates: /deploy/gke-custom-pods.md
+      - Basic scenario: deploy/gke.md
+      - Specifying deployment strategy: deploy/gke-strategy.md
+      - Using a load balancer: deploy/gke-loadbalancer.md
+      - Deploying multi-container services: deploy/gke-multiple-containers.md
+      - Deploying to multiple environments: deploy/gke-multiple-environments.md
+      - Working with state and environment variables: deploy/gke-state-env-vars.md
+      - Using custom pod templates: deploy/gke-custom-pods.md
     - Docker Datacenter:
-      - Basic scenario: /deploy/docker-datacenter.md
+      - Basic scenario: deploy/docker-datacenter.md
     - Docker Cloud:
-      - Basic scenario: /deploy/docker-cloud.md
+      - Basic scenario: deploy/docker-cloud.md
     - Azure DC/OS:
-      - Basic scenario: /deploy/azure-dcos.md
+      - Basic scenario: deploy/azure-dcos.md
     - AWS Elastic Beanstalk:
-      - Deploying single-container environments: /deploy/aws-elastic-beanstalk.md
-      - Deploying multi-container environments: /deploy/aws-elastic-beanstalk-multiple-containers.md
-      - Deploying to multiple environments: /deploy/aws-elastic-beanstalk-multiple-environments.md
-      - Working with state and environment variables: /deploy/aws-elastic-beanstalk-state-env-vars.md
+      - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
+      - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
+      - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
+      - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
     - Node Cluster on any cloud:
-      - Deploying artifacts: /deploy/vm-basic.md
-      - Deploying from JFrog Artifactory: /deploy/vm-jfrog.md
-      - Deploying to multiple environments: /deploy/vm-multiple-environments.md
-      - Working with state and environment variables: /deploy/vm-state-env-vars.md
-    - Rolling back deployments: /deploy/rollback.md
+      - Deploying artifacts: deploy/vm-basic.md
+      - Deploying from JFrog Artifactory: deploy/vm-jfrog.md
+      - Deploying to multiple environments: deploy/vm-multiple-environments.md
+      - Working with state and environment variables: deploy/vm-state-env-vars.md
+    - Rolling back deployments: deploy/rollback.md
   - Provision:
     - Before you start:
-      - What is provisioning: /provision/why-infrastructure-provisioning.md
-      - Configuration: /provision/configuration.md
-      - Single pane of glass: /provision/single-pane-of-glass-spog.md
-      - Triggering jobs: /provision/trigger-job.md
-      - Sending notifications: /provision/send-notifications.md
+      - What is provisioning: provision/why-infrastructure-provisioning.md
+      - Configuration: provision/configuration.md
+      - Single pane of glass: provision/single-pane-of-glass-spog.md
+      - Triggering jobs: provision/trigger-job.md
+      - Sending notifications: provision/send-notifications.md
     - Provisioning with Terraform:
-      - AWS infrastructure: /provision/aws-with-terraform.md
+      - AWS infrastructure: provision/aws-with-terraform.md
     - Provisioning with Ansible:
-      - AWS infrastructure: /provision/aws-with-ansible.md
-      - Digital Ocean infrastructure: /provision/digital-ocean-with-ansible.md
-      - Google Cloud infrastructure: /provision/google-cloud-with-ansible.md
-      - Microsoft Azure infrastructure: /provision/microsoft-azure-with-ansible.md
+      - AWS infrastructure: provision/aws-with-ansible.md
+      - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
+      - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
+      - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Platform:
-    - Overview: /platform/overview.md
+    - Overview: platform/overview.md
     - Workflow:
-      - What is it: /platform/workflow/overview.md
+      - What is it: platform/workflow/overview.md
       - Resources:
-        - Overview: /platform/workflow/resource/overview.md
-        - ciRepo: /platform/workflow/resource/cirepo.md
-        - cliConfig: /platform/workflow/resource/cliconfig.md
-        - cluster: /platform/workflow/resource/cluster.md
-        - dockerOptions: /platform/workflow/resource/dockeroptions.md
-        - file: /platform/workflow/resource/file.md
-        - gitRepo: /platform/workflow/resource/gitrepo.md
-        - image: /platform/workflow/resource/image.md
-        - integration: /platform/workflow/resource/integration.md
-        - loadBalancer: /platform/workflow/resource/loadbalancer.md
-        - notification: /platform/workflow/resource/notification.md
-        - params: /platform/workflow/resource/params.md
-        - replicas: /platform/workflow/resource/replicas.md
-        - state: /platform/workflow/resource/state.md
-        - syncRepo: /platform/workflow/resource/syncrepo.md
-        - time: /platform/workflow/resource/time.md
-        - version: /platform/workflow/resource/version.md
+        - Overview: platform/workflow/resource/overview.md
+        - ciRepo: platform/workflow/resource/cirepo.md
+        - cliConfig: platform/workflow/resource/cliconfig.md
+        - cluster: platform/workflow/resource/cluster.md
+        - dockerOptions: platform/workflow/resource/dockeroptions.md
+        - file: platform/workflow/resource/file.md
+        - gitRepo: platform/workflow/resource/gitrepo.md
+        - image: platform/workflow/resource/image.md
+        - integration: platform/workflow/resource/integration.md
+        - loadBalancer: platform/workflow/resource/loadbalancer.md
+        - notification: platform/workflow/resource/notification.md
+        - params: platform/workflow/resource/params.md
+        - replicas: platform/workflow/resource/replicas.md
+        - state: platform/workflow/resource/state.md
+        - syncRepo: platform/workflow/resource/syncrepo.md
+        - time: platform/workflow/resource/time.md
+        - version: platform/workflow/resource/version.md
       - Jobs:
-        - Overview: /platform/workflow/job/overview.md
-        - deploy: /platform/workflow/job/deploy.md
-        - manifest: /platform/workflow/job/manifest.md
-        - provision: /platform/workflow/job/provision.md
-        - release: /platform/workflow/job/release.md
-        - runCI: /platform/workflow/job/runci.md
-        - runCLI: /platform/workflow/job/runcli.md
-        - runSH: /platform/workflow/job/runsh.md
-        - jenkinsJob: /platform/workflow/job/jenkinsjob.md
-        - rSync: /platform/workflow/job/rSync.md
+        - Overview: platform/workflow/job/overview.md
+        - deploy: platform/workflow/job/deploy.md
+        - manifest: platform/workflow/job/manifest.md
+        - provision: platform/workflow/job/provision.md
+        - release: platform/workflow/job/release.md
+        - runCI: platform/workflow/job/runci.md
+        - runCLI: platform/workflow/job/runcli.md
+        - runSH: platform/workflow/job/runsh.md
+        - jenkinsJob: platform/workflow/job/jenkinsjob.md
+        - rSync: platform/workflow/job/rSync.md
       - State:
-        - Overview: /platform/workflow/state/overview.md
+        - Overview: platform/workflow/state/overview.md
       - Triggers:
-        - Overview: /platform/workflow/trigger/overview.md
+        - Overview: platform/workflow/trigger/overview.md
     - Runtime:
-      - Overview: /platform/runtime/overview.md
+      - Overview: platform/runtime/overview.md
       - Operating System:
-        - Ubuntu 14:04: /platform/runtime/os/ubuntu14.md
-        - Ubuntu 16:04: /platform/runtime/os/ubuntu16.md
+        - Ubuntu 14:04: platform/runtime/os/ubuntu14.md
+        - Ubuntu 16:04: platform/runtime/os/ubuntu16.md
       - Languages:
-        - Nodejs: /platform/runtime/language/nodejs.md
-        - Python: /platform/runtime/language/python.md
-        - Java: /platform/runtime/language/java.md
-        - Ruby: /platform/runtime/language/ruby.md
-        - GO: /platform/runtime/language/go.md
-        - PHP: /platform/runtime/language/php.md
-        - Clojure: /platform/runtime/language/clojure.md
-        - Scala: /platform/runtime/language/scala.md
-        - C/C++: /platform/runtime/language/cplusplus.md
+        - Nodejs: platform/runtime/language/nodejs.md
+        - Python: platform/runtime/language/python.md
+        - Java: platform/runtime/language/java.md
+        - Ruby: platform/runtime/language/ruby.md
+        - GO: platform/runtime/language/go.md
+        - PHP: platform/runtime/language/php.md
+        - Clojure: platform/runtime/language/clojure.md
+        - Scala: platform/runtime/language/scala.md
+        - C/C++: platform/runtime/language/cplusplus.md
       - CLIs:
-        - Amazon Web Services: /platform/runtime/cli/aws.md
-        - AWS Elastic Beanstalk: /platform/runtime/cli/awseb.md
-        - Google Cloud: /platform/runtime/cli/gke.md
-        - Kubernetes Controller: /platform/runtime/cli/kubectl.md
-        - Terraform: /platform/runtime/cli/terraform.md
-        - Ansible: /platform/runtime/cli/ansible.md
-        - JFrog: /platform/runtime/cli/jfrog.md
-        - Azure: /platform/runtime/cli/azure.md
-        - Packer: /platform/runtime/cli/packer.md
-        - Docker: /platform/runtime/cli/docker.md
+        - Amazon Web Services: platform/runtime/cli/aws.md
+        - AWS Elastic Beanstalk: platform/runtime/cli/awseb.md
+        - Google Cloud: platform/runtime/cli/gke.md
+        - Kubernetes Controller: platform/runtime/cli/kubectl.md
+        - Terraform: platform/runtime/cli/terraform.md
+        - Ansible: platform/runtime/cli/ansible.md
+        - JFrog: platform/runtime/cli/jfrog.md
+        - Azure: platform/runtime/cli/azure.md
+        - Packer: platform/runtime/cli/packer.md
+        - Docker: platform/runtime/cli/docker.md
       - Services:
-        - Cassandra: /platform/runtime/service/cassandra.md
-        - Couchdb: /platform/runtime/service/couchdb.md
-        - Elasticsearch: /platform/runtime/service/elasticsearch.md
-        - Neo4j: /platform/runtime/service/neo4j.md
-        - Memcached: /platform/runtime/service/memcached.md
-        - Mongodb: /platform/runtime/service/mongodb.md
-        - Mysql: /platform/runtime/service/mysql.md
-        - Postgres: /platform/runtime/service/postgres.md
-        - Rabbitmq: /platform/runtime/service/rabbitmq.md
-        - Redis: /platform/runtime/service/redis.md
-        - Rethinkdb: /platform/runtime/service/rethinkdb.md
-        - Riak: /platform/runtime/service/riak.md
-        - Selenium: /platform/runtime/service/selenium.md
-        - Sqllite: /platform/runtime/service/sqllite.md
+        - Cassandra: platform/runtime/service/cassandra.md
+        - Couchdb: platform/runtime/service/couchdb.md
+        - Elasticsearch: platform/runtime/service/elasticsearch.md
+        - Neo4j: platform/runtime/service/neo4j.md
+        - Memcached: platform/runtime/service/memcached.md
+        - Mongodb: platform/runtime/service/mongodb.md
+        - Mysql: platform/runtime/service/mysql.md
+        - Postgres: platform/runtime/service/postgres.md
+        - Rabbitmq: platform/runtime/service/rabbitmq.md
+        - Redis: platform/runtime/service/redis.md
+        - Rethinkdb: platform/runtime/service/rethinkdb.md
+        - Riak: platform/runtime/service/riak.md
+        - Selenium: platform/runtime/service/selenium.md
+        - Sqllite: platform/runtime/service/sqllite.md
     - Visibility:
-      - Overview: /platform/visibility/overview.md
-      - Single Pane of Glass: /platform/visibility/single-pane-of-glass-spog.md
-      - Custom Views: /platform/visibility/custom-views.md
+      - Overview: platform/visibility/overview.md
+      - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
+      - Custom Views: platform/visibility/custom-views.md
     - Management:
-      - Overview: /platform/management/overview.md
+      - Overview: platform/management/overview.md
     - Integrations:
-      - Overview: /platform/integration/overview.md
-      - Amazon ECR: /platform/integration/aws-ecr.md
-      - Amazon ECS: /platform/integration/aws-ecs.md
-      - Azure DC/OS: /platform/integration/azure-dcos.md
-      - Bitbucket: /platform/integration/bitbucket.md
-      - Docker Cloud: /platform/integration/docker-cloud.md
-      - Docker Datacenter: /platform/integration/docker-datacenter.md
-      - Docker Hub: /platform/integration/docker-hub.md
-      - Docker Trusted Registry: /platform/integration/docker-trusted-registry.md
-      - Event Trigger: /platform/integration/event-trigger.md
-      - Git Credential: /platform/integration/git-credential.md
-      - GitHub: /platform/integration/github.md
-      - GitHub Enterprise: /platform/integration/github-enterprise.md
-      - Gitlab: /platform/integration/gitlab.md
-      - Google Container Engine: /platform/integration/gke.md
-      - Google Container Registry: /platform/integration/gcr.md
-      - Hipchat: /platform/integration/hipchat.md
-      - Jenkins: /platform/integration/jenkins.md
-      - JFrog Artifactory: /platform/integration/jfrog-artifactory.md
-      - Joyent Triton: /platform/integration/tripub.md
-      - Key-value: /platform/integration/key-value.md
-      - Kubernetes: /platform/integration/kubernetes.md
-      - Node Cluster: /platform/integration/node-cluster.md
-      - PEM Keys: /platform/integration/key-pem.md
-      - Private Registries: /platform/integration/docker-private-registry.md
-      - Quay.io: /platform/integration/quay.md
-      - Slack: /platform/integration/slack.md
-      - SSH Keys: /platform/integration/key-ssh.md
+      - Overview: platform/integration/overview.md
+      - Amazon ECR: platform/integration/aws-ecr.md
+      - Amazon ECS: platform/integration/aws-ecs.md
+      - Azure DC/OS: platform/integration/azure-dcos.md
+      - Bitbucket: platform/integration/bitbucket.md
+      - Docker Cloud: platform/integration/docker-cloud.md
+      - Docker Datacenter: platform/integration/docker-datacenter.md
+      - Docker Hub: platform/integration/docker-hub.md
+      - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
+      - Event Trigger: platform/integration/event-trigger.md
+      - Git Credential: platform/integration/git-credential.md
+      - GitHub: platform/integration/github.md
+      - GitHub Enterprise: platform/integration/github-enterprise.md
+      - Gitlab: platform/integration/gitlab.md
+      - Google Container Engine: platform/integration/gke.md
+      - Google Container Registry: platform/integration/gcr.md
+      - Hipchat: platform/integration/hipchat.md
+      - Jenkins: platform/integration/jenkins.md
+      - JFrog Artifactory: platform/integration/jfrog-artifactory.md
+      - Joyent Triton: platform/integration/tripub.md
+      - Key-value: platform/integration/key-value.md
+      - Kubernetes: platform/integration/kubernetes.md
+      - Node Cluster: platform/integration/node-cluster.md
+      - PEM Keys: platform/integration/key-pem.md
+      - Private Registries: platform/integration/docker-private-registry.md
+      - Quay.io: platform/integration/quay.md
+      - Slack: platform/integration/slack.md
+      - SSH Keys: platform/integration/key-ssh.md
     - Tutorials:
       - Workflow:
-        - Anatomy of shippable.resources.yml: /platform/tutorial/workflow/shippable-resources-yml.md
-        - How to work with Resources: /platform/tutorial/workflow/howto-crud-resource.md
-        - How to work with Jobs: /platform/tutorial/workflow/howto-crud-job.md
-        - How to work with syncRepo: /platform/workflow/job/howto-crud-syncrepo.md
-        - How to output key-values into a Resource: /platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
-        - How to additional version info from a Resource: /platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
-        - How to replicate IN Resource to a OUT Resource: /platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
-        - How to share data between Runs: /platform/tutorial/workflow/howto-share-data-between-runs.md
-        - How to share data between Jobs: /platform/tutorial/workflow/howto-share-data-between-jobs.md
+        - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
+        - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
+        - How to work with Jobs: platform/tutorial/workflow/howto-crud-job.md
+        - How to work with syncRepo: platform/workflow/job/howto-crud-syncrepo.md
+        - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
+        - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
+        - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
+        - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
+        - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
       - Integrations:
-        - Working with Integrations: /platform/integration/working-with.md
-        - How to create a kubeconfig file: /platform/tutorial/integration/howto-create-kubeconfig.md
-        - How to install kubectl: /platform/tutorial/integration/howto-install-kubectl.md
-        - How to connect Shippable through AWS IAM: /platform/tutorial/integration/howto-create-AWS-IAM-access.md
-        - How to use Key-Value Integration in runCI: /platform/tutorial/integration/howto-use-key-value-in-runci.md
-        - How to use Key-Value Integration in runSh: /platform/tutorial/integration/howto-use-key-value-in-runSh.md
-        - How to use Docker Private Registry Integration in runCI: /platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - Working with Integrations: platform/integration/working-with.md
+        - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
+        - How to install kubectl: platform/tutorial/integration/howto-install-kubectl.md
+        - How to connect Shippable through AWS IAM: platform/tutorial/integration/howto-create-AWS-IAM-access.md
+        - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
+        - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
+        - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
-        - Dynamic Nodes: /platform/tutorial/runtime/dynamic-nodes.md
-        - Custom Nodes: /platform/tutorial/runtime/custom-nodes.md
-        - Caching: /platform/tutorial/runtime/caching.md
-        - Environment Variables: /platform/tutorial/runtime/environment-variables.md
-        - AMI Overview: /platform/tutorial/runtime/ami-overview.md
-        - AMI v5.7.3: /platform/tutorial/runtime/ami-v573.md
-        - AMI v5.6.1: /platform/tutorial/runtime/ami-v561.md
-        - AMI v5.5.1: /platform/tutorial/runtime/ami-v551.md
-        - AMI v5.4.1: /platform/tutorial/runtime/ami-v541.md
-        - AMI v5.3.2: /platform/tutorial/runtime/ami-v532.md
+        - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
+        - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
+        - Caching: platform/tutorial/runtime/caching.md
+        - Environment Variables: platform/tutorial/runtime/environment-variables.md
+        - AMI Overview: platform/tutorial/runtime/ami-overview.md
+        - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
+        - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
+        - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
+        - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
+        - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
       - API:
-        - Overview: /platform/tutorial/api/api-overview.md
-        - Tokens: /platform/tutorial/api/api-tokens.md
+        - Overview: platform/tutorial/api/api-overview.md
+        - Tokens: platform/tutorial/api/api-tokens.md
       - Shippable Server:
-        - Installer: /platform/tutorial/server/install.md
-        - Installing SE from AWS Marketplace: /platform/tutorial/server/install-aws-marketplace.md
-        - Installing SE on a single machine: /platform/tutorial/server/install-onebox.md
-        - Installing EE on two machines: /platform/tutorial/server/install-two-server.md
-        - Installing EE on three machines: /platform/tutorial/server/install-three-server.md
-        - Installing EE on three machines with an existing DB: /platform/tutorial/server/install-three-server-existing-db.md
-        - Database Configuration: /platform/tutorial/server/install-db.md
-        - State Storage Configuration: /platform/tutorial/server/install-gitlab.md
-        - Message Configuration: /platform/tutorial/server/install-rabbitmq.md
-        - Redis Configuration: /platform/tutorial/server/install-redis.md
-        - Swarm Worker Configuration: /platform/tutorial/server/install-swarm-workers.md
-        - Vault Configuration: /platform/tutorial/server/install-vault.md
-        - Bitbucket Server Configuration: /platform/tutorial/server/install-bbs.md
+        - Installer: platform/tutorial/server/install.md
+        - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
+        - Installing SE on a single machine: platform/tutorial/server/install-onebox.md
+        - Installing EE on two machines: platform/tutorial/server/install-two-server.md
+        - Installing EE on three machines: platform/tutorial/server/install-three-server.md
+        - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md
+        - Database Configuration: platform/tutorial/server/install-db.md
+        - State Storage Configuration: platform/tutorial/server/install-gitlab.md
+        - Message Configuration: platform/tutorial/server/install-rabbitmq.md
+        - Redis Configuration: platform/tutorial/server/install-redis.md
+        - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
+        - Vault Configuration: platform/tutorial/server/install-vault.md
+        - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
       - Glossary:
-        - Complete list of terms: /platform/tutorial/glossary.md
+        - Complete list of terms: platform/tutorial/glossary.md
