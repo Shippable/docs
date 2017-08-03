@@ -16,7 +16,7 @@ google_analytics: ['UA-50610279-1', 'auto']
 pages:
   - Getting started:
     - Overview:
-      - What is Shippable?: /index.md
+      - What is Shippable?: index.md
       - What do we support?: /getting-started/what-is-supported.md
       - How much does it cost?: /getting-started/billing-overview.md
     - Run our samples:
