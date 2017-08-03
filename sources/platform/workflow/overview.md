@@ -3,14 +3,6 @@ main_section: Platform
 sub_section: Workflow
 page_title: Workflow Overview
 
-
-#TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| State Page creation|  Open |
-| Further Reading needs thinking|  Open |
-
 # Workflow Overview
 
 Workflow makes it easy to connect all of the "Islands of Automation" into DevOps assembly lines across all environments, projects, and tools. They are actually dependency charts where upstream activities broadcast events and job state to downstream relying activities. This helps co-ordinate tasks centrally across diverse DevOps activities without having to custom build custom DIY scripts to integrate them along with a state database to persist the job output information. Workflows are authored through a simple declarative language
@@ -37,13 +29,12 @@ At a very fundamental level, Workflow is made up of 4 key elements.
 
 <a name="state"></a>
 ### State
-State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD. The platform has this capability built-in so that you dont need to maintain external spreadsheets, file storage, slack rooms etc. to share this information
+[State(ful)](/platform/workflow/state/overview) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD. The platform has this capability built-in so that you dont need to maintain external spreadsheets, file storage, slack rooms etc. to share this information
 
 <a name="trigger"></a>
 ### Trigger
 [Triggers](/platform/workflow/trigger/overview/) are used to manually start a Job. You could also achive this by triggering through UI, but this is for those who like to do it with code
 
 ## Further Reading
-* Job Runtime
-* Resources
-* Simple E2E sample using Assembly lines
+* [Quick Start to CI](getting-started/ci-sample)
+* [Quick Start to CD](getting-started/cd-sample)

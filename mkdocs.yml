@@ -205,7 +205,6 @@ pages:
       - What is it: platform/workflow/overview.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
-        - Working with Resources: platform/workflow/resource/working-with.md
         - ciRepo: platform/workflow/resource/cirepo.md
         - cliConfig: platform/workflow/resource/cliconfig.md
         - cluster: platform/workflow/resource/cluster.md
@@ -316,12 +315,13 @@ pages:
       - SSH Keys: platform/integration/key-ssh.md
     - Tutorials:
       - Workflow:
-        - Working with Resources: platform/workflow/resource/working-with.md
-        - Working with Jobs: platform/workflow/job/working-with.md
+        - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
+        - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
+        - How to work with Jobs: platform/workflow/job/working-with.md
         - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
         - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
         - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
-        - Persisting state from one run to another: platform/tutorial/workflow/howto-share-data-between-runs.md
+        - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
         - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
       - Integrations:
         - Working with Integrations: platform/integration/working-with.md

@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # replicas
 `replicas` is a resource holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers
 
-You can create a `replicas` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
+You can create a `replicas` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:

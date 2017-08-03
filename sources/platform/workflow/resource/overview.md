@@ -31,7 +31,7 @@ resources:
     seed:				<object>
     version:			<object>
 ```
-For more information, read [Working with Resources](/platform/workflow/resource/working-with/)
+For more information, read [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml)
 
 ## Versions
 A key strength of a resource is that it is versioned. Any change made to the resource definition is stored as a new version with a unique identifier. This is critical if you want to be able to roll back, upgrades or pin the resource to a particular point of time. User-defined key-value pairs can be stored as part of resource versions.
@@ -61,7 +61,6 @@ These are the types of resources that Shippable Workflow supports:
 If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 ## Further Reading
-* [Working with Resources](/platform/workflow/resource/working-with/)
+* [Working with Resources](/platform/tutorial/workflow/howto-crud-resource)
 * [Jobs](/platform/workflow/job/overview)
 * [Integrations](/platform/workflow/integration/overview)
-

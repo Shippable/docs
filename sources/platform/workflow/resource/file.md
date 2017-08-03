@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # file
 `file` resource is a pointer to a file on an external file share. When used as an IN to a job, the file is downloaded and available to be used.
 
-You can create a file resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
+You can create a `file` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
