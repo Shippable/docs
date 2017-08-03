@@ -317,7 +317,7 @@ pages:
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
         - How to work with Jobs: platform/tutorial/workflow/howto-crud-job.md
-        - How to work with syncRepo: platform/workflow/job/howto-crud-syncrepo.md
+        - How to work with syncRepo: platform/tutorial/workflow/howto-crud-syncrepo.md
         - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
         - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
         - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
