@@ -1,6 +1,6 @@
 page_main_title: Digital Ocean Infrastructure
 main_section: Provision
-sub_section: Provisioning Digital Ocean infrastructure
+sub_section: Provisioning with Ansible
 
 # Digital Ocean with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
