@@ -323,7 +323,7 @@ pages:
         - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
         - How to work with Jobs: platform/tutorial/workflow/howto-crud-job.md
         - How to work with syncRepo: platform/tutorial/workflow/howto-crud-syncrepo.md
-        - How to use shiputl: platform/tutorial/workflow/howto-use-shiputl.md
+        - How to use Shippable Utility shipctl: platform/tutorial/workflow/howto-use-shipctl.md
         - How to send status to Source Control Systems: platform/tutorial/workflow/howto-send-status-to-scm.md
         - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
         - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md

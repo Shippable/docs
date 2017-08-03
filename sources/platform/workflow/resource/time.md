@@ -51,7 +51,7 @@ Whenever `time` is used as an `IN` or `OUT` into a Job that can execute user def
 ## Shippable Utility Functions
 To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
-These utility functions are [documented here]()
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

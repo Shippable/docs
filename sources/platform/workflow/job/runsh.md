@@ -93,7 +93,6 @@ Here is a list of the tools configured for each integration type:
 | [Quay](/platform/integration/quay) | [Docker](/platform/runtime/cli/docker) |
 | For all Integrations above | [Packer](/platform/runtime/cli/packer) & [Terraform](/platform/runtime/cli/terraform)| 
 
-
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
 
@@ -115,17 +114,10 @@ In addition, the Job itself comes with its own default set of variables. This is
 ## Shippable Utility Functions
 To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
-These utility functions are [documented here]()
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
 
 ## Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)
 
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Add Environment variables|  Open |
-| Add Folder Structure|  Open |
+
