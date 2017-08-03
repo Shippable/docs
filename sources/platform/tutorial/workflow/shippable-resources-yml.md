@@ -35,6 +35,5 @@ resources:
 * **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](/platformworkflow/resource/dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
 
 # Further Reading
-* Working with Resources
 * [Integrations](/platform/integration/overview/)
 * [Jobs](/platform/workflow/job/overview/)
