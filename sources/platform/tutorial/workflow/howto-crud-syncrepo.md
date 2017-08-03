@@ -36,6 +36,7 @@ The name of the `syncRepo` is the name of the repository appended to name of the
 	* Click on **Save** to apply your sync repository configuration.
 
 At this point, Shippable will create `syncRepo` resource and `rSync` job. After that rSync job will parse all configuration files in the  repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml`,  `shippable.resources.yml` and `shippable.triggers.yml` in the Single Pane of Glass (SPOG) (click on the `eye` icon on the top-right corner on your organization's page  and choose `Show SPOG view`).
+
 <img src="/images/platform/resources/syncRepo/syncRepo-flag.png" alt="syncRepo flag">
 
 ## Editing a syncRepo
@@ -47,7 +48,9 @@ At this point, Shippable will create `syncRepo` resource and `rSync` job. After 
 ## Deleting a syncRepo
 
 * Upong right-clicking on the SPOG, you will see an option to delete the `syncRepo`. This is available only for this type of resource. All other deletes need to happen from the YML files
+
 	<img src="/images/platform/tutorial/workflow/soft-delete-syncRepo.jpg" alt="soft delete syncRepo">
+
 * Once you remove it, all objects that were defined in this `syncRepo` along with `rSync` job will be soft-deleted
 * Make sure you have deleted objects turned on in your view. Find the `syncRepo` you deleted and then hard delete it. Now all the `Resources` and `Jobs` that were defined in this repo are all permanently deleted. You cannot recover any data after this operation
 	
