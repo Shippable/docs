@@ -109,7 +109,7 @@ Here is a list of CLIs we have available as part of Job Runtime -
 * [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
 * [Azure](/platform/runtime/cli/azure)
 * [Docker](/platform/runtime/cli/docker)
-* [GKE](/platform/runtime/cli/gke)
+* [Google Cloud](/platform/runtime/cli/gke)
 * [JFrog](/platform/runtime/cli/jfrog)
 * [Packer](/platform/runtime/cli/packer)
 * [Terraform](/platform/runtime/cli/terraform)
