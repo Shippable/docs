@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # version
 `version` resource is used to store <a href="http://www.semver.org/">the semantic version</a> numbers.
 
-You can create a version resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `version` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
 
 ```
 resources:

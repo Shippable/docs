@@ -11,11 +11,11 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 You should use this job type if you need the freedom that some of the pre-packaged Jobs like `deploy`, `manifest` do not provide the flexibility that you need or do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a Job of type `runSh`.
 
-You can also add `cliConfig` resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](workflow/resource/cliconfig#cliConfigTools).
+You can also add `cliConfig` resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](/platform/workflow/resource/cliconfig#cliConfigTools).
 
 A new version is created anytime this Job is executed.
 
-You can create a `runSh` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
+You can create a `runSh` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes]() or [Custom Nodes]()
 
 
 ## YML Definition
@@ -51,7 +51,7 @@ jobs:
 	 always:
       - script: 			pwd
 ```
-A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- Required, should be an easy to remember text string
 
@@ -93,7 +93,7 @@ In addition, the Job itself comes with its own default set of variables. This is
 | JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

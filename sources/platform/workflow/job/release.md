@@ -16,13 +16,13 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 Shippable DevOps Assembly Lines stores the service definition in the versions of the following Jobs
 
-* [manifest]() as this is the Job that generates a service definition
-* [deploy]() as this needs manifests to deploy and the deploy job stores the manifests it deploys for ability to roll-back
-* [release]() as this is what tags a semantic version number for the service definition
+* [manifest](/platform/workflow/job/manifest) as this is the Job that generates a service definition
+* [deploy](/platform/workflow/job/deploy) as this needs manifests to deploy and the deploy job stores the manifests it deploys for ability to roll-back
+* [release](/platform/workflow/job/release) as this is what tags a semantic version number for the service definition
 
 All of the above jobs can be used as `IN`s to create a new release. A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
+You can create a `deploy` Job by [adding](/platform/workflow/job/working-wth#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
 
 ## YML Definition
 
