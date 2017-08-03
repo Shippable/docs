@@ -12,7 +12,6 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Add link to inconsistencies to rSync|  Open |
-| Environment variables|  Open |
 | Folder Structure|  Open |
 
 # Jobs
@@ -82,7 +81,7 @@ jobs:
       - script: 			pwd
 ```
 
-For more information, read [Working with Jobs](/platform/tutorial/workflow/howto-crud-job)
+For more information, read [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml)
 
 ## When does a Job execute?
 A Job is queued by the DevOps Assembly Line platform when one of the following cases occur
@@ -116,4 +115,3 @@ If you need a job that is not listed above, send us an email at [support@shippab
 # Further Reading
 * Working with Resources
 * Working with Integrations
-* Jobs
