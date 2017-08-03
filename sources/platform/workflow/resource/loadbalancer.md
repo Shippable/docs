@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # loadBalancer
 `loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
-You can create a `loadBalancer` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `loadBalancer` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:

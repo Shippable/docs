@@ -9,7 +9,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # cluster
 `cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole.
 
-You can create a `cluster` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `cluster` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:

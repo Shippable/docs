@@ -5,9 +5,9 @@ sub_sub_section: Resources
 
 
 # time
-`time` resource provides cron like functionality. It is used to to trigger a job in a cron like manner. This resource can be used used as an IN input for [any job](workflow/job/overview/). The timezone used for triggering jobs is UTC.
+`time` resource provides cron like functionality. It is used to to trigger a job in a cron like manner. This resource can be used used as an IN input for [any job](/platform/workflow/job/overview/). The timezone used for triggering jobs is UTC.
 
-You can create a `time` resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `time` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:

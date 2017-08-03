@@ -33,15 +33,15 @@ resources:
 
 * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represent e.g. `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to Jobs.
 
-* **`type`** -- Name of the resource type that this resource is an instance of. [Here](workflow/resource/overview#types) is a list of all types
+* **`type`** -- Name of the resource type that this resource is an instance of. [Here](/platform/workflow/resource/overview#types) is a list of all types
 
-* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on. Get more infromation [here](integration/overview/)
+* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on. Get more infromation [here](/platform/integration/overview/)
 
 * **`pointer`** -- is an object that stores the information the resource contains. This usually does not change and every unique entity is represented by a resource. For example, in case of `gitRepo` resource pointer will contain `sourceName` that points to the repo name along with other pieces of information like `branch` etc.
 
 * **`seed`** -- is an object that allows users to set an initial version for the resource. For e.g. the initial tag of a docker image resource. When new versions are created, the initial seed values are ignored. If you want to reset the resource to start with a new seed, change the seed in the YML and when sync process executes, it will create a new version on top of all versions as a new starting point
 
-* **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](workflow/resource/dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
+* **`version`** -- is an object that allows you to set the version of resource that dont change dynamically. For example, [dockerOptions](/platformworkflow/resource/dockeroptions/) have several tags under the `version` section. Any time the information changes in the YML, a new version of the resource is created
 
 <a name="adding"></a>
 ## Adding Resources
@@ -76,7 +76,7 @@ Shippable is designed to separate out sensitive authentication information from 
 
 This is done to ensure there are no encryption/decryption or permissions issues when you move things around i.e. moving resource definitions from one repository to another, or if the person who created the pipeline is no longer the member of the team etc. Integrations are specified as a property in the YML definition for resources that connect to third party services.
 
-To learn how to create integrations and use them in your ymls, [click here](integration/overview/)
+To learn how to create integrations and use them in your ymls, [click here](/platform/integration/overview/)
 
 
 # Further Reading
