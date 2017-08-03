@@ -1,6 +1,6 @@
 page_main_title: Single Pane of Glass
-main_section: Getting started
-sub_section: Overview
+main_section: Platform
+sub_section: Visibility
 
 # Single Pane of Glass (SPOG) View
 

@@ -1,6 +1,6 @@
 page_main_title: Setting account email
-main_section: Getting started
-sub_section: Your account
+main_section: Platform
+sub_section: Management
 
 # Setting account email
 
@@ -13,7 +13,7 @@ If you want to send notifications to a different address by default, follow thes
 - In the **Account Information** section, click on **Edit** in the email sub-section.
 - Enter your new email address and click on **Save**
 
-<img src="../../images/getting-started/change-email.png" alt="Changing email address">
+<img src="/images/getting-started/change-email.png" alt="Changing email address">
 
 You will start receiving all subsequent notifications at the address you configured.
 

@@ -1,6 +1,6 @@
 page_main_title: Managing payment methods
-main_section: Getting started
-sub_section: Your account
+main_section: Platform
+sub_section: Management
 
 # Managing payment methods
 
@@ -24,7 +24,7 @@ the card to your account.
 
 You will not be charged until you use a card to upgrade a subscription.
 
-<img src="../../images/getting-started/add-card.png" alt="Adding a Credit Card to
+<img src="/images/getting-started/add-card.png" alt="Adding a Credit Card to
 your Account">
 
 ##Removing a card
@@ -35,7 +35,7 @@ your Account">
 - Click the **Delete** button for the card you wish to remove from your account.
 Click the **Yes** button on the confirmation window.
 
-<img src="../../images/getting-started/delete-card.png" alt="Deleting a Credit Card
+<img src="/images/getting-started/delete-card.png" alt="Deleting a Credit Card
 to your Account">
 
 
