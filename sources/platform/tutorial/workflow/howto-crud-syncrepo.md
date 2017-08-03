@@ -42,7 +42,9 @@ At this point, Shippable will create `syncRepo` resource and `rSync` job. After 
 ## Editing a syncRepo
 
 * Click on the `syncRepo` resource. This will take you the history page
+
 	<img src="/images/platform/tutorial/workflow/edit-syncRepo-flag.jpg" alt="edit syncRepo flag">
+
 * Now you can change the flags here, integration used and the default flag	
 
 ## Deleting a syncRepo
