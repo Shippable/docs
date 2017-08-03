@@ -50,7 +50,9 @@ At this point, Shippable will create `syncRepo` resource and `rSync` job. After 
 	<img src="/images/platform/tutorial/workflow/soft-delete-syncRepo.jpg" alt="soft delete syncRepo">
 * Once you remove it, all objects that were defined in this `syncRepo` along with `rSync` job will be soft-deleted
 * Make sure you have deleted objects turned on in your view. Find the `syncRepo` you deleted and then hard delete it. Now all the `Resources` and `Jobs` that were defined in this repo are all permanently deleted. You cannot recover any data after this operation
+	
 	<img src="/images/platform/tutorial/workflow/show-deleted-objects.jpg" alt="show deleted objects">
+	
 	<img src="/images/platform/tutorial/workflow/hard-delete-syncRepo.jpg" alt="hard delete syncRepo">	
 ## Restoring a syncRepo
 * If you accidently soft deleted a `syncRepo`, then you can restore it by from the deleted objects view and all you objects will be restore. You cannot do this once you hard delete your repo
