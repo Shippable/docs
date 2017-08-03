@@ -21,10 +21,9 @@ If your rSync job fails due to any reason, the affected [Resources](/platform/wo
 *  The integration it points to is no longer valid, maybe due to invalid credentials and the user who owns the credentials is no longer a member of the organization
 
 In most case, these can be resolved by updating the integrations, or fixing the typos etc. and rerunning `rSync` manually from the UI
-
-<img src="/images/platform/jobs/rSync/rsync-job.png" alt="rSync job">
+	<img src="/images/platform/jobs/rSync/rsync-job.png" alt="rSync job">
 
 ## Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+* [Working with syncRepo](/platform/tutorial/workflow/howto-crud-syncrepo)
+* [Jobs](/platform/workflow/job/overview)
+* [Resource](/platform/workflow/resource/overview)
