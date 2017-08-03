@@ -39,7 +39,7 @@ pages:
       - Working with env variables: ci/env-vars.md
     - Working with services:
       - Overview: ci/services-overview.md
-      - CouchDB:  /ci/couchdb.md
+      - CouchDB: ci/couchdb.md
       - Elasticsearch: ci/elasticsearch.md
       - Memcached: ci/memcached.md
       - MongoDB: ci/mongodb.md
