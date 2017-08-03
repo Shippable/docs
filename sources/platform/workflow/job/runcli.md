@@ -8,7 +8,7 @@ sub_sub_section: Jobs
 runCLI jobs combine the unlimited flexibility of runSh jobs with the added
 convenience of automatically configured environments and tools. In addition to
 running custom scripts as described in runSh, you can also add
-[cliConfig](../resource/cliconfig.md) resources as inputs to this job. The relevant
+[cliConfig](/platform/workflow/resource/cliconfig) resources as inputs to this job. The relevant
 CLI tools will be preconfigured for your scripts to use. runCLI jobs also give
 you access to the `shippable_replace` tool to help with replacing placeholders
 in files with values from the environment.
@@ -35,7 +35,7 @@ name of the job in your pipeline visualization.
 
 - steps: The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are
-[cliConfig](../resource/cliconfig.md) will configure the appropriate CLI tools
+[cliConfig](/platform/workflow/resource/cliconfig) will configure the appropriate CLI tools
 before your job starts running. You can have a single `TASK` property in your
 steps to specify your script commands. Everything under the `steps` section
 executes sequentially.

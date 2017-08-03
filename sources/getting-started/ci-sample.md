@@ -1,6 +1,6 @@
 page_main_title: Run your first build
 main_section: Getting started
-sub_section: ci sample
+sub_section: Run our samples
 page_title: Running your first sample build
 page_description: Setup up documentation for a sample build
 page_keywords: getting started, build, quick start, documentation, shippable, continous integration

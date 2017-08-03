@@ -18,7 +18,7 @@ You can send notifications upon following events occuring in your workflow:
 * Job failed (on_failure)
 * Job canceled (on_cancel)
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a file resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -103,7 +103,7 @@ Whenever `notification` is used as an `IN` or `OUT` into a Job that can execute 
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

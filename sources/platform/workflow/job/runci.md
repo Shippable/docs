@@ -28,7 +28,7 @@ Note: If your `CI` project was enabled before March 2017, you can create these o
 
 
 ## How do you use it in Assembly Lines?
-Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
+Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
 
 
 ## YML Definition
@@ -63,7 +63,7 @@ jobs:
       - script: pwd
 
 ```
-A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view
 
@@ -107,7 +107,7 @@ In addition, the Job itself comes with its own default set of variables. This is
 Please note that the environment variables for a `runCI` job are in addition to the [standard variables available for every CI job](/ci/env-vars/).
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

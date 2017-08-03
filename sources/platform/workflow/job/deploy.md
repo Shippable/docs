@@ -12,11 +12,11 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 | Further Reading needs thinking|  Open |
 
 # deploy
-`deploy` is a Job that deploys a app/service definition ([manifest](workflow/job/manifest/)) to a [cluster](workflow/resource/cluster/). One very powerful concept with this Job is that if you add resources like [params](), [dockerOptions]() and [replicas](), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
+`deploy` is a Job that deploys a app/service definition ([manifest](/platform/workflow/job/manifest)) to a [cluster](/platform/workflow/resource/cluster/). One very powerful concept with this Job is that if you add resources like [params](), [dockerOptions]() and [replicas](), it can override the service definition from the manifest. This is very useful in multi-environment deployments e.g. pushing a Docker based app through Dev, Test and Prod
 
 A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](jobs-working-wth#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
+You can create a `deploy` Job by [adding](/platform/workflow/job/working-with#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided [Shared Nodes]()
 
 ## YML Definition
 
@@ -67,7 +67,7 @@ jobs:
 	 always:								# optional
 	   - NOTIFY:		<notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](workflow/job/working-with#jobanatomy) page
+A full detailed description of each tag is available on the [Job Anatomy](/platform/workflow/job/working-with#jobanatomy) page
 
 * **`name`** -- should be an easy to remember text string
 
@@ -106,7 +106,7 @@ A full detailed description of each tag is available on the [Job Anatomy](workfl
 
 			* `replace` -- the old version of the service is brought down before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel
 
-		* `script` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](integration/node-cluster/)
+		* `script` -- Optional input, used to run a script after deployment. But this can be used only if the `deploy` is for a `file` based `manifest` and the `cluster` resource has an integration of type [Node Cluster](/platform/integration/node-cluster/)
 
 Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 

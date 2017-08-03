@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # cliconfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `cliConfig` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins.
 
@@ -28,7 +28,7 @@ resources:
 	* [Docker Hub](integration/docker-hub)
 	* [Docker Trusted Registry](integration/docker-trusted-registry)
 	* [Docker Private Registry](integration/docker-private-registry)
-	* [Google Cloud](integration/gce) 
+	* [Google Cloud](integration/gce)
 	* [Google Container Registry](integration/gcr)
 	* [Google Container Engine](integration/gke)
 	* [JFrog](integration/jfrog-artifactory)
@@ -98,7 +98,7 @@ Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute use
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

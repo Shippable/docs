@@ -9,7 +9,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # cluster
 `cluster` is used to represent a set of machines or a container orchestration system. It used to predominantly deploy services/apps to it and in some case it can also be used to run certain maintenance activities on the cluster as a whole.
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `cluster` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -34,7 +34,7 @@ resources:
 	* [Node Cluster](/platform/integration/node-cluster)
 
 * **`pointer`** -- is an object which contains integration specific properties
-	* For AWS integration 
+	* For AWS integration
 
 	```
 	    pointer:
@@ -45,13 +45,13 @@ resources:
 	* For Azure integration - NA
 	* For Kubernetes integration - NA
 	* For Docker Cloud integration
-	
+
 	```
 	    pointer:
-	      sourceName: <Docker Cloud Cluster Name> 
+	      sourceName: <Docker Cloud Cluster Name>
 	```
 
-	* For Docker Datacenter - NA	
+	* For Docker Datacenter - NA
 	* For Kubernetes integration - NA
 	* For GKE integration
 
@@ -61,7 +61,7 @@ resources:
 	      sourceName: <cluster of type Google Container Engine>
 	      namespace: optional if you want to specify which namespace you want to deploy to
 	```
-	
+
 	* For node Cluster - NA
 
 ## Used in JOBs
@@ -92,7 +92,7 @@ Whenever `cluster` is used as an `IN` or `OUT` into a Job that can execute user 
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

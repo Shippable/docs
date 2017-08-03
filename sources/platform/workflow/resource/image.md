@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # image
 `image` resource is used to add a reference to a docker image to your pipeline.
 
-You can create a file resource by [adding](/platform/workflow/resource/resources-working-wth#adding) it to `shippable.resources.yml`
+You can create a `image` resource by [adding](/platform/workflow/resource/working-with#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -70,7 +70,7 @@ Whenever `image` is used as an `IN` or `OUT` into a Job that can execute user de
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values. 
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
 These utility functions are [documented here]()
 

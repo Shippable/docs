@@ -1,6 +1,6 @@
 page_main_title: Deploy your first app
 main_section: Getting started
-sub_section: Pipeline sample
+sub_section: Run our samples
 
 # Deploy your first app
 
