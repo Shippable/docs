@@ -7,8 +7,8 @@ page_description: Shippable Server (SE/EE) and Bitbucket Server Integration
 
 # Bitbucket Server integration
 
-Bitbucket Server integration is supported with Shippable Server SE and EE editions. To build repositories
-hosted on Bitbucket Server with Shippable Server, you will need to sign into Shippable with your Bitbucket
+Integration with Atlassian Stash 3.x, and BitBucket Server 4.x up to 5.2.2 is supported with Shippable Server SE and EE editions.
+To build repositories hosted on Bitbucket Server with Shippable Server, you will need to sign into Shippable with your Bitbucket
 Server account.
 
 Steps to configure Bitbucket Server integration -
@@ -72,6 +72,14 @@ Steps to configure Bitbucket Server integration -
   * Install the `Shippable OAuth for Bitbucket Server` add-on by clicking on the `Install` button.
 
   <img src="/images/platform/admiral/BBS-Addons.png" alt="Install add-ons">
+
+ Please use the table below to find the appropriate addon for your BitBucket Server version:
+
+  |  Bitbucket Server Version | Shippable CI/CD for Bitbucket Server   |      Shippable OAuth for Bitbucket Server       |
+  |:----------:|:-------------:|:------:|
+  | 5.x, 4.x | 1.1.7-RELEASE | 1.0.3-RELEASE |
+  | Stash 3.x | 1.1.6-STASH-RELEASE |    1.0.3-RELEASE   |
+
 
 ## Enable Bitbucket Server Auth and SCM in Shippable Server UI (Admiral).
 
