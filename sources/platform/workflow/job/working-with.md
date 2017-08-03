@@ -1,6 +1,6 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Tutorials
+sub_section: Workflow
 sub_sub_section: Jobs
 page_title: DevOps Assembly Line Jobs
 page_description: How to add, delete and update resources
@@ -115,8 +115,29 @@ After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (J
 ## Migrating a Job from one YML to another
 There are some situations where you might need to reorganize where your Jobs are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative
 
-Here are the steps to migrate
+Here are the steps to migrate -
 
+Here are the steps to migrate -
+
+1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform/workflow/job/working-with#pausing-jobs).
+
+2. Add the jobs you want to migrate to the destination repository's yml files.
+
+3. Run the rSync job of the destination repository. Once the rSync job completes, migration will be complete. Your SPOG will however not change as no dependency has changed. Therefore, to verify this you can check the logs of the rSync job.
+<img src="/images/pipelines/migrationConsoleLog.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+4. From the source repository, delete all the migrated jobs. This will automatically trigger the rSync job and it should succeed.
+<img src="/images/pipelines/resumeJob.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+5. Now, your jobs are migrated to the destination repository. You can add, remove or update them there.
+
+**NOTE:** While migrating a job you should copy it exactly as it is in the source repository. You can add or remove dependencies only once the job is successfully migrated to destination repository.
+
+## Pausing jobs
+
+You can pause any jobs in your pipeline by right-clicking on the job, and clicking **Pause Jobs**. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume automatic triggers.
+
+<img src="/images/pipelines/pause-job.png" alt="Pause job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ## Deleting Jobs
 Deleting Job is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Job means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.

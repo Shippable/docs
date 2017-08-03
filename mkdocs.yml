@@ -205,6 +205,7 @@ pages:
       - What is it: platform/workflow/overview.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
+        - Working with Resources: platform/workflow/resource/working-with.md
         - ciRepo: platform/workflow/resource/cirepo.md
         - cliConfig: platform/workflow/resource/cliconfig.md
         - cluster: platform/workflow/resource/cluster.md
@@ -223,6 +224,7 @@ pages:
         - version: platform/workflow/resource/version.md
       - Jobs:
         - Overview: platform/workflow/job/overview.md
+        - Working with Jobs: platform/workflow/job/working-with.md
         - deploy: platform/workflow/job/deploy.md
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
