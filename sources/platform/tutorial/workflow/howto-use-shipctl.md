@@ -1,79 +1,130 @@
-page_main_title: Working with Jobs
+page_main_title: Working with shipctl
 main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
-page_title: DevOps Assembly Line Jobs
-page_description: How to add, delete and update jobs
+page_title: shipctl - DevOps Assembly Line Jobs
+page_description: How to use shipctl
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
+# shipctl
+This is a command utility that is available in both [runSh](/platform/workflow/job/rush) and [runCI](/platform/workflow/job/ruci) jobs. This is used to perform common operations like getting the path of where state files are stored; getting the config value of the integration used in a Resource and so on.
 
-## shippable_replace
+These are the current functions that can be used in your tasks
 
-When you create a `runCLI` job, the `shippable_replace` command-line tool is
-automatically installed. `shippable_replace` looks for placeholders in one or
-more files and replaces them with the values of the corresponding environment
-variables.
+## `shipctl retry <cmd>`
+If you need to execute a command that could be flaky sometime, this utility will execute any command it wraps, 3 times if a non-zero error code is retured.  
 
-`shippable_replace` is used as follows:
+Sample usage: `shipctl retry "echo 'hello'"`
 
-```
-shippable_replace [paths to files]
-```
+## `shipctl sanitize_shippable_string <string>`
+Shippable DevOps Assembly Lines Platform relies heavily on shell execution. As a result, shell reserved characters like `. , -` and more are not allowed in string names etc. To make it easy, you can use this to return a string that will be acceptable by Shippable
 
-The files passed to `shippable_replace` may contain one or more placeholders
-for environment variables. Placeholders are strings of the form
-`$ENVIRONMENT_VARIABLE_NAME` or `${ENVIRONMENT_VARIABLE_NAME}`. We recommend
-`${ENVIRONMENT_VARIABLE_NAME}`, as it is less likely to cause errors if you have
-an environment variable name that is a substring of another environment
-variable's name.
+Sample usage: `shipctl sanitize_shippable_string "foo!@#"` 
 
-For example, say you wanted to insert the current job name into two different
-files: `file1.json` and `test/file2.txt`. The name of the environment variable
-containing the job name is `JOB_NAME`. (See the [runSh
-documentation](/platform/workflow/job/runsh.md) for the list of available environment
-variables.)
+## `shipctl to_uppercase <string>`
+Converts any given string to UPPERCASE
 
-`file1.json` might look like this:
-```
-{
-  "foo": "bar",
-  "jobName": "${JOB_NAME}"
-}
-```
+Sample usage: `shipctl to_uppercase "foo!@#"`
 
-`test/file2.txt` contains this:
+## `shipctl get_resource_id <resource name>`
+Get the internal shippable unique id for a given resource
 
-```
-This job, ${JOB_NAME}, is the coolest job ever.
-```
+Sample usage: `shipctl get_resource_id "vpc_settings"` 
 
-`shippable_replace` is then added to the task section of the `runCLI` job:
+## `shipctl get_resource_meta <resource name>`
+Gets the path where files containting the metadata of the resource is stored. This is for really advanced usage and most users will never need to worry about this :-)
 
-```
-jobs:
-  - name: myRunCLIJob
-    type: runCLI
-    steps:
-      - IN: <resource>
-      - TASK:
-        - script: shippable_replace file1.json test/file2.txt
-```
+Sample usage: `shipctl get_resource_meta "vpc_settings"` 
 
-After `shippable_replace`, `file1.json` now looks like this:
+## `shipctl get_resource_state <resource name>`
+Gets the path where files containting the state information of the resource is stored. 
 
-```
-{
-  "foo": "bar",
-  "jobName": "myRunCLIJob",
-  "fizz": "buzz"
-}
-```
+Sample usage: `shipctl get_resource_state "vpc_settings"` 
 
-And `test/file2.txt` looks like this:
+## `shipctl get_resource_operation <resource name>`
+Gets the operation that the Resource participates in this Job. `IN` or `OUT`
 
-```
-This job, myRunCLIJob, is the coolest job ever.
-```
+Sample usage: `shipctl get_resource_operation "vpc_settings"`
+
+## `shipctl get_resource_type <resource name>`
+Gets the type of the resource
+
+Sample usage: `shipctl get_resource_type "vpc_settings"` 
+
+## `shipctl get_integration_resource_field <resource name> <field name>`
+Gets the value of the field that was requested from the resource integration 
+
+Sample usage: `shipctl get_integration_resource_field "my_docker_hub" "username"` 
+
+## `shipctl get_resource_version_name <resource name>`
+Gets the `versionName` of the version that is in context of the Job where the Resource was used
+
+Sample usage: `shipctl get_resource_version_name "vpc_settings"` 
+
+## `shipctl get_resource_version_id <resource name>`
+Gets the internal id of the version that is in context of the Job where the Resource was used
+
+Sample usage: `shipctl get_resource_version_id "vpc_settings"` 
+
+## `shipctl get_resource_version_number <resource name>`
+Gets the `versionNumber` of the version that is in context of the Job where the Resource was used
+
+Sample usage: `shipctl get_resource_version_number "vpc_settings"` 
+
+## `shipctl post_resource_state <resource name> <key> <value>`
+This posts the key-value to the Resource. You need to be carefull to use this only once and then use the `put` version to append to it. Else each post will reset state
+
+Sample usage: `shipctl post_resource_state "vpc_settings" "HERO" "SUPERMAN"` 
+
+## `shipctl put_resource_state <resource name> <key> <value>`
+This puts i.e appeands the new key-value to the Resource. This will append to the state if it has already been created, else it will create a new one
+
+Sample usage: `shipctl put_resource_state "vpc_settings" "HERO" "BATMAN"` 
+
+## `shipctl copy_file_to_state <filename>`
+Copies the file to the state folder of the Job that is currently running. This will be available to the next run of the Job or any future Jobs that use this as an `IN`
+
+Sample usage: `shipctl copy_file_to_state "/output/config.json"` 
+
+## `shipctl copy_file_from_prev_state <filename> <topath>`
+Copies the file to the path supplied from the state folder of the previos run of the Job that is currently running. 
+
+Sample usage: `shipctl copy_file_from_prev_state "config.json" . `
+
+## `shipctl refresh_file_to_state <filename>`
+This will look in the present working directory for the `<filename>` and if present, copy that to current Job state. If it doesnt find the file, it will look in the state of the previos run of the Job and copy that. If it doesnt find it there, it just returns 0 exit code
+
+Sample usage: `shipctl refresh_file_to_state "config.json"` 
+
+## `shipctl copy_resource_file_from_state <resource name> <filename>`
+Copies the file from the Resource State that was supplied as `IN` into the present working directory
+
+Sample usage: `shipctl copy_resource_file_from_state "vpc_settings" "vpc.conf"` 
+
+## `shipctl refresh_file_to_out_path <filename> <resource name>`
+Copies the file to the Resource State that was supplied as `OUT`
+
+Sample usage: `shipctl refresh_file_to_out_path "vpc.conf" "vpc_settings" ` 
+
+
+## `shipctl get_json_value <filename> <field name>`
+Gets the json property value from the specified file. Fieldname supports `.` notation and `[n]` for arrays 
+
+Sample usage: `shipctl get_json_value "properties.json" "servers[0].ipaddress" ` 
+
+
+## `shipctl replace <filename1> <filename2> <filenameN>`
+If you have a config file/s with a bunch of variables, you can use this utility to replace them all in one shot based on your current shell `env`
+
+Your files need to have the placeholders in this format; `$ENVIRONMENT_VARIABLE_NAME` or `${ENVIRONMENT_VARIABLE_NAME}`. The second option is the recommended one
+
+Sample usage: `shipctl decrypt properties.json deploy.json run.json` 
+
+## `shipctl decrypt <source filename> <key filename>`
+Uses the key-file to decryt the contents of source-file. This is typically used to decrypt stuff encrypted using Shippable keys on the fly, similar to how our encryption works. It avoids you having to build encrypt-decrypt system
+
+Sample usage: `shipctl decrypt "properties.json" "/key/id_rsa" ` 
+
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
