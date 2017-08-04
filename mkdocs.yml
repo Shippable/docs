@@ -229,7 +229,6 @@ pages:
         - release: platform/workflow/job/release.md
         - runCI: platform/workflow/job/runci.md
         - runSH: platform/workflow/job/runsh.md
-        - jenkinsJob: platform/workflow/job/jenkinsjob.md
         - rSync: platform/workflow/job/rSync.md
       - State:
         - Overview: platform/workflow/state/overview.md
