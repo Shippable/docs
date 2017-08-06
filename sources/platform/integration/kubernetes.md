@@ -21,9 +21,9 @@ You can create this from the integrations page. This is the information you woul
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Kubernetes` Integration 
 
-* [cluster]()
-* [integration]()
-* [provision]()
+* [cluster](/workflow/platform/resource/cluster)
+* [provision](/workflow/platform/resource/provision)
+* [integration](/workflow/platform/resource/integration)
 
 ## Default Environment Variables
 When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -40,16 +40,13 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_BASTIONPRIVATEKEY          | Private Key to access the bastion host |
 | `<NAME>`\_INTEGRATION\_BASTIONPUBLICKEY           | Public Key to access the bastion host |
 
-## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+
+## Further Reading
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)

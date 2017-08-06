@@ -17,19 +17,11 @@ We currently support sending notifications to public IRC rooms only.
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `IRC` Integration 
 
-* [notification]()
-* [ciRepo]()
+* [ciRepo](/workflow/platform/resource/ciRepo)
+* [notification](/workflow/platform/resource/notification)
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)

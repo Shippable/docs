@@ -34,11 +34,13 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_CERTIFICATES   | Certificates created internally to connect to Triton |
 | `<NAME>`\_INTEGRATION\_PRIVATEKEY		| Private key used to access Triton |
 
-## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
 
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+
+## Further Reading
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)

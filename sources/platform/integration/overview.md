@@ -66,3 +66,8 @@ The following are integrations that Shippable currently supports. Detailed infor
 - [Slack](/platform/integration/slack)
 - [SSH keys](/platform/integration/key-ssh)
 
+## Further Reading
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)

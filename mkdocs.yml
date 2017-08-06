@@ -305,7 +305,6 @@ pages:
       - Google Container Engine: platform/integration/gke.md
       - Google Container Registry: platform/integration/gcr.md
       - Hipchat: platform/integration/hipchat.md
-      - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactory.md
       - Joyent Triton: platform/integration/tripub.md
       - Key-value: platform/integration/key-value.md

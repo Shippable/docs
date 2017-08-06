@@ -18,9 +18,9 @@ You can create this from the integrations page. This is the information you woul
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Docker Cloud` Integration 
 
-* [image]()
-* [cluster]()
-* [integration]()
+* [image](/workflow/platform/resource/image)
+* [cluster](/workflow/platform/resource/cluster)
+* [integration](/workflow/platform/resource/integration)
 
 ## Default Environment Variables
 When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -32,66 +32,14 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_USERNAME   		| Username supplied in the integration |
 | `<NAME>`\_INTEGRATION\_TOKEN			| Password supplied in the integration |
 
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+
 ## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)
 
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-
-
-
-
-
-The Docker Cloud integration is required if you want to deploy the
-containers to Docker Cloud.
-
-This page explains how you can add a Docker Cloud integration to your
-account by providing the credentials to access your Docker Cloud account.
-
-##Adding your Docker Cloud integration
-
-- Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
-
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Docker Cloud credentials">
-
-- Select **deploy** as the Integration family.
-- Choose **Docker Cloud** from the list of integration types.
--  You need to [generate an API key](https://docs.docker.com/apidocs/docker-cloud/#rest-api) in your Docker Cloud account to use with shippable.
--  Name your integration and enter your Docker Cloud username and the API key/token.
--  Choose the Subscription which contains the repository for which you want to deploy the containers.
--  Click **Save**
-
-<img src="../../images/platform/integrations/docker-cloud-integration.png" alt="Add Docker Cloud credentials">
-
-##Editing your Docker Cloud integration
-
-Click on **Integrations** in the left sidebar menu and then click on your integration. You can then change integration name, Docker Cloud username and API key/token.
-
-##Deleting your Docker Cloud integration
-
-If you no longer need the integration, you can delete it by following the steps below.
-
-- Click on **Integrations** in the left sidebar menu, and click on your integration.
-- Scroll to the bottom of the page and click on the **Delete** button.
-- If there are no Subscriptions using this integration, you will be able to delete it by clicking on **Yes**. You are done at this point.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/confirm-delete-integration.png" alt="Delete integration confirmation screen">
-
-- If your integration is being used by any Subscriptions, you will see a message telling you which Subscriptions are still using the integration.
-
-<img width="50%" height="50%" src="../../images/platform/integrations/cannot-delete-integration.png" alt="Cannot delete integration because of dependencies">
-
-- Go to each Subscription listed in the dependencies and delete it from each.
-    - Locate your subscription in the left sidebar menu and click on the dependent Subscription.
-    - Click on the **gears** icon and then on **Integrations**.
-    - Click on the integration and the **Delete** button.
-    - Delete the integration.
-- Once you have deleted the integration from all Subscriptions, you can go back to your integration and delete the integration.

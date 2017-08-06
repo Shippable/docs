@@ -16,9 +16,9 @@ Available under the Integration Family: **SCM**
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `github` Integration 
 
-* [gitRepo]()
-* [ciRepo]()
-* [syncRepo]()
+* [gitRepo](/workflow/platform/resource/gitRepo)
+* [ciRepo](/workflow/platform/resource/ciRepo)
+* [syncRepo](/workflow/platform/resource/syncRepo)
 
 ## Default Environment Variables
 When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
@@ -30,17 +30,14 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_URL    			| Github API location |
 | `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to correct to Github |
 
+## Shippable Utility Functions
+To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+
+How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
 
 ## Further Reading
-* GKE integration
-* AWS integration
-* runSH job
-* runCLI job
-* runCI job
-* How to setup CI for my git repo
+* [Quick Start to CI](/getting-started/ci-sample)
+* [RunSh Job](/platform/workflow/job/runsh)
+* [Jobs](/platform/workflow/job/overview)
+* [Resources](/platform/workflow/resource/overview)
 
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
