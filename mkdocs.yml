@@ -331,7 +331,7 @@ pages:
         - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
         - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
       - Integrations:
-        - Working with Integrations: platform/integration/working-with.md
+        - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
         - How to install kubectl: platform/tutorial/integration/howto-install-kubectl.md
         - How to connect Shippable through AWS IAM: platform/tutorial/integration/howto-create-AWS-IAM-access.md
