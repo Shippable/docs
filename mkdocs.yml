@@ -234,6 +234,34 @@ pages:
         - Overview: platform/workflow/state/overview.md
       - Triggers:
         - Overview: platform/workflow/trigger/overview.md
+    - Integrations:
+      - Overview: platform/integration/overview.md
+      - Amazon ECR: platform/integration/aws-ecr.md
+      - Amazon ECS: platform/integration/aws-ecs.md
+      - Azure DC/OS: platform/integration/azure-dcos.md
+      - Bitbucket: platform/integration/bitbucket.md
+      - Docker Cloud: platform/integration/docker-cloud.md
+      - Docker Datacenter: platform/integration/docker-datacenter.md
+      - Docker Hub: platform/integration/docker-hub.md
+      - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
+      - Event Trigger: platform/integration/event-trigger.md
+      - Git Credential: platform/integration/git-credential.md
+      - GitHub: platform/integration/github.md
+      - GitHub Enterprise: platform/integration/github-enterprise.md
+      - Gitlab: platform/integration/gitlab.md
+      - Google Container Engine: platform/integration/gke.md
+      - Google Container Registry: platform/integration/gcr.md
+      - Hipchat: platform/integration/hipchat.md
+      - JFrog Artifactory: platform/integration/jfrog-artifactory.md
+      - Joyent Triton: platform/integration/tripub.md
+      - Key-value: platform/integration/key-value.md
+      - Kubernetes: platform/integration/kubernetes.md
+      - Node Cluster: platform/integration/node-cluster.md
+      - PEM Keys: platform/integration/key-pem.md
+      - Private Registries: platform/integration/docker-private-registry.md
+      - Quay.io: platform/integration/quay.md
+      - Slack: platform/integration/slack.md
+      - SSH Keys: platform/integration/key-ssh.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
@@ -287,34 +315,6 @@ pages:
       - Generating API Tokens: platform/management/api-tokens.md
       - Setting up your Shippable Account: platform/management/git-identities.md
       - Setting Acount email: platform/management/set-email.md
-    - Integrations:
-      - Overview: platform/integration/overview.md
-      - Amazon ECR: platform/integration/aws-ecr.md
-      - Amazon ECS: platform/integration/aws-ecs.md
-      - Azure DC/OS: platform/integration/azure-dcos.md
-      - Bitbucket: platform/integration/bitbucket.md
-      - Docker Cloud: platform/integration/docker-cloud.md
-      - Docker Datacenter: platform/integration/docker-datacenter.md
-      - Docker Hub: platform/integration/docker-hub.md
-      - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
-      - Event Trigger: platform/integration/event-trigger.md
-      - Git Credential: platform/integration/git-credential.md
-      - GitHub: platform/integration/github.md
-      - GitHub Enterprise: platform/integration/github-enterprise.md
-      - Gitlab: platform/integration/gitlab.md
-      - Google Container Engine: platform/integration/gke.md
-      - Google Container Registry: platform/integration/gcr.md
-      - Hipchat: platform/integration/hipchat.md
-      - JFrog Artifactory: platform/integration/jfrog-artifactory.md
-      - Joyent Triton: platform/integration/tripub.md
-      - Key-value: platform/integration/key-value.md
-      - Kubernetes: platform/integration/kubernetes.md
-      - Node Cluster: platform/integration/node-cluster.md
-      - PEM Keys: platform/integration/key-pem.md
-      - Private Registries: platform/integration/docker-private-registry.md
-      - Quay.io: platform/integration/quay.md
-      - Slack: platform/integration/slack.md
-      - SSH Keys: platform/integration/key-ssh.md
     - Tutorials:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md

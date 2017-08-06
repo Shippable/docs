@@ -35,7 +35,6 @@ All Integrations are owned by users who can then allow for projects to use them.
 Once an integration is enabled for a Subscription, you can use it in any project in that Subscription with a few lines of yml configuration. Please note that the integration name in your yml should be same as the one configured in your integration.
 
 
-
 ## Adding your integration to additional Subscriptions
 If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
 
