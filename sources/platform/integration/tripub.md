@@ -18,8 +18,8 @@ You can create this from the integrations page. This is the information you woul
 ## Resources that use this Integration
 Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `AWS` Integration 
 
-* [cluster]()
-* [integration]()
+* [cluster](/workflow/platform/resource/cluster)
+* [integration](/workflow/platform/resource/integration)
 
 ## Default Environment Variables
 When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
