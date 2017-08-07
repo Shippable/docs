@@ -305,8 +305,8 @@ pages:
         - Sqllite: platform/runtime/service/sqllite.md
     - Visibility:
       - Overview: platform/visibility/overview.md
-      - Account Default Dashboard: platform/visibility/dashboard-default.md
-      - Account Custom Dashboard: platform/visibility/dashboard-custom.md
+      - Account Default View: platform/visibility/dashboard-default.md
+      - Account Custom View: platform/visibility/dashboard-custom.md
       - Subscription Dashboard: platform/visibility/subscription-default.md
       - Project Dashboard: platform/visibility/project-default.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md

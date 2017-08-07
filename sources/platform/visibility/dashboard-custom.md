@@ -5,7 +5,7 @@ page_title: Account Dashboard - Shippable DevOps Assembly Lines
 page_description: View of all active objects that the logged in account has access to
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-## Custom Views
+## Account Custom Views
 If you would like views that are subset of the Subscriptions,Jobs or Projects, the platform provides ability to create custom views. You can create as many views you need and objects can be duplicated across these views
 
 **Grid View**
