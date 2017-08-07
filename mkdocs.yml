@@ -311,7 +311,7 @@ pages:
         - Integrations: platform/visibility/account/integrations.md
         - Profile: platform/visibility/account/profile.md
       - Subscription:
-        - Dashboard: platform/visibility/subscription-dashboard.md
+        - Dashboard: platform/visibility/subscription/dashboard.md
       - Project Dashboard: platform/visibility/project-default.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
     - Management:
