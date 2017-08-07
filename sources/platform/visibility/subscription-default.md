@@ -14,15 +14,41 @@ In addition, you can drill down into individual problem areas and even debug the
 We fundamentally believe that source control systems is where the right roles and permissions exist, especially if "Everything as Code" is already an accepted philosophy in your organization. As a result, Shippable uses your source control to organize all your DevOps activities too. Shippable UI is organized with the same hierarchy in mind
 
 * **Account**: this is the highest level entity. It represents a persona of a user. for e.g. github user
-	* Dashboard: This is the view where you get to see all active CI Projects and Jobs in a single view
-	* Integrations: List of all Integrations owned by the Account of the user logged in
-	* Profile: Account profile of the user logged in
-	* Search: Search for runs of Jobs or CI Projects across all hierarchies
 * **Subscription**: this is typically an organization on your source control system. This is the entity that contains repositories
 * **Project**: this is a representation of your source code repository. It is also the CI view
 * **Jobs/Resources**: this is a representation of a [Job](/platform/workflow/job/overview) or a [Resource](/platform/workflow/resource/overview)
 
 
+## Default Views
+These are the types of views depending on what level of the hierarchy you are currently in
+
+### Account Level View
+Objects from multiple subscriptions and projects are presented in the pane
+
+<img src="/images/platform/visibility/account-view-grid.jpg" alt="Account view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+### Subscription Level View
+Objects of a single subscriptions and projects belonging to it are presented in the pane
+
+<img src="/images/platform/visibility/subscription-view-grid.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+### Project Level View
+This is a CI project view. It consists of all the CI runs that you have executed so far
+
+<img src="/images/platform/visibility/project-view-grid.jpg" alt="Project view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+### Jobs/Resources Level View
+This view gives you a histroy of all the runs that have been executed for a particular Job or all the immutable versions that were created on a particular Resource. Each run of a Job also results in an immutable version
+
+**Job View**
+<img src="/images/platform/visibility/job-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+**Resource View**
+<img src="/images/platform/visibility/resource-view-grid.jpg" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+
+## Custom Views
+If you would like views that are subset of the Subscriptions,Jobs or Projects, the platform provides ability to create custom views. You can create as many views you need and objects can be duplicated across these views
 
 
 
