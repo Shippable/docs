@@ -1,18 +1,14 @@
-page_main_title: Subscriptions Dashboard
+page_main_title: Subscriptions Nodes
 main_section: Platform
 sub_section: Visibility
-page_title: Subscription Dashboard - Shippable DevOps Assembly Lines
-page_description: Overview of Subscription Dashboard View of Shippable DevOps Assembly Lines Platform
+page_title: Subscription Nodes - Shippable DevOps Assembly Lines
+page_description: Configuration of Runtime Nodes for your Jobs that run as part of Shippable DevOps Assembly Lines Platform
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Subscription Dashboard
-This view diplays all [Jobs](/platform/workflow/job/overview) and [Resources](/platform/workflow/resource/overview) that belong to this particular organization as defined on the source control system. 
+This view will display all the currently active nodes that are being used for your DevOps Jobs. You could also use your own Nodes to run your DevOps activities behind your firewall
 
-**Grid View**
-<img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-**SPOG View**
-<img src="/images/platform/visibility/subscription-dash-spog-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-nodes-view.jpg" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 # Further Reading
 * Working with Resources
