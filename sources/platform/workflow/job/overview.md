@@ -70,6 +70,8 @@ jobs:
       - OUT: 				<resource>
       - OUT: 				<resource>
         replicate: 			<IN resource>
+      - OUT: 				<resource>
+        overwrite: 			true
 	 on_success:
       - script: 			echo "SUCCESS"
 	 on_failure:
