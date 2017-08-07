@@ -1,6 +1,7 @@
 page_main_title: Account Integrations View
 main_section: Platform
 sub_section: Visibility
+sub_sub_section: Account
 page_title: Account Integrations - Shippable DevOps Assembly Lines
 page_description: List of Integrations that the user has created
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc

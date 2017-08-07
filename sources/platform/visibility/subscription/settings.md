@@ -1,6 +1,7 @@
 page_main_title: Subscriptions Settings
 main_section: Platform
 sub_section: Visibility
+sub_sub_section: Subscription
 page_title: Subscription Settings - Shippable DevOps Assembly Lines
 page_description: Overview of all the subscription settings that can be configured on Shippable DevOps Assembly Lines Platform
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
