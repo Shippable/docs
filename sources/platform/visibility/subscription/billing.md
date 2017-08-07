@@ -6,13 +6,10 @@ page_description: Billing page of Shippable DevOps Assembly Lines Platform
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Subscription Dashboard
-This view diplays all [Jobs](/platform/workflow/job/overview) and [Resources](/platform/workflow/resource/overview) that belong to this particular organization as defined on the source control system. 
+This page help you manage the number of parallel execution minions you want for your   organization. You could also pick bigger more powerful minions if your workdloads need them.
 
-**Grid View**
-<img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-billing-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-**SPOG View**
-<img src="/images/platform/visibility/subscription-dash-spog-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 # Further Reading
 * Working with Resources
