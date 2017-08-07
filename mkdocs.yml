@@ -307,6 +307,8 @@ pages:
       - Overview: platform/visibility/overview.md
       - Account Default View: platform/visibility/dashboard-default.md
       - Account Custom View: platform/visibility/dashboard-custom.md
+      - Account Integrations: platform/visibility/account-integrations.md
+      - Account Profile: platform/visibility/account-profile.md
       - Subscription Dashboard: platform/visibility/subscription-default.md
       - Project Dashboard: platform/visibility/project-default.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
