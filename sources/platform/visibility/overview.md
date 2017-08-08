@@ -8,6 +8,8 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Visibility Overview
 Visualizing your entire DevOps assembly line in an end-to-end view is critical to understand where the inefficiencies and friction exist in your DevOps Assembly Lines. In addtion, you want to know what progress has been made by all the teams involved in building the next great feature of your product. Shippable's platform comes with capability built-in and this makes it easier for you to go faster and faster
 
+<img src="/images/platform/visibility/spog.png" alt="SPOG: Single pane of glass">
+
 In addition, you can drill down into individual problem areas and even debug the error at a console level with Shippable.
 
 ## How is it organized?
@@ -37,6 +39,8 @@ We fundamentally believe that source control systems is where the right roles an
 * **Jobs**: this is a representation of all runs of a [Job](/platform/workflow/job/overview)
 	* [Dashboard](/platform/visibility/job/dashboard): This is the view where you get to see status of your CI project along with history
 	* [Settings](/platform/visibility/job/settings): This is where you set configurations to use that are specific to the CI Project
+	* [Console Output](/platform/visibility/job/console): This is the output of the scripts when it executes in an instance of [Runtime](/platform/runtime/overview)
+
 
 
 

@@ -319,11 +319,13 @@ pages:
         - Dashboard: platform/visibility/project/dashboard.md
         - Settings: platform/visibility/project/settings.md
         - Badges: platform/visibility/project/badges.md
+        - Console: platform/visibility/project/console.md
       - Resource:
         - Dashboard: platform/visibility/resource/dashboard.md
       - Job:
         - Dashboard: platform/visibility/job/dashboard.md
         - Settings: platform/visibility/job/settings.md
+        - Console: platform/visibility/job/console.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
     - Management:
       - Overview: platform/management/overview.md
