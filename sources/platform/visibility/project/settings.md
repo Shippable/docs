@@ -27,6 +27,8 @@ This is a place where your can configure different options and settings that you
 * Types to Display: Whether you want to display Commit status or commit and PRs also
 * Consolidate Reports: If you are using a matrix build to parallelize your tests, turning this on will combine them to calculate test and coverage results
 * Low Coverage Threshold: If you want to mark your Project unstable if it has low code coverage or send notifications
+* Encrypt/Decrypt: If you would like to use Shippable internal keys to encrypt strings that you want to use in your jobs
+* Project Clone URL: Used to create a custom URL to clone a project. This can be used to clone any repository that authenticates git based login
 
 **Section 3**
 <img src="/images/platform/visibility/project-settings-3.jpg" alt="Project Settings for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
