@@ -27,7 +27,7 @@ Typical use cases for State are the following
 There are many more use cases where this applies likes Service Discovery, Key-value stores, Load-balancers and so on.
 
 <a name="types"></a>
-# Types
+## Types
 Shippable Assembly Lines platform has three forms of state.
 
 * **Key-value state**: is stored as a property in the immutable version of the Resource or a Job. Every Job that uses the resoruce will have access to the version and in turn has access to the Kev-value that was stored in that version.
@@ -36,7 +36,7 @@ Shippable Assembly Lines platform has three forms of state.
 
 * **Shared State Resource**: state always flows from left to right. However, there are some scenarios where a shared state is needed. For e.g. Terraform creates a statefile when `terraform apply` is run. But if you need to run this in a mult-stage manner where subsequent Jobs make changes to this state, it some needs to flow back to the first job that created it. Our Assembly Lines has a special shared `state` Resource that allows this state to be stored centrally and shared across the jobs.  
 
-# Further Reading
+## Further Reading
 * [Resource](/platform/workflow/resource/overview)
 * [Job](/platform/workflow/job/overview)
 * [Quick Start to CI](getting-started/ci-sample)
