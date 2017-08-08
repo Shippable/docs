@@ -9,9 +9,11 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Job Dashboard
 This view diplays status and historical runs of [Jobs](/platform/workflow/job/overview) 
 
-**Grid View**
 <img src="/images/platform/visibility/jobs-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
+It shows the YML that was used to create this job in [shippable.jobs.yml](/platform/workflow/tutorial/shippable-jobs-yml). 
+
+It also shows any processing or queued runs at this point and also a history of every run of this Job. 
 
 # Further Reading
 * Working with Resources
