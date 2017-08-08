@@ -14,10 +14,12 @@ This view displays the console output of the execution steps from the runs of [J
 
 This shows the exact output from the `stdout` & `stderr` of the runtime where the job executed
 
+**Trace**
 <img src="/images/platform/visibility/job-console-trace.jpg" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-This should a treeview of all the dependencies `IN`s and their version information that were used when this particular run of the job executed
+This shows a treeview of all the dependencies `IN`s and their version information that were used when this particular run of the job executed
 
+**Version/State**
 <img src="/images/platform/visibility/job-console-version.jpg" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 This is the immutable state information that was created when this job executed
