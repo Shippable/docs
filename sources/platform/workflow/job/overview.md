@@ -6,14 +6,6 @@ page_title: Unified Pipeline Jobs
 page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Add link to inconsistencies to rSync|  Open |
-| Folder Structure|  Open |
-
 # Jobs
 Jobs are the executable units of your pipelines. They can execute any DevOps activity and a simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job.
 
@@ -91,7 +83,7 @@ A Job is queued by the DevOps Assembly Line platform when one of the following c
 * A new version was created for the `IN` resource. This might occur due to a `YML` change or some other job updated the state of this resource
 * `IN` job executed and successfuly completed it's tasks. This means the preceding job ran and since its an input to this Job, it needs to run. There are some cases due to which the Job does not get triggered, namely
 	* If any Jobs defined as `IN`s are currently processing, have queued builds or in a failed state
-	* If the Job is in [inconsistent]() state due to dependency failures
+	* If the Job is in [inconsistent](/platform/workflow/job/rsync#inconsistent) state due to dependency failures
 
 <a name="types"></a>
 ## Types
@@ -110,10 +102,8 @@ These are the types of resources that Shippable Workflow supports:
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-## Folder Structure
-
-## Environment Variables
 
 # Further Reading
-* Working with Resources
-* Working with Integrations
+* [Resource](/platform/workflow/resource/overview)
+* [Quick Start to CI](getting-started/ci-sample)
+* [Quick Start to CD](getting-started/cd-sample)
