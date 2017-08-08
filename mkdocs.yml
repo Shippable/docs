@@ -339,9 +339,10 @@ pages:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
-        - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
+        - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
         - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
+        - How to work with Triggers: platform/tutorial/workflow/howto-crud-trigger.md
         - How to work with Jobs: platform/tutorial/workflow/howto-crud-job.md
         - How to work with syncRepo: platform/tutorial/workflow/howto-crud-syncrepo.md
         - How to use Shippable Utility shipctl: platform/tutorial/workflow/howto-use-shipctl.md
