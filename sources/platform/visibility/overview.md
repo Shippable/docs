@@ -31,9 +31,12 @@ We fundamentally believe that source control systems is where the right roles an
 	* [Settings](/platform/visibility/project/settings): This is where you set configurations to use that are specific to the CI Project
 	* [Badges](/platform/visibility/project/badges): A place to find the markup or html link to share the status of your project in a public forum
 
-* **Jobs/Resources**: this is a representation of a [Job](/platform/workflow/job/overview) or a [Resource](/platform/workflow/resource/overview)
+* **Resources**: this is a representation of all immutable version of a [Resource](/platform/workflow/resource/overview)
+	* [Dashboard](/platform/visibility/resource/dashboard): This is the view where you get to see status of your CI project along with history 
 
-
+* **Jobs**: this is a representation of all runs of a [Job](/platform/workflow/job/overview)
+	* [Dashboard](/platform/visibility/job/dashboard): This is the view where you get to see status of your CI project along with history
+	* [Settings](/platform/visibility/job/settings): This is where you set configurations to use that are specific to the CI Project
 
 
 
