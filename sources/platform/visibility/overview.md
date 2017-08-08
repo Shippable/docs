@@ -41,24 +41,6 @@ We fundamentally believe that source control systems is where the right roles an
 	* [Settings](/platform/visibility/job/settings): This is where you set configurations to use that are specific to the CI Project
 	* [Console Output](/platform/visibility/job/console): This is the output of the scripts when it executes in an instance of [Runtime](/platform/runtime/overview)
 
-
-
-
-##Viewing job console output
-Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run.
-
-<img src="../../images/platform/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-You can view console output for a job by clicking on it in the SPOG view. The job console looks like this:
-
-<img src="../../images/platform/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-Please note that in most cases, the logs you are interested in will be under the **Executing Task -> /home/shippable/micro/nod/stepExec/managed/run.sh** section. This section is shown as expanded in the screenshot above.
-
-In addition to viewing logs for the latest run, you can also view logs for historical runs by choosing a past run in the UI.
-
-
-
 # Further Reading
 * Working with Resources
 * Working with Integrations
