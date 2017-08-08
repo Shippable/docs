@@ -40,6 +40,8 @@ jobs:
       - OUT: 				<resource>
       - OUT: 				<resource>
         replicate: 			<resource>
+      - OUT: 				<resource>
+        overwrite: 			true
 	 on_success:
       - script: 			echo "SUCCESS"
 	 on_failure:
@@ -64,6 +66,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 	* `TASK` -- Required, atleast 1 script needs to be present
 	* `OUT` -- Optional, any Resource can be used here and as many as you need
 		* `replicate` -- Optional, any `IN` Resource of same type can be used
+		* `overwrite` -- Optional, default is `false`
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
