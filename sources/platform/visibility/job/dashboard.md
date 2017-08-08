@@ -10,10 +10,8 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 This view diplays status and historical runs of [Jobs](/platform/workflow/job/overview) 
 
 **Grid View**
-<img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/job-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-**SPOG View**
-<img src="/images/platform/visibility/subscription-dash-spog-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 # Further Reading
 * Working with Resources
