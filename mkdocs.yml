@@ -317,6 +317,8 @@ pages:
         - Nodes: platform/visibility/subscription/nodes.md
       - Project:
         - Dashboard: platform/visibility/project/dashboard.md
+        - Settings: platform/visibility/project/settings.md
+        - Badges: platform/visibility/project/badges.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
     - Management:
       - Overview: platform/management/overview.md
