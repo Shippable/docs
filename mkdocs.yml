@@ -319,6 +319,11 @@ pages:
         - Dashboard: platform/visibility/project/dashboard.md
         - Settings: platform/visibility/project/settings.md
         - Badges: platform/visibility/project/badges.md
+      - Resource:
+        - Dashboard: platform/visibility/resource/dashboard.md
+      - Job:
+        - Dashboard: platform/visibility/job/dashboard.md
+        - Settings: platform/visibility/job/settings.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
     - Management:
       - Overview: platform/management/overview.md
