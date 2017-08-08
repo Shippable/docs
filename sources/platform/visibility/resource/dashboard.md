@@ -11,6 +11,9 @@ This view diplays all immutable versions of any of the [Resources](/platform/wor
 
 <img src="/images/platform/visibility/resource-view-grid.jpg" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
+It displays the YML that was used to create it in [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml)
+
+It also shows the information maintained in the [state](/platform/workflow/state/overview) of the resource for every version. 
 
 # Further Reading
 * Working with Resources
