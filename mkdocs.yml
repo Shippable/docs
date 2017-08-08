@@ -346,7 +346,7 @@ pages:
         - How to use Shippable Utility shipctl: platform/tutorial/workflow/howto-use-shipctl.md
         - How to send status to Source Control Systems: platform/tutorial/workflow/howto-send-status-to-scm.md
         - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
-        - How to additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
+        - How to extract additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
         - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
         - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
         - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md

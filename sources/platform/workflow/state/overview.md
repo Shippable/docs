@@ -6,12 +6,6 @@ page_title: State - DevOps Assembly Lines
 page_description: State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD.
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-
 # State
 State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD.
 
@@ -42,12 +36,12 @@ Shippable Assembly Lines platform has three forms of state.
 
 * **Shared State Resource**: state always flows from left to right. However, there are some scenarios where a shared state is needed. For e.g. Terraform creates a statefile when `terraform apply` is run. But if you need to run this in a mult-stage manner where subsequent Jobs make changes to this state, it some needs to flow back to the first job that created it. Our Assembly Lines has a special shared `state` Resource that allows this state to be stored centrally and shared across the jobs.  
 
-
 # Further Reading
-* Working with Resources
-* Working with Integrations
-* How to store custom key-value information about a Job
-* How to store files that are output when the Job executes
-* How to output custom key-value information to a Resource
-* How to use state from another Job/Resource in a Job
-* How to create and use state that can be shared back and forth between Jobs
+* [Resource](/platform/workflow/resource/overview)
+* [Job](/platform/workflow/job/overview)
+* [Quick Start to CI](getting-started/ci-sample)
+* [Quick Start to CD](getting-started/cd-sample)
+* [How to store custom key-value information about a Job](/platform/tutorial/workflow/howto-share-data-between-runs.md)
+* [How to output custom key-value information to a Resource](/platform/tutorial/workflow/howto-output-keyvalues-to-resources.md)
+* [How to create and use state that can be shared back and forth between Jobs ](/platform/tutorial/workflow/howto-share-data-between-jobs.md)
+* [How to use state from prior run of a Job](/platform/tutorial/workflow/howto-share-data-between-runs.md)
