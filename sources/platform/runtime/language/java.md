@@ -2,15 +2,54 @@ page_main_title: Java Language Overview
 main_section: Platform
 sub_section: Runtime
 sub_sub_section: Languages
-page_title: Java Language Overview
+page_title: CI/CD for Java Applications
 
-# Java Job Images
+# Java
+This section explain how Shippable DevOps Assembly Lines Platform behaves when you set `language: java` in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI Job](/platform/workflow/job/runci), 
 
-This image is used for Java code repos. It comes pre-installed with multiple versions and we set the environment automatically depending your [CI YML settings](ci/set-language/). 
+```
+language: java
+jdk:
+  - oraclejdk8
+```
 
-We use Ubuntu 14.0 version of the language image by default, the latest that was available when your project was enabled. You can override this or even [build](/ci/custom-docker-image) your own from scratch for your [runCI](/platform/workflow/job/runci) Jobs.
+We use Ubuntu 14.0 version of the language image by default, the latest that was available when your project was enabled. You can override this by using `pre_ci_boot` section or even [build your own image](/ci/custom-docker-image) from scratch.
 
-## Supported OS Versions
+<a name="versions"></a>
+## Versions
+This table helps you choose the right tag for the language version that your app needs and it is set in the YML. 
+
+The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/ami-overview) has that particular version installed. Any tag can be used on any , but each edition of the AMI has that edition cached which will improve your build speed
+
+| Version  |  Tags    | Supported OS
+|----------|---------|-----------
+|openjdk9  |   v5.7.3    | Ubuntu 16.04 
+|openjdk8  |   v5.7.3 and earlier  |  All 
+|openjdk7  |   v5.7.3 and earlier  |  All 
+|oraclejdk9      |   v5.7.3    | All 
+|oraclejdk8      |   v5.7.3 and earlier  |  All 
+|oraclejdk7      |   v5.5.1 and earlier  |  All 
+
+You can use more than 1 of these to test your app against multiple version using [matrix build](/ci/matrix-builds)
+
+## Default Behavior
+
+```
+build:
+  ci: <is not set>
+```
+
+If you do not set the `ci` section of the YML, then we will inject this section to your YML definition at runtime
+
+```
+build:
+  ci:
+    - gradle assemble    					# if build.gradle is present at root
+    - mvn install -DskipTests=true    	# if pom.xml is present at root
+    - ant test 								# if above 2 cases are false
+```
+
+## Shippable provided Runtime images
 Each of the language image is built from the respective base OS version of the image. Since we install all the all the packages, CLIs & services installed on the base image, these language images get this automatically. For more information visit the respective base image page.
 
 ### Ubuntu 16.04
@@ -37,20 +76,8 @@ drydock/u14javall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-
 drydock/u14javall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
 drydock/u14javall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-v532)
 
-## Supported Language Versions
-This table helps you choose the right tag for the language version that you are interested
-
-| Version  |  Tags    | Supported OS
-|----------|---------|-----------
-|openjdk9  |   v5.7.3    | Ubuntu 16.04 
-|openjdk8  |   v5.7.3 and earlier  |  All 
-|openjdk7  |   v5.7.3 and earlier  |  All 
-|oraclejdk9      |   v5.7.3    | All 
-|oraclejdk8      |   v5.7.3 and earlier  |  All 
-|oraclejdk7      |   v5.5.1 and earlier  |  All 
-
 ## Further Reading
 * [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
 * [Quick Start to CI](/getting-started/ci-sample)
-* [CI YML](ci/yml-structure)
-
+* [Continuous Integration of a Java application](/ci/java-continuous-integration)
+* [Checking which AMI is your Project using](/platform/visibility/subscription/nodes)

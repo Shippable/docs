@@ -13,59 +13,106 @@ Shippable DevOps Platform leverages a declarative syntax for Continuous Integrat
 The anatomy of the jobs configuration generally follows the structure below
 
 ```
-language:
+language:	<Language name>
+<language version>: <depending on language>
+  - <version>
+  - <version2>
 
-node_js:
-  - #language version
+#### special tags for ruby language #### 
+gemfile:
+  - <version>
+  - <version 2>
+bundler_args: arg 1
+#### end special tags for ruby language #### 
+
+git:
+   submodules: <boolean>
 
 services:
-  - #any supported service
-
+  - <service name>
+  - <service name>
 env:
-  - #env1=foo
-  - #env2=bar
-
-matrix:
+  - ENV1: "foo" <environment variables in dictionary format>
+    ENV2: "moo"
+  - ENV1: "foo" <environment variables in dictionary format>
+    ENV2: "boo"
+  global:
+  - ENVG1: "goo" 
+  - ENVG2: "doo"
+  matrix:
+    include:
+      - ENV1: "foo"
+        <language version>: <version>
+    exclude:
+      - ENVG2: "doo"
+        <language version>: <version2>      
+    allow_failures:
+		- <language version>: <version2>
 
 build:
-
+  advancedReporting: <boolean>
   pre_ci:
-
+    - #command1
+    - #command2
   pre_ci_boot:
-    image_name:
-    image_tag:
-    pull:
-    options:
+    image_name: <name of the image to boot>
+    image_tag: <tag of the image to boot>
+    env: <list of environment variables while booting the container>
+    pull: <boolean>
+    options: <docker options arguments>
   ci:
     - #command1
     - #command2
   post_ci:
-    - #command1
-    - #command2
+    - command1
+    - command2
   on_success:
-    - #command1
-    - #command2
+    - command1
+    - command2
   on_failure:
-    - #command1
-    - #command2
-  cache:
+    - command1
+    - command2
+  cache: <boolean>
   cache_dir_list:
-    - #dir1
+    - dir1
+    - dir2
   push:
-
+    - command1
+ 
 integrations:
  notifications:
-   - integrationName:
-     type:
+   - integrationName: <name of your subscription integration>
+     type: <type of notification>
      recipients:
        - #recp1
        - #recp2
 
   hub:
     - integrationName:
-      type:
+      type: <type of hub>
       agent_only:
+  
+  key:
+    - integrationName: my_custom_key
+      type: ssh-key
+  
+  deploy:									# deprecated
+    - integrationName: "aws-eb-integration"
+      type: aws
+      target: eb_paas
+      platform: <EBS platform>
+      application_name: <EBS app>
+      env_name: <EBS environment>
+      region: <aws region>
+      image_name: <in case of docker app>
+      image_tag: <in case of docker app>
+      bucket_name: <in case of docker app>
 ```
+
+* **`language`** -- this is language that we are going to use to decide which [Runtime image](/platform/runtime/overview) to use for your CI. If this is not specified, the default language used is [Ruby]()
+
+
+
 
 A brief overview of each section of the yml is provided in this table. For a detailed explanation of each tag, you can scroll to the specific section of this page.
 

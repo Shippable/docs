@@ -2,14 +2,51 @@ page_main_title: C/C++ Language Overview
 main_section: Platform
 sub_section: Runtime
 sub_sub_section: Languages
-page_title: C/C++ Language Overview
+page_title: CI/CD for C/C++ Applications
 
-# C/C++ Job Images
-This image is used for C++ code repos. It comes pre-installed with multiple versions and we set the environment automatically depending your [CI YML settings](ci/set-language/). 
+# C/C++
+This section explain how Shippable DevOps Assembly Lines Platform behaves when you set `language: c` in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI Job](/platform/workflow/job/runci), 
 
-We use Ubuntu 14.0 version of the language image by default, the latest that was available when your project was enabled. You can override this or even [build](/ci/custom-docker-image) your own from scratch for your [runCI](/platform/workflow/job/runci) Jobs.
+```
+language: c
+compiler:
+  - gcc 6
+```
 
-## Supported OS Versions
+We use Ubuntu 14.0 version of the language image by default, the latest that was available when your project was enabled. You can override this by using `pre_ci_boot` section or even [build your own image](/ci/custom-docker-image) from scratch.
+
+<a name="versions"></a>
+## Versions
+This table helps you choose the right tag for the language version that your app needs and it is set in the YML. 
+
+The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/ami-overview) has that particular version installed. Any tag can be used on any , but each edition of the AMI has that edition cached which will improve your build speed
+
+| Version  |  Tags    | Supported OS
+|----------|---------|-----------
+|gcc 7.1 |   v5.7.3     | All 
+|gcc 6   |  v5.6.1 and earlier | All 
+|clang 4.0.0 |   v5.7.3     | All 
+|clang 3.9.0 |   v5.6.1 and earlier 
+
+
+You can use more than 1 of these to test your app against multiple version using [matrix build](/ci/matrix-builds)
+
+## Default Behavior
+
+```
+build:
+  ci: <is not set>
+```
+
+If you do not set the `ci` section of the YML, then we will inject this section to your YML definition at runtime
+
+```
+build:
+  ci:
+    - ./configure && make && make test
+```
+
+## Shippable provided Runtime images
 Each of the language image is built from the respective base OS version of the image. Since we install all the all the packages, CLIs & services installed on the base image, these language images get this automatically. For more information visit the respective base image page.
 
 ### Ubuntu 16.04
@@ -36,17 +73,8 @@ drydock/u14cppall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-
 drydock/u14cppall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
 drydock/u14cppall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-v532)
 
-## Supported Language Versions
-This table helps you choose the right tag for the language version that you are interested
-
-| Version  |  Tags    | Supported OS
-|----------|---------|-----------
-|gcc 7.1 |   v5.7.3     | All 
-|gcc 6   |  v5.6.1 and earlier | All 
-|clang 4.0.0 |   v5.7.3     | All 
-|clang 3.9.0 |   v5.6.1 and earlier 
-
 ## Further Reading
 * [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
 * [Quick Start to CI](/getting-started/ci-sample)
-* [CI YML](ci/yml-structure)
+* [Continuous Integration of a C/C++ application](/ci/cpp-continuous-integration)
+* [Checking which AMI is your Project using](/platform/visibility/subscription/nodes)
