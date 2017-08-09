@@ -109,13 +109,26 @@ integrations:
       bucket_name: <in case of docker app>
 ```
 
-* **`language`** -- this is language that we are going to use to decide which [Runtime image](/platform/runtime/overview) to use for your CI. If this is not specified, the default language used is [Ruby]()
-
-
-
-
-A brief overview of each section of the yml is provided in this table. For a detailed explanation of each tag, you can scroll to the specific section of this page.
-
+* **`language`** -- this drives which Runtime image are we going to use run your Continuous Integration. We currently support 
+	* [C/C++](/platform/runtime/language/cplusplus)
+	* [Clojure](/platform/runtime/language/clojure)
+	* [GO](/platform/runtime/language/go)
+	* [Java](/platform/runtime/language/java)
+	* [Node JS](/platform/runtime/language/nodejs)
+	* [PHP](/platform/runtime/language/php)
+	* [Python](/platform/runtime/language/python)
+	* [Ruby](/platform/runtime/language/ruby)
+	* [Scala](/platform/runtime/language/scala)
+* **`<language version>`** -- this changes depending on which language is used and it can be more than 1 which makes it a [matrix build](/ci/matrix-builds/). List of available versions are on each of the language page
+* **`gemfile `** -- used only when the language is Ruby. This sets the context for your project and having more than 1 triggers a matrix build
+* **`git `** -- used to control the behaviour of how Shippable clones your repo
+	* `submodules` 
+* **`services `** -- if you need additional services that your CI run might need. The version that is installed on your Runtime Image will be started before any of your `ci` scripts execute
+* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
+* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
+* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
+* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
+* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
 
 | **yml tag**           |** default behavior without tag**                                                                         | **Description of usage**                                                                                                                                                                                                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

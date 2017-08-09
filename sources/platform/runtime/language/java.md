@@ -5,7 +5,7 @@ sub_sub_section: Languages
 page_title: CI/CD for Java Applications
 
 # Java
-This section explain how Shippable DevOps Assembly Lines Platform behaves when you set `language: java` in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI Job](/platform/workflow/job/runci), 
+This section explain how Shippable DevOps Assembly Lines Platform behaves when you set `language: java` in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI Job](/platform/workflow/job/runci)
 
 ```
 language: java
