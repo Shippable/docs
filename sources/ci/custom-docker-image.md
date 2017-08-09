@@ -79,7 +79,8 @@ integrations:
 * `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
 * `type` depends on the registry you are pulling from:
     * `docker` for Docker Hub
-    * `ecr` for Amazon ECR
+    * `ecr` for Amazon ECR.
+        - Note: For running builds on docker version 17.06.0-ce and above, make sure that the `aws` cli installed in the image is 1.11.91 version or above.
     * `gcr` for Google Container Registry (GCR)
     * `"Docker Trusted Registry"` for Docker Trusted Registry
     * `quay` for Quay.io
