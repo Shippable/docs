@@ -23,9 +23,9 @@ The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/
 
 | Version  |  Tags    | Supported OS
 |----------|---------|-----------
-|gcc 7.1 |   v5.7.3     | All 
+|gcc 7.1 |   v5.8.2 and earlier     | All 
 |gcc 6   |  v5.6.1 and earlier | All 
-|clang 4.0.0 |   v5.7.3     | All 
+|clang 4.0.0 |   v5.8.2, v5.7.3     | All 
 |clang 3.9.0 |   v5.6.1 and earlier 
 
 
@@ -55,7 +55,8 @@ Each of the language image is built from the respective base OS version of the i
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-drydock/u16cppall:v5.7.3  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+drydock/u16cppall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u16cppall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u16cppall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u16cppall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
 drydock/u16cppall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
@@ -67,7 +68,8 @@ drydock/u16cppall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-drydock/u14cppall:v5.7.3  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+drydock/u14cppall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u14cppall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u14cppall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u14cppall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
 drydock/u14cppall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
