@@ -60,6 +60,7 @@ Since we are a Docker based platform, any custom image based on a Linux distro c
 For both the OS versions, we maintain [language](platform/runtime/language/overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
 We support the following languages -
 
+* [C/C++](/platform/runtime/language/cplusplus)
 * [Clojure](/platform/runtime/language/clojure)
 * [GO](/platform/runtime/language/go)
 * [Java](/platform/runtime/language/java)

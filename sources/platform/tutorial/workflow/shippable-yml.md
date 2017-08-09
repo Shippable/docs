@@ -18,6 +18,13 @@ language:	<Language name>
   - <version>
   - <version2>
 
+branches:
+  only:
+    - master
+    - release/*
+  except:
+    - feat*
+
 #### special tags for ruby language #### 
 gemfile:
   - <version>
@@ -31,6 +38,7 @@ git:
 services:
   - <service name>
   - <service name>
+
 env:
   - ENV1: "foo" <environment variables in dictionary format>
     ENV2: "moo"
@@ -50,7 +58,6 @@ env:
 		- <language version>: <version2>
 
 build:
-  advancedReporting: <boolean>
   pre_ci:
     - #command1
     - #command2
@@ -76,9 +83,8 @@ build:
   cache_dir_list:
     - dir1
     - dir2
-  push:
-    - command1
- 
+  advancedReporting: <boolean>
+
 integrations:
  notifications:
    - integrationName: <name of your subscription integration>
@@ -86,7 +92,18 @@ integrations:
      recipients:
        - #recp1
        - #recp2
-
+      branches:
+        only:
+          - master
+      on_success: always | change | never
+      on_failure: always | change | never
+      on_cancel: always | change | never
+      on_start: always | never
+      on_pull_request: always | never
+#### special tags for email type #### 
+      sendConsoleLogs: <boolean>
+      sendCoverageReports: <boolean>
+#### special tags for email type #### 
   hub:
     - integrationName:
       type: <type of hub>
@@ -119,16 +136,49 @@ integrations:
 	* [Python](/platform/runtime/language/python)
 	* [Ruby](/platform/runtime/language/ruby)
 	* [Scala](/platform/runtime/language/scala)
-* **`<language version>`** -- this changes depending on which language is used and it can be more than 1 which makes it a [matrix build](/ci/matrix-builds/). List of available versions are on each of the language page
-* **`gemfile `** -- used only when the language is Ruby. This sets the context for your project and having more than 1 triggers a matrix build
+
+* **`<language version>`** -- this changes depending on which language is used and it can be more than 1 which makes it a [matrix jobs](/ci/matrix-builds/). List of available versions are on each of the language page
+* **`branches`** -- used to control which branch/es does this YML actually run
+ * `only` -- is used to set specific branch names to run. You can set regex here and in the case above run for master branch and all git flow based `release` branches. Both `only` and `except` cannot be used
+ * `except` -- exactly the opposite of `only`
+* **`gemfile `** -- used only when the language is Ruby. This sets the context for your project and having more than 1 triggers a matrix job
 * **`git `** -- used to control the behaviour of how Shippable clones your repo
 	* `submodules` 
 * **`services `** -- if you need additional services that your CI run might need. The version that is installed on your Runtime Image will be started before any of your `ci` scripts execute
-* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
-* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
-* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
-* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
-* **`bundler_args `** -- used only when the language is Ruby. This sets the arguments for your `bundle` command
+	* [Cassandra](/platform/runtime/service/cassandra)
+	* [CouchDB](/platform/runtime/service/couchdb)
+	* [ElasticSearch](/platform/runtime/service/elasticsearch)
+	* [Memcached](/platform/runtime/service/memcached)
+	* [MongoDB](/platform/runtime/service/mongodb)
+	* [MySQL](/platform/runtime/service/mongodb)
+	* [Neo4j](/platform/runtime/service/neo4j)
+	* [Postgres](/platform/runtime/service/postgres)
+	* [RabbitMQ](/platform/runtime/service/rabbitmq)
+	* [Redis](/platform/runtime/service/redis)
+	* [RethidDB](/platform/runtime/service/rethinkdb)
+	* [Riak](/platform/runtime/service/riak)
+	* [Selenium](/platform/runtime/service/selenium)
+	* [SqlLite](/platform/runtime/service/sqllite)
+
+* **`env `** -- is used to set environment variables for your CI run. You can set as many dictionaries of envs as you want. Each dictionary is a seperate job i.e. matrix job
+	* `global` -- this is a list of individual environment variable and each of it is set to all Jobs within the CI run. It does not trigger matrix jobs if you use more than one
+	* `matrix` -- [this](/ci/matrix-builds/) is a complex topic and we have a whole section that talks about it. In short it creates a multi-plexed set of jobs under a single CI run and it can be used to run multiple different combinations of tests for a single commit
+		* `include` -- it is used to execute specific combinations of the matrix-able tags so that you dont exponentially blow up the number of jobs
+		* `exclude` -- it is the opposite of include. If you want to just exclude a few jobs from the matrix, use this
+		* `allow_failures` -- this is used to ignore the result of the job from the overall status of the run
+* **`build `** -- this is the section that actually runs the scripts of your CI job
+	* `pre_ci` -- this is used to prep the host before starting your `ci` section. Please note anything environment variables, files etc. that you create here will not be available in ci section. Typically used to [build your own ci runtime](/ci/custom-docker-image)
+	* `pre_ci_boot` -- this is used to override the default Runtime image in which your `ci` run executes
+	* `ci` -- this is the meat and potatoes section of your ci commands that install dependencies, create databases and folders, and include your build and test commands.
+	* `post_ci` -- includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry.
+	* `on_success` -- includes commands you want to execute only if your CI workflow passes, i.e. the ci section exits with 0.
+	* `on_failure` -- includes commands you want to execute only if your CI workflow fails, i.e. the ci section does not exit with a 0.
+	* `cache` -- Boolean, set whether after your run, whether [caching](/ci/caching) is done or not
+	* `cache_dir` -- sets the directories that you want to cache 
+	* `advancedReporting` --  Boolean, used only for Java projects to turn on [advanced processing](/ci/java-continuous-integration) of test reports 
+* **`integrations`** -- used to pass in 3rd party integration secrets e.g. docker hub credentials
+	* `notifications` -- used to send  
+
 
 | **yml tag**           |** default behavior without tag**                                                                         | **Description of usage**                                                                                                                                                                                                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
