@@ -24,18 +24,20 @@ The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/
 
 | Version  |  Runtime Image Tags 
 |----------|---------
+|8.2.1  |   v5.8.2    
 |8.1.4  |   v5.7.3    
-|7.10.1 |   v5.7.3    
+|7.10.1 |   v5.7.3, v5.8.2
 |7.4.0  |  v5.6.1 and earlier 
 |7.3.0       |   v5.6.1 and earlier 
 |7.2.1       |  v5.6.1 and earlier 
 |7.0.0         |    v5.6.1 and earlier 
+|6.11.2        |   v5.8.2
 |6.11.1        |   v5.7.3    
 |6.9.4          |  v5.6.1 and earlier 
 |6.8.0          |  v5.6.1 and earlier 
 |6.7.0          |  v5.6.1 and earlier 
-|5.12.0          |  v5.6.1 and earlier 
-|4.8.4        |    v5.7.3    
+|5.12.0          |  v5.8.2 and earlier
+|4.8.4        |    v5.8.2, v5.7.3   
 |4.6.0          |   v5.6.1 and earlier 
 |4.2.3          |   v5.6.1 and earlier 
 |0.12   **default** |  v5.6.1 and earlier 
@@ -71,7 +73,8 @@ Each of the language image is built from the respective base OS version of the i
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-drydock/u14nodall:v5.7.3  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+drydock/u14nodall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u14nodall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u14nodall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u14nodall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
 drydock/u14nodall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
@@ -83,7 +86,8 @@ drydock/u14nodall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-drydock/u16nodall:v5.7.3  | Jul 2017 - Latest Version | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+drydock/u16nodall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u16nodall:v5.7.3  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u16nodall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u16nodall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
 drydock/u16nodall:v5.4.1  | Apr 2017  | [v5.4.1](/platform/tutorial/runtime/ami-v541)
