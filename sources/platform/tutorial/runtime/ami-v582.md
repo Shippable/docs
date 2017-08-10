@@ -72,27 +72,28 @@ All the images have these components pre-installed
 
 **CLIs**
 
-* awscli 1.11.91
-* awsebcli 3.9
-* gcloud 160.0.0
-* jfrog-cli 1.7.0
-* kubectl 1.5.1
-* packer 0.12.2
-* terraform 0.8.7
+* awscli 1.11.120
+* awsebcli 3.10.3
+* gcloud 165.0.0
+* jfrog-cli 1.10.1
+* kubectl 1.7.2
+* packer 1.0.3
+* terraform 0.10.0
+* azure 2.10.12
 
 **Services on ubuntu 14.04**
 
 * cassandra 3.11
 * couchdb 1.6
-* elasticsearch 5.5.0
-* neo4j 3.2.2
-* memcached 1.4.39
+* elasticsearch 5.5.1
+* neo4j 3.2.3
+* memcached 1.5.0
 * mongodb 3.4.6
 * mysql 5.6
 * postgres 9.6.3
 * rabbitmq 3.6.10
-* redis 3.2.9
-* rethinkdb 2.3.5
+* redis 4.0.1
+* rethinkdb 2.3.6
 * riak 2.2.3
 * selenium 3.4.0
 * sqllite 3.19.3
@@ -101,15 +102,15 @@ All the images have these components pre-installed
 
 * cassandra 3.11
 * couchdb 1.6
-* elasticsearch 5.5.0
-* neo4j 3.2.2
-* memcached 1.4.39
+* elasticsearch 5.5.1
+* neo4j 3.2.3
+* memcached 1.5.0
 * mongodb 3.4.6
 * mysql 5.7.18
 * postgres 9.6.3
 * rabbitmq 3.6.10
-* redis 3.2.9
-* rethinkdb 2.3.5
+* redis 4.0.1
+* rethinkdb 2.3.6
 * riak 2.2.3
 * selenium 3.4.0
 * sqllite 3.19.3
@@ -133,9 +134,10 @@ These versions are pre-installed on both the OS version images
 
 * 4.8.4
 * 5.12.0
-* 6.11.1
+* 6.11.2
 * 7.10.1
 * 8.1.4
+* 8.2.1
 
 **Additional packages on ubuntu 14.04**
 
@@ -172,7 +174,7 @@ These versions are pre-installed on ubuntu 14.04 image
 * 2.7.12
 * 3.4.3
 * 3.5.3
-* 3.6.1
+* 3.6.2
 * pypy2 5.8.0
 * pypy3 5.8.0
 
@@ -181,7 +183,7 @@ These versions are pre-installed on ubuntu 16.04 image
 * 2.7.12
 * 3.4.5
 * 3.5.2
-* 3.6.1
+* 3.6.2
 * pypy2 5.8.0
 * pypy3 5.8.0
 
@@ -323,9 +325,9 @@ These versions are pre-installed on both the OS version images
 **Language Versions**
 These versions are pre-installed on both the OS version images
 
-* 5.6.30
-* 7.0.20
-* 7.1.6
+* 5.6.31
+* 7.0.22
+* 7.1.7
 
 **Additional packages on ubuntu 14.04**
 
@@ -392,7 +394,7 @@ These versions are pre-installed on both the OS version images
 * 2.9.3
 * 2.10.6
 * 2.11.11
-* 2.12.2
+* 2.12.3
 
 **Additional packages on ubuntu 14.04**
 
