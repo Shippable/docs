@@ -72,7 +72,7 @@ All the images have these components pre-installed
 
 **CLIs**
 
-* awscli 1.11.120
+* awscli 1.11.91
 * awsebcli 3.10.3
 * gcloud 165.0.0
 * jfrog-cli 1.10.1
