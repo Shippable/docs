@@ -21,7 +21,7 @@ The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/
 
 | Version  |  Tags    
 |----------|---------
-|1.6  | v5.7.3
+|1.6  | v5.7.3, v5.8.2
 
 ## Supported Languages
 Since all [Language](/platform/runtime/language/overview) images are built from the the `all` versions of the OS as above, this service is also available if you use language specific images. Shippable platform automatically picks the latest language image based on your [CI YML settings](ci/set-language/), but if you need finer grain control, you can use the image tag sections of the YML.
@@ -42,13 +42,15 @@ This service is installed on to the base OS image along with other services. The
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-[drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 
 ### Ubuntu 14.04
 
 |Image| Release Date |Available in AMI | 
 |----------|------------|-----|
-[drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 - Latest | [v5.7.3](/platform/tutorial/runtime/ami-v573)
+[drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 
 ## Further Reading
 * [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
