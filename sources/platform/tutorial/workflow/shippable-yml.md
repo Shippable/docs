@@ -7,7 +7,6 @@ page_description: Structure of shippable.yml
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Anatomy of shippable.yml
-
 Shippable DevOps Platform leverages a declarative syntax for Continuous Integration. A YML `shippable.yml` config file is used to define the tasks. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and fires CI Runs.
 
 The anatomy of the jobs configuration generally follows the structure below
@@ -100,10 +99,10 @@ integrations:
       on_cancel: always | change | never
       on_start: always | never
       on_pull_request: always | never
-#### special tags for email type #### 
+	   #### special tags for email type #### 
       sendConsoleLogs: <boolean>
       sendCoverageReports: <boolean>
-#### special tags for email type #### 
+      #### special tags for email type #### 
 
   hub:
     - integrationName:
@@ -124,9 +123,11 @@ integrations:
       application_name: <EBS app>
       env_name: <EBS environment>
       region: <aws region>
-      image_name: <in case of docker app>
-      image_tag: <in case of docker app>
-      bucket_name: <in case of docker app>
+      #### special tags for docker app #### 
+      image_name: <image name>
+      image_tag: <image tag>
+      bucket_name: <s3 bucket>
+      #### special tags for docker app #### 
 ```
 
 * **`language`** -- this drives which Runtime image are we going to use run your Continuous Integration. We currently support 
@@ -216,8 +217,7 @@ integrations:
 		* `image_tag` -- Docker image tag if your app is  docker based
 		* `bucket_name` -- S3 bucket name to upload your config
 
-
-# Further Reading
+## Further Reading
 * [Working with languages](/ci/set-language)
 * [Working with services](/ci/services-overview)
 * [Working with environment variables](/ci/env-vars)

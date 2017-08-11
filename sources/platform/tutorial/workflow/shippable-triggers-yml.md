@@ -25,6 +25,6 @@ triggers:
 
 * **`version`** -- changing any value in this tag will fire the trigger, in this case changing counter value will start the Jobs that use this trigger as an `IN`
 
-# Further Reading
+## Further Reading
 * [Integrations](/platform/integration/overview/)
 * [Jobs](/platform/workflow/job/overview/)
