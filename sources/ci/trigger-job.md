@@ -34,8 +34,6 @@ We have written a detailed blog post on how to run scheduled CI builds with the 
 
 You can enable or disable triggering of builds for your project based on specific webhook events on your source control system.
 
-You can enable or disable triggering of builds for your project based on specific webhook events on your source control system.
-
 To do this:
 
 - Go to your Project in the UI and click on the **wrench icon** which will render all your project settings.
