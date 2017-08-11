@@ -104,11 +104,14 @@ integrations:
       sendConsoleLogs: <boolean>
       sendCoverageReports: <boolean>
 #### special tags for email type #### 
+
   hub:
     - integrationName:
       type: <type of hub>
       agent_only:
-  
+      branches:
+        only:
+          - master
   key:
     - integrationName: my_custom_key
       type: ssh-key
@@ -177,27 +180,52 @@ integrations:
 	* `cache_dir` -- sets the directories that you want to cache 
 	* `advancedReporting` --  Boolean, used only for Java projects to turn on [advanced processing](/ci/java-continuous-integration) of test reports 
 * **`integrations`** -- used to pass in 3rd party integration secrets e.g. docker hub credentials
-	* `notifications` -- used to send  
+	* `notifications` -- used to send messages about CI related events
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
+		* `type` -- [slack](/ci/slack-notifications), [email](/ci/email-notifications), [hipchat](/ci/hipchat-notifications) & [irc](/ci/irc-notifications) 
+		* `recipients` -- an array or emails/rooms/channels etc.
+		* `branches` -- limiting when to send notifications
+			* `only` -- arrary of branch names
+		* `on_success` -- control the behaviour when the CI run is successful
+		* `on_failure` -- control the behaviour when the CI run has failed
+		* `on_cancel` -- control the behaviour when the CI run is cancelled
+		* `on_start` -- control the behaviour when the CI run has started
+		* `on_pull_request` -- control the behaviour when the CI run is for a pull request
+		* `sendConsoleLogs` -- send consoles logs as attachement (email type only)
+		* `sendCoverageReports ` -- send coverage reports as attachement (email type only)
+		
+	* `hub` -- used to connect artifact/image registries
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
+		* `type` -- [artifactory](/ci/push-to-artifactory), [docker](/ci/push-docker-hub), [ecr](/ci/push-amazon-ecr), [gcr](/ci/push-gcr), [quay.io](/ci/push-quay) & [private docker registry](/ci/push-docker-private-registry) 
+		* `branches` -- limiting when to send notifications
+			* `only` -- arrary of branch names
+
+	* `key` -- an ssh key integration to connect to external systems through ssh
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
+		* `type` -- [ssh-key](/ci/ssh-keys)
+
+	* `deploy` -- integration used to deploy to Elastic Beanstalk (**deprecated** Use [workflows](/platform/workflow/overview) ) 
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
+		* `type` -- [aws](/ci/deploy-to-aws-beanstalk)
+		* `target` -- eb_paas
+		* `platform` -- [EBS platform Name](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html)
+		* `application_name` -- Your EBS application name
+		* `env_name` -- EBS application environment
+		* `region` -- AWS Region
+		* `image_name` -- Docker image name if your app is  docker based
+		* `image_tag` -- Docker image tag if your app is  docker based
+		* `bucket_name` -- S3 bucket name to upload your config
 
 
-| **yml tag**           |** default behavior without tag**                                                                         | **Description of usage**                                                                                                                                                                                                                                                                                                                                                |
-|---------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**language:**](/ci/set-language/)           | language gets set to ruby                                                                            | Set to the language your project is written in. e.g. node_js. [Read more](/ci/set-language/)                                                                                                                                                                                                                                                                                                        |
-| [**runtime:**](/ci/set-language/)            | depends on language                                                                                  | Set to the language runtime version(s) you want to build against. [Read more](/ci/set-language/)                                                                                                                                                                                                                                                                                                  |
-| [**services:**](/ci/services-overview/)           | no services are available                                                                            | Specify the services you need for your CI workflow, e.g. postgres, mysql, etc. [Read more](/ci/services-overview/)                                                                                                                                                                                                                                                                                     |
-| [**env:**](/ci/env-vars/)                | Only standard environment variables are available during your CI workflow                            | Set custom environment variables for your builds. , including  `secure` variables, i.e. encrypted variables  used to store sensitive information. [Read more](/ci/env-vars/)                                                                                                                                                                                                                    |
-| [**matrix:**](/ci/matrix-builds/)             | no default                                                                                           | Used to include or exclude only specific combination(s) from a build matrix. This is only relevant  if you  are triggering matrix builds, i.e. running several builds per trigger.  [Read more](/ci/matrix-builds/)                                                                                                                                                                                |
-| [**build:**](/ci/build-and-test/)              | no default                                                                                           | Wrapper for several sub-sections like `pre_ci`, `ci`, `post_ci`, `on_success`, `on_failure`, `cache`, and `push`. [Read more](/ci/build-and-test/)                                                                                                                                                                                                                                                  |
-|&nbsp;&nbsp;&nbsp;&nbsp;[pre_ci:](/ci/build-image/)         | no default                                                                                           | Used primarily if you need to use a custom image for your build or if you need to customize behavior of the  default CI container. You can build your image from a Dockerfile or pull an image from a Docker registry  in this section. **Commands in this section run outside the CI container**, so you should not include any commands required  for your CI workflow here. [Read more](/ci/build-image/)     |
-|&nbsp;&nbsp;&nbsp;&nbsp;[pre_ci_boot:](/ci/build-image/)    | no default                                                                                           | Used to override the default image used for CI with your own custom image. You can also set specific options  for booting up the default CI container. [Read more](/ci/build-image/)                                                                                                                                                                                                             |
-|&nbsp;&nbsp;&nbsp;&nbsp;[ci:](/ci/build-and-test/)             | depends on language                                                                                  | Include all commands for your CI workflow. Commands in this section are run inside your CI container,  so any dependencies you need for your build should be installed as the first set of commands in this section.  If this section is missing or empty, we call some default commands based on language, e.g. `npm install`  and `npm test` for Node.js projects. [Read more](/ci/build-and-test/)   |
-|&nbsp;&nbsp;&nbsp;&nbsp;[post_ci:](/ci/build-and-test/)        | no default                                                                                           | Include commands that are not really a part of your core CI workflow but should be run after CI finishes. Commands in this section are run inside your CI container. [Read more](/ci/build-and-test/)                                                                                                                                                                                                  |
-|&nbsp;&nbsp;&nbsp;&nbsp;[on_success:](/ci/build-and-test/)      | no default                                                                                           | Include commands you want to execute only if your CI workflow passes, i.e. the ci section exits with 0.  Commands in this section are run inside your CI container. [Read more](/ci/build-and-test/)                                                                                                                                                                                                  |
-|&nbsp;&nbsp;&nbsp;&nbsp;[on_failure:](/ci/build-and-test/)      | no default                                                                                           | Include commands you want to execute only if your CI workflow fails, i.e. the ci section does not exit with 0.  Commands in this section are run inside your CI container. [Read more](/ci/build-and-test/)                                                                                                                                                                                           |
-|&nbsp;&nbsp;&nbsp;&nbsp;[push:](#push)           | no default                                                                                           | Used to push Docker image to an image registry, especially if you are pushing to Google Container Registry  or Amazon ECR. **Commands in this section run outside your CI container.**                                                                                                                                                                                                                                           |
-|&nbsp;&nbsp;&nbsp;&nbsp;[cache:](/ci/caching/)          | nothing is cached                                                                                    | Used to turn on caching. If set to true, the build directory SHIPPABLE_BUILD_DIR is cached. To cache specific folders, you can use the tag cache_dir_list. [Read more](/ci/caching/)                                                                                                                                                                                                           |
-|&nbsp;&nbsp;&nbsp;&nbsp;[cache_dir_list:](/ci/caching/) | if cache is set to true, default is SHIPPABLE_BUILD_DIR                                              | Used to specify a list of folders that you want to cache between builds. [Read more](/ci/caching/)                                                                                                                                                                                                                                                                                           |
-| [**integrations:**](/platform/integration/overview/)       | no default                                                                                           | Wrapper for several subsections like `notifications`, `hub`,  and `keys`. This overall section lets you specify what third party services you want to interact with a part of your build.                                                                                                                                                                           |
-|&nbsp;&nbsp;&nbsp;&nbsp;[notifications:](/ci/send-notifications/)     | Email notifications sent to last  committer and author on build  failure or status change to success | Used to send Slack, Hipchat, IRC notifications as well as to customize default email notification settings. This section can also be used to trigger a custom webhook or to trigger another Shippable project at various points during your CI workflow. [Read more](/ci/send-notifications/)                                                                                                           |
-|&nbsp;&nbsp;&nbsp;&nbsp;[hub:](/ci/push-artifacts/)            | no default                                                                                           | Include this section if you want to interact with any Docker registry to pull a private image or push an image. [Read more](/ci/push-artifacts/)                                                                                                                                                                                                                                                    |
-|&nbsp;&nbsp;&nbsp;&nbsp;[keys:](#keys)           | no default                                                                                           | Include this section if you need to use SSH or PEM keys to interact with services that are not natively supported on Shippable.                                                                                                                                                                                                                                     |
+# Further Reading
+* [Working with languages](/ci/set-language)
+* [Working with services](/ci/services-overview)
+* [Working with environment variables](/ci/env-vars)
+* [Using Matrix Jobs](/ci/matrix-builds)
+* [Building and Testing](/ci/build-and-test)
+* [Building a Docker Image](/ci/build-image)
+* [Using Caching to speed up your CI](/ci/caching)
+* [Using Integrations](/platform/integration/overview)
+* [Sending Notifications](/ci/send-notifications)
+* [Pushing Artifacts](/ci/push-artifacts)
+* [Connecting to external systems through SSH](/ci/ssh-keys)
