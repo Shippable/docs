@@ -201,8 +201,10 @@ pages:
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Platform:
     - Overview: platform/overview.md
+    - Configuration: platform/config.md
     - Workflow:
       - What is it: platform/workflow/overview.md
+      - Configuration: platform/workflow/config.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
         - ciRepo: platform/workflow/resource/cirepo.md
@@ -306,6 +308,7 @@ pages:
         - Sqllite: platform/runtime/service/sqllite.md
     - Visibility:
       - Overview: platform/visibility/overview.md
+      - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
       - Account:
         - Default View: platform/visibility/account/default-view.md
         - Custom View: platform/visibility/account/custom-view.md
@@ -327,7 +330,6 @@ pages:
         - Dashboard: platform/visibility/job/dashboard.md
         - Settings: platform/visibility/job/settings.md
         - Console: platform/visibility/job/console.md
-      - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
     - Management:
       - Overview: platform/management/overview.md
       - Setting your plan: platform/management/manage-plan.md
