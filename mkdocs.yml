@@ -288,7 +288,6 @@ pages:
         - Azure: platform/runtime/cli/azure.md
         - Packer: platform/runtime/cli/packer.md
         - Docker: platform/runtime/cli/docker.md
-        - Shippable Controller: platform/runtime/cli/shipctl.md
       - Services:
         - Cassandra: platform/runtime/service/cassandra.md
         - Couchdb: platform/runtime/service/couchdb.md
