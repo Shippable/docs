@@ -48,6 +48,24 @@ You can pause any jobs in your pipeline by right-clicking on the job, and clicki
 
 <img src="/images/pipelines/pause-job.png" alt="Pause job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
+<a name="switch-off"></a>
+## Turning off automatic job execution
+
+You can insert a manual approval gate by preventing a job from being triggered automatically. The config for this is shown below:
+
+```
+jobs:
+  - name: Job-3
+    type: release
+    steps:
+      - IN: resource-2
+        switch: off
+      - IN: Job-1
+        switch: off
+```
+
+As shown above, the `switch: off` tag can be defined for `IN` resources or jobs in order to turn off automatic triggering of a job when the inputs change. Note that these switches are specific to the input and should be set accordingly for each input.
+
 <a name="delete"></a>
 ## Deleting Jobs
 Deleting Job is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Job means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.

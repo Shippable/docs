@@ -7,11 +7,20 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # manifest
-`manifest` is Job that is used to create a versioned immutable service definition of your app. It is the definition of a deployment unit. This can be then supplied as an input to a [deploy](/platform/workflow/job/deploy) Job which will then deploy the app to the desired target. A `manifest` is made up of either an [image](/platform/workflow/resource/image) or a [file](/platform/workflow/resource/file) Resources as the basic deployable unit. It can be appended with [params](/platform/workflow/resource/params) to inject environment variables during deployment in both cases and [dockerOptions](/platform/workflow/resource/dockeroptions) in case its using a Docker iamge. A manifest is deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one of it changed. If you want them to deployed independently, then create multiple manifests to represent them.
 
-A new version is created anytime this Job is executed
+The `manifest` job is used to create a versioned, immutable service definition of a deployable unit of your application. Depending on your use case, the deployment unit could be a service, microservice, or the entire application.
 
-You can create a `manifest` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided shared runtime.
+A  `manifest` can be supplied as an input to a [deploy](/platform/workflow/job/deploy) Job which will then deploy it to the desired target.
+
+A `manifest` can contain the following:
+
+- One or more [Docker image Resources](/platform/workflow/resource/image) OR one or more [file Resources](/platform/workflow/resource/file) as the basic deployable unit.
+- optional [params](/platform/workflow/resource/params) Resource to inject environment variables during deployment
+- optional [dockerOptions](/platform/workflow/resource/dockeroptions) resource for Docker manifests. This helps specify options for the deployed container.
+
+A `manifest` is always deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one changed. If you want them to deployed independently, you should create multiple manifests to represent them.
+
+You can create a `manifest` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml`.
 
 ## YML Definition
 
@@ -49,29 +58,42 @@ jobs:
 	 always:								# optional
 	   - NOTIFY: <notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `manifest`
 
-* **`steps `** -- is an object which contains specific instructions to run this Job
-	* `IN` -- You need atleast 1 `image` or 1 `file` as an input. You have can more than one, but they all need to be of the same type. If you use multiple of them, then they will be deployed as a whole. Below is the list of all Resources and Jobs that can be supplied as `IN`
-		* [image](/platform/workflow/resource/image) -- Required input, You can add 1 or many of it
+* **`steps `** -- is an object which contains specific instructions to run this Job.
 
-		* [file](/platform/workflow/resource/file) -- Required input if `image` is not used, otherwise invalid. You can add 1 or many of it
+	  * `IN` -- You need at least one [**image**](/platform/workflow/resource/image/) or one [**file**](/platform/workflow/resource/file/) as an input. You cannot mix `image` and `file` resources in the same manifest.
 
-		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. If you want `dockerOptions` Resource to apply to only 1 then use `applyTo` tag
+		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input for manifests containing image resource. `dockerOptions` is used to set specific container options. If more than one resource of this type is provided, a UNION operation is performed to create a unique set and applied to all `image` resources. If you want `dockerOptions` Resource to apply to a specific image, you can use the use `applyTo` tag
 
-		* [replicas](/platform/workflow/resource/replicas) -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for an image. If more than 1 is provided, the last one gets applied to all the `image` resources. If you want `replicas` Resource to apply to only 1 then use `applyTo` tag
+		* [replicas](/platform/workflow/resource/replicas) -- Optional input for manifests containing image resource. It is used to set number of containers to spin up for an image. If you specify more than one `dockerOptions`, the last one gets applied to all the `image` resources in the manifest. If you want the `replicas` Resource to apply to a specific image only, you can use the `applyTo` tag
 
 		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. If you want `params` Resource to apply to only 1 then use `applyTo` tag
 
 		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
 
+* **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
-Note: Since `manifest` Jobs run on shared runtime, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+
+**Notes:**
+
+
+- Since `manifest` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag.
+
+- A new version of the `manifest` job is created every time it is executed. Since the job executions are versioned, it is easy to **Replay** an old version to trigger your Assembly Line with the old settings. However, you should only do so if you understand the impact to your Assembly Lines.
+
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resource](/platform/workflow/resource/overview)
+* [image](/platform/workflow/resource/image/)
+* [file](/platform/workflow/resource/file/)
+* [dockerOptions](/platform/workflow/resource/dockeroptions)
+* [replicas](/platform/workflow/resource/replicas)
+* [params](/platform/workflow/resource/params)
+* [notification resource](/platform/workflow/resource/notification/)
