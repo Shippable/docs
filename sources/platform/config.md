@@ -21,6 +21,13 @@ Your Assembly Lines are defined through four yml-based configuration files:
 
 Assembly Line configuration files should be committed to a repository in your source control. This repository is called a sync repository. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
 
+## Adding configuration to Shippable
+
+If you're using Shippable for CI only, follow instructions to enable your repository.
+
+If you're using Shippable's Assembly Lines, you can add your syncRepo by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/howto-crud-syncrepo/#adding-a-syncrepo) tutorial.
+
+
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
 * [Quick Start to CD](/getting-started/cd-sample)
