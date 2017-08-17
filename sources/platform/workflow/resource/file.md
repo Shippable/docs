@@ -4,68 +4,66 @@ sub_section: Workflow
 sub_sub_section: Resources
 
 # file
-`file` resource is a pointer to a file on an external file share. When used as an IN to a job, the file is downloaded and available to be used.
+`file` resource is a pointer to a file on an external file share. When used as an `IN` to a job, the file is downloaded and available to be used.
 
 You can create a `file` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
-  - name: 			<string>
-    type: 			file
-    integration: 	<string>
-    pointer:		<object>
+  - name:           <string>
+    type:           file
+    integration:    <string>
+    pointer:        <object>
 ```
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `file`
 
-* **`integration`** -- name of the integration. Currently supported integrations are
-	* [JFrog](/platform/integration/jfrog-artifactory)
+* **`integration`** -- name of the subscription integration. Currently supported integration types are:
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactory)
 
-* **`pointer`** -- is an object which contains integration specific properties
-	* For empty integration
+* **`pointer`** -- is an object that contains integration specific properties
+	* Without an integration:
 
-	```
-	    pointer:
-	      sourceName: <points to publicly accessible file URI>
-	```
-	* For JFrog integration
+	        pointer:
+	          sourceName: <points to publicly accessible file URI>
 
-	```
-	    pointer:
-	      sourceName: <in format "repositoryName/path" of a artifactory respository file>
-	```
+	* With a JFrog Artifactory integration:
 
-## Used in JOBs
-This resource is used as an IN for the following jobs
+	        pointer:
+	          sourceName: <"repositoryName/path" of an Artifactory repository file>
+
+## Used in Jobs
+This resource is used as an `IN` for the following jobs:
 
 * [deploy](/platform/workflow/job/deploy)
 * [runSh](/platform/workflow/job/runsh)
 * [manifest](/platform/workflow/job/manifest)
 
 ## Default Environment Variables
-Whenever `file` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+Whenever `file` is used as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when this resource is used.
 
-`<NAME>` is the the friendly name of the Resource
+`<NAME>` is the the friendly name of the resource.
+
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
-| `<NAME>`\_TYPE 							| The type of the resource. In this case `file`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
+| `<NAME>`\_TYPE 							| The type of the resource. In this case `file`. |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific integration page. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
-| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer |
+| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
-| `<NAME>`\_VERSIONNAME						| versionName of the version of the resource being used. |
+| `<NAME>`\_VERSIONNAME						| The versionName of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

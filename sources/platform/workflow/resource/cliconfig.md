@@ -3,53 +3,47 @@ main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
 
-# cliconfig
+# cliConfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
 
-You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`.
 
-Multiple cliConfig resources may be used as INs and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements, wins.
+Multiple cliConfig resources may be used as `IN`s and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements wins.
 
 ```
 resources:
-  - name: 			<string>
-    type: 			cliConfig
-    integration: 	<string>
-    pointer:		<object>
+  - name:           <string>
+    type:           cliConfig
+    integration:    <string>
+    pointer:        <object>
 ```
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `cliConfig`
 
-* **`integration`** -- name of the integration. Currently supported integrations are
-	* [AWS](integration/aws)
-	* [AWS ECR](integration/aws-ecr)
-	* [Docker Hub](integration/docker-hub)
-	* [Docker Trusted Registry](integration/docker-trusted-registry)
-	* [Docker Private Registry](integration/docker-private-registry)
-	* [Google Cloud](integration/gce)
-	* [Google Container Registry](integration/gcr)
-	* [Google Container Engine](integration/gke)
-	* [JFrog](integration/jfrog-artifactory)
-	* [Kubernetes](integration/kubernetes)
-	* [Quay](integration/quay)
+* **`integration`** -- name of the subscription integration. Currently supported integration types are:
+	* [Amazon ECR](/platform/integration/aws-ecr)
+	* [Docker Hub](/platform/integration/docker-hub)
+	* [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
+	* [Docker Private Registry](/platform/integration/docker-private-registry)
+	* [Google Container Registry](/platform/integration/gcr)
+	* [Google Container Engine](/platform/integration/gke)
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactory)
+	* [Kubernetes](/platform/integration/kubernetes)
+	* [Quay](/platform/integration/quay)
 
-* **`pointer`** -- is an object which contains integration specific properties
-	* in case of AWS
+* **`pointer`** -- is an object that contains integration specific properties
+	* For an Amazon ECR integration:
 
-	```
-	    pointer:
-	      region: <aws region for e.g us-east-1, us-west-1 etc.>
-	```
+	        pointer:
+	           region: <AWS region, e.g., us-east-1, us-west-1, etc.>
 
-	* in case of Google Integrations, if region and clusterName is provided `gcloud` and `kubectl` will be sutomatically configured to use it. If not provided, just the authentication to google cloud is done automatically
+	* For Google integrations, if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster. If not provided, just the authentication to Google Cloud is done automatically.
 
-	```
-	    pointer:
-	      region: <aws region for e.g us-east-1, us-west-1 etc.>
-	      clusterName: <cluster of type Google Container Engine>
-	```
+	        pointer:
+	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
+	          clusterName: <cluster name>
 
 <a name="cliConfigTools"></a>
 ## Configured CLI tools
@@ -72,42 +66,37 @@ integration. Here is a list of the tools configured for each integration type:
 | Kubernetes                          | [kubectl](/platform/runtime/cli/kubectl) |
 | Quay.io                             | [Docker Engine](/platform/runtime/cli/docker) |
 
-## Used in JOBs
-This resource is used as an IN for the following jobs
+## Used in Jobs
+This resource is used as an `IN` for the following jobs
 
-* [runCI](workflow/job/runci/)
-* [runSh](workflow/job/runsh/)
+* [runCI](/platform/workflow/job/runci/)
+* [runSh](/platform/workflow/job/runsh/)
 
 ## Default Environment Variables
-Whenever `cliConfig` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+Whenever `cliConfig` is used as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when this resource is used.
 
-`<NAME>` is the the friendly name of the Resource
+`<NAME>` is the the friendly name of the resource.
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
-| `<NAME>`\_TYPE 							| The type of the resource. In this case `cliConfig`|
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
+| `<NAME>`\_TYPE 							| The type of the resource. In this case `cliConfig`. |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific integration page. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
-| `<NAME>`\_POINTER\_REGION 				| Region defined in the pointer. Available if the integration is AWS or Google |
-| `<NAME>`\_POINTER\_CLUSTERNAME 			| ClusterName defined in the pointer. Available if the integration is Google |
+| `<NAME>`\_POINTER\_REGION 				| Region defined in the pointer. Available if the integration is AWS or Google. |
+| `<NAME>`\_POINTER\_CLUSTERNAME 			| ClusterName defined in the pointer. Available if the integration is Google. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
-| `<NAME>`\_VERSIONNAME						| versionName of the version of the resource being used. |
+| `<NAME>`\_VERSIONNAME						| The versionName of the version of the resource being used. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resource](/platform/workflow/resource/overview)
 * [Supported CLIs](/platform/runtime/overview#cli)
-
-## TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Update Utility functions section|  Open |
