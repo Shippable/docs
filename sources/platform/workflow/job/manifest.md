@@ -15,7 +15,7 @@ A  `manifest` can be supplied as an input to a [deploy](/platform/workflow/job/d
 A `manifest` can contain the following:
 
 - One or more [Docker image Resources](/platform/workflow/resource/image) OR one or more [file Resources](/platform/workflow/resource/file) as the basic deployable unit.
-- optional [params](/platform/workflow/resource/params) Resource to inject environment variables during deployment
+- optional [params](/platform/workflow/resource/params) Resource to inject environment variables during deployment.
 - optional [dockerOptions](/platform/workflow/resource/dockeroptions) resource for Docker manifests. This helps specify options for the deployed container.
 
 A `manifest` is always deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one changed. If you want them to deployed independently, you should create multiple manifests to represent them.
@@ -41,8 +41,8 @@ jobs:
       - IN: 		<params> 				# optional
       - IN: 		<params> 				# optional
         applyTo:
-          - <image>
-          - <image>
+          - <image/file>
+          - <image/file>
       - IN: 		<replicas> 				# optional
       - IN: 		<replicas> 				# optional
         applyTo:
@@ -59,19 +59,19 @@ jobs:
 	   - NOTIFY: <notification resource name>
 ```
 
-* **`name`** -- should be an easy to remember text string
+* **`name`** -- should be an easy to remember text string.
 
-* **`type`** -- is set to `manifest`
+* **`type`** -- is set to `manifest`.
 
 * **`steps `** -- is an object which contains specific instructions to run this Job.
 
 	  * `IN` -- You need at least one [**image**](/platform/workflow/resource/image/) or one [**file**](/platform/workflow/resource/file/) as an input. You cannot mix `image` and `file` resources in the same manifest.
 
-		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input for manifests containing image resource. `dockerOptions` is used to set specific container options. If more than one resource of this type is provided, a UNION operation is performed to create a unique set and applied to all `image` resources. If you want `dockerOptions` Resource to apply to a specific image, you can use the use `applyTo` tag
+		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input for manifests containing image resource. It is used to set specific container options. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want `dockerOptions` resource to modify specific entities, use `applyTo` tag.
 
-		* [replicas](/platform/workflow/resource/replicas) -- Optional input for manifests containing image resource. It is used to set number of containers to spin up for an image. If you specify more than one `dockerOptions`, the last one gets applied to all the `image` resources in the manifest. If you want the `replicas` Resource to apply to a specific image only, you can use the `applyTo` tag
+		* [replicas](/platform/workflow/resource/replicas) -- Optional input for manifests containing image resource. It is used to set number of containers to spin up for an image. If you specify more than one `replicas`, the last one gets applied to all the `image` resources in the manifest. If you want the `replicas` resource to apply to a specific image only, you can use the `applyTo` tag.
 
-		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` based Job. It is used to set environment variables during deployment. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. If you want `params` Resource to apply to only 1 then use `applyTo` tag
+		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` inputs. It is used to set environment variables during deployment. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. Items are applied in the order they are provided in `steps`. If you want `params` resource to be associated with specific entities, use `applyTo` tag.
 
 		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
 
@@ -87,11 +87,11 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 
 ## Further Reading
-* [Jobs](/platform/workflow/job/overview)
-* [Resource](/platform/workflow/resource/overview)
+* [job](/platform/workflow/job/overview)
+* [resource](/platform/workflow/resource/overview)
 * [image](/platform/workflow/resource/image/)
 * [file](/platform/workflow/resource/file/)
 * [dockerOptions](/platform/workflow/resource/dockeroptions)
 * [replicas](/platform/workflow/resource/replicas)
 * [params](/platform/workflow/resource/params)
-* [notification resource](/platform/workflow/resource/notification/)
+* [notification](/platform/workflow/resource/notification/)

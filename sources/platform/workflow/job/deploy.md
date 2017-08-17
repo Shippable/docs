@@ -81,7 +81,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
         * [deploy](/platform/workflow/job/deploy) -- You can add zero or more of these. `deploy` jobs can be `IN`s to other deploy jobs.  They contain a list of `manifests` that were deployed.  This same list can be augmented with new `params` or `dockerOptions` and deployed in a new job.
             * `force` -- (default `false`) Optional input. Set to `true` if you need to deploy the `deploy` manifests even if nothing has changed.
 
-        * [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than 1 is provided, an UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want `dockerOptions` resource to modify specific entities, use `applyTo` tag.
+        * [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want `dockerOptions` resource to modify specific entities, use `applyTo` tag.
 
         * [replicas](/platform/workflow/resource/replicas) -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for all images in a`manifest` or `release`. If you want `replicas` Resource to apply to specific entities, use `applyTo` tag.
 
@@ -104,7 +104,10 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
         * `script` -- Optional input. This is used to run a script after deployment, but this can be used only if the `deploy` is for a `file`-based `manifest` and the `cluster` resource has an integration of type [Node Cluster](/platform/integration/node-cluster/)
 
-Note: Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+
+* **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to a provider like Slack, Email, IRC, Hipchat, etc.
+
+**Note:** Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
