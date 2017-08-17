@@ -10,114 +10,113 @@ You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/howt
 
 ```
 resources:
-  - name: 			<string>
-    type: 			cliConfig
-    integration: 	<string>
-    pointer:		<object>
+  - name:           <string>
+    type:           cliConfig
+    integration:    <string>
+    pointer:        <object>
 ```
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `gitRepo`
 
-* **`integration`** -- name of the integration. Currently supported integrations are
+* **`integration`** -- name of the subscription integration. Currently supported integration types are:
 	* [Bitbucket](/platform/integration/bitbucket)
-	* [Bitbucket Server](/platform/integration/bitbucket-server)
+	* Bitbucket Server (Shippable Server only)
 	* [GitHub](/platform/integration/github)
-	* [Gitlab/GitlabServer](/platform/integration/gitlab)
+	* [GitLab](/platform/integration/gitlab)
 
-* **`pointer`** -- is an object which contains integration specific properties
+* **`pointer`** -- is an object that contains integration specific properties
 
-```
-  pointer:
-    sourceName: 			<string>
-    branch: 				<string>
-    branches:
-      except:
-        - <branch name>		<string>
-        - <branch name>		<string>
-      only:
-        - <branch name>		<string>
-        - <branch name>		<string>
-    tags:
-      except:
-        - <tag name>		<string>
-        - <tag name>		<string>
-      only:
-        - <tag name>		<string>
-        - <tag name>		<string>
-	buildOnCommit: 			<Boolean>
-	buildOnPullRequest: 	<Boolean>
-	buildOnRelease: 		<Boolean>
-	buildOnTagPush: 		<Boolean>
-```
+          pointer:
+            sourceName:             <string>
+            branch:                 <string>
+            branches:
+              except:
+                - <branch name>
+                - <branch name>
+              only:
+                - <branch name>
+                - <branch name>
+            tags:
+              except:
+                - <tag name>
+                - <tag name>
+              only:
+                - <tag name>
+                - <tag name>
+            buildOnCommit:          <Boolean>
+            buildOnPullRequest:     <Boolean>
+            buildOnRelease:         <Boolean>
+            buildOnTagPush:         <Boolean>
 
-* Detailed explation of the pointer properties
-	* `sourceName` -- (required) is the fully qualified name of the repository in the format 88org/repo**
-    * `branch` -- (optional) specifies specific branch name which this resource represents. If not set, all branches trigger a new version. Cannot be set if `branches` property is used
-    * `branches` -- (optional) works like the `branch` but allows to use it for a collection of branches. Cannot be used if `branch` is used. Wildcards can used in names. e.g. feat-*
+* Detailed explation of the pointer properties:
+	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**
+    * `branch` -- (optional) specifies specific branch name that this resource represents. If not set, all branches trigger a new version. Cannot be set if `branches` property is used
+    * `branches` -- (optional) works like the `branch` but allows to use it for a collection of branches. Cannot be used if `branch` is used. Wildcards can used in names, e.g., feat-*
     	* `except` -- (optional) Can be used to exclude a collection of branches
     	* `only` -- (optional) Can be used to include only a collection of specific branches
     * `tags` -- (optional) used to specify a collection of tags and releases upon which a new version is created
     	* `except` -- (optional) Can be used to exclude a collection of tags or releases
     	* `only` -- (optional) Can be used to include only a collection of specific tags or releases
-    * `buildOnCommit` -- (default is true) used to control whether the resource wil be updated for commit webhooks
-    * `buildOnPullRequest` -- (default is false) used to control whether the resource wil be updated for pull-request webhooks
-    * `buildOnRelease` -- (default is false) used to control whether the resource wil be updated for release webhooks    
-    * `buildOnTagPush` -- (default is false) used to control whether the resource wil be updated for tag webhooks
+    * `buildOnCommit` -- (default is true) used to control whether the resource will be updated for commit webhooks
+    * `buildOnPullRequest` -- (default is false) used to control whether the resource will be updated for pull request webhooks
+    * `buildOnRelease` -- (default is false) used to control whether the resource will be updated for release webhooks    
+    * `buildOnTagPush` -- (default is false) used to control whether the resource will be updated for tag webhooks
 
-## Used in JOBs
-This resource is used as an IN for the following jobs
+## Used in Jobs
+This resource is used as an `IN` for the following jobs:
 
 * [runSh](/platform/workflow/job/runsh)
 * [runCI](/platform/workflow/job/runci)
 
 ## Default Environment Variables
-Whenever `gitRepo` is used as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+Whenever `gitRepo` is used as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when this resource is used.
 
-`<NAME>` is the the friendly name of the Resource
+`<NAME>` is the the friendly name of the resource.
+
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
-| `<NAME>`\_TYPE 							| The type of the resource. In this case `gitRepo`|
+| `<NAME>`\_TYPE 							| The type of the resource. In this case `gitRepo`. |
 | `<NAME>`\_BASE\_BRANCH       			| If the version was created for a pull request, this is the name of the base branch into which the pull request changes will be merged. |
 | `<NAME>`\_BRANCH            			| When the version was created for a commit, this is the name of branch on which the commit occurred. If it was created for a pull request, this is the base branch. |
 | `<NAME>`\_COMMIT            			| SHA of the commit of the version being used. |
 | `<NAME>`\_COMMIT\_MESSAGE    			| Commit message of the version being used. |
 | `<NAME>`\_COMMITTER         			| Name of the committer for the SHA being used. |
-| `<NAME>`\_GIT\_TAG\_NAME      			| If a Tag Name was present in the current version, Supported only if the Integration is GitHub.|
+| `<NAME>`\_GIT\_TAG\_NAME      			| If a tag name was present in the current version, this will be the tag name. Supported only if the integration is GitHub.|
 | `<NAME>`\_HEAD\_BRANCH       			| If the version in context is a pull requests, then this is the name of the branch the pull request was opened from. |
 | `<NAME>`\_HTTPS\_URL       				| The HTTPS URL for the Git repository. |
-| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific Integration page|
-| `<NAME>`\_IS\_GIT\_TAG        			| Set to `TRUE` if the version in context is a git tag based build. Supported only if the Integration is GitHub. |
-| `<NAME>`\_IS\_RELEASE        			| Set to `TRUE` if the version in context is a git release based build. Supported only if the Integration is GitHub. |
-| `<NAME>`\_KEYPATH           			| Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo |
+| `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific integration page. |
+| `<NAME>`\_IS\_GIT\_TAG        			| Set to `TRUE` if the version in context is a git tag based build. Supported only if the integration is GitHub. |
+| `<NAME>`\_IS\_RELEASE        			| Set to `TRUE` if the version in context is a git release based build. Supported only if the integration is GitHub. |
+| `<NAME>`\_KEYPATH           			| Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
-| `<NAME>`\_POINTER_BRANCH    			| Branch if defined in the pointer |
-| `<NAME>`\_POINTER\_BRANCHES\_EXCEPT\_0 | Branches except collection if defined in the pointer. 0 throug N elements |
-| `<NAME>`\_POINTER\_BRANCHES\_ONLY\_0 | Branches only collection if defined in the pointer. 0 throug N elements |
-| `<NAME>`\_POINTER\_TAGS\_EXCEPT\_0 	| Tags except collection if defined in the pointer. 0 throug N elements |
-| `<NAME>`\_POINTER\_TAGS\_ONLY\_0 		| Tags only collection if definedin the pointer. 0 throug N elements |
-| `<NAME>`\_POINTER_BUILDONCOMMIT			| TRUE or FALSE, default is TRUE, if not defined in the pointer |
-| `<NAME>`\_POINTER_BUILDONPULLREQUEST	| TRUE or FALSE, default is FALSE, if not defined in the pointer |
-| `<NAME>`\_POINTER_BUILDONRELEASE		| TRUE or FALSE, default is FALSE, if not defined in the pointer |
-| `<NAME>`\_POINTER_BUILDONTAGPUSH		| TRUE or FALSE, default is FALSE, if not defined in the pointer |
+| `<NAME>`\_POINTER_BRANCH    			| Branch if defined in the pointer. |
+| `<NAME>`\_POINTER\_BRANCHES\_EXCEPT\_0 | Branches except collection if defined in the pointer. 0 through N elements |
+| `<NAME>`\_POINTER\_BRANCHES\_ONLY\_0 | Branches only collection if defined in the pointer. 0 through N elements. |
+| `<NAME>`\_POINTER\_TAGS\_EXCEPT\_0 	| Tags except collection if defined in the pointer. 0 through N elements. |
+| `<NAME>`\_POINTER\_TAGS\_ONLY\_0 		| Tags only collection if defined in the pointer. 0 through N elements. |
+| `<NAME>`\_POINTER_BUILDONCOMMIT			| TRUE or FALSE, default is TRUE, if not defined in the pointer. |
+| `<NAME>`\_POINTER_BUILDONPULLREQUEST	| TRUE or FALSE, default is FALSE, if not defined in the pointer. |
+| `<NAME>`\_POINTER_BUILDONRELEASE		| TRUE or FALSE, default is FALSE, if not defined in the pointer. |
+| `<NAME>`\_POINTER_BUILDONTAGPUSH		| TRUE or FALSE, default is FALSE, if not defined in the pointer. |
 | `<NAME>`\_PULL\_REQUEST      			| Pull request number if the version was created for a pull request. If not, this will be set to false. |
-| `<NAME>`\_RELEASE|_NAME      			| Name of the release if the version in context is a git release based build. Supported only if the Integration is GitHub. |
-| `<NAME>`\_RELEASED\_AT       			| Timestamp of the release if the version in context is a git release based build. Supported only if the Integration is GitHub. |
-| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer |
-| `<NAME>`\_SSH|_URL      					| The SSH URL for the Git repository. |
+| `<NAME>`\_RELEASE_NAME      			| Name of the release if the version in context is a git release based build. Supported only if the integration is GitHub. |
+| `<NAME>`\_RELEASED\_AT       			| Timestamp of the release if the version in context is a git release based build. Supported only if the integration is GitHub. |
+| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer. |
+| `<NAME>`\_SSH_URL      					| The SSH URL for the Git repository. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 | `<NAME>`\_VERSIONNAME   					| The commitSHA of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
