@@ -73,7 +73,7 @@ jobs:
 
 		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` inputs. It is used to set environment variables during deployment. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. Items are applied in the order they are provided in `steps`. If you want `params` resource to be associated with specific entities, use `applyTo` tag.
 
-		* Any other Job or Resource will only participate in triggering `manifest` Job but not in of the processing of it
+		* Any other Job or Resource will only participate in triggering `manifest` job, but not in of the processing of it.
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
@@ -87,8 +87,8 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 
 ## Further Reading
-* [job](/platform/workflow/job/overview)
-* [resource](/platform/workflow/resource/overview)
+* [jobs](/platform/workflow/job/overview)
+* [resources](/platform/workflow/resource/overview)
 * [image](/platform/workflow/resource/image/)
 * [file](/platform/workflow/resource/file/)
 * [dockerOptions](/platform/workflow/resource/dockeroptions)

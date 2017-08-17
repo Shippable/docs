@@ -21,7 +21,7 @@ jobs:
     type: 				deploy				# required
     stabilityDuration: <0-300 seconds>      # optional, blueGreen only
     on_start:								# optional
-	   - NOTIFY: 		<notification resource name>
+      - NOTIFY: 		<notification resource name>
     steps:
       - IN: 			<cluster>			# required
       - IN: 			<manifest/release/deploy> 	# required
@@ -110,5 +110,5 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 **Note:** Since `deploy` Jobs run on [Shared Nodes](), free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
 
 ## Further Reading
-* [Jobs](/platform/workflow/job/overview)
-* [Resources](/platform/workflow/resource/overview)
+* [jobs](/platform/workflow/job/overview)
+* [resources](/platform/workflow/resource/overview)
