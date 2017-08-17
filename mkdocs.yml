@@ -240,6 +240,7 @@ pages:
       - Overview: platform/integration/overview.md
       - Amazon ECR: platform/integration/aws-ecr.md
       - Amazon ECS: platform/integration/aws-ecs.md
+      - Azure: platform/integration/azure.md
       - Azure DC/OS: platform/integration/azure-dcos.md
       - Bitbucket: platform/integration/bitbucket.md
       - Docker Cloud: platform/integration/docker-cloud.md
