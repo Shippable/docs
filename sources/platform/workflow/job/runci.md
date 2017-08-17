@@ -7,20 +7,22 @@ page_description: Description of the runCI job
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # runCI
-`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create a complex workflows in 1 single YML was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other Jobs since the actual configuration is driven through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your pipeline.
 
-`runCI` Jobs execute on Shippable provided [Dynamic Nodes](/platform/runtime/overview#nodes) or [Custom Nodes](/platform/runtime/overview#nodes)
+The `runCI` Job represents the CI job for a repository that is enabled for CI on Shippable. This job is more of a wrapper that lets you easily integrate your CI workflow with the rest of your Assembly Lines. As a result, `runCI` is somewhat different from other Jobs since the actual CI configuration is driven through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/).
+
+`runCI` Jobs execute on Shippable provided [Dynamic Nodes](/platform/runtime/overview#nodes) or [Custom Nodes](/platform/runtime/overview#nodes).
 
 ## How do you create a runCI Job?
-When you enable your repo for [CI](/ci/enable-project/), an internal representation of `runCI` job is automatically created along with [ciRepo]() as an `IN`
+
+When you [enable your repo for CI](/ci/enable-project/), a `runCI` job is automatically created along with [ciRepo](/platform/workflow/resource/cirepo/) as an `IN`.
 
 Note: If your `CI` project was enabled before March 2017, you can create these objects by clicking on **Hook** button on the Project Settings page.
 
 <img src="/images/platform/jobs/runCI/hookPipeline.png" alt="Hook button on project settings page." style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-
 ## How do you use it in Assembly Lines?
-Now if you want to interact with your **runCI** Job with other entities of the Assembly line, you can add a `runCI` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.
+
+If you want your **runCI** Job to interact with other Jobs or Resources of your Assembly lines, you will need to [add it](/platform/tutorial/workflow/howto-crud-job#adding) to `shippable.jobs.yml`. This creates the wrapper around your existing job that can be used as an `IN` for other Jobs in your Assembly Lines.
 
 ## YML Definition
 
@@ -28,7 +30,7 @@ Now if you want to interact with your **runCI** Job with other entities of the A
 jobs:
   - name: <name of the runCI>				
     type: runCI
-	 on_start:
+	  on_start:
 	   - NOTIFY: <notification resource name>
     steps:
       - IN: <resource>
@@ -43,18 +45,17 @@ jobs:
       - OUT: <resource>
       - OUT: <resource>
         replicate: <resource>
-	 on_success:
+    on_success:
       - script: echo "SUCCESS"
-	 on_failure:
+	  on_failure:
       - script: echo "FAILED"
       - NOTIFY: <notification resource name>
-	 on_cancel:
+	  on_cancel:
       - script: echo "CANCEL"
-	 always:
+	  always:
       - script: pwd
 
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view
 
@@ -63,11 +64,11 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
-	* `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
+	* `IN` -- Optional, any Resource(s) or Job(s) can be used here. `switch`, `versionNumber`, `versionName` and `showBuildStatus` are also supported.
 
-	* `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
-	* `OUT` -- Optional, any Resource can be used here and as many as you need
-		* `replicate` -- Optional, any `IN` Resource of same type can be used
+	* `TASK` -- is not allowed in this job. This config is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
+	* `OUT` -- Optional, any Resource(s) can be an output.
+		* `replicate` -- Optional, any `IN` Resource of same type can be used. This copies the `IN` resource to the `OUT` resource.
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
@@ -77,8 +78,10 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+
 ## Default Environment Variables
-In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`.
 
 In addition, the Job itself comes with its own default set of variables. This is the list for this Job type
 
@@ -105,3 +108,4 @@ How to use these utility functions are [documented here](/platform/tutorial/work
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resource](/platform/workflow/resource/overview)
+* [CI configuration](/platform/tutorial/workflow/shippable-yml/)

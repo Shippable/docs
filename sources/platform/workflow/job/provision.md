@@ -7,7 +7,6 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # provision
-
 The `provision` job is used to create ancillary objects like load balancers on Container Orchestration Platforms. Currently we support provisioning of load-balancers on clusters hosted on
 
 - Google Container Engine (GKE)
@@ -52,7 +51,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 **Notes:**
 
-- Since `provision` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+- Since `provision` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag.
 
 - A new version of the `provision` job is created every time it is executed. Since the job executions are versioned, it is easy to **Replay** an old version to trigger your Assembly Line with the old settings. However, you should only do so if you understand the impact to your Assembly Lines.
 
