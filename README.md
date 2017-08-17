@@ -35,13 +35,3 @@ To start documentation server at `localhost:5555`:
 ```
 This uses livereload to monitors changes to the files. Therefore as soon as you save a file, the browser is refreshed.
 
-```flow
-st=>start: Start
-e=>end
-op=>operation: My Operation
-cond=>condition: Yes or No?
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
