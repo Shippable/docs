@@ -5,8 +5,24 @@ sub_sub_section: Runtime
 page_title: Custom Nodes Overview
 
 # Custom Nodes
-Custom Nodes are machines that you own and operate that you attach to your organization/team on Shippable.
-To learn more about the advantages of Custom nodes, please go [here](/getting-started/byon-overview/#advantages-of-byon).
+
+By default, all your builds run in build containers hosted on Shippable's infrastructure.
+
+However, some organizations have very specific security requirements that do not allow them to run builds on hosted infrastructure. Others want to avoid the node spin-up time for every job.
+
+To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines.
+
+This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
+
+Advantages are:
+
+**Security:** Your build machines can be inside your VPC and/or behind your firewall, which gives you the ability to configure access, IAM, etc. We even have a way of configuring these machines so that you do not have to grant Shippable SSH access! This means your code never leaves your firewall and no external entity can access your machines.
+
+Complete control over your build machines, including SSH access, ability to choose your cloud provider and size of build machines.
+
+**Faster build times:** You can leave your build machines running all the time, which eliminates the occasional 2-3 mins per build that is added when new machines are spun up on Shippable's hosted infrastructure.
+
+**Docker caching:** If you use Docker for your build workflows like pulling Docker images from a registry or building Docker images, your build machines will already have these images and this will speed up your builds.
 
 ## Minimum requirements
 The minimum requirements for a build machine that can be attached to Shippable are:

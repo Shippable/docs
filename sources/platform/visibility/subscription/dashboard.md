@@ -7,7 +7,7 @@ page_description: Overview of Subscription Dashboard View of Shippable DevOps As
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Subscription Dashboard
-This view diplays all [Jobs](/platform/workflow/job/overview) and [Resources](/platform/workflow/resource/overview) that belong to this particular organization as defined on the source control system. 
+This view displays all [Jobs](/platform/workflow/job/overview) and [Resources](/platform/workflow/resource/overview) that belong to this particular organization as defined on the source control system. 
 
 **Grid View**
 <img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

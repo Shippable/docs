@@ -3,21 +3,22 @@ main_section: Platform
 sub_section: Workflow
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - release
-page_description: List of supported jobs
-page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+page_description: Create and increment semantic version for a service definition
+page_keywords: release management, semantic versioning, continuous delivery
 
 # Release
-`release` is a Job that is used to create a semantically versioned object that represents and immutable list of service definitions, in our case a [manifest](). This big benefit of using this job would be if you have multiple services that make up your application and you want them all to be deployed as a unit.
 
-Shippable DevOps Assembly Lines stores the service definition in the versions of the following Jobs
+The `release` Job is used to create a semantically versioned object that represents an immutable service definition, in our case a [manifest](/platform/workflow/job/manifest). This big benefit of using this job is if your application has multiple services, and you want them all to be versioned together and deployed as a unit.
+
+
+Since the `release` job needs a manifest that it can version, an `IN` to this job needs to contain the manifest. The following jobs have a copy of the manifest, and can be used as an `IN` to a `release` job to increment the version number for the manifest:
 
 * [manifest](/platform/workflow/job/manifest) as this is the Job that generates a service definition
 * [deploy](/platform/workflow/job/deploy) as this needs manifests to deploy and the deploy job stores the manifests it deploys for ability to roll-back
 * [release](/platform/workflow/job/release) as this is what tags a semantic version number for the service definition
 
-All of the above jobs can be used as `IN`s to create a new release. A new version is created anytime this Job is executed
 
-You can create a `deploy` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these Jobs execute on Shippable provided shared runtime.
+You can create a `release` Job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml`:
 
 ## YML Definition
 
@@ -44,7 +45,6 @@ jobs:
 	 always:										# optional
 	   - NOTIFY:		<notification resource name>
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- should be an easy to remember text string
 
@@ -68,7 +68,15 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 			* `rc` -- this increments the alpha bit of the supplied version. So, first pass it will be `v1.0.0-rc` and next one will be `v1.0.0-rc.1`
 			* `final` -- any pre-release flags on your incoming version will be removed, so if your input was `v4.0.0-rc.5`, then output version would be `v4.0.0`
 
-Note: Since `release` Jobs run on shared runtime, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag
+* **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
+
+A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+
+**Notes:**
+
+- Since `release` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag.
+
+- A new version of the `release` job is created every time it is executed. Since the job executions are versioned, it is easy to **Replay** an old version to trigger your Assembly Line with the old settings. However, you should only do so if you understand the impact to your Assembly Lines.
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

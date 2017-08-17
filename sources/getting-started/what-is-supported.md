@@ -11,15 +11,15 @@ Here are some of the major things we support out of the box. With that being sai
 ## Node Types
 To run you DevOps activities, you need a Node (virtual machine). Shippable support 2 types of Nodes
 
-* [Dedicated Dynamic Nodes](/platform/runtime/overview#nodes) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need
+* [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes/) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need
 	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
-	
-* [Dedicated Custom Nodes](/platform/runtime/overview#nodes) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
+
+* [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes/) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
 
 ## Operating System
-The platform is designed to work on any Linux distro. We natively support the following 
+The platform is designed to work on any Linux distro. We natively support the following
 
 * [Ubuntu 14.04 LTS](/platform/runtime/os/ubuntu14)
 * [Ubuntu 16.04 LTS](/platform/runtime/os/ubuntu16)

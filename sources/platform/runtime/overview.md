@@ -116,32 +116,34 @@ To run you DevOps activities, you need a Node (virtual machine). Shippable suppo
 	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
-	
-* [Dedicated Custom Nodes](/platform/runtime/tutorial/custom-nodes) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
+
+* [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes) -- these are Nodes that you manage it yourself and hook it to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that all your code never leaves your infrastructure. Another reason to do this would be that your jobs require access to internal resources that you dont want to be accessible from the internet. You could run these Nodes anywhere you like.
 
 <a name="env"></a>
 ### Environment variables
-Environment variables are used to control the context of your DevOps activity. Setting this manually everytime you execute a particular activity can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. 
+Environment variables are used to control the context of your DevOps activity. Setting this manually everytime you execute a particular activity can be very error prone and missed configurations can cause serious trouble. You might actually be working on a production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes.
 
 Typical use cases for this are
 
 * Configuring your AWS Credentials to connect to a VPC
-* SSH Keys to access your VMs 
+* SSH Keys to access your VMs
 * Login to your Docker hub
 * Stage specific application configurations e.g. Dev Settings vs Test Settings
-* Logging verbosity for different stages of Software Delivery 
+* Logging verbosity for different stages of Software Delivery
 * Docker options for multi stage deployments
 
-We provide multiple ways to control how environment variables are injected into your Job Runtime. This also varies a bit depending on the [Resource Types](/platform/workflow/resource/overview) you are using. This is applicable to [RunSh](/platform/workflow/job/runsh) and [RunCI](/platform/workflow/job/runci) Job types. 
+We provide multiple ways to control how environment variables are injected into your Job Runtime. This also varies a bit depending on the [Resource Types](/platform/workflow/resource/overview) you are using. This is applicable to [RunSh](/platform/workflow/job/runsh) and [RunCI](/platform/workflow/job/runci) Job types.
 
 <a name="cache"></a>
 ### Caching
-Caching speeds up your build by automatically setting up your static dependencies. It can be used to speed up builds by 
+
+Caching speeds up your CI builds by automatically setting up your static dependencies. As an example, you can do the following:
 
 - caching node modules
-- ruby gems 
+- ruby gems
 - static binaries from external sources
-- ... and so on
+
+Read more [about caching here](/platform/tutorial/runtime/caching).
 
 ## Further Reading
 * [Build Images](/platform/tutorial/runtime/ami-overview)
