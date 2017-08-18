@@ -61,6 +61,6 @@ These are the types of resources that Shippable Workflow supports:
 If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com).
 
 ## Further Reading
-* [Working with Resources](/platform/tutorial/workflow/howto-crud-resource)
+* [Working with Resources](/platform/tutorial/workflow/crud-resource)
 * [Jobs](/platform/workflow/job/overview)
 * [Integrations](/platform/integration/overview)

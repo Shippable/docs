@@ -97,7 +97,7 @@ In this configuration, Job-4 will be triggered in one of 4 ways:
 * You commit to a trigger that is an `IN` for the job, i.e. **trigger-1** in this example
 * Manual trigger: You right click on **Job-4** in the SPOG UI and click on Run or Select Run for **Job-4** in the Jobs list in the Grid view.
 
-**Job-1** will not trigger **Job-4** automatically since the dotted line between them indicates that automatic trigger has been [switched off](/platform/tutorial/workflow/howto-crud-job/#switch-off).
+**Job-1** will not trigger **Job-4** automatically since the dotted line between them indicates that automatic trigger has been [switched off](/platform/tutorial/workflow/crud-job/#switch-off).
 
 **Please note that changing some resources like cluster, replicas, or dockerOptions manually through a yml commit will not automatically trigger a job.** This behavior is meant to prevent unexpected pipeline behavior, since a single commit can contains changes to several resources and cause several trigger points in the pipeline. If you want your job to be triggered when resources are manually edited in the yml, you can add a trigger input for the job and include a change to the trigger resource in the commit every time you want to automatically run your job.
 

@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # file
 `file` resource is a pointer to a file on an external file share. When used as an `IN` to a job, the file is downloaded and available to be used.
 
-You can create a `file` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -63,7 +63,7 @@ Whenever `file` is used as an `IN` or `OUT` for a job that can execute user defi
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

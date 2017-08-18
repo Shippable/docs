@@ -18,7 +18,7 @@ You can send notifications upon the following events in your workflow:
 * Job failed (on_failure)
 * Job canceled (on_cancel)
 
-You can create a `notification` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `notification` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -97,7 +97,7 @@ Whenever `notification` is used as an `IN` or `OUT` for a job that can execute u
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

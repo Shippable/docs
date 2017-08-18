@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with with webhook payload. This will trigger any jobs that have this resource as an `IN`.
 
-You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -116,7 +116,7 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a job that can execute user d
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

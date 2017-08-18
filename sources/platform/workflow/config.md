@@ -25,7 +25,7 @@ Assembly Line configuration files should be committed to a repository in your so
 
 If you're using Shippable for CI only, follow [these instructions](/ci/enable-project/) to enable your repository.
 
-If you're using Shippable's Assembly Lines, you can add your syncRepo by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/howto-crud-syncrepo/#adding-a-syncrepo) tutorial.
+If you're using Shippable's Assembly Lines, you can add your syncRepo by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) tutorial.
 
 
 ## Further Reading

@@ -201,9 +201,9 @@ pages:
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
   - Platform:
     - Overview: platform/overview.md
-    - Configuration: platform/config.md
     - Workflow:
       - Overview: platform/workflow/overview.md
+      - Configuration: platform/workflow/config.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
         - ciRepo: platform/workflow/resource/cirepo.md
@@ -345,17 +345,17 @@ pages:
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
         - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
-        - How to work with Resources: platform/tutorial/workflow/howto-crud-resource.md
-        - How to work with Triggers: platform/tutorial/workflow/howto-crud-trigger.md
-        - How to work with Jobs: platform/tutorial/workflow/howto-crud-job.md
-        - How to work with syncRepo: platform/tutorial/workflow/howto-crud-syncrepo.md
-        - How to use Shippable Utility shipctl: platform/tutorial/workflow/howto-use-shipctl.md
-        - How to send status to Source Control Systems: platform/tutorial/workflow/howto-send-status-to-scm.md
-        - How to output key-values into a Resource: platform/tutorial/workflow/howto-output-keyvalues-to-resources.md
-        - How to extract additional version info from a Resource: platform/tutorial/workflow/howto-extract-additional-resource-version-info.md
-        - How to replicate IN Resource to a OUT Resource: platform/tutorial/workflow/howto-replicate-in-to-out-resource.md
-        - How to share data between Runs: platform/tutorial/workflow/howto-share-data-between-runs.md
-        - How to share data between Jobs: platform/tutorial/workflow/howto-share-data-between-jobs.md
+        - Working with Resources: platform/tutorial/workflow/crud-resource.md
+        - Working with Triggers: platform/tutorial/workflow/crud-trigger.md
+        - Working with Jobs: platform/tutorial/workflow/crud-job.md
+        - Working with syncRepo: platform/tutorial/workflow/crud-syncrepo.md
+        - Using Shippable Utility shipctl: platform/tutorial/workflow/using-shipctl.md
+        - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
+        - Writing key-values into an Output Resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
+        - Extracting additional version info from a Resource: platform/tutorial/workflow/extracting-additional-resource-version-info.md
+        - Replicating IN Resource to a OUT Resource: platform/tutorial/workflow/replicating-in-to-out-resource.md
+        - Sharing data between Runs: platform/tutorial/workflow/sharing-data-between-runs.md
+        - Sharing data between Jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
@@ -376,7 +376,7 @@ pages:
         - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
         - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
         - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
-        - AMI stable: platform/tutorial/runtime/ami-stable.md 
+        - AMI stable: platform/tutorial/runtime/ami-stable.md
       - API:
         - Overview: platform/tutorial/api/api-overview.md
         - Tokens: platform/tutorial/api/api-tokens.md

@@ -49,5 +49,5 @@ If you need to use an integration in additional Subscriptions after it was creat
 
 
 ## Further Reading
-* [Working with Resources](/platform/tutorial/workflow/howto-crud-resource)
-* [Working with Jobs](/platform/tutorial/workflow/howto-crud-job)
+* [Working with Resources](/platform/tutorial/workflow/crud-resource)
+* [Working with Jobs](/platform/tutorial/workflow/crud-job)

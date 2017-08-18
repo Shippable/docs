@@ -26,7 +26,7 @@ Here are the steps to migrate -
 
 Here are the steps to migrate -
 
-1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform//tutorial/workflow/howto-crud-job#pausing-jobs).
+1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform//tutorial/workflow/crud-job#pausing-jobs).
 
 2. Add the jobs you want to migrate to the destination repository's yml files.
 

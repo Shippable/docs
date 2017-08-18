@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # version
 `version` resource is used to store <a href="http://www.semver.org/">semantic version</a> numbers.
 
-You can create a `version` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `version` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -54,7 +54,7 @@ Whenever `version` is used as an `IN` or `OUT` for a job that can execute user d
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
