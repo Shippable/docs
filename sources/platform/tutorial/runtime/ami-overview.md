@@ -32,7 +32,7 @@ what is pre-installed on that image:
 | [v5.5.1](ami-v551/)        | Apr 26, 2017    |
 | [v5.4.1](ami-v541/)        | Mar 30, 2017    |
 | [v5.3.2](ami-v532/)        | Mar 11, 2017    |
-| [Stable](machine-image-stable/)      | Feb 19, 2016 (deprecated) |
+| [Stable](ami-stable/)      | Feb 19, 2016 (deprecated) |
 
 **The default Machine Image for your subscription is the latest image available
 when your Subscription was added to Shippable.**
