@@ -4,10 +4,11 @@ sub_section: Overview
 
 # Shippable Plans and Pricing
 
-
 Shippable has several tiers of pricing plans which cater to different types of customers. We are a freemium service with a very competitive free tier which is usually enough for individual users as well as small development teams.
 
 As your team grows or you need more capacity, we have several paid options that address your needs. For a detailed look at Pricing plans, please visit our [Pricing page](https://www.shippable.com/pricing.html).
+
+## Hosted plans
 
 In a nutshell, our Hosted service pricing is:
 
@@ -16,9 +17,11 @@ In a nutshell, our Hosted service pricing is:
 | c4.large (2 cores, 3.75GB) 	|                                   One node included                                   	|                             $25/month for each build node                             	|
 | c4.xlarge (4 cores, 7.5GB) 	|                                           X                                           	|                             $75/month for each build node                             	|
 | c4.2xlarge (8 cores, 15GB) 	|                                           X                                           	|                             $150/month for each build node                            	|
-| [BYON](platform/runtime/overview#nodes) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
+| [BYON](/platform/tutorial/runtime/custom-nodes/) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
 
-We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our  or [Contact us](https://www.shippable.com/contact.html).
+##Shippable Server
+
+We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our [Shippable Server page](https://www.shippable.com/enterprise.html).
 
 ## Further Reading
 * [Platform Overview](platform/overview)

@@ -17,7 +17,7 @@ To give you an overview of what you can achieve with the platform, we have put t
 
 However, it is important to remember that Shippable lets you automate almost anything. Want to deploy using voice commands on Alexa? Check. Want to set your smart coffee machine to start a pot at 8am every morning? Check.
 
-We have optimized the platform for DevOps with a bunch of [managed jobs](/getting-started/pipeline-basics/#jobs) that make it very easy to automate DevOps workflows. However, for anyone with programming skills and an imagination, the sky is the limit.
+We have optimized the platform for DevOps with a bunch of [managed jobs](/platform/workflow/job/overview/) that make it very easy to automate DevOps workflows. However, for anyone with programming skills and an imagination, the sky is the limit since the [runSh job](/platform/workflow/job/runsh/) supports any shell commands.
 
 <a name="ci"></a>
 ##Continuous Integration
@@ -26,19 +26,19 @@ The most basic use case is Continuous Integration (CI).
 
 The workflow for CI is simple.
 
-- You **enable** a repository for CI and add a configuration file `shippable.yml`. This repository can be in any supported [source control system](/getting-started/supported-scms/).
+- You [**enable** a repository](/ci/enable-project/) for CI and add a configuration file `shippable.yml`. This repository can be in any supported [source control system](/getting-started/what-is-supported/#source-control-management).
 
 - For every change in your source code, a job that executes the instructions in your config is triggered.
 
 - For every pull request to your repository, we will pull the latest code from your your branch, i.e. the branch where the pull request will be merged, merge with the changes in the pull request, and run your CI workflow against the merged code. You can view the results in your source control UI so you can approve or reject the PR with confidence.
 
-- You can view test and code coverage results for your repository along with the job console in the Shippable UI.
+- You can view Test and Code coverage results for your repository along with the job console in the Shippable UI.
 
 Our CI configuration is highly flexible and supports the following advanced scenarios:
 
 - [Matrix builds](/ci/matrix-builds/)
-- Docker-based workflows, including using [custom CI containers](/ci/custom-docker-image/), [Docker caching](/getting-started/byon-overview/), and native integrations with all [Docker registries](/getting-started/supported-artifact-repositories/) and [Container Orchestration platforms](/getting-started/supported-deployments/).
-- Parallel testing, i.e. you can split your tests across build machines
+- Docker-based workflows, including using [custom CI containers](/ci/custom-docker-image/), [Docker caching](/platform/tutorial/runtime/custom-nodes/), [Docker compose](/ci/docker-compose/) and native integrations with all [Docker registries](/getting-started/what-is-supported/#artifact-repositories) and [Container Orchestration platforms](/getting-started/what-is-supported/#container-orchestration-systems).
+- [Parallel testing](/ci/matrix-builds/), i.e. you can split your tests across build machines
 
 For more on CI, read our [CI docs](/ci/why-continuous-integration/).
 
@@ -50,11 +50,11 @@ Shippable supported deployments to many endpoints, both for traditional and Dock
 Consider the following scenario:
 
 - Your CI job creates a package. This can be a JAR/WAR file or a Docker image.
-- Every time the package is updated, a new version of the application manifest is created. The manifest is a versioned immutable unit of deployment for your application.
+- Every time the package is updated, a new version of the application [manifest](/platform/workflow/job/manifest/) is created. The manifest is a versioned immutable unit of deployment for your application.
 - The updated manifest version automatically triggers a deployment to your Test environment. Your Test team is notified.
-- Once tests are completed and the team signs off on them, the manifest version is automatically deployed to Beta.
+- Once tests are completed and the team signs off on them, the manifest version is automatically deployed to Staging.
 
-For more on deployments, read our [Deploy docs](/deploy/why-deploy/).
+For more on deployment scenarios, read our [Deploy docs](/deploy/why-deploy/).
 
 <a name="validate"></a>
 ##Validating your application
@@ -63,9 +63,9 @@ Once your application is deployed into an environment, there are several validat
 
 Let us consider a typical scenario:
 
-- Your application manifest is deployed into a Test environment.
+- Your application [manifest](/platform/workflow/job/manifest/) is deployed into a Test environment.
 - As soon as the deployment happens, your integration/functional test suite is automatically triggered. The results are communicated to the Test team.
-- The application manifest is then deployed into Beta. This triggers your performance test suite. Once again, results are communicated to the Test team.
+- The application manifest is then deployed into Staging. This triggers your performance test suite. Once again, results are communicated to the Test team.
 - Depending on the results of the tests and your configuration, the manifest is then deployed to the next environment, or awaits a manual action.
 - Your team can clearly see what is deployed in each environment by [going to a central UI](/platform/visibility/single-pane-of-glass-spog/).
 
