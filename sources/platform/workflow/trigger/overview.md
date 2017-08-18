@@ -7,11 +7,11 @@ page_description: Triggers are used to manually start a Job.
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Triggers
-Triggers are used to manually start a Job. They are very similar to Resources, the only difference being updating a Resource might not always start the dependent Job/s, but a trigger will always do. 
+Triggers are used to manually start a job. They are very similar to resources, the only difference being that updating a resource in the YML will not start the dependent job(s), but a updating a trigger will.
 
 <img src="/images/platform/configuration/triggerJob.png" alt="Triggering a manual job through a resource" style="width:400px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-You could also achive this by triggering through UI, but this is for those who like to do it with code.
+You could also achieve this by triggering through UI, but this is for those who like to do it with code.
 
 They are typically used in these cases
 
@@ -22,5 +22,5 @@ They are typically used in these cases
 
 
 ## Further Reading
-* [Working with Triggers](/platform/tutorial/workflow/howto-crud-triggers)
+* [Working with Triggers](/platform/tutorial/workflow/howto-crud-trigger)
 * [Anatomy of Triggers](/platform/tutorial/workflow/shippable-triggers-yml)
