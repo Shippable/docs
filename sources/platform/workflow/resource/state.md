@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # state
 `state` resource is a special resource used to store data that can be shared between jobs. Shippable DevOps Assembly lines do not allow workflows that have circular dependencies. There are certain situations where data needs to be passed back and forth between jobs. For example, Terraform tasks create a state that needs to be persisted each time the job runs. `state` resource was specifically designed to achieve circular dependencies in DevOps Assembly Lines.
 
-You can create a `state` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `state` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
@@ -41,7 +41,7 @@ Whenever `state` is used as an `IN` or `OUT` for a job that can execute user def
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

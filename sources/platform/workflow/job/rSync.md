@@ -22,6 +22,6 @@ In most cases, these can be resolved by updating the integrations, or fixing the
 	<img src="/images/platform/jobs/rSync/rsync-job.png" alt="rSync job">
 
 ## Further Reading
-* [Working with syncRepo](/platform/tutorial/workflow/howto-crud-syncrepo)
+* [Working with syncRepo](/platform/tutorial/workflow/crud-syncrepo)
 * [jobs](/platform/workflow/job/overview)
 * [resources](/platform/workflow/resource/overview)

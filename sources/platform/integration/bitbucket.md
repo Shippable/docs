@@ -33,7 +33,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

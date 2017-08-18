@@ -21,7 +21,7 @@ Note: If your `CI` project was enabled before March 2017, you can create these o
 
 ## How do you use it in Assembly Lines?
 
-Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in the `shippable.jobs.yml`.
+Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in the `shippable.jobs.yml`.
 
 ## YML Definition
 
@@ -103,7 +103,7 @@ Please note that the environment variables for a `runCI` job are in addition to 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 

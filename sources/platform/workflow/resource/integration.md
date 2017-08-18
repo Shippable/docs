@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # integration
 `integration` resource is used to represent credentials that have been encrypted using Shippable Integrations.
 
-You can create a `integration` resource by [adding](/platform/tutorial/workflow/howto-crud-resource#adding) it to `shippable.resources.yml`
+You can create a `integration` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 
 ```
@@ -58,7 +58,7 @@ Whenever `integration` is used as an `IN` or `OUT` for a job that can execute us
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
+How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

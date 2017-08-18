@@ -21,7 +21,7 @@ Shippable DevOps Assembly Lines store the service definitions in the versions of
 
 All of the above jobs can be used as `IN`s to create a new `release`. A new version is created anytime this job is executed.
 
-You can create a `release` job by [adding](/platform/tutorial/workflow/howto-crud-job#adding) it to `shippable.jobs.yml` and these jobs execute on Shippable provided shared runtime.
+You can create a `release` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml` and these jobs execute on Shippable provided shared runtime.
 
 
 ## YML Definition
