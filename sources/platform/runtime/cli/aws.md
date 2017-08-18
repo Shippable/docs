@@ -5,12 +5,12 @@ sub_sub_section: CLIs
 page_title: AWS CLI Overview
 
 # AWS CLI
-AWS CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+The AWS CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) jobs, which you can execute as part of Shippable DevOps Assembly Lines Platform. All language images have this CLI pre-installed.
 
-More information is present on [AWS CLI page](https://aws.amazon.com/cli/)
+More information is available on the [AWS CLI page](https://aws.amazon.com/cli/).
 
 ## Supported OS Versions
-This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image
+This CLI is installed in the Shippable base images along with other CLIs. The following are tags and release dates of the each base image.
 
 ### Ubuntu 16.04
 
@@ -37,12 +37,12 @@ This CLI is installed on to the base OS image along with other CLIs. The followi
 
 
 ## Supported Versions
-This table helps you choose the right tag based on the version of the CLI you might want to use
+This table helps you choose the right image tag based on the version of the CLI you want to use.
 
 | Version  |  Tags    
 |----------|---------
-|1.11.91  | v5.8.2
-|1.11.44  | v5.7.3 and below
+|1.11.91   | v5.8.2
+|1.11.44   | v5.7.3 and below
 
 ## Further Reading
 * [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)

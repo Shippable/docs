@@ -4,18 +4,18 @@ sub_section: Runtime
 sub_sub_section: CLIs
 page_title: GKE (GCloud) CLI Overview
 
-# GKE (GCloud) CLI
+# GKE (gcloud) CLI
 
-GCloud CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+The Google Cloud (gcloud) CLI is available for [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) jobs, which you can execute as part of Shippable DevOps Assembly Lines Platform. All language images have this CLI pre-installed.
 
-More information is present on [Google Cloud docs page](https://cloud.google.com/sdk/gcloud/)
+More information is available on the [Google Cloud docs page](https://cloud.google.com/sdk/gcloud/).
 
 ## Supported OS Versions
-This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image
+This CLI is installed in the Shippable base images along with other CLIs. The following are tags and release dates of the each base image.
 
 ### Ubuntu 16.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
@@ -27,7 +27,7 @@ This CLI is installed on to the base OS image along with other CLIs. The followi
 
 ### Ubuntu 14.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
@@ -38,20 +38,21 @@ This CLI is installed on to the base OS image along with other CLIs. The followi
 
 
 ## Supported Versions
-This table helps you choose the right tag based on the version of the CLI you might want to use
+This table helps you choose the right image tag based on the version of the CLI you want to use.
 
 | Version  |  Tags    
 |----------|---------
-|165.0.0-0  | v5.8.2 (both OS)
-|160.0.0-0  | v5.7.3 and below
+| 165.0.0  | v5.8.2
+| 160.0.0  | v5.7.3
+| 157.0.0  | v5.6.1
+| 151.0.0  | v5.5.1 (Ubuntu 14.04)
+| 148.0.0  | v5.5.1 (Ubuntu 16.04)
+| 148.0.0  | v5.4.1
+| 145.0.0  | v5.3.2 (Ubuntu 16.04)
+| 144.0.0  | v5.3.2 (Ubuntu 14.04)
 
 ## Further Reading
 * [Everything about Shippable AMIs](/platform/tutorial/runtime/ami-overview)
 * [Quick Start to CI](/getting-started/ci-sample)
 * [CI YML](/ci/yml-structure)
 * [RunSh Job](/platform/workflow/job/runsh)
-
-| Version  |  Tags    | Supported OS|
-|----------|---------|-----------|
-|160.0.0-0  | v5.7.3  | Ubuntu 16.04 |
-|156.0.0-0  | v5.7.3  | Ubuntu 14.04 |
