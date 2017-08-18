@@ -7,35 +7,35 @@ page_title: GitHub Enterprise integration
 
 Available under the Integration Family: **SCM**
 
-`Github Enterprise` Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of Github Enterprise Server. 
+`GitHub Enterprise` Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of GitHub Enterprise Server.
 
-You can create this from the integrations page. This is the information you would require to create this integration
+You can create this from the integrations page. This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
-* **URL** -- location of your GHE server API. The format is in `https://(Github Enterprise URL)/api/v3`
+* **URL** -- location of your GHE server API. The format is in `https://(GitHub Enterprise URL)/api/v3`
 * **Token** -- personal access token with the right levels of permission
 
 ## Resources that use this Integration
-Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Github Enterprise` Integration 
+Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `GitHub Enterprise` integration.
 
-* [gitRepo](/workflow/platform/resource/gitRepo)
-* [ciRepo](/workflow/platform/resource/ciRepo)
-* [syncRepo](/workflow/platform/resource/syncRepo)
+* [gitRepo](/platform/workflow/resource/gitrepo)
+* [ciRepo](/platform/workflow/resource/cirepo)
+* [syncRepo](/platform/workflow/resource/syncrepo)
 
 ## Default Environment Variables
-When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+When you create a resource with this integration, and use it as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when a resource with this integration type is used.
 
-`<NAME>` is the the friendly name of the Resource
+`<NAME>` is the the friendly name of the resource.
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
-| `<NAME>`\_INTEGRATION\_URL    			| Github Enterprise API location |
-| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to Github Enterprise |
+| `<NAME>`\_INTEGRATION\_URL    			| GitHub Enterprise API location |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to GitHub Enterprise |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

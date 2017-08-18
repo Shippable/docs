@@ -6,19 +6,19 @@ page_title: IRC integration
 # IRC Integration
 Available under the Integration Family: **Notifications**
 
-`IRC` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms. 
+`IRC` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 
-You can create this from the integrations page. This is the information you would require to create this integration
+You can create this from the integrations page. This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 
 We currently support sending notifications to public IRC rooms only.
 
 ## Resources that use this Integration
-Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `IRC` Integration 
+Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with an `IRC` integration.
 
-* [ciRepo](/workflow/platform/resource/ciRepo)
-* [notification](/workflow/platform/resource/notification)
+* [ciRepo](/platform/workflow/resource/cirepo)
+* [notification](/platform/workflow/resource/notification)
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

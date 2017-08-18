@@ -251,10 +251,11 @@ pages:
       - Git Credential: platform/integration/git-credential.md
       - GitHub: platform/integration/github.md
       - GitHub Enterprise: platform/integration/github-enterprise.md
-      - Gitlab: platform/integration/gitlab.md
+      - GitLab: platform/integration/gitlab.md
+      - Google Cloud: platform/integration/gce.md
       - Google Container Engine: platform/integration/gke.md
       - Google Container Registry: platform/integration/gcr.md
-      - Hipchat: platform/integration/hipchat.md
+      - HipChat: platform/integration/hipchat.md
       - JFrog Artifactory: platform/integration/jfrog-artifactory.md
       - Joyent Triton: platform/integration/tripub.md
       - Key-value: platform/integration/key-value.md

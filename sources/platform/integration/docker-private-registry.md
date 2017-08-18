@@ -7,9 +7,9 @@ page_title: Docker Private Registry integration
 
 Available under the Integration Family: **Hub**
 
-`Docker Private Registry` Integration is used to connect Shippable DevOps Assembly Lines platform to a privatelty hosted Docker Hub so that you can pull and push Docker images. 
+`Docker Private Registry` Integration is used to connect Shippable DevOps Assembly Lines platform to a privately hosted Docker Hub so that you can pull and push Docker images.
 
-You can create this from the integrations page. This is the information you would require to create this integration
+You can create this from the integrations page. This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **URL** -- location of your private registry. Format `https://foo.com`
@@ -18,16 +18,15 @@ You can create this from the integrations page. This is the information you woul
 * **Email** -- email of your Docker Registry Account
 
 ## Resources that use this Integration
-Resources are the bulding blocks of assembly lines and some types of resource refer to Integrations by their name. The following Resources Types can created with `Docker Private Registry` Integration 
+Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Docker Private Registry` integration.
 
-* [image](/workflow/platform/resource/image)
-* [cluster](/workflow/platform/resource/cluster)
-* [integration](/workflow/platform/resource/integration)
+* [image](/platform/workflow/resource/image)
+* [integration](/platform/workflow/resource/integration)
 
 ## Default Environment Variables
-When you create a Resource with this integration, and use it as an `IN` or `OUT` into a Job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the Job. These are variables available when this Resource is used
+When you create a resource with this integration, and use it as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when a resource with this integration type is used.
 
-`<NAME>` is the the friendly name of the Resource
+`<NAME>` is the the friendly name of the resource.
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
@@ -37,9 +36,9 @@ When you create a Resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_EMAIL			| Email supplied in the integration |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
