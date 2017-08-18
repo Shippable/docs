@@ -203,8 +203,7 @@ pages:
     - Overview: platform/overview.md
     - Configuration: platform/config.md
     - Workflow:
-      - What is it: platform/workflow/overview.md
-      - Configuration: platform/workflow/config.md
+      - Overview: platform/workflow/overview.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
         - ciRepo: platform/workflow/resource/cirepo.md
@@ -243,6 +242,7 @@ pages:
       - Azure: platform/integration/azure.md
       - Azure DC/OS: platform/integration/azure-dcos.md
       - Bitbucket: platform/integration/bitbucket.md
+      - Digital Ocean: platform/integration/do.md
       - Docker Cloud: platform/integration/docker-cloud.md
       - Docker Datacenter: platform/integration/docker-datacenter.md
       - Docker Hub: platform/integration/docker-hub.md
