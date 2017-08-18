@@ -6,14 +6,14 @@ page_title: Terraform CLI Overview
 
 # Terraform CLI
 
-Terraform CLI is available for all [Jobs](/platform/workflow/job/overview) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images and all Operating Systems support this CLI
+The Terraform CLI is available for all [jobs](/platform/workflow/job/overview) that you can execute as part of Shippable DevOps Assembly Lines Platform. All language images have this CLI pre-installed.
 
 ## Supported OS Versions
-This CLI is installed on to the base OS image along with other CLIs. The following are tags and release dates of the base OS Image
+This CLI is installed in the Shippable base images along with other CLIs. The following are tags and release dates of the each base image.
 
 ### Ubuntu 16.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
@@ -25,7 +25,7 @@ This CLI is installed on to the base OS image along with other CLIs. The followi
 
 ### Ubuntu 14.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
@@ -36,7 +36,7 @@ This CLI is installed on to the base OS image along with other CLIs. The followi
 
 
 ## Supported Versions
-This table helps you choose the right tag based on the version of the CLI you might want to use
+This table helps you choose the right image tag based on the version of the CLI you want to use.
 
 | Version  |  Tags    
 |----------|---------
