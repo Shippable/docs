@@ -272,11 +272,12 @@ pages:
         - Ubuntu 14:04: platform/runtime/os/ubuntu14.md
         - Ubuntu 16:04: platform/runtime/os/ubuntu16.md
       - Languages:
+        - Overview: platform/runtime/language/overview.md
         - Nodejs: platform/runtime/language/nodejs.md
         - Python: platform/runtime/language/python.md
         - Java: platform/runtime/language/java.md
         - Ruby: platform/runtime/language/ruby.md
-        - GO: platform/runtime/language/go.md
+        - Go: platform/runtime/language/go.md
         - PHP: platform/runtime/language/php.md
         - Clojure: platform/runtime/language/clojure.md
         - Scala: platform/runtime/language/scala.md
