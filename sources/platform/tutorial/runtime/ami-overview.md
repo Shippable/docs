@@ -26,11 +26,12 @@ what is pre-installed on that image:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
-| [v5.7.3](machine-image-v573/)        | Jul 20, 2017    |
-| [v5.6.1](machine-image-v561/)        | Jun 05, 2017    |
-| [v5.5.1](machine-image-v551/)        | Apr 26, 2017    |
-| [v5.4.1](machine-image-v541/)        | Mar 30, 2017    |
-| [v5.3.2](machine-image-v532/)        | Mar 11, 2017    |
+| [v5.8.2](ami-v582/)        | Aug 10, 2017    |
+| [v5.7.3](ami-v573/)        | Jul 20, 2017    |
+| [v5.6.1](ami-v561/)        | Jun 05, 2017    |
+| [v5.5.1](ami-v551/)        | Apr 26, 2017    |
+| [v5.4.1](ami-v541/)        | Mar 30, 2017    |
+| [v5.3.2](ami-v532/)        | Mar 11, 2017    |
 | [Stable](machine-image-stable/)      | Feb 19, 2016 (deprecated) |
 
 **The default Machine Image for your subscription is the latest image available
