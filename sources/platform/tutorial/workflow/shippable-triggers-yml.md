@@ -8,9 +8,13 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.triggers.yml
 
-Shippable DevOps Platform leverages a declarative syntax for CRUD operations on Resources. A YML `shippable.triggers.yml` config file is used to define them. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and sync the definitions.
+[Triggers](/platform/workflow/trigger/overview/) are used to manually start a job. They are very similar to resources, the only difference being that updating a resource in the YML will not start the dependent job(s), but a updating a trigger will.
 
-The anatomy of the triggers configuration generally follows the structure below
+A YML config file `shippable.triggers.yml` is used to define triggers. Anatomy of the yml is here: [Anatomy of triggers yml](/platform/tutorial/workflow/shippable-triggers-yml/)
+
+This file should be committed to source control in the [Sync Repository](/platform/tutorial/workflow/crud-syncrepo/), along with `shippable.resources.yml` and `shippable.jobs.yml`.
+
+The anatomy of the triggers configuration in `shippable.triggers.yml`  generally follows the structure below
 
 ```
 triggers:
@@ -19,9 +23,10 @@ triggers:
 	 version:
       counter: 			1
 ```
-* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represent e.g. `trig_ci`. This name is used to define the IN entities to Jobs.
 
-* **`type`** -- is always set to trigger
+* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represent e.g. `trig_ci`. This name is used to define the `IN` entities to Jobs.
+
+* **`type`** -- is always set to `trigger`
 
 * **`version`** -- changing any value in this tag will fire the trigger, in this case changing counter value will start the Jobs that use this trigger as an `IN`
 

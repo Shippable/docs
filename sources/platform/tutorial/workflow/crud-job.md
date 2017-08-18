@@ -8,7 +8,12 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 
 # Working with Jobs
-Shippable DevOps Platform leverages a declarative syntax for CRUD operations on Jobs. A YML `shippable.jobs.yml` config file is used to define them. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and sync the definitions.
+
+[Jobs](/platform/workflow/job/overview/) are the executable units of your pipelines that can execute any DevOps activity. A simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job.
+
+Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview), execute tasks that perform the operations necessary and then produce a result i.e. Output(s). Now these Outputs can become Inputs to other jobs and so on forming a dependency-based, event-driven DevOps Assembly Line.
+
+Jobs are defined in a yml-based configuration file `shippable.jobs.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
 
 <a name="adding"></a>
 ## Adding Jobs

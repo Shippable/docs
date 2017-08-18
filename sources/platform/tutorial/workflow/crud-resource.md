@@ -7,7 +7,10 @@ page_description: How to add, delete and update resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Working with Resources
-Shippable DevOps Platform leverages a declarative syntax for CRUD operations on [Resources](/platform/workflow/resource/overview). A YML `shippable.resources.yml` config file is used to define them. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and sync the definitions.
+
+[Resources](/platform/workflow/resource/overview/) are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
+
+Resources are defined in a yml-based configuration file `shippable.resources.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
 
 <a name="adding"></a>
 ## Adding Resources
