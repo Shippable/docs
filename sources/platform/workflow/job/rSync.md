@@ -9,21 +9,19 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # rSync
 
-The `rSync` Job is created internally by Shippable when you add a [**syncRepo**](/platform/workflow/resource/syncrepo/). Whenever you make changes to your **syncRepo**, we automatically execute this job to synchronize your changes to your Assembly Lines. The name of the rSync job is a concatenation of the syncRepo's name and `_rSync`.
+`rSync` is a job that is created internally by shippable when you add a [syncRepo](/platform/workflow/resource/syncrepo/). Whenever you make changes to your `syncRepo`, we automatically execute this job to synchronize your changes to DevOps Assembly Lines. The name of the rSync job is the syncRepo's name + `_rSync`.
 
-<a name="inconsistent"></a>
-If your `rSync` job fails due to any reason, the affected [Resources](/platform/workflow/resource/overview) and [Jobs](/platform/workflow/job/overview) are marked inconsistent. They will no longer trigger until their definition in the rSync job is fixed. The main reasons why Resources and Jobs become inconsistent are:
+When an `rSync` job runs, it evaluates the entire collection of [resources](/platform/workflow/resource/overview) and [jobs](/platform/workflow/job/overview) in the subscription.  It figures out which items have changed based on the commit that triggered its execution, and then decides if it can successfully make the updates or not.  If there is any item that cannot be updated, or is missing critical information, the `rSync` job will be marked as failing, and logs will be printed showing the reason for failure.  In most cases, resources that cannot pass rSync's check are marked as `inconsistent`.  This means that any jobs attempting to utilize those resources will be skipped.  Resources can be marked inconsistent for one or more of the following reasons:
 
-*  Invalid integration name present in resource definitions
-*  Invalid `IN` or `OUT` definition, in most cases typos
-*  The dependent `Resource` or `Job` was removed making once valid object invalid
-*  The integration it points to is no longer valid, maybe due to invalid credentials and the user who owns the credentials is no longer a member of the organization
+  *  Invalid integration name present in resource definitions.
+  *  Invalid `IN` or `OUT` definition (referencing a resource that doesn't exist, often occurs due to a typo in resource name).
+  *  The dependent `resource` or `job` was removed making the once-valid object invalid.
+  *  The integration it points to is no longer valid, maybe due to invalid credentials, or the user who owns the credentials is no longer a member of the organization
 
-In most cases, these can be resolved by updating the integrations or fixing the typos and rerunning `rSync` manually from the UI.
-
+In most cases, these can be resolved by updating the integrations, or fixing the typos and re-running `rSync` manually from the UI
 	<img src="/images/platform/jobs/rSync/rsync-job.png" alt="rSync job">
 
 ## Further Reading
 * [Working with syncRepo](/platform/tutorial/workflow/howto-crud-syncrepo)
-* [Jobs](/platform/workflow/job/overview)
-* [Resource](/platform/workflow/resource/overview)
+* [jobs](/platform/workflow/job/overview)
+* [resources](/platform/workflow/resource/overview)

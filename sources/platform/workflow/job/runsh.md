@@ -9,7 +9,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # runSh
 `runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized.
 
-You should use this job type if you need the freedom that some of the pre-packaged Jobs like [deploy](/platform/workflow/job/deploy) and [manifest](/platform/workflow/job/manifest) do not provide the flexibility that you need or do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a Job of type `runSh`.
+You should use this job type if you need the freedom that some of the pre-packaged Jobs like [deploy](/platform/workflow/job/deploy) and [manifest](/platform/workflow/job/manifest) do not provide, or if they do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a job of type `runSh`.
 
 You can also add [cliConfig](/platform/workflow/resource/cliconfig) resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](/platform/workflow/resource/cliconfig#cliConfigTools).
 
@@ -22,8 +22,8 @@ You can create a `runSh` Job by [adding](/platform/tutorial/workflow/howto-crud-
 jobs:
   - name: 					<string>
     type: 					runSh
-	 on_start:
-	   - NOTIFY: 			<notification resource name>
+    on_start:
+      - NOTIFY: 			<notification resource name>
     steps:
       - IN: 				<resource>
         switch: 			off
@@ -39,17 +39,17 @@ jobs:
         - script: 			<any shell command>
       - OUT: 				<resource>
       - OUT: 				<resource>
-        replicate: 			<resource>
+        replicate: 			<IN resource>
       - OUT: 				<resource>
         overwrite: 			true
-	 on_success:
+    on_success:
       - script: 			echo "SUCCESS"
-	 on_failure:
+    on_failure:
       - script: 			echo "FAILED"
       - NOTIFY: 			<notification resource name>
-	 on_cancel:
+    on_cancel:
       - script: 			echo "CANCEL"
-	 always:
+    always:
       - script: 			pwd
 ```
 A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
@@ -61,12 +61,13 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
-	* `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
+    * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
 
-	* `TASK` -- Required, atleast 1 script needs to be present
-	* `OUT` -- Optional, any Resource can be used here and as many as you need
-		* `replicate` -- Optional, any `IN` Resource of same type can be used
-		* `overwrite` -- Optional, default is `false`
+    * `TASK` -- Required, atleast one script line needs to be present
+        * `- script:` -- a line of bash script to be executed
+    * `OUT` -- Optional, any Resource can be used here and as many as you need
+    * `replicate` -- Optional, any `IN` Resource of same type can be used
+    * `overwrite` -- Optional, default is `false`
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
@@ -77,7 +78,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 ## cliConfig special handling
-If a Resource of type [cliConfig](/platform/workflow/resource/cliconfig) based Resource is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The runCLI job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. For e.g. if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually. 
+If a Resource of type [cliConfig](/platform/workflow/resource/cliconfig) based Resource is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The runCLI job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. For e.g. if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
 
 Here is a list of the tools configured for each integration type:
 
@@ -94,7 +95,7 @@ Here is a list of the tools configured for each integration type:
 | [JFrog](/platform/integration/jfrog-artifactory) | [JFrog](/platform/runtime/cli/jfrog) |
 | [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/cli/kubectl) |
 | [Quay](/platform/integration/quay) | [Docker](/platform/runtime/cli/docker) |
-| For all Integrations above | [Packer](/platform/runtime/cli/packer) & [Terraform](/platform/runtime/cli/terraform)| 
+| For all Integrations above | [Packer](/platform/runtime/cli/packer) & [Terraform](/platform/runtime/cli/terraform)|
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
@@ -115,10 +116,10 @@ In addition, the Job itself comes with its own default set of variables. This is
 | JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
 
 ## Shippable Utility Functions
-To make it easy to GET and SET with these Environment Variables, the platform provides a bunch of utility functions so that you don't need to perform string concatenations etc. to work with this values.
+To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions are [documented here](/platform/tutorial/workflow/howto-use-shipctl)
+How to use these utility functions is [documented here](/platform/tutorial/workflow/howto-use-shipctl).
 
 ## Further Reading
-* [Jobs](/platform/workflow/job/overview)
-* [Resource](/platform/workflow/resource/overview)
+* [jobs](/platform/workflow/job/overview)
+* [resources](/platform/workflow/resource/overview)
