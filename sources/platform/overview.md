@@ -64,9 +64,7 @@ If you're using Shippable for CI only, follow [these instructions](/ci/enable-pr
 
 `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your Assembly Line. You can manually trigger any job in your Assembly Line by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. [Read more...](/platform/tutorial/workflow/shippable-triggers-yml/)
 
-Assembly Line configuration files should be committed to a repository in your source control. This repository is called a **Sync repository**. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories.
-
-If you're using Shippable's Assembly Lines, you can add your Sync Repository by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) tutorial.
+Assembly Line configuration files should be committed to a repository in your source control. This repository is called a **Sync repository**. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories. You can add your Sync Repository by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/) tutorial.
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

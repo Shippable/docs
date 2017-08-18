@@ -4,12 +4,10 @@ sub_section: Workflow
 sub_sub_section: Resources
 
 # syncRepo
-`syncRepo` is a special resource in the sense that it is the only resource thats added from the UI. This the heart of Shippable DevOps Assembly Lines as it is the location where the definitions of your assembly lines are configured as code.
+
+`syncRepo` is a special resource in the sense that it is the only resource that needs to be added from the UI. This the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called Sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml), [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml) and [shippable.triggers.yml](/platform/tutorial/workflow/shippable-triggers-yml).
 
 At the core, it is a [gitRepo](/platform/workflow/resource/gitrepo), i.e., a source code repo which contains the workflow definitions. You can add a `syncRepo` by following these [instructions](/platform/tutorial/workflow/crud-syncrepo).
-
-
-This resource is a pointer to the source control repository containing the files that define your CI/CD workflow, namely, [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml), [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml) and [shippable.triggers.yml](/platform/tutorial/workflow/shippable-triggers-yml).
 
 **Note:** Shippable only looks for an exact match. Names like `shippable.resources.yml.example` are ignored.
 

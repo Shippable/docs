@@ -1,6 +1,6 @@
-page_main_title: Configuration
+page_main_title: Workflow Configuration
 main_section: Platform
-sub_section: Configuration
+sub_section: Workflow
 page_title: DevOps Platform Configuration
 
 # Configuration
