@@ -92,7 +92,7 @@ You can use a single provision job to provision multiple services. Just include 
 
 
 ## Unmanaged
-Unmanaged refers to the use of [runCLI jobs](../platform/workflow/job/runcli), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../platform/workflow/resource/cliconfig).
+Unmanaged refers to the use of [runSh jobs](../platform/workflow/job/runsh), which will automatically configure gcloud and kubectl for you when you provide your gke credentials in the [cliConfig resource](../platform/workflow/resource/cliconfig).
 
 These unmanaged jobs provide you with unlimited scripting ability which you can use to do the following:
 

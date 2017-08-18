@@ -10,7 +10,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 The `syncRepo` resource is the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called Sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml), [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml) and [shippable.triggers.yml](/platform/tutorial/workflow/shippable-triggers-yml).
 
-When you add a [syncRepo](/platform/workflow/resource/syncrepo), Shippable creates a resource and an [rSync](/platform/workflow/job/rSync/) Job automatically. We also add a webhook to your source control system for the repo so that we can trigger synchronization if you change the definitions of your Assembly Lines.
+When you add a [syncRepo](/platform/workflow/resource/syncrepo), Shippable creates a resource and an [rSync](/platform/workflow/job/rsync/) Job automatically. We also add a webhook to your source control system for the repo so that we can trigger synchronization if you change the definitions of your Assembly Lines.
 
 The name of the `syncRepo` is the name of the repository appended to name of the branch with an `_`. `rSync` Job is `syncRepo`'s name + `_rSync`
 
