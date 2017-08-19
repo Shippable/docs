@@ -10,7 +10,7 @@ By default, all your builds run in build containers hosted on Shippable's infras
 
 However, some organizations have very specific security requirements that do not allow them to run builds on hosted infrastructure. Others want to avoid the node spin-up time for every job.
 
-To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines.
+To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. Your custom nodes can be anywhere, such as in your Amazon EC2 VPN, Google Cloud, Linode, or Digital Ocean, or even in your datacenter behind a firewall. The greatest thing about Custom Nodes is that you do not need to open any incoming ports since the Shippable SaaS service never initiates a connection with your nodes. 
 
 This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
 
@@ -42,8 +42,7 @@ The minimum requirements for a build machine that can be attached to Shippable a
 **Please note that you will need to attach one build machine per parallel build.**
 
 ## Software Requirements
-If you choose to run your Custom Node on an unsupported OS like Alpine, please ensure the following packages are
-preinstalled -
+If you choose to run your Custom Node on an unsupported OS like Alpine, please ensure the following packages are pre-installed -
 
 * bash
 * python2.7
