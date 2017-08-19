@@ -71,6 +71,39 @@ jobs:
 
 As shown above, the `switch: off` tag can be defined for `IN` resources or jobs in order to turn off automatic triggering of a job when the inputs change. Note that these switches are specific to the input and should be set accordingly for each input.
 
+<a name="pin"></a>
+## Pinning specific resource versions
+
+By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason. Input versions may be pinned either though the yml configuration or in the UI.
+
+### Pinning resource versions in shippable.jobs.yml
+You can pin a specific input version with the yml below:
+
+```
+jobs:
+  - name: job_name
+    type: job_type
+    steps:
+      - IN: resource-1
+        versionName: "user friendly version e.g tag or commitSha"
+      - IN: resource-2
+        versionNumber: "shippable's internal version number"
+```
+
+You can use versionName to pin gitRepo and image resources. The versionName contains:
+
+* gitRepo: commit SHA
+* image: tag
+
+You can use versionNumber, Shippable's internal incremental numbering system, to pin the following resources:
+
+* dockerOptions
+* params
+* replicas
+
+###Pinning versions in the UI
+To pin a version of an input resource in the UI, first right-click on the job and click **Configure Job**. This will open a configuration page where you can select a version to pin for any of the inputs. Versions may be unpinned on the same page by selecting Latest version.
+
 <a name="delete"></a>
 ## Deleting Jobs
 Deleting Job is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Job means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.

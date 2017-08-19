@@ -52,6 +52,7 @@ jobs:
     always:
       - script: 			pwd
 ```
+
 A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
 
 * **`name`** -- Required, should be an easy to remember text string
@@ -63,7 +64,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
 
-    * `TASK` -- Required, atleast one script line needs to be present
+    * `TASK` -- Required, at least one script line needs to be present
         * `- script:` -- a line of bash script to be executed
     * `OUT` -- Optional, any Resource can be used here and as many as you need
     * `replicate` -- Optional, any `IN` Resource of same type can be used

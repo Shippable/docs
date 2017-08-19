@@ -7,6 +7,7 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Resources
+
 Resources are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
 
 A key characteristic of resources is that they can be versioned. A specific version of a resource is immutable, i.e. it returns the same result every single time it is fetched.
@@ -19,8 +20,9 @@ They are predominantly used for the following reasons:
 * A trigger to execute a job. E.g., a time resource will trigger a job at set times.
 * Act as an entity to store stateful information produced during the execution of a job. E.g., state resources are commonly used to share information between jobs.  A job will also often update an image resource with a new tag.
 
-## Definition
-Resources can be defined using declarative YML-based code snippets as below:
+## YML Definition
+
+Resources are defined in `shippable.resources.yml` as shown below:
 
 ```
 resources:
@@ -31,13 +33,15 @@ resources:
     seed:               <object>
     version:            <object>
 ```
-For more information, read [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml).
+For a detailed explanation of each field, read [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml).
 
 ## Versions
-A key strength of a resource is that it is versioned. This is critical if you want to be able to roll back, upgrade, or pin the resource to a particular point of time. User-defined key-value pairs can be stored as part of resource versions.
+
+A key strength of a resource is that it is versioned. This is critical if you want to be able to roll back, upgrade, or [pin the resource](/platform/tutorial/workflow/crud-job/#pin) to a particular point of time. User-defined key-value pairs can be stored as part of resource versions.
 
 <a name="types"></a>
 ## Types
+
 These are the types of resources that Shippable Workflow supports:
 
 | Resource Type   |      Description    |

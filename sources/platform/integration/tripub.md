@@ -7,9 +7,11 @@ page_title: Joyent Triton integration
 
 Available under the Integration Family: **deploy**
 
-`Joyent Triton` Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker based applications.
+`Joyent Triton` Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
-You can create this from the integrations page. This is the information you would require to create this integration:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **Username** -- Username to login to Mesos master VM

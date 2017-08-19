@@ -6,7 +6,7 @@ sub_section: Management
 
 Shippable integrates with many third party services/platforms and you can leverage this by setting up an account integration and then using the integration at any point in your yml configuration.
 
-A complete list of all supported third-party integrations is [available in our reference](/platform/integration/overview/).
+A complete list of all supported third-party integrations is [available in the integrations overview page](/platform/integration/overview/).
 
 This page shows you how to manage your integrations and perform the following actions:
 
@@ -17,11 +17,11 @@ This page shows you how to manage your integrations and perform the following ac
 <a name="view-integration"></a>
 ##Viewing your account integrations
 
-- Click on the gear icon at the right of your top navigation bar to open **Account Settings**.
+- Click on **Integrations** in the left sidebar menu.
 
 <img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
 
-- Click on **Integrations** in the left sidebar menu. This will show you a list of all configured integrations.
+This will show you a list of all configured integrations.
 
 <img src="/images/getting-started/list-integrations.png" alt="List of integrations
 under Account Settings">
@@ -29,22 +29,25 @@ under Account Settings">
 <a name="add-integration"></a>
 ##Adding an account integration
 
-- Click on the gear icon at the right of your top navigation bar to open **Account Settings**.
+- Click on **Integrations** in the left sidebar menu.
 
 <img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
 
-- Click on **Integrations** in the left sidebar menu. This will show you a list of your integrations.
+This will show you a list of all configured integrations.
 
 - Click on **Add integration** to add a new integration.
 
 <img src="/images/getting-started/add-integration.png" alt="Add Account Integration">
 
-- Select the integration you want to add from the list and click on **Create Integration**. Proceed with the
-configuration of that specific integration. Please note that while creating the integration, you will need to specify which Subscriptions have access to it. This is a very important step and if you miss it, you will not be able to use it in your ymls.
+- Select the **Integration Family** and **Integration Type** you want to add from the list. Choose a friendly name for your integration and click on **Create Integration**.
+
+- Proceed with the configuration of that specific integration. You can find instructions for specific instructions by going to our [Integrations overview](/platform/integration/overview/) and selecting the one you're trying to add
+
+- **Please note that while creating the integration, you will need to specify which [Subscriptions](/#subscription) have access to it.** This is a very important step and if you miss it, you will not be able to use it in your ymls.
 
 - After you have completed all fields on the **Add Integration** page, click on **Save**.
 
-The integration should now show up in your **Integrations** tab. This integration will be available to all your projects in the subscription(s) you chose and can be used for your workflows.
+The integration should now show up on your **Integrations** page. This integration will be available to all your projects in the subscription(s) you chose and can be used in the configuration yml files.
 
 Further details and examples of how a specific integration is used is available in the
 section for each integration.
@@ -52,11 +55,11 @@ section for each integration.
 <a name="delete-integration"></a>
 ## Deleting an account integration
 
-- Click on the gear icon at the right of your top navigation bar to open **Account Settings**
+- Click on **Integrations** in the left sidebar menu.
 
 <img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
 
-- Click on **Integrations** in the left sidebar menu. This will show you a list of your integrations.
+This will show you a list of all configured integrations.
 
 - To delete an integration, simply click on the **Delete** button for the integration you want to delete.
 
