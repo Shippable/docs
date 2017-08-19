@@ -8,13 +8,13 @@ The Single Pane of Glass (SPOG) view is a real time, interactive, visual represe
 
 Each job in this view will update colors in real time based on the status of the job:
 
-- Green if the last run was successful
-- Red if the last run failed
-- Blue if the job is in progress
-- Dark Grey if the job is queued and waiting for available capacity
-- Light Grey if the job has never been run
-- Yellow for unstable CI jobs
-- Pink for inconsistent jobs
+- **Green** if the last run was successful
+- **Red** if the last run failed
+- **Blue** if the job is in progress
+- **Dark Grey** if the job is queued and waiting for available capacity
+- **Light Grey** if the job has never been run
+- **Yellow** for unstable CI jobs
+- **Pink** for inconsistent jobs
 
 <img src="/images/getting-started/spog.png" alt="SPOG: Single pane of glass">
 
