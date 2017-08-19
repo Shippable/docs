@@ -274,4 +274,4 @@ Now run the production deploy job.  Once the deployment has finished, you can ag
 
 ## Unmanaged deployments
 
-In an unmanaged scenario, you'll be using a runCLI or runSh job where you can directly add ssh keys that allow you to connect to your nodeClusters.  You're free to do any scripting you want within these job types.  [See here](../platform/jobs-unmanaged) for more information on unmanaged jobs.
+In an unmanaged scenario, you'll be using a `runSh` job where you can directly add ssh keys that allow you to connect to your nodeClusters.  You're free to do any scripting you want within this job type.  [See here](/platform/workflow/job/runsh) for more information on `runSh` jobs.

@@ -93,7 +93,7 @@ In this configuration, Job-4 will be triggered in one of 4 ways:
 * A previous job in the Assembly Line changes an `IN` resource, i.e. **Job-4** will be triggered every time **Job-3** updates **resource-2**.   
 * An `IN` job successfully completed execution, i.e. **Job-4** will be triggered every time **Job-2** succeeds. A couple of exceptions to this rule are:
     * If any Jobs defined as `IN`s are currently processing, have queued builds or are in a failed state. So in the example above, if Job-1 is in failed state or is queued, **Job-4** will not trigger even when **Job-2** completes successfully.
-    * If the Job is in [inconsistent](/platform/workflow/job/rsync#inconsistent) state due to dependency failures
+    * If the Job is in [inconsistent](/platform/workflow/job/rsync) state due to dependency failures
 * You commit to a trigger that is an `IN` for the job, i.e. **trigger-1** in this example
 * Manual trigger: You right click on **Job-4** in the SPOG UI and click on Run or Select Run for **Job-4** in the Jobs list in the Grid view.
 
@@ -117,19 +117,18 @@ Shippable supports the following jobs types:
 
 | Job Type   |      Description    |
 |----------|-------------|
-| [deploy](workflow/job/deploy/) | Deploy apps/services to Container Platforms or VM clusters |
-| [manifest](workflow/job/manifest/) | Create App/Service definition (configuration) that is immutable |
-| [provision](workflow/job/provision/) | Provision specific resources needed by Container Orchestration Platforms |
-| [release](workflow/job/release/) | Release management for Apps/Services |
-| [jenkinsJob](workflow/job/jenkinsjob/) | Execute a Jenkins Job from Assembly Lines |
-| [runCI](workflow/job/runci/) | Execute Shippable CI Job |
-| [runSh](workflow/job/runsh/) | Execute any Shell command or scripts or supported Command Line Interface commands |
-| [runCLI](workflow/job/runsh/) | [Deprecated, since runSh covers this scenario] Execute any supported Command Line Interface commands |
+| [deploy](/platform/workflow/job/deploy/) | Deploy apps/services to Container Platforms or VM clusters |
+| [manifest](/platform/workflow/job/manifest/) | Create App/Service definition (configuration) that is immutable |
+| [provision](/platform/workflow/job/provision/) | Provision specific resources needed by Container Orchestration Platforms |
+| [release](/platform/workflow/job/release/) | Release management for Apps/Services |
+| [jenkinsJob](/platform/workflow/job/jenkinsjob/) | Execute a Jenkins Job from Assembly Lines |
+| [runCI](/platform/workflow/job/runci/) | Execute Shippable CI Job |
+| [runSh](/platform/workflow/job/runsh/) | Execute any Shell command or scripts or supported Command Line Interface commands |
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 
 # Further Reading
 * [Resources](/platform/workflow/resource/overview)
-* [Quick Start to CI](getting-started/ci-sample)
-* [Quick Start to CD](getting-started/cd-sample)
+* [Quick Start to CI](/getting-started/ci-sample)
+* [Quick Start to CD](/getting-started/cd-sample)

@@ -11,7 +11,10 @@ Each job in this view will update colors in real time based on the status of the
 - Green if the last run was successful
 - Red if the last run failed
 - Blue if the job is in progress
-- Grey if the job is queued and waiting for available capacity
+- Dark Grey if the job is queued and waiting for available capacity
+- Light Grey if the job has never been run
+- Yellow for unstable CI jobs
+- Pink for inconsistent jobs
 
 <img src="/images/getting-started/spog.png" alt="SPOG: Single pane of glass">
 
@@ -37,25 +40,25 @@ You can zoom in or out of any part of the pipeline with your mouse scrollbar or 
 <a name="manual-build"></a>
 ##Run/pause job
 
-You can right click on any job to trigger a manual run or pause the job.
+You can right click on any job to trigger a manual build or pause the job.
 
 <img src="/images/getting-started/spog-right-click-menu.png" alt="Run or pause a job">
 
-Please note that if you choose to trigger a manual run, the job will run with the latest input values available to it.
+Please note that if you choose to trigger a manual build, the job will run with the latest input values available to it unless otherwise pinned.
 
-Pausing a job turns off automatic triggers for the job. You can continue triggering paused jobs manually.
+Pausing a job turns off automatic triggers for the job. You can continue triggering manual builds while the job is paused.
 
 ##Manual builds
 
-You can trigger a manual build for your job by going to the  jobs dashboard page and clicking on the Build button.
+You can trigger a manual build for your job by going to the jobs dashboard page and clicking on the Build button.
 
 <img src="/images/getting-started/manual-build-button.png" alt="Manual build">
 
-On-click of build button, you get few options which allow you to customize the build that you want to run manually
+On clicking the build button, you get few options which allow you to make small changes to the build that you want to run manually.
 
 <img src="/images/getting-started/manual-build-config.png" alt="Build Config">
 
-For runSH and runCLI jobs, you can provide custom environment variables.
+For runSH and runCI jobs, you can provide custom environment variables.
 
 <img src="/images/getting-started/manual-build-env.png" alt="Custom ENV">
 
@@ -68,7 +71,7 @@ You can click on any job in your pipeline to view console logs.
 
 <img src="/images/getting-started/spog-console.png" alt="View console logs for a job">
 
-Please note that in most cases, the logs you are interested in will be under the **Executing Task** -> **/home/shippable/micro/nod/stepExec/managed/<job type>/run.sh** section. This section is shown as expanded in the screenshot above.
+Please note that in most cases, the logs you are interested in will be under the **Executing Managed Task** -> **/home/shippable/micro/nod/stepExec/managed/<job type>/run.sh** section. This section is shown as expanded in the screenshot above.
 
 In addition to viewing logs for the latest run, you can also view logs for historical runs by choosing a past run in the UI.
 
@@ -91,7 +94,7 @@ In the image above, the deploy job has two inputs: a [manifest job](/platform/wo
 <a name="grid-view"></a>
 ##View in tabular format
 
-The default view of your SPOG is graphical. However, you might want to see all jobs are resources in a table in order to quickly find a particular job or resource.
+The default view of your SPOG is graphical. However, you might want to see all jobs or resources in a table in order to quickly find a particular job or resource.
 
 You can switch between table and graphical format by clicking on the Grid View button on your SPOG:
 
@@ -134,14 +137,14 @@ To view either or both of these types of resources, click on the arrow dropdown 
 <a name="dry-run"></a>
 ##Testing your pipeline config
 
-Dry Run feature allows you to validate and test your syncRepo pipelines before actually adding them. Currently we support dry-run pipelines for branches only, dry-run pipelines for Pull Requests is work in progress.
+The Dry Run feature allows you to validate and test your syncRepo pipelines before actually adding them. Currently we support dry-run pipelines for branches only, dry-run pipelines for Pull Requests is work in progress.
 
-To check dry run pipeline for a branch, goto subscriptions pipeline tab. On the right, click
+To check dry run pipeline for a branch, go to subscriptions pipeline tab. On the right, click
 on **Dry Run** button. Search and select the project for which you want to check dry run pipeline.
 
 <img src="/images/getting-started/dry-run-search-project.png" alt="search project" style="width:700px;"/>
 
-After selecting the project, you should select a branch for which you whould like to view dry run pipeline.
+After selecting the project, you should select a branch for which you would like to view dry run pipeline.
 
 <img src="/images/getting-started/dry-run-search-branch.png" alt="search branch" style="width:700px;"/>
 

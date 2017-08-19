@@ -4,7 +4,7 @@ sub_section: Overview
 
 # What is supported?
 
-The [Shippable DevOps Assembly Line Platform](platform/overview/) supports most popular tools and technologies used today to build, test, deploy, and operate applications/services/micro-services.
+The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports most popular tools and technologies used today to build, test, deploy, and operate applications/services/micro-services.
 
 Here are some of the major things we support out of the box. With that being said, the Platform is built with Docker in mind. Hence, anything that can be installed inside of a Docker image is supported by the platform.
 
@@ -34,7 +34,7 @@ For both OS versions, we maintain language-specific images that are updated ever
 We support the following languages:
 
 * [Clojure](/platform/runtime/language/clojure/)
-* [GO](/platform/runtime/language/go/)
+* [Go](/platform/runtime/language/go/)
 * [Java](/platform/runtime/language/java/)
 * [Node JS](/platform/runtime/language/nodejs/)
 * [PHP](/platform/runtime/language/php/)
@@ -52,12 +52,12 @@ Following are the service that are pre-installed:
 * [ElasticSearch](/platform/runtime/service/elasticsearch/)
 * [Memcached](/platform/runtime/service/memcached/)
 * [MongoDB](/platform/runtime/service/mongodb/)
-* [MySQL](/platform/runtime/service/mongodb/)
+* [MySQL](/platform/runtime/service/mysql/)
 * [Neo4j](/platform/runtime/service/neo4j/)
 * [Postgres](/platform/runtime/service/postgres/)
 * [RabbitMQ](/platform/runtime/service/rabbitmq/)
 * [Redis](/platform/runtime/service/redis/)
-* [RethidDB](/platform/runtime/service/rethinkdb/)
+* [RethinkDB](/platform/runtime/service/rethinkdb/)
 * [Riak](/platform/runtime/service/riak/)
 * [Selenium](/platform/runtime/service/selenium/)
 * [SqlLite](/platform/runtime/service/sqllite/)
@@ -170,6 +170,6 @@ Shippable supports a multitude of integrations into external providers. This mak
 - Capistrano
 
 ## Further Reading
-* [Platform Overview](platform/overview)
-* [Quick Start to CI](getting-started/ci-sample)
-* [Quick Start to CD](getting-started/cd-sample)
+* [Platform Overview](/platform/overview)
+* [Quick Start to CI](/getting-started/ci-sample)
+* [Quick Start to CD](/getting-started/cd-sample)

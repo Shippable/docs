@@ -57,6 +57,6 @@ If you right click on the `syncRepo` resource you added to create the Assembly L
 ## Further Reading
 * [Anatomy of shippable.triggers.yml](/platform/tutorial/workflow/shippable-triggers-yml/)
 * [Sync repository](/platform/workflow/resource/syncrepo/)
-* [rSync job](/platform/workflow/job/rSync/)
+* [rSync job](/platform/workflow/job/rsync/)
 * [Jobs](/platform/workflow/job/overview)
 * [Integrations](/platform/workflow/integration/overview)

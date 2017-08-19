@@ -10,8 +10,7 @@ infrastructure on [Digital Ocean](https://www.digitalocean.com/). You would do s
 ##Setup
 
 Before you start, you will need to store your Digital Ocean credentials as an [Account
-Integration](add link) so that your Shippable pipeline job can connect to Digital Ocean without exposing your credentials in your config file. Once you add an account
-integration, you can use it for all your projects without needing to add it again.
+Integration](/platform/management/integrations#add-integration) so that your Shippable pipeline job can connect to Digital Ocean without exposing your credentials in your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top
 navigation bar.

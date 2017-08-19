@@ -22,7 +22,7 @@ Follow the setup section as described in the basic EB scenario located [here](./
 Shippable does not support managed beanstalk deployments at this time.
 
 ## Unmanaged
-Shippable allows you to communicate with AWS via a job type called `runCLI`.  You can read the full reference on the job [here](../platform/workflow/job/runcli).  This type of job gives you the power to script whatever workflow is necessary for your environment.
+Shippable allows you to communicate with AWS via a job type called `runSh`.  You can read the full reference on the job [here](../platform/workflow/job/runsh).  This type of job gives you the power to script whatever workflow is necessary for your environment.
 
 This page assumes you're already familiar with the Amazon Beanstalk [basic scenario](./aws-elastic-beanstalk).
 
@@ -59,12 +59,12 @@ resources:
 ```
 In this case, we have one beanstalk application that has multiple environments.  The application name and the bucket name (where the deployment packages are stored) are common to both environments.
 
-Next, we'll need two separate `runCLI` jobs.  One to deploy to beta, which will be triggered by a change in the docker image resource, and one to deploy to prod, which can only be triggered manually from the Pipelines SPOG.
+Next, we'll need two separate `runSh` jobs.  One to deploy to beta, which will be triggered by a change in the docker image resource, and one to deploy to prod, which can only be triggered manually from the Pipelines SPOG.
 
 ```
 jobs:
   - name: deploy-beta
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-basic-config
@@ -83,7 +83,7 @@ jobs:
         - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
   - name: deploy-prod
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-eb-basic-image
         switch: off
@@ -149,7 +149,7 @@ jobs:
 
 
   - name: deploy-beta-a
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-basic-config
@@ -168,7 +168,7 @@ jobs:
         - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
   - name: deploy-beta-b
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-basic-config

@@ -6,11 +6,11 @@ sub_section: Before you start
 
 Your pipelines are defined through three yml-based configuration files:
 
-- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline. Check out our [reference for jobs configuration](/platform/shippable-jobs-yml/).
+- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline. Check out our [reference for jobs configuration](/platform/tutorial/workflow/shippable-jobs-yml/).
 
-- `shippable.resources.yml` contains definitions of the Resources in your pipeline. Check out our [reference for resources configuration](/platform/shippable-resources-yml/).
+- `shippable.resources.yml` contains definitions of the Resources in your pipeline. Check out our [reference for resources configuration](/platform/tutorial/workflow/shippable-resources-yml/).
 
-- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. Check out our [reference for triggers configuration](/platform/shippable-triggers-yml/)
+- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. Check out our [reference for triggers configuration](/platform/tutorial/workflow/shippable-triggers-yml/)
 
 Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 

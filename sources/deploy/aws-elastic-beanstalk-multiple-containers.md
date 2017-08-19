@@ -14,7 +14,7 @@ Shippable does not support managed beanstalk deployments at this time.
 
 ## Unmanaged Deployments
 
-Shippable allows you to communicate with AWS via a job type called `runCLI`.  You can read the full reference on the job [here](../platform/workflow/job/runcli).  This type of job gives you the power to script whatever workflow is necessary for your environment.
+Shippable allows you to communicate with AWS via a job type called `runSh`.  You can read the full reference on the job [here](../platform/workflow/job/runsh).  This type of job gives you the power to script whatever workflow is necessary for your environment.
 
 On this page, we'll use the basic beanstalk example as a starting point, and simply make some small changes so that it can be used to deploy multiple containers.
 
@@ -28,7 +28,7 @@ The first step is to create a new application, or a new environment in an existi
 
 We can leave it on the 'sample application' setting, since we'll be replacing it soon anyway.
 
-In order to switch to multi-container, we'll have to add an extra image, and then use that extra image in our new multi-container runCLI job.
+In order to switch to multi-container, we'll have to add an extra image, and then use that extra image in our new multi-container runSh job.
 
 ```
 resources:
@@ -44,7 +44,7 @@ resources:
 ```
 jobs:
   - name: deploy-eb-multi-deploy
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-nginx-image
