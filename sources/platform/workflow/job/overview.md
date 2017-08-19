@@ -29,7 +29,6 @@ Typical examples of jobs are:
 * Perform timely backups of DB, key-value stores etc.
 * Create or update an application release version
 
-
 ## YML Definition
 
 Jobs are defined in the config file `shippable.resources.yml` with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
@@ -105,9 +104,10 @@ In this configuration, Job-4 will be triggered in one of 4 ways:
 
 When triggered, a Job does the following:
 
-- Get the latest versions of `IN` resources or latest state information from an `IN` job. If an input resource version is **pinned**, then use that version instead of latest.
+- Get the latest versions of `IN` resources or latest state information from an `IN` job. If an input resource version is [**pinned**](/platform/tutorial/workflow/crud-job/#pinning-specific-resource-versions), then use that version instead of latest.
 - Execute all commands to perform the activity. The set of commands depends on [job type](#types).
-- Update all `OUT` resources.
+- Update all `OUT` resources
+
 
 Every time a job executes, a new immutable **version** is created. This makes it easy to 'replay' older job versions, though you should do this only after verifying that the old input values will not create problems in your Assembly Line.
 
@@ -127,8 +127,9 @@ Shippable supports the following jobs types:
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-
 # Further Reading
+* [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
+* [Working with jobs](/platform/tutorial/workflow/crud-job/)
 * [Resources](/platform/workflow/resource/overview)
 * [Quick Start to CI](/getting-started/ci-sample)
 * [Quick Start to CD](/getting-started/cd-sample)
