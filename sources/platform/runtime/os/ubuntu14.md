@@ -80,7 +80,7 @@ These are the **Services** installed:
 * elasticsearch - 5.5.1
 * neo4j - 3.2.3
 * memcached - 1.5.0
-* mongodb - 3.4.6
+* mongodb - 3.4.7
 * mysql - 5.6
 * postgres - 9.6.3
 * rabbitmq - 3.6.10
@@ -201,19 +201,20 @@ These are the **CLIs** installed:
 
 These are the **Services** installed:
 
+* cassandra - 3.9
 * couchdb - 1.6
 * elasticsearch - 5.1.2
 * neo4j - 3.1.1
 * memcached - 1.4.34
-* mongodb - 3.4
+* mongodb - 3.0.15
 * mysql - 5.6
-* postgres - 9.6  
-* rabbitmq - 3.6
-* redis - 3.2
-* rethinkdb - 2.3
+* postgres - 9.6.3
+* rabbitmq - 3.6.6
+* redis - 3.2.9
+* rethinkdb - 2.3.5
 * riak - 2.2.30
 * selenium - 3.4.0
-* sqllite - 3.0
+* sqllite - 3.8.2
 
 
 <a name="v551"></a>
@@ -262,19 +263,20 @@ These are the **CLIs** installed:
 
 These are the **Services** installed:
 
+* cassandra - 3.9
 * couchdb - 1.6
 * elasticsearch - 5.1.2
 * neo4j - 3.1.1
 * memcached - 1.4.34
-* mongodb - 3.4
+* mongodb - 3.0.14
 * mysql - 5.6
-* postgres - 9.6  
-* rabbitmq - 3.6
-* redis - 3.2
-* rethinkdb - 2.3
+* postgres - 9.6.2
+* rabbitmq - 3.6.6
+* redis - 3.2.8
+* rethinkdb - 2.3.5
 * riak - 2.2.0
 * selenium - 3.0.1
-* sqllite - 3.0
+* sqllite - 3.8.2
 
 <a name="v541"></a>
 ## Image `drydock/u14all:v5.4.1`
@@ -322,19 +324,20 @@ These are the **CLIs** installed:
 
 These are the **Services** installed:
 
+* cassandra - 3.9
 * couchdb - 1.6
 * elasticsearch - 5.1.2
 * neo4j - 3.1.1
 * memcached - 1.4.34
-* mongodb - 3.4
+* mongodb - 3.0.14
 * mysql - 5.6
-* postgres - 9.6  
-* rabbitmq - 3.6
-* redis - 3.2
-* rethinkdb - 2.3
+* postgres - 9.6.2
+* rabbitmq - 3.6.6
+* redis - 3.2.8
+* rethinkdb - 2.3.5
 * riak - 2.2.0
 * selenium - 3.0.1
-* sqllite - 3.0
+* sqllite - 3.8.2
 
 
 <a name="v532"></a>
@@ -383,16 +386,17 @@ These are the **CLIs** installed:
 
 These are the **Services** installed:
 
+* cassandra - 3.9
 * couchdb - 1.6
 * elasticsearch - 5.1.2
 * neo4j - 3.1.1
 * memcached - 1.4.34
-* mongodb - 3.4
+* mongodb - 3.0.14
 * mysql - 5.6
-* postgres - 9.6  
-* rabbitmq - 3.6
-* redis - 3.2
-* rethinkdb - 2.3
+* postgres - 9.6.2
+* rabbitmq - 3.6.6
+* redis - 3.2.8
+* rethinkdb - 2.3.5
 * riak - 2.2.0
 * selenium - 3.0.1
-* sqllite - 3.0
+* sqllite - 3.8.2
