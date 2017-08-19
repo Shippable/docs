@@ -41,8 +41,3 @@ We fundamentally believe that source control systems is where the right roles an
 	* [Dashboard](/platform/visibility/job/dashboard): This is the view where you get to see status of your CI project along with history
 	* [Settings](/platform/visibility/job/settings): This is where you set configurations to use that are specific to the CI Project
 	* [Console Output](/platform/visibility/job/console): This is the output of the scripts when it executes in an instance of [Runtime](/platform/runtime/overview)
-
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs

@@ -7,15 +7,19 @@ page_description: Overview of Resource Dashboard View of Shippable DevOps Assemb
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Resource Dashboard
-This view diplays all immutable versions of any of the [Resources](/platform/workflow/resource/overview) that you define as part of your Shippable DevOps Assembly Line. 
+
+This view displays all immutable versions of any of the [Resources](/platform/workflow/resource/overview) that you define as part of your Shippable DevOps Assembly Line.
+
+To get here:
+
+* Click on the Subscription in the left navbar.
+
+<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+
+* On your Subscription dashboard, scroll down to the Resources list and look for the Resource name in the **Name column** and click on it. If you cannot see the Resources list, click on the **Eye** icon on your Subscription dashboard and make sure the **View resources** option is enabled.
 
 <img src="/images/platform/visibility/resource-view-grid.jpg" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-It displays the YML that was used to create it in [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml)
+Your Resource Dashboard displays the YML config for the resource from [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml)
 
-It also shows the information maintained in the [state](/platform/workflow/state/overview) of the resource for every version. 
-
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+It also shows the information maintained in the [state](/platform/workflow/state/overview) of the resource for every version.

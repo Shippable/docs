@@ -361,6 +361,7 @@ pages:
         - Replicating IN Resource to a OUT Resource: platform/tutorial/workflow/replicating-in-to-out-resource.md
         - Sharing data between Runs: platform/tutorial/workflow/sharing-data-between-runs.md
         - Sharing data between Jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
+        - Encrypting information: platform/tutorial/workflow/encrypt-vars.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md

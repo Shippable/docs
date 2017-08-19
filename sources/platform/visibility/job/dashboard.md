@@ -7,15 +7,19 @@ page_description: Overview of Job Dashboard View of Shippable DevOps Assembly Li
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Job Dashboard
-This view diplays status and historical runs of [Jobs](/platform/workflow/job/overview) 
+
+This view displays status and historical runs of a [Job](/platform/workflow/job/overview)
+
+To get here:
+
+* Click on the Subscription in the left navbar.
+
+<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+
+* On your Subscription dashboard, look for the Job name in the **Name column** and click on it.
 
 <img src="/images/platform/visibility/jobs-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-It shows the YML that was used to create this job in [shippable.jobs.yml](/platform/workflow/tutorial/shippable-jobs-yml). 
+Your Job Dashboard displays the YML config for the job from [shippable.jobs.yml](/platform/workflow/tutorial/shippable-jobs-yml).
 
-It also shows any processing or queued runs at this point and also a history of every run of this Job. 
-
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+It also shows any processing or queued runs at this point and also a history of every run of this Job.
