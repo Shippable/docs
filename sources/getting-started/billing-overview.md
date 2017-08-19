@@ -24,6 +24,6 @@ In a nutshell, our Hosted service pricing is:
 We also offer **Shippable Server**, a version of Shippable that you can run behind your firewall. For more details, visit our [Shippable Server page](https://www.shippable.com/enterprise.html).
 
 ## Further Reading
-* [Platform Overview](platform/overview)
+* [Platform Overview](/platform/overview)
 * [Shippable Server Trial](https://www.shippable.com/enterprise.html)
 * [Shippable Server Pricing](https://www.shippable.com/pricing.html)

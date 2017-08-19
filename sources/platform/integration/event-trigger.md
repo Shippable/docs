@@ -11,7 +11,9 @@ Available under the Integration Family: **Notifications**
 * Create a daisy chain of projects, so that you can trigger one from another
 * Send a webhook to an external service with custom payloads
 
-You can create this from the integrations page. This is the information you would require to create this integration:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **Trigger endpoint** -- Dropdown with following values

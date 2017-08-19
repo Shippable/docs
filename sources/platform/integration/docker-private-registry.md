@@ -9,7 +9,9 @@ Available under the Integration Family: **Hub**
 
 `Docker Private Registry` Integration is used to connect Shippable DevOps Assembly Lines platform to a privately hosted Docker Hub so that you can pull and push Docker images.
 
-You can create this from the integrations page. This is the information you would require to create this integration:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **URL** -- location of your private registry. Format `https://foo.com`

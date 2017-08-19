@@ -9,7 +9,9 @@ Available under the Integration Family: **Hub**
 
 `Quay` Integration is used to connect Shippable DevOps Assembly Lines platform to Quay Docker Registry so that you can pull and push Docker images.
 
-You can create this from the integrations page. This is the information you would require to create this integration:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **Username** -- login to your Quay Account

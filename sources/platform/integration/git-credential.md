@@ -9,7 +9,9 @@ Available under the Integration Family: **generic**
 
 `Git Credential` Integration is used to connect Shippable DevOps Assembly Lines platform to Source Control Systems over HTTP protocol. Typically this happens for public projects by default, but for private projects we always use SSH. In some cases, especially using Git LFS on Bitbucket, it breaks. Hence this is a way you can override the default cloning method
 
-You can create this from the integrations page. This is the information you would require to create this integration:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
 * **Host** -- Http/s address to your source control system

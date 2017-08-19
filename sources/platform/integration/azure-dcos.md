@@ -9,7 +9,9 @@ Available under the Integration Family: **deploy**
 
 `Azure DC/OS` and `Azure Container Service` integrations are used to connect Shippable DevOps Assembly Lines platform to Azure Container Service to deploy Docker based applications.
 
-You can create either of these integrations from the integrations page. This is the information you would require to create one of these integrations:
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+
+This is the information you would require to create one of these integrations:
 
 * **Name** -- friendly name for the integration
 * **Username** -- Username to login to Mesos master VM

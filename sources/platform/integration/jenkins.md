@@ -6,8 +6,7 @@ page_title: Jenkins integration
 # Jenkins integration
 The Jenkins integration is required if you want to run Jenkins jobs.
 
-This page explains how you can add a Jenkins integration to your
-account by providing the credentials and URL to access your Jenkins server.
+This page explains how you can add a Jenkins integration to your account by providing the credentials and URL to access your Jenkins server.
 
 ##Adding your Jenkins integration
 
