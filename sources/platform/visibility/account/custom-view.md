@@ -35,6 +35,4 @@ To delete a custom goto that view and click on the `edit` icon. Goto the `DELETE
 <img src="/images/platform/visibility/delete-custom-view.png" alt="delete custom view page" style="width:700px;"/>
 
 # Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+* [SPOG](/platform/visibility/single-pane-of-glass-spog/)
