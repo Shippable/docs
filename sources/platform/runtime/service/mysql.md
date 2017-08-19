@@ -5,44 +5,33 @@ sub_sub_section: Services
 page_title: CI/CD with MySQL Applications
 
 # MySQL
-This section explain how Shippable DevOps Assembly Lines Platform behaves when you set `services:` tag in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI Job](/platform/workflow/job/runci)
-
-All language images and all Operating Systems support this service
+This section explains how Shippable DevOps Assembly Lines Platform behaves when you list `mysql` in the `services:` tag in your [shippable.yml](/platform/tutorial/workflow/shippable-yml) for a [runCI job](/platform/workflow/job/runci).
 
 ```
 services:
   - mysql
 ```
 
+All language images have this service pre-installed.
+
 ## Supported Versions
-This table helps you choose the right tag based on the version of the service you might want to use
+This table helps you choose the right image tag based on the version of the service you want to use.
 
-The tags denote which `edition` of the [Runtime AMI](/platform/tutorial/runtime/ami-overview) has that particular version installed. Any tag can be used on any , but each edition of the AMI has that edition cached which will improve your build speed
+The language image with a particular tag will be available on the edition of the [Runtime AMI](/platform/tutorial/runtime/ami-overview) with the same version number. If you specify an image tag that does not match the Runtime AMI, it will be used but will also increase your build time.
 
-| Version  |  Tags   | Supported OS| 
-|----------|---------|-----------|
-|5.7.18  | v5.8.2 and earlier  | Ubuntu 16.04 |
-|5.6  | v5.8.2 and earlier  | Ubuntu 14.04 |
-|5.6  | v5.6.1 and earlier | All |
-
-## Supported Languages
-Since all [Language](/platform/runtime/language/overview) images are built from the the `all` versions of the OS as above, this service is also available if you use language specific images. Shippable platform automatically picks the latest language image based on your [CI YML settings](ci/set-language/), but if you need finer grain control, you can use the image tag sections of the YML.
-
-* [Clojure](/platform/runtime/language/clojure)
-* [GO](/platform/runtime/language/go)
-* [Java](/platform/runtime/language/java)
-* [Node JS](/platform/runtime/language/nodejs)
-* [PHP](/platform/runtime/language/php)
-* [Python](/platform/runtime/language/python)
-* [Ruby](/platform/runtime/language/ruby)
-* [Scala](/platform/runtime/language/scala)
+| Version |  Tags   | Supported OS|
+|---------|---------|-----------|
+| 5.7.19  | v5.8.2  | Ubuntu 16.04 |
+| 5.7.18  | v5.6.1 and v5.7.3 | Ubuntu 16.04 |
+| 5.7.17  | v5.5.1 and earlier | Ubuntu 16.04 |
+| 5.6.33  | v5.3.2 and later  | Ubuntu 14.04 |
 
 ## Shippable provided Runtime images
-This service is installed on to the base OS image along with other services. The following are tags and release dates of the base OS Image
+This service is installed in the Shippable base images along with other services. The following are tags and release dates of the each base image.
 
 ### Ubuntu 16.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
@@ -54,7 +43,7 @@ This service is installed on to the base OS image along with other services. The
 
 ### Ubuntu 14.04
 
-|Image| Release Date |Available in AMI | 
+|Image| Release Date |Available in AMI |
 |----------|------------|-----|
 [drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)

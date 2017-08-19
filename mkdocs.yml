@@ -297,20 +297,21 @@ pages:
         - Packer: platform/runtime/cli/packer.md
         - Docker: platform/runtime/cli/docker.md
       - Services:
+        - Overview: platform/runtime/service/overview.md
         - Cassandra: platform/runtime/service/cassandra.md
         - Couchdb: platform/runtime/service/couchdb.md
         - Elasticsearch: platform/runtime/service/elasticsearch.md
         - Neo4j: platform/runtime/service/neo4j.md
         - Memcached: platform/runtime/service/memcached.md
-        - Mongodb: platform/runtime/service/mongodb.md
-        - Mysql: platform/runtime/service/mysql.md
+        - MongoDB: platform/runtime/service/mongodb.md
+        - MySQL: platform/runtime/service/mysql.md
         - Postgres: platform/runtime/service/postgres.md
-        - Rabbitmq: platform/runtime/service/rabbitmq.md
+        - RabbitMQ: platform/runtime/service/rabbitmq.md
         - Redis: platform/runtime/service/redis.md
-        - Rethinkdb: platform/runtime/service/rethinkdb.md
+        - RethinkDB: platform/runtime/service/rethinkdb.md
         - Riak: platform/runtime/service/riak.md
         - Selenium: platform/runtime/service/selenium.md
-        - Sqllite: platform/runtime/service/sqllite.md
+        - SQLite: platform/runtime/service/sqllite.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
