@@ -109,7 +109,7 @@ steps:
 
 Now your pod spec is using the latest image tag, and you can update your replicationController to use it.
 
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/workflow/job/runcli).  
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/workflow/job/runsh).  
 
 ### Resource State Management
 

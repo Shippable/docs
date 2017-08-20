@@ -59,4 +59,4 @@ If you right click on the `syncRepo` resource you added to create the Assembly L
 * [Sync repository](/platform/workflow/resource/syncrepo/)
 * [rSync job](/platform/workflow/job/rsync/)
 * [Jobs](/platform/workflow/job/overview)
-* [Integrations](/platform/workflow/integration/overview)
+* [Integrations](/platform/integration/overview)

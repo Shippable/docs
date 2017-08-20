@@ -8,11 +8,11 @@ In addition to building commits, we automatically build pull requests for all en
 
 ##Pull request build status
 
-A PR build is identified in the Shippable UI with the icon in the status indicator:<img src="../../images/ci/pull-request-status.png" alt="Pull request status">
+A PR build is identified in the Shippable UI with the icon in the status indicator:<img src="/images/ci/pull-request-status.png" alt="Pull request status">
 
 We also show the results of the PR build in the UI of your source control provider as shown below.
 
-<img src="../../images/ci/pull-request-result.png" alt="Pull request results">
+<img src="/images/ci/pull-request-result.png" alt="Pull request results">
 
 ## Customizing config for Pull Requests
 

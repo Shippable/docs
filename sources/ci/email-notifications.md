@@ -9,7 +9,7 @@ page_keywords: email, Continuous Integration, Continuous Deployment, CI/CD, test
 
 By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
 
-We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](../getting-started/set-email/)
+We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/set-email/)
 
 To customize email notifications, you'll need to configure options in the `shippable.yml` file.
 
@@ -58,7 +58,7 @@ integrations:
           - master
 ```
 
-`branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
+`branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. Wildcards are also supported.
 
 ###2. Attaching console logs to email notifications.
 You can set sendConsoleLogs: true in your email notification configuration in shippable.yml to receive console logs as attachments in build emails.

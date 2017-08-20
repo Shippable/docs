@@ -7,7 +7,7 @@ page_description: How to add, delete and update Integrations
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Working with Integrations
-Shippable DevOps Platform uses Integrations to abstract secrets/configs away from the actual DevOps scripts. It is usually used to connect to 3rd party resources likes a gitRepo, cloud providers, store PEM keys and so on. They enable you to 
+Shippable DevOps Platform uses Integrations to abstract secrets/configs away from the actual DevOps scripts. It is usually used to connect to 3rd party resources likes a gitRepo, cloud providers, store PEM keys and so on. They enable you to
 
 * secure and centralized management of your DevOps secrets
 * manage permissions and roles at a project level to control who can use what integrations
@@ -20,7 +20,7 @@ Since security is built in from the ground up and the platform is designed to se
 
 All Integrations are owned by users who can then allow for projects to use them.
 
-<img src="../../images/platform/integrations/account-integrations-explained.png" alt="Google Container Registry integration">
+<img src="/images/platform/integrations/account-integrations-explained.png" alt="Google Container Registry integration">
 
 
 ### Step 1. Adding an integration to your account

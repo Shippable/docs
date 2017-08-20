@@ -8,7 +8,7 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 
 ##Using your integration in Shippable Pipelines
 
-In order to utilize this type of integration in your pipeline, you will need to create an [integration resource](../platform/workflow/resource/integration).  It should look like this:
+In order to utilize this type of integration in your pipeline, you will need to create an [integration resource](/platform/workflow/resource/integration).  It should look like this:
 
 ```
 resources:
@@ -18,6 +18,6 @@ resources:
 
 ```
 
-Now you can use this resource as an `IN` to your [runSh](../platform/workflow/job/runsh) or [runCLI](../platform/workflow/job/runcli) job.  If you do that, your key/value pairs will be available directly in the shell environment, so you can utilize them in your custom scripts.  This works well with command line tools that look in the environment for configuration options, such as the AWS CLI.
+Now you can use this resource as an `IN` to your [runSh](/platform/workflow/job/runsh) or [runCI](/platform/workflow/job/runci) job.  If you do that, your key/value pairs will be available directly in the shell environment, so you can utilize them in your custom scripts.  This works well with command line tools that look in the environment for configuration options, such as the AWS CLI.
 
 This integration type isn't used for any managed pipeline jobs at this time.

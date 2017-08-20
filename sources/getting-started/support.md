@@ -41,7 +41,7 @@ Each minion has 2 cores and 4GB RAM, unless you upgrade your subscription to a h
 
 ---
 ## Do I need to create an Account on Shippable?
-You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [Git identities section](/getting-started/git-identities/) for more details.
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [Git identities section](/platform/management/git-identities/) for more details.
 
 ---
 ## Can you explain what a Subscription on Shippable means?
@@ -104,7 +104,7 @@ restrictions' Under the 'Third-party application access policy' section.
 ---
 ## How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](/getting-started/integrations/). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+Please read our documentation on [linking GitHub and Bitbucket accounts](/platform/management/git-identities/). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
 
 ---
 ## Why am I not able to see Bitbucket org repos after deleting and recreating my account on Shippable?

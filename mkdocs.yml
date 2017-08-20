@@ -225,6 +225,7 @@ pages:
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
+        - jenkinsJob: platform/workflow/job/jenkinsjob.md
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
         - release: platform/workflow/job/release.md

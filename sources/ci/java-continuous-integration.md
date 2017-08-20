@@ -66,13 +66,13 @@ If you're running a simple Java build, feel free to skip this section since you 
 
 ###Overriding the default build image
 
-Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/tutorial/runtime/ami-overview/).
+Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](/platform/tutorial/runtime/ami-overview/).
 
 If the default image does not satisfy your requirements, you can do one of three things:
 
 -  Continue using default image and include commands to install any missing dependencies or packages in your yml
--  [Switch your Machine Image](../ci/build-image/#changing-your-default-tag) to a more recent version that contains what you need
--  [Use a custom build image](../ci/custom-docker-image/) that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
+-  [Switch your Machine Image](/ci/build-image/#changing-your-default-tag) to a more recent version that contains what you need
+-  [Use a custom build image](/ci/custom-docker-image/) that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
 
 ###Setting environment variables
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
@@ -100,7 +100,7 @@ build:
     - mvn clean cobertura:cobertura
 ```
 
-For Jacoco, we also support more [advanced reporting formats](../../tutorials/ci/code-coverage-jacoco/).
+For Jacoco, we also support more [advanced reporting formats](/ci/jacoco-reports/).
 
 <a name="advanced-config"></a>
 ##Advanced config

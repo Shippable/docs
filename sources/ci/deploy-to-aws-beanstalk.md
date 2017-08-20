@@ -73,7 +73,7 @@ integrations:
 ```
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
+- `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
 - `type:` is `aws`.
 - `target:` is `eb_paas`.
 - `platform:` Replace `Node.js` with your platform (available options can be found [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html))
@@ -153,7 +153,7 @@ integrations:
 ```
 While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
+- `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
 - `type:` is `aws`.
 - `target:` is `eb_docker`.
 - `application_name:` Replace with your EB application name

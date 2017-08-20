@@ -18,11 +18,11 @@ In the end, your pipeline will look like this:
 
 ## The Setup
 
-This sample will use Shippable CI to build and push an image to ECR, which will also trigger our pipeline. Check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs) for a description of how that works.  You can also use the sample repo for this scenario as an example.
+This sample will use Shippable CI to build and push an image to ECR, which will also trigger our pipeline. Check out our page on [triggering pipeline jobs from CI](/ci/trigger-pipeline-jobs) for a description of how that works.  You can also use the sample repo for this scenario as an example.
 
-We are going to need an AWS key/secret pair to communicate with EB on our behalf. You can add this to Shippable via [Account Integrations](../../getting-started/integrations), so that we can internally configure the aws cli.
+We are going to need an AWS key/secret pair to communicate with EB on our behalf. You can add this to Shippable via [Account Integrations](/platform/integration/overview), so that we can internally configure the aws cli.
 
-In our example, we're using an [Amazon ECR integration](../platform/integration/aws-ecr) since it works nicely with EB.  You'll have to make sure you use an integration that has appropriate permissions for the different actions required for beantaslk deployments.
+In our example, we're using an [Amazon ECR integration](/platform/integration/aws-ecr) since it works nicely with EB.  You'll have to make sure you use an integration that has appropriate permissions for the different actions required for beantaslk deployments.
 
 
 Now we can set up our pipeline objects.  Start by adding a type `image` resource.  This will represent your Docker image in your pipeline.  
@@ -71,8 +71,8 @@ resources:
     pointer:
       region: us-east-1
 ```
-For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig).
-Next you'll need a particular job that can utilize that resource. [runCLI jobs](../platform/workflow/job/runcli) consume `cliConfig` resource and use them to set up various tools with your included credentials,
+For more details on the `cliConfig` resource, [see here](/platform/workflow/resource/cliconfig).
+Next you'll need a particular job that can utilize that resource. [runSH jobs](/platform/workflow/job/runsh) consume `cliConfig` resource and use them to set up various tools with your included credentials,
 
 ```
 jobs:
@@ -228,7 +228,7 @@ jobs:
 
 ```
 
-Note that these variables come automatically from the `params` resource that we created earlier. Check out [this page](../platform/workflow/job/runcli#resource-variables) to learn all of the different supported environment variables in `runCLI` jobs.
+Note that these variables come automatically from the `params` resource that we created earlier. Check out [this page](/platform/workflow/job/runsh) to learn all of the different supported environment variables in `runCLI` jobs.
 
 
 Run your job, and you should see your modified files in the console output like this:

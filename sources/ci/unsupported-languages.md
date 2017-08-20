@@ -3,7 +3,7 @@ main_section: CI
 sub_section: Language guide
 #Building unsupported languages
 
-We support many popular languages with official build images for each one as listed on the [Supported languages](../getting-started/supported-languages/) page.
+We support many popular languages with official build images for each one as listed on the [Supported languages](/getting-started/what-is-supported/#language) page.
 
 **However, you can run builds for any language you want using Shippable.**
 

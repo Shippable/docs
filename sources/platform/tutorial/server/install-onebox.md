@@ -8,7 +8,7 @@ page_keywords: install, onebox, microservices, Continuous Integration, Continuou
 
 # Installing on One Machine
 
-Shippable may be installed so that everything except build nodes run on one machine.  This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](admiral/).
+Shippable may be installed so that everything except build nodes run on one machine.  This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
 
 ## Requirements
 One instance with:
