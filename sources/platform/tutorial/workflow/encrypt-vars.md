@@ -22,7 +22,7 @@ However, there are times when you just want to encrypt something so you can use 
 
 * Go to the **Encrypt** section. Enter your variables in the text box and click on `Encrypt`. This will give you the encrypted string that you can use in your yml.
 
-<img src="../../images/ci/encrypt-env-vars.png" alt="Encrypt Environment Variables" style="width:800px;"/>
+<img src="/images/ci/encrypt-env-vars.png" alt="Encrypt Environment Variables" style="width:800px;"/>
 
 You can then include the encrypted string in your yml using the `secure` tag. The variables are then available during your build:
 

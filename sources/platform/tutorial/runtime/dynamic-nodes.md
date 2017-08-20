@@ -34,7 +34,8 @@ A dynamic node executes jobs, each of which have their own specific timeout. The
 
 ## Machine Images
 
-Dynamic Nodes are booted with a Shippable Machine image. Each Machine image is versioned and comes in a Ubuntu 14/16 flavour.
+Dynamic Nodes are booted with a Shippable Machine image. Each Machine image is versioned and comes in a Ubuntu 14/16 flavor.
+
 A machine image is set at the level of organization/team (a.k.a Subscription) only and cannot be set at a project level (unless the project is moved to its own dedicated organization/team).
 
 We currently offer the following Machine Images. You can click on any one to see
@@ -66,7 +67,7 @@ To see what Machine Image is being used for your subscription, go to the
 
 The top item on this page will show you the machine image currently being used:
 
-<img src="../../images/ci/view-machine-image.png"
+<img src="/images/ci/view-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
 
 <a name="change-machine-image"></a>
@@ -79,5 +80,5 @@ To select a different Machine Image:
 dropdown under the 'Machine Images' section. Please note that this setting will
 affect all projects and builds in your Subscription.
 
-<img src="../../images/ci/change-machine-image.png"
+<img src="/images/ci/change-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>

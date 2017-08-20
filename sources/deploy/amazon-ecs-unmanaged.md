@@ -6,7 +6,7 @@ sub_section: Amazon ECS
 
 The managed [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
 
-These are called "unmanaged" or "custom" deployments and are implemented with a [runCLI job](/platform/workflow/job/runcli/).
+These are called "unmanaged" or "custom" deployments and are implemented with a [runSH job](/platform/workflow/job/runsh/).
 
 This page walks through an example of deploying to Amazon ECS using runCLI.
 
@@ -22,7 +22,7 @@ You need the following building blocks for this scenario:
 
 **Jobs**
 
-- [runCLI](/platform/workflow/job/runcli/)
+- [runSH](/platform/workflow/job/runsh/)
 
 ## Basic deployment
 
@@ -255,7 +255,7 @@ This way, every time your image tag is updated, the newest tag is pulled for use
 
 Or, you can add them to your task definition template and use `shippable_replace` to fill in the values as we showed above.  This is a great way to ensure that your deployment is always using the most recent tag for your image.
 
-All resources have environment variables like this. We've documented the list of possibilities [in our references section](../platform/jobs-unmanaged).
+All resources have environment variables like this. We've documented the list of possibilities [in our references section](/platform/workflow/job/overview/).
 
 ### Resource State Management
 

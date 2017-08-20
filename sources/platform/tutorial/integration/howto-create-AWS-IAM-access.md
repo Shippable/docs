@@ -10,7 +10,7 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 
 1. Click on Integrations in the left sidebar menu followed by the '+' icon in the **Account Integrations** panel.
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
+<img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
 
 2. Select **deploy** as the Integration family.
 3. Choose **AWS (IAM)** from the list of integration types.
@@ -18,13 +18,13 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 5. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
 6. Click **Save**
 
-<img src="../../images/platform/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
+<img src="/images/platform/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
 
 ### Amazon EC2 Container Service Using Account Keys
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the **Integrations** section.
 
-<img width="75%" height="75%" src="../../images/platform/integrations/account-settings.png" alt="Amazon ECS credentials">
+<img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Amazon ECS credentials">
 
 2. Click on the **Add Integration** button.
 3. For **Integration type**, locate **AWS** from the list of integrations.
@@ -32,7 +32,7 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.  These keys should be associated with an account that has access to a policy with rules described [here](#policy).
 6. Click on **Save**.
 
-<img src="../../images/platform/integrations/ecs-integration.png" alt="Amazon ECS credentials">
+<img src="/images/platform/integrations/ecs-integration.png" alt="Amazon ECS credentials">
 
 Please remember that before you can use this integration to set up your Pipelines, you will need to enable the integration for the Subscription that contains your Pipelines.
 

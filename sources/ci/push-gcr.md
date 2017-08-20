@@ -4,11 +4,11 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to GCR
 
-You can push your image to GCR in any section [of your yml](../platform/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to GCR in any section [of your yml](/ci/yml-structure/#anatomy-of-shippableyml). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 
-Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="../../getting-started/integrations/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 #### Generating a JSON key on Google Developers Console (GDC)
 -  In the top navigation bar, select the project you want to integrate with Shippable.

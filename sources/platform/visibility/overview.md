@@ -26,8 +26,8 @@ We fundamentally believe that source control systems is where the right roles an
 	* [Dashboard](/platform/visibility/subscription/dashboard): This is the view where you get to see all the active CI Projects and Jobs that are under this Organization as defined in the source control system
 	* [Settings](/platform/visibility/subscription/settings): This is the place to control global settings for your organization
 	* [Billing](/platform/visibility/subscription/billing): Place to purchase paid subscriptions for your organization
-	* [Node](/platform/visibility/subscription/nodes): This is the page that allows you to control what [AMI](/platform/tutorials/runtime/ami-overview) is used for your runtime or if you would like to use your own VMs for runtime.
-	* [Integrations](/platform/visibility/subscription/integrations): List of integrations that are allowed to be used by this Organization. This can be controlled by [Account Integration Owners](/platform/visibility/account/integrations)
+	* [Node](/platform/visibility/subscription/nodes): This is the page that allows you to control what [AMI](/platform/tutorial/runtime/ami-overview/) is used for your runtime or if you would like to use your own VMs for runtime.
+	* [Integrations](/platform/visibility/account/integrations): List of integrations that are allowed to be used by this Organization. This can be controlled by [Account Integration Owners](/platform/visibility/account/integrations)
 
 * **Project**: this is a representation of your source code repository. It is also the CI view
 	* [Dashboard](/platform/visibility/project/dashboard): This is the view where you get to see status of your CI project along with history

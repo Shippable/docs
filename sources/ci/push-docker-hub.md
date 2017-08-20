@@ -4,7 +4,7 @@ sub_section: Pushing artifacts
 
 #Pushing a Docker image to Docker Hub
 
-You can push your image to Docker Hub in any section [of your yml](../platform/shippable-yml/). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
+You can push your image to Docker Hub in any section [of your yml](/ci/yml-structure/#anatomy-of-shippableyml). Typically, you would want to push your image at the end of the `ci` section, or in the `post_ci` or `push` sections.
 
 ##Setup
 

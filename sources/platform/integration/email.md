@@ -18,8 +18,8 @@ This is the information you would require to create this integration:
 ## Resources that use this Integration
 Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with an `Email` integration.
 
-* [ciRepo](/workflow/platform/resource/cirepo)
-* [notification](/workflow/platform/resource/notification)
+* [ciRepo](/platform/workflow/resource/cirepo)
+* [notification](/platform/workflow/resource/notification)
 
 
 ## Further Reading

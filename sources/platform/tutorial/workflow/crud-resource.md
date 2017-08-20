@@ -50,4 +50,4 @@ If you right click on the `syncRepo` resource you added to create the assembly l
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
-* [Integrations](/platform/workflow/integration/overview)
+* [Integrations](/platform/integration/overview)

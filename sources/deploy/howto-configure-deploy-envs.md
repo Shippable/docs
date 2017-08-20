@@ -2,9 +2,9 @@ main_section: Deploy
 sub_section: HowTo
 
 # TODO
-| Tasks   |      Status    | 
+| Tasks   |      Status    |
 |----------|-------------|
-| Hotlinking |  Open | 
+| Hotlinking |  Open |
 | Further Reading needs thinking|  Open |
 | Simple concept of params + deployment|  Open |
 | multi stage concept of params + deployment|  Open |
@@ -24,7 +24,7 @@ In this tutorial, we are going to be using the following entities of Shippable D
 	* Docker
 
 * Resources
-	* cluster 
+	* cluster
 	* params
 	* image
 
@@ -48,8 +48,8 @@ In the picture above, `deploy-test` takes `params-1` as an input. After testing,
 ## Using params resources as inputs to runSh and runCLI jobs
 If a params resource is added as an input, the key-value pairs contained in the params resource are set as environment variables in the runSh or runCLI job. The variables can be used by
 
-- following the naming convention for those variables available in the documentation on [runSh environment variables](workflow/job/runsh/#resource-variables).
-- directly using the variable name. If there are multiple params resources as INs to the runSh/runCLI jobs and if there are keys shared across the params resources, then the last value of that key will be used. This works similar to Bash export of variables. 
+- following the naming convention for those variables available in the documentation on [runSh environment variables](/platform/workflow/job/runsh/#resource-variables).
+- directly using the variable name. If there are multiple params resources as INs to the runSh/runCI jobs and if there are keys shared across the params resources, then the last value of that key will be used. This works similar to Bash export of variables.
 
 
 

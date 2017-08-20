@@ -51,7 +51,7 @@ integrations:
 ```
 Use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName` value is the name of the Hipchat integration you added to your settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is the name of the Hipchat integration you added to your settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
 - `type` is `hipchat`.
 - `recipients` is an array that specifies the channels or users you want to send the notification to. If there is just a single recipient, use the format `recipients: "#channelOne"`
 
@@ -77,7 +77,7 @@ integrations:
           - master
 ```
 
-`branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
+`branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. Wildcards are also supported.
 
 
 ###2. Customizing notification triggers

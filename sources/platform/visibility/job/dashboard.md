@@ -20,6 +20,6 @@ To get here:
 
 <img src="/images/platform/visibility/jobs-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-Your Job Dashboard displays the YML config for the job from [shippable.jobs.yml](/platform/workflow/tutorial/shippable-jobs-yml).
+Your Job Dashboard displays the YML config for the job from [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml).
 
 It also shows any processing or queued runs at this point and also a history of every run of this Job.

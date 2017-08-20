@@ -12,8 +12,6 @@ This document helps in troubleshooting errors generated on the Shippable platfor
 1. Setup: Troubleshooting errors that occur during initial setup and prior to initiating a CI build.
 2. Continuous Integration (CI): Troubleshooting errors that occur during the CI process and is shown in the Console output.
 
-For non-errors and questions, refer our [FAQ section](/support).
-
 ---
 ## Setup
 ### Owner not found
@@ -298,7 +296,7 @@ Read more about [configuring Slack notifications](/platform/integration/slack/#s
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is a [platform/example](/platform/shippable-yml/#shippable.yml-reference) of a `shippable.yml` file
+(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is the [reference](/ci/yml-structure/#anatomy-of-shippableyml) for a `shippable.yml` file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
@@ -340,10 +338,9 @@ webhook build will not be executed.
 ### In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
-If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/getting-started/byon-overview). Once you BYON, [read the instructions](/getting-started/byon-manage-node/) for attaching your build infrastructure to Shippable.
-
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/platform/tutorial/runtime/custom-nodes/).
 ---
-### I am pushing to heroku as part of my build. Why is this suddenly failing?
+### I am pushing to Heroku as part of my build. Why is this suddenly failing?
 
 We have made a change as to where your keys are stored on your minion.
 
@@ -469,4 +466,4 @@ While the job is running, you can view the job being run on a particular node by
 
 ---
 ### Builds fail on all my custom nodes
-We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/getting-started/byon-manage-node/#reset-node) for builds to run successfully.
+We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/platform/tutorial/runtime/custom-nodes/) for builds to run successfully.

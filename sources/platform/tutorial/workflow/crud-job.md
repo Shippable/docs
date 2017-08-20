@@ -116,4 +116,4 @@ Here are the steps to delete a Job
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resources](/platform/workflow/resource/overview)
-* [Integrations](/platform/workflow/integration/overview)
+* [Integrations](/platform/integration/overview)

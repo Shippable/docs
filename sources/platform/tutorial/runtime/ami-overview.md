@@ -18,7 +18,7 @@ build container. The build container is spun up on the build machine using eithe
 the default Docker image depending the `language` tag in your yml configuration
 or a custom Docker image if specified in the yml.
 
-<img src="../../images/ci/shippableOverview.png"
+<img src="/images/ci/shippableOverview.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
 
 We currently offer the following Machine Images. You can click on any one to see
@@ -52,7 +52,7 @@ To see what Machine Image is being used for your subscription, go to the
 
 The top item on this page will show you the machine image currently being used:
 
-<img src="../../images/ci/view-machine-image.png"
+<img src="/images/ci/view-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
 
 <a name="change-machine-image"></a>
@@ -65,5 +65,5 @@ To select a different Machine Image:
 dropdown under the 'Machine Images' section. Please note that this setting will
 affect all projects and builds in your Subscription.
 
-<img src="../../images/ci/change-machine-image.png"
+<img src="/images/ci/change-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>

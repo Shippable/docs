@@ -10,7 +10,7 @@ By default, all your builds run in build containers hosted on Shippable's infras
 
 However, some organizations have very specific security requirements that do not allow them to run builds on hosted infrastructure. Others want to avoid the node spin-up time for every job.
 
-To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. Your custom nodes can be anywhere, such as in your Amazon EC2 VPN, Google Cloud, Linode, or Digital Ocean, or even in your datacenter behind a firewall. The greatest thing about Custom Nodes is that you do not need to open any incoming ports since the Shippable SaaS service never initiates a connection with your nodes. 
+To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. Your custom nodes can be anywhere, such as in your Amazon EC2 VPN, Google Cloud, Linode, or Digital Ocean, or even in your datacenter behind a firewall. The greatest thing about Custom Nodes is that you do not need to open any incoming ports since the Shippable SaaS service never initiates a connection with your nodes.
 
 This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
 
@@ -65,11 +65,11 @@ Follow the steps below to add a build node:
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Choose the radio button for **Custom**.
-<img src="../../images/getting-started/byon-select-my-node.png" alt="bring your own node">
+<img src="/images/getting-started/byon-select-my-node.png" alt="bring your own node">
 - To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
 - Select the OS of the nodes you want to add.
 - Enter a name for the node and its IP address.
-<img src="../../images/getting-started/byon-name-ip.png" alt="Enter name and IP">
+<img src="/images/getting-started/byon-name-ip.png" alt="Enter name and IP">
 - Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
 - You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `Manual (script based)`
 
@@ -85,7 +85,7 @@ Follow the steps below to add a build node:
     is initialized.
     * When your node is ready, the status indicator for the node will turn green. Your node is now ready to pick up builds for your projects.
 
-<img src="../../images/getting-started/intialize-byon-shippable.png" alt="Select docker version">
+<img src="/images/getting-started/intialize-byon-shippable.png" alt="Select docker version">
 
 
 * To run the initialization scripts yourself,
@@ -102,7 +102,7 @@ Follow the steps below to add a build node:
 Once you add your first build node, all subsequent builds for that subscription
 will run on your machines. Your nodes can be seen by going to your Subscription Settings and clicking on **Nodes** in the left sidebar menu.
 
-<img src="../../images/getting-started/list-byon-nodes.png" alt="Select docker version">
+<img src="/images/getting-started/list-byon-nodes.png" alt="Select docker version">
 
 <a name="edit-node"></a>
 ###Editing a build node
