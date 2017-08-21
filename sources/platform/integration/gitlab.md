@@ -14,7 +14,7 @@ You can create this from the integrations page by following instructions here: [
 This is the information you would require to create this integration:
 
 * **Name** -- friendly name for the integration
-* **URL** -- location of your GitLab API. The URL should be in the format `https://(GitLab URL)/api/v3`. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v3`
+* **URL** -- location of your GitLab API. The URL should be in the format `https://(GitLab URL)/api/v4`. For example, if you're using gitlab.com, this will `https://gitlab.com/api/v4`. API v3 will be unsupported from Gitlab 9.5, to be released on August 22, 2017. [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html)
 * **Token** -- GitLab private token with the right levels of permission
 
 ## Resources that use this Integration
