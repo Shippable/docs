@@ -195,6 +195,16 @@ menu,ol.shipNav,ul.shipNav {
   list-style: none;
 }
 
+.shipNav {
+  position: relative;
+}
+
+.shipNavItemTitle {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
 .shipContent {
   display: -ms-flexbox;
   display: flex;

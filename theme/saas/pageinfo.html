@@ -27,7 +27,7 @@
 
 {% if toc|first and toc|first|attr('children') %}
   <li>
-    <span class="shipNav-item-title">ON THIS PAGE</span>
+    <span class="shipNavItemTitle">ON THIS PAGE</span>
   </li>
   {% for toc_item in toc %}
     {% for toc_h2_item in toc_item.children %}
@@ -39,7 +39,7 @@
         <ul class="shipNav">
           {% for toc_h3_item in toc_h2_item.children %}
             <li>
-              <a href="{{ toc_h3_item.url }}" class="shipNav-item-link">
+              <a href="{{ toc_h3_item.url }}" class="subSubSectionLink">
                 {{ toc_h3_item.title }}
               </a>
             </li>
