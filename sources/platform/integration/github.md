@@ -28,7 +28,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_INTEGRATION\_URL    			| GitHub API location |
-| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to correct to GitHub |
+| `<NAME>`\_INTEGRATION\_TOKEN			| The Token used to connect to GitHub |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
