@@ -11,7 +11,7 @@ You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud
 ```
 resources:
   - name:           <string>
-    type:           cliConfig
+    type:           gitRepo
     integration:    <string>
     pointer:        <object>
 ```
