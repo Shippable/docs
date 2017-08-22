@@ -21,10 +21,10 @@ Copies the file to the state folder of the Job that is currently running. This w
 
 Sample usage: `shipctl copy_file_to_state "/output/config.json"`
 
-## `shipctl copy_resource_file_from_state <resource name> <filename>`
-Copies the file from the Resource State that was supplied as `IN` into the present working directory
+## `shipctl copy_resource_file_from_state <resource name> <filename> <topath>`
+Copies the file from the Resource State that was supplied as `IN` into the path supplied
 
-Sample usage: `shipctl copy_resource_file_from_state "vpc_settings" "vpc.conf"`
+Sample usage: `shipctl copy_resource_file_from_state "vpc_settings" "vpc.conf" .`
 
 ## `shipctl decrypt <source filename> <key filename>`
 Uses the key-file to decryt the contents of source-file. This is typically used to decrypt stuff encrypted using Shippable keys on the fly, similar to how our encryption works. It avoids you having to build encrypt-decrypt system
@@ -91,6 +91,16 @@ This puts i.e appeands the new key-value to the Resource. This will append to th
 
 Sample usage: `shipctl put_resource_state "vpc_settings" "HERO" "BATMAN"`
 
+## `shipctl get_params_resource <resource name> <parameter name>`
+Gets the `parameter` value of the given params resource that is in context of the Job where the Resource was used.
+
+Sample usage: `shipctl get_params_resource "vpc_settings_params" "API_URL"`
+
+## `shipctl get_integration_resource <resource name>`
+Gets the `integration` details of the given resource that is in context of the Job where the Resource was used.
+
+Sample usage: `shipctl get_integration_resource "vpc_settings"`
+
 ## `shipctl refresh_file_to_out_path <filename> <resource name>`
 Copies the file to the Resource State that was supplied as `OUT`
 
@@ -106,10 +116,10 @@ If you have a config file/s with a bunch of variables, you can use this utility 
 
 Your files need to have the placeholders in this format; `$ENVIRONMENT_VARIABLE_NAME` or `${ENVIRONMENT_VARIABLE_NAME}`. The second option is the recommended one
 
-Sample usage: `shipctl decrypt properties.json deploy.json run.json`
+Sample usage: `shipctl replace properties.json deploy.json run.json`
 
 ## `shipctl retry <cmd>`
-If you need to execute a command that could be flaky sometime, this utility will execute any command it wraps, 3 times if a non-zero error code is retured.  
+If you need to execute a command that could be flaky sometime, this utility will execute any command it wraps, 3 times if a non-zero error code is retured.
 
 Sample usage: `shipctl retry "echo 'hello'"`
 
