@@ -66,7 +66,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `deploy`
-* **`stabilityDuration`** -- Optional. The amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful.  Stable means that the desired number of replicas matches the number that are actually running in the cluster. **This feature is only supported for ECS clusters at this time.** This setting is ignored if deployment method is not blueGreen.
+* **`stabilityDuration`** -- Optional. The amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful.  Stable means that the desired number of replicas matches the number that are actually running in the cluster. This setting is ignored if deployment method is not blueGreen.
 
 * **`steps`** -- is an object which contains specific instructions to run this Job
     * `IN` -- You need one `cluster` and at least one `manifest`-based input (`manifest`, `release`, or `deploy`). You have can have more than one of these and if you use multiple, each `manifest` will be deployed as a separate service. Below is the list of all Resources and Jobs that can be supplied as `IN`
