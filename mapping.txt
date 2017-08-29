@@ -211,3 +211,4 @@ reference/admiral-swarm-workers /platform/tutorial/server/install-swarm-workers
 reference/admiral-vault /platform/tutorial/server/install-vault
 reference/admiral-bbs /platform/tutorial/server/install-bbs
 reference/glossary /platform/tutorial/glossary
+support /getting-started/support
