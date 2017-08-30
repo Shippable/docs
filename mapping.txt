@@ -2,7 +2,7 @@ faq /support
 ci/overview /ci/why-continuous-integration
 ci/supported /ci/services-overview/
 ci/runFirstBuild /getting-started/ci-sample/
-ci/shippableyml /platform/shippable-yml
+ci/shippableyml /platform/tutorial/workflow/shippable-yml
 ci/languages/node /ci/nodejs-continuous-integration
 ci/languages/python /ci/python-continuous-integration
 ci/languages/java /ci/java-continuous-integration
