@@ -1,5 +1,5 @@
 main_section: Deploy
-sub_section: HowTo
+sub_section: How To
 
 # Scenarios
 These are the following use cases that will be covered in this tutotial
