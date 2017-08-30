@@ -1,14 +1,6 @@
 main_section: Deploy
 sub_section: HowTo
 
-# TODO
-| Tasks   |      Status    | 
-|----------|-------------|
-| Hotlinking |  Open | 
-| Further Reading needs thinking|  Open |
-| Simple concept of params + deployment|  Open |
-| multi stage concept of params + deployment|  Open |
-
 # Scenarios
 These are the following use cases that will be covered in this tutotial
 
