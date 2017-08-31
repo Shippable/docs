@@ -7,9 +7,10 @@ sub_section: Running performance tests
 Once you have deployed your application to your staging / pre-production environment, you might want to run
 performance tests on your application using a third party tool.
 
-**Nouvola** is a popular third party service that allows you to define your API performance tests. You can
-run test plans authored in Nouvola, after your application has been deployed from Shippable. This
-tutorial demonstrates how to run Nouvola test plans using runSH jobs on a service you have already deployed.
+
+[**Nouvola**](http://www.nouvola.com/) is a popular third-party service that offers real-world performance & load testing for web, mobile, API and IoT apps so developers, DevOps and engineering managers can release better code faster
+
+You can automatically trigger your test suite authored in Nouvola, after your application has been deployed using Shippable. This tutorial demonstrates how to run Nouvola test plans using [runSH](/platform/workflow/job/runsh/) jobs on a service you have already deployed.
 
 ## Prerequisites
 
