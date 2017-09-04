@@ -1,6 +1,6 @@
 page_main_title: Deploying a single container application to a container orchestration service.
 main_section: Deploy
-sub_section: Usecases
+sub_section: How To
 
 # Deploying a single container application to a container orchestration service.
 
@@ -33,7 +33,7 @@ These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/).
 
 Follow the steps below to set up a basic deployment to ECS.
 
-###1: Create account integrations
+###1. Create account integrations
 
 You need two account integrations for this scenario:
 
@@ -65,10 +65,10 @@ The following registries are supported as endpoints:
 - [Quay](/platform/integration/quay)
 - [JFrog](/platform/integration/jfrog-artifactory)
 
-###2: Create resources
+###2. Create resources
 You need the following three resources in your `shippable.resources.yml` file:
 
-####cluster
+- Cluster
 
 First, we need a [cluster](/platform/workflow/resource/cluster/) resource which references a cluster that has already been created on the container orchestration service.
 
@@ -77,13 +77,13 @@ resources:
 
   - name: deploy_cluster    # resource friendly name
     type: cluster
-    integration: orchestration_service_integration  # replace with actual integration created in          
+    integration: svc_integration  # replace with actual integration created in          
     pointer:
       sourceName: "cluster_name" # name of the actual cluster in the orchestration service to which we are deploying
-      region: "orchestration_service_region" # region where cluster is located. This attribute is optional, depending on the orchestration service.
+      region: "svc_region" # region where cluster is located. This attribute is optional, depending on the orchestration service.
 ```
 
-####image
+- Image
 
 Next, we need an [image](/platform/workflow/resource/image/) resource.
 
@@ -92,22 +92,23 @@ resources:
 
   - name: deploy_image          # resource friendly name
     type: image
-    integration: docker_registry_integration  # replace with integration created in step 2          
+    integration: dr_integration  # replace with integration created in step 2          
     pointer:
-      sourceName:  # image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
+      sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
+      # This is an image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
     seed:
       versionName: "latest"  #Tag value for first deployment.
 
 ```
 
-###3: Define jobs
+###3. Define jobs
 
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
 
 You need two jobs for this scenario:
 
-####manifest
-We add a [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+- Manifest
+\We add a [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
@@ -116,12 +117,11 @@ jobs:
   type: manifest
   steps:
    - IN: deploy_image
-
 ```
 
-When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed. Manifest
+When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.
 
-####deploy
+- Deploy
 
 Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on ECS.
 
@@ -133,20 +133,11 @@ jobs:
     steps:
       - IN: deploy_manifest
       - IN: deploy_cluster
-
 ```
 
 The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
 
-###4: Add your pipeline
-
-Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
-
-###5: Trigger your pipeline
-
-When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
-
-## Advanced Configuration
+###4. Configure docker options for the container
 
 In the above scenario, several docker options are set by default that you might want to change.
 
@@ -155,16 +146,46 @@ In the above scenario, several docker options are set by default that you might 
 - `cpuShares` defaults to 0
 - no environment variables are added to container
 
-These settings can all be customized by creating additional Resources. To learn more, please go [here]().
+These settings can all be customized by creating a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource. For example, you can change the memory allocated to 1024MB and expose port 80 by doing the following -
 
-## Sample project
+- Create a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in shippable.resources.yml
+
+```
+- name: deploy_docker_options
+  type: dockerOptions
+  version:
+    memory: 1024
+    portMappings:
+      - 80:80
+```
+
+- Set the `dockerOptions` resource as an IN for your `manifest` job.
+
+```
+jobs:
+
+- name: deploy_manifest
+  type: manifest
+  steps:
+   - IN: deploy_image
+   - IN: deploy_docker_options
+```
+
+###5. Add your pipeline
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+
+###6. Trigger your pipeline
+
+When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
+
+
+### Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
 
 **Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic)
-
-**Application running on Amazon ECS:** [link](http://52.87.153.126/)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f6fcddd1780a07007bba3f/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic)
 
