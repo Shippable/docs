@@ -147,6 +147,7 @@ pages:
       - Configure environment variables during deployment: deploy/howto-configure-deploy-envs.md
       - Configure replicas during deployment: deploy/howto-configure-deploy-replicas.md
       - Deploy a single container application to a container orchestration service:  deploy/deploy-mvp-1.md
+      - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md

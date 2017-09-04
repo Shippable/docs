@@ -31,13 +31,11 @@ You will need to create two configuration files:
 
 These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
-Follow the steps below to set up a basic deployment to ECS.
-
 ###1. Create account integrations
 
 You need two account integrations for this scenario:
 
-####Orchestration service
+#### Orchestration service
 This integration configures the credentials needed to access the container orchestration service.
 
 The following container orchestration services are supported as endpoints:
@@ -97,7 +95,7 @@ resources:
       sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
       # This is an image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
     seed:
-      versionName: "latest"  #Tag value for first deployment.
+      versionName: "latest"  #Tag of this image.
 
 ```
 
@@ -186,8 +184,6 @@ Here are some links to a working sample of this scenario. This is a simple Node.
 the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
 
 **Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic)
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f6fcddd1780a07007bba3f/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-basic)
 
 ## Improve this page
 
