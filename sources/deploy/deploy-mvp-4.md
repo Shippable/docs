@@ -120,6 +120,8 @@ Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippa
 
 You need two jobs for this scenario:
 
+- [Manifest](/platform/workflow/job/manifest/)
+
 We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job references a single image.
 
 ```
@@ -138,7 +140,8 @@ jobs:
     - IN: docker_options_image_2
 ```
 
-- Deploy
+- [Deploy](/platform/workflow/job/deploy/)
+
 Now we can take the manifests, and use them as inputs to a single `deploy` job. This deploy job will deploy and start the two containers on the orchestration service.
 
 ```

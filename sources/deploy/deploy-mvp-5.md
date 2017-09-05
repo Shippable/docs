@@ -1,10 +1,10 @@
-page_main_title: Deploying a single container application to a container orchestration service.
+page_main_title: Scaling instances of single container application deployed to a container orchestration service.
 main_section: Deploy
 sub_section: How To
 
-# Deploying a single container application to a container orchestration service.
+# Scaling instances of single container application deployed to a container orchestration service.
 
-This page will describe how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a single container application to a container orchestration service like Amazon ECS, GKE or Docker Cloud.
+This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to scale the instances of a single container application deployed to a container orchestration service like Amazon ECS, GKE or Docker Cloud.
 
 ##1. Building blocks and Setup
 
@@ -13,6 +13,7 @@ This page will describe how you can use the [Shippable assembly lines platform](
 **Resources**
   - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
   - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+  - [replicas](/platform/workflow/resource/replicas/) resource that specifies the number of instances of the container to deploy.
 
 **Jobs**
   - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
@@ -82,6 +83,16 @@ resources:
       versionName: "latest"  #Tag of this image.
 ```
 
+- Add a [replicas resource](../platform/workflow/resource/replicas).
+Here we run two instances of the container.
+
+```
+  - name: deploy_replicas
+    type: replicas
+    version:
+      count: 2
+```
+
 - Add [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource for each image.
 
 Several docker options are set by default that you might want to change.
@@ -117,6 +128,7 @@ jobs:
   type: manifest
   steps:
    - IN: deploy_image
+   - IN: deploy_replicas
    - IN: docker_options_image
 ```
 
@@ -134,7 +146,6 @@ jobs:
       - IN: deploy_cluster
 ```
 
-
 ###4. Add your pipeline
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
@@ -142,14 +153,6 @@ Once you have these jobs and resources yml files as described above, commit them
 ###5. Trigger your pipeline
 
 When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
-
-
-## Sample project
-
-Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
-
-**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic)
 
 ## Improve this page
 

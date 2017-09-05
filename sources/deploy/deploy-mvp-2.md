@@ -123,6 +123,7 @@ Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippa
 You need two jobs for this scenario:
 
 - Manifest
+
 We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job references a single image.
 
 ```
