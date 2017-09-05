@@ -146,7 +146,7 @@ pages:
     - How To:
       - Configure environment variables during deployment: deploy/howto-configure-deploy-envs.md
       - Configure replicas during deployment: deploy/howto-configure-deploy-replicas.md
-      - Deploy a single container application to a container orchestration service:  deploy/deploy-mvp-1.md
+      - Deploy a single container application to a container orchestration service using blueGreen strategy:  deploy/deploy-mvp-1.md
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
       - Deploy a multi container application atomically to a single node of a container orchestration service:  deploy/deploy-mvp-3.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md

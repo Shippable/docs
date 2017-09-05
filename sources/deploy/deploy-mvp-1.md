@@ -1,8 +1,8 @@
-page_main_title: Deploying a single container application to a container orchestration service.
+page_main_title: Deploying a single container application to a container orchestration service using blueGreen strategy.
 main_section: Deploy
 sub_section: How To
 
-# Deploying a single container application to a container orchestration service.
+# Deploying a single container application to a container orchestration service using blueGreen strategy.
 
 This page will describe how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a single container application to a container orchestration service like Amazon ECS, GKE or Docker Cloud.
 
@@ -122,7 +122,7 @@ jobs:
 
 - [Deploy](/platform/workflow/job/deploy/)
 
-Now we can take that manifest, and use it as input to a `deploy` job.  
+Now we can take that manifest, and use it as input to a `deploy` job.
 
 ```
 jobs:
