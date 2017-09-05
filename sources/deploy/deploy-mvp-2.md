@@ -4,7 +4,7 @@ sub_section: How To
 
 # Deploying a multi container application in parallel to a container orchestration service.
 
-This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a container orchestration service like Amazon ECS, GKE or Docker Cloud. In this usecase, every container is deployed independently and in parallel whenever its image changes. This strategy is very useful when each micro-service or service is modeled as an image and you only want to deploy the micro-service / service that has changed. In addition, if multiple micro-service/service images change, those deployments happen faster since they are parallelized. 
+This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a container orchestration service like Amazon ECS, GKE or Docker Cloud. In this usecase, every container is deployed independently and in parallel whenever its image changes. This strategy is very useful when each micro-service or service is modeled as an image and you only want to deploy the micro-service / service that has changed. In addition, if multiple micro-service/service images change, those deployments happen faster since they are parallelized.
 
 ##1. Building blocks and Setup
 
@@ -123,7 +123,7 @@ Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippa
 You need two jobs for this scenario:
 
 - Manifest
-We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job will reference a single image.
+We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job references a single image.
 
 ```
 jobs:
@@ -143,7 +143,7 @@ jobs:
 
 - Deploy
 
-Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on ECS. We will use two deploy jobs, one per manifest. This will allow each deploy job to deploy one and only one container independently as when the image changes.
+Now we can take that manifest, and use it as input to a `deploy` type job.  This is the job that will actually result in our container running on the orchestration service. We will use two deploy jobs, one per manifest. This will allow each deploy job to deploy one and only one container independently as when the image changes.
 
 ```
 jobs:

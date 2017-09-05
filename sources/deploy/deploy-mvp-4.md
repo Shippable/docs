@@ -1,10 +1,9 @@
-page_main_title: Deploying a multi container application atomically to a single node of a container orchestration service.
+page_main_title: Deploying a multi container application atomically to multiple nodes of a container orchestration service.
 main_section: Deploy
 sub_section: How To
 
-# Deploying a multi container application atomically to a single node of a container orchestration service.
-
-This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a single node of a container orchestration service like Amazon ECS, GKE or Docker Cloud. Deploying multiple containers to a single node allows the containers to communicate with each other over loopback network or via container linking and is useful in usecases where containers have dependencies.
+# Deploying a multi container application atomically to multiple nodes of a container orchestration service.
+This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to multiple Nodes of a container orchestration service like Amazon ECS, GKE or Docker Cloud.
 
 ##1. Building blocks and Setup
 
@@ -117,32 +116,30 @@ These settings can all be customized by creating a [dockerOptions](/platform/wor
 ```
 
 ##3. Define jobs
-
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
 
 You need two jobs for this scenario:
 
-- Manifest
-We add a single [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. To this manifest job, we add both images as inputs.
+We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job references a single image.
 
 ```
 jobs:
 
-- name: deploy_manifest
+- name: deploy_manifest_1
   type: manifest
   steps:
    - IN: deploy_image_1
-   - IN: deploy_image_2
    - IN: docker_options_image_1
-     applyTo:
-       - docker_options_image_1
-   - IN: docker_options_image_2
-     applyTo:
-       - docker_options_image_2
+
+ - name: deploy_manifest_2
+   type: manifest
+   steps:
+    - IN: deploy_image_2
+    - IN: docker_options_image_2
 ```
 
 - Deploy
-Now we specify the manifest as an input to a single `deploy` job. This job will deploy and start the containers on a single node of the orchestration service.
+Now we can take the manifests, and use them as inputs to a single `deploy` job. This deploy job will deploy and start the two containers on the orchestration service.
 
 ```
 jobs:
@@ -150,7 +147,8 @@ jobs:
   - name: deploy_job
     type: deploy
     steps:
-      - IN: deploy_manifest
+      - IN: deploy_manifest_1
+      - IN: deploy_manifest_2
       - IN: deploy_cluster
 ```
 
