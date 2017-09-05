@@ -80,7 +80,7 @@ resources:
       sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
       # This is an image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
     seed:
-      versionName: "latest"  #Tag of this image.
+      versionName: "1.15.0"  #Tag of this image.
 ```
 
 - Add a [replicas resource](../platform/workflow/resource/replicas).
