@@ -1,10 +1,10 @@
-page_main_title: Deploying a multi container application in parallel to a container orchestration service.
+page_main_title: Deploying a multi container application to a single node of a container orchestration service.
 main_section: Deploy
 sub_section: How To
 
-# Deploying a multi container application in parallel to a container orchestration service.
+# Deploying a multi container application to a single node of a container orchestration service.
 
-This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a container orchestration service like Amazon ECS, GKE or Docker Cloud. In this usecase, every container is deployed independently and in parallel whenever its image changes. This strategy is very useful when each micro-service or service is modeled as an image and you only want to deploy the micro-service / service that has changed. In addition, if multiple micro-service/service images change, those deployments happen faster since they are parallelized. 
+This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a single node of a container orchestration service like Amazon ECS, GKE or Docker Cloud. Deploying multiple containers to a single node allows the containers to communicate with each other over loopback network or via container linking and is useful in usecases where containers have dependencies.
 
 ##1. Building blocks and Setup
 
@@ -123,22 +123,22 @@ Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippa
 You need two jobs for this scenario:
 
 - Manifest
-We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job will reference a single image.
+We add a single [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. To this manifest job, we add both images as inputs.
 
 ```
 jobs:
 
-- name: deploy_manifest_1
+- name: deploy_manifest
   type: manifest
   steps:
    - IN: deploy_image_1
+   - IN: deploy_image_2
    - IN: docker_options_image_1
-
- - name: deploy_manifest_2
-   type: manifest
-   steps:
-    - IN: deploy_image_2
-    - IN: docker_options_image_2
+     applyTo:
+       - docker_options_image_1
+   - IN: docker_options_image_2
+     applyTo:
+       - docker_options_image_2
 ```
 
 - Deploy
@@ -148,16 +148,10 @@ Now we can take that manifest, and use it as input to a `deploy` type job.  This
 ```
 jobs:
 
-  - name: deploy_job_1
+  - name: deploy_job
     type: deploy
     steps:
-      - IN: deploy_manifest_1
-      - IN: deploy_cluster
-
-  - name: deploy_job_2
-    type: deploy
-    steps:
-      - IN: deploy_manifest_2
+      - IN: deploy_manifest
       - IN: deploy_cluster
 ```
 
