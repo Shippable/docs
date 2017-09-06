@@ -33,7 +33,6 @@ The following container orchestration services are supported as endpoints:
 - [Docker Datacenter](/platform/integration/docker-datacenter)
 - [Google Container Engine](/platform/integration/gke)
 - [Kubernetes](/platform/integration/kubernetes)
-- [Node Cluster](/platform/integration/node-cluster)
 
 Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
 friendly name and this name will be used in one of the steps below.
