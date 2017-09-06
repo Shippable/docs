@@ -1,8 +1,8 @@
-page_main_title: Deploying a single container application serially to many environments to a container orchestration service using blueGreen strategy.
+page_main_title: Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy.
 main_section: Deploy
 sub_section: How To
 
-# Deploying a single container application in parallel to many environments using blueGreen strategy.
+# Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy.
 
 A parallel environment usecase looks like this:
 

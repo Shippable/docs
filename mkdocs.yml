@@ -154,6 +154,13 @@ pages:
       - Deploying a single container application with static image tags to a container orchestration service: deploy/deploy-mvp-6.md
       - Removing a single container application deployed to a container orchestration service: deploy/deploy-mvp-7.md
       - Deployment strategies for a single container application deployed to a container orchestration service: deploy/deploy-mvp-8.md
+      - Sending notifications after deploying an application to a container orchestration service.: deploy/deploy-mvp-9.md
+      - Pausing/Resuming the continuous deployment of an application deployed to a container orchestration service: deploy/deploy-mvp-10.md
+      - Manually triggering the deployment of a single container application application deployed to a container: deploy/deploy-mvp-11.md
+      - Pinning specific versions of images to deploy to a container orchestration service: deploy/deploy-mvp-12.md
+      - Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service: deploy/deploy-mvp-13.md
+      - Deploying a single container application serially to many environments to a container orchestration service using blueGreen strategy: deploy/deploy-mvp-14.md
+      - Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy: deploy/deploy-mvp-15.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
