@@ -1,4 +1,4 @@
-page_main_title: Rolling back a single container application deployed to a container orchestration service.
+page_main_title: Removing a single container application deployed to a container orchestration service.
 main_section: Deploy
 sub_section: How To
 
