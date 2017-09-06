@@ -1,13 +1,12 @@
-page_main_title: Manually triggering the deployment of a Node.js application deployed to a container orchestration service.
+page_main_title: Manually triggering the deployment of a single container application application deployed to a container orchestration service.
 main_section: Deploy
 sub_section: How To
 
 # Manually triggering the deployment of a single container application deployed to a container orchestration service.
-
 You might have a need to manually trigger the deployment of your application to certain sensitive environments such as pre-prod and prod. This document goes over the specific steps to setup manual triggering of your deployment.
 We will use the single container application deployment usecase defined [here](/deploy/deploy-mvp-1) and configure it for manual triggering.
 
-After manual triggering is configured, you will need to use the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI to pause/run the specific [deploy](/platform/workflow/job/deploy/) job in your assembly line. Specific instructions to pause/run can be found [here](/platform/visibility/single-pane-of-glass-spog/#runpause-job).
+After manual triggering is configured, you will need to use the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view to pause/run the specific [deploy](/platform/workflow/job/deploy/) job in your assembly line. Specific instructions to pause/run can be found [here](/platform/visibility/single-pane-of-glass-spog/#runpause-job).
 
 ##1. Building blocks
 **Jobs**
