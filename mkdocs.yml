@@ -161,6 +161,7 @@ pages:
       - Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service: deploy/deploy-mvp-13.md
       - Deploying a single container application serially to many environments to a container orchestration service using blueGreen strategy: deploy/deploy-mvp-14.md
       - Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy: deploy/deploy-mvp-15.md
+      - Overriding application configuration through various deployment stages (DEV, TEST, STAGING, PROD) for a single container application deployed to a container orchestration service: deploy/deploy-mvp-16.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
