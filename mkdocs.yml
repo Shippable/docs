@@ -170,7 +170,7 @@ pages:
       - Using an ELB/ALB: deploy/amazon-ecs-elb-alb.md
       - Multi-container services: deploy/amazon-ecs-multiple-containers.md
       - Multiple environments: deploy/amazon-ecs-multiple-environments.md
-      - Custom deployments(runCLI.md: deploy/amazon-ecs-unmanaged.md
+      - Custom deployments: deploy/amazon-ecs-unmanaged.md
       - Naming conventions: deploy/amazon-ecs-naming-conventions.md
     - Kubernetes:
       - Default scenario: deploy/kubernetes.md
