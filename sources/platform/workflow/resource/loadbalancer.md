@@ -42,13 +42,6 @@ resources:
 
 	    Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, Shippable will search for one that has the right level of trust automatically. If none is found, the job where this resource is used will fail.
 
-	* For [GKE Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `deploy` jobs,
-
-	        pointer:
-	          sourceName:   <name of GKE loadbalancer>
-	          method:       clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
-	          namespace:    <name of the namespace where pod is deployed>       #optional
-
 	* For [GKE Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
 	        pointer:
