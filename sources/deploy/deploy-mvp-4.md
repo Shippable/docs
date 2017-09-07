@@ -5,20 +5,20 @@ sub_section: How To
 # Deploying a multi container application atomically to multiple nodes of a container orchestration service.
 This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to multiple Nodes of a container orchestration service like Amazon ECS, GKE or Docker Cloud.
 
-##1. Building blocks and Setup
+##1. Building blocks
 
-### You will need to get familiar with the following platform building blocks:
+**Resources**
 
-**Resources**x
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-### Create account integrations
-You need two account integrations for this scenario:
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+##2. Setup
+You need to create two account integrations for this usecase:
 
 #### Orchestration service account integration
 This integration configures the credentials needed to access the container orchestration service.
@@ -49,7 +49,7 @@ The following registries are supported as endpoints:
 
 If the images are hosted on different accounts or different cloud registries, create an integration per account / registry.
 
-##2. Create resources
+##3. Create resources
 Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/)file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
 
 - Add a [Cluster](/platform/workflow/resource/cluster/) resource.
@@ -114,7 +114,7 @@ These settings can all be customized by creating a [dockerOptions](/platform/wor
     desiredCount: 2
 ```
 
-##3. Define jobs
+##4. Define jobs
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
 
 You need two jobs for this scenario:

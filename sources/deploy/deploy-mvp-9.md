@@ -17,13 +17,13 @@ We will use the single container application deployment usecase defined [here](/
 
 ##1. Building blocks
 
-### You will need to get familiar with the following platform building blocks:
-
 **Resources**
-  - [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
+
+- [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
 
 **Jobs**
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
 ##2. Setup
 You need one or more account integrations for this usecase, depending on which provider you want to use to send the notification. You do not need to create any integration for email notifications.

@@ -9,8 +9,6 @@ using Shippable.
 
 ##1. Building blocks
 
-### You will need to get familiar with the following platform building blocks:
-
 **Jobs**
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be present at the root of your repository.
 

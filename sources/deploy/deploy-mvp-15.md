@@ -25,23 +25,23 @@ Some points to note:
 
 In this usecase, we will deploy two environments on the same physical cluster.
 
-##1. Building blocks and Setup
-
-### You will need to get familiar with the following platform building blocks:
+##1. Building blocks
 
 **Resources**
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
-  - [params](/platform/workflow/job/params/) resource to set environment variables for blue and green environments.
+
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+- [params](/platform/workflow/job/params/) resource to set environment variables for blue and green environments.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-### Create account integrations
-You need two account integrations for this scenario:
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-#### Orchestration service account integration
+##2. Setup
+You need to create two account integrations for this scenario:
+
+### Orchestration service account integration
 This integration configures the credentials needed to access the container orchestration service.
 
 The following container orchestration services are supported as endpoints:
@@ -56,7 +56,7 @@ The following container orchestration services are supported as endpoints:
 Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
 friendly name and this name will be used in one of the steps below.
 
-#### Docker registry account integration
+### Docker registry account integration
 This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
 
 The following registries are supported as endpoints:
@@ -70,7 +70,7 @@ The following registries are supported as endpoints:
 
 If the images are hosted on different accounts or different cloud registries, create an integration per account / registry.
 
-##2. Create resources
+##3. Create resources
 Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/)file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
 
 - Add a [Cluster](/platform/workflow/resource/cluster/) resource.
@@ -153,7 +153,7 @@ For Kubernetes deployments, we can also set labels on the blue and green deploym
         ENVIRONMENT: "green"
 ```
 
-###3. Define jobs
+###4. Define jobs
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
 
 You need two jobs for this scenario:
@@ -197,14 +197,13 @@ jobs:
 ```
 
 
-###4. Add your pipeline
+###5. Add your pipeline
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
-###5. Trigger your pipeline
+###6. Trigger your pipeline
 
 When you're ready for deployment, right-click on the manifest job, and select **Run Job**. Once the manifest job completes, the deploy jobs will run in parallel and deploy the blue and green environments.
-
 
 ## Sample project
 

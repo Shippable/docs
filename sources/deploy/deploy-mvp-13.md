@@ -9,8 +9,10 @@ You might want to validate that your containers are up and running for a certain
 We will use the single container application deployment usecase defined [here](/deploy/deploy-mvp-1) and demonstrate health validation.
 
 ##1. Building blocks
+
 **Jobs**
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
 ##2. Configure [deploy](/platform/workflow/job/deploy/) job for health validation.
 

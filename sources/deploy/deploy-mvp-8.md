@@ -15,20 +15,20 @@ Using the [deploy job](/platform/workflow/job/deploy/), you can specify one of t
 
 ##1. Building blocks
 
-### You will need to get familiar with the following platform building blocks:
-
 **Resources**
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
 ##2. Setup
 You need to create two account integrations for this scenario:
 
-#### Orchestration service account integration
+### Orchestration service account integration
 This integration configures the credentials needed to access the container orchestration service.
 
 The following container orchestration services are supported as endpoints:
@@ -43,7 +43,7 @@ The following container orchestration services are supported as endpoints:
 Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
 friendly name and this name will be used in one of the steps below.
 
-#### Docker registry account integration
+### Docker registry account integration
 This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
 
 The following registries are supported as endpoints:

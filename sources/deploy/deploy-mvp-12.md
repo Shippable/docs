@@ -9,7 +9,9 @@ By default, Shippable deploys the most recent or latest version of the image. Ho
 We will use the single container application deployment usecase defined [here](/deploy/deploy-mvp-1) and demonstrate image pinning.
 
 ##1. Building blocks
+
 **Jobs**
+
 - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
 
 ##2. Pinning resource versions in shippable.jobs.yml.

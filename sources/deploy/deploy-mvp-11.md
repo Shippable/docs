@@ -9,8 +9,10 @@ We will use the single container application deployment usecase defined [here](/
 After manual triggering is configured, you will need to use the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view to pause/run the specific [deploy](/platform/workflow/job/deploy/) job in your assembly line. Specific instructions to pause/run can be found [here](/platform/visibility/single-pane-of-glass-spog/#runpause-job).
 
 ##1. Building blocks
+
 **Jobs**
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
 ##2. Configure [deploy](/platform/workflow/job/deploy/) job for manual triggering.
 
