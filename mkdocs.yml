@@ -143,7 +143,7 @@ pages:
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
-  - How To:
+    - How To:
       - Configure environment variables during deployment: deploy/howto-configure-deploy-envs.md
       - Configure replicas during deployment: deploy/howto-configure-deploy-replicas.md
       - Deploy a single container application to a container orchestration service using blueGreen strategy:  deploy/deploy-mvp-1.md
