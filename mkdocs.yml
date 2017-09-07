@@ -165,6 +165,7 @@ pages:
       - Attaching a load balancer to a single container application deployed to Google Container Engine (GKE): deploy/deploy-mvp-19.md
       - Using AWS CLI to deploy a single container application to ECS: deploy/deploy-mvp-20.md
       - Using Kubernetes CLI to deploy a single container application to GKE: deploy/deploy-mvp-21.md
+      - Customizing pods for a single container application deployed to Google Container Engine (GKE): deploy/deploy-mvp-22.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
