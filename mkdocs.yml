@@ -163,7 +163,8 @@ pages:
       - Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy: deploy/deploy-mvp-15.md
       - Overriding application configuration through various deployment stages (DEV, TEST, STAGING, PROD) for a single container application deployed to a container orchestration service: deploy/deploy-mvp-16.md
       - Attaching a classic load balancer to a single container application deployed to Amazon ECS: deploy/deploy-mvp-17.md
-      - Attaching an application load balancer to a single container application deployed to Amazon ECS.: deploy/deploy-mvp-18.md
+      - Attaching an application load balancer to a single container application deployed to Amazon ECS: deploy/deploy-mvp-18.md
+      - Attaching a load balancer to a single container application deployed to Google Container Engine (GKE): deploy/deploy-mvp-19.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md

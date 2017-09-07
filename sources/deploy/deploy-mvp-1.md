@@ -140,7 +140,6 @@ Once you have these jobs and resources yml files as described above, commit them
 
 When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
 
-
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
