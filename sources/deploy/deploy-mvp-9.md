@@ -25,7 +25,7 @@ We will use the single container application deployment usecase defined [here](/
 
 - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-##2. Setup
+##2. Create account integrations in Shippable UI
 You need one or more account integrations for this usecase, depending on which provider you want to use to send the notification. You do not need to create any integration for email notifications.
 
 The following messaging service providers are supported :

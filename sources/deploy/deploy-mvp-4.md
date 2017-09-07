@@ -17,7 +17,7 @@ This page describes how you can use the [Shippable assembly lines platform](/pla
 - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
 - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-##2. Setup
+##2. Create account integrations in Shippable UI
 You need to create two account integrations for this usecase:
 
 #### Orchestration service account integration

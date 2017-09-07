@@ -11,36 +11,36 @@ Application load balancers (ALB) are well suited to container applications in th
 
 ##1. Building blocks
 
-You will need to get familiar with the following platform building blocks:
-
 **Resources**
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
-  - [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
-  - [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
-  - [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
+
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+- [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
+- [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
+- [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-###2: Create account integrations
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+##2. Create account integrations
 
 You need two account integrations for this scenario:
 
-####AWS
+###AWS
 Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](/platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable for this.
 
 This key should have the appropriate permissions and roles described [here](/platform/integration/aws-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
-####Amazon ECR
+###Amazon ECR
 You also need to configure an integration to ECR so that we can pull your image. Follow instructions in the [Amazon ECR integration](/platform/integration/aws-ecr/) page.
 
-###3: Create resources
+##3. Create resources
 
 You need the following three resources in your `shippable.resources.yml` file:
 
-####cluster
+###cluster
 
 First, we need a `cluster` resource which references a cluster that has already been created on Amazon ECS.
 
@@ -57,7 +57,7 @@ resources:
 
 For a complete reference, check out the [cluster](/platform/workflow/resource/cluster/) page.
 
-####image
+###image
 
 Next, we need an `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Amazon ECR since it integrates nicely with Amazon ECS.
 
@@ -96,7 +96,7 @@ The `sourceName` field should be the ARN of the target group that was created al
 
 <img src="/images/deploy/amazon-ecs/ecs-deploy-alb-tgtgrp.png" alt="Target group ARN">
 
-####dockerOptions
+###dockerOptions
 
 Since we plan to expose a port, we need to add a [dockerOptions](/platform/workflow/resource/dockeroptions/) resource like this:
 
@@ -110,7 +110,7 @@ Since we plan to expose a port, we need to add a [dockerOptions](/platform/workf
 
 You don't need to restrict this to a single host port. Instead, we'll let Amazon ECS randomly assign us a host port, which will automatically be registered to our ALB.
 
-####replicas
+###replicas
 
 Even though we're exposing a port, we can run multiple copies of the service on a single box, and all traffic will be directed through the ALB by way of whichever random port was assigned.  Lets add a `replicas` resource to test this:
 
@@ -121,13 +121,13 @@ Even though we're exposing a port, we can run multiple copies of the service on 
       count: 3
 ```
 
-###4: Define jobs
+##4. Define jobs
 
 Jobs are defined in your `shippable.jobs.yml`.
 
 You need two jobs for this scenario:
 
-####[Manifest](/platform/workflow/job/manifest/)
+###[Manifest](/platform/workflow/job/manifest/)
 
 We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
@@ -142,7 +142,7 @@ jobs:
    - IN: deploy_ecs_docker_options
 ```
 
-####[Deploy](/platform/workflow/job/deploy/)
+###[Deploy](/platform/workflow/job/deploy/)
 
 Now we can take that manifest, and use it as input to a `deploy` type job.
 
@@ -166,7 +166,7 @@ When using a loadBalancer in a deploy job, you must include this `applyTo` secti
 - `image` is the resource name of the specific container that is exposing a port within that manifest.
 - `port` is the *container port* of that container that is being exposed.
 
-###5. Update your pipeline
+##5. Update your pipeline
 
 Push your changes to your **syncRepo** and right click and run your `deploy-ecs-basic-manifest` job!
 

@@ -14,19 +14,21 @@ Classic load balancers require that you define your listeners up front, and they
 You will need to get familiar with the following platform building blocks:
 
 **Resources**
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
-  - [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
-  - [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
-  - [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
+
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+- [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
+- [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
+- [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-###2: Create account integrations
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-You need two account integrations for this scenario:
+###2: Create account integrations in Shippable UI
+
+You need to create two account integrations for this scenario:
 
 ####AWS
 Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](/platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable for this.

@@ -11,30 +11,32 @@ Load balancers are a must-have for any containerized application. In Kubernetes,
 You will need to get familiar with the following platform building blocks:
 
 **Resources**
-  - [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-  - [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
-  - [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
-  - [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
-  - [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
+
+- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
+- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+- [dockerOptions](/platform/workflow/resource/dockeroptions/) resource used to add a list of docker options that can be appended to a docker image.
+- [replicas](/platform/workflow/resource/replicas/) resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
+- [loadBalancer](/platform/workflow/resource/loadbalancer/) resource.
 
 **Jobs**
-  - [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-  - [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
 
-###2: Create account integrations
+- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+
+##2. Create account integrations
 You need two account integrations for this scenario:
 
-####GKE
+###GKE
 Shippable will use Google Cloud service account credentials to communicate with GKE on your behalf. Get started by creating a [Google Container Engine Integration](/platform/integration/gke).
 
-####GCR
+###GCR
 You also need to configure an integration to GCR so that we can pull your image. Follow instructions in the [GCR integration](/platform/integration/gcr/) page.
 
-###3: Create resources
+##3. Create resources
 
 You need the following three resources in your `shippable.resources.yml` file:
 
-####cluster
+###cluster
 
 First, we need a `cluster` resource which references a cluster that has already been created on GKE.
 
@@ -51,7 +53,7 @@ resources:
 
 For a complete reference, check out the [cluster](/platform/workflow/resource/cluster/) page.
 
-####image
+###image
 
 Next, we need an `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using GCR since it integrates nicely with GKE.
 
@@ -100,7 +102,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
 ```
 If you use this resource as an IN to your manifest job, these labels will be added to your manifest, and will be present in the pod when your manifest is deployed.
 
-####loadBalancer
+###loadBalancer
 
 Add the load balancer resource:
 
@@ -124,7 +126,7 @@ Add the load balancer resource:
 
 The loadBalancer resource supports a range of fields in this case, allowing you to set almost any field that you'd want.  [See here](/platform/workflow/resource/loadbalancer) for the full reference page.
 
-####replicas
+###replicas
 
 Even though we're exposing a port, we can run multiple copies of the service on a single box, and all traffic will be directed through the ALB by way of whichever random port was assigned.  Lets add a `replicas` resource to test this:
 
@@ -135,13 +137,13 @@ Even though we're exposing a port, we can run multiple copies of the service on 
       count: 3
 ```
 
-###4: Define jobs
+##4. Define jobs
 
 Jobs are defined in your `shippable.jobs.yml`.
 
 You need two jobs for this scenario:
 
-####[Manifest](/platform/workflow/job/manifest/)
+###[Manifest](/platform/workflow/job/manifest/)
 
 We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
 
@@ -156,7 +158,7 @@ jobs:
    - IN: deploy_gke_docker_options
 ```
 
-####[Deploy](/platform/workflow/job/deploy/)
+###[Deploy](/platform/workflow/job/deploy/)
 
 Now we can take that manifest, and use it as input to a `deploy` type job.
 
@@ -168,7 +170,7 @@ jobs:
       - IN: deploy_gke_manifest
       - IN: deploy_gke_cluster
 ```
-####[Provision](/platform/workflow/job/provision/)
+###[Provision](/platform/workflow/job/provision/)
 
 ```
 - name: create_service
@@ -179,11 +181,11 @@ jobs:
 
 This job will use the integration associated with your loadBalancer resource to make API calls to your cluster to POST your kubernetes service with all of the settings you requested.
 
-###4. Add your pipeline
+##4. Add your pipeline
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
-###5. Trigger your pipeline
+##5. Trigger your pipeline
 
 When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
 
