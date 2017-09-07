@@ -121,8 +121,6 @@ You need two jobs for this scenario:
 
 - [Manifest](/platform/workflow/job/manifest/)
 
-We add add two [manifest](/platform/workflow/job/manifest/) jobs to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Each manifest job references a single image.
-
 ```
 jobs:
 

@@ -41,10 +41,10 @@ The following container orchestration services are supported as endpoints:
 - [Google Container Engine](/platform/integration/gke)
 - [Kubernetes](/platform/integration/kubernetes)
 
-Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
+* Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
 friendly name and this name will be used in one of the steps below.
 
-You will need to create two integrations, one for the beta environment and the other for the production environment.
+* You will need to create two integrations, one for the beta environment and the other for the production environment.
 
 #### Docker registry account integration
 This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
@@ -123,8 +123,6 @@ Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippa
 You need two jobs for this scenario:
 
 - [Manifest](/platform/workflow/job/manifest/)
-
-We add a [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:

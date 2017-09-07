@@ -155,8 +155,6 @@ You need two jobs for this scenario:
 
 - [Manifest](/platform/workflow/job/manifest/)
 
-We add a [manifest](/platform/workflow/job/manifest/) job to [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
-
 ```
 jobs:
 
