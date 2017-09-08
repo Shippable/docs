@@ -85,12 +85,12 @@ build:
   advancedReporting: <boolean>
 
 integrations:
- notifications:
-   - integrationName: <name of your subscription integration>
-     type: <type of notification>
-     recipients:
-       - #recp1
-       - #recp2
+  notifications:
+    - integrationName: <name of your subscription integration>
+      type: <type of notification>
+      recipients:
+        - #recp1
+        - #recp2
       branches:
         only:
           - master
