@@ -56,7 +56,7 @@ resources:
 ```
 Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
-###2. Create the orchestration platform account integration.
+##2. Create the orchestration platform account integration.
 
 The following container orchestration platforms are supported as endpoints:
 
