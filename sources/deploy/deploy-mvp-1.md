@@ -1,4 +1,4 @@
-page_main_title: Continuous Deployment (CD) of a single container application to a container orchestration platform.
+page_main_title: CD of a single container application to a container orchestration platform.
 main_section: Deploy
 sub_section: CD to Orchestration Platforms
 
