@@ -9,14 +9,15 @@ A single container application could be an web application, API endpoint or a mi
 We assume that the application is already packaged as a docker image and available in a Docker registry that Shippable supports. If you want to know how to build, test and push a docker image through CI to a docker registry, go [here](/ci/enable-project/).
 
 This document covers the following topics -
+
 * Service definition of your application.
 * Defining the orchestration platform.
-* Defining the location of the image and credentials of the Docker registry.
+* Defining the location of the docker image and credentials of the Docker registry.
 * Configuring docker options.
 * Setting environment variables for your application.
 * Scaling your application.
 
-<DIAGRAM>
+<img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 These are the key components of the diagram -
 
@@ -158,11 +159,11 @@ jobs:
       - IN: orchestration_platform
 ```
 
-###10. Import the configuration into your Shippable account to create the assembly line for the application.
+##10. Import the configuration into your Shippable account to create the assembly line for the application.
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
-###11. Trigger your pipeline
+##11. Trigger your pipeline
 
 When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**.
 
