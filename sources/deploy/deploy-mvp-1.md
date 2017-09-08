@@ -60,7 +60,7 @@ Resources are defined in your [shippable.resources.yml](/platform/tutorial/workf
 
 The following container orchestration platforms are supported as endpoints:
 
-- [Amazone ECS](/platform/integration/amazon-ecs)
+- [Amazon ECS](/platform/integration/amazon-ecs)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gke)
 - [Azure Container Service](/platform/integration/azure-dcos)
