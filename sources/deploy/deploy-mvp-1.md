@@ -86,7 +86,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
       versionName: "1.12.0"  #Tag of this image.
 ```
 
-###4. Create the application docker image account integration.
+##4. Create the application docker image account integration.
 
 This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
 
