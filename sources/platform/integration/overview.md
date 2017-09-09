@@ -27,37 +27,45 @@ In case of Shippable Integrations,
 We are big believers in the concept that secrets need to be separated from scripts for better security and privacy. All integrations are stored in our <a href="https://www.vaultproject.io/">Vault store</a> for maximum security.
 
 
-## Supported Integrations
-The following are integrations that Shippable currently supports. Detailed information is available on individual integration pages.
+## Supported Orchestration Platform Integrations
 
-- [AWS ECR](/platform/integration/aws-ecr)
-- [AWS IAM](/platform/integration/aws-ecs)
+- [Amazon ECS](/platform/integration/amazon-ecs)
+- [Kubernetes](/platform/integration/kubernetes)
+- [Google Container Engine](/platform/integration/gke)
 - [Azure Container Service](/platform/integration/azure-dcos)
 - [Azure DC/OS](/platform/integration/azure-dcos)
-- [Azure](/platform/integration/azure)
-- [Bitbucket](/platform/integration/bitbucket)
-- [Digital Ocean](/platform/integration/do)
 - [Docker Cloud](/platform/integration/docker-cloud)
 - [Docker Datacenter](/platform/integration/docker-datacenter)
+
+## Supported Docker Registry Integrations
+
+- [AWS ECR](/platform/integration/aws-ecr)
 - [Docker Hub](/platform/integration/docker-hub)
 - [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 - [Docker Private Registry](/platform/integration/docker-private-registry)
+- [Google Container Registry](/platform/integration/gcr)
+- [Quay](/platform/integration/quay)
+- [JFrog](/platform/integration/jfrog-artifactory)
+
+## Other Supported Integrations
+
+- [Digital Ocean](/platform/integration/do)
 - [Event Trigger](/platform/integration/event-trigger)
 - [Git Credential](/platform/integration/git-credential)
+
+- [Bitbucket](/platform/integration/bitbucket)
 - [GitHub](/platform/integration/github)
 - [GitHub Enterprise](/platform/integration/github-enterprise)
 - [GitLab](/platform/integration/gitlab)
+
 - [Google Cloud](/platform/integration/gce)
-- [Google Container Engine](/platform/integration/gke)
 - [Google Container Registry](/platform/integration/gcr)
 - [HipChat](/platform/integration/hipchat)
-- [JFrog](/platform/integration/jfrog-artifactory)
 - [Joyent Triton](/platform/integration/tripub)
 - [Key-Value Pair](/platform/integration/key-value)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Node Cluster](/platform/integration/node-cluster)
 - [PEM keys](/platform/integration/key-pem)
-- [Quay](/platform/integration/quay)
 - [Slack](/platform/integration/slack)
 - [SSH keys](/platform/integration/key-ssh)
 
