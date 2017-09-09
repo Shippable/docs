@@ -23,7 +23,7 @@ We assume that the application is already packaged as a docker image and availab
 
 ## DevOps Assembly Line
 
-<img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/deploy/usecases/deploy_mvp_1.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 These are the key components of the assembly line diagram -
 
