@@ -29,7 +29,7 @@ These are the key components of the assembly line diagram -
 
 **Resources**
 
-* `orchestration_platform` is a resource of type [cluster](/platform/workflow/resource/cluster/) that represents the orchestration platform where the application is deployed to.
+* `op_cluster` is a resource of type [cluster](/platform/workflow/resource/cluster/) that represents the orchestration platform where the application is deployed to.
 * `app_image` is a resource of type [image](/platform/workflow/resource/image/) that represents the docker image of the application.
 * `app_options` is a resource of type [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions)
 that represents the docker options of the application.
@@ -40,7 +40,7 @@ Resources are defined in your [shippable.resources.yml](/platform/tutorial/workf
 
 **Jobs**
 
-* `app_service_definition` is a job of type [manifest](/platform/workflow/job/manifest) used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_service_def` is a job of type [manifest](/platform/workflow/job/manifest) used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
 * `app_deploy_job` is a job of type [deploy](/platform/workflow/job/deploy) which deploys a [manifest](/platform/workflow/job/manifest/)  to a [cluster](/platform/workflow/resource/cluster/).
 
 Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
