@@ -6,9 +6,11 @@ sub_section: CD to Orchestration Platforms
 
 A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
 
+## Assumptions
+
 We assume that the application is already packaged as a docker image and available in a Docker registry that Shippable supports. If you want to know how to build, test and push a docker image through CI to a docker registry, go [here](/ci/enable-project/).
 
-This document explains the following topics -
+## Topics Covered
 
 * Specifying the docker image of the application.
 * Setting the Docker registry and specifying its credentials
@@ -19,9 +21,11 @@ This document explains the following topics -
 * Service definition of your application.
 * Deploying the application.
 
+## DevOps Assembly Line
+
 <img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-These are the key components of the diagram -
+These are the key components of the assembly line diagram -
 
 **Resources**
 
@@ -60,14 +64,7 @@ resources:
 
 ##2. Configure the Docker registry and its credentials.
 
-The following docker registries are supported:
-
-- [AWS ECR](/platform/integration/aws-ecr)
-- [Docker Hub](/platform/integration/docker-hub)
-- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-- [Docker Private Registry](/platform/integration/docker-private-registry)
-- [Quay](/platform/integration/quay)
-- [JFrog](/platform/integration/jfrog-artifactory)
+The list of supported Docker registries can be found [here](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 
@@ -90,16 +87,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 
 ##4. Configuring the orchestration platform and its credentials.
-
-The following container orchestration platforms are supported as endpoints:
-
-- [Amazon ECS](/platform/integration/amazon-ecs)
-- [Kubernetes](/platform/integration/kubernetes)
-- [Google Container Engine](/platform/integration/gke)
-- [Azure Container Service](/platform/integration/azure-dcos)
-- [Azure DC/OS](/platform/integration/azure-dcos)
-- [Docker Cloud](/platform/integration/docker-cloud)
-- [Docker Datacenter](/platform/integration/docker-datacenter)
+The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
 
 **Steps**  
 
