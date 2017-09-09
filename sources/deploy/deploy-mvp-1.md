@@ -4,7 +4,7 @@ sub_section: CD to Orchestration Platforms
 
 # Continuous Deployment (CD) of a single container application to a container orchestration platform.
 
-A single container application could be an web application, API endpoint or a micro-service or any component that is packaged as a docker image. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
+A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
 
 We assume that the application is already packaged as a docker image and available in a Docker registry that Shippable supports. If you want to know how to build, test and push a docker image through CI to a docker registry, go [here](/ci/enable-project/).
 
@@ -13,10 +13,11 @@ This document explains the following topics -
 * Specifying the docker image of the application.
 * Setting the Docker registry and specifying its credentials
 * Setting the orchestration platform and specifying its credentials.
-* Configuring docker options.
+* Configuring application options for the orchestration platform and the container.
 * Setting the environment variables for your application.
 * Scaling your application.
 * Service definition of your application.
+* Deploying the application.
 
 <img src="/images/release/release-job-context.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -108,7 +109,7 @@ Instructions to create an integration can be found [here](http://docs.shippable.
 - Set the friendly name of the integration as `op_integration`. If you change the name,
 please change change it also in step 3.
 
-##5. Configure the docker options of the application.
+##5. Configuring application options for the orchestration platform and the container.
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
@@ -119,7 +120,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
     portMappings:
       - 80:80
 ```
-We set the memory allocated to 1024MB and expose port 80.
+As an example, here we have set the memory allocated to 1024MB and expose port 80.
 
 ##6. Set the environment variables for the application.
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
@@ -159,7 +160,7 @@ jobs:
    - IN: app_replicas
 ```
 
-##9. Define the deploy job.
+##9. Deploying the application.
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
