@@ -78,9 +78,9 @@ please change change it also in step 1.
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  - name: orchestration_platform    # resource friendly name
+  - name: op_cluster    # resource friendly name
     type: cluster
-    integration: op_integration  # replace with actual integration name          
+    integration: op_int  # replace with actual integration name          
     pointer:
       sourceName: "cluster_name" # name of the actual cluster in the orchestration service to which we are deploying
       region: "svc_region" # region where cluster is located. This attribute is optional, depending on the orchestration service.
@@ -94,7 +94,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 - Create an account integration using your Shippable account for the orchestration platform.
 Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-- Set the friendly name of the integration as `op_integration`. If you change the name,
+- Set the friendly name of the integration as `op_int`. If you change the name,
 please change change it also in step 3.
 
 ##5. Configuring application options for the orchestration platform and the container.
@@ -139,7 +139,7 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-- name: app_service_definition
+- name: app_service_def
   type: manifest
   steps:
    - IN: app_image
@@ -157,8 +157,8 @@ jobs:
   - name: app_deploy_job
     type: deploy
     steps:
-      - IN: app_service_definition
-      - IN: orchestration_platform
+      - IN: app_service_def
+      - IN: op_cluster
 ```
 
 ##10. Import the configuration into your Shippable account to create the assembly line for the application.
