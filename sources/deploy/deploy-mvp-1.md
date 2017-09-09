@@ -11,8 +11,8 @@ We assume that the application is already packaged as a docker image and availab
 This document explains the following topics -
 
 * Specifying the docker image of the application.
-* Configuring the Docker registry and its credentials
-* Specifying the orchestration platform cluster and its credentials.
+* Setting the Docker registry and specifying its credentials
+* Setting the orchestration platform and specifying its credentials.
 * Configuring docker options.
 * Setting the environment variables for your application.
 * Scaling your application.
