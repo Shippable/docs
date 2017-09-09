@@ -26,7 +26,6 @@ In case of Shippable Integrations,
 
 We are big believers in the concept that secrets need to be separated from scripts for better security and privacy. All integrations are stored in our <a href="https://www.vaultproject.io/">Vault store</a> for maximum security.
 
-
 ## Supported Orchestration Platform Integrations
 
 - [Amazon ECS](/platform/integration/amazon-ecs)
@@ -36,6 +35,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Azure DC/OS](/platform/integration/azure-dcos)
 - [Docker Cloud](/platform/integration/docker-cloud)
 - [Docker Datacenter](/platform/integration/docker-datacenter)
+- [Joyent Triton](/platform/integration/tripub)
 
 ## Supported Docker Registry Integrations
 
@@ -47,27 +47,28 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Quay](/platform/integration/quay)
 - [JFrog](/platform/integration/jfrog-artifactory)
 
-## Other Supported Integrations
-
-- [Digital Ocean](/platform/integration/do)
-- [Event Trigger](/platform/integration/event-trigger)
-- [Git Credential](/platform/integration/git-credential)
+## Supported SCM Integrations
 
 - [Bitbucket](/platform/integration/bitbucket)
 - [GitHub](/platform/integration/github)
 - [GitHub Enterprise](/platform/integration/github-enterprise)
 - [GitLab](/platform/integration/gitlab)
+- [Git Credential](/platform/integration/git-credential)
 
-- [Google Cloud](/platform/integration/gce)
-- [Google Container Registry](/platform/integration/gcr)
+## Supported Notification Integrations
+
 - [HipChat](/platform/integration/hipchat)
-- [Joyent Triton](/platform/integration/tripub)
-- [Key-Value Pair](/platform/integration/key-value)
-- [Kubernetes](/platform/integration/kubernetes)
-- [Node Cluster](/platform/integration/node-cluster)
-- [PEM keys](/platform/integration/key-pem)
 - [Slack](/platform/integration/slack)
+- [IRC](/integration/irc/)
+
+## Supported Miscellaneous Integrations
+
+- [Key-Value Pair](/platform/integration/key-value)
+- [PEM keys](/platform/integration/key-pem)
 - [SSH keys](/platform/integration/key-ssh)
+- [Digital Ocean](/platform/integration/do)
+- [Google Cloud](/platform/integration/gce)
+- [Event Trigger](/platform/integration/event-trigger)
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
