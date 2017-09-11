@@ -81,8 +81,13 @@ Gets the `versionNumber` of the version that is in context of the Job where the 
 
 Sample usage: `shipctl get_resource_version_number "vpc_settings"`
 
+## `shipctl get_resource_version_key <resource name> <key>`
+Gets the value of the key specified, from the version that is in context of the Job where the Resource was used
+
+Sample usage: `shipctl get_resource_version_key "vpc_settings" "env"`
+
 ## `shipctl post_resource_state <resource name> <key> <value>`
-This posts the key-value to the Resource. You need to be carefull to use this only once and then use the `put` version to append to it. Else each post will reset state
+This posts the key-value to the Resource. You need to be careful to use this only once and then use the `put` version to append to it. Else each post will reset state
 
 Sample usage: `shipctl post_resource_state "vpc_settings" "HERO" "SUPERMAN"`
 
