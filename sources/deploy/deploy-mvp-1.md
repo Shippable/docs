@@ -2,7 +2,7 @@ page_main_title: CD of a single container application to a container orchestrati
 main_section: Deploy
 sub_section: CD to Orchestration Platforms
 
-# Continuous Deployment (CD) of a single container application to a container orchestration platform.
+# CD of a single container application to a container orchestration platform.
 
 A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
 
@@ -65,21 +65,21 @@ The list of supported Docker registries can be found [here](/platform/integratio
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
     - Set the friendly name of the integration as `app_docker_hub`. If you change the name,
-    please change change it also in the yml below.
+    please change it also in the yml below.
 
 * Yml block
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-resources:
-  - name: app_image # resource friendly name
-    type: image
-    integration: app_docker_hub           
-    pointer:
-      sourceName: devops/deploy_node_app #this will change based on registry
-    seed:
-      versionName: "master.1"  #Specify the tag of your image.
+  resources:
+    - name: app_image # resource friendly name
+      type: image
+      integration: app_docker_hub           
+      pointer:
+        sourceName: devops/deploy_node_app #this will change based on registry
+      seed:
+        versionName: "master.1"  #Specify the tag of your image.
 ```
 
 ##2. Define `app_options`.
@@ -95,15 +95,15 @@ If no options are specified, the platform sets the following default options -
     - no ENVs are added to the container.
 * Yml block:
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: app_options
-  type: dockerOptions
-  version:
-    memory: 1024
-    portMappings:
-      - 80:80
+  - name: app_options
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
 ```
 
 ##3. Define `app_environment`.
@@ -115,11 +115,11 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: app_environment
-  type: params
-  version:
-    params:
-      ENVIRONMENT: "prod"
+  - name: app_environment
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "prod"
 ```
 
 ##4. Define `app_service_def`.
@@ -127,17 +127,18 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 * Description: `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
 * Required: Yes.
 * Yml block:
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-jobs:
+  jobs:
 
-- name: app_service_def
-  type: manifest
-  steps:
-   - IN: app_image
-   - IN: app_options
-   - IN: app_environment
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_options
+     - IN: app_environment
 ```
 
 ##5. Define `app_replicas`.
@@ -147,7 +148,7 @@ jobs:
 * Default: 1 (one instance of the container is deployed)
 * Yml block:
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   - name: app_replicas
@@ -157,22 +158,22 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 
 ##6. Define `op_cluster`.
+
 * Description: `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. For example, this would point to a cluster created in Amazon ECS or a cluster in Kubernetes.
 * Required: Yes.
 * Integrations needed:
 
 The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
 
-    **Steps**  
+  **Steps**
 
-    - Create an account integration using your Shippable account for the orchestration platform.
-      Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+  - Create an account integration using your Shippable account for the orchestration platform. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-    - Set the friendly name of the integration as `op_int`. If you change the name,
-      please change change it also in the yml below.
+  - Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
 
 * Yml block:
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   - name: op_cluster    # resource friendly name
@@ -189,15 +190,17 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 * Required: Yes.
 * Yml block:
 
-```
-jobs:
+    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
-  - name: app_deploy_job
-    type: deploy
-    steps:
-      - IN: app_service_def
-      - IN: op_cluster
-      - IN: app_replicas
+```
+  jobs:
+
+    - name: app_deploy_job
+      type: deploy
+      steps:
+        - IN: app_service_def
+        - IN: op_cluster
+        - IN: app_replicas
 ```
 
 ##8. Import the configuration into your Shippable account to create the assembly line for the application.
