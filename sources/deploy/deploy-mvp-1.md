@@ -163,13 +163,13 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
 
-  **Steps**  
+    **Steps**  
 
-  - Create an account integration using your Shippable account for the orchestration platform.
-  Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+    - Create an account integration using your Shippable account for the orchestration platform.
+      Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-  - Set the friendly name of the integration as `op_int`. If you change the name,
-  please change change it also in the yml below.
+    - Set the friendly name of the integration as `op_int`. If you change the name,
+      please change change it also in the yml below.
 
 * Yml block:
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
