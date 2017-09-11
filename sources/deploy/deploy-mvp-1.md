@@ -56,7 +56,7 @@ They are two configuration files that are needed to achieve this usecase -
 
 * Description: `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker hub.
 * Required: Yes.
-* Integrations needed: Docker Hub integration
+* Integrations needed: Docker Hub
 The list of supported Docker registries can be found [here](/platform/integration/overview/#supported-docker-registry-integrations).
 
     **Steps**  
@@ -159,9 +159,9 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ##6. Define `op_cluster`.
 
-* Description: `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. For example, this would point to a cluster created in Amazon ECS or a cluster in Kubernetes.
+* Description: `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. In our example, the cluster points to a cluster on Amazon ECS.
 * Required: Yes.
-* Integrations needed:
+* Integrations needed: AWS IAM Integration
 
 The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
 
@@ -180,8 +180,8 @@ The list of supported container orchestration platforms can be found [here](/pla
     type: cluster
     integration: op_int            
     pointer:
-      sourceName: "cluster_name" # name of the actual cluster in the orchestration service to which we are deploying
-      region: "svc_region" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
+      sourceName: "deploy-ecs-cluster" # name of the actual cluster in the orchestration service to which we are deploying
+      region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
 ```
 
 ##7. Define `app_deploy_job`.
