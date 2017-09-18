@@ -124,7 +124,7 @@ pages:
       - Deleting Container Applications: deploy/deploy-mvp-7.md
       - Sending notifications upon deployments: deploy/deploy-mvp-9.md
       - Specifying the version to deploy: deploy/deploy-mvp-12.md
-    
+
     - How To:
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md
@@ -133,7 +133,7 @@ pages:
       - Deployment strategies for a single container application deployed to a container orchestration service: deploy/deploy-mvp-8.md
       - Pausing/Resuming the continuous deployment of an application deployed to a container orchestration service: deploy/deploy-mvp-10.md
       - Manually triggering the deployment of a single container application application deployed to a container: deploy/deploy-mvp-11.md
-        - Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service: deploy/deploy-mvp-13.md
+      - Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service: deploy/deploy-mvp-13.md
       - Deploying a single container application serially to many environments to a container orchestration service using blueGreen strategy: deploy/deploy-mvp-14.md
       - Deploying a single container application in parallel to multiple environments on a container orchestration service using blueGreen strategy: deploy/deploy-mvp-15.md
       - Overriding application configuration through various deployment stages (DEV, TEST, STAGING, PROD) for a single container application deployed to a container orchestration service: deploy/deploy-mvp-16.md
