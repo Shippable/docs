@@ -2,167 +2,245 @@ page_main_title: Deploying a multi container application atomically to a single 
 main_section: Deploy
 sub_section: How To
 
-# Deploying a multi container application atomically to a single node of a container orchestration service.
+# CD of a multiple container application to a container orchestration platform.
 
-This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy a multi container application to a single node of a container orchestration service like Amazon ECS, GKE or Docker Cloud. Deploying multiple containers to a single node allows the containers to communicate with each other over loopback network or via container linking and is useful in usecases where containers have dependencies.
+A multiple container application could be a web application, API endpoint or a micro-service or any application component that is packaged as multiple docker images. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a multiple container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
 
-##1. Building blocks
+## Assumptions
 
-**Resources**
+We assume that the application is already packaged as docker images and available in a Docker registry that Shippable supports. If you want to know how to build, test and push a docker image through CI to a docker registry, go [here](/ci/push-artifacts/).
 
-- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+## Topics Covered
+CD of your application is defined in Shippable configuration files in a powerful, flexible YML based language. The specific yml blocks that need to be authored for each of the topics below are covered later in the document. These topics will give you a high level picture of the steps that you will complete to get CD of your application up and running in Shippable.
 
-**Jobs**
+* Specifying the docker images of your application.
+* Specifying application options for the container.
+* Specifying application runtime environment variables.
+* Service definition of your application.
+* Scaling your application.
+* Specifying the cluster as your deployment target.
+* Deploying your application.
 
-- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+## DevOps Assembly Line
 
-##2. Create account integrations in Shippable UI
-You need to create two account integrations for this usecase:
+This is a pictorial representation of the continuous deployment process. The green boxes are tasks and the grey boxes are the input resources for the tasks. Both tasks and inputs are specified in Shippable configuration files.
 
-#### Orchestration service account integration
-This integration configures the credentials needed to access the container orchestration service.
+<img src="/images/deploy/usecases/deploy_mvp_2.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-The following container orchestration services are supported as endpoints:
+These are the key components of the assembly line diagram -
 
-- [Azure Container Service](/platform/integration/azure-dcos)
-- [Azure DC/OS](/platform/integration/azure-dcos)
-- [Docker Cloud](/platform/integration/docker-cloud)
-- [Docker Datacenter](/platform/integration/docker-datacenter)
-- [Google Container Engine](/platform/integration/gke)
-- [Kubernetes](/platform/integration/kubernetes)
+**Resources (grey boxes)**
 
-Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
-friendly name and this name will be used in one of the steps below.
+* `app_image_1` is a [image](/platform/workflow/resource/image/) resource that represents the first docker image of the application.
+* `app_image_2` is a [image](/platform/workflow/resource/image/) resource that represents the second docker image of the application.
+* `app_options_1` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container for `app_image_1`.
+* `app_options_2` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container for `app_image_2`.
+* `app_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
+* `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the orchestration platform where the application is deployed to.
 
-#### Docker registry account integration
-This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
+**Jobs (green boxes)**
 
-The following registries are supported as endpoints:
+* `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
 
-- [AWS ECR](/platform/integration/aws-ecr)
-- [Docker Hub](/platform/integration/docker-hub)
-- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-- [Docker Private Registry](/platform/integration/docker-private-registry)
-- [Quay](/platform/integration/quay)
-- [JFrog](/platform/integration/jfrog-artifactory)
 
-If the images are hosted on different accounts or different cloud registries, create an integration per account / registry.
+## Step by Step instructions
 
-##3. Create resources
-Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/)file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
+They are two configuration files that are needed to achieve this usecase -
 
-- Add a [Cluster](/platform/workflow/resource/cluster/) resource.
-```
-resources:
+* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-  - name: deploy_cluster    # resource friendly name
-    type: cluster
-    integration: svc_integration  
-    # replace with actual integration created in step 1          
-    pointer:
-      sourceName: "cluster_name"
-      # name of the actual cluster in the orchestration service to which we are deploying
-      region: "svc_region"
-      # region where cluster is located. This attribute is optional, depending on the orchestration service.
-```
+* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-- Add [Image](/platform/workflow/resource/image/) resources.
+##1. Define `app_image_1` and `app_image_2`.
 
-```
-  - name: deploy_image_1 #resource friendly name
-    type: image
-    integration: docker_registry_integration  #replace with integration created in step 2          
-    pointer:
-      sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
-      # This is an image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
-    seed:
-      versionName: "1.14.0"  # Image Tag.
+* Description: `app_image_1` and `app_image_2` represent the Docker images of your pipeline. In our example, we're using a NodeJs image and an nginx image, hosted on Docker hub.
+* Required: Yes.
+* Integrations needed: Docker Hub
+The list of supported Docker registries can be found [here](/platform/integration/overview/#supported-docker-registry-integrations).
 
-  - name: deploy_image_2          # resource friendly name
-    type: image
-    integration: docker_registry_integration  # replace with integration created in step 2          
-    pointer:
-      sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
-      # This is an image pointer, for example this would be gcr.io/sample-gke/basic-node-deploy-gke for GCR.
-    seed:
-      versionName: "1.12.0"  # Image Tag.
-```
+    **Steps**  
 
-- Add [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource for each image.
+    - Create an account integration using your Shippable account for your docker registry.
+    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-Several docker options are set by default that you might want to change.
+    - Set the friendly name of the integration as `app_docker_hub`. If you change the name,
+    please change it also in the yml below.
 
-- `memory` defaults to 400mb
-- `desiredCount` defaults to 1
-- `cpuShares` defaults to 0
+* Yml block
 
-These settings can all be customized by creating a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource. For example, you can change the memory allocated to 1024MB and expose port 80 by doing the following -
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: docker_options_image_1
-  type: dockerOptions
-  version:
-    memory: 1024
-    portMappings:
-      - 80:80
+  resources:
+    - name: app_image_1 # resource friendly name
+      type: image
+      integration: app_docker_hub           
+      pointer:
+        sourceName: devops/deploy_app_service_1 #this will change based on registry
+      seed:
+        versionName: "master.1"  #Specify the tag of your image.
 
-- name: docker_options_image_2
-  type: dockerOptions
-  version:
-    memory: 256
-    desiredCount: 2
+    - name: app_image_2 # resource friendly name
+      type: image
+      integration: app_docker_hub           
+      pointer:
+        sourceName: devops/deploy_app_service_2 #this will change based on registry
+      seed:
+        versionName: "master.1"  #Specify the tag of your image.
 ```
 
-##4. Define jobs
+##2. Define `app_options_1` and `app_options_2`.
 
-Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
+* Description: `app_options_1` and `app_options_2` represents the options of the application containers. Here we demonstrate setting container options such as setting the memory to 1024MB and exposing port 80 for the deploy_app_service_1 image and setting the memory to 2048MB and exposing port 8080 for the deploy_app_service_2 image. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
+* Required: No.
+* Defaults:
+If no options are specified, the platform sets the following default options -
+    - memory : 400mb
+    - desiredCount : 1
+    - cpuShares : 0
+    - All available CPU.
+    - no ENVs are added to the container.
+* Yml block:
 
-You need two jobs for this scenario:
-
-- Manifest
-
-```
-jobs:
-
-- name: deploy_manifest
-  type: manifest
-  steps:
-   - IN: deploy_image_1
-   - IN: deploy_image_2
-   - IN: docker_options_image_1
-     applyTo:
-       - docker_options_image_1
-   - IN: docker_options_image_2
-     applyTo:
-       - docker_options_image_2
-```
-
-- Deploy
-Now we specify the manifest as an input to a single `deploy` job. This job will deploy and start the containers on a single node of the orchestration service.
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-jobs:
+  - name: app_options_1
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
 
-  - name: deploy_job
-    type: deploy
+  - name: app_options_2
+    type: dockerOptions
+    version:
+      memory: 2048
+      portMappings:
+        - 8080:80
+```
+
+##3. Define `app_environment`.
+
+* Description: `app_environment` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
+* Required: No.
+* Yml block:
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+  - name: app_environment
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "prod"
+```
+
+##4. Define `app_service_def`.
+
+* Description: `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* Required: Yes.
+* Yml block:
+
+    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+```
+  jobs:
+
+  - name: app_service_def
+    type: manifest
     steps:
-      - IN: deploy_manifest
-      - IN: deploy_cluster
+     - IN: app_image_1
+     - IN: app_image_2
+     - IN: app_options_1
+     - IN: app_options_2
+     - IN: app_environment
 ```
 
-##5. Commit your assembly line resource files
-Once you have these jobs and resources yml files as described above, commit them to your repository. Follow these instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+##5. Define `app_replicas`.
 
-##6. Trigger your pipeline
-When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
+* Description: `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the containers you want to deploy. Here we demonstrate running two instances for each container. It is also possible to specify the number of instances to run for each container. We will cover that config later in the document.
+* Required: No.
+* Default: 1 (one instance of the container is deployed)
+* Yml block:
+
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+  - name: app_replicas
+    type: replicas
+    version:
+      count: 2
+```
+
+##6. Define `op_cluster`.
+
+* Description: `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. In our example, the cluster points to a cluster on Amazon ECS.
+* Required: Yes.
+* Integrations needed: AWS IAM Integration
+
+The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
+
+  **Steps**
+
+  - Create an account integration using your Shippable account for the orchestration platform. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+
+  - Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
+
+* Yml block:
+
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+  - name: op_cluster    # resource friendly name
+    type: cluster
+    integration: op_int            
+    pointer:
+      sourceName: "deploy-ecs-cluster" # name of the actual cluster in the orchestration service to which we are deploying
+      region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
+```
+
+##7. Define `app_deploy_job`.
+
+* Description: `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+* Required: Yes.
+* Yml block:
+
+    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+```
+  jobs:
+
+    - name: app_deploy_job
+      type: deploy
+      steps:
+        - IN: app_service_def
+        - IN: op_cluster
+        - IN: app_replicas
+```
+
+##8. Import the configuration into your Shippable account to create the assembly line for the application.
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+
+##9. Trigger your pipeline
+
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**.
 
 ## Sample project
-Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
 
-**Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
+Here are some links to a working sample of this scenario. This is a multi container Node.js application that runs some tests and then pushes the image to Amazon ECR as part of CI. It also contains all of the pipelines configuration files for deploying two images to Amazon ECS.
+
+**Source code:** [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
+
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
 

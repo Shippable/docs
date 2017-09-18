@@ -120,9 +120,10 @@ pages:
       - Tracing resources: deploy/trace-pipeline.md
     - CD to Orchestration Platforms:
       - Single Container Application: deploy/deploy-mvp-1.md
+      - Multi Container Application:  deploy/deploy-mvp-3.md
+
     - How To:
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
-      - Deploy a multi container application atomically to a single node of a container orchestration service:  deploy/deploy-mvp-3.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md
       - Scaling instances of single container application deployed to a container orchestration service: deploy/deploy-mvp-5.md
       - Deploying a single container application with static image tags to a container orchestration service: deploy/deploy-mvp-6.md
