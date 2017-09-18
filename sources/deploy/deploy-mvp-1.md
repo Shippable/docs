@@ -4,7 +4,7 @@ sub_section: CD to Orchestration Platforms
 
 # CD of a single container application to an orchestration platform.
 
-A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
+A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This document describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
 
 ## Assumptions
 
