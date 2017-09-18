@@ -1,134 +1,27 @@
-page_main_title: Deployment strategies for a single container application deployed to a container orchestration service.
+page_main_title: Using deployment strategies (Blue-green, Replace etc.)
 main_section: Deploy
 sub_section: How To
 
-# Deployment strategies for a single container application deployed to a container orchestration service.
+# Using deployment strategies (Blue-green, Replace etc.).
 
-There are many ways to deploy a single container application on Shippable.
+There are many ways to deploy an application on Shippable. This document explains the different strategies that are supported and how to use them.
 
-Using the [deploy job](/platform/workflow/job/deploy/), you can specify one of the strategies below:
+## Topics Covered
 
-- blueGreen (default), where we wait for the new service to reach steady state before deleting the old service
-- upgrade, where existing services are updated with changes
-- replace, for use with smaller clusters when you are okay with some downtime
-- parallel, for use to deploy multiple containers in parallel.
+* BlueGreen (default) strategy, where we wait for the new service to reach steady state before deleting the old service.
+* Upgrade strategy, where existing services are updated with changes
+* Replace strategy, for use with smaller clusters when you are okay with some downtime
+* Parallel strategy, for use to deploy multiple containers in parallel.
 
-##1. Building blocks
+## Assumptions
 
-**Resources**
+We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
 
-- [cluster](/platform/workflow/resource/cluster/) resource that represents a set of machines on a container orchestration system.
-- [image](/platform/workflow/resource/image/) resource that references a Docker image on a specific docker registry.
+### BlueGreen deployment strategy (default)
 
-**Jobs**
+* Description: This is the default behavior that the deploy job uses unless otherwise specified. Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic. Only after Shippable validates the health of the green service (newer version), it deletes the blue service (older version). If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
 
-- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
-- [deploy](/platform/workflow/job/deploy/) which deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
-
-##2. Create account integrations in Shippable UI
-You need to create two account integrations for this scenario:
-
-### Orchestration service account integration
-This integration configures the credentials needed to access the container orchestration service.
-
-The following container orchestration services are supported as endpoints:
-
-- [Azure Container Service](/platform/integration/azure-dcos)
-- [Azure DC/OS](/platform/integration/azure-dcos)
-- [Docker Cloud](/platform/integration/docker-cloud)
-- [Docker Datacenter](/platform/integration/docker-datacenter)
-- [Google Container Engine](/platform/integration/gke)
-- [Kubernetes](/platform/integration/kubernetes)
-
-Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Each integration is given a
-friendly name and this name will be used in one of the steps below.
-
-### Docker registry account integration
-This integration configures the credentials needed to access the public or private registry that contains the docker image of the application to be deployed.  
-
-The following registries are supported as endpoints:
-
-- [AWS ECR](/platform/integration/aws-ecr)
-- [Docker Hub](/platform/integration/docker-hub)
-- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-- [Docker Private Registry](/platform/integration/docker-private-registry)
-- [Quay](/platform/integration/quay)
-- [JFrog](/platform/integration/jfrog-artifactory)
-
-If the images are hosted on different accounts or different cloud registries, create an integration per account / registry.
-
-##3. Create resources
-Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/)file, that should be created at the root of your repository. Please find more information [here](/deploy/configuration/).
-
-- Add a [Cluster](/platform/workflow/resource/cluster/) resource.
-
-```
-resources:
-
-  - name: deploy_cluster    # resource friendly name
-    type: cluster
-    integration: svc_integration  # replace with actual integration created in          
-    pointer:
-      sourceName: "cluster_name" # name of the actual cluster in the orchestration service to which we are deploying
-      region: "svc_region" # region where cluster is located. This attribute is optional, depending on the orchestration service.
-```
-
-- Add an [Image](/platform/workflow/resource/image/) resource.
-
-```
-resources:
-
-  - name: deploy_image          # resource friendly name
-    type: image
-    integration: dr_integration  # replace with integration created in step 2          
-    pointer:
-      sourceName:  <specify the complete path of your docker image here hosted on a supported docker registry>
-      # This is an image pointer, for example this would be 679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic for ECR.
-    seed:
-      versionName: "1.12.0"  #Tag of this image.
-```
-
-###4. Define jobs
-Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
-
-You need two jobs for this scenario:
-
-- [Manifest](/platform/workflow/job/manifest/)
-
-```
-jobs:
-
-- name: deploy_manifest
-  type: manifest
-  steps:
-   - IN: deploy_image
-   - IN: docker_options_image
-```
-
-- [Deploy](/platform/workflow/job/deploy/)
-
-Now we can take that manifest, and use it as input to a `deploy` job.
-
-```
-jobs:
-
-  - name: deploy_job
-    type: deploy
-    steps:
-      - IN: deploy_manifest
-      - IN: deploy_cluster
-      - TASK: managed
-        deployMethod: blueGreen | upgrade | replace
-```
-
-A description of various strategies is given below.
-
-####a. deployMethod: blueGreen (default)
-This is the default behavior that the deploy job uses unless otherwise specified. Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic. Only after Shippable validates the health of the green service (newer version), it deletes the blue service (older version). If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
-
-The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host.  
-
-For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/amazon-ecs-elb-alb).
+The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host. For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/amazon-ecs-elb-alb).
 
 ***On ECS, we accomplish this with the following workflow:***
 
@@ -151,10 +44,16 @@ For ECS, Shippable recommends the use of application load balancers, which you c
 - wait for the deployment to report a successful rollout
 - delete the old deployment
 
-The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  The only catch is that you'll need to have enough capacity on your cluster to run two full copies of what you're deploying.  
+The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  The only catch is that you'll need to have enough capacity on your cluster to run two full copies of what you're deploying.
 
-####b. deployMethod: upgrade
-On the very first deployment, a new service will be created, but every subsequent deployment will just update the existing service with the modified task definition. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+* Job: [deploy](/platform/workflow/job/manifest) job.
+* Yml block:
+
+The yml block does not need to be updated since this is the default deployment strategy.
+
+### Upgrade deployment strategy
+
+* Description: In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
 
 ***On ECS, we accomplish this with the following workflow:***
 
@@ -178,22 +77,57 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 - wait for deployment rollout to complete
 - The first time the job runs, a new deployment object will be created, but every subsequent deployment will just update the existing object with the modified pod template.
 
-####c. deployMethod: replace
-There are times when you might be working with a limited test environment where you don't care if there are a few minutes of downtime during deployments, and you'd prefer to keep the cluster small and cost-effective.  If this describes your environment, then it's possible that even the `upgrade` method can have trouble placing your tasks due to limited resources.  In this case, Shippable provides the `replace` method.  This will essentially delete your existing running tasks before updating your service.
+* Job: [deploy](/platform/workflow/job/manifest) job.
+* Yml block:
 
-####d. Deploying manifests in parallel
+```
+  jobs:
+
+    - name: app_deploy_job
+      type: deploy
+      steps:
+        - IN: app_service_def
+        - IN: op_cluster
+        - IN: app_replicas
+        - TASK: managed
+        deployMethod: upgrade
+```
+
+### Replace deployment strategy
+
+* Description: There are times when you might be working with a limited test environment where you don't care if there are a few minutes of downtime during deployments, and you'd prefer to keep the cluster small and cost-effective.  If this describes your environment, then it's possible that even the `upgrade` method can have trouble placing your tasks due to limited resources.  In this case, Shippable provides the `replace` method.  This will essentially delete your existing running tasks before updating your service.
+
+* Job: [deploy](/platform/workflow/job/manifest) job.
+* Yml block:
+
+```
+  jobs:
+
+    - name: app_deploy_job
+      type: deploy
+      steps:
+        - IN: app_service_def
+        - IN: op_cluster
+        - IN: app_replicas
+        - TASK: managed
+        deployMethod: replace
+```
+
+### Deploying manifests in parallel
 If you are deploying multiple manifests with the same **deploy** job, you might notice that deployments can take a long time to reach steady state. This is because manifests are deployed serially by default.
 
 You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
 
-You can set the deployOptions tag to enable this:
+* Job: [deploy](/platform/workflow/job/manifest) job.
+* Yml block:
 
 ```
-- name: deploy-ecs-basic-deploy
+- name: app_deploy_job
   type: deploy
   steps:
-    - IN: deploy-ecs-basic-manifest
-    - IN: deploy-ecs-basic-ecs-cluster
+    - IN: app_service_1_def
+    - IN: app_service_2_def
+    - IN: app_service_3_def
     - TASK: managed
       deployMethod: upgrade
       deployOptions:
@@ -201,12 +135,6 @@ You can set the deployOptions tag to enable this:
 ```
 
 Depending on how many manifests you're deploying, you should notice a significant difference in deployment times by using this option, however this can make the resulting logs a bit more difficult to sift through, since each manifest will be writing results at the same time.
-
-###5. Add your pipeline
-Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
-
-###6. Trigger your pipeline
-When you're ready for deployment, right-click on the manifest job, and select **Run Job**.
 
 ### Sample project
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
