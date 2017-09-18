@@ -124,7 +124,6 @@ pages:
       - Deleting Container Applications: deploy/deploy-mvp-7.md
       - Sending notifications upon deployments: deploy/deploy-mvp-9.md
       - Specifying the version to deploy: deploy/deploy-mvp-12.md
-
     - How To:
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md
