@@ -1,27 +1,41 @@
-page_main_title: Removing a single container application deployed to a container orchestration service.
+page_main_title: Deleting container applications from orchestration platforms.
 main_section: Deploy
 sub_section: How To
 
-# Removing a single container application deployed to a container orchestration service.
+# Deleting container applications from orchestration platforms.
 
-This page will describe how you can use the [Shippable assembly lines platform](/platform/overview/) to remove a single container application that was previously deployed to a container orchestration service like Amazon ECS, GKE or Docker Cloud
-using Shippable.
+You might have deployed an application to an orchestration platform like Amazon ECS, Kubernetes, GKE or Azure using Shippable assembly lines. If the application is decommissioned or if you do not need it in any particular environment, this document will describe the steps to delete the application. These steps will stop and remove the container from the cluster.
 
-##1. Building blocks
+## Assumptions
 
-**Jobs**
-Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be present at the root of your repository.
+We assume that the application is already deployed to a cluster in an orchestration platform. We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as an example.
 
-- [deploy](/platform/workflow/job/deploy/) job deploys a [manifest](/platform/workflow/job/manifest/) to a cluster.
+## Step by Step instructions
 
-##2. Comment out the deploy job and commit shippable.jobs.yml.
-After committing, the [rSync](platform/workflow/job/rsync/#rsync) job will run and remove the application deployed to your container orchestration service.
+##1. Comment out the deploy job and commit shippable.jobs.yml.
 
-##3. Hard delete the job from the UI.
+```
+  jobs:
+
+#    - name: app_deploy_job
+#      type: deploy
+#      steps:
+#        - IN: app_service_def
+#        - IN: op_cluster
+#        - IN: app_replicas
+```
+
+After committing, the [rSync](platform/workflow/job/rsync/#rsync) job will run and remove the application deployed to your orchestration platform.
+
+##2. Hard delete the job from the UI.
 
 - Go to your subscription dashboard, click on the eye icon, click on `Show Deleted Objects`.
 - Find your job in the `DELETED OBJECTS` grid at the bottom of the screen.
 - Click on the `Delete` button.
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
 
