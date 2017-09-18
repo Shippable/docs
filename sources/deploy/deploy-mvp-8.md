@@ -2,7 +2,7 @@ page_main_title: Using deployment strategies (Blue-green, Replace etc.)
 main_section: Deploy
 sub_section: How To
 
-# Using deployment strategies (Blue-green, Replace etc.).
+# Using deployment strategies (Blue-green, Replace etc.)
 
 There are many ways to deploy an application on Shippable. This document explains the different strategies that are supported and how to use them.
 
@@ -113,8 +113,9 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
         deployMethod: replace
 ```
 
-### Deploying manifests in parallel
-If you are deploying multiple manifests with the same **deploy** job, you might notice that deployments can take a long time to reach steady state. This is because manifests are deployed serially by default.
+### Parallel strategy
+
+A multiple container application can be comprised of multiple manifest jobs, with each manifest job defining a component of the application. When multiple manifests are deployed with the same **deploy** job, deployments can take a long time to complete. This is because manifests are deployed serially by default.
 
 You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
 
