@@ -1,41 +1,49 @@
-page_main_title: Pinning specific versions of images to deploy to a container orchestration service.
+page_main_title: Specifying the version to deploy.
 main_section: Deploy
 sub_section: How To
 
-# Pinning specific versions of images to deploy to a container orchestration service.
+# Specifying the version to deploy.
 
-By default, Shippable deploys the most recent or latest version of the image. However, you might want to 'pin' a specific version of an image for some reason. Image versions are pinned by specifying the specific image tag. In addition, image versions can be pinned either though the yml configuration or in the UI.
+By default, Shippable platform deploys the most recent or latest version of the image. However, you might want to deploy a specific image version/tag to some environment. This document describes two ways you can pin the version of the image.
 
-We will use the single container application deployment usecase defined [here](/deploy/deploy-mvp-1) and demonstrate image pinning.
+## Assumptions
 
-##1. Building blocks
+We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point and demonstrate how to configure it to deploy specific versions of the image.
 
-**Jobs**
+## Topics Covered
 
-- [manifest](/platform/workflow/job/manifest/) which creates a versioned, immutable service definition of a deployable unit for your application.
+* Specifying the version of the image to deploy in Shippable configuration files.
+* Specifying the version of the image to deploy using Shippable UI.
 
-##2. Pinning resource versions in shippable.jobs.yml.
-You can pin a specific image tag, for example `1.12.0` with the yml below:
+## Step by Step instructions
+
+### Pinning resource versions in shippable.jobs.yml.
+
+* Locate and update `app_service_def`, the [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application .
+* A `versionName` attribute is specified for the image resource to set the specific version of the image to be deployed.
+* Yml block:
+
 
 ```
 jobs:
 
-- name: deploy_manifest
+- name: app_service_def
   type: manifest
   steps:
-   - IN: deploy_image
-    versionName: "1.12.0"
-   - IN: docker_options_image
+   - IN: app_image
+     versionName: "master.12"
+   - IN: app_options
+   - IN: app_environment
+jobs:
 ```
 
-##3. Pinning resource versions using the UI.
+### Pinning resource versions using the Shippable UI.
 
 * Identify the `versionName` of the image you want to pin the deployment to. To do this, go to the SPOG page and click on the deploy job. Find the correct previous deploy version in the versions listed above the console logs.  Then click on "trace" to see which image version was in that deploy.  Write down the `versionName` for the image resource.
 
  <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-* Right click on the `deploy` job in the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view and click `Configure Job`.
-Find and set the desired `versionName` for the image resource.
+* Right click on the `deploy` job in the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view and click `Configure Job`. Find and set the desired `versionName` for the image resource.
 
 Alternatively, you can navigate to the configuration page for the `deploy` job. From the "trace" view, click the job name in the breadcrumb at the top of the page, and then the "configure job" wrench in the top right. Find and set the desired `versionName` for the image resource.
 
@@ -44,4 +52,5 @@ Alternatively, you can navigate to the configuration page for the `deploy` job. 
 Please remember that all future runs of the deploy job will deploy the same version since it is now pinned. When you decide to deploy the latest release, you can go back to the deploy job configuration page and unpin the release input so that all future runs deploy the latest release available.
 
 ## Improve this page
+
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
