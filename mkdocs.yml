@@ -122,13 +122,14 @@ pages:
       - Single Container Application: deploy/deploy-mvp-1.md
       - Multi Container Application:  deploy/deploy-mvp-3.md
       - Deleting Container Applications: deploy/deploy-mvp-7.md
+      - Sending notifications upon deployments: deploy/deploy-mvp-9.md
+
     - How To:
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md
       - Scaling instances of single container application deployed to a container orchestration service: deploy/deploy-mvp-5.md
       - Deploying a single container application with static image tags to a container orchestration service: deploy/deploy-mvp-6.md
       - Deployment strategies for a single container application deployed to a container orchestration service: deploy/deploy-mvp-8.md
-      - Sending notifications after deploying an application to a container orchestration service.: deploy/deploy-mvp-9.md
       - Pausing/Resuming the continuous deployment of an application deployed to a container orchestration service: deploy/deploy-mvp-10.md
       - Manually triggering the deployment of a single container application application deployed to a container: deploy/deploy-mvp-11.md
       - Pinning specific versions of images to deploy to a container orchestration service: deploy/deploy-mvp-12.md
