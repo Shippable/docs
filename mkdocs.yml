@@ -126,6 +126,7 @@ pages:
       - Specifying the version to deploy: deploy/deploy-mvp-12.md
       - Gated CD: deploy/deploy-mvp-11.md
       - Using deployment strategies (Blue-green, Replace etc.): deploy/deploy-mvp-8.md
+      - Multi-stage CD through Dev/Test/Prod: deploy/deploy-mvp-14.md
     - How To:
       - Deploy a multi container application in parallel to a container orchestration service:  deploy/deploy-mvp-2.md
       - Deploy a multi container application atomically to multiple nodes of a container orchestration service:  deploy/deploy-mvp-4.md

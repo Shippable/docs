@@ -46,7 +46,7 @@ The only catch is that you'll need to have enough capacity on your cluster to ru
 
 The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  The only catch is that you'll need to have enough capacity on your cluster to run two full copies of what you're deploying.
 
-* Job: [deploy](/platform/workflow/job/manifest) job.
+* Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
 The yml block does not need to be updated since this is the default deployment strategy.
@@ -77,7 +77,7 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 - wait for deployment rollout to complete
 - The first time the job runs, a new deployment object will be created, but every subsequent deployment will just update the existing object with the modified pod template.
 
-* Job: [deploy](/platform/workflow/job/manifest) job.
+* Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
 ```
@@ -97,7 +97,7 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 
 * Description: There are times when you might be working with a limited test environment where you don't care if there are a few minutes of downtime during deployments, and you'd prefer to keep the cluster small and cost-effective.  If this describes your environment, then it's possible that even the `upgrade` method can have trouble placing your tasks due to limited resources.  In this case, Shippable provides the `replace` method.  This will essentially delete your existing running tasks before updating your service.
 
-* Job: [deploy](/platform/workflow/job/manifest) job.
+* Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
 ```
@@ -119,7 +119,7 @@ A multiple container application can be comprised of multiple manifest jobs, wit
 
 You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
 
-* Job: [deploy](/platform/workflow/job/manifest) job.
+* Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
 ```
@@ -136,6 +136,30 @@ You can greatly speed up deployments for multiple manifests by using a `parallel
 ```
 
 Depending on how many manifests you're deploying, you should notice a significant difference in deployment times by using this option, however this can make the resulting logs a bit more difficult to sift through, since each manifest will be writing results at the same time.
+
+
+### Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service.
+
+* Description: You might want to validate that your containers are up and running for a certain period of time after deployment before declaring the deployment a success. Typical usecases are that after deployment, you might want to run some acceptance tests. If any of these tests crash one or more of your containers, the deployment should be marked a failure and the application rolled back to the previous (blue) state.
+* Job: [deploy](/platform/workflow/job/deploy) job.
+* Yml block:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    stabilityDuration: 300
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+```
+
+`stabilityDuration` is the amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful. Stable means that the desired number of replicas matches the number that are actually running in the cluster for the timeframe specified. By default, the #replicas is 1.
+
+In this example, we want the actual number of replicas to run continuously for 300 seconds. The deploy job waits for a maximum duration of 15 minutes for this condition to be satisfied. For example, if the one of the containers go down after 3 minutes, the deploy job will wait for the crashed container to restart and once it starts running, it will reset the timer to zero. At this point, all the containers have to again run continuously for 300 seconds.
+
 
 ### Sample project
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
