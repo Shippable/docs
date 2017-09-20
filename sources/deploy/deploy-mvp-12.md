@@ -19,7 +19,7 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ### Pinning resource versions in shippable.jobs.yml.
 
-* Locate and update `app_service_def`, the [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application .
+* Update `app_service_def`, the [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application .
 * A `versionName` attribute is specified for the image resource to set the specific version of the image to be deployed.
 * Yml block:
 
