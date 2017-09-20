@@ -54,28 +54,22 @@ They are two configuration files that are needed to achieve this usecase -
 
 ##1. Define `app_image`.
 
-* Description: `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker hub.
-* Required: Yes.
-* Integrations needed: Docker Hub
-The list of supported Docker registries can be found [here](/platform/integration/overview/#supported-docker-registry-integrations).
+* **Description:** `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker hub.
+* **Required:** Yes.
+* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
-    **Steps**  
+**Steps**  
 
-    - Create an account integration using your Shippable account for your docker registry.
-    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an account integration using your Shippable account for your docker registry.
+    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-    - Set the friendly name of the integration as `app_docker_hub`. If you change the name,
-    please change it also in the yml below.
-
-* Yml block
-
-    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+1. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   resources:
     - name: app_image # resource friendly name
       type: image
-      integration: app_docker_hub           
+      integration: app_docker_hub # friendly name of your integration          
       pointer:
         sourceName: devops/deploy_node_app #this will change based on registry
       seed:
@@ -205,7 +199,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 ##8. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ##9. Trigger your pipeline
 
