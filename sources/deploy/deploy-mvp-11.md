@@ -3,6 +3,7 @@ main_section: Deploy
 sub_section: How To
 
 # Gated CD
+
 You might have a need to manually trigger the deployment of your application to certain sensitive environments such as pre-prod and prod. In addition, there are times when you might want to pause / resume continuous deployment of your application. This document goes over the specific steps to setup this manual, UI based triggering of your deployment.
 
 ## Assumptions
@@ -57,4 +58,5 @@ should look like:
 Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
+
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
