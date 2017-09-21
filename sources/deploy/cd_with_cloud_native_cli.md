@@ -135,7 +135,7 @@ ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get
 
 ###5. Define `app_cli_job`.
 
-* **Description:** `app_cli_job` is a [runSH](/platform/workflow/job/runsh/) job that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
+* **Description:** `app_cli_job` is a [runSH](/platform/workflow/job/runsh/) job that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. Note that we have set `switch: off` for `app_gitRepo` since we do not want to trigger the runSH job every time a commit occurs on the repo. We want the runSH job to trigger only after the container image has been built.s
 
 * **Required:** Yes.
 
@@ -148,10 +148,10 @@ jobs:
   - name: app_cli_job
     type: runSH
     steps:
-      - IN: app_cliConfig
       - IN: app_image
       - IN: app_gitRepo
         switch: off
+      - IN: app_cliConfig
       - TASK:
         - script: shippable_replace ${APP_GITREPO_STATE}/taskdef.json
         - script: aws ecs register-task-definition --cli_input-json file://${APP_GITREPO_STATE}/taskdef.json > output.json

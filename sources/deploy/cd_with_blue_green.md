@@ -132,9 +132,9 @@ Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platfor
 - name: app_deploy_job
   type: deploy
   steps:
-    - IN: app_service_1_def
-    - IN: app_service_2_def
-    - IN: app_service_3_def
+    - IN: app_service_a_def # manifest for service A of an app
+    - IN: app_service_b_def # manifest for service B of an app
+    - IN: app_service_c_def # manifest for service C of an app
     - TASK: managed
       deployMethod: upgrade
       deployOptions:
