@@ -1,7 +1,6 @@
 page_main_title: Using Cloud native CLI to deploy.
-
 main_section: Deploy
-sub_section: Amazon ECS
+sub_section: CD to Orchestration Platforms
 
 # Using Cloud native CLI to deploy
 

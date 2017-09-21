@@ -1,6 +1,6 @@
 page_main_title: Deploying a multi container application atomically to a single node of a container orchestration service.
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # CD of a multiple container application to a container orchestration platform.
 
@@ -25,7 +25,7 @@ CD of your application is defined in Shippable configuration files in a powerful
 
 This is a pictorial representation of the continuous deployment process. The green boxes are tasks and the grey boxes are the input resources for the tasks. Both tasks and inputs are specified in Shippable configuration files.
 
-<img src="/images/deploy/usecases/deploy_mvp_2.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<TODO: Add diagram>
 
 These are the key components of the assembly line diagram -
 

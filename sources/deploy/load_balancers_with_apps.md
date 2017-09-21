@@ -1,6 +1,6 @@
 page_main_title: Using load balancers in your apps.
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Using load balancers in your apps.
 

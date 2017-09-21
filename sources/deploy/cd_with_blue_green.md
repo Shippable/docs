@@ -1,6 +1,6 @@
 page_main_title: Using deployment strategies (Blue-green, Replace etc.)
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Using deployment strategies (Blue-green, Replace etc.)
 

@@ -1,6 +1,6 @@
 page_main_title: Deleting container applications from orchestration platforms.
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Deleting container applications from orchestration platforms.
 

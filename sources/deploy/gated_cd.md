@@ -1,6 +1,6 @@
 page_main_title: Gated CD
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Gated CD
 

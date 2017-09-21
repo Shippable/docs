@@ -1,6 +1,6 @@
 page_main_title: Multi-stage CD through Dev/Test/Prod.
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Multi-stage CD through Dev/Test/Prod
 

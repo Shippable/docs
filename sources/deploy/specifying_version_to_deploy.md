@@ -1,6 +1,6 @@
 page_main_title: Specifying the version to deploy.
 main_section: Deploy
-sub_section: How To
+sub_section: CD to Orchestration Platforms
 
 # Specifying the version to deploy.
 
