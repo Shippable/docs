@@ -80,6 +80,8 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 * Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
+Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
 ```
   jobs:
 
@@ -99,6 +101,8 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 
 * Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
+
+Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   jobs:
@@ -122,6 +126,8 @@ You can greatly speed up deployments for multiple manifests by using a `parallel
 * Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
 
+Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
 ```
 - name: app_deploy_job
   type: deploy
@@ -143,6 +149,8 @@ Depending on how many manifests you're deploying, you should notice a significan
 * Description: You might want to validate that your containers are up and running for a certain period of time after deployment before declaring the deployment a success. Typical usecases are that after deployment, you might want to run some acceptance tests. If any of these tests crash one or more of your containers, the deployment should be marked a failure and the application rolled back to the previous (blue) state.
 * Job: [deploy](/platform/workflow/job/deploy) job.
 * Yml block:
+
+Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 jobs:
