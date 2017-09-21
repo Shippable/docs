@@ -176,18 +176,18 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
      - IN: app_image
      - IN: app_dev_options
      - IN: app_dev_environment
-  - name: app_dev_service_def
+  - name: app_test_service_def
     type: manifest
     steps:
       - IN: app_image
-      - IN: app_dev_options
-      - IN: app_dev_environment
-  - name: app_dev_service_def
+      - IN: app_test_options
+      - IN: app_test_environment
+  - name: app_prod_service_def
     type: manifest
     steps:
      - IN: app_image
-     - IN: app_dev_options
-     - IN: app_dev_environment
+     - IN: app_prod_options
+     - IN: app_prod_environment
 ```
 
 ##5. Define `app_replicas`.
@@ -231,12 +231,14 @@ The list of supported container orchestration platforms can be found [here](/pla
     pointer:
       sourceName: "deploy-ecs-dev-cluster" # name of the actual cluster in the orchestration service to which we are deploying
       region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
+
   - name: op_test_cluster    # resource friendly name
     type: cluster
     integration: op_int            
     pointer:
       sourceName: "deploy-ecs-test-cluster" # name of the actual cluster in the orchestration service to which we are deploying
       region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
+
   - name: op_prod_cluster    # resource friendly name
     type: cluster
     integration: op_int            
@@ -247,7 +249,12 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 ##7. Define `app_dev_deploy_job`, `app_test_deploy_job` and `app_prod_deploy_job`.
 
-* Description: `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+* Description: `app_dev_deploy_job`, `app_test_deploy_job` and `app_prod_deploy_job` are [deploy](/platform/workflow/job/manifest) jobs that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+
+Notice how we specify the `app_dev_deploy_job` as an input to the `app_test_deploy_job`. This essentially sets up staged deployment in the sense that once `app_dev_deploy_job` completes, it triggers `app_test_deploy_job`, which is the next job in the devops assembly line downstream.
+
+We also set `switch: off` for app_test_service_def so that the both the dev and test deploy jobs do not start simulatenously when the service defintions get built once the image is built by CI.
+
 * Required: Yes.
 * Yml block:
 
@@ -262,17 +269,23 @@ The list of supported container orchestration platforms can be found [here](/pla
       - IN: app_dev_service_def
       - IN: op_dev_cluster
       - IN: app_replicas
+
   - name: app_test_deploy_job
     type: deploy
     steps:
       - IN: app_test_service_def
+        switch: off
       - IN: op_test_cluster
+      - IN: app_dev_deploy_job
       - IN: app_replicas
+
   - name: app_prod_deploy_job
     type: deploy
     steps:
       - IN: app_prod_service_def
+        switch: off
       - IN: op_prod_cluster
+      - IN: app_test_deploy_job
       - IN: app_replicas
 ```
 
