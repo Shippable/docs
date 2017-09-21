@@ -7,7 +7,6 @@ sub_section: Amazon ECS
 
 The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through examples of using native CLI's like the AWS CLI and Kubectl to perform deployments to ECS and Kubernetes clusters respectively.
 
-
 ## Topics Covered
 
 * Deploying a single container application to an ECS cluster using AWS CLI.
