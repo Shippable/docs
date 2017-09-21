@@ -168,3 +168,18 @@ The snippet above does the following:
 - Register a new task definition on Amazon ECS based on our json file using the AWS CLI.
 - Captures the revision number from the output, store it in the ENV, and echo it to the console.
 - Updates the service using the `--task-definition family:revision` syntax.
+
+##6. Import the configuration into your Shippable account to create the assembly line for the application.
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+
+##7. Trigger your pipeline
+
+When you're ready for deployment, right-click on the `app_cli_job` job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**.
+
+## Sample project
+
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runCLI job.
+
+**Source code:**  [devops-recipes/deploy-ecs-unmanaged](https://github.com/devops-recipes/deploy-ecs-unmanaged)
