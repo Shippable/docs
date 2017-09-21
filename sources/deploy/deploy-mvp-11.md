@@ -18,9 +18,9 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 ### Using Shippable configuration to setup manual triggering of your deployment
 
 * Modify `app_deploy_job` defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
-* Specify `switch: off` for the `app_service_def` input. This essentially prevents a new version of `app_service_def`, that is built every time a new version of the image resource is created from triggering deployment.
+* Specify `switch: off` for the `app_service_def` input. This essentially prevents a new version of `app_service_def`, that is built every time a new version of the image resource is created, from triggering an automated deployment.
 * Commit the file.
-* Once manual triggering of the application is setup, you will have to manually run the job using the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
+* Once manual triggering of the application is setup, you will have to manually run the job using the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon, clicking on `Show SPOG View`, right clicking on the `app_deploy_job` job and clicking `Build Job`.
 * Yml block:
 
 ```
