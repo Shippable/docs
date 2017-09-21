@@ -19,7 +19,7 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ## DevOps Assembly Line
 
-We add one resource to the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) assembly line.
+We add one resource to theSingle container application [assembly line](/deploy/deploy-mvp-1/#devops-assembly-line).
 
 * `app_notification` is a [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
 
@@ -59,7 +59,7 @@ resources:
         - "@botnot"
 ```
 
-###2. Add the notification resource to one of the following sections of the deploy job.
+###2. Add the notification resource to one of the following sections of [app_deploy_job](/deploy/deploy-mvp-1/#7-define-app_deploy_job).
 
 * `on_start` specifies that notifications are sent when the job starts.
 * `on_success` specifies that notifications are sent when the job completes successfully.
@@ -70,7 +70,7 @@ resources:
 ```
 jobs:
 
-  - name: deploy_job
+  - name: app_deploy_job
     type: deploy
     on_start:
       - NOTIFY: deploy_notification
