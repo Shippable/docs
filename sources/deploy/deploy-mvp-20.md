@@ -11,7 +11,6 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 ## Topics Covered
 
 * Deploying a single container application to an ECS cluster using AWS CLI.
-* Deploying a single container application to a Kubernetes cluster using kubectl.
 
 ## Configuration
 
@@ -21,7 +20,7 @@ They are two configuration files that are needed to achieve this usecase -
 
 * Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-## Common Steps
+## Steps
 
 ###1. Define `app_image`.
 
@@ -80,9 +79,7 @@ resources:
       branch: master # branch of repository
 ```
 
-## Step by Step instructions for deploying a single container application to an ECS cluster using AWS CLI
-
-##1. Define `app_cliConfig`.
+###3. Define `app_cliConfig`.
 
 * **Description:** `app_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/#cliconfig) resource used to store configuration information needed to setup a CLI for your orchestration platform.
 * **Required:** Yes.
@@ -90,7 +87,7 @@ resources:
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for AWS or Kubernetes, depending on where you want your application deployed. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an account integration using your Shippable account for AWS. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
 Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below .
 
@@ -105,7 +102,7 @@ resources:
       region: us-east-1                 # region where you want to deploy
 ```
 
-###2. Create an ECS task Definition.
+###4. Create an ECS task Definition.
 
 Create a file called `taskdef.json` in your repository that contains an ECS task definition. For example, your task definition could look like this:
 
@@ -138,7 +135,7 @@ Create a file called `taskdef.json` in your repository that contains an ECS task
 
 ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get populated later on by their actual values.
 
-###3. Define `app_cli_job`.
+###5. Define `app_cli_job`.
 
 * **Description:** `app_cli_job` is a [runSH](/platform/workflow/job/runsh/) job that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
 
