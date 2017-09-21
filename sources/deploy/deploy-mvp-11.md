@@ -17,15 +17,16 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ### Using Shippable configuration to setup manual triggering of your deployment
 
-* Modify `app_deploy_job` defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
-* Specify `switch: off` for the `app_service_def` input. This essentially prevents a new version of `app_service_def`, that is built every time a new version of the image resource is created, from triggering an automated deployment.
-* Commit the file.
-* Once manual triggering of the application is setup, you will have to manually run the job using the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon, clicking on `Show SPOG View`, right clicking on the `app_deploy_job` job and clicking `Build Job`.
-* Yml block:
+**Steps**
+
+1. Modify `app_deploy_job` defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+2. Specify `switch: off` for the `app_service_def` input. This essentially prevents a new version of `app_service_def`, that is built every time a new version of the image resource is created, from triggering an automated deployment.
+3. Commit the file.
+4. Once manual triggering of the application is setup, you will have to manually run the job using the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon, clicking on `Show SPOG View`, right clicking on the `app_deploy_job` job and clicking `Build Job`.
+5. The `app_deploy_job` yml block in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file
+should look like:
 
 ```
-  jobs:
-
     - name: app_deploy_job
       type: deploy
       steps:
@@ -37,15 +38,19 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ### Pausing CD of your application using UI
 
-* Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
-* Right click on `app_deploy_job`.
-* Click on `Pause Job`.
+**Steps**
+
+1. Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
+2. Right click on `app_deploy_job`.
+3. Click on `Pause Job`.
 
 ### Resuming CD of your application using UI
 
-* Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
-* Right click on `app_deploy_job`.
-* Click on `Build Job`.
+**Steps**
+
+1. Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
+2. Right click on `app_deploy_job`.
+3. Click on `Build Job`.
 
 ## Ask questions on Chat
 
