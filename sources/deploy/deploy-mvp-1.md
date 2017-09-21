@@ -63,7 +63,7 @@ They are two configuration files that are needed to achieve this usecase -
 1. Create an account integration using your Shippable account for your docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-1. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   resources:
