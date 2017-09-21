@@ -128,7 +128,7 @@ pages:
       - Using deployment strategies (Blue-green, Replace etc.): deploy/deploy-mvp-8.md
       - Multi-stage CD through Dev/Test/Prod: deploy/deploy-mvp-14.md
       - Using load balancers in your apps: deploy/deploy-mvp-18.md
-      - Using Cloud native CLI to deploy: deploy/deploy/deploy-mvp-20.md
+      - Using Cloud native CLI to deploy: deploy/deploy-mvp-20.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
