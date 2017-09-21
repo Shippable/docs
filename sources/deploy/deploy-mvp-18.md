@@ -195,7 +195,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
 - Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: myLabels
+- name: app_labels
   type: dockerOptions
   version:
     labels:
@@ -203,15 +203,49 @@ If you have another set of labels that you'd like to use instead, you can use a 
       environment: "test"
 ```
 
-- Update the selector in `app_lb` above.
+- Specify `app_labels` as an additional input to [app_service_def](/deploy/deploy-mvp-1/#4-define-app_service_def).
 
-### Define `app_provision`.
+```
+  jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_options
+     - IN: app_environment
+     - IN: app_labels
+```
+
+- Update the selector in the `app_lb` load balancer resource.
+
+```
+- name: app_lb
+  type: loadBalancer
+  integration: op_int
+  pointer:
+    sourceName: desired-name-of-service-on-cluster
+    method: LoadBalancer
+    namespace: shippable
+  version:
+    ports:
+      - name: testPort
+        protocol: TCP
+        port: 80
+    selector:
+      name: "api"
+      environment: "test"
+```
+
+###2. Define `app_provision`.
 
 * Description: app_provision is a [Provision](/platform/workflow/job/provision/) job used to create ancillary objects like load balancers on Container Orchestration Platforms like GKE and Kubernetes.
 
 * Required: Yes.
 
 * Yml block:
+
+    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 - name: app_provision
