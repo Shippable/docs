@@ -19,17 +19,14 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ## DevOps Assembly Line
 
-**Resources (grey boxes)**
+We add one resource to the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) assembly line.
 
-We add a single resource to the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms)  -
-
-- `app_notification` is a [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
-
+* `app_notification` is a [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
 
 ## Step by Step instructions
 
-###1.  Define `app_notification`.
-* Description: `app_notification` represents the notification provider that sends notifications about the state of your deployment. In our example, we're using Slack.
+###1.  Add `app_notification`.
+* Description: `app_notification` represents the notification provider that sends notifications about the state of your deployment. In our example, we're using Slack and specifying the channel and the users who will receive the automated notifications.
 * Required: Yes.
 * Integrations needed: Slack
 
@@ -48,6 +45,8 @@ The following messaging service providers are supported :
     please change it also in the yml below.
 
 * Yml block
+
+    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
