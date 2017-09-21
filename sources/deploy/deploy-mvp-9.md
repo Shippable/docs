@@ -21,7 +21,7 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 **Resources (grey boxes)**
 
-We add the following resource to the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms)  -
+We add a single resource to the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms)  -
 
 - `app_notification` is a [notification](/platform/workflow/resource/cluster/) resource that is used to connect the DevOps Assembly Line to notification provider of your choice.
 
