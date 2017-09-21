@@ -15,8 +15,6 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 * Pausing CD of your application using UI.
 * Resuming CD of your application using UI.
 
-## Step by Step instructions
-
 ### Using Shippable configuration to setup manual triggering of your deployment
 
 * Modify `app_deploy_job` defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
