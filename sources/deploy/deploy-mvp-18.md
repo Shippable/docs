@@ -237,7 +237,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
       environment: "test"
 ```
 
-###2. Define `app_provision`.
+###2. Add the `app_provision` job to create the load balancer on GKE.
 
 * Description: app_provision is a [Provision](/platform/workflow/job/provision/) job used to create ancillary objects like load balancers on Container Orchestration Platforms like GKE and Kubernetes.
 
