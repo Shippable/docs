@@ -257,16 +257,19 @@ authorization provider.
 
 <img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
-###5. Configure Services
+##5. Enabling caching
+To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/tutorial/runtime/caching/#caching).
+
+###6. Configure Services
 * Click on `Services`.
 * Configure the #replicas (or use the default values) and click `Save`.
 
-###6. Configure add-ons
+###7. Configure add-ons
 * Click on `Add-ons`
 * Select the account integrations (you can always enable / disable) add-ons later.
 * Click `Install Add-ons`
 
-###7. Login to Shippable Server and setup Super user account.
+###8. Login to Shippable Server and setup Super user account.
 * Login to Shippable server with your admin account for the SCM provider.You should see your team/organizations/repositories sync. To find the Login URL, click on `Configure and Install`. The URL is in the `Shippable UI` section.
 
 <img src="/images/platform/admiral/Admiral-login.png" alt="Admiral-github">
@@ -281,7 +284,7 @@ authorization provider.
 
 <img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
-###8. Setup System or BYON node.
+###9. Setup System or BYON node.
 * After step 7, login to Shippable Server as super user account.
 * If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
 setup the system or custom nodes to run your builds as well as runSh, and runCLI jobs.
