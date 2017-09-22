@@ -17,7 +17,7 @@ However, [Shippable Server](http://docs.shippable.com/platform/tutorial/server/i
 runCLI jobs combine the unlimited flexibility of runSh jobs with the added
 convenience of automatically configured environments and tools. In addition to
 running custom scripts as described in runSh, you can also add
-[cliConfig](resource-cliconfig.md) resources as inputs to this job. The relevant
+[cliConfig](/platform/workflow/resource/cliconfig) resources as inputs to this job. The relevant
 CLI tools will be preconfigured for your scripts to use. runCLI jobs also give
 you access to the `shippable_replace` tool to help with replacing placeholders
 in files with values from the environment.
@@ -36,15 +36,15 @@ jobs:
 
 The snippet above shows a basic example with required tags for configuring a runCLI job.
 
-- [name](job-runcli.md#name): The name of your job. Set it to something that
+- [name](runcli.md#name): The name of your job. Set it to something that
 describes what the job does and is easy to remember. This will be the display
 name of the job in your pipeline visualization.
 
-- [type](job-runcli.md#type): The type of your job. This must be `runCLI`.
+- [type](runcli.md#type): The type of your job. This must be `runCLI`.
 
-- [steps](job-runcli.md#steps): The steps that should be executed in your job.
+- [steps](runcli.md#steps): The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are
-[cliConfig](resource-cliconfig.md) will configure the appropriate CLI tools
+[cliConfig](/platform/workflow/resource/cliconfig) will configure the appropriate CLI tools
 before your job starts running. You can have a single `TASK` property in your
 steps to specify your script commands. Everything under the `steps` section
 executes sequentially.
@@ -83,19 +83,19 @@ jobs:
 In addition to the required parameters described in the **Basic reference** section above, you can also
 configure your runCLI job with the parameters described below:
 
-  - [on_start](job-runcli.md#on_start): Specify `script` or `NOTIFY` sections
+  - [on_start](runcli.md#on_start): Specify `script` or `NOTIFY` sections
 that are executed when the job starts.
 
-  - [on_success](job-runcli.md#on_success): Specify `script` or `NOTIFY`
+  - [on_success](runcli.md#on_success): Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section succeeds.
 
-  - [on_failure](job-runcli.md#on_failure): Specify `script` or `NOTIFY`
+  - [on_failure](runcli.md#on_failure): Specify `script` or `NOTIFY`
 sections that are executed only if the `TASK` section fails.
 
-  - [on_cancel](job-runcli.md#on_cancel): Specify `NOTIFY` sections to send
+  - [on_cancel](runcli.md#on_cancel): Specify `NOTIFY` sections to send
 notifications if the job is canceled.  This cannot run scripts.
 
-  - [always](job-runcli.md#always): Specify `script` or `NOTIFY` sections that
+  - [always](runcli.md#always): Specify `script` or `NOTIFY` sections that
 are always executed at the end of the job, regardless of whether the `TASK`
 section failed or succeeded.  Scripts will not run if the job is canceled,
 but notifications will be sent.
@@ -107,7 +107,7 @@ resource.
 ## Configured CLI tools
 
 The runCLI job uses the subscription integration specified in the
-[cliConfig](resource-cliconfig.md) to determine which CLI tools to configure.
+[cliConfig](/platform/workflow/resource/cliconfig) to determine which CLI tools to configure.
 These tools are configured with the credentials contained in the subscription
 integration. Here is a list of the tools configured for each integration type:
 
@@ -200,7 +200,7 @@ variable's name.
 For example, say you wanted to insert the current job name into two different
 files: `file1.json` and `test/file2.txt`. The name of the environment variable
 containing the job name is `JOB_NAME`. (See the [runSh
-documentation](job-runsh.md) for the list of available environment
+documentation](runsh.md) for the list of available environment
 variables.)
 
 `file1.json` might look like this:
