@@ -25,7 +25,7 @@ CD of your application is defined in Shippable configuration files in a powerful
 
 This is a pictorial representation of the continuous deployment process. The green boxes are tasks and the grey boxes are the input resources for the tasks. Both tasks and inputs are specified in Shippable configuration files.
 
-<img src="/images/deploy/usecases/deploy_mvp_1.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/deploy/usecases/deploy_mvp_1.png"/>
 
 These are the key components of the assembly line diagram -
 

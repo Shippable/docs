@@ -19,6 +19,8 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 ## Step by Step instructions for attaching an Elastic load balancer to an application deployed to an ECS cluster
 
+<img src="/images/deploy/usecases/deploy_ecs_lb.png"/>
+
 ###1. Add a load balancer resource called `app_lb`.
 
 * Description: `app_lb` represent a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource. This resource expects three values to be specified.
@@ -74,6 +76,8 @@ This section expects the following values to be set:
 
 ## Step by Step instructions for attaching a Classic load balancer to an application deployed to an ECS cluster
 
+<img src="/images/deploy/usecases/deploy_ecs_lb.png"/>
+
 ###1. Add a load balancer resource called `app_lb`.
 
 * Description: `app_lb` represent a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource. This resource expects three values to be specified.
@@ -125,6 +129,8 @@ This section expects the following values to be set:
 ```
 
 ## Step by Step instructions for attaching a Load balancer to an application deployed to Kubernetes / Google Container Engine (GCE)
+
+<img src="/images/deploy/usecases/deploy_kube_lb.png"/>
 
 ###1. Add a load balancer resource called `app_lb`.
 

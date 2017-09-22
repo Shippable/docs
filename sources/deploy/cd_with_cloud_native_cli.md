@@ -10,6 +10,8 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 * Deploying a single container application to an ECS cluster using AWS CLI.
 
+<img src="/images/deploy/usecases/deploy_cli.png"/>
+
 ## Configuration
 
 They are two configuration files that are needed to achieve this usecase -
