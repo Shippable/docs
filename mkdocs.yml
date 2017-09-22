@@ -239,6 +239,7 @@ pages:
         - release: platform/workflow/job/release.md
         - runCI: platform/workflow/job/runci.md
         - runSH: platform/workflow/job/runsh.md
+        - runCLI: platform/workflow/job/runcli.md
         - rSync: platform/workflow/job/rsync.md
       - State:
         - Overview: platform/workflow/state/overview.md
