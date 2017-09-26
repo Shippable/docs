@@ -1,8 +1,8 @@
 page_main_title: Deploying from JFrog Artifactory
 main_section: Deploy
-sub_section: Node Cluster on any cloud
+sub_section: Deploy to VMs
 
-# Deploying From JFrog Artifactory to a Node Cluster
+# Deploying from JFrog Artifactory to a VM
 Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/integration/node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
 
 ## The Goal

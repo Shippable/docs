@@ -1,6 +1,6 @@
 page_main_title: Deleting a deployed service.
 main_section: Deploy
-sub_section: CD to Orchestration Platforms
+sub_section: Advanced topics
 
 # Deleting a deployed service.
 

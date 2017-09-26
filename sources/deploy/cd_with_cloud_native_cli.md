@@ -1,10 +1,10 @@
 page_main_title: Using Cloud native CLI to deploy.
 main_section: Deploy
-sub_section: CD to Orchestration Platforms
+sub_section: Deploy using Cloud Native CLI
 
 # Using Cloud native CLI to deploy
 
-The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through examples of using native CLI's like the AWS CLI and Kubectl to perform deployments to ECS and Kubernetes clusters respectively.
+The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the AWS CLI to  deploy a docker image to one ECS cluster.
 
 ## Topics Covered
 

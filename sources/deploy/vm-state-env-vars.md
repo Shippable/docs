@@ -1,6 +1,6 @@
 page_main_title: Working with state and environment variables
 main_section: Deploy
-sub_section: Node Cluster on any cloud
+sub_section: Deploy to VMs
 
 # Node Cluster State and Environment Variables
 

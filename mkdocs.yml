@@ -135,10 +135,12 @@ pages:
       - Sending notifications upon deployments: deploy/notifications_with_cd.md
       - Customizing deployed service names: deploy/customize_service_names.md
       - Pausing deployments: deploy/pause_deployments.md
-      - Using deployment strategies (Blue-green, Replace etc.): deploy/cd_with_blue_green.md
       - Deleting a deployed service: deploy/delete_container_apps_from_orchestration_platforms.md
       - Using load balancers in your apps: deploy/load_balancers_with_apps.md
-      - Using Cloud native CLI to deploy: deploy/cd_with_cloud_native_cli.md
+      - Using deployment strategies (Blue-green, Replace etc.): deploy/cd_with_blue_green.md
+    - Deploy using Cloud Native CLI:
+      - Overview: deploy/overview_cloud_native.md
+      - Amazon ECS: deploy/cd_with_cloud_native_cli.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
@@ -171,12 +173,11 @@ pages:
       - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
       - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
       - Working with state and environment variables: deploy/aws-elastic-beanstalk-state-env-vars.md
-    - Node Cluster on any cloud:
+    - Deploy to VMs:
       - Deploying artifacts: deploy/vm-basic.md
       - Deploying from JFrog Artifactory: deploy/vm-jfrog.md
       - Deploying to multiple environments: deploy/vm-multiple-environments.md
       - Working with state and environment variables: deploy/vm-state-env-vars.md
-    - Rolling back deployments: deploy/rollback.md
   - Validate:
     - Before you start:
       - What is Validate?: validate/devops-validate.md

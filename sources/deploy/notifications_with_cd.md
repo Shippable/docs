@@ -1,6 +1,6 @@
 page_main_title: Sending notifications upon deployments.
 main_section: Deploy
-sub_section: CD to Orchestration Platforms
+sub_section: Advanced topics
 
 # Sending notifications upon deployments.
 
