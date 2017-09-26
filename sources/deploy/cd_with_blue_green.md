@@ -44,7 +44,7 @@ The deployment name will change each time, but each deployment will always conta
 
 ### Upgrade deployment strategy
 
-* Description: In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
 
 ***On ECS, we accomplish this with the following workflow:***
 
@@ -71,31 +71,13 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 
 ### Replace deployment strategy
 
-* Description: There are times when you might be working with a limited test environment, where you don't care if there are a few minutes of downtime during deployments. You might also prefer to keep the cluster as small and cost-effective as possible in some environment, thereby making the upgrade deployment not feasible due to limited resources. For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
+There are times when you might be working with a limited test environment, where you don't care if there are a few minutes of downtime during deployments. You might also prefer to keep the cluster as small and cost-effective as possible in some environment, thereby making the upgrade deployment not feasible due to limited resources. For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
 
 ### Parallel strategy
 
 A multiple container application can be comprised of multiple manifest jobs, with each manifest job defining a component of the application. When multiple manifests are deployed with the same **deploy** job, deployments can take a long time to complete. This is because manifests are deployed serially by default.
 
-You can greatly speed up deployments for multiple manifests by using a `parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
-
-* Job: [deploy](/platform/workflow/job/deploy) job.
-* Yml block:
-
-Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
-
-```
-- name: app_deploy_job
-  type: deploy
-  steps:
-    - IN: app_service_a_def # manifest for service A of an app
-    - IN: app_service_b_def # manifest for service B of an app
-    - IN: app_service_c_def # manifest for service C of an app
-    - TASK: managed
-      deployMethod: upgrade
-      deployOptions:
-        - parallel
-```
+You can greatly speed up deployments for multiple manifests by using a `Parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
 
 Depending on how many manifests you're deploying, you should notice a significant difference in deployment times by using this option, however this can make the resulting logs a bit more difficult to sift through, since each manifest will be writing results at the same time.
 
