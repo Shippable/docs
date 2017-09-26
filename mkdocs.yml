@@ -134,6 +134,7 @@ pages:
       - Rolling back deployments: deploy/rollback.md
       - Sending notifications upon deployments: deploy/notifications_with_cd.md
       - Customizing deployed service names: deploy/customize_service_names.md
+      - Pausing deployments: deploy/pause_deployments.md
       - Using deployment strategies (Blue-green, Replace etc.): deploy/cd_with_blue_green.md
       - Deleting Container Applications: deploy/delete_container_apps_from_orchestration_platforms.md
       - Using load balancers in your apps: deploy/load_balancers_with_apps.md

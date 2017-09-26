@@ -10,12 +10,6 @@ You might have a need to manually trigger the deployment of your application to 
 
 We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
 
-## Topics Covered
-
-* Using Shippable configuration to setup manual triggering of your deployment.
-* Pausing CD of your application using UI.
-* Resuming CD of your application using UI.
-
 ### Using Shippable configuration to setup manual triggering of your deployment
 
 **Steps**
@@ -36,22 +30,6 @@ should look like:
         - IN: op_cluster
         - IN: app_replicas
 ```
-
-### Pausing CD of your application using UI
-
-**Steps**
-
-1. Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
-2. Right click on `app_deploy_job`.
-3. Click on `Pause Job`.
-
-### Resuming CD of your application using UI
-
-**Steps**
-
-1. Navigate to the [SPOG](/platform/visibility/single-pane-of-glass-spog/) UI from your subscription dashboard by clicking on the eye icon followed by `Show SPOG View`.
-2. Right click on `app_deploy_job`.
-3. Click on `Build Job`.
 
 ## Ask questions on Chat
 
