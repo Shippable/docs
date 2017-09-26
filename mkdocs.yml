@@ -144,7 +144,7 @@ pages:
     - Deploy with deployment strategies:
       - Overview: deploy/overview_deployment_strategies.md
       - Blue-green: deploy/blue_green_strategy.md
-      - Upgrade:mazon deploy/upgrade_strategy.md
+      - Upgrade: deploy/upgrade_strategy.md
       - Replace: deploy/replace_strategy.md
     - Using load balancers:
       - Overview: deploy/overview_lb.md
