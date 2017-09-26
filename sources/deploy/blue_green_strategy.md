@@ -34,3 +34,16 @@ jobs:
       - IN: op_cluster
       - IN: app_replicas
 ```
+
+### Sample project
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
+
+**Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
