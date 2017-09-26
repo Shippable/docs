@@ -152,7 +152,6 @@ pages:
       - Specifying deployment strategy: deploy/kubernetes-strategy.md
       - Deploying multi-container services: deploy/kubernetes-multiple-containers.md
       - Deploying to multiple environments: deploy/kubernetes-multiple-environments.md
-      - Naming conventions: deploy/kubernetes-naming-conventions.md
     - GKE:
       - Basic scenario: deploy/gke.md
       - Specifying deployment strategy: deploy/gke-strategy.md
