@@ -78,18 +78,19 @@ They are two configuration files that are needed to achieve this usecase -
 
 ##2. Define `app_options`.
 
-* Description: `app_options` represents the options of the application container. Here we demonstrate setting container options such as setting the memory to 1024MB and exposing port 80. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
-* Required: No.
-* Defaults:
+* **Description:** `app_options` represents the options of the application container. Here we demonstrate setting container options such as setting the memory to 1024MB and exposing port 80. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
+* **Required:** No.
+* **Defaults:**
 If no options are specified, the platform sets the following default options -
     - memory : 400mb
     - desiredCount : 1
     - cpuShares : 0
     - All available CPU.
     - no ENVs are added to the container.
-* Yml block:
 
-    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   - name: app_options
@@ -102,9 +103,10 @@ If no options are specified, the platform sets the following default options -
 
 ##3. Define `app_environment`.
 
-* Description: `app_environment` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
-* Required: No.
-* Yml block:
+* **Description:** `app_environment` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
+* **Required:** No.
+
+**Steps**
 
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -118,11 +120,12 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ##4. Define `app_service_def`.
 
-* Description: `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
-* Required: Yes.
-* Yml block:
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
   jobs:
@@ -137,12 +140,13 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ##5. Define `app_replicas`.
 
-* Description: `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container you want to deploy. Here we demonstrate running two instances of the container.
-* Required: No.
-* Default: 1 (one instance of the container is deployed)
-* Yml block:
+* **Description:** `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container you want to deploy. Here we demonstrate running two instances of the container.
+* **Required:** No.
+* **Default:** 1 (one instance of the container is deployed)
 
-    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   - name: app_replicas
@@ -153,21 +157,19 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ##6. Define `op_cluster`.
 
-* Description: `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. In our example, the cluster points to a cluster on Amazon ECS.
-* Required: Yes.
-* Integrations needed: AWS IAM Integration
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. In our example, the cluster points to a cluster on Amazon ECS.
+* **Required:** Yes.
+* **Integrations needed:** AWS IAM Integration
 
 The list of supported container orchestration platforms can be found [here](/platform/integration/overview/#supported-orchestration-platform-integrations).
 
-  **Steps**
+**Steps**
 
-  - Create an account integration using your Shippable account for the orchestration platform. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an account integration using your Shippable account for the orchestration platform. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-  - Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
+2. Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
 
-* Yml block:
-
-    Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
   - name: op_cluster    # resource friendly name
@@ -180,11 +182,12 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 ##7. Define `app_deploy_job`.
 
-* Description: `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
-* Required: Yes.
-* Yml block:
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+* **Required:** Yes.
 
-    Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
   jobs:
@@ -197,7 +200,7 @@ The list of supported container orchestration platforms can be found [here](/pla
         - IN: app_replicas
 ```
 
-##8. Import the configuration into your Shippable account to create the assembly line for the application.
+##8. Import configuration into your Shippable account.
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 

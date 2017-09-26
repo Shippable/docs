@@ -124,7 +124,7 @@ pages:
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
-    - CD to Orchestration Platforms:
+    - Deploy to Container Orchestration Platforms:
       - Single Container Application: deploy/cd_of_single_container_applications_to_orchestration_platforms.md
       - Multi Container Application:  deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
       - Multi-stage CD through Dev/Test/Prod: deploy/multi_stage_cd_dev_test_prod.md
