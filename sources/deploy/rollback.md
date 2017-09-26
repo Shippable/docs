@@ -9,9 +9,17 @@ There are three types of rollback actions as explained in the sections below.
 
 ##Rolling back to a previous deployment
 
-We all hope that our tests are perfect and once a release is 'blessed' to be deployed to an environment, it will all 'just work'. Unfortunately, that is not always the case. In some cases, you discover problems with the new release that were not caught during testing. In these situations, you might want to roll back your environment to a previous release while you can work on fixing the problems.
+* Identify the `versionName` of the image you want to pin the deployment to.
 
-We are working on an easy, single click UI action for rollback since we believe this is an important scenario. However, there are some easy ways to roll back your deployments by pinning input versions.
+To do this, go to the subscription dashboard, search for click on the deploy job. Find the correct previous deploy version in the `LATEST STATUS` section and click on jobId in the `Job` column. Then click on "trace" to see which image version was in that deploy.  Write down the `versionName` for the image resource.
+
+ <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+* Right click on the `deploy` job in the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view and click `Configure Job`. Find and set the desired `versionName` for the image resource.
+
+* Re-run the deploy job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on `Run`
+
+Please remember that all future runs of the deploy job will deploy the same version since it is now pinned. When you decide to deploy the latest release, you can go back to the deploy job configuration page and unpin the release input so that all future runs deploy the latest release available.
 
 ##Rolling back a release
 
@@ -19,11 +27,15 @@ We are working on an easy, single click UI action for rollback since we believe 
 
 In this scenario, you have a setup where the deploy job you want to rollback is preceded by a release job in your pipeline. The easiest way to roll back to a previous deployment here is:
 
-* Identify the `versionName` of the release you want to roll back to. To do this, go to the SPOG page and click on the deploy job. Find the correct previous deploy version in the versions listed above the console logs.  Then click on "trace" to see which release was in that deploy.  Write down the `versionName` for the release.
+* Identify the `versionName` of the release you want to roll back to.
 
- <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+To do this, go to the subscription dashboard, search for click on the deploy job. Find the correct previous deploy version in the `LATEST STATUS` section and click on jobId in the `Job` column. Then click on "trace" to see which release was in that deploy.  Write down the `versionName` for the release.
 
- * Navigate to the configuration page for the deploy job. From the "trace" view, click the job name in the breadcrumb at the top of the page, and then the "configure job" wrench in the top right. Find and select the desired `versionName` for the release version. This will pin the release input so that future deployments will use this version. Alternatively, `versionName` or `versionNumber` may be [pinned in shippable.jobs.yml](/platform/tutorial/workflow/crud-job/#pinning-specific-resource-versions).
+<img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+* Navigate to the configuration page for the deploy job.
+
+From the "trace" view, click the job name in the breadcrumb at the top of the page, and then the "configure job" wrench in the top right. Find and select the desired `versionName` for the release version. This will pin the release input so that future deployments will use this version. Alternatively, `versionName` or `versionNumber` may be [pinned in shippable.jobs.yml](/platform/tutorial/workflow/crud-job/#pinning-specific-resource-versions).
 
 * Re-run the deploy job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on `Run`
 
