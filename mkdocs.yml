@@ -141,6 +141,11 @@ pages:
     - Deploy using Cloud Native CLI:
       - Overview: deploy/overview_cloud_native.md
       - Amazon ECS: deploy/cd_with_cloud_native_cli.md
+    - Deploy with deployment strategies:
+      - Overview: deploy/overview_deployment_strategies.md
+      - Blue-green: deploy/blue_green_strategy.md
+      - Upgrade: deploy/upgrade_strategy.md
+      - Replace: deploy/replace_strategy.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
