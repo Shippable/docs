@@ -182,7 +182,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 ##7. Define `app_deploy_job`.
 
-* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
 * **Required:** Yes.
 
 **Steps**

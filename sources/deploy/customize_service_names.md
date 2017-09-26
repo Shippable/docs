@@ -1,10 +1,14 @@
-page_main_title: Kubernetes - Naming conventions
+page_main_title: Customizing deployed service names
 main_section: Deploy
-sub_section: Kubernetes
+sub_section: Advanced topics
 
-# Naming Conventions
+# Customizing deployed service names
 
-Shippable uses a default naming convention for its deployment in Kubernetes and the reference for it can be found from here.
+Shippable allows overriding the default naming convention of a deployed service, that was created by running a deploy job.
+
+## Naming convention of a deployed service
+
+Shippable uses a default naming convention for the services it creates during deployment.
 
 | Deploy Method | Default Naming Convention |
 |--------------|---------------------------|
@@ -12,8 +16,9 @@ Shippable uses a default naming convention for its deployment in Kubernetes and 
 | upgrade | <ul><li>deploymentName : deployJobName-manifestJobName</li><ul> |
 | replace | <ul><li>deploymentName : deployJobName-manifestJobName</li><ul> |
 
-## Managed
-Shippable allows overriding the default naming convention of an Kubernetes deployment name, that was created by running a deploy job. `deployName` can be used in order to achieve this.
+## Overriding service names
+
+Set the `deployName` attribute in the [deploy](/platform/workflow/job/deploy) job in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:

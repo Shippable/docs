@@ -132,9 +132,10 @@ pages:
       - Gated CD: deploy/gated_cd.md
       - Specifying the version to deploy: deploy/specifying_version_to_deploy.md
       - Rolling back deployments: deploy/rollback.md
+      - Sending notifications upon deployments: deploy/notifications_with_cd.md
+      - Customizing deployed service names: deploy/customize_service_names.md
       - Using deployment strategies (Blue-green, Replace etc.): deploy/cd_with_blue_green.md
       - Deleting Container Applications: deploy/delete_container_apps_from_orchestration_platforms.md
-      - Sending notifications upon deployments: deploy/notifications_with_cd.md
       - Using load balancers in your apps: deploy/load_balancers_with_apps.md
       - Using Cloud native CLI to deploy: deploy/cd_with_cloud_native_cli.md
     - Amazon ECS:
