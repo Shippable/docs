@@ -146,6 +146,10 @@ pages:
       - Blue-green: deploy/blue_green_strategy.md
       - Upgrade: deploy/upgrade_strategy.md
       - Replace: deploy/replace_strategy.md
+    - Using load balancers:
+      - Overview: deploy/overview_lb.md
+      - Amazon ECS: deploy/amazon_ecs_lb.md
+      - Kubernetes: deploy/kubernetes_lb.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
