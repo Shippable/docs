@@ -1,6 +1,6 @@
 page_main_title: CD of a single container application to an orchestration platform.
 main_section: Deploy
-sub_section: CD to Orchestration Platforms
+sub_section: Deploy to Container Orchestration Platforms
 
 # CD of a single container application to an orchestration platform.
 
@@ -202,7 +202,9 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 
 ##8. Import configuration into your Shippable account.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+
+Follow [these instructions]((/platform/tutorial/workflow/crud-syncrepo/)) to import your configuration files into your Shippable account.
 
 ##9. Trigger your pipeline
 
