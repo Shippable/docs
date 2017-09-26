@@ -73,8 +73,6 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 
 * Description: There are times when you might be working with a limited test environment, where you don't care if there are a few minutes of downtime during deployments. You might also prefer to keep the cluster as small and cost-effective as possible in some environment, thereby making the upgrade deployment not feasible due to limited resources. For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
 
-
-
 ### Parallel strategy
 
 A multiple container application can be comprised of multiple manifest jobs, with each manifest job defining a component of the application. When multiple manifests are deployed with the same **deploy** job, deployments can take a long time to complete. This is because manifests are deployed serially by default.
@@ -100,35 +98,6 @@ Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platfor
 ```
 
 Depending on how many manifests you're deploying, you should notice a significant difference in deployment times by using this option, however this can make the resulting logs a bit more difficult to sift through, since each manifest will be writing results at the same time.
-
-
-### Validating the health of an blue-green deployment of a single container application deployed to a container orchestration service.
-
-* Description: You might want to validate that your containers are up and running for a certain period of time after deployment before declaring the deployment a success. Typical usecases are that after deployment, you might want to run some acceptance tests. If any of these tests crash one or more of your containers, the deployment should be marked a failure and the application rolled back to the previous (blue) state.
-* Job: [deploy](/platform/workflow/job/deploy) job.
-* Yml block:
-
-Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
-
-```
-jobs:
-
-  - name: app_deploy_job
-    type: deploy
-    stabilityDuration: 300
-    steps:
-      - IN: app_service_def
-      - IN: op_cluster
-      - IN: app_replicas
-```
-
-`stabilityDuration` is the amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful. Stable means that the desired number of replicas matches the number that are actually running in the cluster for the timeframe specified. By default, the #replicas is 1.
-
-In this example, we want the actual number of replicas to run continuously for 300 seconds. The deploy job waits for a maximum duration of 15 minutes for this condition to be satisfied. For example, if the one of the containers go down after 3 minutes, the deploy job will wait for the crashed container to restart and once it starts running, it will reset the timer to zero. At this point, all the containers have to again run continuously for 300 seconds.
-
-
-### Sample project
-**Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
 
 ## Ask questions on Chat
 
