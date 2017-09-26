@@ -13,17 +13,13 @@ There are many ways to deploy an application on Shippable. This document explain
 * Replace strategy, for use with smaller clusters when you are okay with some downtime
 * Parallel strategy, for use to deploy multiple containers in parallel.
 
-## Assumptions
-
-We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
-
 ### BlueGreen deployment strategy (default)
 
-* Description: This is the default behavior that the deploy job uses unless otherwise specified. Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic. Only after Shippable validates the health of the green service (newer version), it deletes the blue service (older version). If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
+* **Description**: This is the default behavior that the deploy job uses unless otherwise specified. Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic. Only after Shippable validates the health of the green service (newer version), it deletes the blue service (older version). If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
 
 The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host. For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/amazon-ecs-elb-alb).
 
-***On ECS, we accomplish this with the following workflow:***
+* **ECS workflow:**
 
 - register the task definition and create a new service that uses it
 - wait for the new service's runningCount to reach the desiredCount
@@ -31,25 +27,20 @@ The only catch is that you'll need to have enough capacity on your cluster to ru
 - wait for the old service's runningCount to reach 0
 - delete the old service
 
-***On GKE, we accomplish this with the following workflow:***
+* **GKE workflow:**
 
 - build the new pod template
 - POST a new replicationController (RC)
 - wait for the new RC to have running pods equal to the replicas requested
 - DELETE the old RC. Once this is complete, you'll have a new RC that has replaced the old one.
 
-***On Kubernetes, we accomplish this with the following workflow:***
+* **Kubernetes workflow:**
 
 - create a new **deployment** object with appropriate pod template
 - wait for the deployment to report a successful rollout
 - delete the old deployment
 
 The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  The only catch is that you'll need to have enough capacity on your cluster to run two full copies of what you're deploying.
-
-* Job: [deploy](/platform/workflow/job/deploy) job.
-* Yml block:
-
-The yml block does not need to be updated since this is the default deployment strategy.
 
 ### Upgrade deployment strategy
 
@@ -77,23 +68,6 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 - wait for deployment rollout to complete
 - The first time the job runs, a new deployment object will be created, but every subsequent deployment will just update the existing object with the modified pod template.
 
-* Job: [deploy](/platform/workflow/job/deploy) job.
-* Yml block:
-
-Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
-
-```
-  jobs:
-
-    - name: app_deploy_job
-      type: deploy
-      steps:
-        - IN: app_service_def
-        - IN: op_cluster
-        - IN: app_replicas
-        - TASK: managed
-        deployMethod: upgrade
-```
 
 ### Replace deployment strategy
 
@@ -170,6 +144,12 @@ In this example, we want the actual number of replicas to run continuously for 3
 
 
 ### Sample project
-Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
-
 **Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

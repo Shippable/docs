@@ -21,7 +21,7 @@ In this example, we want the actual number of replicas to run continuously for 3
 
 **Steps**
 
-Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+In the context of the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), update the `app_deploy_job` yml block in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
