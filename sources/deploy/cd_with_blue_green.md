@@ -71,25 +71,9 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 
 ### Replace deployment strategy
 
-* Description: There are times when you might be working with a limited test environment where you don't care if there are a few minutes of downtime during deployments, and you'd prefer to keep the cluster small and cost-effective.  If this describes your environment, then it's possible that even the `upgrade` method can have trouble placing your tasks due to limited resources.  In this case, Shippable provides the `replace` method.  This will essentially delete your existing running tasks before updating your service.
+* Description: There are times when you might be working with a limited test environment, where you don't care if there are a few minutes of downtime during deployments. You might also prefer to keep the cluster as small and cost-effective as possible in some environment, thereby making the upgrade deployment not feasible due to limited resources. For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
 
-* Job: [deploy](/platform/workflow/job/deploy) job.
-* Yml block:
 
-Update the `app_deploy_job` yml block in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
-
-```
-  jobs:
-
-    - name: app_deploy_job
-      type: deploy
-      steps:
-        - IN: app_service_def
-        - IN: op_cluster
-        - IN: app_replicas
-        - TASK: managed
-        deployMethod: replace
-```
 
 ### Parallel strategy
 
