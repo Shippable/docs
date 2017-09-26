@@ -136,7 +136,7 @@ pages:
       - Customizing deployed service names: deploy/customize_service_names.md
       - Pausing deployments: deploy/pause_deployments.md
       - Using deployment strategies (Blue-green, Replace etc.): deploy/cd_with_blue_green.md
-      - Deleting Container Applications: deploy/delete_container_apps_from_orchestration_platforms.md
+      - Deleting a deployed service: deploy/delete_container_apps_from_orchestration_platforms.md
       - Using load balancers in your apps: deploy/load_balancers_with_apps.md
       - Using Cloud native CLI to deploy: deploy/cd_with_cloud_native_cli.md
     - Amazon ECS:

@@ -1,8 +1,8 @@
-page_main_title: Deleting container applications from orchestration platforms.
+page_main_title: Deleting a deployed service.
 main_section: Deploy
 sub_section: CD to Orchestration Platforms
 
-# Deleting container applications from orchestration platforms.
+# Deleting a deployed service.
 
 You might have deployed an application to an orchestration platform like Amazon ECS, Kubernetes, GKE or Azure using Shippable assembly lines. If the application is decommissioned or if you do not need it in any particular environment, this document will describe the steps to delete the application. These steps will stop and remove the container from the cluster.
 
@@ -12,22 +12,27 @@ We assume that the application is already deployed to a cluster in an orchestrat
 
 ## Step by Step instructions
 
-##1. Comment out the deploy job and commit shippable.jobs.yml.
+###1. Locate `app_deploy_job` in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file and set `deployMethod` attribute to `remove`.
 
 ```
   jobs:
 
-#    - name: app_deploy_job
-#      type: deploy
-#      steps:
-#        - IN: app_service_def
-#        - IN: op_cluster
-#        - IN: app_replicas
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+      - TASK: managed
+        deployMethod: remove
 ```
 
-After committing, the [rSync](platform/workflow/job/rsync/#rsync) job will run and remove the application deployed to your orchestration platform.
+###2. Commit the file.
 
-##2. Hard delete the job from the UI.
+Once the file is committed, the [rSync](platform/workflow/job/rsync/#rsync) job will run and remove the application deployed to your orchestration platform.
+
+## Removing `app_deploy_job` from [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/).
+If you remove or comment out `app_deploy_job` and commit, the deployed service will also get removed. The job is soft deleted and to completely remove the job, you will need to hard delete the job using the steps below.
 
 - Go to your subscription dashboard, click on the eye icon, click on `Show Deleted Objects`.
 - Find your job in the `DELETED OBJECTS` grid at the bottom of the screen.
