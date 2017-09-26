@@ -39,13 +39,13 @@ jobs:
 
 ### Pinning resource versions using the Shippable UI.
 
-* Identify the `versionName` of the image you want to pin the deployment to. To do this, go to the SPOG page and click on the deploy job. Find the correct previous deploy version in the versions listed above the console logs.  Then click on "trace" to see which image version was in that deploy.  Write down the `versionName` for the image resource.
+* Identify the `versionName` of the image you want to pin the deployment to.
 
- <img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+To do this, go to the subscription dashboard, search for the deploy job and click on it. Find the correct previous deploy version in the `LATEST STATUS` section and click on jobId in the `Job` column. Then click on "trace" to see which image version was in that deploy.  Write down the `versionName` for the image resource.
+
+<img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * Right click on the `deploy` job in the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view and click `Configure Job`. Find and set the desired `versionName` for the image resource.
-
-Alternatively, you can navigate to the configuration page for the `deploy` job. From the "trace" view, click the job name in the breadcrumb at the top of the page, and then the "configure job" wrench in the top right. Find and set the desired `versionName` for the image resource.
 
 * Re-run the deploy job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on `Run`
 
