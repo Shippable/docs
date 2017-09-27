@@ -58,19 +58,19 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  jobs:
+jobs:
 
-    - name: app_deploy_job
-      type: deploy
-      steps:
-        - IN: app_service_def
-        - IN: op_cluster
-        - IN: app_replicas
-        - IN: app_lb
-          applyTo:
-            - manifest: app_service_def
-              image: app_image
-              port: 80
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+      - IN: app_lb
+        applyTo:
+          - manifest: app_service_def
+            image: app_image
+            port: 80
 ```
 
 ## Steps for attaching a Classic load balancer
@@ -128,7 +128,12 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 
 ## Sample project
-
-Here is a sample project for a working sample of this scenario.
-
 **Source code:** [devops-recipes/deploy-ecs-elb](https://github.com/devops-recipes/deploy-ecs-lb)
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
