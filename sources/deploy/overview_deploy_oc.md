@@ -6,7 +6,7 @@ sub_section: Deploy to Container Orchestration Platforms
 
 Shippable supports continuous deployments to many Container Orchestration Platforms using Docker images on many popular Docker registries.
 
-## Supported Orchestration Platform Integrations
+## Supported Orchestration Platforms
 
 - [Amazon ECS](/platform/integration/amazon-ecs)
 - [Kubernetes](/platform/integration/kubernetes)
@@ -17,7 +17,7 @@ Shippable supports continuous deployments to many Container Orchestration Platfo
 - [Docker Datacenter](/platform/integration/docker-datacenter)
 - [Joyent Triton](/platform/integration/tripub)
 
-## Supported Docker Registry Integrations
+## Supported Docker Registries
 
 - [AWS ECR](/platform/integration/aws-ecr)
 - [Docker Hub](/platform/integration/docker-hub)
