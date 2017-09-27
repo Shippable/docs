@@ -6,6 +6,6 @@ sub_section: Using load balancers
 
 Shippable supports attaching load balancers for applications deployed to the following orchestration platforms:
 
-* []()
-* [Kubernetes]
-* GKE
+* [Amazon ECS](/deploy/amazon_ecs_lb)
+* [Kubernetes](/deploy/kubernetes_lb)
+* [GKE](/deploy/gke_lb)
