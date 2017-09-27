@@ -11,7 +11,7 @@ This tutorial demonstrates how to semantically version a single component before
 
 In general, creating releases helps you version your component and keep track of what is included in each release. However, this step is also optional, so you could choose to directly connect your `manifest` job to `deploy`.
 
-## Basic Config
+## Basic Configuration
 
 A release job needs a [manifest](/platform/workflow/job/manifest/) job and a [version](/platform/workflow/resource/version/) resource as inputs.
 
@@ -30,7 +30,7 @@ resources:
 ```
 Set the starting point of your version in the versionName field. The `release` job defined in the next step will use the versionName as the seed and increment it whenever it is triggered.  
 
-- Next, add a `release` job to `shippable.jobs.yml` file. The snippet below also shows sample config for the input manifest job :
+- Next, add a `release` job to `shippable.jobs.yml` file. The snippet below also shows sample configuration for the input manifest job:
 
 ```
 jobs:
@@ -41,9 +41,8 @@ jobs:
     steps:
       - IN: my-image
       - IN: my-image-dockerOptions
-      - TASK: managed
 
-  #Release job
+  # Release job
   - name: my-release
     type: release
     steps:
@@ -56,9 +55,9 @@ jobs:
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG.
 * `type` is always set to release
 * The manifest job and version resource are inputs, i.e. specified in the `IN` tag.
-* The `bump` tag specifies how the release version will be incremented each time the release job runs. More on incrementing versions is described in our tutorial for [bumping release versions.](increment-version-number/)
+* The `bump` tag specifies how the release version will be incremented each time the release job runs. More on incrementing versions is described in our tutorial for [bumping release versions](increment-version-number/).
 
-- Add your project in the Pipelines tab in the dashboard and run the Manifest and Release jobs. Your pipeline should now look like this -
+- Add your project to your subscription as a [syncRepo](/platform/workflow/resource/syncrepo/) and run the manifest and release jobs. Your pipeline should now look like this -
 
 ![Pipeline](https://raw.githubusercontent.com/devops-recipes/release-single-component/master/public/resources/images/pipeline-view.png)
 
@@ -71,9 +70,9 @@ We have a working sample for the scenario described here. Instructions to run th
 
 The scenario in our sample project covers the following steps:
 
-- Set up your CI workflow which pushes a Docker image to Docker Hub
+- Set up your CI workflow, which pushes a Docker image to Docker Hub.
 - Every time the image is updated, a [**manifest** job](/platform/workflow/job/manifest/) updates the manifest.
-- The **release job** will version your manifest with [semantic versioning](http://semver.org/)
+- The **release job** will version your manifest with [semantic versioning](http://semver.org/).
 - This will trigger a **deploy** job which will deploy your versioned component to a target endpoint of your choice. [Read more on deployments](/deploy/why-deploy/).
 
 

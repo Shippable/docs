@@ -4,29 +4,28 @@ sub_section: Deploy with deployment strategies
 
 # Replace deployment strategy
 
-In this strategy, your existing running tasks / services / deployment objects before updating your service. This results in downtime for your deployed service, but allows you to use the bare minimum resources to bring up your cluster. This strategy is thus useful in scenarios where infrastructure cost saving is more important that service uptime.
+In this strategy, your existing running tasks / services / deployment objects are stopped or removed before updating your service. This results in downtime for your deployed service, but allows your cluster to use the bare minimum resources to run your deployments. This strategy is thus useful in scenarios where infrastructure cost savings are more important than service uptime.
 
 ## Assumptions
 
-We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
+We will use the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
 
 ## Steps
 
-The Replace strategy is specified by setting the `deployMethod` attribute on the [deploy](/platform/workflow/job/deploy) to `replace`.
+The replace strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) job to `replace`.
 
-To set this strategy on the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), we update the `app_deploy_job` yml block in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+To set this strategy on the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), we update the `app_deploy_job` yml block in the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
   - name: app_deploy_job
     type: deploy
+    method: replace
     steps:
       - IN: app_service_def
       - IN: op_cluster
       - IN: app_replicas
-      - TASK: managed
-      deployMethod: replace
 ```
 
 ## Sample project

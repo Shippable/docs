@@ -4,7 +4,7 @@ sub_section: Advanced topics
 
 # Deleting a deployed service.
 
-You might have deployed an application to an orchestration platform like Amazon ECS, Kubernetes, GKE or Azure using Shippable assembly lines. If the application is decommissioned or if you do not need it in any particular environment, this document will describe the steps to delete the application. These steps will stop and remove the container from the cluster.
+You might have deployed an application to an orchestration platform like Amazon ECS, Kubernetes, GKE, or Azure using Shippable Assembly Lines. If the application is decommissioned or if you do not need it in any particular environment, this document will describe the steps to delete the application. These steps will stop and remove the container from the cluster.
 
 ## Assumptions
 
@@ -12,24 +12,28 @@ We assume that the application is already deployed to a cluster in an orchestrat
 
 ## Step by Step instructions
 
-###1. Locate `app_deploy_job` in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file and set `deployMethod` attribute to `remove`.
+###1. Update the deploy job.
+'Locate `app_deploy_job` in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file and set `method` attribute to `remove`.
 
 ```
   jobs:
 
   - name: app_deploy_job
     type: deploy
+    method: remove
     steps:
       - IN: app_service_def
       - IN: op_cluster
       - IN: app_replicas
-      - TASK: managed
-        deployMethod: remove
 ```
 
 ###2. Commit the file.
 
-Once the file is committed, the [rSync](platform/workflow/job/rsync/#rsync) job will run and remove the application deployed to your orchestration platform.
+Once the file is committed, the [rSync](platform/workflow/job/rsync/#rsync) job will run and update the job configuration.
+
+###3. Run the deploy job.
+
+Find `app_deploy_job` in the UI and trigger the job. When the job runs, the application will be removed from  your orchestration platform.
 
 ## Removing `app_deploy_job` from [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/).
 If you remove or comment out `app_deploy_job` and commit, the deployed service will also get removed. The job is soft deleted and to completely remove the job, you will need to hard delete the job using the steps below.

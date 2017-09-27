@@ -40,7 +40,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to ECS.
 
@@ -49,7 +49,7 @@ Follow the steps below to set up a basic deployment to ECS.
 You need two account integrations for this scenario:
 
 ####AWS
-Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable for this.
+Shippable will use an AWS key/secret pair to communicate with ECS on your behalf. [See here](../platform/integration/aws-ecs) for directions on adding an ECS account integration to Shippable.
 
 This key should have the appropriate permissions and roles described [here](../platform/integration/aws-ecs#policy).  Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  
 
@@ -59,7 +59,7 @@ You also need to configure an integration to ECR so that we can pull your image.
 
 ###2: Create resources
 
-You need the following three resources in your `shippable.resources.yml` file:
+You need the following two resources in your `shippable.resources.yml` file:
 
 ####cluster
 
@@ -240,17 +240,16 @@ To override the default name, you can use the `deployName` tag.
 jobs:
   - name: deploy-ecs-basic-deploy
     type: deploy
+    method: upgrade | replace | blueGreen
     steps:
       - IN: deploy-ecs-basic-manifest                  #required
         deployName: myApplication
       - IN: deploy-ecs-basic-cluster                         #required
-      - TASK: managed
-        deployMethod: upgrade | replace | blueGreen
 ```
 
 Some things to remember:
 
-- The name generated with the [default deployment strategy](/deploy/amazon-ecs-strategy/), **blue-green**, will include a suffix of build number. So the service name will be of format deployName-buildNumber.
+- The name generated with the [default deployment strategy](/deploy/amazon-ecs-strategy/), **blueGreen**, will include a suffix of build number. So the service name will be of the format deployName-buildNumber.
 
 - **upgrade** and **replace** deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
 

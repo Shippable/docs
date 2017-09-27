@@ -31,7 +31,7 @@ resources:
       - deploy-dockerdatacenter-basic
 ```
 
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Docker hub since it integrates nicely with Docker Datacenter.
+You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Docker Hub since it integrates nicely with Docker Datacenter.
 
 ```
 resources:
@@ -48,7 +48,6 @@ resources:
       integration: dr-dockerhub    #replace with your Docker Hub integration name
       pointer:
         sourceName: "devopsrecipes/deploy-dockerdatacenter-basic"  #replace with your image name on Docker Hub
-        isPull: false
       seed:
         versionName: "master.1"  #replace with your image tag on Docker Hub
       flags:
@@ -71,7 +70,6 @@ jobs:
     type: manifest
     steps:
       - IN: dddcb-image
-      - TASK: managed
     flags:
       - deploy-dockerdatacenter-basic
 
@@ -87,18 +85,16 @@ jobs:
     type: manifest
     steps:
       - IN: dddcb-image
-      - TASK: managed
     flags:
       - deploy-dockerdatacenter-basic
 
   #Docker Datacenter deploy job
   - name: dddcb-deploy
     type: deploy
+    method: upgrade
     steps:
       - IN: dddcb-manifest
       - IN: dddcb-cluster
-      - TASK: managed
-        deployMethod: upgrade
     flags:
       - deploy-dockerdatacenter-basic
 ```
@@ -166,7 +162,7 @@ When [params resources](../platform/workflow/resource/params) are added to a man
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Docker hub. It also contains all of the pipelines configuration files for deploying to Docker Datacenter.
+the image to Docker Hub. It also contains all of the pipelines configuration files for deploying to Docker Datacenter.
 
 **Source code:**  [devops-recipes/deploy-dockerdatacenter-basic](https://github.com/devops-recipes/deploy-dockerdatacenter-basic).
 

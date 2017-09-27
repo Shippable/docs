@@ -5,176 +5,142 @@ sub_section: Managing release versions
 
 # Incrementing the version number for a Release
 
-The `bump` directive in the Release job specifies how the version number should be incremented when the release job runs. Here we will look at different usages of `bump`. 
+The `bump` directive in the release job specifies how the version number should be incremented when the release job runs. Here we will look at different usages of `bump`.
 
 ## Setup
 
--  Create a version resource in the shippable.resources.yml file. Specify your version in the versionName field.
+-  Create a [version](/platform/workflow/resource/version/) resource in the shippable.resources.yml file. Specify your starting version in the versionName field.
 
 ```
- #Version resource
+ # Version resource
  - name: release-version
     type: version
     seed:
       versionName: "1.0.0"
 ```
 
-
-#### Incrementing major version
-
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
- we provide a single manifest job as an input. 
+-  Add a [manifest](/platform/workflow/job/manifest/) job to your shippable.jobs.yml file.
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
-  - name: release-job
-    type: release
-    steps:
-      - IN: java-img-manifest
-      - IN: release-version
-      - TASK: managed
-        bump: major 
+ # Manifest job  
+ - name: java-img-manifest
+   type: manifest
+   steps:
+     - IN: ecr-img
+     - IN: ecr-img-opts
 ```
 
-- Running the Release job will set the current version to 2.0.0 since `bump` was set to `major`.
+-  Trigger the manifest job to create a manifest.
 
-#### Incrementing minor version
 
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
+## Incrementing major version
+
+- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
+  # Release job    
   - name: release-job
     type: release
     steps:
       - IN: java-img-manifest
       - IN: release-version
       - TASK: managed
-        bump: minor 
+        bump: major
 ```
 
-- Running the Release job will set the current version to 1.1.0 since `bump` was set to `minor`.
+- Running the release job will set the current version to 2.0.0 since `bump` was set to `major`.
 
-#### Incrementing patch version
+## Incrementing minor version
 
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
+ - After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+  we provide a single manifest job as an input.
+
+```
+  # Release job    
+  - name: release-job
+    type: release
+    steps:
+      - IN: java-img-manifest
+      - IN: release-version
+      - TASK: managed
+        bump: minor
+```
+
+- Running the release job will set the current version to 1.1.0 since `bump` was set to `minor`.
+
+## Incrementing patch version
+
+- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
+  # Release job    
   - name: release-job
     type: release
     steps:
       - IN: java-img-manifest
       - IN: release-version
       - TASK: managed
-        bump: patch 
+        bump: patch
 ```
 
-- Running the Release job will set the current version to 1.0.1 since `bump` was set to `patch`.
+- Running the release job will set the current version to 1.0.1 since `bump` was set to `patch`.
 
-#### Incrementing alpha version
+## Incrementing alpha version
 
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
+- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
+  # Release job    
   - name: release-job
     type: release
     steps:
       - IN: java-img-manifest
       - IN: release-version
       - TASK: managed
-        bump: alpha 
+        bump: alpha
 ```
 
-- Running the Release job will set the current version to 1.0.0-alpha since `bump` was set to `alpha`. The next run will set the version to 1.0.0-alpha.1.
+- Running the release job will set the current version to 1.0.0-alpha since `bump` was set to `alpha`. The next run will set the version to 1.0.0-alpha.1.
 
-#### Incrementing beta version
+## Incrementing beta version
 
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
+- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
+  # Release job    
   - name: release-job
     type: release
     steps:
       - IN: java-img-manifest
       - IN: release-version
       - TASK: managed
-        bump: beta 
+        bump: beta
 ```
 
-- Running the Release job will set the current version to 1.0.0-beta since `bump` was set to `beta`. The next run will set the version to 1.0.0-beta.1.
+- Running the release job will set the current version to 1.0.0-beta since `bump` was set to `beta`. The next run will set the version to 1.0.0-beta.1.
 
-#### Incrementing rc version
+## Incrementing rc version
 
-- After completing the setup, create a Release job of **type release** in the shippable.jobs.yml file. Specify the version resource and your manifest / deploy jobs as inputs. In this example
- we provide a single manifest job as an input.
+ - After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+  we provide a single manifest job as an input.
+
 
 ```
-  #Manifest job  
-  - name: java-img-manifest
-    type: manifest
-    steps:
-      - IN: ecr-img
-      - IN: ecr-img-opts
-      - TASK: managed
-  
-  #Release job    
+  # Release job    
   - name: release-job
     type: release
     steps:
       - IN: java-img-manifest
       - IN: release-version
       - TASK: managed
-        bump: rc 
+        bump: rc
 ```
 
-- Running the Release job will set the current version to 1.0.0-rc since `bump` was set to `rc`. The next run will set the version to 1.0.0-rc.1.
+- Running the release job will set the current version to 1.0.0-rc since `bump` was set to `rc`. The next run will set the version to 1.0.0-rc.1.
 
 ## Improve this page
 

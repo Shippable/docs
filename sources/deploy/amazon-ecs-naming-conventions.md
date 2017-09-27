@@ -4,7 +4,7 @@ sub_section: Amazon ECS
 
 # Naming Conventions
 
-Shippable uses a default naming convention for its deployment in ECS and the reference for it can be found from here.
+Shippable uses the following default naming convention for deployments to ECS.
 
 | Deploy Method | Default Naming Convention |
 |--------------|---------------------------|
@@ -13,23 +13,22 @@ Shippable uses a default naming convention for its deployment in ECS and the ref
 | replace | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
 
 ## Managed
-Shippable allows overriding the default naming convention of an ECS service, that was created by running a deploy job. `deployName` can be used in order to achieve this.
-
+Shippable allows the default ECS service name to be overridden when running a deploy job by setting `deployName`.
 ```
 jobs:
   - name: <job name>
     type: deploy
+    method: upgrade | replace | blueGreen
+    workflow: parallel | serial
     steps:
       - IN: <manifest>                        #required
         deployName: <custom name>
       - IN: <cluster>                         #required
-      - TASK: managed
-        deployMethod: upgrade | replace | blueGreen
 ```
 
-In this case, the deploy job uses the service name as the value given for `deployName` tag. Note that blueGreen deployments will have a suffix of build number in its service name. So service will be of format deployName-buildNumber in case blueGreen deployments.
+In this case, the deploy job uses the value given for the `deployName` tag as the service name. Note that blueGreen deployments will have a suffix of build number in their service names. So the service name will be of the format deployName-buildNumber in a blueGreen deployment.
 
-Note that, upgrade and replace deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
+Upgrade and replace deployments expect `deployName` to be present during the first deployment. The name of the previously deployed service will be used in subsequent deployments for upgrade or replace deploy methods. Hence, modifying `deployName` in a later deployment will not take effect with an upgrade or replace method.
 
 ## Unmanaged
 

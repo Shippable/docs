@@ -3,10 +3,10 @@ main_section: Deploy
 sub_section: Kubernetes
 
 # Deploying to Kubernetes
-There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
+There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Assembly Lines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
 
 ## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+The goal of this page is to accomplish the following scenario using Shippable Assembly Lines.
 
 - Create a pipeline manifest using a docker image on docker hub
 - Use the manifest as an input for a deploy job
@@ -36,7 +36,7 @@ You will need two configuration files:
 - `shippable.resources.yml` which contains resource definitions
 - `shippable.jobs.yml` which contains job definitions
 
-These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
 Follow the steps below to set up a basic deployment to your Kubernetes cluster.
 
@@ -46,15 +46,15 @@ You need two account integrations for this scenario:
 
 - **Kubernetes**
 
-Shippable will use your kubernetes configuration to communicate with your cluster on your behalf. [See here](../platform/integration/kubernetes) for directions on adding a Kubernetes account integration to Shippable for this.
+Shippable will use your Kubernetes configuration to communicate with your cluster on your behalf. [See here](../platform/integration/kubernetes) for directions on adding a Kubernetes account integration to Shippable.
 
 - **Docker Hub**
 
-You also need to configure an integration to Docker hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/platform/integration/docker-hub/) page.
+You also need to configure an integration to Docker Hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/platform/integration/docker-hub/) page.
 
 ###2: Create resources
 
-You need the following three resources in your `shippable.resources.yml` file:
+You need the following two resources in your `shippable.resources.yml` file:
 
 ####cluster
 First, we need a cluster resources which references a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
@@ -73,7 +73,7 @@ resources:
 For a complete reference, check out the [cluster](/platform/workflow/resource/cluster/) page.
 
 ####image
-Next, we need an `image` resource. This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker hub.
+Next, we need an `image` resource. This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker Hub.
 
 ```
 resources:
@@ -82,7 +82,6 @@ resources:
     integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
       sourceName: "docker.io/devopsrecipes/deploy-kubernetes-basic"  #replace with your image name on Docker Hub
-      isPull: false
     seed:
       versionName: "master.1"  #replace with your image tag on Docker Hub
     flags:
@@ -222,12 +221,11 @@ To override the default name, you can use the `deployName` tag.
 jobs:
   - name: deploy-kubernetes-basic-deploy
     type: deploy
+    method: upgrade | replace | blueGreen                     #defaults to blueGreen
     steps:
       - IN: deploy-kubernetes-basic-manifest                  #required
         deployName: myApplication
       - IN: deploy-kubernetes-basic-cluster                   #required
-      - TASK: managed
-        deployMethod: upgrade | replace | blueGreen           #defaults to blueGreen
 ```
 
 Some things to remember:

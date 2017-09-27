@@ -35,7 +35,7 @@ resources:
       - deploy-dockercloud-basic
 ```
 
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Docker hub since it integrates nicely with Docker Cloud.
+You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Docker Hub since it integrates nicely with Docker Cloud.
 
 ```
 resources:
@@ -45,7 +45,7 @@ resources:
     type: cluster
     integration: dr-docker-cloud    #replace with your docker cloud integration name
     pointer:
-          sourceName: "deploy-docker-cloud" #node cluster name
+      sourceName: "deploy-docker-cloud" #node cluster name
     flags:
       - deploy-dockercloud-basic
 
@@ -54,7 +54,6 @@ resources:
     integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
       sourceName: "devopsrecipes/deploy-dockercloud-basic"  #replace with your image name on Docker Hub
-      isPull: false
     seed:
       versionName: "master.1"  #replace with your image tag on Docker Hub
     flags:
@@ -77,7 +76,6 @@ jobs:
     type: manifest
     steps:
       - IN: ddcb-image
-      - TASK: managed
     flags:
       - deploy-dockercloud-basic
 
@@ -93,18 +91,16 @@ jobs:
     type: manifest
     steps:
       - IN: ddcb-image
-      - TASK: managed
     flags:
       - deploy-dockercloud-basic
 
   #Docker Cloud deploy job
   - name: ddcb-deploy
     type: deploy
+    method: upgrade
     steps:
       - IN: ddcb-manifest
       - IN: ddcb-cluster
-      - TASK: managed
-        deployMethod: upgrade
     flags:
       - deploy-dockercloud-basic
 ```
@@ -171,7 +167,7 @@ When [params resources](../platform/workflow/resource/params) are added to a man
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Docker hub. It also contains all of the pipelines configuration files for deploying to Docker Cloud.
+the image to Docker Hub. It also contains all of the pipelines configuration files for deploying to Docker Cloud.
 
 **Source code:**  [devops-recipes/deploy-dockercloud-basic](https://github.com/devops-recipes/deploy-dockercloud-basic).
 

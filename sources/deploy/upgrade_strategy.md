@@ -4,29 +4,28 @@ sub_section: Deploy with deployment strategies
 
 # Upgrade deployment strategy
 
-In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+In this strategy, a new service is only created on the orchestration platform for the very first deployment. Every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
 
 ## Assumptions
 
-We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
+We will use the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
 
 ## Steps
 
-The upgrade strategy is specified by setting the `deployMethod` attribute on the [deploy](/platform/workflow/job/deploy) to `upgrade`.
+The upgrade strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) to `upgrade`.
 
-To set this strategy on the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), we update the `app_deploy_job` yml block in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+To set this strategy on the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), we update the `app_deploy_job` yml block in the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
   jobs:
 
     - name: app_deploy_job
       type: deploy
+      method: upgrade
       steps:
         - IN: app_service_def
         - IN: op_cluster
         - IN: app_replicas
-        - TASK: managed
-        deployMethod: upgrade
 ```
 
 ## Sample project

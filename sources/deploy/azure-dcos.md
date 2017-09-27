@@ -35,7 +35,7 @@ resources:
 
 ```
 
-You'll also need to create a type image resource. This will represent your Docker image in your pipeline. In our example, we're using an image hosted in Docker hub, that was created by when the repository was built.
+You'll also need to create a type image resource. This will represent your Docker image in your pipeline. In our example, we're using an image hosted in Docker Hub, that was created by when the repository was built.
 
 ```
 resources:
@@ -45,7 +45,6 @@ resources:
     integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
       sourceName: "docker.io/devopsrecipes/deploy-azure-dcos-basic"  #replace with your image name on Docker Hub
-      isPull: false
     seed:
       versionName: "master.1"  #replace with your image tag on Docker Hub
 

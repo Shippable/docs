@@ -208,7 +208,6 @@ resources:
     integration: dr-dockerhub    #replace with your Docker Hub integration name
     pointer:
       sourceName: "docker.io/devopsrecipes/deploy-kubernetes-basic"  #replace with your image name on Docker Hub
-      isPull: false
     seed:
       versionName: "master.1"  #replace with your image tag on Docker Hub
     flags:
@@ -304,7 +303,7 @@ Events:
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Docker hub. It also contains all of the pipelines configuration files for deploying to Kubernetes for all of the scenarios described above.
+the image to Docker Hub. It also contains all of the pipelines configuration files for deploying to Kubernetes for all of the scenarios described above.
 
 **Source code:**  [devops-recipes/deploy-kubernetes-multi-container](https://github.com/devops-recipes/deploy-kubernetes-multi-container)
 
