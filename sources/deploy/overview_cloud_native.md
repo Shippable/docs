@@ -7,6 +7,7 @@ sub_section: Deploy using Cloud Native CLI
 Most applications today run in the Cloud. Each cloud provider has a native CLI.
 
 Shippable platform offers very rich support for CLI's by:
+
   - Preinstalling the CLI runtime.
   - Automatically initializing the CLI with your credentials that are securely stored.  
 
