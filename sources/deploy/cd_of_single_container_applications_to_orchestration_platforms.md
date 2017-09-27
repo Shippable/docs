@@ -15,6 +15,8 @@ We assume that the application is already packaged as a Docker image and availab
 * [Pushing artifacts after CI](/ci/push-artifacts/)
 * [Sample application](/getting-started/ci-sample/)
 
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
+
 ## Topics Covered
 
 You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored for each of the topics below are covered in the document. These topics will give you a high level picture of the steps that you will complete to get Continuous Deployment of your application up and running with Shippable.
