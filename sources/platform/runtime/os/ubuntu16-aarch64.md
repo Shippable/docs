@@ -14,7 +14,7 @@ We update this image, `drydockaarch64/u16`, monthly and push a unique tag to our
 
 |Image| Release Date |Available in SMI |
 |----------|------------|-----|
-[drydockaarch64/u16:v5.9.4](/platform/runtime/os/ubuntu16-aarch64#v594)  | Sept 2017 - Latest Version | v5.9.4
+[drydockaarch64/u16:v5.9.4](/platform/runtime/os/ubuntu16-aarch64#v594)  | Sept 2017 - Latest Version | [v5.9.4](/platform/tutorial/runtime/aarch64-v594)
 
 We support a minimum of 12 tags, i.e. 12 months, for backward compatibility.
 
