@@ -127,7 +127,7 @@ pages:
     - Deploy to Container Orchestration Platforms:
       - Overview: deploy/overview_deploy_oc.md
       - Single Container Application: deploy/cd_of_single_container_applications_to_orchestration_platforms.md
-      - Multi Container Application:  deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
+      - Multi Container Application: deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
     - Advanced topics:
       - Multi-stage CD through Dev/Test/Prod: deploy/multi_stage_cd_dev_test_prod.md
       - Gated CD: deploy/gated_cd.md
