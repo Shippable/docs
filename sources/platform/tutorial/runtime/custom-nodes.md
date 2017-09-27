@@ -29,15 +29,17 @@ The minimum requirements for a build machine that can be attached to Shippable a
 
 * 1.8GB RAM
 * 30GB SSD
-* 64-bit architecture
-* Supported OS and Docker versions
+* Supported architecture, OS and Docker versions
 
-|OS|Docker Version|
-|---|---|
-|Ubuntu 14.04|1.9|
-|Ubuntu 14.04|1.11|
-|Ubuntu 14.04|1.13|
-|Ubuntu 16.04|1.13|
+|Architecture|OS|Docker Version|
+|---|---|---|
+|x86_64|Ubuntu 14.04|1.9|
+|x86_64|Ubuntu 14.04|1.11|
+|x86_64|Ubuntu 14.04|1.13|
+|x86_64|Ubuntu 14.04|17.06|
+|x86_64|Ubuntu 16.04|1.13|
+|x86_64|Ubuntu 16.04|17.06|
+|aarch64|Ubuntu 16.04|17.06|
 
 **Please note that you will need to attach one build machine per parallel build.**
 
@@ -66,6 +68,9 @@ Follow the steps below to add a build node:
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Choose the radio button for **Custom**.
 <img src="/images/getting-started/byon-select-my-node.png" alt="bring your own node">
+- Select the architecture for initializing the node.
+<img src="/images/getting-started/change-custom-architecture.png" alt="change custom node architecture">
+
 - To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
 - Select the OS of the nodes you want to add.
 - Enter a name for the node and its IP address.
