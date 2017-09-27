@@ -1,29 +1,35 @@
-page_main_title: CD of a single container application to an orchestration platform.
+page_main_title: Continuous Delivery of a single container application to a Docker orchestration platform.
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 
-# CD of a single container application to an orchestration platform.
+# Continuous Delivery of a single container application to an orchestration platform.
 
-A single container application could be a web application, API endpoint or a micro-service or any application component that is packaged as a docker image. This document describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a container orchestration service like Amazon ECS, Kubernetes, GKE or Azure.
+A single container application could be a web application, API endpoint, a microservice, or any application component that is packaged as a single Docker image. This document describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE, or Azure.
 
 ## Assumptions
 
-We assume that the application is already packaged as a docker image and available in a Docker registry that Shippable supports. If you want to know how to build, test and push a docker image through CI to a docker registry, go [here](/ci/push-artifacts/).
+We assume that the application is already packaged as a Docker image and available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
+
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
 ## Topics Covered
-CD of your application is defined in Shippable configuration files in a powerful, flexible YML based language. The specific yml blocks that need to be authored for each of the topics below are covered later in the document. These topics will give you a high level picture of the steps that you will complete to get CD of your application up and running in Shippable.
 
-* Specifying the docker image of your application.
-* Specifying application options for the container.
-* Specifying application runtime environment variables.
-* Service definition of your application.
-* Scaling your application.
-* Specifying the cluster as your deployment target.
-* Deploying your application.
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored for each of the topics below are covered in the document. These topics will give you a high level picture of the steps that you will complete to get Continuous Deployment of your application up and running with Shippable.
 
-## DevOps Assembly Line
+* Creating a pointer to the Docker image of your application
+* Specifying application options for the container
+* Specifying application runtime environment variables
+* Creating a Service definition
+* Scaling your application
+* Creating a pointer to the cluster you want to deploy to
+* Deploying your application
 
-This is a pictorial representation of the continuous deployment process. The green boxes are tasks and the grey boxes are the input resources for the tasks. Both tasks and inputs are specified in Shippable configuration files.
+## Deployment workflow
+
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
 <img src="/images/deploy/usecases/deploy_mvp_1.png"/>
 
@@ -43,8 +49,7 @@ that represents the options of the application container.
 * `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
 * `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
 
-
-## Step by Step instructions
+## Configuration
 
 They are two configuration files that are needed to achieve this usecase -
 
@@ -52,9 +57,13 @@ They are two configuration files that are needed to achieve this usecase -
 
 * Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-##1. Define `app_image`.
+These files should be committed to your source control. Step 8 of the workflow below will describe how to add the config to Shippable.
 
-* **Description:** `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker hub.
+## Instructions
+
+###1. Define `app_image`.
+
+* **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker Hub.
 * **Required:** Yes.
 * **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
@@ -76,9 +85,10 @@ They are two configuration files that are needed to achieve this usecase -
         versionName: "master.1"  #Specify the tag of your image.
 ```
 
-##2. Define `app_options`.
+###2. Define `app_options`.
 
-* **Description:** `app_options` represents the options of the application container. Here we demonstrate setting container options such as setting the memory to 1024MB and exposing port 80. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
+* **Description:** `app_options` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container. Here we demonstrate setting container options such as setting the memory to 1024MB and exposing port 80. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
 * **Required:** No.
 * **Defaults:**
 If no options are specified, the platform sets the following default options -
@@ -101,7 +111,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
         - 80:80
 ```
 
-##3. Define `app_environment`.
+###3. Define `app_environment`.
 
 * **Description:** `app_environment` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
 * **Required:** No.
@@ -118,7 +128,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
         ENVIRONMENT: "prod"
 ```
 
-##4. Define `app_service_def`.
+###4. Define `app_service_def`.
 
 * **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
 * **Required:** Yes.
@@ -138,7 +148,7 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
      - IN: app_environment
 ```
 
-##5. Define `app_replicas`.
+###5. Define `app_replicas`.
 
 * **Description:** `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container you want to deploy. Here we demonstrate running two instances of the container.
 * **Required:** No.
@@ -155,7 +165,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
       count: 2
 ```
 
-##6. Define `op_cluster`.
+###6. Define `op_cluster`.
 
 * **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in your orchestration platform where your application is deployed to. In our example, the cluster points to a cluster on Amazon ECS.
 * **Required:** Yes.
@@ -180,7 +190,7 @@ The list of supported container orchestration platforms can be found [here](/pla
       region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
 ```
 
-##7. Define `app_deploy_job`.
+###7. Define `app_deploy_job`.
 
 * **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
 * **Required:** Yes.
@@ -200,15 +210,15 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
         - IN: app_replicas
 ```
 
-##8. Import configuration into your Shippable account.
+###8. Import configuration into your Shippable account.
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
-Follow [these instructions]((/platform/tutorial/workflow/crud-syncrepo/)) to import your configuration files into your Shippable account.
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
-##9. Trigger your pipeline
+###9. Trigger your pipeline
 
-When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**.
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time the `app_image` changes, i.e. each time you have a new Docker image.
 
 ## Sample project
 
