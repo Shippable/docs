@@ -304,6 +304,7 @@ pages:
       - Operating System:
         - Ubuntu 14:04: platform/runtime/os/ubuntu14.md
         - Ubuntu 16:04: platform/runtime/os/ubuntu16.md
+        - Ubuntu 16:04 - aarch64: platform/runtime/os/ubuntu16-aarch64.md
       - Languages:
         - Overview: platform/runtime/language/overview.md
         - Nodejs: platform/runtime/language/nodejs.md
