@@ -4,11 +4,11 @@ sub_section: Advanced topics
 
 # Customizing deployed service names
 
-Shippable allows overriding the default naming convention of a deployed service, that was created by running a deploy job.
+Shippable has a default naming convention when running a [deploy](/platform/workflow/job/deploy) job, but also allows names to be specified.
 
 ## Naming convention of a deployed service
 
-Shippable uses a default naming convention for the services it creates during deployment.
+The default naming convention used by Shippable for services created during deployment is as follows:
 
 | Deploy Method | Default Naming Convention |
 |--------------|---------------------------|
@@ -24,14 +24,13 @@ Set the `deployName` attribute in the [deploy](/platform/workflow/job/deploy) jo
 jobs:
   - name: <job name>
     type: deploy
+    method: upgrade | replace | blueGreen
     steps:
       - IN: <manifest>                        #required
         deployName: <custom name>
       - IN: <cluster>                         #required
-      - TASK: managed
-        deployMethod: upgrade | replace | blueGreen
 ```
 
-In this case, the deploy job uses the deployment name as the value given for `deployName` tag. Note that blueGreen deployments will have a suffix of build number in its deployment name. So deployment will be of format deployName-buildNumber in case blueGreen deployments.
+In this case, the deploy job uses the value given for the `deployName` tag as the deployment name. Note that blueGreen deployments will have a suffix of build number in their deployment names. So the deployment name will be of the format deployName-buildNumber in a blueGreen deployment.
 
-Note that, upgrade and replace deployments expect `deployName` to be present during the first deployment. The name of the first deployment will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
+Upgrade and replace deployments expect `deployName` to be present during the first deployment. The name used in the previous deployment will be used in subsequent deployments for upgrade or replace deploy methods. Hence, modifying `deployName` in a later deployment will not take effect with an upgrade or replace method.

@@ -8,24 +8,25 @@ This tutorial demonstrates how to version every stage of deployment, as your cod
 in a staged manner.
 
 In this tutorial, you will learn how to specify the output of one release job as input to another release job.
-This passes the version state from one release job to another, while allowing each release job to bump the
-specific component of the version it so desires. For example, before deploying to the beta deployment, a release job
+This passes the version state from one release job to another, while allowing each release job to bump a
+specific component of the version if it so desires. For example, before deploying to the beta deployment, a release job
 increments the beta tag, while after deploying to beta, another release job increments the rc tag, with both jobs
 retaining the same major/minor/patch version number.
 
 ##Setup
 The basic setup needs a manifest job for each component that has to be versioned in the shippable.resources.yml file.
 
-This tutorial uses docker images built by -
-- <i class="ion-ios-minus-empty"></i>[Node tutorial](https://github.com/devops-recipes/release-single-component)
-that builds a node docker image and pushes the image to Docker hub.
-- <i class="ion-ios-minus-empty"></i>[Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr)
-that builds a java war docker image and pushes the image to EC2 Container Registry.
+This tutorial uses Docker images built by -
 
-## Basic Config
+- [Node tutorial](https://github.com/devops-recipes/release-single-component)
+that builds a Node Docker image and pushes the image to Docker Hub.
+- [Java tutorial](https://github.com/devops-recipes/ci-java-push-ecr)
+that builds a Java war Docker image and pushes the image to Amazon EC2 Container Registry.
 
-- Once you have completed the Setup, add a version resource that will be used as an input to the upstream Release job
-in the shippable.resources.yml file. This resource specifies the version seed, that will flow throughout the pipeline.
+## Basic Configuration
+
+- Once you have completed the setup above, add a version resource that will be used as an input to the upstream release job
+to the shippable.resources.yml file. This resource specifies the version seed, which will flow throughout the pipeline.
 ```
   - name: upstream-release-version
     type: version
@@ -35,30 +36,28 @@ in the shippable.resources.yml file. This resource specifies the version seed, t
       - release-from-upstream-release-jobs
 ```
 
-- Next add the upstream Release job to shippable.jobs.yml file of **type release**. This job takes as input two docker
-images that we want to version before deployment to the ECS cluster.
+- Next add the upstream release job to the shippable.jobs.yml file. This job takes as inputs the two Docker
+images that we want to version before deployment to the Amazon ECS cluster.
 ```
-  #Manifest job
+  # Manifest job
   - name: release-from-upstream-release-node-img-manifest-job
     type: manifest
     steps:
       - IN: node-img
       - IN: node-img-opts
-      - TASK: managed
     flags:
       - release-from-upstream-release-jobs
 
-  #Manifest job
+  # Manifest job
   - name: release-from-upstream-release-java-img-manifest-job
     type: manifest
     steps:
       - IN: java-img
       - IN: java-img-opts
-      - TASK: managed
     flags:
       - release-from-upstream-release-jobs
 
-  #Release job
+  # Release job
   - name: release-from-upstream-release-upstream-release-job
     type: release
     steps:
@@ -71,11 +70,11 @@ images that we want to version before deployment to the ECS cluster.
       - release-from-upstream-release-jobs
 ```
 
-When this release job runs, it increments the beta version and set the version to 1.1.0-beta.
+When this release job runs, it increments the beta version and sets the version to 1.1.0-beta.
 
 **Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/beta-release-version.png)
 
-- Next add the downstream Release job to shippable.jobs.yml file of **type release**. This job takes as input the deploy
+- Next add the downstream release job to the shippable.jobs.yml file. This job takes as input the deploy
 job. It does **not** have its own version resource, since the upstream release job is specified as input to the deploy job.
 This results in the version of the upstream release job being fed as input to itself.
 ```
@@ -84,7 +83,6 @@ This results in the version of the upstream release job being fed as input to it
       steps:
         - IN: release-from-upstream-release-upstream-release-job
         - IN: release-from-upstream-release-ecs-cluster
-        - TASK: managed
       flags:
         - release-from-upstream-release-jobs
 
@@ -98,7 +96,7 @@ This results in the version of the upstream release job being fed as input to it
         - release-from-upstream-release-jobs
 ```
 
-When this release job runs, it increments the rc version and set the version to 1.1.0-rc.
+When this release job runs, it increments the rc version and sets the version to 1.1.0-rc.
 
 **Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/release-job-view.png)
 
@@ -108,7 +106,7 @@ Here are some links to a working sample of this scenario.
 
 **Source code:**  [devops-recipes/release-from-upstream-release-jobs](https://github.com/devops-recipes/release-from-upstream-release-jobs).
 
-**Pipeline screenshot link:** [Pipeline screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/pipeline-view.png)
+<img src="https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/pipeline-view.png" alt="Configured sample pipeline" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ## Improve this page
 
