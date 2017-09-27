@@ -22,7 +22,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Dirperm1 Supported: true
 * Cgroup Driver: cgroupfs
 
-** PLEASE NOTE: only [custom nodes](/platform/tutorial/runtime/custom-nodes/) are currently supported. Cannot run builds on [dynamic nodes](http://localhost:5555/platform/tutorial/runtime/dynamic-nodes/) for aarch64 architecture **
+** NOTE: only [custom nodes](/platform/tutorial/runtime/custom-nodes/) are currently supported. Cannot run builds on [dynamic nodes](/platform/tutorial/runtime/dynamic-nodes/) for aarch64 architecture **
 
 ## Shippable Official Docker Images
 These are the images used to run your CI jobs. The default image is picked up
