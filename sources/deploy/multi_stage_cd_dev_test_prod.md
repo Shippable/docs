@@ -9,8 +9,10 @@ Most of the time, you will want to set up an Assembly Line which deploys your ap
 A Multi-stage deployment workflow through Dev/Test/Prod looks like this:
 
 ```
-CI -> push image to Docker Registry -> CD to Dev cluster -> CD to Test cluster -> manual deployment to Prod cluster.
+CI -> push image to Docker Registry -> create service definition -> CD to Dev cluster -> CD to Test cluster -> manual deployment to Prod cluster.
 ```
+
+The main idea here is that we create the service definition of the application just once and override the configuration at the deployment stage of the pipeline for each environment.
 
 ## Assumptions
 
@@ -54,16 +56,16 @@ that represents the options of the application container.
 * `app_dev_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
 * `app_test_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
 * `app_prod_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
-* `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
+* `app_dev_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the dev environment.
+* `app_test_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the test environment.
+* `app_prod_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the prod environment.
 * `op_dev_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the development environment cluster in the orchestration platform where the application is deployed to.
 * `op_test_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the test environment cluster in the orchestration platform where the application is deployed to.
 * `op_prod_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the prod environment cluster in the orchestration platform where the application is deployed to.
 
 **Jobs (green boxes)**
 
-* `app_dev_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application for the dev environment, encompassing the image, options and environment that is versioned and immutable.
-* `app_test_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application for the test environment, encompassing the image, options and environment that is versioned and immutable.
-* `app_prod_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application for the prod environment, encompassing the image, options and environment that is versioned and immutable.
+* `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application for the dev environment, encompassing the image, options and environment that is versioned and immutable.
 * `app_dev_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the development cluster.
 * `app_test_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the test cluster.
 * `app_prod_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the prod cluster.
@@ -171,9 +173,9 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
         ENVIRONMENT: "prod"              
 ```
 
-###4. Define `app_dev_service_def`, `app_test_service_def` and `app_prod_service_def`.
+###4. Define `app_service_def`,.
 
-* **Description:** `app_dev_service_def`, `app_test_service_def` and `app_prod_service_def` are [manifest](/platform/workflow/job/manifest) jobs used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment and is environment specific. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Description:** `app_service_def` is [manifest](/platform/workflow/job/manifest) jobs used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment and is environment specific. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable. We create this service definition once and push it through all our environments.
 * **Required:** Yes.
 
 **Steps**  
@@ -183,29 +185,17 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
   jobs:
 
-  - name: app_dev_service_def
+  - name: app_service_def
     type: manifest
     steps:
      - IN: app_image
      - IN: app_dev_options
      - IN: app_dev_environment
-  - name: app_test_service_def
-    type: manifest
-    steps:
-      - IN: app_image
-      - IN: app_test_options
-      - IN: app_test_environment
-  - name: app_prod_service_def
-    type: manifest
-    steps:
-     - IN: app_image
-     - IN: app_prod_options
-     - IN: app_prod_environment
-```
+  ```
 
-###5. Define `app_replicas`.
+###5. Define `app_dev_replicas`, `app_test_replicas` and `app_prod_replicas`.
 
-* **Description:** `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container you want to deploy. Here we demonstrate running two instances of the container.
+* **Description:** `app_dev_replicas`, `app_test_replicas` and `app_prod_replicas` are [replicas](/platform/workflow/resource/replicas) resources that specifies the number of instances of the container you want to deploy to their respective environments. Here we show different number of replicas being set for Dev/Test/Prod environments.
 * **Required:** No.
 * Default: 1 (one instance of the container is deployed)
 
@@ -214,10 +204,18 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  - name: app_replicas
+  - name: app_dev_replicas
+    type: replicas
+    version:
+      count: 1
+  - name: app_test_replicas
     type: replicas
     version:
       count: 2
+  - name: app_prod_replicas
+    type: replicas
+    version:
+      count: 4
 ```
 
 ###6. Define `op_dev_cluster`, `op_test_cluster` and `op_prod_cluster`.
@@ -265,8 +263,6 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 Notice how we specify the `app_dev_deploy_job` as an input to the `app_test_deploy_job`. This essentially sets up staged deployment in the sense that once `app_dev_deploy_job` completes, it triggers `app_test_deploy_job`, which is the next job in the devops assembly line downstream.
 
-We also set `switch: off` for app_test_service_def so that the both the dev and test deploy jobs do not start simulatenously when the service defintions get built once the image is built by CI.
-
 **Required:** Yes.
 
 **Steps**  
@@ -279,15 +275,13 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
   - name: app_dev_deploy_job
     type: deploy
     steps:
-      - IN: app_dev_service_def
+      - IN: app_service_def
       - IN: op_dev_cluster
       - IN: app_replicas
 
   - name: app_test_deploy_job
     type: deploy
     steps:
-      - IN: app_test_service_def
-        switch: off
       - IN: op_test_cluster
       - IN: app_dev_deploy_job
       - IN: app_replicas
@@ -295,8 +289,6 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
   - name: app_prod_deploy_job
     type: deploy
     steps:
-      - IN: app_prod_service_def
-        switch: off
       - IN: op_prod_cluster
       - IN: app_test_deploy_job
       - IN: app_replicas
