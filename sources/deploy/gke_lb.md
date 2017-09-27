@@ -1,8 +1,8 @@
-page_main_title: Attaching a load balancer to a Kubernetes cluster
+page_main_title: Attaching a load balancer to a GKE cluster
 main_section: Deploy
 sub_section: Using load balancers
 
-# Attaching a load balancer to a Kubernetes cluster
+# Attaching a load balancer to a GKE cluster
 Load balancers are a must-have for any containerized application that wants to run on a cluster.
 You can easily add a load balancer and specify the pods to which it should direct traffic. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
 
@@ -14,12 +14,14 @@ You can easily add a load balancer and specify the pods to which it should direc
 
 * **Description:** `app_lb` represent a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource. The loadBalancer resource supports a range of fields in this case, allowing you to set almost any field that you'd want.
 
-    Shippable adds the following two labels to every pod spec for Kubernetes clusters:
+    Shippable adds the following two labels to every pod spec for GKE:
 
     ```
-    "shippable.manifestName": "<name of your manifest job that was deployed>"
-    "shippable.jobName": "<name of the deploy job that deployed your manifest>"
+    "name": "<name of your manifest job that was deployed>"
+    "jobName": "<name of the deploy job that deployed your manifest>"
     ```
+
+    By using both the manifestName and jobName as selectors, the GKE service will always pinpoint the exact pods from the replicationController that was deployed.
 
 * **Required:** Yes.
 
