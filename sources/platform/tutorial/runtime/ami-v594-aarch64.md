@@ -22,7 +22,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Dirperm1 Supported: true
 * Cgroup Driver: cgroupfs
 
-** NOTE: ONLY [custom nodes](/platform/tutorial/runtime/custom-nodes/) are currently supported. Builds on [dynamic nodes](/platform/tutorial/runtime/dynamic-nodes/) for aarch64 architecture are not supported for this version of AMI
+** Note: ONLY [custom nodes](/platform/tutorial/runtime/custom-nodes/) are currently supported. Builds on [dynamic nodes](/platform/tutorial/runtime/dynamic-nodes/) for aarch64 architecture are not supported for this version of AMI
 **
 
 ## Shippable Official Docker Images
