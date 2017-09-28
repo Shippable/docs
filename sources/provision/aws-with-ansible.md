@@ -17,14 +17,14 @@ integration, you can use it for all your projects without needing to add it agai
 navigation bar.
 -  Click on **Integrations** in the left sidebar menu and then click on **Add
 Integration**
--  Locate **AWS** in the list and click on **Create Integration**
+-  Locate **AWS Keys** in the list and click on **Create Integration**
 -  Name your integration and enter your AWS Access Key ID and AWS Secret Access
 Key for an IAM User with the appropriate policies set to perform the provisioning
 actions you will execute (e.g. create/delete EC2 instances)
 -  Choose the subscription(s) that are allowed to use these credentials.
 -  Click **Save**
 
-<img src="../../images/provision/amazon-web-services-integration.png" alt="add
+<img src="../../images/provision/aws-keys-integration.png" alt="add
 aws credentials">
 
 ##Basic config
