@@ -33,8 +33,8 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						         | Description        |
 | ------			 							         |----------------- |
-| `<NAME>`\_INTEGRATION\_ACCESS\_KEY       | Access key supplied in the integration |
-| `<NAME>`\_INTEGRATION\_SECRET\_KEY   | Secret key supplied in the integration |
+| `<NAME>`\_INTEGRATION\_ACCESSKEY       | Access key supplied in the integration |
+| `<NAME>`\_INTEGRATION\_SECRETKEY   | Secret key supplied in the integration |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values. Usage of the tool is documented [here](/platform/tutorial/workflow/using-shipctl).

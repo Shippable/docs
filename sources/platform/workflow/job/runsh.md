@@ -34,6 +34,9 @@ jobs:
         versionNumber: 		<number of the version you want to pin>        
       - IN: 				<gitRepoResource with buildOnPullRequest: true>
         showBuildStatus:	true       
+      - IN:         <cliConfig with scope support>
+        scopes:
+          - scope        <scope that you want configured>
       - TASK:
         - script: 			<any shell command>
         - script: 			<any shell command>
@@ -85,8 +88,8 @@ Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools|
 | ------------------------------------|-------------|
-| [AWS](/platform/integration/aws-keys) | [AWS](/platform/runtime/cli/aws) & [Elastic Beanstalk](/platform/runtime/cli/awseb) |
-| [AWS ECR](/platform/integration/aws-keys) | [Docker](/platform/runtime/cli/docker) |
+| [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/cli/aws) & [Elastic Beanstalk](/platform/runtime/cli/awseb) |
+| [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/cli/docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/cli/azure) |
 | [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/cli/docker) |
 | [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/cli/docker) |
