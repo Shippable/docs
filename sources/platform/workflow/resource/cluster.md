@@ -24,7 +24,7 @@ resources:
 * **`type`** -- is set to `cluster`
 
 * **`integration`** -- name of the subscription integration. Currently supported integration types are:
-	* [AWS Elastic Container Service (ECS)](/platform/integration/aws-ecs)
+	* [AWS Keys](/platform/integration/aws-keys)
 	* [Azure Container Service](/platform/integration/azure-dcos)
 	* [Docker Cloud](/platform/integration/docker-cloud)
 	* [Docker Datacenter](/platform/integration/docker-datacenter)
