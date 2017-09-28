@@ -83,8 +83,8 @@ jobs:
     always:
       - NOTIFY: deploy_notification
     steps:
-      - IN: deploy_manifest
-      - IN: deploy_cluster
+      - IN: app_service_def
+      - IN: op_cluster
 ```
 
 ## Ask questions on Chat

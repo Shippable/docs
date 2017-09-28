@@ -96,7 +96,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
   type: loadBalancer
   pointer:
     role: role_for_ecs_lb
-    sourceName: deploy_ecs_elb
+    sourceName: ecs_elb
 ```
 
 ###2. Update `app_deploy_job`.

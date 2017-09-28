@@ -21,8 +21,8 @@ We will use the [Single container application](/deploy/cd_of_single_container_ap
 
 * Update `app_service_def`, the [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application .
 * A `versionName` attribute is specified for the image resource to set the specific version of the image to be deployed.
-* Yml block:
 
+**Steps**
 
 ```
 jobs:
@@ -30,11 +30,10 @@ jobs:
 - name: app_service_def
   type: manifest
   steps:
-   - IN: app_image
-     versionName: "master.12"
-   - IN: app_options
-   - IN: app_environment
-jobs:
+  - IN: app_image
+      versionName: "master.12"
+  - IN: app_options
+  - IN: app_environment
 ```
 
 ### Pinning resource versions using the Shippable UI.
