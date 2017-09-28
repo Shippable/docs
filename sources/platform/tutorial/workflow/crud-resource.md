@@ -20,6 +20,15 @@ Once the Resources are defined and added to the repo, you will have to connect i
 
 After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Resource adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 
+<a name="viewing"></a>
+## Viewing resource information
+
+You can see what's included in each resource version through the Shippable UI.
+
+* Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Resources in Grid View
+* Search for your resource and click on it. This will show you a historical list of all resource versions with additional information.
+
+
 ## Migrating a Resource from one YML to another
 There are some situations where you might need to reorganize where your Resources are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative.
 

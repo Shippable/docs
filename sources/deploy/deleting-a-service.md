@@ -1,6 +1,7 @@
 page_main_title: Deleting a deployed service.
 main_section: Deploy
-sub_section: Advanced topics
+sub_section: Deploy to Container Orchestration Platforms
+sub_sub_section: Advanced topics
 
 # Deleting a deployed service.
 

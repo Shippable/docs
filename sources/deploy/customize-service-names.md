@@ -1,6 +1,7 @@
 page_main_title: Customizing deployed service names
 main_section: Deploy
-sub_section: Advanced topics
+sub_section: Deploy to Container Orchestration Platforms
+sub_sub_section: Advanced topics
 
 # Customizing deployed service names
 
