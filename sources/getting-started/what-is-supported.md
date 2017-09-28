@@ -106,7 +106,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 ### Cloud Providers
 
--  [Amazon Web Services](/platform/integration/aws)
+-  [Amazon Web Services](/platform/integration/aws-keys)
 -  [Google Cloud](/platform/integration/gce)
 -  [Microsoft Azure](/platform/integration/azure)
 -  [Digital Ocean](/platform/integration/do)
@@ -114,11 +114,10 @@ Shippable supports a multitude of integrations into external providers. This mak
 ### Container Orchestration Systems
 
 - [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
-- [AWS Elastic Container Service](/platform/integration/aws)
+- [AWS Elastic Container Service](/platform/integration/aws-keys)
 - [Mesos DC/OS](/platform/integration/azure-dcos)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gce)
-
 - [Azure Container Service](/platform/integration/azure)
 - [Joyent Triton](/platform/integration/tripub)
 - [Docker Datacenter](/platform/integration/docker-datacenter)
@@ -128,11 +127,11 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 - [Docker Hub](/platform/integration/docker-hub)
 - [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-- [AWS Elastic Container Registry](/platform/integration/aws-ecr)
+- [AWS Elastic Container Registry](/platform/integration/aws-keys)
 - [Google Container Registry](/platform/integration/gcr)
 - [Quay](/platform/integration/quay)
 - [JFrog Artifactory](/platform/integration/jfrog-artifactory)
-- [AWS S3](/platform/integration/aws)
+- [AWS S3](/platform/integration/aws-keys)
 
 ### Messaging Providers
 
@@ -144,13 +143,13 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 ### PaaS Providers
 
-- [AWS Opsworks](/platform/integration/aws)
-- [AWS Elastic Beanstalk](/platform/integration/aws)
+- [AWS Opsworks](/platform/integration/aws-keys)
+- [AWS Elastic Beanstalk](/platform/integration/aws-keys)
 - [Heroku](/platform/integration/key-value)
 
 ### IaaS Providers
 
--  [AWS EC2](/platform/integration/aws)
+-  [AWS EC2](/platform/integration/aws-keys)
 -  [Google Cloud](/platform/integration/gce)
 -  [Microsoft Azure](/platform/integration/azure)
 -  [Digital Ocean](/platform/integration/do)

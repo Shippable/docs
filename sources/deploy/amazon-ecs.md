@@ -133,7 +133,7 @@ resources:
 
 ###4. Create deployment job
 
-* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container. 
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container.
 * **Required:** Yes.
 
 **Steps**
