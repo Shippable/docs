@@ -406,8 +406,8 @@ menu,ol.shipNav,ul.shipNav {
 }
 
 .subSubSectionHeader {
-  color: #333;
-  font-size: 16px;
+  color: #6c89a5;
+  font-size: 15px;
 }
 
 .subSectionHeader.hasChildren::before {
