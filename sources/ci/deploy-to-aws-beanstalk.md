@@ -22,14 +22,14 @@ The steps to do so are:
 
 1. Click on the gear icon for **Account Settings** in your top navigation bar and then click on the **Integrations** section.
 2. Click on the **Add Integration** button.
-3. For **Integration type**, choose `AWS` from the list of dropdown choices.
+3. For **Integration type**, choose AWS Keys from the list of dropdown choices.
 4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: `AWS-Integration`.
 5. Enter your aws_access_key_id and aws_secret_access_key. You can follow instructions in [Amazon's guide for Creating and Managing access keys](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 12. Click on **Save**.
 
 The integration will now be available to all your continuous integration and deployment workflows.
 
-<img src="../../images/ci/addAwsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
+<img src="../../images/ci/aws-keys-integration.png" alt="Amazon AWS integration" style="width:700px;"/>
 
 ##Source Code Deployment to AWS EB
 
@@ -63,7 +63,7 @@ To enable AWS EB integration for your project, add the following to the `shippab
 ```
 integrations:
   deploy:
-    - integrationName: "aws-eb-integration"
+    - integrationName: "aws-keys-integration"
       type: aws
       target: eb_paas
       platform: "Node.js"
@@ -141,7 +141,7 @@ To enable AWS EB integration for your project, add the following to the `shippab
 ```
 integrations:
   deploy:
-    - integrationName: "aws-eb-docker"
+    - integrationName: "aws-keys-docker"
       type: aws
       target: eb_docker
       application_name: "sample-node-eb-docker-app"

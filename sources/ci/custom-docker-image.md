@@ -53,7 +53,7 @@ Follow the steps below to pull a private image:
 
 - Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
     - [Docker Hub](../platform/integration/docker-hub/)
-    - [Amazon ECR](../platform/integration/aws-ecr/)    
+    - [Amazon ECR](../platform/integration/aws-keys/)    
     - [GCR](../platform/integration/gcr/)
     - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
     - [Quay](../platform/integration/quay/)      
@@ -115,7 +115,7 @@ build:
 * If your Dockerfile contains a `FROM` command that needs a private image, you will also need to follow a couple of additional steps:
     * Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
         - [Docker Hub](../platform/integration/docker-hub/)
-        - [Amazon ECR](../platform/integration/aws-ecr/)    
+        - [Amazon ECR](../platform/integration/aws-keys/)    
         - [GCR](../platform/integration/gcr/)
         - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
         - [Quay](../platform/integration/quay/)      
