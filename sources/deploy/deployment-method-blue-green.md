@@ -1,6 +1,7 @@
 page_main_title: Blue-green deployment strategy
 main_section: Deploy
-sub_section: Deploy with deployment strategies
+sub_section: Deploy to Container Orchestration Platforms
+sub_sub_section: Deployment methods
 
 # Blue-green deployment strategy
 This is default strategy that the [deploy](/platform/workflow/job/deploy) job uses unless otherwise specified. Thus no changes to the yml are needed to use this strategy.

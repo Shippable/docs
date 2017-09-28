@@ -1,6 +1,7 @@
 page_main_title: Upgrade deployment strategy
 main_section: Deploy
-sub_section: Deploy with deployment strategies
+sub_section: Deploy to Container Orchestration Platforms
+sub_sub_section: Deployment methods
 
 # Upgrade deployment strategy
 

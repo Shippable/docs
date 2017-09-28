@@ -71,6 +71,13 @@ jobs:
 
 As shown above, the `switch: off` tag can be defined for `IN` resources or jobs in order to turn off automatic triggering of a job when the inputs change. Note that these switches are specific to the input and should be set accordingly for each input.
 
+## Viewing job information
+
+You can see what's included in each job version through the Shippable UI.
+
+* Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Jobs in Grid View
+* Search for your Job and click on it. This will show you a historical list of all versions and you can drill down to see additional information.
+
 <a name="pin"></a>
 ## Pinning specific resource versions
 

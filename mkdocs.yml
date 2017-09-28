@@ -124,32 +124,33 @@ pages:
       - Triggering deploy jobs: deploy/trigger-job.md
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
-    - Deploy to Container Orchestration Platforms:
-      - Overview: deploy/overview_deploy_oc.md
-      - Single Container Application: deploy/cd_of_single_container_applications_to_orchestration_platforms.md
-      - Multi Container Application: deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
-    - Advanced topics:
-      - Multi-stage CD through Dev/Test/Prod: deploy/multi_stage_cd_dev_test_prod.md
-      - Gated CD: deploy/gated_cd.md
-      - Specifying the version to deploy: deploy/specifying_version_to_deploy.md
-      - Rolling back deployments: deploy/rollback.md
-      - Sending notifications upon deployments: deploy/notifications_with_cd.md
-      - Customizing deployed service names: deploy/customize_service_names.md
-      - Pausing deployments: deploy/pause_deployments.md
-      - Deleting a deployed service: deploy/delete_container_apps_from_orchestration_platforms.md
-    - Deploy using Cloud Native CLI:
-      - Overview: deploy/overview_cloud_native.md
-      - Amazon ECS: deploy/cd_with_cloud_native_cli.md
-    - Deploy with deployment strategies:
-      - Overview: deploy/overview_deployment_strategies.md
-      - Blue-green: deploy/blue_green_strategy.md
-      - Upgrade: deploy/upgrade_strategy.md
-      - Replace: deploy/replace_strategy.md
-    - Using load balancers:
-      - Overview: deploy/overview_lb.md
-      - Amazon ECS: deploy/amazon_ecs_lb.md
-      - Kubernetes: deploy/kubernetes_lb.md
-      - GKE: deploy/gke_lb.md
+    # - Deploy to Container Orchestration Platforms:
+    #   - Overview: deploy/overview_deploy_oc.md
+    #   - Single Container Application: deploy/cd_of_single_container_applications_to_orchestration_platforms.md
+    #   - Multi Container Application: deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
+    #   - Deployment methods:
+    #     - Overview: deploy/deployment-methods-overview.md
+    #     - Blue-green: deploy/deployment-method-blue-green.md
+    #     - Upgrade: deploy/deployment-method-upgrade.md
+    #     - Replace: deploy/deployment-method-replace.md
+    #   - Using load balancers:
+    #     - Overview: deploy/lb-overview.md
+    #     - Amazon ECS Classic Load Balancer: deploy/lb-amazon-ecs-classic.md
+    #     - Amazon ECS Application Load Balancer: deploy/lb-amazon-ecs-app.md
+    #     - Kubernetes: deploy/lb-kubernetes.md
+    #     - GKE: deploy/lb-gke.md
+    #   - Advanced topics:
+    #     - Multi-stage deployments: deploy/multi-stage-deployments.md
+    #     - Gated deployments: deploy/gated-deployments.md
+    #     - Specifying the version to deploy: deploy/deploying-specific-version.md
+    #     - Rolling back deployments: deploy/rollback.md
+    #     - Sending notifications upon deployments: deploy/deployment-notifications.md
+    #     - Customizing deployed service names: deploy/customize-service-names.md
+    #     - Pausing deployments: deploy/pause-deployments.md
+    #     - Deleting a deployed service: deploy/deleting-a-service.md
+    # - Deploy using Cloud Native CLI:
+    #   - Overview: deploy/overview_cloud_native.md
+    #   - Amazon ECS: deploy/cd_with_cloud_native_cli.md
     - Amazon ECS:
       - Basic managed deployment: deploy/amazon-ecs.md
       - Specifying deployment strategy: deploy/amazon-ecs-strategy.md
