@@ -7,7 +7,7 @@ sub_sub_section: Advanced topics
 
 By default, the **deploy** job always deploys the latest version of the input manifest.
 
-In some scenarios (e.g. rollback), you might want to deploy a specific image version/tag or a specific manifest version to an environment. This is called 'pinning'. This document describes two ways you can pin the version of an input image/manifest when running the **deploy** job.
+In some scenarios (e.g. rollback), you might want to deploy a specific image version/tag or a specific manifest version to an environment. This is called 'version pinning'. This document describes two ways you can pin the version of an input manifest when running the **deploy** job.
 
 ## Topics Covered
 
@@ -61,20 +61,38 @@ This will always deploy version 2 of the input manifest. If you want to figure o
 
 ### Pinning resource versions using the Shippable UI.
 
-* Identify the `versionName` of the image you want to pin the deployment to.
+In the Shippable UI, you can see the specific versions of an input resource that is being deployed by a job. By default, the latest versions of all input resources are deployed by a job.
 
-To do this:
+However, a job can be configured to use a specific version of any of any of its inputs. Pinning an input to a specific version will always deploy that version, but other inputs will continue to be deployed with the latest version as long as they are not gated.
 
-* Go to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and in the **Jobs** section, search for the deploy job and click on it. You will see a list of previously deployed version in the `LATEST STATUS` section.
-* Click on jobId in the **Job** column, then click on **Trace** to see which image version was in that deployment.  Write down the `versionName` for the image resource.
+* **Pinning an input image for a manifest job**
 
-<img src="/images/deploy/rollbackDeployTrace.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+**Steps**
 
-* Right click on the `deploy` job in the [SPOG](/platform/visibility/single-pane-of-glass-spog/) view and click **Configure Job**. Find and set the desired `versionName` for the image resource.
+1. Click on your image resource in the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and note the version of the docker image you want to pin.
 
-* Re-run the deploy job by going to the Single Pane of Glass (SPOG) view, right clicking on the job, and clicking on **Run**
+2. Click on your manifest job in the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and click on the wrench icon.
 
-Please remember that all future runs of the deploy job will deploy the same version since it is now pinned. When you decide to deploy the latest release, you can go back to the deploy job configuration page and unpin the release input so that all future runs deploy the latest release available.
+3. Click on the drop down for your image resource in the `Input` table and select the right version.
+
+4. Rerun the manifest job by clicking on the job name in the bread crumbs on the top and thereafter on the build button.
+
+Please remember that all future runs of the manifest job will build this version of the image resource since it is now pinned. When you decide to deploy the latest version of the image resource, you can go back to the manifest job configuration page and unpin the image resource by setting the `Version` to `Latest version` so that all future runs build the latest version available.
+
+* **Pinning an input manifest for a deploy job**
+
+**Steps**
+
+1. Click on your manifest job in the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and note the version of the job you want to pin.
+
+2. Click on your deploy job in the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and click on the wrench icon.
+
+3. Click on the drop down for the manifest job in the `Input` table, and select the right version.
+
+4. Rerun the deploy job by clicking on the job name in the bread crumbs on the top and thereafter on the build button.
+
+Please remember that all future runs of the deploy job will deploy this version of manifest since it is now pinned. When you decide to deploy the latest version of the manifest job, you can go back to the deploy job configuration page and unpin the manifest job by setting the `Version` to `Latest version`  so that all future runs deploy the latest release available.
+
 
 ## Ask questions on Chat
 
