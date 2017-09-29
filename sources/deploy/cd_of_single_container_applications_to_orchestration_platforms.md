@@ -77,14 +77,15 @@ These files should be committed to your source control. Step 8 of the workflow b
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  resources:
-    - name: app_image # resource friendly name
-      type: image
-      integration: app_docker_hub # friendly name of your integration          
-      pointer:
-        sourceName: devops/deploy_node_app #this will change based on registry
-      seed:
-        versionName: "master.1"  #Specify the tag of your image.
+resources:
+
+  - name: app_image # resource friendly name
+    type: image
+    integration: app_docker_hub # friendly name of your integration          
+    pointer:
+      sourceName: devops/deploy_node_app #this will change based on registry
+    seed:
+      versionName: "master.1"  #Specify the tag of your image.
 ```
 
 ###2. Define `app_options`.
@@ -105,6 +106,8 @@ If no options are specified, the platform sets the following default options -
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_options
     type: dockerOptions
     version:
@@ -123,6 +126,8 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_environment
     type: params
     version:
@@ -140,7 +145,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
   - name: app_service_def
     type: manifest
@@ -184,6 +189,8 @@ The list of supported container orchestration platforms can be found [here](/pla
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: op_cluster    # resource friendly name
     type: cluster
     integration: op_int            

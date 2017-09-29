@@ -18,23 +18,25 @@ Shippable does not directly integrate GKE load balancers (services) with `deploy
 Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
 
 ```
-- name: app_lb
-  type: loadBalancer
-  integration: op_int
-  pointer:
-    sourceName: "app_load_balancer"
-    method: LoadBalancer
-    namespace: shippable
-    clusterName: "test"
-    region: "us-east-1b"
-  version:
-    ports:
-      - name: testPort
-        protocol: TCP
-        port: 80
-    selector:
-      name: "app_service_def"
-      jobName: "app_deploy_job"
+resources:
+
+  - name: app_lb
+    type: loadBalancer
+    integration: gke
+    pointer:
+      sourceName: "apploadbalancer"
+      method: LoadBalancer
+      namespace: shippable
+      clusterName: "multiple-zones-cluster"
+      region: "us-east1-b"
+    version:
+      ports:
+        - name: testport
+          protocol: TCP
+          port: 80
+      selector:
+        name: "app_service_def"
+        jobName: "app_deploy_job"
 ```
 
 The loadBalancer resource supports a range of fields, allowing you to set almost any field that you'd want. Complete reference [is here](/platform/workflow/resource/loadbalancer/#loadbalancer).
@@ -55,10 +57,12 @@ The [provision](/platform/workflow/job/provision/) job is used to create ancilla
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-- name: app_provision        #friendly name for job
-  type: provision
-  steps:
-    - IN: app_lb             #name of load balancer you created in step 1
+jobs:
+
+  - name: app_provision        #friendly name for job
+    type: provision
+    steps:
+      - IN: app_lb             #name of load balancer you created in step 1
 ```
 
 This job will use the `integration` associated with your `loadBalancer` resource to make API calls to your cluster to POST to your GKE service with all of the settings you requested.
@@ -76,6 +80,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
 
 ```
 resources:
+
   - name: app_labels
     type: dockerOptions
     version:
@@ -107,12 +112,14 @@ resouces:
     type: loadBalancer
     integration: op_int
     pointer:
-      sourceName: desired-name-of-service-on-cluster
+      sourceName: "apploadbalancer"
       method: LoadBalancer
       namespace: shippable
+      clusterName: "multiple-zones-cluster"
+      region: "us-east1-b"
     version:
       ports:
-        - name: testPort
+        - name: testport
           protocol: TCP
           port: 80
       selector:                 #this should match the labels in dockerOptions
