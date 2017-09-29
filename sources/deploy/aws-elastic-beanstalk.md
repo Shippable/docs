@@ -1,8 +1,9 @@
 page_main_title: Deploying single-container environments
 main_section: Deploy
-sub_section: AWS Elastic Beanstalk
+sub_section: Deploy using Cloud Native CLI
+sub_sub_section: AWS Elastic Beanstalk
 
-# Using Cloud native CLI to deploy to multiple environments in AWS Elastic Beanstalk.
+# Deploy single container to a single AWS EB environment.
 
 The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to your EB environment.
 
@@ -203,7 +204,7 @@ resources:
     Our job does following:
 
     - Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
-    - export the `IMAGE` env variable using the image resource environment variable. 
+    - export the `IMAGE` env variable using the image resource environment variable.
     - Make sure all inputs have `switch: off` except the image resources. We only want to deploy when the image changes.
 
 * **Required:** Yes.

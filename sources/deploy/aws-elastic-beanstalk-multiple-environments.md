@@ -1,8 +1,9 @@
 page_main_title: Deploying to multiple environments
 main_section: Deploy
-sub_section: AWS Elastic Beanstalk
+sub_section: Deploy using Cloud Native CLI
+sub_sub_section: AWS Elastic Beanstalk
 
-# Using Cloud native CLI to deploy to multiple AWS Elastic Beanstalk environments.
+# Deploy single container to multiple AWS EB environments.
 
 The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable. This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to multiple EB environments.
 

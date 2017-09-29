@@ -22,9 +22,11 @@ Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) res
   type: loadBalancer
   integration: op_int
   pointer:
-    sourceName: desired-name-of-service-on-cluster
+    sourceName: "app_load_balancer"
     method: LoadBalancer
     namespace: shippable
+    clusterName: "test"
+    region: "us-east-1b"
   version:
     ports:
       - name: testPort
