@@ -143,7 +143,7 @@ ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
