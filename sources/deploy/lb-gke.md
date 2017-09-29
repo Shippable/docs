@@ -7,15 +7,15 @@ sub_sub_section: Using load balancers
 
 Load balancers are a must-have for any containerized application that wants to run on a cluster. You can easily add a load balancer and specify the pods to which it should direct traffic. This makes it easy to repeatedly deploy new services while always making them accessible via the load balancer, thus reducing down time.
 
-Shippable does not directly integrate GKE load balancers (services) with `deploy` jobs. The main reason for this is that GKE's labeling system makes it unnecessary to couple the two pieces. Instead, you can connect a GKE service to your replicationController at any time by referencing the Shippable pod labels, or by adding your own custom labels to your manifest.
+Shippable does not directly integrate GKE load balancers (services) in `deploy` jobs. The main reason for this is that GKE's labeling system makes it unnecessary to couple the two pieces. Instead, you can connect a GKE service to your replicationController at any time by referencing the Shippable pod labels, or by adding your own custom labels to your manifest.
 
 ## Instructions
 
 <img src="/images/deploy/usecases/deploy_kube_lb.png"/>
 
-###1. Add a load balancer resource
+###1. Add a loadBalancer resource.
 
-Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
+Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
 
 ```
 resources:
@@ -48,7 +48,7 @@ Shippable adds the values of `name` and `jobName` as labels to every pod spec fo
 
 By using both the manifest name and job name as selectors, the GKE service will always pinpoint the exact pods from the replicationController that was deployed.
 
-If you want to set custom labels for your loadBalancer, check out the [Specifying custom labels](#custom-labels) instructions below.
+If you want to set custom labels for your loadBalancer, check out the [instructions to specify custom labels](#custom-labels).
 
 ###2. Add a `provision` job.
 
@@ -65,14 +65,14 @@ jobs:
       - IN: app_lb             #name of load balancer you created in step 1
 ```
 
-This job will use the `integration` associated with your `loadBalancer` resource to make API calls to your cluster to POST to your GKE service with all of the settings you requested.
+This job will use the `integration` associated with your `loadBalancer` resource to make API calls to your cluster to create the loadBalancer on your GKE cluster with all of the settings you requested.
 
-You can use a single provision job to provision multiple services. Just include a separate `IN` statement with a separate resource for each service you plan to create.
+You can use a single provision job to provision multiple loadBalancers. Just include a separate `IN` statement with a separate resource for each service you plan to create.
 
 <a name="custom-labels"></a>
 ## Setting custom labels
 
-If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to set your own labels.
+If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to set your own labels. Labels will be set on the pods.
 
 **Steps**
 
@@ -89,7 +89,7 @@ resources:
         environment: "test"
 ```
 
-* Specify `app_labels` as an additional input to the [manifest job](/platform/workflow/job/manifest). For example, the yml snippet for our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
+* Specify `app_labels` as an additional input to the [manifest job](/platform/workflow/job/manifest). For example, the yml snippet for our [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
 
 ```
 jobs:
@@ -103,10 +103,10 @@ jobs:
       - IN: app_labels
 ```
 
-* Update the `selector` section in the `loadBalancer` resource to match the labels you used in `dockerOptions`. The yml snippet for our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
+* Update the `selector` section in the `loadBalancer` resource to match the labels you used in `dockerOptions`. The yml snippet for our [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
 
 ```
-resouces:
+resources:
 
   - name: app_lb
     type: loadBalancer

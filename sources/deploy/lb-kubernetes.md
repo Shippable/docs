@@ -13,38 +13,41 @@ Shippable does not directly integrate Kubernetes load balancers (services) with 
 
 <img src="/images/deploy/usecases/deploy_kube_lb.png"/>
 
-###1. Add a load balancer resource
+###1. Add a loadBalancer resource.
 
-Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
+Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
 
 ```
-- name: app_lb
-  type: loadBalancer
-  integration: op_int
-  pointer:
-    sourceName: desired-name-of-service-on-cluster
-    method: LoadBalancer
-    namespace: shippable
-  version:
-    ports:
-      - name: testPort
-        protocol: TCP
-        port: 80
-    selector:
-      name: "app_service_def"
-      jobName: "app_deploy_job"
+resources:
+
+  - name: app_lb
+    type: loadBalancer
+    integration: op_int
+    pointer:
+      sourceName: "apploadbalancer"
+      method: LoadBalancer
+      namespace: shippable
+      clusterName: "multiple-zones-cluster"
+    version:
+      ports:
+        - name: testport
+          protocol: TCP
+          port: 80
+      selector:
+        shippable.manifestName: "app_service_def"
+        shippable.jobName: "app_deploy_job"
 ```
 
 The loadBalancer resource supports a range of fields, allowing you to set almost any field that you'd want. Complete reference [is here](/platform/workflow/resource/loadbalancer/#loadbalancer).
 
-Shippable adds the values of `name` and `jobName` as labels to every pod spec for Kubernetes. These need to be set as follows:
+Shippable adds the values of `shippable.manifestName` and `shippable.jobName` as labels to every pod spec for Kubernetes. These need to be set as follows:
 
 * `shippable.manifestName`: "name of your manifest job that was deployed"
 * `shippable.jobName`: "name of the deploy job that deployed your manifest"
 
 By using both the manifest name and job name as selectors, Kubernetes will always pinpoint the exact pods from the replicationController that was deployed.
 
-If you want to set custom labels for your loadBalancer, check out the [Specifying custom labels](#custom-labels) instructions below.
+If you want to set custom labels for your loadBalancer, check out [instructions for specifying custom labels](#custom-labels).
 
 ###2. Add a `provision` job.
 
@@ -53,37 +56,41 @@ The [provision](/platform/workflow/job/provision/) job is used to create ancilla
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-- name: app_provision   #friendly name for job
-  type: provision
-  steps:
-    - IN: app_lb        #name of load balancer you created in step 1
+jobs:
+
+  - name: app_provision   #friendly name for job
+    type: provision
+    steps:
+      - IN: app_lb        #name of load balancer you created in step 1
 ```
 
-This job will use the `integration` associated with your `loadBalancer` resource to make API calls to your cluster to POST to your Kubernetes service with all of the settings you requested.
+This job will use the `integration` associated with your `loadBalancer` resource to make API calls to your cluster to create the loadBalancer on your Kubernetes cluster with all of the settings you requested.
 
-You can use a single provision job to provision multiple services. Just include a separate `IN` statement with a separate resource for each service you plan to create.
+You can use a single provision job to provision multiple loadBalancers. Just include a separate `IN` statement with a separate resource for each service you plan to create.
 
 ## Specifying different labels
 
-If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to set your own labels.
+If you have another set of labels that you'd like to use instead, you can use a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to set your own labels. Labels will be set on the pods.
 
 **Steps**
 
 * Add a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: app_labels
-  type: dockerOptions
-  version:
-    labels:
-      name: "api"
-      environment: "test"
+resources:
+
+  - name: app_labels
+    type: dockerOptions
+    version:
+      labels:
+        name: "api"
+        environment: "test"
 ```
 
 * Specify `app_labels` as an additional input to the [manifest job](/platform/workflow/job/manifest). For example, the yml snippet for our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
 
 ```
-  jobs:
+jobs:
 
   - name: app_service_def
     type: manifest
@@ -97,21 +104,24 @@ If you have another set of labels that you'd like to use instead, you can use a 
 * Update the `selector` section in the `loadBalancer` resource to match the labels you used in `dockerOptions`. The yml snippet for our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
 
 ```
-- name: app_lb
-  type: loadBalancer
-  integration: op_int
-  pointer:
-    sourceName: desired-name-of-service-on-cluster
-    method: LoadBalancer
-    namespace: shippable
-  version:
-    ports:
-      - name: testPort
-        protocol: TCP
-        port: 80
-    selector:
-      name: "api"
-      environment: "test"
+resources:
+
+  - name: app_lb
+    type: loadBalancer
+    integration: op_int
+    pointer:
+      sourceName: "apploadbalancer"
+      method: LoadBalancer
+      namespace: shippable
+      clusterName: "multiple-zones-cluster"
+    version:
+      ports:
+        - name: testport
+          protocol: TCP
+          port: 80
+      selector:
+        name: "api"
+        environment: "test"
 ```
 
 ## Ask questions on Chat
