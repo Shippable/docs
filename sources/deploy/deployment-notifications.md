@@ -16,29 +16,34 @@ You can send notifications upon the following events in your workflow:
 
 ## Instructions
 
-###1. Add a notification resource
+###1. Create an account integration
 
-* Description: `app_notification` is a [notification](/platform/workflow/resource/notification/) resource that represents the  provider sending notifications about the state of your deployment. In our example, we're using Slack and specifying the channel and the users who will receive the automated notifications.
-* Required: Yes
-* Integrations needed: [Slack](/platform/integration/slack/) or ant other [supported provider](/platform/integration/overview/#supported-notification-integrations)
+If you're using Slack or HipChat to send deploy status notifications, you need to create an account integration. Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/).
 
-###2. Create an account integration using your Shippable account for your notification provider.
-Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/).
-Set the friendly name of the integration as `app_slack_provider`. If you change the name, you'll need to change it in the yml snippet below.
+You can also send email or IRC notifications, for which you do not need an account integration. Proceed to step 2 in this case.
 
-###3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+For help with completing the fields needed for each provider, select your provider below:
+
+* [Slack](/platform/integration/slack/)
+* [HipChat](/platform/integration/hipchat/)
+
+Set the friendly name of the integration as `app_notification_provider`. If you change the name, you'll need to change it in the yml snippet in the step below.
+
+###2. Add a notification resource
+
+Next, you need a [notification](/platform/workflow/resource/notification/) resource to configure the recipients of your notifications. In our example, we're using Slack and specifying the channel and the users who will receive the automated notifications, so  our [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) looks like this:
 
 ```
 resources:
   - name: app_deploy_notification
     type: notification
-    integration: app_slack_provider
+    integration: app_notification_provider      # this needs to match integration name from step 1
     pointer:
       recipients:
         - "#beta"
         - "@botnot"
 ```
-For a complete reference for the notification resource, [go here](/platform/workflow/resource/notification/).
+For a complete reference on how to configure the `pointer` section for each provider, [go here](/platform/workflow/resource/notification/).
 
 ###3. Add the notification resource to deploy job
 
@@ -58,15 +63,15 @@ jobs:
   - name: app_deploy_job
     type: deploy
     on_start:
-      - NOTIFY: app_deploy_notification
+      - NOTIFY: app_deploy_notification   # set to name of notification resource created in step 2
     on_success:
-      - NOTIFY: app_deploy_notification
+      - NOTIFY: app_deploy_notification   # set to name of notification resource created in step 2
     on_failure:
-      - NOTIFY: app_deploy_notification
+      - NOTIFY: app_deploy_notification   # set to name of notification resource created in step 2
     on_cancel:
-      - NOTIFY: app_deploy_notification
+      - NOTIFY: app_deploy_notification   # set to name of notification resource created in step 2
     always:
-      - NOTIFY: app_deploy_notification
+      - NOTIFY: app_deploy_notification   # set to name of notification resource created in step 2
     steps:
       - IN: deploy_manifest
       - IN: deploy_cluster

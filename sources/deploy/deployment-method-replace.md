@@ -3,19 +3,15 @@ main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
 
-# Replace deployment strategy
+# Replace deployments
 
 In this strategy, your existing running tasks / services / deployment objects are stopped or removed before updating your service. This results in downtime for your deployed service, but allows your cluster to use the bare minimum resources to run your deployments. This strategy is thus useful in scenarios where infrastructure cost savings are more important than service uptime.
 
-## Assumptions
-
-We will use the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
-
-## Steps
+## Instructions
 
 The replace strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) job to `replace`.
 
-To set this strategy on the [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), we update the `app_deploy_job` yml block in the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+As an example, the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file for our standard [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) looks like this:
 
 ```
 jobs:

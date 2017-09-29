@@ -1,32 +1,34 @@
-page_main_title: Upgrade deployment strategy
+page_main_title: Deploying multiple manifests  in parallel
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
 
-# Upgrade deployments
+# Deploying multiple manifests in parallel
 
-In this strategy, a new service is only created for the very first deployment. Every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+If your **deploy** job is deploying multiple manifests, it can take some time to deploy them serially. You can greatly speed up deployments for multiple manifests by configuring deployments to be kicked off in parallel.
+
+You can deploy manifests in parallel regardless of the deployment method (blue-green/upgrade/replace) you're using.
 
 ## Instructions
 
-The upgrade strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) to `upgrade`.
+You can set the `workflow` attribute on the [deploy](/platform/workflow/job/deploy) job to `parallel` in order to deploy multiple manifests in parallel.
 
-As an example, the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file for our standard [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) looks like this:
+As an example:
 
 ```
 jobs:
 
   - name: app_deploy_job
     type: deploy
-    method: upgrade               # add this to your deploy job
+    workflow: parallel            # add this to your deploy job
+    method: upgrade               
     steps:
-      - IN: app_service_def
+      - IN: app_service_def_1     # first manifest
+      - IN: app_service_def_2     # second manifest
       - IN: op_cluster
       - IN: app_replicas
 ```
 
-## Sample project
-**Source code:**  [devops-recipes/deploy-ecs-strategy](https://github.com/devops-recipes/deploy-ecs-strategy)
 
 ## Ask questions on Chat
 

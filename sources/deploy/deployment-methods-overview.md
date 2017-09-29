@@ -21,6 +21,8 @@ This is the default behavior that the deploy job uses unless otherwise specified
 
 The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host. For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/amazon-ecs-elb-alb).
 
+To configure blue-green deployments, read the [Blue-Green deployments](/deploy/deployment-method-blue-green) doc.
+
 **ECS workflow:**
 
 1. Register the task definition and create a new service that uses it.
@@ -48,6 +50,8 @@ The deployment name will change each time, but each deployment will always conta
 ## Upgrade deployments
 
 In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+
+To configure blue-green deployments, read the [Upgrade deployments](/deploy/deployment-method-upgrade) doc.
 
 **ECS workflow:**
 
@@ -78,14 +82,21 @@ There are times when you might be working with a limited test environment, where
 
 For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
 
+To configure blue-green deployments, read the [Replace deployments](/deploy/deployment-method-replace) doc.
+
 <a name="parallel"></a>
-## Parallel deployments
+## Deploying multiple containers in parallel
 
-A multiple container application can be comprised of multiple manifest jobs, with each manifest job defining a component of the application. When multiple manifests are deployed with the same **deploy** job, deployments can take a long time to complete. This is because manifests are deployed serially by default.
+If your **deploy** job is deploying multiple manifests, it deploys them serially by default. This can take a long time, especially for a large number of manifests.
 
-You can greatly speed up deployments for multiple manifests by using a `Parallel` deploy strategy, where all manifest deployments are kicked off in parallel.
+You can greatly speed up deployments for multiple manifests by configuring deployments to be kicked off in parallel.
 
 Depending on how many manifests you're deploying, you should notice a significant difference in deployment times by using this option, however this can make the resulting logs a bit more difficult to sift through, since each manifest will be writing results at the same time.
+
+**You can deploy manifests in parallel regardless of the deployment method (blue-green/upgrade/replace) you're using.**
+
+To configure parallel deployments, read the [Deploying manifests in parallel](/deploy/deployment-method-parallel) doc.
+
 
 ## Ask questions on Chat
 
