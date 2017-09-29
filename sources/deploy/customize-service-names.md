@@ -5,7 +5,7 @@ sub_sub_section: Advanced topics
 
 # Customizing deployed service names
 
-Shippable has a default naming convention when running a [deploy](/platform/workflow/job/deploy) job, but also allows names to be specified.
+Shippable has a default naming convention when running a [deploy](/platform/workflow/job/deploy) job, but also allows you to specify custom names.
 
 ## Naming convention of a deployed service
 
@@ -13,7 +13,7 @@ The default naming convention used by Shippable for services created during depl
 
 | Deploy Method | Default Naming Convention |
 |--------------|---------------------------|
-| blueGreen | <ul><li>deploymentName : deployJobName-manifestJobName-buildNumber</li><ul> |
+| blue-green | <ul><li>deploymentName : deployJobName-manifestJobName-buildNumber</li><ul> |
 | upgrade | <ul><li>deploymentName : deployJobName-manifestJobName</li><ul> |
 | replace | <ul><li>deploymentName : deployJobName-manifestJobName</li><ul> |
 

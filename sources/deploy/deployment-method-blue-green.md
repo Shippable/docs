@@ -4,37 +4,34 @@ sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
 
 # Blue-green deployment strategy
-This is default strategy that the [deploy](/platform/workflow/job/deploy) job uses unless otherwise specified. Thus no changes to the yml are needed to use this strategy.
+This is default strategy that the [deploy](/platform/workflow/job/deploy) job uses, unless otherwise specified. No changes to the yml are needed to use this strategy.
 
-## Assumptions
-
-We will use the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) as a starting point.
+Please ensure that you have enough capacity in your cluster to run two instances of the service being deployed.
 
 ## Validating the health of an blue-green deployment.
 
-You might want to validate that your containers are up and running for a certain period of time after deployment before declaring the deployment a success. Typical usecases are that after deployment, you might want to run some acceptance tests. If any of these tests crash one or more of your containers, the deployment should be marked a failure and the application rolled back to the previous (blue) state. Alternatively, you might want to validate that the containers are initializing correctly and not crashing immediately on starting.
+In some scenarios, you might want to validate that your containers are up and running for a certain period of time after deployment before declaring the deployment a success. For example:
 
-**Job:** We set a specific attribute called `stabilityDuration` on the [deploy](/platform/workflow/job/deploy) job.
+* You're running acceptance tests after deployment, and if the tests crash one or more containers, you want the deployment to be marked a failure and rolled back
+* You want to validate that the containers are initializing correctly and not crashing immediately on starting.
 
-`stabilityDuration` is the amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful. Stable means that the desired number of replicas matches the number that are actually running in the cluster for the timeframe specified. By default, the #replicas is 1.
+The `stabilityDuration` tag on the [deploy](/platform/workflow/job/deploy) job addresses this scenario by allowing you to specify the amount of time in seconds (0-300) that a new service created in a blue-green deployment should be stable before marking the deployment as successful. "Stable" means that the desired number of instances matches the number that are actually running in the cluster for the timeframe specified.
 
-In this example, we want the actual number of replicas to run continuously for 300 seconds. The deploy job waits for a maximum duration of 15 minutes for this condition to be satisfied. For example, if the one of the containers go down after 3 minutes, the deploy job will wait for the crashed container to restart and once it starts running, it will reset the timer to zero. At this point, all the containers have to again run continuously for 300 seconds.
-
-**Steps**
-
-In the context of the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), update the `app_deploy_job` yml block in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+For our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) snippet looks like this:
 
 ```
 jobs:
 
   - name: app_deploy_job
     type: deploy
-    stabilityDuration: 300
+    stabilityDuration: 300            # add this to your deploy job
     steps:
       - IN: app_service_def
       - IN: op_cluster
       - IN: app_replicas
 ```
+
+In this example, we want the actual number of replicas to run continuously for 300 seconds. The deploy job waits for a maximum duration of 15 minutes for this condition to be satisfied. For example, if the one of the containers go down after 3 minutes, the deploy job will wait for the crashed container to restart and once it starts running, it will reset the timer to zero. At this point, all the containers have to again run continuously for 300 seconds.
 
 ### Sample project
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS.
