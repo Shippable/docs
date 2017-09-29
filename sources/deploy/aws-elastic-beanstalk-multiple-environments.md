@@ -224,16 +224,12 @@ resources:
 
 * **Description:** `deploy-beta` and `deploy-prod` are [runSH](/platform/workflow/job/runsh/) jobs that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
 
-    In our usecase, we have one beanstalk application that needs to be deployed to multiple environments. The application name and the bucket name (where the deployment packages are stored) are common to both environments. We'll need two separate `runSh` jobs, one to deploy to beta, which will be triggered by a change in the docker image resource, and one to deploy to prod, which can only be triggered manually from the Pipelines SPOG.
+    A couple of points to note:
 
-    We're going to use the ebcli to perform the deployment, since it comes pre-installed on the build image, and it takes care of a lot of the work for us.  Since we've manually added the config.yml, and our aws cli is already configured with our credentials, all we have to do is execute `eb deploy` (-v for verbose mode). This will package and deploy our code automatically based on the settings in our `config.yml`.
-
-    Each deploy job does following:
-
-    - Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
-    - export the `IMAGE` env variable using the image resource environment variable.
-
-    All the inputs of the `deploy-prod` are switched off, since we want to manually trigger prod deployment.
+    - We Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
+    - We export the `IMAGE` env variable using the image resource environment variable in the beta job.
+    - To ensure that the same image is deployed to production, we store the image tag in the job state of the `deploy-beta` job and use it in the `deploy-prod` job.
+    - All the inputs of the `deploy-prod` are switched off, since we want to manually trigger prod deployment.
 
 * **Required:** Yes.
 
@@ -259,13 +255,11 @@ jobs:
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
         - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
         - script: eb deploy
-        - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
+        - script: echo "image=${DEPLOYEBBASICIMAGE_POINTER_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
   - name: deploy-prod
     type: runSh
     steps:
-      - IN: deploy-eb-basic-image
-        switch: off
       - IN: deploy-beta
         switch: off
       - IN: deploy-eb-basic-config
@@ -278,10 +272,13 @@ jobs:
         switch: off
       - TASK:
         - script: pushd $DEPLOYEBBASICREPO_STATE/single_container && ls -al
-        - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
+        - script: export IMAGE="${DEPLOYBETA_IMAGE}"
         - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
         - script: eb deploy
 ```
+
+We use the ebcli to perform the deployment, since it comes pre-installed on the build image, and it takes care of a lot of the work for us.  Since we've manually added the config.yml, and our aws cli is already configured with our credentials, all we have to do is execute `eb deploy` (-v for verbose mode). This will package and deploy our code automatically based on the settings in our `config.yml`.
+
 
 ###6. Import configuration into your Shippable account.
 
