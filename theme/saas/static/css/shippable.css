@@ -406,7 +406,10 @@ menu,ol.shipNav,ul.shipNav {
 }
 
 .subSubSectionHeader {
-  color: #6c89a5;
+  display: block;
+  line-height: 21px;
+  margin-bottom: 1rem;
+  color: #333;
   font-size: 15px;
 }
 
@@ -434,7 +437,8 @@ menu,ol.shipNav,ul.shipNav {
   cursor: pointer;
   line-height: 21px;
   padding-left: 3rem;
-  color: #6c89a5;
+  /*color: #6c89a5;*/
+  color: #333;
   transition: opacity .2s;
   margin-bottom: 1rem;
   font-size: 15px;
@@ -566,4 +570,8 @@ div.swagger-ui-wrap div.container {
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
   font-weight: bold;
   font-style: normal;
+}
+
+.navbar-nav>li>a.active {
+    color: #006cd1;
 }

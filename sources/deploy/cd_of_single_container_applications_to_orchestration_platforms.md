@@ -71,7 +71,7 @@ These files should be committed to your source control. Step 8 of the workflow b
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for your docker registry.
+1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
