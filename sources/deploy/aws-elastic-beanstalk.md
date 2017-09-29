@@ -4,7 +4,7 @@ sub_section: AWS Elastic Beanstalk
 
 # Using Cloud native CLI to deploy to Amazon Elastic Beanstalk.
 
-The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the Elastic Beanstalk (EB) CLI to  deploy a docker image to your EB environment.
+The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to your EB environment.
 
 ## Topics Covered
 
@@ -14,7 +14,7 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-<img src="/images/deploy/elasticbeanstalk/single-final-pipeline.png" alt="Final Pipeline">
+<img src="/images/deploy/elasticbeanstalk/deploy-eb-finalpipe.png" alt="Final Pipeline">
 
 We will be defining the jobs and resources in a step by step manner below.
 
@@ -167,10 +167,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
         ENVIRONMENT: "sample" # used inside our sample image
         PORT: 80  # tells app which port to listen to
         AWS_EB_ENVIRONMENT_SINGLE: "Sample-env" # for the single-container example
-        AWS_EB_ENVIRONMENT_MULTI: "Sample-env-1" # for the multi-container example
         AWS_EB_APPLICATION: "deploy-eb-basic" # the name you gave your eb application
-
-
 ```
 
 ###4. Define `deploy-eb-basic-repo`
