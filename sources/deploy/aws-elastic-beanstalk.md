@@ -2,7 +2,7 @@ page_main_title: Deploying single-container environments
 main_section: Deploy
 sub_section: AWS Elastic Beanstalk
 
-# Using Cloud native CLI to deploy to Amazon Elastic Beanstalk.
+# Using Cloud native CLI to deploy to multiple environments in AWS Elastic Beanstalk.
 
 The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to your EB environment.
 
@@ -33,22 +33,22 @@ Content of [`Dockerrun.aws.json`](https://raw.githubusercontent.com/devops-recip
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}",
+    "Name": "${IMAGE}",
     "Update": "true"
   },
   "Ports": [
     {
-      "ContainerPort": "${DEPLOYEBENVPARAMS_PARAMS_PORT}"
+      "ContainerPort": "${PORT}"
     }
   ],
   "environment": [
     {
       "name": "ENVIRONMENT",
-      "value": "${DEPLOYEBENVPARAMS_PARAMS_ENVIRONMENT}"
+      "value": "${ENVIRONMENT}"
     },
     {
       "name": "PORT",
-      "value": "${DEPLOYEBENVPARAMS_PARAMS_PORT}"
+      "value": "${PORT}"
     }
   ]
 }
@@ -70,13 +70,13 @@ Content of [config.yml](https://raw.githubusercontent.com/devops-recipes/deploy-
 ```
 branch-defaults:
   default:
-    environment: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}
+    environment: ${AWS_EB_ENVIRONMENT_SINGLE}
 environment-defaults:
-  ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}:
+  ${AWS_EB_ENVIRONMENT_SINGLE}:
     branch: null
     repository: null
 global:
-  application_name: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}
+  application_name: ${AWS_EB_APPLICATION}
   default_ec2_keyname: null
   default_platform: null
   default_region: ${DEPLOYEBBASICCONFIG_POINTER_REGION}
@@ -142,6 +142,7 @@ resources:
 
 ```
 resources:
+
   - name: deploy-eb-basic-config
     type: cliConfig
     integration: dr-aws           # The integration created above
@@ -151,7 +152,7 @@ resources:
 
 ###3. Define `deploy-eb-basic-params`
 
-* **Description:** `deploy-eb-basic-params` is a [params](/platform/workflow/resource/params/#params) resource the defines variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files.
+* **Description:** `deploy-eb-basic-params` is a [params](/platform/workflow/resource/params/#params) resource that defines variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files.
 
 * **Required:** Yes.
 
@@ -160,6 +161,8 @@ resources:
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: deploy-eb-basic-params
     type: params
     version:
@@ -182,6 +185,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ```
 resources:
+
   - name: deploy-eb-basic-repo
     type: gitRepo
     integration: dr-github
@@ -199,7 +203,7 @@ resources:
     Our job does following:
 
     - Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
-    - Print the modified files so we can make sure they're being properly updated
+    - export the `IMAGE` env variable using the image resource environment variable. 
     - Make sure all inputs have `switch: off` except the image resources. We only want to deploy when the image changes.
 
 * **Required:** Yes.
@@ -208,9 +212,9 @@ resources:
 
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
-
 ```
 jobs:
+
   - name: deploy-eb-basic-deploy
     type: runSH
     steps:
@@ -224,6 +228,7 @@ jobs:
       - TASK:
         - aws elasticbeanstalk describe-applications
         - script: pushd $DEPLOYEBBASICREPO_STATE/single_container && ls -al
+        - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
         - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
         - script: eb deploy -v
 ```

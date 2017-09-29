@@ -2,64 +2,245 @@ page_main_title: Deploying to multiple environments
 main_section: Deploy
 sub_section: AWS Elastic Beanstalk
 
-# Deploying to Multiple Amazon Elastic Beanstalk Environments
-This page will briefly explain the significance of environments in Amazon Elastic Beanstalk and how they can be used in your Shippable Pipeline.
+# Using Cloud native CLI to deploy to multiple AWS Elastic Beanstalk environments.
 
-## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable. This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to multiple EB environments.
 
-- Build a docker image in Shippable CI
-- Push that image to Amazon ECR
-- Deploy that image to two different Elastic Beanstalk environments within the same beanstalk application.
+One common concept for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might need its own unique parameters and settings, and both environments are likely deploying to completely separate EB environments.
 
-In the end, your pipeline will look like this:
-<img src="../../images/deploy/elasticbeanstalk/multi-env-final-pipeline.png" alt="Final Pipeline">
+## Topics Covered
 
-## Setup
-Follow the setup section as described in the basic EB scenario located [here](./aws-elastic-beanstalk)
+* Deploying a single container application to multiple EB environments using EB CLI.
 
-## Managed
-Shippable does not support managed beanstalk deployments at this time.
+## Devops Assembly pipeline
 
-## Unmanaged
-Shippable allows you to communicate with AWS via a job type called `runSh`.  You can read the full reference on the job [here](../platform/workflow/job/runsh).  This type of job gives you the power to script whatever workflow is necessary for your environment.
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-This page assumes you're already familiar with the Amazon Beanstalk [basic scenario](./aws-elastic-beanstalk).
+<img src="/images/deploy/elasticbeanstalk/eb-serial-envs.png" alt="Final Pipeline">
 
+We will be defining the jobs and resources in a step by step manner below.
 
-### Serial Environments
-One common concept for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might posses its own unique parameters and settings, and both environments are likely deploying to completely separate machines.  Lets set this up in our pipeline so we can see how it works.
+## Configuration
 
-First, we're going to make three `params` resources.  One for beta, one for prod, and one to hold common values between the two.
+They are four configuration files that are needed to achieve this usecase -
+
+* **[shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/):** Resources are defined in this file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+
+* **[shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/):** Jobs are defined in this file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+
+* **`Dockerrun.aws.json`**: This file specifies the image and environment configuration. Placeholders are defined in this file for the image and environment configuration. These Placeholders give us flexibility to use the image and environment configuration that you will define in Shippable configuration files.
+
+Content of [`Dockerrun.aws.json`](https://raw.githubusercontent.com/devops-recipes/deploy-beanstalk-basic/master/single_container/Dockerrun.aws.json)
+```
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "${IMAGE}",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "${PORT}"
+    }
+  ],
+  "environment": [
+    {
+      "name": "ENVIRONMENT",
+      "value": "${ENVIRONMENT}"
+    },
+    {
+      "name": "PORT",
+      "value": "${PORT}"
+    }
+  ]
+}
+```
+
+* **`config.yml`**:
+
+In your source code, along side the `Dockerrun.aws.json` file, create a `.elasticbeanstalk` directory and create a `config.yml` file inside it. In our sample, we have a `single_container` folder that contains our `Dockerrun.aws.json` for this example. The file tree looks like this:
+```
+single_container/
+├── Dockerrun.aws.json
+└── .elasticbeanstalk
+    └── config.yml
+
+1 directory, 2 files
+```
+
+Content of [config.yml](https://raw.githubusercontent.com/devops-recipes/deploy-beanstalk-basic/master/single_container/.elasticbeanstalk/config.yml)
+```
+branch-defaults:
+  default:
+    environment: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}
+environment-defaults:
+  ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_ENVIRONMENT_SINGLE}:
+    branch: null
+    repository: null
+global:
+  application_name: ${DEPLOYEBENVPARAMS_PARAMS_AWS_EB_APPLICATION}
+  default_ec2_keyname: null
+  default_platform: null
+  default_region: ${DEPLOYEBBASICCONFIG_POINTER_REGION}
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
+```
+
+Inside `config.yml`, you will see placeholders defined for application, environment and region. These placeholders will be replaced dynamically with your Shippable configuration giving you tremendous flexibility and reuse.
+
+## Prequisites
+
+### Create a Beanstalk application and environment
+
+If you've already got an environment ready to go, you can skip this section. Select "sample application" while creating the environment, because we'll be updating it with our own image pretty soon anyway. It'll take a few minutes to start.
+
+<img src="../../images/deploy/elasticbeanstalk/create-a-web-app.png" alt="create a new beanstalk app">
+<img src="../../images/deploy/elasticbeanstalk/creating-app.png" alt="waiting to create application">
+
+Once the creation is done, you should see this:
+<img src="../../images/deploy/elasticbeanstalk/completed-creation.png" alt="application created">
+
+## Steps
+
+###1. Define `deploy-eb-basic-image`.
+
+* **Description:** `deploy-eb-basic-image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Amazon ECR.
+* **Required:** Yes.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: common-params
-    type: params
-    version:
-      params:
-        PORT: 80
-        AWS_EB_APPLICATION: "deploy-eb-basic"
+  - name: deploy-eb-basic-image
+    type: image
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nodeapp"
+    seed:
+      versionName: "latest"
+```
 
-  - name: beta-params
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "beta"
-        AWS_EB_ENVIRONMENT: "beta"
+
+###2. Define `deploy-eb-basic-config`.
+
+* **Description:** `deploy-eb-basic-config` is a [cliConfig](/platform/workflow/resource/cliconfig/#cliconfig) resource that references credentials needed to setup a CLI for EB.
+
+* **Required:** Yes.
+
+* **Integrations needed:** [Amazon ECR](/platform/integration/aws-ecr).
+
+    The integration defines the AWS key/secret pair that Shippable platform will use to communicate with EB on our behalf. Make sure that the key has appropriate permissions for the different actions required for EB deployments.
+
+**Steps**  
+
+1. Create an account integration using your Shippable account for Amazon ECR.
+    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+  - name: deploy-eb-basic-config
+    type: cliConfig
+    integration: dr-aws           # The integration created above
+    pointer:
+      region: us-east-1           # region where you want to deploy
+```
+
+###3. Define `deploy-eb-basic-params` and `prod-params`
+
+* **Description:** `deploy-eb-basic-params` and `prod-params` are [params](/platform/workflow/resource/params/#params) resources that define variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files. Furthermore, these params are environment specific allowing each environment to be customized.
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+- name: deploy-eb-basic-params
+  type: params
+  version:
+    params:
+      ENVIRONMENT: "sample" # used inside our sample image
+      PORT: 80  # tells app which port to listen to
+      AWS_EB_ENVIRONMENT_SINGLE: "Sample-env" # for the single-container example
+      AWS_EB_APPLICATION: "deploy-eb-basic" # the name you gave your eb application
 
   - name: prod-params
     type: params
     version:
       params:
         ENVIRONMENT: "prod"
-        AWS_EB_ENVIRONMENT: "prod"
+        AWS_EB_ENVIRONMENT_SINGLE: "prod"
+```
+
+* **Description:** `deploy-eb-basic-params` is a [params](/platform/workflow/resource/params/#params) resource the defines variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files.
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-In this case, we have one beanstalk application that has multiple environments.  The application name and the bucket name (where the deployment packages are stored) are common to both environments.
+  - name: deploy-eb-basic-params
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "sample" # used inside our sample image
+        PORT: 80  # tells app which port to listen to
+        AWS_EB_ENVIRONMENT_SINGLE: "Sample-env" # for the single-container example
+        AWS_EB_APPLICATION: "deploy-eb-basic" # the name you gave your eb application
+```
 
-Next, we'll need two separate `runSh` jobs.  One to deploy to beta, which will be triggered by a change in the docker image resource, and one to deploy to prod, which can only be triggered manually from the Pipelines SPOG.
+###4. Define `deploy-eb-basic-repo`
+
+* **Description:** `deploy-eb-basic-repo` is a [gitRepo](/platform/workflow/resource/gitrepo/#gitrepo) resource which represents the repository of our application that has all the source and the configuration files we created earlier. We need this resource to access and replace content dynamically in the `Docker.aws.json` and `config.yml` files.  
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+  - name: deploy-eb-basic-repo
+    type: gitRepo
+    integration: dr-github
+    pointer:
+      sourceName: devops-recipes/deploy-beanstalk-basic
+      branch: master
+```
+
+###5. Define `deploy-beta` and `deploy-prod`
+
+* **Description:** `deploy-beta` and `deploy-prod` are [runSH](/platform/workflow/job/runsh/) jobs that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
+
+    In our usecase, we have one beanstalk application that needs to be deployed to multiple environments. The application name and the bucket name (where the deployment packages are stored) are common to both environments. We'll need two separate `runSh` jobs, one to deploy to beta, which will be triggered by a change in the docker image resource, and one to deploy to prod, which can only be triggered manually from the Pipelines SPOG.
+
+    We're going to use the ebcli to perform the deployment, since it comes pre-installed on the build image, and it takes care of a lot of the work for us.  Since we've manually added the config.yml, and our aws cli is already configured with our credentials, all we have to do is execute `eb deploy` (-v for verbose mode). This will package and deploy our code automatically based on the settings in our `config.yml`.
+
+    Each deploy job does following:
+
+    - Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
+    - export the `IMAGE` env variable using the image resource environment variable.
+
+    All the inputs of the `deploy-prod` are switched off, since we want to manually trigger prod deployment.
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
 
 ```
 jobs:
@@ -69,16 +250,14 @@ jobs:
       - IN: deploy-eb-basic-image
       - IN: deploy-eb-basic-config
         switch: off
-      - IN: common-params
-        switch: off
-      - IN: beta-params
+      - IN: deploy-eb-basic-params
         switch: off
       - IN: deploy-eb-basic-repo
         switch: off
       - TASK:
+        - script: pushd $DEPLOYEBBASICREPO_STATE/single_container && ls -al
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
-        - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
-        - script: export ENVIRONMENT=${BETAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
+        - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
         - script: eb deploy
         - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
 
@@ -91,108 +270,35 @@ jobs:
         switch: off
       - IN: deploy-eb-basic-config
         switch: off
-      - IN: common-params
+      - IN: deploy-eb-basic-params
         switch: off
       - IN: prod-params
         switch: off
       - IN: deploy-eb-basic-repo
         switch: off
       - TASK:
-        - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYBETA_VERSIONNAME}"
-        - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
-        - script: export ENVIRONMENT=${BETAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: eb deploy
-
-```
-
-With these changes made to the basic pipeline, your new pipeline should look like this:
-
-<img src="../../images/deploy/elasticbeanstalk/eb-serial-envs.png" alt="Serial environments on beanstalk">
-
-Notice that the deploy-prod job has all dotted lines as input.  This means that it will never be automatically triggered, and a user must manually run it from the UI.
-
-### Parallel Environments
-
-There are also times when you might want to have parallel environments.  Perhaps you're deploying separate versions of your application to perform some A/B testing. Perhaps you have one test environment per team, and want each team's environment to deploy simultaneously when a change is made to the core application.
-
-Whatever the reason, the method of deployment is fully in your control.  For this exmaple, I'm just going to slightly modify the above beta/prod jobs, so that they deploy to beta-A and beta-B, and both are deployed whenever the application image is changed.
-
-Start with params again, slightly modified:
-```
-resources:
-
-  - name: common-params
-    type: params
-    version:
-      params:
-        PORT: 80
-        AWS_EB_APPLICATION: "deploy-eb-basic"
-        AWS_EB_BUCKET_NAME: "shippable-deploy-eb"
-
-  - name: beta-A-params
-    type: params
-    version:
-      params:
-        AWS_EB_ENVIRONMENT: "beta-A"
-
-  - name: beta-B-params
-    type: params
-    version:
-      params:
-        AWS_EB_ENVIRONMENT: "beta-B"
-
-```
-
-And now adjust the INs of the jobs:
-```
-jobs:
-
-
-  - name: deploy-beta-a
-    type: runSh
-    steps:
-      - IN: deploy-eb-basic-image
-      - IN: deploy-eb-basic-config
-        switch: off
-      - IN: common-params
-        switch: off
-      - IN: beta-A-params
-        switch: off
-      - IN: deploy-eb-basic-repo
-        switch: off
-      - TASK:
+        - script: pushd $DEPLOYEBBASICREPO_STATE/single_container && ls -al
         - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
-        - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
-        - script: export ENVIRONMENT=${BETAAPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
+        - script: shippable_replace Dockerrun.aws.json .elasticbeanstalk/config.yml
         - script: eb deploy
-        - script: echo "versionName=${DEPLOYEBBASICIMAGE_VERSIONNAME}" >> $JOB_STATE/$JOB_NAME.env
-
-  - name: deploy-beta-b
-    type: runSh
-    steps:
-      - IN: deploy-eb-basic-image
-      - IN: deploy-eb-basic-config
-        switch: off
-      - IN: common-params
-        switch: off
-      - IN: beta-B-params
-        switch: off
-      - IN: deploy-eb-basic-repo
-        switch: off
-      - TASK:
-        - script: export IMAGE="${DEPLOYEBBASICIMAGE_SOURCENAME}:${DEPLOYEBBASICIMAGE_VERSIONNAME}"
-        - script: export APPLICATION=${COMMONPARAMS_PARAMS_AWS_EB_APPLICATION}
-        - script: export ENVIRONMENT=${BETABPARAMS_PARAMS_AWS_EB_ENVIRONMENT}
-        - script: eb deploy
-
 ```
 
-As a result, your pipeline should look like this:
+###6. Import configuration into your Shippable account.
 
-<img src="../../images/deploy/elasticbeanstalk/eb-parallel-envs.png" alt="Parallel environments on beanstalk">
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
-Now, any time your deploy-eb-basic-image has its version updated, it will trigger both of these jobs in parallel, which will result in a deployment to both environments.
+###7. Trigger your pipeline
 
-### Advanced
+When you're ready for deployment, right-click on the `deploy-eb-basic-deploy` job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**.
 
-Since unmanaged jobs allow for unlimited scripting, there's no reason why your environments have to be restricted to the same EB application.  By splitting up your deployments across multiple applications, you can deploy to different AWS regions.  The workflow wouldn't be much different from what is described above, but you would need a few new environment variables to represent the different application names, and the different regions.
+After you run this job, and you should see your modified files in the console output like this:
+<img src="/images/deploy/elasticbeanstalk/dockerrun-updated.png" alt="templated files">
+
+<img src="/images/deploy/elasticbeanstalk/completed-deployment.png" alt="Finished Deployment">
+
+## Sample project
+
+Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Elastic Beanstalk.
+
+**Source code:**  [devops-recipes/deploy-beanstalk-basic](https://github.com/devops-recipes/deploy-beanstalk-basic).
