@@ -2,7 +2,7 @@ page_main_title: Deploying artifacts
 main_section: Deploy
 sub_section: Deploy to VMs
 
-# Deploying an application to a VM Cluster
+# Deploying an application to a VM Cluster from AWS S3
 
 Shippable allows you to deploy an application to a VM cluster. A VM cluster is essentially a collection of machines with public IP addresses, which are used by the Shippable platform for application deployment.
 
@@ -33,7 +33,11 @@ They are two configuration files that are needed to achieve this usecase -
 
 * Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-These files should be committed to your source control. Step 8 of the workflow below will describe how to add the config to Shippable.
+These files should be committed to your source control. Step 6 of the workflow below will describe how to add the config to Shippable.
+
+## Prequisites for VMs
+
+Since we are deploying and running a NodeJS application, preinstall nodejs, npm, and forever on each VM host.
 
 ## Instructions
 
@@ -47,13 +51,15 @@ These files should be committed to your source control. Step 8 of the workflow b
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-- name: deploy-clusternode-basic-appfile
-  type: file
-  pointer:
-    sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/deploy-nodecluster-basic-appfile.tar.gz
-    # points directly to publicly available file
-  seed:
-    versionName: foo # Dummy starting point. Later on, we'll use commitsha from CI to populate this field.
+resources:
+
+  - name: deploy-clusternode-basic-appfile
+    type: file
+    pointer:
+      sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/deploy-nodecluster-basic-appfile.tar.gz
+      # points directly to publicly available file
+    seed:
+      versionName: foo # Dummy starting point. Later on, we'll use commitsha from CI to populate this field.
 ```
 
 ###2. Define `nodecluster-params`.
@@ -126,12 +132,6 @@ resources:
 
     Unlike deployments to our supported container services, deployments to VM clusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your VM cluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
 
-    In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
-
-    Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
-
-    You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.
-
 * **Required:** Yes.
 
 **Steps**
@@ -148,12 +148,18 @@ jobs:
       - IN: deploy-nodecluster-basic-cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-basic-manifest && mkdir -p deploy-nodecluster-basic-manifest-2
+        - script: mkdir -p ~/deploy-nodecluster-basic-manifest
         - script: cd ~/deploy-nodecluster-basic-manifest
         - script: source /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/package.env
         - script: tar zxf /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/deploy-nodecluster-basic-appfile.tar.gz
         - script: forever start ./bin/www
 ```
+
+    In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
+
+    Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
+
+    **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
 ###6. Import configuration into your Shippable account.
 
