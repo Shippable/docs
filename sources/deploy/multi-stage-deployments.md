@@ -41,22 +41,22 @@ You can configure your deployment with Shippable's configuration files in a powe
 
 This is a pictorial representation of a multi-stage deployment workflow. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-<img src="/images/deploy/usecases/deploy_multi_stage.png"/>
+<img src="/images/deploy/usecases/deploy-multi-stage.png"/>
 
 These are the key components of the assembly line diagram -
 
 **Resources (grey boxes)**
 
 * `app_image` is a [image](/platform/workflow/resource/image/) resource that represents the docker image of the application.
-* `app_dev_options` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+* `app_dev_opts` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
 that represents the options of the application container.
-* `app_test_options` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+* `app_test_opts` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
 that represents the options of the application container.
-* `app_prod_options` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+* `app_prod_opts` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
 that represents the options of the application container.
-* `app_dev_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
-* `app_test_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
-* `app_prod_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
+* `app_dev_env` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
+* `app_test_env` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
+* `app_prod_env` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application in the dev environment.
 * `app_dev_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the dev environment.
 * `app_test_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the test environment.
 * `app_prod_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy in the prod environment.
@@ -67,9 +67,9 @@ that represents the options of the application container.
 **Jobs (green boxes)**
 
 * `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of your application for the dev environment, encompassing the image, options and environment that is versioned and immutable.
-* `app_dev_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the development cluster.
-* `app_test_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the test cluster.
-* `app_prod_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the prod cluster.
+* `app_dev_deploy` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the development cluster.
+* `app_test_deploy` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the test cluster.
+* `app_prod_deploy` is a [deploy](/platform/workflow/job/deploy) job which deploys `app_service_def` to the prod cluster.
 
 # Configuration
 
@@ -100,19 +100,19 @@ please change it also in the yml below.
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  resources:
-    - name: app_image # resource friendly name
-      type: image
-      integration: app_docker_hub           
-      pointer:
-        sourceName: devops/deploy_node_app #this will change based on registry
-      seed:
-        versionName: "master.1"  #Specify the tag of your image.
+resources:
+  - name: app_image     # resource friendly name
+    type: image
+    integration: app_docker_hub           
+    pointer:
+      sourceName: devops/deploy_node_app    #this will change based on registry
+    seed:
+      versionName: "master.1"  #Specify the tag of your image.
 ```
 
-###2. Define `app_dev_options`, `app_test_options` and `app_prod_options`.
+###2. Define `app_dev_opts`, `app_test_opts` and `app_prod_opts`.
 
-* **Description:** `app_dev_options`, `app_test_options` and `app_prod_options` are [image](/platform/workflow/resource/image/) resources that represent the options of the application container in their respective environments. Here we demonstrate setting container options such as memory and the exposed container port. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
+* **Description:** `app_dev_opts`, `app_test_opts` and `app_prod_opts` are [image](/platform/workflow/resource/image/) resources that represent the options of the application container in their respective environments. Here we demonstrate setting container options such as memory and the exposed container port. Shippable platform supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
 * **Required:** No.
 * **Defaults:**
 If no options are specified, the platform sets the following default options -
@@ -127,19 +127,21 @@ If no options are specified, the platform sets the following default options -
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  - name: app_dev_options
+resources:
+
+  - name: app_dev_opts
     type: dockerOptions
     version:
       memory: 512
       portMappings:
         - 80:80
-  - name: app_test_options
+  - name: app_test_opts
     type: dockerOptions
     version:
       memory: 1024
       portMappings:
         - 80:80
-  - name: app_prod_options
+  - name: app_prod_opts
     type: dockerOptions
     version:
       memory: 2048
@@ -147,9 +149,9 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
         - 80:80
 ```
 
-###3. Define `app_dev_environment`, `app_test_environment` and `app_prod_environment`.
+###3. Define `app_dev_env`, `app_test_env` and `app_prod_env`.
 
-* **Description:** `app_dev_environment`, `app_test_environment` and `app_prod_environment` are [params](/platform/workflow/resource/params) resources used to specify key-value pairs that are set as environment variables for consumption by the application in the specific environment. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container and that is environment specific.
+* **Description:** `app_dev_env`, `app_test_env` and `app_prod_env` are [params](/platform/workflow/resource/params) resources used to specify key-value pairs that are set as environment variables for consumption by the application in the specific environment. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container and that is environment specific.
 * **Required:** No.
 
 **Steps**  
@@ -157,24 +159,26 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  - name: app_dev_environment
+resources:
+
+  - name: app_dev_env
     type: params
     version:
       params:
         ENVIRONMENT: "dev"
-  - name: app_test_environment
+  - name: app_test_env
     type: params
     version:
       params:
         ENVIRONMENT: "test"
-  - name: app_prod_environment
+  - name: app_prod_env
     type: params
     version:
       params:
         ENVIRONMENT: "prod"              
 ```
 
-###4. Define `app_service_def`,.
+###4. Define `app_service_def`
 
 * **Description:** `app_service_def` is [manifest](/platform/workflow/job/manifest) jobs used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment and is environment specific. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable. We create this service definition once and push it through all our environments.
 * **Required:** Yes.
@@ -184,15 +188,16 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
   - name: app_service_def
     type: manifest
     steps:
      - IN: app_image
-     - IN: app_dev_options
-     - IN: app_dev_environment
-  ```
+     - IN: app_prod_opts
+     - IN: app_prod_env
+
+```
 
 ###5. Define `app_dev_replicas`, `app_test_replicas` and `app_prod_replicas`.
 
@@ -205,6 +210,8 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_dev_replicas
     type: replicas
     version:
@@ -236,6 +243,8 @@ The list of supported container orchestration platforms can be found [here](/pla
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: op_dev_cluster    # resource friendly name
     type: cluster
     integration: op_int            
@@ -258,11 +267,11 @@ The list of supported container orchestration platforms can be found [here](/pla
       region: "us-east-1" # region where cluster is located. This attribute is optional, depending on the orchestration platform.
 ```
 
-###7. Define `app_dev_deploy_job`, `app_test_deploy_job` and `app_prod_deploy_job`.
+###7. Define `app_dev_deploy`, `app_test_deploy` and `app_prod_deploy`.
 
-* **Description:** `app_dev_deploy_job`, `app_test_deploy_job` and `app_prod_deploy_job` are [deploy](/platform/workflow/job/manifest) jobs that actually deploys the application manifest to the cluster and starts the container. The number of containers started depends on the `app_replicas` resource defined earlier.
+* **Description:** `app_dev_deploy`, `app_test_deploy` and `app_prod_deploy` are [deploy](/platform/workflow/job/manifest) jobs that actually deploy the application manifest to the cluster and starts the container. The number of containers started depends on the `replicas` resource defined earlier.
 
-Notice how we specify the `app_dev_deploy_job` as an input to the `app_test_deploy_job`. This essentially sets up staged deployment in the sense that once `app_dev_deploy_job` completes, it triggers `app_test_deploy_job`, which is the next job in the devops assembly line downstream.
+Notice how we specify the `app_dev_deploy` as an input to the `app_test_deploy`. This essentially sets up staged deployment in the sense that once `app_dev_deploy` completes, it triggers `app_test_deploy`, which is the next downstream job in the Devops Assembly Line.
 
 **Required:** Yes.
 
@@ -271,28 +280,32 @@ Notice how we specify the `app_dev_deploy_job` as an input to the `app_test_depl
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
-  - name: app_dev_deploy_job
+  - name: app_dev_deploy
     type: deploy
     steps:
       - IN: app_service_def
       - IN: op_dev_cluster
-      - IN: app_replicas
+      - IN: app_dev_options
+      - IN: app_dev_env         
+      - IN: app_dev_replicas
 
-  - name: app_test_deploy_job
+  - name: app_test_deploy
     type: deploy
     steps:
+      - IN: app_dev_deploy
+      - IN: app_test_replicas
+      - IN: app_test_options
+      - IN: app_test_env      
       - IN: op_test_cluster
-      - IN: app_dev_deploy_job
-      - IN: app_replicas
 
-  - name: app_prod_deploy_job
+  - name: app_prod_deploy
     type: deploy
     steps:
+      - IN: app_test_deploy
       - IN: op_prod_cluster
-      - IN: app_test_deploy_job
-      - IN: app_replicas
+      - IN: app_prod_replicas      
 ```
 
 ###8. Import the configuration into your Shippable account to create the assembly line for the application.
