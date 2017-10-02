@@ -119,7 +119,7 @@ pages:
       - Sending notifications: deploy/send-notifications.md
       - Tracing resources: deploy/trace-pipeline.md
     - Deploy to Container Orchestration Platforms:
-      - Overview: deploy/overview_deploy_oc.md
+      - Overview: deploy/deploy-docker-overview.md
       - Single Container Application: deploy/cd_of_single_container_applications_to_orchestration_platforms.md
       - Multi Container Application: deploy/cd_of_multi_container_applications_to_orchestration_platforms.md
       - Deployment methods:
@@ -143,8 +143,8 @@ pages:
         - Pausing deployments: deploy/pause-deployments.md
         - Deleting a deployed service: deploy/deleting-a-service.md
     - Deploy using Cloud Native CLI:
-      - Overview: deploy/overview_cloud_native.md
-      - Amazon ECS: deploy/cd_with_cloud_native_cli.md
+      - Overview: deploy/deploy-cloud-native-overview.md
+      - Amazon ECS: deploy/deploy-amazon-ecs-cloud-native-cli.md
       - AWS Elastic Beanstalk:
         - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
         - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md

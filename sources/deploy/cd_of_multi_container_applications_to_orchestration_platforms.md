@@ -83,22 +83,22 @@ These files should be committed to your source control. Step 8 of the workflow b
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-  resources:
-    - name: app_image_1 # resource friendly name
-      type: image
-      integration: app_docker_hub           
-      pointer:
-        sourceName: devops/deploy_app_service_1 #this will change based on registry
-      seed:
-        versionName: "master.1"  #Specify the tag of your image.
+resources:
+  - name: app_image_1 # resource friendly name
+    type: image
+    integration: app_docker_hub           
+    pointer:
+      sourceName: devops/deploy_app_service_1 #this will change based on registry
+    seed:
+      versionName: "master.1"  #Specify the tag of your image.
 
-    - name: app_image_2 # resource friendly name
-      type: image
-      integration: app_docker_hub           
-      pointer:
-        sourceName: devops/deploy_app_service_2 #this will change based on registry
-      seed:
-        versionName: "master.1"  #Specify the tag of your image.
+  - name: app_image_2 # resource friendly name
+    type: image
+    integration: app_docker_hub           
+    pointer:
+      sourceName: devops/deploy_app_service_2 #this will change based on registry
+    seed:
+      versionName: "master.1"  #Specify the tag of your image.
 ```
 
 ###2. Define `app_options_1` and `app_options_2`.
@@ -119,6 +119,8 @@ If no options are specified, the platform sets the following default options -
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_options_1
     type: dockerOptions
     version:
@@ -144,6 +146,8 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_environment
     type: params
     version:
@@ -161,16 +165,16 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
-  - name: app_service_def
-    type: manifest
-    steps:
-     - IN: app_image_1
-     - IN: app_image_2
-     - IN: app_options_1
-     - IN: app_options_2
-     - IN: app_environment
+- name: app_service_def
+  type: manifest
+  steps:
+   - IN: app_image_1
+   - IN: app_image_2
+   - IN: app_options_1
+   - IN: app_options_2
+   - IN: app_environment
 ```
 
 ###5. Define `app_replicas`.
@@ -184,6 +188,8 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_replicas
     type: replicas
     version:
@@ -207,6 +213,8 @@ The list of supported container orchestration platforms can be found [here](/pla
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: op_cluster    # resource friendly name
     type: cluster
     integration: op_int            
@@ -225,14 +233,14 @@ The list of supported container orchestration platforms can be found [here](/pla
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
-    - name: app_deploy_job
-      type: deploy
-      steps:
-        - IN: app_service_def
-        - IN: op_cluster
-        - IN: app_replicas
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
 ```
 
 ###8. Import configuration into your Shippable account.

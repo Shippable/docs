@@ -2,7 +2,7 @@ page_main_title: Overview of deploying apps using Cloud Native CLI
 main_section: Deploy
 sub_section: Deploy using Cloud Native CLI
 
-# Using Cloud Native CLI
+# Deployments using cloud-native CLI
 
 Most applications today run in the Cloud. Each cloud provider has a native CLI.
 

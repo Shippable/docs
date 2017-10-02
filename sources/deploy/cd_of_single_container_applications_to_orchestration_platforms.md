@@ -166,6 +166,8 @@ jobs:
 Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
   - name: app_replicas
     type: replicas
     version:
@@ -209,14 +211,14 @@ resources:
 Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
-  jobs:
+jobs:
 
-    - name: app_deploy_job
-      type: deploy
-      steps:
-        - IN: app_service_def
-        - IN: op_cluster
-        - IN: app_replicas
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
 ```
 
 ###8. Import configuration into your Shippable account.
