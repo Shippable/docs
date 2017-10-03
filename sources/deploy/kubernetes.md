@@ -1,6 +1,7 @@
 page_main_title: Kubernetes- Deploying a Docker application
 main_section: Deploy
-sub_section: Kubernetes
+sub_section: Tutorials
+sub_sub_section: Kubernetes
 
 # Deploying to Kubernetes
 
@@ -131,7 +132,7 @@ resources:
 
 ###4. Create deployment job
 
-* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys a single instance of the application manifest to the cluster and starts the container. 
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys a single instance of the application manifest to the cluster and starts the container.
 * **Required:** Yes.
 
 **Steps**
