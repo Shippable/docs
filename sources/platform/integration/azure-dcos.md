@@ -24,9 +24,9 @@ Resources are the building blocks of assembly lines and some types of resources 
 * [integration](/platform/workflow/resource/integration)
 
 ## Default Environment Variables
-When you create a resource with this integration, and use it as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when a resource with this integration type is used.
+When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
-`<NAME>` is the the friendly name of the resource.
+`<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
 
 | Environment variable						| Description        |
 | ------			 							|----------------- |

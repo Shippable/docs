@@ -1,7 +1,6 @@
 page_main_title: Deploying artifacts
 main_section: Deploy
 sub_section: Deploy to VMs
-sub_sub_section: S3
 
 # Deploying an application to a VM Cluster from AWS S3
 
