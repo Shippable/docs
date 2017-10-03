@@ -1,8 +1,8 @@
-page_main_title: Continuous Delivery of a single container application to a Docker orchestration platform.
+page_main_title: Continuous Delivery of a single container Docker application to an Orchestration Platform.
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 
-# Continuous Delivery of a single container application to an orchestration platform.
+# Continuous Delivery for a single container Docker application
 
 A single container application could be a web application, API endpoint, a microservice, or any application component that is packaged as a single Docker image. This document describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE, or Azure.
 
@@ -33,23 +33,23 @@ You can configure your deployment with Shippable's configuration files in a powe
 
 This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-<img src="/images/deploy/usecases/deploy_mvp_1.png"/>
+<img src="/images/deploy/usecases/deploy-single-container-docker-app.png"/>
 
 These are the key components of the assembly line diagram -
 
 **Resources (grey boxes)**
 
-* `app_image` is a [image](/platform/workflow/resource/image/) resource that represents the docker image of the application.
-* `app_options` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+* `app_image` is a **required** [image](/platform/workflow/resource/image/) resource that represents the docker image of the application.
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the orchestration platform where the application is deployed to.
+* `app_options` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
 that represents the options of the application container.
-* `app_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
-* `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
-* `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the orchestration platform where the application is deployed to.
+* `app_environment` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
 
 **Jobs (green boxes)**
 
-* `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
-* `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
 
 ## Configuration
 
@@ -221,7 +221,7 @@ jobs:
       - IN: app_replicas
 ```
 
-###8. Import configuration into your Shippable account.
+###8. Add config to Shippable
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 

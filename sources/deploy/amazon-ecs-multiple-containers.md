@@ -1,198 +1,319 @@
 page_main_title: Amazon ECS Deploying multi-container services
 main_section: Deploy
-sub_section: Amazon ECS
+sub_section: Tutorials
+sub_sub_section: Amazon ECS
 
 # Deploying Multiple Containers to Amazon ECS
 
 The strength of Amazon ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
 
-This page will discuss the three most common ways to use Shippable to deploy multiple containers to ECS:
+A multiple container application could be a web application, API endpoint, microservice, or any application component that is packaged as multiple docker images. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a multiple container application to Amazon ECS.
 
-- **Parallel pipelines:** You can define one container per manifest and have separate deploy jobs for each manifest. In this scenario, each container will be deployed independently when its pipeline is triggered.
+## Assumptions
 
-<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline"y>
+We assume that all Docker images for the application are already available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
-- **Multiple images in a single [manifest](/platform/workflow/job/manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
 
-- **Multi-manifest deployment:** You can include one image per manifest, but choose to deploy several manifests together. In this scenario, all containers will be deployed at the same time, but only containers in the same manifest are guaranteed to be deployed on the same node.
+## Deployment workflow
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline.png" alt="Multi-manifest pipeline with single deploy job">
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored for each of the topics below are covered in the document.
 
-##Parallel pipelines
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and input resources are specified in Shippable configuration files.
 
-###1: Set up basic deployment
+<img src="/images/deploy/usecases/amazon-ecs-deploy-multi-container-docker-app.png"/>
 
-As a pre-requisite for these instructions, you should already have set up deployment to ECS.
+These are the key components of the Assembly Lines picture -
 
-You can follow the tutorial on [Managed deployments](/deploy/amazon-ecs/). This will give you the resources and jobs required to deploy a single container to ECS.
+**Resources (grey boxes)**
 
-###2. Add a second pipeline
+* `app_image_1` is a **required** [image](/platform/workflow/resource/image/) resource that represents the first Docker image
+* `app_image_2` is a **required** [image](/platform/workflow/resource/image/) resource that represents the second Docker image
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the Amazon ECS cluster to which the application will be deployed to.
+* `app_opts_1` and `app_opts_2` are **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resources
+that represents the options of the application container for `app_image_1` and `app_image_2` respectively.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores environment variables needed by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances to be deployed
 
-Update `shippable.resources.yml` with an additional `image`. We're just using a standard nginx image here, but you can use the image you need.
+
+**Jobs (green boxes)**
+
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+
+## Configuration
+
+They are two configuration files that are needed to achieve this usecase -
+
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+
+These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+
+## Instructions
+
+###1. Define Docker images
+
+* **Description:** `app_image_1` and `app_image_2` are [image](/platform/workflow/resource/image/) resources that represent the Docker images of your application. In our example, we're using a Node.js image and an nginx image, hosted on Docker hub.
+* **Required:** Yes.
+* **Integrations needed:** Amazon ECR, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in ECR.
+
+**Steps**  
+
+1. Create an account integration for Amazon ECR in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Amazon ECR integration](/platform/integration/aws-ecr/)
+
+    Copy the friendly name of the integration, in our case we named it **app_ecr**.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
-
-  - name: deploy-ecs-image-nginx     #image resource for nginx
+  - name: app_image_1     # resource friendly name
     type: image
-    integration: dr-ecr              #ECR integration that has permissions to pull the image
+    integration: app_ecr    # friendly name of integration created in step 1           
     pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/app-service-1"    #replace with your image name
     seed:
-      versionName: "1.12.0"
+      versionName: "master.1"   #Specify the tag of your image.
 
+  - name: app_image_2     # resource friendly name
+    type: image
+    integration: app_ecr    # friendly name of integration created in step 1            
+    pointer:
+      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/app-service-1"    #replace with your image name
+    seed:
+      versionName: "master.1"   #Specify the tag of your image.
 ```
 
-Update `shippable.jobs.yml` with the new `manifest` and `deploy` jobs. We are adding a manifest for the nginx image, and updating the deploy job to accept the new manifest as an IN:
+###2. Create service definition
+
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the images that compose your application. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-ecs-nginx         #manifest for nginx image
-    type: manifest
-    steps:
-      - IN: deploy-ecs-image-nginx
-
-  - name: deploy-ecs-multi-container-deploy-3b
-    type: deploy
-    steps:
-      - IN: deploy-ecs-nginx
-      - IN: deploy-ecs-basic-cluster
-
+- name: app_service_def
+  type: manifest
+  steps:
+   - IN: app_image_1
+   - IN: app_image_2
 ```
 
-Push your changes to your **syncRepo** and your your pipeline will be updated to look like this:
+For a complete reference for `manifest`, read the [job page](/platform/workflow/job/manifest).
 
-<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline.png" alt="Parallel pipeline">
+###3. Define cluster
 
-Now each pipeline is handled separately, but is being deployed to the same cluster.  Each deploy job will create its own service and task definition.  When you run each manifest job, you can see the results on ECS:
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in Amazon ECS where your application is deployed to.
+* **Required:** Yes.
+* **Integrations needed:**  AWS IAM Integration
 
-<img src="../../images/deploy/amazon-ecs/ecs-parallel-pipeline-results.png" alt="Parallel pipeline results">
+**Steps**
 
-## Multiple images in one manifest
+1. Create an account integration for Amazon ECS in your Shippable UI. Instructions to create an integration are here:
 
-When two containers depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate on ECS via localhost or container linking.
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Amazon ECS integration](/platform/integration/aws-ecs/)
 
-Shippable natively supports this, and it's quite simple to implement.  In your manifest job, just include both images as separate IN statements like this:
+    Copy the friendly name of the integration, in our case we named it **op_int**.
 
-```
-jobs:
-
-  - name: deploy-ecs-multi-container-manifest-1
-    type: manifest
-    steps:
-     - IN: deploy-ecs-multi-container-image
-     - IN: deploy-ecs-multi-container-nginx
-
-  - name: deploy-ecs-multi-container-deploy-1
-    type: deploy
-    steps:
-      - IN: deploy-ecs-multi-container-manifest-1
-      - IN: deploy-ecs-multi-container-ecs-cluster
-
-```
-
-This will result in a single service being created or updated with a single task definition that contains two container definitions.  The pipeline should look like this:
-
-<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline.png" alt="Multi-image-manifest pipeline">
-
-And deployment to Amazon ECS should result in a task definition that looks like this:
-
-<img src="../../images/deploy/amazon-ecs/ecs-multi-image-manifest-pipeline-results.png" alt="Multi-image-manifest pipeline results">
-
-Now, any time either image is updated with a new version, the pipeline will be triggered, and your combined manifest will always be up-to-date.
-
-
-## Multi-manifest deployment
-
-It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
-
-###1: Lets start with our two images and our cluster:
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-ecs-multi-container-image
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-multi-container"
-    seed:
-      versionName: "latest"
-
-  - name: deploy-ecs-multi-container-nginx
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
-    seed:
-      versionName: "1.12.0"
-
-  - name: deploy-ecs-multi-container-ecs-cluster
+  - name: op_cluster    # resource friendly name
     type: cluster
-    integration: dr-aws
+    integration: op_int            
     pointer:
-      sourceName: "deploy-ecs-basic" #name of the cluster to which we are deploying
-      region: "us-east-1"
+      sourceName: "deploy-ecs-cluster"    # name of the actual cluster
+      region: "us-east-1"     # region where cluster is located. This attribute is optional
 ```
 
-###2: Add a second manifest job and modify the deploy job to take both manifests as INs.
+###4. Create deployment job
+
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys the application manifest to the cluster and one instance of each container.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-ecs-multi-container-manifest-2a
-    type: manifest
-    steps:
-     - IN: deploy-ecs-multi-container-image
-
-  - name: deploy-ecs-multi-container-manifest-2b
-    type: manifest
-    steps:
-      - IN: deploy-ecs-multi-container-nginx
-
-  - name: deploy-ecs-multi-container-deploy
+  - name: app_deploy_job
     type: deploy
     steps:
-      - IN: deploy-ecs-multi-container-manifest-2a
-      - IN: deploy-ecs-multi-container-manifest-2b
-      - IN: deploy-ecs-multi-container-ecs-cluster
+      - IN: app_service_def
+      - IN: op_cluster
+```
+
+###5. Add config to Shippable
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+
+Follow [these instructions]((/platform/tutorial/workflow/crud-syncrepo/)) to import your configuration files into your Shippable account.
+
+###6. Trigger your workflow
+
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger automatically every time the any of the input Docker images.
+
+## Customizing container options
+
+By default, we set the following options while deploying a container:
+
+- memory : 400mb
+- desiredCount : 1
+- cpuShares : 0
+- All available CPU
+- no ENVs are added to the container
+
+However, you can customize these and many other options for each container by including a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in your service definition.
+
+###1. Add dockerOptions resources
+
+Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file for each container you want to customize.
+
+For example, to set memory to 1024MB and exposing port 80 for the `app_image_1` image and set the memory to 2048MB and exposing port 8080 for the `app_image_2` image., you would write the following snippet:
+
+```
+resources:
+
+  - name: app_opts_1
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
+
+  - name: app_opts_2
+    type: dockerOptions
+    version:
+      memory: 2048
+      portMappings:
+        - 8080:80
+```
+
+For a complete reference for `dockerOptions`, read the [resource page](/platform/workflow/resource/dockeroptions/#dockeroptions).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image_1
+     - IN: app_image_2
+     - IN: app_opts_1
+       applyTo:
+         - app_image_1
+     - IN: app_opts_2
+       applyTo:
+         - app_image_2
+```
+
+## Setting env vars
+
+You can also include environment variables needed by your application in your service definition `manifest`. To do this, you need a [params](/platform/workflow/resource/params) resource that lets you include key-value pairs.
+
+
+###1. Add a params resource
+
+Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+
+```
+resources:
+
+  - name: app_env
+    type: params
+    version:
+      params:
+        DB_URL: "my.database.local"
+        DB_PORT: 3306
+        DB_NAME: "foo"
+```
+
+For a complete reference for `params`, read the [resource page](/platform/workflow/resource/params).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image_1
+     - IN: app_image_2
+     - IN: app_env
 
 ```
 
-Once these changes are pushed, your pipeline will look like this:
+## Scaling app instances
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline.png" alt="Multi-manifest pipeline with single deploy job">
+By default, we always deploy one instance of your application. You can scale it as needed by including a  [replicas](/platform/workflow/resource/replicas) resource in your `deploy` job.
 
-When you run the deploy job, the following steps will be taken:
+###1. Add a replicas resource
 
-  - register new task definition for application manifest
-  - create or update service with application task definition
-  - wait for runningCount to reach desiredCount
-  - register new task definition for nginx manifest
-  - create or update service with nginx task definition
-  - wait for runningCount to reach desiredCount
-  - complete successfully
+Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
 
-Once the deploy job completes, your Amazon ECS cluster should show two new services, each one running a task with one of the images.
+```
+resources:
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-mani-single-deploy-pipeline-results.png" alt="Multi-manifest pipeline with single deploy results">
+  - name: app_replicas
+    type: replicas
+    version:
+      count: 5
+```
 
-You'll see in the logs that each manifest is deployed in turn, and the deploy job waits for each service to be running steadily before moving on to the next manifest.
+For a complete reference for `replicas`, read the [resource page](/platform/workflow/resource/replicas).
 
-<img src="../../images/deploy/amazon-ecs/ecs-multi-manifest-single-deploy-pipeline-logs.png" alt="Multi-manifest pipeline with single deploy logs">
+###2. Update deploy job
 
+Next, you should update your `deploy` with this new resource:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+```
+
+For a complete reference for `deploy`, read the [job page](/platform/workflow/job/deploy).
 
 ## Sample project
 
-Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS for all of the scenarios described above.
+Here are some links to a working sample of this scenario. This is a multi container Node.js application that runs some tests and then pushes the image to Amazon ECR as part of CI. It also contains all of the pipelines configuration files for deploying two images to Amazon ECS.
 
-**Source code:**  [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
+**Source code:** [devops-recipes/deploy-ecs-multi-container](https://github.com/devops-recipes/deploy-ecs-multi-container)
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-ecs-multi-container)
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
 

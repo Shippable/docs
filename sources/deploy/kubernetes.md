@@ -1,280 +1,289 @@
-page_main_title: Kubernetes Default scenario
+page_main_title: Kubernetes- Deploying a Docker application
 main_section: Deploy
 sub_section: Kubernetes
 
 # Deploying to Kubernetes
-There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable Assembly Lines.  This page will describe how you can take a single docker image and deploy it as an individual container to your Kubernetes cluster.
 
-## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Assembly Lines.
+There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Kubernetes.
 
-- Create a pipeline manifest using a docker image on docker hub
-- Use the manifest as an input for a deploy job
-- Deploy the manifest to a Kubernetes cluster
+For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for Kubernetes as well.
 
-In the end, your pipeline will look like this:
-![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
+## Assumptions
 
-## Building blocks
+We assume that the application is already packaged as a Docker image and available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
-To deploy to Kubernetes, you need the following building blocks:
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
-**Resources**
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
 
-- [cluster](/platform/workflow/resource/cluster/) resource, to point to a cluster
-- [image](/platform/workflow/resource/image/) resource, pointing to the Docker image
+## Deployment workflow
 
-**Jobs**
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored are covered in the document.
 
-- [manifest](/platform/workflow/job/manifest/) which creates a deployable unit for your application
-- [deploy](/platform/workflow/job/deploy/), a managed job that does the deployment
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-## Step-by-step instructions
+<img src="/images/deploy/usecases/kubernetes-deploy-single-container-docker-app.png"/>
 
-You will need two configuration files:
+These are the key components of the assembly line diagram -
 
-- `shippable.resources.yml` which contains resource definitions
-- `shippable.jobs.yml` which contains job definitions
+**Resources (grey boxes)**
 
-These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
+* `app_image` is a **required** [image](/platform/workflow/resource/image/) resource that represents the Docker image of the app stored in Docker Hub.
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the Kubernetes cluster to which you're deploying the application.
+* `app_options` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
 
-Follow the steps below to set up a basic deployment to your Kubernetes cluster.
+**Jobs (green boxes)**
 
-###1: Create account integrations
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
 
-You need two account integrations for this scenario:
+## Configuration
 
-- **Kubernetes**
+They are two configuration files that are needed to achieve this usecase -
 
-Shippable will use your Kubernetes configuration to communicate with your cluster on your behalf. [See here](../platform/integration/kubernetes) for directions on adding a Kubernetes account integration to Shippable.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
 
-- **Docker Hub**
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
 
-You also need to configure an integration to Docker Hub so that we can pull your image. Follow instructions in the [Docker Hub integration](/platform/integration/docker-hub/) page.
+These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
 
-###2: Create resources
+## Deployment instructions
 
-You need the following two resources in your `shippable.resources.yml` file:
+###1. Define Docker image
 
-####cluster
-First, we need a cluster resources which references a cluster that has been deployed in your environment and for which we created the Kubernetes integration in the previous step.
+* **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in Docker Hub
+* **Required:** Yes.
+* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
 
-```
-resources:
+**Steps**  
 
-  - name: deploy-kubernetes-basic-kube-cluster
-    type: cluster
-    integration: dr-kube-cluster    #replace with your Kubernetes integration name
-    flags:
-      - deploy-kubernetes-basic
+1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
 
-```
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Docker Hub integration](/platform/integration/docker-hub/)
 
-For a complete reference, check out the [cluster](/platform/workflow/resource/cluster/) page.
+    Copy the friendly name of the integration.
 
-####image
-Next, we need an `image` resource. This will represent your Docker image in your pipeline.  In our example, we're using an image hosted in Docker Hub.
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
-  - name: deploy-kubernetes-basic-img
+
+  - name: app_image     # resource friendly name
     type: image
-    integration: dr-dockerhub    #replace with your Docker Hub integration name
+    integration: app_docker_hub     #friendly name of your integration          
     pointer:
-      sourceName: "docker.io/devopsrecipes/deploy-kubernetes-basic"  #replace with your image name on Docker Hub
+      sourceName: devopsrecipes/deploy-kubernetes-basic    # replace with your image name
     seed:
-      versionName: "master.1"  #replace with your image tag on Docker Hub
-    flags:
-      - deploy-kubernetes-basic
+      versionName: "master.1"   #specify the tag of your image.
 ```
 
-For a complete reference, check out the [image](/platform/workflow/resource/image/) page.
+###2. Create service definition
 
-###3: Define jobs
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-Jobs are defined in your `shippable.jobs.yml`.
+**Steps**
 
-You need two jobs for this scenario:
-
-####manifest
-
-We need to package the image in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-- name: deploy-kubernetes-basic-manifest
-  type: manifest
-  steps:
-   - IN: deploy-kubernetes-basic-img
-
-```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.
-
-####deploy
-
-Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on Kubernetes cluster.
-
-```
-jobs:
-
-  - name: deploy-kubernetes-basic-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: deploy-kubernetes-basic-img
+     - IN: app_image
+```
 
-  - name: deploy-kubernetes-basic-deploy
+###3. Define cluster
+
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster on Kubernetes where your application is deployed to.
+* **Required:** Yes.
+* **Integrations needed:** Kubernetes integration
+
+**Steps**
+
+1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Kubernetes integration](/platform/integration/kubernetes/)
+
+    Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
+
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+  - name: op_cluster    # resource friendly name
+    type: cluster
+    integration: op_int   # friendly name of the integration you created         
+    pointer:
+      sourceName: "app-kubernetes-cluster" # name of the actual cluster in Kubernetes
+```
+
+###4. Create deployment job
+
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys a single instance of the application manifest to the cluster and starts the container. 
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+```
+jobs:
+
+  - name: app_deploy_job
     type: deploy
     steps:
-      - IN: deploy-kubernetes-basic-manifest
-      - IN: deploy-kubernetes-basic-kube-cluster
-
+      - IN: app_service_def
+      - IN: op_cluster
 ```
 
-The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
+###5. Add config to Shippable
 
-###4: Add your pipeline
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
-Once you have these jobs and resources yml files as described above, push to your sync repository. You can then follow instructions to [add your pipeline to Shippable](/deploy/configuration/).
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
-Your pipeline should look like this:
-![Pipeline view](https://github.com/devops-recipes/deploy-kubernetes-basic/raw/master/public/resources/images/pipeline-view.png)
+###6. Trigger your workflow
 
-###5: Trigger your pipeline
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time the `app_image` changes, i.e. each time you have a new Docker image.
 
-When you're ready for deployment, right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
 
-- The manifest job will package your image with default settings
-- The deploy job will create the appropriate namespace if it doesn't already exist
-- A podSpec will be created based on your manifest settings
-- A Kubernetes deployment object will be created in the namespace referencing the podSpec
+## Customizing container options
 
-After running, you can check on your pods using kubectl :
+By default, we set the following options while deploying your container:
 
-```
-ambarishs-MacBook-Pro:release ambarish$ kubectl get pods
-NAMESPACE     NAME                                                              READY     STATUS    RESTARTS   AGE
-default       kube-deploy-20bc938e-ea98-446b-8054-403d72eea3bd-359291515ltsvz   1/1       Running   0          2h
-```
+- memory : 400mb
+- desiredCount : 1
+- cpuShares : 0
+- All available CPU
+- no ENVs are added to the container
 
-That's all there is to it!
+However, you can customize these and many other options by including a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in your service definition.
 
-## Advanced Configuration
-In the above scenario, several options are set by default that you might want to change.
+**Steps**
 
-### dockerOptions
-Using [dockerOptions](../platform/workflow/resource/dockeroptions), all of the advanced configurations of docker are available to you. For example, you can change the memory allocated to the container and expose a port.
+###1. Add a dockerOptions resource
+
+Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
-  - name: deploy-kubernetes-basic-img-options
+resources:
+
+  - name: app_options
     type: dockerOptions
     version:
-      memory: 100
+      memory: 1024
       portMappings:
         - 80:80
-    flags:
-      - deploy-kubernetes-basic
 ```
-The `dockerOptions` resource can then be an IN for your `manifest` or `deploy` job.
+For a complete reference for `dockerOptions`, read the [resource page](/platform/workflow/resource/dockeroptions/#dockeroptions).
 
-For a complete reference of all customizable options, check out our [dockerOptions reference](/platform/workflow/resource/dockeroptions/)
+###2. Update service definition
 
-### params
-When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+Next, you should update your `manifest` with this new resource:
 
 ```
-  - name: deploy-kubernetes-basic-params
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_options
+```
+
+## Setting env vars
+
+You can also include environment variables needed by your application in your service definition `manifest`. To do this, you need a [params](/platform/workflow/resource/params) resource that lets you include key-value pairs.
+
+**Steps**
+
+###1. Add a params resource
+
+Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+
+```
+resources:
+
+  - name: app_env
     type: params
     version:
       params:
-        PORT: 80
-        ENVIRONMENT: "dev"
+        DB_URL: "my.database.local"
+        DB_PORT: 3306
+        DB_NAME: "foo"
 ```
-These environment variables will be available in the running container.
 
-### Scaling instances
+For a complete reference for `params`, read the [resource page](/platform/workflow/resource/params).
 
-You can use the [replicas resource](../platform/workflow/resource/replicas) to scale the number of instances of your manifest. You can define how many copies of a particular manifest you want to be deployed. This maps directly to the 'replicas' setting in the pod template.  In this case we'll try to run two copies of our application.
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
 
 ```
-  - name: deploy-kubernetes-basic-replicas
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_env
+```
+
+For a complete reference for `manifest`, read the [job page](/platform/workflow/job/manifest).
+
+## Scaling app instances
+
+By default, we always deploy one instance of your application. You can scale it as needed by including a  [replicas](/platform/workflow/resource/replicas) resource in your service definition `manifest`.
+
+**Steps**
+
+###1. Add a replicas resource
+
+Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
+
+```
+resources:
+
+  - name: app_replicas
     type: replicas
     version:
-      count: 2
+      count: 5
 ```
 
-###Customizing deployment names
+For a complete reference for `replicas`, read the [resource page](/platform/workflow/resource/replicas).
 
-We use a default naming convention for deployment names:
+###2. Update deploy job
 
-| Deploy Method | Default Naming Convention |
-|--------------|---------------------------|
-| blueGreen (default) | deployJobName-manifestJobName-buildNumber |
-| upgrade | deployJobName-manifestJobName |
-| replace |deployJobName-manifestJobName |
-
-Read more on [deployment strategies](/deploy/kubernetes-strategy/) to understand them in detail.
-
-To override the default name, you can use the `deployName` tag.
+Next, you should update your `deploy` with this new resource:
 
 ```
 jobs:
-  - name: deploy-kubernetes-basic-deploy
-    type: deploy
-    method: upgrade | replace | blueGreen                     #defaults to blueGreen
-    steps:
-      - IN: deploy-kubernetes-basic-manifest                  #required
-        deployName: myApplication
-      - IN: deploy-kubernetes-basic-cluster                   #required
-```
 
-Some things to remember:
-
-- The name generated with the blueGreen strategy, will include a suffix of build number. So the deployment name will be of format deployName-buildNumber.
-
-- **upgrade** and **replace** deployments expect `deployName` to be present during the first deployment. The name of the first deployed service will be the name that will be used in subsequent deployments for upgrade/replace deploy methods. Hence, modifying the deployName will not take effect in a job for those types.
-
-Shippable also injects some labels into your deployment objects, so that you can more easily set up kube services that talk to your pods.
-
-| Label Key | Label Value |
-|--------------|---------------------------|
-| shippable.deploymentName | deployJobName-manifestJobName-buildNumber (buildNumber only if blueGreen)|
-| shippable.jobName | deployJobName |
-| shippable.manifestName | manifestJobName |
-
-The `shippable.deploymentName` label is also used as the deployment selector label.
-
-You can also add any custom labels that you wish by using the [dockerOptions resource](../platform/workflow/resource/dockeroptions)
-
-### Forcing deployments for static tags
-
-Shippable assumes that your images are versioned with unique names (we recommend tagging with `$BRANCH.$BUILD_NUMBER`). When your deploy job is triggered, it will deploy the latest version of the IN manifests if something has changed in the manifest, i.e. image tag, dockerOptions settings, or params.
-
-If you tag your images with static tags like `latest` or `$BRANCH_NAME`, Shippable cannot detect if the underlying image has changed, and hence it is not deployed. To force deployments in this scenario, you need to set a flag in your deploy job that tells Shippable to deploy the image each time the job is triggered, regardless of whether anything has changed in the manifest.
-
-You can set the `force` flag for a manifest in your deploy job as shown below:
-
-```
-jobs:
-  - name: deploy-kubernetes-basic-deploy
+  - name: app_deploy_job
     type: deploy
     steps:
-      - IN: deploy-kubernetes-basic-manifest         #required
-        force: true
-      - IN: deploy-kubernetes-basic-cluster          #required
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
 ```
 
-## Sample project
+For a complete reference for `deploy`, read the [job page](/platform/workflow/job/deploy).
 
-Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Docker Hub. It also contains all of the pipelines configuration files for deploying to Kubernetes.
+## Ask questions on Chat
 
-**Source code:**  [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic).
-
-**Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-basic/runs/7/1/console)
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58fcef822ddacd090044cf75/badge?branch=master
-)](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-basic)
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
 

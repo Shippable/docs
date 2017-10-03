@@ -1,304 +1,307 @@
-page_main_title: Kubernetes Deploying multi-container services
+page_main_title: Kubernetes- Deploying multi-container services
 main_section: Deploy
 sub_section: Kubernetes
 
-
 # Deploying Multiple Containers to Kubernetes
-The strength of Kubernetes is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  This page will discuss the three most common ways to use Shippable to deploy multiple containers to Kubernetes:
 
-- **Parallel pipelines:** You can define one container per manifest and have separate deploy jobs for each manifest. In this scenario, each container will be deployed independently when its pipeline is triggered.
+The strength of Kubernetes is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
 
-![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
+A multiple container application could be a web application, API endpoint, microservice, or any application component that is packaged as multiple docker images. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a multiple container application to Kubernetes.
 
-- **Multiple images in a single [manifest](/platform/workflow/job/manifest/):** In this scenario, all containers in the manifest will be deployed at the same time and on the same node. This will guarantee that they will be able to directly communicate on ECS via localhost or container linking.
+## Assumptions
 
-![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
+We assume that all Docker images for the application are already available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
-- **Multi-manifest deployment:** You can include one image per manifest, but choose to deploy several manifests together. In this scenario, all containers will be deployed at the same time, but only containers in the same manifest are guaranteed to be deployed on the same node.
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
-![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy2-pipeline-view.png)
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
 
-##Parallel pipelines
+## Deployment workflow
 
-###1. Set up basic deployment
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored for each of the topics below are covered in the document.
 
-As a pre-requisite for these instructions, you should already have set up a basic pipeline that deploys to Kubernetes.
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and input resources are specified in Shippable configuration files.
 
-You can follow the tutorial on [Managed deployments](/deploy/kubernetes/). This will give you the resources and jobs required to deploy a single container to Kubernetes.
+<img src="/images/deploy/usecases/amazon-ecs-deploy-multi-container-docker-app.png"/>
 
-###2. Add a second pipeline
+These are the key components of the Assembly Lines picture -
 
-Update `shippable.resources.yml` with an additional `image`. We're just using a standard nginx image here, but you can use the image you need.
+**Resources (grey boxes)**
 
+* `app_image_1` is a **required** [image](/platform/workflow/resource/image/) resource that represents the first Docker image
+* `app_image_2` is a **required** [image](/platform/workflow/resource/image/) resource that represents the second Docker image
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the Kubernetes cluster to which the application will be deployed to.
+* `app_opts_1` and `app_opts_2` are **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resources
+that represents the options of the application container for `app_image_1` and `app_image_2` respectively.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores environment variables needed by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances to be deployed
+
+
+**Jobs (green boxes)**
+
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+
+## Configuration
+
+They are two configuration files that are needed to achieve this usecase -
+
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+
+These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+
+## Instructions
+
+###1. Define Docker images
+
+* **Description:** `app_image_1` and `app_image_2` are [image](/platform/workflow/resource/image/) resources that represent the Docker images of your application. In our example, we're using a Node.js image and an nginx image, hosted on Docker hub.
+* **Required:** Yes.
+* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+
+**Steps**  
+
+1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Docker Hub integration](/platform/integration/docker-hub/)
+
+    Copy the friendly name of the integration, in our case we named it **app_docker_hub**.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
-  - name: deploy-kubernetes-multi-container-nginx
+  - name: app_image_1     # resource friendly name
     type: image
-    integration: dr-ecr
+    integration: app_docker_hub    # friendly name of integration created in step 1           
     pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
+      sourceName: devopsrecipes/app-service-1    # replace with yor image name
     seed:
-      versionName: "1.12.0"
+      versionName: "master.1"    #specify the tag of your image.
+
+  - name: app_image_2     # resource friendly name
+    type: image
+    integration: app_docker_hub    # friendly name of integration created in step 1            
+    pointer:
+      sourceName: devopsrecipes/app-service-2     # replace with yor image name
+    seed:
+      versionName: "master.1"    #specify the tag of your image.
 ```
 
-Update `shippable.jobs.yml` with the new `manifest` and `deploy` jobs. We are adding a manifest for the nginx image, and updating the deploy job to accept the new manifest as an IN:
+###2. Create service definition
 
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the images that compose your application. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-```
-jobs:
-  - name: deploy-kubernetes-multi-container-manifest-3b
-    type: manifest
-    steps:
-      - IN: deploy-kubernetes-multi-container-nginx
+**Steps**
 
-  - name: dkmc-deploy-3b
-    type: deploy
-    steps:
-      - IN: deploy-kubernetes-multi-container-manifest-3b
-      - IN: mc-kube-cluster
-```
-
-###3. Push changes to sync repository
-
-Once you have these jobs and resources yml files as described above, push to your sync repository.
-
-Your pipeline should look like this:
-
-![deploy3a3b-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy3a3b-pipeline-view.png)
-
-Now each pipeline is handled separately, but is being deployed to the same cluster. Each deploy job will create its own service and task definition.
-
-```
-Deployment data using kubectl
-
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl get deployment
-NAME                                                  DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4    1         1         1            1           34m
-dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7    1         1         1            1           33m
-dkmc-deploy-2-7868301e-bf87-443f-ab6c-d20c8c6541c1    1         1         1            1           33m
-dkmc-deploy-3a-775ea3cb-7896-4eff-91e9-c4d531d6f9c3   1         1         1            1           37m
-dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a   1         1         1            1           38m
-dkmc-deploy-3b-40f58d6a-1312-4c21-b2dc-03fe6ec58f97   1         1         1            1           22h
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl describe deployment dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a
-Name:			dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a
-Namespace:		default
-CreationTimestamp:	Mon, 24 Apr 2017 19:49:24 -0700
-Labels:			shippable.deploymentName=dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a
-			shippable.jobName=dkmc-deploy-3b
-Annotations:		deployment.kubernetes.io/revision=1
-			kubectl.kubernetes.io/last-applied-configuration={"kind":"Deployment","apiVersion":"extensions/v1beta1","metadata":{"name":"dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a","namespace":"default","...
-Selector:		shippable.deploymentName=dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a,shippable.jobName=dkmc-deploy-3b
-Replicas:		1 desired | 1 updated | 1 total | 1 available | 0 unavailable
-StrategyType:		RollingUpdate
-MinReadySeconds:	0
-RollingUpdateStrategy:	1 max unavailable, 1 max surge
-Pod Template:
-  Labels:	shippable.deploymentName=dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a
-		shippable.jobName=dkmc-deploy-3b
-  Containers:
-   deploy-kubernetes-multi-container-manifest-3b-0:
-    Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:
-    Limits:
-      memory:		400Mi
-    Environment:	<none>
-    Mounts:		<none>
-  Volumes:		<none>
-OldReplicaSets:		<none>
-NewReplicaSet:		<none>
-Events:
-  FirstSeen	LastSeen	Count	From			SubObjectPath	Type		Reason			Message
-  ---------	--------	-----	----			-------------	--------	------			-------
-  38m		38m		1	deployment-controller			Normal		ScalingReplicaSet	Scaled up replica set dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a-4089932028 to 1
-```
-
-## Multiple images in one manifest
-
-When two containers depend on each other, it might make more sense to combine them into the same manifest. This will guarantee that they will run on the same machine and be able to directly communicate on Kubernetes via localhost or container linking. Shippable natively supports this, and it's quite simple to implement.  
-
-###1. In your manifest job, include both images as separate IN statements like this:
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-kubernetes-multi-container-manifest-1
-    type: manifest
-    steps:
-     - IN: deploy-kubernetes-multi-container-image
-     - IN: deploy-kubernetes-multi-container-nginx
-
-  - name: dkmc-deploy-1
-    type: deploy
-    steps:
-      - IN: deploy-kubernetes-multi-container-manifest-1
-      - IN: mc-kube-cluster
-
+- name: app_service_def
+  type: manifest
+  steps:
+   - IN: app_image_1
+   - IN: app_image_2
 ```
 
-###2. Push changes to sync repository
+For a complete reference for `manifest`, read the [job page](/platform/workflow/job/manifest).
 
-Once you have these jobs and resources yml files as described above, push to your sync repository. This will result in a single deployment object being created or updated with a single pod spec that contains two container definitions.  
+###3. Define cluster
 
-The pipeline should look like this:
-![deploy1-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy1-pipeline-view.png)
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster in Kubernetes where your application is deployed to.
+* **Required:** Yes.
+* **Integrations needed:**  Kubernetes Integration
 
-```
-Deployment data using kubectl
+**Steps**
 
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl get deployment
-NAME                                                  DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4    1         1         1            1           27m
-dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7    1         1         1            1           26m
-dkmc-deploy-2-7868301e-bf87-443f-ab6c-d20c8c6541c1    1         1         1            1           26m
-dkmc-deploy-3a-775ea3cb-7896-4eff-91e9-c4d531d6f9c3   1         1         1            1           30m
-dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a   1         1         1            1           30m
-dkmc-deploy-3b-40f58d6a-1312-4c21-b2dc-03fe6ec58f97   1         1         1            1           22h
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl describe deployment dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4
-Name:			dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4
-Namespace:		default
-CreationTimestamp:	Mon, 24 Apr 2017 19:53:05 -0700
-Labels:			shippable.deploymentName=dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4
-			shippable.jobName=dkmc-deploy-1
-Annotations:		deployment.kubernetes.io/revision=1
-			kubectl.kubernetes.io/last-applied-configuration={"kind":"Deployment","apiVersion":"extensions/v1beta1","metadata":{"name":"dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4","namespace":"default","c...
-Selector:		shippable.deploymentName=dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4,shippable.jobName=dkmc-deploy-1
-Replicas:		1 desired | 1 updated | 1 total | 1 available | 0 unavailable
-StrategyType:		RollingUpdate
-MinReadySeconds:	0
-RollingUpdateStrategy:	1 max unavailable, 1 max surge
-Pod Template:
-  Labels:	shippable.deploymentName=dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4
-		shippable.jobName=dkmc-deploy-1
-  Containers:
-   deploy-kubernetes-multi-container-manifest-1-0:
-    Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:
-    Limits:
-      memory:		400Mi
-    Environment:	<none>
-    Mounts:		<none>
-   deploy-kubernetes-multi-container-manifest-1-1:
-    Image:	docker.io/devopsrecipes/deploy-kubernetes-multi-container:master.5
-    Port:
-    Limits:
-      memory:		400Mi
-    Environment:	<none>
-    Mounts:		<none>
-  Volumes:		<none>
-OldReplicaSets:		<none>
-NewReplicaSet:		<none>
-Events:
-  FirstSeen	LastSeen	Count	From			SubObjectPath	Type		Reason			Message
-  ---------	--------	-----	----			-------------	--------	------			-------
-  27m		27m		1	deployment-controller			Normal		ScalingReplicaSet	Scaled up replica set dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4-948434943 to 1
-```
+1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
-## Multi-manifest deployment
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Kubernetes integration](/platform/integration/kubernetes/)
 
-It is also possible to deploy several manifests in the same deploy job.  Shippable by default will deploy them in the order that they are supplied in the steps section of the job.  This is a nice way to organize your pipeline and keep together manifests that end up on the same cluster.
+    Copy the friendly name of the integration, in our case we named it `op_int`.
 
-###1. Lets start with our two images and our cluster:
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-kubernetes-basic-img
-    type: image
-    integration: dr-dockerhub    #replace with your Docker Hub integration name
-    pointer:
-      sourceName: "docker.io/devopsrecipes/deploy-kubernetes-basic"  #replace with your image name on Docker Hub
-    seed:
-      versionName: "master.1"  #replace with your image tag on Docker Hub
-    flags:
-      - deploy-kubernetes-basic
-
-  - name: deploy-kubernetes-multi-container-nginx
-    type: image
-    integration: dr-ecr
-    pointer:
-      sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx"
-    seed:
-      versionName: "1.12.0"
-
-  - name: mc-kube-cluster
+  - name: op_cluster    # resource friendly name
     type: cluster
-    integration: dr-kube-cluster    #replace with your Kubernetes integration name
+    integration: op_int    # friendly name from step 1         
+    pointer:
+      sourceName: "kubernetes-test-cluster"    # name of the actual cluster
 ```
 
-###2. Add a second manifest job and modify the deploy job to take both manifests as INs.
+###4. Create deployment job
+
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/manifest) job that actually deploys a single instance of the application manifest to the cluster.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-kubernetes-multi-container-manifest-2a
-    type: manifest
-    steps:
-     - IN: deploy-kubernetes-multi-container-image
-
-  - name: deploy-kubernetes-multi-container-manifest-2b
-    type: manifest
-    steps:
-      - IN: deploy-kubernetes-multi-container-nginx
-
-  - name: dkmc-deploy-2
+  - name: app_deploy_job
     type: deploy
     steps:
-      - IN: deploy-kubernetes-multi-container-manifest-2a
-      - IN: deploy-kubernetes-multi-container-manifest-2b
-      - IN: mc-kube-cluster
+      - IN: app_service_def
+      - IN: op_cluster
+```
+
+###5. Add config to Shippable
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+
+Follow [these instructions]((/platform/tutorial/workflow/crud-syncrepo/)) to import your configuration files into your Shippable account.
+
+###6. Trigger your workflow
+
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger automatically every time the any of the input Docker images.
+
+## Customizing container options
+
+By default, we set the following options while deploying a container:
+
+- memory : 400mb
+- desiredCount : 1
+- cpuShares : 0
+- All available CPU
+- no ENVs are added to the container
+
+However, you can customize these and many other options for each container by including a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in your service definition.
+
+###1. Add dockerOptions resources
+
+Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file for each container you want to customize.
+
+For example, to set memory to 1024MB and exposing port 80 for the `app_image_1` image and set the memory to 2048MB and exposing port 8080 for the `app_image_2` image., you would write the following snippet:
+
+```
+resources:
+
+  - name: app_opts_1
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
+
+  - name: app_opts_2
+    type: dockerOptions
+    version:
+      memory: 2048
+      portMappings:
+        - 8080:80
+```
+
+For a complete reference for `dockerOptions`, read the [resource page](/platform/workflow/resource/dockeroptions/#dockeroptions).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image_1
+     - IN: app_image_2
+     - IN: app_opts_1
+       applyTo:
+         - app_image_1
+     - IN: app_opts_2
+       applyTo:
+         - app_image_2
+```
+
+## Setting env vars
+
+You can also include environment variables needed by your application in your service definition `manifest`. To do this, you need a [params](/platform/workflow/resource/params) resource that lets you include key-value pairs.
+
+
+###1. Add a params resource
+
+Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+
+```
+resources:
+
+  - name: app_env
+    type: params
+    version:
+      params:
+        DB_URL: "my.database.local"
+        DB_PORT: 3306
+        DB_NAME: "foo"
+```
+
+For a complete reference for `params`, read the [resource page](/platform/workflow/resource/params).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image_1
+     - IN: app_image_2
+     - IN: app_env
 
 ```
 
-###3. Push changes to sync repository
+## Scaling app instances
 
-Once you have these jobs and resources yml files as described above, push to your sync repository. Once these changes are pushed, your pipeline will look like this:
+By default, we always deploy one instance of your application. You can scale it as needed by including a  [replicas](/platform/workflow/resource/replicas) resource in your `deploy` job.
 
-![deploy2-pipeline-view](https://github.com/devops-recipes/deploy-kubernetes-multi-container/raw/master/public/resources/images/deploy2-pipeline-view.png)
+###1. Add a replicas resource
+
+Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
 
 ```
-Kubernetes deployment using kubectl
+resources:
 
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl get deployment
-NAME                                                  DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-dkmc-deploy-1-b3a9ddbc-e90c-434f-9fd8-750deba156b4    1         1         1            1           39m
-dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7    1         1         1            1           38m
-dkmc-deploy-2-7868301e-bf87-443f-ab6c-d20c8c6541c1    1         1         1            1           38m
-dkmc-deploy-3a-775ea3cb-7896-4eff-91e9-c4d531d6f9c3   1         1         1            1           42m
-dkmc-deploy-3b-03294818-3c6f-4733-b4cc-7a37d442516a   1         1         1            1           43m
-dkmc-deploy-3b-40f58d6a-1312-4c21-b2dc-03fe6ec58f97   1         1         1            1           23h
-ambarishs-MacBook-Pro:deploy-kubernetes-multi-container ambarish$ kubectl describe deployment dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7
-Name:			dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7
-Namespace:		default
-CreationTimestamp:	Mon, 24 Apr 2017 19:54:17 -0700
-Labels:			shippable.deploymentName=dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7
-			shippable.jobName=dkmc-deploy-2
-Annotations:		deployment.kubernetes.io/revision=1
-			kubectl.kubernetes.io/last-applied-configuration={"kind":"Deployment","apiVersion":"extensions/v1beta1","metadata":{"name":"dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7","namespace":"default","c...
-Selector:		shippable.deploymentName=dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7,shippable.jobName=dkmc-deploy-2
-Replicas:		1 desired | 1 updated | 1 total | 1 available | 0 unavailable
-StrategyType:		RollingUpdate
-MinReadySeconds:	0
-RollingUpdateStrategy:	1 max unavailable, 1 max surge
-Pod Template:
-  Labels:	shippable.deploymentName=dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7
-		shippable.jobName=dkmc-deploy-2
-  Containers:
-   deploy-kubernetes-multi-container-manifest-2b-0:
-    Image:	679404489841.dkr.ecr.us-east-1.amazonaws.com/nginx:1.12.0
-    Port:
-    Limits:
-      memory:		400Mi
-    Environment:	<none>
-    Mounts:		<none>
-  Volumes:		<none>
-OldReplicaSets:		<none>
-NewReplicaSet:		<none>
-Events:
-  FirstSeen	LastSeen	Count	From			SubObjectPath	Type		Reason			Message
-  ---------	--------	-----	----			-------------	--------	------			-------
-  38m		38m		1	deployment-controller			Normal		ScalingReplicaSet	Scaled up replica set dkmc-deploy-2-054577fd-81b4-4914-a62b-a38c8e469ea7-45181092 to 1
+  - name: app_replicas
+    type: replicas
+    version:
+      count: 5
 ```
+
+For a complete reference for `replicas`, read the [resource page](/platform/workflow/resource/replicas).
+
+###2. Update deploy job
+
+Next, you should update your `deploy` with this new resource:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+```
+
+For a complete reference for `deploy`, read the [job page](/platform/workflow/job/deploy).
 
 ## Sample project
 
@@ -310,6 +313,10 @@ the image to Docker Hub. It also contains all of the pipelines configuration fil
 **Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-container/runs/6/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58f98b298c0a6707003b237a/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-kubernetes-multi-container)
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
 ## Improve this page
 
