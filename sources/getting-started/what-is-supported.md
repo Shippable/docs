@@ -41,6 +41,7 @@ We support the following languages:
 * [Python](/platform/runtime/language/python/)
 * [Ruby](/platform/runtime/language/ruby/)
 * [Scala](/platform/runtime/language/scala/)
+* [C/C++](/platform/runtime/language/cplusplus/)
 
 ## Services
 To make your builds even faster, we pre-install a bunch of **Services** that your application may need. These are also updated on a monthly cadence.
