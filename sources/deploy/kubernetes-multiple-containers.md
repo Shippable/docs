@@ -1,6 +1,7 @@
 page_main_title: Kubernetes- Deploying multi-container services
 main_section: Deploy
-sub_section: Kubernetes
+sub_section: Tutorials
+sub_sub_section: Kubernetes
 
 # Deploying Multiple Containers to Kubernetes
 
