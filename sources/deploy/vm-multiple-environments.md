@@ -193,17 +193,15 @@ jobs:
         - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
 
-
 ```
 
+Both of these jobs take the application service definition and the environment specific cluster and params resources as inputs. Please note that the `app_prod_deploy` job has `app_beta_deploy` as one of its inputs so that deployment to the prod environment occurs after deployment to the beta environment. We also want to manually deploy to prod environment and so we specific `switch: off` on all inputs.
 
-    Both of these jobs take the application service definition and the environment specific cluster and params resources as inputs. Please note that the `app_prod_deploy` job has `app_beta_deploy` as one of its inputs so that deployment to the prod environment occurs after deployment to the beta environment. We also want to manually deploy to prod environment and so we specific `switch: off` on all inputs.
+Files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
 
-    Files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
+Also, our application is written in nodejs and we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
 
-    Also, our application is written in nodejs and we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
-
-    **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
+**You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
 ###6. Import configuration into your Shippable account.
 
