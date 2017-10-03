@@ -148,13 +148,11 @@ pages:
       - AWS Elastic Beanstalk:
         - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
         - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
-        - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
+        - Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
     - Deploy to VMs:
-        - S3:
-          - Deploying to a single VM cluster: deploy/vm-basic.md
-          - Deploying to multiple VM clusters: deploy/vm-multiple-environments.md
-        - JFrog Artifactory:
-          - Deploying to a single VM cluster: deploy/vm-jfrog.md
+      - Deploying from S3 to a single VM cluster: deploy/vm-basic.md
+      - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
+      - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
     - Tutorials:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md
