@@ -11,16 +11,16 @@ We have put together samples for all common deployment scenarios:
 **Artifacts deployment**
 
 - [Deploying tarballs to a node cluster on any cloud](/deploy/vm-basic/)
-- [Deploying to Amazon Elastic Beanstalk](/deploy/aws-elastic-beanstalk/)
+- [Deploying to Amazon Elastic Beanstalk](/ci/deploy-to-aws-beanstalk/)
 
 **Docker deployments**
 
 - [Amazon ECS](/deploy/amazon-ecs/)
 - [Kubernetes](/deploy/kubernetes/)
 - [GKE](/deploy/gke/)
-- [Docker Datacenter](/deploy/docker-datacenter/)
-- [Docker Cloud](/deploy/docker-cloud/)
-- [Microsoft Azure](/deploy/azure-dcos/)
+- [Docker Datacenter](/deploy/continuous_delivery_single_container_docker_application/)
+- [Docker Cloud](/deploy/continuous_delivery_single_container_docker_application/)
+- [Microsoft Azure](/deploy/continuous_delivery_single_container_docker_application/)
 - [Amazon Elastic Beanstalk (Docker)](/deploy/aws-elastic-beanstalk/)
 
 
@@ -36,4 +36,4 @@ Consider the following scenario:
 
 The deploy steps are shown in the image below:
 
-<img src="../../images/deploy/nodecluster/basic-final-pipeline.png" alt="Final Pipeline">
+<img src="/images/deploy/nodecluster/basic-pipeline.png" alt="Final Pipeline">
