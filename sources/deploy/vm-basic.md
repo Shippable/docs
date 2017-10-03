@@ -2,147 +2,181 @@ page_main_title: Deploying artifacts
 main_section: Deploy
 sub_section: Deploy to VMs
 
-# Deploying Artifacts to a Node Cluster
-Shippable allows users to add one or more machine IPs as an integration in the form of a [Node Cluster](../platform/integration/node-cluster).  A node cluster is basically a collection of machines that you want treat as a single endpoint for artifact deployment.
+# Deploying an application to a VM Cluster from AWS S3
 
-## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+Shippable allows you to deploy an application to a VM cluster. A VM cluster is essentially a collection of machines with public IP addresses, which are used by the Shippable platform for application deployment.
 
-- Package some source during Shippable CI.
-- Upload the package to Amazon S3
-- Automatically trigger a pipeline after Shippable CI
-- Deploy the file to a node cluster
+In this tutorial, we will demonstrate how to deploy a NodeJS application package available in an S3 bucket to a VM cluster and thereafter start the application. Please look at the sample project at the end of this document for details about how to setup CI for the NodeJS application where we package and copy the application to an S3 bucket.
 
-In the end, your pipeline will look like this:
-<img src="../../images/deploy/nodecluster/basic-final-pipeline.png" alt="Final Pipeline">
+## Topics Covered
 
+- Specifying the location of the NodeJS application package.
+- Specifying application runtime environment variables.
+- Creating a Service definition of the application.
+- Defining the VM cluster where the application package is deployed.
+- Deploying your application.
 
-## The Setup
+## Deployment workflow
 
-For the CI portion of this sample, check out our page on [triggering pipeline jobs from CI](../ci/trigger-pipeline-jobs).  In order to complete this end-to-end, you'll need to set up your CI to push your build artifacts to S3, so that the deployment can pull them.  Check out the sample project [source code](https://github.com/devops-recipes/deploy-nodecluster-basic) to see how to write a `shippable.yml` that does this.
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-Start by adding a `cluster node` integration.  Ours will be called `dr-cn` and will have two machines associated with it.  [See here](../platform/integration/node-cluster) for instructions on creating the integration.
+<img src="/images/deploy/nodecluster/basic-pipeline.png" alt="Final Pipeline">
 
-Now we need a cluster resource that references the integration we created:
+We will now proceed to implementing the jobs and resources in the workflow.
 
-```
-resources:
-  - name: deploy-clusternode-basic-cluster
-    type: cluster
-    integration: dr-cn
+## Configuration
 
-```
+They are two configuration files that are needed to achieve this usecase -
 
-Next we'll need a resource that acts as a representation of our software package.  In this sample, we'll be using a public s3 bucket with object versioning to store our artifacts.
-```
-- name: deploy-clusternode-basic-appfile
-  type: file
-  pointer:
-    sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/deploy-nodecluster-basic-appfile.tar.gz
-    # points directly to publicly available file
-  seed:
-    versionName: foo # dummy starting point. we'll use commitsha from CI to populate this field
-```
+* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-## Managed
-Shippable provides a type of managed job called [deploy](../platform/workflow/job/deploy), which can take an input of a [manifest job](../platform/workflow/job/manifest).  A manifest is made up of one or more files that you'd like to deploy to your nodecluster.  Each manifest can have its own set of customizable environment variables.
+* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-To run this deployment using Shippable managed jobs, we'll need a few more resources:
+These files should be committed to your source control. Step 6 of the workflow below will describe how to add the config to Shippable.
 
-```
-resources:
+## Prequisites for VMs
 
-  - name: deploy-nodecluster-basic-cluster
-    type: cluster
-    integration: dr-nc
-```
+Since we are deploying and running a NodeJS application, preinstall nodejs, npm, and forever on each VM host.
 
-Here we've set up a cluster resource and attached a Node Cluster integration to it.  In our case, this is pointing to a cluster of two machines on Amazon EC2.
+## Instructions
 
-<img src="../../images/deploy/nodecluster/nodecluster-int.png" alt="Two nodes in this cluster">
+###1. Define `app_file`
+
+* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: nodecluster-params
+  - name: app_file
+    type: file
+    pointer:
+      sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/app_file.tar.gz
+      # points directly to publicly available file
+    seed:
+      versionName: foo # Dummy starting point. Later on, we'll use commitsha from CI to populate this field.
+```
+
+###2. Define `app_params`.
+
+* **Description:** `app_params` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting two environment variables called `ENVIRONMENT` and `PORT` that are available in the running container.
+* **Required:** No.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+  - name: app_params
     type: params
     version:
       params:
         PORT: 8888
         ENVIRONMENT: nodeCluster
 ```
-This is a [params](../platform/workflow/resource/params) resource. it can be used to add environment variables to our manifest, which in turn adds these variables to the environment where our custom deployment script is executed.  Our sample application is looking for `PORT` and `ENVIRONMENT` when it boots, so we set those here.
 
-We'll also need some jobs that utilize these new resources.
-```
-jobs:
+###3. Define `app_service_def`.
 
-  - name: deploy-nodecluster-basic-manifest
-    type: manifest
-    steps:
-      - IN: nodecluster-params
-      - IN: deploy-nodecluster-basic-appfile
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-  - name: deploy-nodecluster-basic-deploy
-    type: deploy
-    steps:
-      - IN: deploy-nodecluster-basic-manifest
-      - IN: deploy-nodecluster-basic-cluster
+**Steps**
 
-
-```
-
-Here we've got one [manifest job](../platform/workflow/job/manifest) and one [deploy job](../platform/workflow/job/deploy).  The manifest job takes the file resource and params resource inputs.  The deploy job takes the manifest job and the cluster resource as inputs.
-
-Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-nodecluster-basic-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: nodecluster-params
-      - IN: deploy-nodecluster-basic-appfile
+      - IN: app_file
+```
 
-  - name: deploy-nodecluster-basic-deploy
+###4. Define `app_cluster`.
+
+* **Description:** `app_cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed to. In our example, the cluster points to two AWS EC2 machines.
+* **Required:** Yes.
+* **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
+In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
+
+**Steps**
+
+1. Create an account integration using your Shippable account for [`Node Cluster`](/platform/integration/node-cluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+
+2. Set the friendly name of the integration as `vm_nodes_int`. If you change the name, please change it also in the yml below.
+
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+  - name: app_cluster
+    type: cluster
+    integration: vm_nodes_int
+```
+
+###5. Define `app_deploy`.
+
+* **Description:** `app_deploy` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the VM cluster.
+
+    Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
+
+    Unlike deployments to our supported container services, deployments to VM clusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your VM cluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+```
+jobs:
+
+  - name: app_deploy
     type: deploy
     steps:
-      - IN: deploy-nodecluster-basic-manifest
-      - IN: deploy-nodecluster-basic-cluster
+      - IN: app_service_def
+      - IN: app_params
+      - IN: app_cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-basic-manifest && mkdir -p deploy-nodecluster-basic-manifest-2
-        - script: cd ~/deploy-nodecluster-basic-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/deploy-nodecluster-basic-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
+
 ```
 
-Unlike deployments to our supported container services, deployments to nodeclusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your nodecluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
+  In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
 
-In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
+  Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
 
-Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
+  **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
-You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.
+###6. Import configuration into your Shippable account.
 
-Once you're all set up, you can start the workflow by running your CI job.  This should push the package, which triggers the file resource, and so on.  Eventually your deploy job should run and in our case, we see these successful logs:
-<img src="../../images/deploy/nodecluster/deploy-logs.png" alt="Deploy job output">
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
-You can see the custom deployment script is executed twice. Once for each machine in our Node Cluster.  And when we visit one of our machines, we can see our application running with the correct environment settings:
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
-<img src="../../images/deploy/nodecluster/running-application.png" alt="The running application">
+###7. Trigger your pipeline
 
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time `app_file` changes, i.e. each time you have a new version of the application package.
+
+When we visit one of our machines, we can see our application running with the correct environment settings:
+
+<img src="/images/deploy/nodecluster/running-application.png" alt="The running application">
 
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then archives and pushes the source code to Amazon S3. It also contains all of the pipelines configuration files for deploying and running the application on a node cluster.
 
 **Source code:**  [devops-recipes/deploy-nodecluster-basic](https://github.com/devops-recipes/deploy-nodecluster-basic).
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/59023242cd25170600356e72/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-nodecluster-basic)
-
-
-## Unmanaged
- coming soon
