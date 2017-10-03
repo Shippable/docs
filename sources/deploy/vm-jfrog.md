@@ -1,6 +1,7 @@
 page_main_title: Deploying from a JFrog Artifactory repository
 main_section: Deploy
 sub_section: Deploy to VMs
+sub_sub_section: JFrog Artifactory
 
 # Deploying an application to a VM Cluster from a JFrog Artifactory repository
 
