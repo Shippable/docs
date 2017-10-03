@@ -20,7 +20,7 @@ We will accomplish the following in this tutorial:
 - Each Environment is a different VM cluster.
 - Deployment to Beta environment is automatically triggered and thus continuous.
 - Deployment to Production environment is manual.
- 
+
 ## Topics Covered
 
 - Specifying the location of the NodeJS application package.
@@ -34,7 +34,7 @@ We will accomplish the following in this tutorial:
 
 This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-**TODO: add diagram**
+<img src="/images/deploy/nodecluster/multi-env-pipeline.png" alt="Final Pipeline">
 
 We will now proceed to implementing the jobs and resources in the workflow.
 
@@ -118,9 +118,9 @@ jobs:
       - IN: app_file
 ```
 
-###4. Define `app_dev_cluster` and `app_prod_cluster`.
+###4. Define `app_beta_cluster` and `app_prod_cluster`.
 
-* **Description:** `app_dev_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed to. In our example, each cluster resource points to two AWS EC2 machines.
+* **Description:** `app_beta_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed to. In our example, each cluster resource points to two AWS EC2 machines.
 * **Required:** Yes.
 * **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
 In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
@@ -136,7 +136,7 @@ In this integration, we specify the public IP addresses of all the VMs where we 
 ```
 resources:
 
-  - name: app_dev_cluster
+  - name: app_beta_cluster
     type: cluster
     integration: dev_vm_int
 
@@ -167,7 +167,7 @@ jobs:
     steps:
       - IN: app_beta_params
       - IN: app_service_def
-      - IN: app_dev_cluster
+      - IN: app_beta_cluster
       - TASK:
         - script: forever stopall
         - script: mkdir -p ~/app_service_def
@@ -192,7 +192,11 @@ jobs:
         - script: source /tmp/shippable/app_service_def/app_file/package.env
         - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
+
+
 ```
+
+
     Both of these jobs take the application service definition and the environment specific cluster and params resources as inputs. Please note that the `app_prod_deploy` job has `app_beta_deploy` as one of its inputs so that deployment to the prod environment occurs after deployment to the beta environment. We also want to manually deploy to prod environment and so we specific `switch: off` on all inputs.
 
     Files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
@@ -209,13 +213,11 @@ Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to impor
 
 ###7. Trigger your pipeline
 
-Once you're all set up, you can start the workflow by running the CI job.  This should push the package, which triggers the file resource, and so on.  Eventually your deploy job should run and in our case, we see these successful logs:
-<img src="/images/deploy/nodecluster/deploy-logs.png" alt="Deploy job output">
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time `app_file` changes, i.e. each time you have a new version of the application package.
 
-You can see the custom deployment script is executed twice. Once for each machine in our Node Cluster.  And when we visit one of our machines, we can see our application running with the correct environment settings:
+When we visit one of our machines, we can see our application running with the correct environment settings:
 
 <img src="/images/deploy/nodecluster/running-application.png" alt="The running application">
-
 
 ## Concurrent deployment to multiple Environments
 
@@ -224,9 +226,12 @@ Here we will demonstrate concurrent deployment to the same environments as above
 ```
 CI -> Amazon S3 -> application service definition -> beta
                                                   -> prod
+
 ```
 
-For parallel deployments, we make a small change to `app_prod_deploy` job. We specify `app_service_def` as an input rather than `app_beta_deploy`.
+<img src="/images/deploy/nodecluster/multi-env-parallel-pipeline.png" alt="Final Pipeline">
+
+For parallel deployments, we make a small change to the `app_prod_deploy` job. We specify `app_service_def` as an input rather than `app_beta_deploy`.
 
 ```
 jobs:
@@ -236,7 +241,7 @@ jobs:
     steps:
       - IN: app_beta_params
       - IN: app_service_def
-      - IN: app_dev_cluster
+      - IN: app_beta_cluster
       - TASK:
         - script: forever stopall
         - script: mkdir -p ~/app_service_def
@@ -258,4 +263,5 @@ jobs:
         - script: source /tmp/shippable/app_service_def/app_file/package.env
         - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
+
 ```

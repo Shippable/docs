@@ -21,7 +21,7 @@ In this tutorial, we will demonstrate how to deploy a NodeJS application package
 
 This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
-<img src="../../images/deploy/nodecluster/basic-final-pipeline.png" alt="Final Pipeline">
+<img src="/images/deploy/nodecluster/basic-pipeline.png" alt="Final Pipeline">
 
 We will now proceed to implementing the jobs and resources in the workflow.
 
@@ -159,6 +159,7 @@ jobs:
         - script: source /tmp/shippable/app_service_def/app_file/package.env
         - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
+
 ```
 
     In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
@@ -176,9 +177,8 @@ Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to impor
 
 ###7. Trigger your pipeline
 
-Start the workflow by running the CI job.  This should build and push the NodeJS package to JFrog artifactory and thereafter trigger the pipeline downstream. Eventually your deploy job should run and in our case, we see these successful logs:
-<img src="/images/deploy/nodecluster/deploy-logs.png" alt="Deploy job output">
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time `app_file` changes, i.e. each time you have a new version of the application package.
 
-You can see the custom deployment script is executed twice. Once for each machine in our Node Cluster.  And when we visit one of our machines, we can see our application running with the correct environment settings:
+When we visit one of our machines, we can see our application running with the correct environment settings:
 
 <img src="/images/deploy/nodecluster/running-application.png" alt="The running application">
