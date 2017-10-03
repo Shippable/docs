@@ -10,11 +10,11 @@ In this tutorial, we will demonstrate how to deploy a NodeJS application package
 
 ## Topics Covered
 
-- Specifying the location of the JFrog Artifactory repository containing the NodeJS application package
-- Specifying application runtime environment variables  
-- Creating a Service definition of the application
-- Defining the VM cluster where the application package is deployed
-- Deploying your application
+- Specifying the location of the JFrog Artifactory repository containing the NodeJS application package.
+- Specifying application runtime environment variables.
+- Creating a Service definition of the application.
+- Defining the VM cluster where the application package is deployed.
+- Deploying your application.
 
 
 ## Deployment workflow
@@ -41,9 +41,9 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 ## Instructions
 
-###1. Define `deploy-clusternode-basic-appfile`
+###1. Define `app_file`
 
-* **Description:** `deploy-clusternode-basic-appfile` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
+* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
 * **Required:** Yes.
 * **Integrations needed:** [JFrog Artifactory](/platform/integration/jfrog-artifactory/)
 
@@ -59,7 +59,7 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 ```
 resources:
 
-  - name: deploy-clusternode-basic-appfile
+  - name: app_file
     type: file
     integration: dr-artifactory
     pointer:
@@ -68,9 +68,9 @@ resources:
       versionName: foo # dummy starting point. the sample uses commitsha from CI to populate this field
 ```
 
-###2. Define `nodecluster-params`.
+###2. Define `app_params`.
 
-* **Description:** `nodecluster-params` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting two environment variables called `ENVIRONMENT` and `PORT` that are available in the running container.
+* **Description:** `app_params` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting two environment variables called `ENVIRONMENT` and `PORT` that are available in the running container.
 * **Required:** No.
 
 **Steps**
@@ -80,7 +80,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 resources:
 
-  - name: nodecluster-params
+  - name: app_params
     type: params
     version:
       params:
@@ -88,9 +88,9 @@ resources:
         ENVIRONMENT: nodeCluster
 ```
 
-###3. Define `deploy-nodecluster-basic-manifest`.
+###3. Define `app_service_def`.
 
-* **Description:** `deploy-nodecluster-basic-manifest` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
 * **Required:** Yes.
 
 **Steps**
@@ -100,16 +100,15 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-  - name: deploy-nodecluster-basic-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: nodecluster-params
-      - IN: deploy-nodecluster-basic-appfile
+      - IN: app_file
 ```
 
-###4. Define `deploy-nodecluster-basic-cluster`.
+###4. Define `app_cluster`.
 
-* **Description:** `deploy-nodecluster-basic-cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed to. In our example, the cluster points to two AWS EC2 machines.
+* **Description:** `app_cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed to. In our example, the cluster points to two AWS EC2 machines.
 * **Required:** Yes.
 * **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
 In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
@@ -118,21 +117,21 @@ In this integration, we specify the public IP addresses of all the VMs where we 
 
 1. Create an account integration using your Shippable account for [`Node Cluster`](/platform/integration/node-cluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-2. Set the friendly name of the integration as `dr-nc`. If you change the name, please change it also in the yml below.
+2. Set the friendly name of the integration as `vm_nodes_int`. If you change the name, please change it also in the yml below.
 
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-nodecluster-basic-cluster
+  - name: app_cluster
     type: cluster
-    integration: dr-nc
+    integration: vm_nodes_int
 ```
 
-###5. Define `deploy-nodecluster-basic-deploy`.
+###5. Define `app_deploy`.
 
-* **Description:** `deploy-nodecluster-basic-deploy` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the VM cluster.
+* **Description:** `app_deploy` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the VM cluster.
 
     Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
 
@@ -147,17 +146,18 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-  - name: deploy-nodecluster-basic-deploy
+  - name: app_deploy
     type: deploy
     steps:
-      - IN: deploy-nodecluster-basic-manifest
-      - IN: deploy-nodecluster-basic-cluster
+      - IN: app_service_def
+      - IN: app_params
+      - IN: app_cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-basic-manifest
-        - script: cd ~/deploy-nodecluster-basic-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-basic-manifest/deploy-nodecluster-basic-appfile/deploy-nodecluster-basic-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
 ```
 

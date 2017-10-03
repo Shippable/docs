@@ -1,277 +1,261 @@
-page_main_title: Deploying to multiple environments
+page_main_title: Deploying an application to multiple VM clusters
 main_section: Deploy
 sub_section: Deploy to VMs
 
-# Deploying to Multiple Node Cluster Environments
+# Deploying an application to multiple VM Clusters from AWS S3
 
-## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+Shippable allows you to deploy your application to multiple VM clusters. A VM cluster is essentially a collection of machines with public IP addresses, which are used by the Shippable platform for application deployment.
 
-- Create a nodeCluster integration and resource
-- Deploy your app to multiple parallel environments
-- Deploy your app to multiple serial environments
+In this tutorial, we will demonstrate how to deploy a NodeJS application package, available in an S3 bucket, to multiple VM clusters and thereafter start the application. Each VM cluster represents a particular environment such as beta and production in our example.s
 
-In the end, your pipeline will look something like this:
-<img src="../../images/deploy/amazon-ecs/multi-env-final-pipeline.png" alt="Final pipeline">
+## Deployment Goal
 
-## The Setup
-For nodeClusters, the most logic divide is to say that one nodeCluster = 1 environment.  A nodeCluster is a group of machines, so deploying your application to different environments should be a simple as just changing the machine that the deployment points to.  To get started with nodeClusters, please see our [basic scenario](./vm-basic)
+```
+CI -> Amazon S3 -> application service definition -> deploy to beta -> deploy to production
+```
 
-Let's keep our example scenario simple.  One file and one manifest to start.
+We will accomplish the following in this tutorial:
+
+- Each environment gets its own unique settings.
+- Each Environment is a different VM cluster.
+- Deployment to Beta environment is automatically triggered and thus continuous.
+- Deployment to Production environment is manual.
+ 
+## Topics Covered
+
+- Specifying the location of the NodeJS application package.
+- Specifying application runtime environment variables for each environment.  
+- Creating a Service definition of the application.
+- Defining the VM clusters where the application package is deployed.
+- Deploying your application to all the environments serially.
+- Deploying your application in parallel to multiple environments.
+
+## Deployment workflow
+
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
+
+**TODO: add diagram**
+
+We will now proceed to implementing the jobs and resources in the workflow.
+
+## Configuration
+
+They are two configuration files that are needed to achieve this usecase -
+
+* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+
+* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+
+These files should be committed to your source control. Step 6 of the workflow below will describe how to add the config to Shippable.
+
+## Prequisites for VMs
+
+Since we are deploying and running a NodeJS application, preinstall nodejs, npm, and forever on each VM host.
+
+## Instructions
+
+###1. Define `app_file`
+
+* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-nodeCluster-multi-env-file
+  - name: app_file
     type: file
     pointer:
-      sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/deploy-nodecluster-basic-appfile.tar.gz
+      sourceName: https://s3.amazonaws.com/devops.recipes.nodecluster.packages/app_file.tar.gz
       # points directly to publicly available file
     seed:
-      versionName: foo # dummy starting point. we'll use commitsha from CI to populate this field
+      versionName: foo # Dummy starting point. Later on, we'll use commitsha from CI to populate this field.
+```
+
+###2. Define `app_beta_params` and `app_prod_params`.
+
+* **Description:** `app_beta_params` and `app_prod_params` are [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is customized for beta and prod environments.
+* **Required:** No.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
+resources:
+
+  - name: app_beta_params
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "beta"
+
+  - name: app_prod_params
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "prod"
+```
+
+###3. Define `app_service_def`.
+
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package resource. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-nodeCluster-multi-env-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: deploy-nodeCluster-multi-env-file
+      - IN: app_file
 ```
 
+###4. Define `app_dev_cluster` and `app_prod_cluster`.
 
-## Managed deployments
-Shippable managed deployments give you a ton of flexibility in how you structure your pipeline.  Deploy jobs accept manifests, releases, and other deploy jobs as inputs.  This allows you to put your pipeline together in whatever way works best for your system while maintaining a simple visual on the whole process.  This page will discuss a couple of the most common scenarios involving multiple deployment environments.
+* **Description:** `app_dev_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed to. In our example, each cluster resource points to two AWS EC2 machines.
+* **Required:** Yes.
+* **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
+In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
 
-### Serial Environments
+**Steps**
 
-```
-CI -> Amazon S3 -> manifest -> deploy to beta -> deploy to production
-```
+1. Create two account integrations using your Shippable account for [`Node Cluster`](/platform/integration/node-cluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
-- each environment gets its own unique parameters and settings
-- environments each deploy to a different node cluster
-- beta environment is automatically triggered
-- production environment is manual-deploy only
+2. Set the friendly names of the integrations as `dev_vm_int` and `prod_vm_int`. If you change the name, please change it also in the yml below.
 
-
-Add two `params` resources, each one having a unique ENV for the cluster it will be deployed to.
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-nodeCluster-multi-env-betaparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "beta"
-
-  - name: deploy-nodeCluster-multi-env-prodparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "prod"
-
-```
-
-Add two clusters to deploy to.
-
-```
-resources:
-
-  - name: deploy-nodeCluster-multi-env-betacluster
+  - name: app_dev_cluster
     type: cluster
-    integration: dr-nodeCluster
+    integration: dev_vm_int
 
-  - name: deploy-nodeCluster-multi-env-prodcluster
+  - name: app_prod_cluster
     type: cluster
-    integration: dr-nodeCluster
-
+    integration: prod_vm_int
 ```
 
-Add two deploy jobs:
+###5. Define `app_beta_deploy` and `app_prod_deploy`.
 
-- The beta job should take the beta params, beta cluster, and the manifest as `IN` statements.  
-- The prod job should take the beta deploy job, prod params, and prod cluster as `IN` statements.
+* **Description:** `app_beta_deploy` and `app_prod_deploy` are [deploy](/platform/workflow/job/deploy) jobs that actually deploys the application manifest to their respective VM clusters.
+
+    Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
+
+    Unlike deployments to our supported container services, deployments to VM clusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your VM cluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
+
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-nodeCluster-multi-env-betadeploy
+  - name: app_beta_deploy
     type: deploy
     steps:
-      - IN: deploy-nodeCluster-multi-env-betaparams
-      - IN: deploy-nodeCluster-multi-env-manifest
-      - IN: deploy-nodeCluster-multi-env-betacluster
+      - IN: app_beta_params
+      - IN: app_service_def
+      - IN: app_dev_cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-multi-env-manifest && mkdir -p deploy-nodecluster-multi-env-manifest-2
-        - script: cd ~/deploy-nodecluster-multi-env-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/deploy-nodecluster-multi-env-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
 
-  - name: deploy-nodeCluster-multi-env-proddeploy
+  - name: app_prod_deploy
     type: deploy
     steps:
-      - IN: deploy-nodeCluster-multi-env-prodparams
+      - IN: app_prod_params
         switch: off
-      - IN: deploy-nodeCluster-multi-env-betadeploy
+      - IN: app_beta_deploy
         switch: off
-      - IN: deploy-nodeCluster-multi-env-prodcluster
+      - IN: app_prod_cluster
         switch: off
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-multi-env-manifest && mkdir -p deploy-nodecluster-multi-env-manifest-2
-        - script: cd ~/deploy-nodecluster-multi-env-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/deploy-nodecluster-multi-env-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def && mkdir -p app_service_def-2
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
+```
+    Both of these jobs take the application service definition and the environment specific cluster and params resources as inputs. Please note that the `app_prod_deploy` job has `app_beta_deploy` as one of its inputs so that deployment to the prod environment occurs after deployment to the beta environment. We also want to manually deploy to prod environment and so we specific `switch: off` on all inputs.
+
+    Files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
+
+    Also, our application is written in nodejs and we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
+
+    **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
+
+###6. Import configuration into your Shippable account.
+
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
+
+###7. Trigger your pipeline
+
+Once you're all set up, you can start the workflow by running the CI job.  This should push the package, which triggers the file resource, and so on.  Eventually your deploy job should run and in our case, we see these successful logs:
+<img src="/images/deploy/nodecluster/deploy-logs.png" alt="Deploy job output">
+
+You can see the custom deployment script is executed twice. Once for each machine in our Node Cluster.  And when we visit one of our machines, we can see our application running with the correct environment settings:
+
+<img src="/images/deploy/nodecluster/running-application.png" alt="The running application">
+
+
+## Concurrent deployment to multiple Environments
+
+Here we will demonstrate concurrent deployment to the same environments as above as an example.
 
 ```
-
-Using `switch: off` prevents accidental deployments to production.
-
-Your pipeline should look like this:
-<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-pipeline.png" alt="serial pipeline">
-
-Notice the dotted lines connecting the resources to production. This is the visual representation of the break in automation that `switch: off` causes.
-
-### Parallel Environments
-
-```
-CI -> Amazon S3 -> manifest -> blue
-                            -> green
+CI -> Amazon S3 -> application service definition -> beta
+                                                  -> prod
 ```
 
-- both environments will be connected to the same manifest job
-- each environment has its own nodeCluster
-- since nodeClusters are your own machines, they can be divided however you'd like
-    - same machines with different parameters and settings
-    - different machines in the same region
-    - different machines on different regions
-    - different cloud providers (AWS, Digital Ocean, Azure, etc)
+For parallel deployments, we make a small change to `app_prod_deploy` job. We specify `app_service_def` as an input rather than `app_beta_deploy`.
 
-
-Add a `params` resource to distinguish the different environments within the containers.  We'll deploy both packages to the same cluster using different parameters.
-
-```
-resources:
-  - name: deploy-nodeCluster-multi-env-blueparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "blue"
-
-  - name: deploy-nodeCluster-multi-env-greenparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "green"
-
-  - name: deploy-nodeCluster-multi-env-maincluster
-    type: cluster
-    integration: dr-nodeCluster
-
-```
-
-
-Add two deploy jobs: one for "blue" and one for "green".  Both will take the same manifest as input.
 ```
 jobs:
 
-  - name: deploy-nodeCluster-multi-env-bluedeploy
+  - name: app_beta_deploy
     type: deploy
     steps:
-      - IN: deploy-nodeCluster-multi-env-blueparams
-      - IN: deploy-nodeCluster-multi-env-manifest
-        switch: off
-      - IN: deploy-nodeCluster-multi-env-maincluster
+      - IN: app_beta_params
+      - IN: app_service_def
+      - IN: app_dev_cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-multi-env-manifest && mkdir -p deploy-nodecluster-multi-env-manifest-2
-        - script: cd ~/deploy-nodecluster-multi-env-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/deploy-nodecluster-multi-env-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
 
-  - name: deploy-nodeCluster-multi-env-greendeploy
+  - name: app_prod_deploy
     type: deploy
     steps:
-      - IN: deploy-nodeCluster-multi-env-greenparams
-      - IN: deploy-nodeCluster-multi-env-manifest
-        switch: off
-      - IN: deploy-nodeCluster-multi-env-maincluster
+      - IN: app_prod_params
+      - IN: app_service_def
+      - IN: app_prod_cluster
       - TASK:
         - script: forever stopall
-        - script: mkdir -p ~/deploy-nodecluster-multi-env-manifest && mkdir -p deploy-nodecluster-multi-env-manifest-2
-        - script: cd ~/deploy-nodecluster-multi-env-manifest
-        - script: source /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-multi-env-appfile/package.env
-        - script: tar zxf /tmp/shippable/deploy-nodecluster-multi-env-manifest/deploy-nodecluster-basic-appfile/deploy-nodecluster-multi-env-appfile.tar.gz
+        - script: mkdir -p ~/app_service_def && mkdir -p app_service_def-2
+        - script: cd ~/app_service_def
+        - script: source /tmp/shippable/app_service_def/app_file/package.env
+        - script: tar zxf /tmp/shippable/app_service_def/app_file/app_file.tar.gz
         - script: forever start ./bin/www
 ```
-
-Use `switch: off` to prevent auto-deployments.  In this case, we want both environments to be manual deployments.
-
-Once you add these to your pipeline, check out your SPOG. It should look something like this:
-
-<img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-pipeline.png" alt="blue-green pipeline">
-
-First, run the manifest job.  Then, since `switch: off` is present on the manifest input, you'll have to right-click and select **Run Job** to start the deployment.
-
-If you're following along with our sample app, you should be able to access the page, on which you can see the environment, injected by the `params` resource.
-
-<img src="../../images/deploy/amazon-ecs/ecs-multi-env-parallel-blue.png" alt="blue-green pipeline">
-
-
-### Advanced
-The differences between environments often go beyond a simple cluster change.  Shippable lets you set and override a variety of options via `params` resources.
-
-Lets see some of these in action.  Start by using our sample pipeline from the 'serial environments' section of this page.
-
-Modify our existing params resource to help us [integrate with Slack](../platform/integration/slack).  We'll want to send messages to a different channel depending on which environment we're in.
-
-```
-resources:
-
-  - name: deploy-nodeCluster-multi-env-commonparams
-    type: params
-    version:
-      params:
-        SLACK_TOKEN: "abc123"
-
-  - name: deploy-nodeCluster-multi-env-betaparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "beta"
-        SLACK_CHANNEL: "beta_status"
-
-  - name: deploy-nodeCluster-multi-env-betaparams
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "prod"
-        SLACK_CHANNEL: "prod_status"
-```
-
-Shippable by default implements a pattern of overrides for `params`.  When these resources are added to a manifest, the settings pass forward through each step of the pipeline until the pipeline ends or they are overwritten by some other resource.  
-
-In this case, we will add our common slack token to the original manifest, and each relevant deploy job will have its own `params` resource attached.  When deploying to prod, the `ENVIRONMENT` and `SLACK_CHANNEL` parameters that were carried forward from the beta environment will be overwritten to match the new settings added to the prod deploy job, and the `SLACK_TOKEN` will carry forward from the original manifest all the way through to the production deployment.  The final set of parameters for the manifest will end up in the `package.env` file.
-
-With these new items, the pipeline should look like this:
-
-<img src="../../images/deploy/amazon-ecs/ecs-multi-env-serial-advanced.png" alt="serial params pipeline">
-
-After deploying beta to the nodeCluster, you can check out the files in `/tmp/shippable` to verify the correct values.
-
-Now run the production deploy job.  Once the deployment has finished, you can again examine files in `/tmp/shippable`. You should see that the `package.env` has been properly modified to reflect the environment, while the token from the original manifest remains unchanged.
-
-*NOTE: Directly committing a private token is not recommended. Instead, the same functionality can be achieved by using [secure environment variables](../../ci/env-vars/#secure-variables) in your params resource.*
-
-
-## Unmanaged deployments
-
-In an unmanaged scenario, you'll be using a `runSh` job where you can directly add ssh keys that allow you to connect to your nodeClusters.  You're free to do any scripting you want within this job type.  [See here](/platform/workflow/job/runsh) for more information on `runSh` jobs.
