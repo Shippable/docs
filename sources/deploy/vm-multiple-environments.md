@@ -7,7 +7,7 @@ sub_sub_section: S3
 
 Shippable allows you to deploy your application to multiple VM clusters. A VM cluster is essentially a collection of machines with public IP addresses, which are used by the Shippable platform for application deployment.
 
-In this tutorial, we will demonstrate how to deploy a NodeJS application package, available in an S3 bucket, to multiple VM clusters and thereafter start the application. Each VM cluster represents a particular environment such as beta and production in our example.s
+In this tutorial, we will demonstrate how to deploy a NodeJS application package, available in an S3 bucket, to multiple VM clusters and thereafter start the application. Each VM cluster represents a particular environment such as beta and production in our example.
 
 ## Deployment Goal
 
