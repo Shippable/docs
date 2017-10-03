@@ -1,168 +1,286 @@
-page_main_title: Docker Cloud Basic scenario
+page_main_title: Docker Cloud: Deploy a single container application
 main_section: Deploy
-sub_section: Docker cloud
+sub_section: Tutorials
+sub_sub_section: Docker Cloud
 
 # Deploying to Docker Cloud
-There are many strategies that can be used to deploy containers to [Docker Cloud](https://cloud.docker.com) using Shippable Pipelines.  This page will describe how you can take a single docker image and deploy it as an individual container to your cluster on Docker Cloud.
 
-## Setup
+There are many strategies that can be used to deploy containers to [Docker Cloud](https://cloud.docker.com/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Docker Cloud.
 
-Shippable will use an API token to communicate with Docker Cloud on your behalf. You can add this to Shippable via Account Integrations, so that we can internally use that token to make API calls to Docker cloud.
+For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for Docker Cloud as well.
 
-- [Generate an API key](https://docs.docker.com/apidocs/docker-cloud/#rest-api) in your Docker Cloud account to use with Shippable.
-- Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
-- Click on **Integrations** in the left sidebar menu and then click on **Add Integration**.
-- Locate **Docker Cloud** of type **deploy** in the list and click **Create Integration**.
-- Give your integration a name, and provide your Docker cloud user name and token.
-- From the dropdown, select the subscription that you'll be using to create your pipelines.
-- Click **Save**
+## Assumptions
 
-<img src="/images/platform/integrations/docker-cloud-integration.png" alt="Add Docker Cloud token">
+We assume that the application is already packaged as a Docker image and available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
-Now that the key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on Docker Cloud.
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
+
+## Deployment workflow
+
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored are covered in the document.
+
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
+
+<img src="/images/deploy/usecases/kubernetes-deploy-single-container-docker-app.png"/>
+
+These are the key components of the assembly line diagram -
+
+**Resources (grey boxes)**
+
+* `app_image` is a **required** [image](/platform/workflow/resource/image/) resource that represents the Docker image of the app stored in Docker Hub.
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the Docker Cloud cluster to which you're deploying the application.
+* `app_options` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
+
+**Jobs (green boxes)**
+
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+
+## Configuration
+
+They are two configuration files that are needed to achieve this usecase -
+
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+
+These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+
+## Deployment instructions
+
+###1. Define Docker image
+
+* **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in Docker Hub
+* **Required:** Yes.
+* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+
+**Steps**  
+
+1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Docker Hub integration](/platform/integration/docker-hub/)
+
+    Copy the friendly name of the integration.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  #docker cloud cluster
-  - name: ddcb-cluster
-    type: cluster
-    integration: dr-docker-cloud    #replace with your docker cloud integration name
-    pointer:
-          sourceName: "deploy-docker-cloud" #node cluster name
-    flags:
-      - deploy-dockercloud-basic
-```
-
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Docker Hub since it integrates nicely with Docker Cloud.
-
-```
-resources:
-
-  #docker cloud cluster
-  - name: ddcb-cluster
-    type: cluster
-    integration: dr-docker-cloud    #replace with your docker cloud integration name
-    pointer:
-      sourceName: "deploy-docker-cloud" #node cluster name
-    flags:
-      - deploy-dockercloud-basic
-
-  - name: ddcb-image
+  - name: app_image     # resource friendly name
     type: image
-    integration: dr-dockerhub    #replace with your Docker Hub integration name
+    integration: app_docker_hub     #friendly name of your integration          
     pointer:
-      sourceName: "devopsrecipes/deploy-dockercloud-basic"  #replace with your image name on Docker Hub
+      sourceName: devopsrecipes/deploy-dcl-basic    # replace with your image name
     seed:
-      versionName: "master.1"  #replace with your image tag on Docker Hub
-    flags:
-      - deploy-dockercloud-basic
+      versionName: "master.1"   #specify the tag of your image.
 ```
 
-With those two resources, you're ready to start writing jobs that will help you deploy.
+###2. Create service definition
 
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-## Managed Deployments
-Shippable helps make your deployments easier by providing several types of managed jobs.  Utilizing these jobs, deployments can be easily configured via updates to your declarative yml blocks.
+**Steps**
 
-### Basic Configuration
-Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: ddcb-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: ddcb-image
-    flags:
-      - deploy-dockercloud-basic
+     - IN: app_image
+```
+
+###3. Define cluster
+
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster on Docker Cloud where your application is deployed to.
+* **Required:** Yes.
+* **Integrations needed:** Docker Cloud integration
+
+**Steps**
+
+1. Create an account integration for Docker Cloud in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Docker Cloud integration](/platform/integration/docker-cloud/)
+
+    Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
+
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this](/platform/workflow/resource/dockeroptions/) section.
+resources:
 
-Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on Docker Cloud.
+  - name: op_cluster    # resource friendly name
+    type: cluster
+    integration: op_int   # friendly name of the integration you created         
+    pointer:
+      sourceName: "app-dcl-cluster" # name of the actual cluster in Docker Cloud
+```
+
+###4. Create deployment job
+
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys a single instance of the application manifest to the cluster and starts the container.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: ddcb-manifest
-    type: manifest
-    steps:
-      - IN: ddcb-image
-    flags:
-      - deploy-dockercloud-basic
-
-  #Docker Cloud deploy job
-  - name: ddcb-deploy
+  - name: app_deploy_job
     type: deploy
-    method: upgrade
     steps:
-      - IN: ddcb-manifest
-      - IN: ddcb-cluster
-    flags:
-      - deploy-dockercloud-basic
+      - IN: app_service_def
+      - IN: op_cluster
 ```
 
-The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
+###5. Add config to Shippable
 
-Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
-- The manifest job will package your image with default settings
-- The deploy job will create a service and a stack and deploy it to the node cluster.
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
-After running, your pipeline will change color:
+###6. Trigger your workflow
 
-![Basic Pipeline Scenario](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/pipeline-view.png)
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time the `app_image` changes, i.e. each time you have a new Docker image.
 
-And when you check your cluster on Docker Cloud, you should see that a service and a stack was created, and their state is set to running:
 
-![Docker Cloud Service](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/docker-cloud-service.png)
-![Docker Cloud Stack](https://github.com/devops-recipes/deploy-dockercloud-basic/raw/master/public/resources/images/docker-cloud-stack.png)
+## Customizing container options
 
-That's all there is to it!
+By default, we set the following options while deploying your container:
 
-### Advanced Configuration
-In the above scenario, several options are set by default that you might want to change.
+- memory : 400mb
+- desiredCount : 1
+- cpuShares : 0
+- All available CPU
+- no ENVs are added to the container
 
-- memory defaults to 400mb
-- desiredCount defaults to 1
-- cpuShares defaults to 0
-- no ENVs are added to container
+However, you can customize these and many other options by including a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in your service definition.
 
-These settings can all be customized by creating additional Pipelines Resources.
+**Steps**
 
-#### dockerOptions
-Using [dockerOptions](../platform/workflow/resource/dockeroptions), all of the advanced configurations of docker are available to you. Check out our dockerOptions reference to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
-```
-- name: deploy-dockercloud-basic-docker-options
-  type: dockerOptions
-  version:
-    memory: 100
-    portMappings:
-      - 80:80
-```
-#### params
-When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+###1. Add a dockerOptions resource
+
+Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
-  - name: deploy-dockercloud-basic-params
+resources:
+
+  - name: app_options
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
+```
+For a complete reference for `dockerOptions`, read the [resource page](/platform/workflow/resource/dockeroptions/#dockeroptions).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_options
+```
+
+## Setting env vars
+
+You can also include environment variables needed by your application in your service definition `manifest`. To do this, you need a [params](/platform/workflow/resource/params) resource that lets you include key-value pairs.
+
+**Steps**
+
+###1. Add a params resource
+
+Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+
+```
+resources:
+
+  - name: app_env
     type: params
     version:
       params:
-        PORT: 80
-        ENVIRONMENT: "dev"
+        DB_URL: "my.database.local"
+        DB_PORT: 3306
+        DB_NAME: "foo"
 ```
 
-#### replicas
-[Replicas](../platform/workflow/resource/replicas) is a very simple type of resource. You can use it to define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application. Note: since we've specified a port mapping, we can only run one of these containers per container instance.  This means our cluster needs to have at least two container instances for the deployment to succeed.
+For a complete reference for `params`, read the [resource page](/platform/workflow/resource/params).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
 ```
-  - name: deploy-dockercloud-basic-replicas
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_env
+```
+
+For a complete reference for `manifest`, read the [job page](/platform/workflow/job/manifest).
+
+## Scaling app instances
+
+By default, we always deploy one instance of your application. You can scale it as needed by including a  [replicas](/platform/workflow/resource/replicas) resource in your service definition `manifest`.
+
+**Steps**
+
+###1. Add a replicas resource
+
+Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
+
+```
+resources:
+
+  - name: app_replicas
     type: replicas
     version:
-      count: 2
+      count: 5
 ```
+
+For a complete reference for `replicas`, read the [resource page](/platform/workflow/resource/replicas).
+
+###2. Update deploy job
+
+Next, you should update your `deploy` with this new resource:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+```
+
+For a complete reference for `deploy`, read the [job page](/platform/workflow/job/deploy).
 
 ## Sample project
 
@@ -174,3 +292,11 @@ the image to Docker Hub. It also contains all of the pipelines configuration fil
 **Build link:** [CI build on Shippable](https://app.shippable.com/github/devops-recipes/deploy-dockercloud-basic/runs/6/1/console)
 
 **Build status badge:** [![Run Status](https://api.shippable.com/projects/58ffe3dd2ddacd0900466a39/badge?branch=master)](https://app.shippable.com/github/devops-recipes/deploy-dockercloud-basic)
+
+## Ask questions on Chat
+
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
+
+## Improve this page
+
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

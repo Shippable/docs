@@ -150,7 +150,7 @@ pages:
         - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
         - Deploying to multiple environments: deploy/aws-elastic-beanstalk-multiple-environments.md
     - Deploy to VMs:
-        - S3: 
+        - S3:
           - Deploying to a single VM cluster: deploy/vm-basic.md
           - Deploying to multiple VM clusters: deploy/vm-multiple-environments.md
         - JFrog Artifactory:
@@ -165,12 +165,12 @@ pages:
       - GKE:
         - Single-container app: deploy/gke.md
         # - Using custom pod templates: deploy/gke-custom-pods.md
-      # - Docker Datacenter:
-      #   - Single-container app: deploy/docker-datacenter.md
-      # - Docker Cloud:
-      #   - Single-container app: deploy/docker-cloud.md
-      # - Azure DC/OS:
-      #   - Single-container app: deploy/azure-dcos.md
+      - Docker Datacenter:
+        - Single-container app: deploy/docker-datacenter.md
+      - Docker Cloud:
+        - Single-container app: deploy/docker-cloud.md
+      - Azure DC/OS:
+        - Single-container app: deploy/azure-dcos.md
   - Validate:
     - Before you start:
       - What is Validate?: validate/devops-validate.md

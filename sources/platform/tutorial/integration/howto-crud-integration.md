@@ -28,7 +28,7 @@ Creating an integration is a two step process. All Integrations are owned by use
 
 <img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-account-integration.png" alt="Account integrations">
 
-- Select the one you want from the list, complete all fields, and click on **Save**. For instructions on how to complete the fields for a specific integration, go to the [Intergrations overview doc](/platform/integration/overview/) and select the specific third-party integration you're configuring.
+- Choose the right **Integration family** and **Integration type**, depending on what you're trying to configure. Complete all fields and click on **Save**. For instructions on how to complete the fields for a specific integration, go to the [Integrations overview doc](/platform/integration/overview/) and select the specific third-party integration you're configuring.
 
 - Please note that while creating the integration, **you will need to specify which Subscriptions have access to it**. This is a very important step and if you miss it, you will not be able to use it in your yml files in a repository in that Subscription.
 
