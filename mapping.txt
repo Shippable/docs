@@ -222,8 +222,5 @@ deploy/kubernetes-strategy /deploy/deployment-method-blue-green
 deploy/kubernetes-multiple-environments /deploy/multi-stage-deployments
 deploy/gke-strategy /deploy/deployment-method-blue-green
 deploy/gke-loadbalancer /deploy/lb-gke
-deploy/gke-multiple-containers /deploy/continuous_delivery_multi_container_docker_application
+deploy/gke-multiple-containers /deploy/continuous-delivery-multi-container-docker-application
 deploy/gke-multiple-environments /deploy/multi-stage-deployments
-deploy/docker-datacenter /deploy/continuous_delivery_single_container_docker_application
-deploy/docker-cloud /deploy/continuous_delivery_single_container_docker_application
-deploy/azure-dcos /deploy/continuous_delivery_single_container_docker_application

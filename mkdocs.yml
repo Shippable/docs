@@ -120,8 +120,8 @@ pages:
       - Tracing resources: deploy/trace-pipeline.md
     - Deploy to Container Orchestration Platforms:
       - Overview: deploy/deploy-docker-overview.md
-      - Single Container Application: deploy/continuous_delivery_single_container_docker_application.md
-      - Multi Container Application: deploy/continuous_delivery_multi_container_docker_application.md
+      - Single Container Application: deploy/continuous-delivery-single-container-docker-application.md
+      - Multi Container Application: deploy/continuous-delivery-multi-container-docker-application.md
       - Deployment methods:
         - Overview: deploy/deployment-methods-overview.md
         - Blue-green: deploy/deployment-method-blue-green.md
