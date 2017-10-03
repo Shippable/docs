@@ -1,8 +1,8 @@
-page_main_title: Deploying a multi container application atomically to a single node of a container orchestration service.
+page_main_title: Deploying a multi container Docker application atomically to a single node of an Orchestration Platform
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 
-# Continuous Delivery of a multiple container application to a container orchestration platform.
+# Continuous Delivery of a multi-container Docker application
 
 A multiple container application could be a web application, API endpoint, microservice, or any application component that is packaged as multiple docker images. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a multiple container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE or Azure.
 
@@ -33,26 +33,24 @@ You can configure your deployment with Shippable's configuration files in a powe
 
 This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and input resources are specified in Shippable configuration files.
 
-<img src="/images/deploy/usecases/deploy_multi_container.png"/>
+<img src="/images/deploy/usecases/deploy-multi-container-docker-app.png"/>
 
 These are the key components of the assembly line diagram -
 
 **Resources (grey boxes)**
 
-* `app_image_1` is a [image](/platform/workflow/resource/image/) resource that represents the first docker image of the application.
-* `app_image_2` is a [image](/platform/workflow/resource/image/) resource that represents the second docker image of the application.
-* `app_options_1` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
-that represents the options of the application container for `app_image_1`.
-* `app_options_2` is a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
-that represents the options of the application container for `app_image_2`.
-* `app_environment` is a [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
-* `app_replicas` is a [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
-* `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the orchestration platform where the application is deployed to.
+* `app_image_1` is a **required** [image](/platform/workflow/resource/image/) resource that represents the first docker image of the application.
+* `app_image_2` is a **required** [image](/platform/workflow/resource/image/) resource that represents the second docker image of the application.
+* `app_opts_1` and `app_opts_2` are **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resources
+that represents the options of the application container for `app_image_1` and `app_image_2` respectively.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the orchestration platform where the application is deployed to.
 
 **Jobs (green boxes)**
 
-* `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
-* `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
 
 ## Configuration
 
@@ -101,9 +99,9 @@ resources:
       versionName: "master.1"  #Specify the tag of your image.
 ```
 
-###2. Define `app_options_1` and `app_options_2`.
+###2. Define `app_opts_1` and `app_opts_2`.
 
-* **Description:** `app_options_1` and `app_options_2` are [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resources
+* **Description:** `app_opts_1` and `app_opts_2` are [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resources
 that represent the options of the application containers. Here, we demonstrate a couple of options such as setting the memory to 1024MB and exposing port 80 for the `deploy_app_service_1` image and setting the memory to 2048MB and exposing port 8080 for the `deploy_app_service_2` image. Shippable supports a vast repertoire of container and orchestration platform options and the complete list can be found [here](/platform/workflow/resource/dockeroptions/#dockeroptions).
 * **Required:** No.
 * **Defaults:**
@@ -121,14 +119,14 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 resources:
 
-  - name: app_options_1
+  - name: app_opts_1
     type: dockerOptions
     version:
       memory: 1024
       portMappings:
         - 80:80
 
-  - name: app_options_2
+  - name: app_opts_2
     type: dockerOptions
     version:
       memory: 2048
@@ -136,9 +134,9 @@ resources:
         - 8080:80
 ```
 
-###3. Define `app_environment`.
+###3. Define `app_env`.
 
-* **Description:** `app_environment` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
+* **Description:** `app_env` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. Here we demonstrate setting an environment variable called `ENVIRONMENT` that is available in the running container.
 * **Required:** No.
 
 **Steps**
@@ -148,7 +146,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 ```
 resources:
 
-  - name: app_environment
+  - name: app_env
     type: params
     version:
       params:
@@ -172,9 +170,13 @@ jobs:
   steps:
    - IN: app_image_1
    - IN: app_image_2
-   - IN: app_options_1
-   - IN: app_options_2
-   - IN: app_environment
+   - IN: app_opts_1
+     applyTo:
+       - app_image_1
+   - IN: app_opts_2
+     applyTo:
+       - app_image_2
+   - IN: app_env
 ```
 
 ###5. Define `app_replicas`.
@@ -243,7 +245,7 @@ jobs:
       - IN: app_replicas
 ```
 
-###8. Import configuration into your Shippable account.
+###8. Add config to Shippable
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 

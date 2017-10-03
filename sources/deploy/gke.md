@@ -1,257 +1,299 @@
-page_main_title: GKE Basic scenario
+page_main_title: GKE- Deploying a single container Docker application
 main_section: Deploy
-sub_section: GKE
+sub_section: Tutorials
+sub_sub_section: GKE
 
-# Deploying with Google Container Engine (GKE)
+# Deploying to Google Container Engine (GKE)
 
-NOTE: [This page on kubernetes](./kubernetes) describes the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
+NOTE: [This page on Kubernetes](./kubernetes) describes the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
 
-## The Goal
-The goal of this page is to accomplish the following scenario using Shippable Pipelines.
+There are many strategies that can be used to deploy containers to [GKE](https://cloud.google.com/container-engine/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on GKE.
 
-- Create a pipeline manifest using a docker image on Google Container Registry
-- Use the manifest as an input for a deploy job
-- Deploy the manifest to a Kubernetes cluster on Google Container Engine
+For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for GKE as well.
 
-In the end, your pipeline will look like this:
-<img src="../../images/deploy/gke/gke-final-pipeline.png" alt="Final Pipeline">
+## Assumptions
 
+We assume that the application is already packaged as a Docker image and available in a Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
-## The Setup
+* [Getting started with CI](/ci/why-continuous-integration/)
+* [CI configuration](/ci/yml-structure/)
+* [Pushing artifacts after CI](/ci/push-artifacts/)
+* [Sample application](/getting-started/ci-sample/)
 
-Shippable will use Google Cloud service account credentials to communicate with GKE on your behalf. Get started by creating a [Google Container Engine Integration](../platform/integration/gke).
+If you're not familiar with Shippable, it is also recommended that you read the [Platform overview doc](/platform/overview/) to understand the overall structure of Shippable's DevOps Assembly Lines platform.
 
-Once your key is added on Shippable, we can reference it when we create pipeline yml blocks.  In this case, we want to create a `cluster` type block in our `shippable.resources.yml` file.  This must reference a cluster that has already been created on GKE.
+## Deployment workflow
+
+You can configure your deployment with Shippable's configuration files in a powerful, flexible YAML based language. The specific `YAML` blocks that need to be authored are covered in the document.
+
+This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
+
+<img src="/images/deploy/usecases/gke-deploy-single-container-docker-app.png"/>
+
+These are the key components of the assembly line diagram -
+
+**Resources (grey boxes)**
+
+* `app_image` is a **required** [image](/platform/workflow/resource/image/) resource that represents the Docker image of the app stored in GCR.
+* `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents the GKE cluster to which you're deploying the application.
+* `app_options` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+that represents the options of the application container.
+* `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
+
+**Jobs (green boxes)**
+
+* `app_service_def` is a **required** [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application, encompassing the image, options and environment that is versioned and immutable.
+* `app_deploy_job` is a **required** [deploy](/platform/workflow/job/deploy) job which deploys a [manifest](/platform/workflow/job/manifest/) to a [cluster](/platform/workflow/resource/cluster/) resource.
+
+## Configuration
+
+They are two configuration files that are needed to achieve this usecase -
+
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+
+These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+
+## Deployment instructions
+
+###1. Define Docker image
+
+* **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in GCR
+* **Required:** Yes.
+* **Integrations needed:** GCR, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in GCR.
+
+**Steps**  
+
+1. Create an account integration for GCR in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [GCR integration](/platform/integration/gcr/)
+
+    Copy the friendly name of the integration.
+
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: deploy-gke-basic-gke-cluster
-    type: cluster
-    integration: dr-gke
-    pointer:
-      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
-      region: "gke-cluster-region"  #name of the region where the cluster is deployed
-```
-
-You'll also need to create a type `image` resource.  This will represent your Docker image in your pipeline.  In our example, we're using Google Container Registry since it integrates nicely with GKE.
-
-```
-resources:
-
-  - name: deploy-gke-basic-gke-cluster
-    type: cluster
-    integration: dr-gke
-    pointer:
-      sourceName: "deploy-gke-basic" #name of the cluster to which we are deploying
-      region: "gke-cluster-region"  #name of the region where the cluster is deployed
-
-  - name: deploy-gke-basic-image
+  - name: app_image     # resource friendly name
     type: image
-    integration: dr-gcr
+    integration: app_gcr     #friendly name of your integration from step 1         
     pointer:
-      sourceName: gcr.io/sample-gke/basic-node-deploy-gke
+      sourceName: devopsrecipes/deploy-gke-basic    # replace with your image name
     seed:
-      versionName: "latest"
-
+      versionName: "master.1"   #specify the tag of your image.
 ```
 
-With those two resources, you're ready to start writing jobs that will help you deploy.
+###2. Create service definition
 
-## Managed Deployments
-Shippable helps make your deployments easier by providing several types of managed jobs.  Utilizing these jobs, deployments can be easily configured via updates to your declarative yml blocks.
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the image, options and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Required:** Yes.
 
-### Basic Configuration
-Now that we have a reference to our image, we need to package it in a way that it can easily be deployed to any endpoint.  Shippable provides users with a managed task type `manifest` that accomplishes this goal.  Define this in your `shippable.jobs.yml`.
+**Steps**
 
-```
-jobs:
-
-- name: deploy-gke-basic-manifest
-  type: manifest
-  steps:
-   - IN: deploy-gke-basic-image
-
-```
-It's as simple as that.  When this job runs, it will take your image as input, and produce a manifest object as output.  This manifest will contain detailed information about what you're deploying, and any particular settings that you want to take effect once deployed.  The various advanced configuration options that are available are described in [this section](../platform/workflow/resource/dockeroptions).
-
-Now we can take that manifest, and use it as input to a `deploy` type job.  This is the managed job that will actually result in our container running on GKE.
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
 
 ```
 jobs:
 
-  - name: deploy-gke-basic-manifest
+  - name: app_service_def
     type: manifest
     steps:
-      - IN: deploy-gke-basic-image
+     - IN: app_image
+```
 
-  - name: deploy-gke-basic-deploy
+###3. Define cluster
+
+* **Description:** `op_cluster` is a [cluster](/platform/workflow/resource/cluster/) resource that represents the  cluster on GKE where your application is deployed to.
+* **Required:** Yes.
+* **Integrations needed:** GKE integration
+
+**Steps**
+
+1. Create an account integration for GKE in your Shippable UI. Instructions to create an integration are here:
+
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/)
+    * [GKE integration](/platform/integration/gke/)
+
+    Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
+
+3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+  - name: op_cluster    # resource friendly name
+    type: cluster
+    integration: op_int   # friendly name of the integration you created         
+    pointer:
+      sourceName: "app-gke-cluster" # name of the actual cluster in GKE
+```
+
+###4. Create deployment job
+
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys a single instance of the application manifest to the cluster and starts the container.
+* **Required:** Yes.
+
+**Steps**
+
+Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+
+```
+jobs:
+
+  - name: app_deploy_job
     type: deploy
     steps:
-      - IN: deploy-gke-basic-manifest
-      - IN: deploy-gke-basic-gke-cluster
-
+      - IN: app_service_def
+      - IN: op_cluster
 ```
 
-The deploy job expects a manifest and a cluster as input.  The cluster tells Shippable where the manifest is going, and the manifest tells Shippable which images and settings you'd like to use.
+###5. Add config to Shippable
 
-With these jobs and resources created, your pipeline should look something like this:
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
-<img src="../../images/deploy/gke/basic-deployment-configuration.png" alt="Basic GKE pipeline">
+Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
+
+###6. Trigger your workflow
+
+When you're ready for deployment, right-click on the manifest job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Run Job**. Your Assembly Line will also trigger every time the `app_image` changes, i.e. each time you have a new Docker image.
 
 
-Now you're ready for deployment.  Right-click on the manifest job, and select **Run Job**.  Once you do this, the following steps will be taken:
+## Customizing container options
 
-- The manifest job will package your image with default settings
-- The deploy job will convert your manifest into a pod template
-- The deploy job will add the template to an RC and POST the RC to the cluster
-- The deploy job will monitor the RC until the desired number of running pods is reached.
+By default, we set the following options while deploying your container:
 
-After running, your pipeline should turn green if it was successful.  If you see any red, click on the box to open the logs and discover what the error was.
+- memory : 400mb
+- desiredCount : 1
+- cpuShares : 0
+- All available CPU
+- no ENVs are added to the container
 
-If everything was successful, then you should see that a replicationController was created, and that there is one running pod on your cluster.
+However, you can customize these and many other options by including a [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource in your service definition.
 
-That's all there is to it!
+**Steps**
 
-### Advanced Configuration
-In the above scenario, several options are set by default that you might want to change.
+###1. Add a dockerOptions resource
 
-- memory defaults to 400mb
-- replicas defaults to 1
-- cpu defaults to 0
-- no ENVs are added to container
-
-These settings (and more) can all be customized by creating additional Pipelines Resources.
-
-#### dockerOptions
-Using dockerOptions, all of the advanced configurations of docker are available to you.  Check out our [dockerOptions reference](../platform/workflow/resource/dockeroptions) to see all of the possibilities. In this example, we're simply changing the memory allocated to the container and exposing a port.
-```
-- name: deploy-gke-basic-docker-options
-  type: dockerOptions
-  version:
-    memory: 100
-    portMappings:
-      - 80:80
-```
-#### params
-When [params resources](../platform/workflow/resource/params) are added to a manifest, they become environment variables for any container in that manifest.  In this case, we're setting some basic variables to help our application's configuration.
+Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
-  - name: deploy-gke-basic-params
+resources:
+
+  - name: app_options
+    type: dockerOptions
+    version:
+      memory: 1024
+      portMappings:
+        - 80:80
+```
+For a complete reference for `dockerOptions`, read the [resource page](/platform/workflow/resource/dockeroptions/#dockeroptions).
+
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
+```
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_options
+```
+
+## Setting env vars
+
+You can also include environment variables needed by your application in your service definition `manifest`. To do this, you need a [params](/platform/workflow/resource/params) resource that lets you include key-value pairs.
+
+**Steps**
+
+###1. Add a params resource
+
+Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+
+```
+resources:
+
+  - name: app_env
     type: params
     version:
       params:
-        PORT: 80
-        ENVIRONMENT: "dev"
-
-
+        DB_URL: "my.database.local"
+        DB_PORT: 3306
+        DB_NAME: "foo"
 ```
 
-#### replicas
+For a complete reference for `params`, read the [resource page](/platform/workflow/resource/params).
 
-Using the [replicas resource](../platform/workflow/resource/replicas) is quite simple. You can define how many copies of a particular manifest you want to be deployed. In this case we'll try to run two copies of our application.
+###2. Update service definition
+
+Next, you should update your `manifest` with this new resource:
+
 ```
-  - name: deploy-gke-basic-replicas
+jobs:
+
+  - name: app_service_def
+    type: manifest
+    steps:
+     - IN: app_image
+     - IN: app_env
+```
+
+For a complete reference for `manifest`, read the [job page](/platform/workflow/job/manifest).
+
+## Scaling app instances
+
+By default, we always deploy one instance of your application. You can scale it as needed by including a  [replicas](/platform/workflow/resource/replicas) resource in your service definition `manifest`.
+
+**Steps**
+
+###1. Add a replicas resource
+
+Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
+
+```
+resources:
+
+  - name: app_replicas
     type: replicas
     version:
-      count: 2
+      count: 5
 ```
 
-## Sample project
+For a complete reference for `replicas`, read the [resource page](/platform/workflow/resource/replicas).
 
+###2. Update deploy job
+
+Next, you should update your `deploy` with this new resource:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    steps:
+      - IN: app_service_def
+      - IN: op_cluster
+      - IN: app_replicas
+```
+
+For a complete reference for `deploy`, read the [job page](/platform/workflow/job/deploy).
+
+## Sample application
 Here are some links to a sample project for this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Google Container Registry. It also contains all of the pipelines configuration files for deploying to GKE.
 
-**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-gke-basic).
+**Source code:**  [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-gke-basic)
 
+## Ask questions on Chat
 
-## Unmanaged Deployments
-If managed jobs don't work for your scenario, Shippable also gives you the ability to fully customize exactly how you want your deployments to behave.  By using an unmanaged job type, you have full control over the commands and options passed in to GKE via gcloud and kubctl utilities.
+Feel free to engage us on Chat if you have any questions about this document. Simply click on the Chat icon on the bottom right corner of this page and someone from our customer success team will get in touch with you.
 
-### Basic Configuration
+## Improve this page
 
-First, you'll want to create a resource that helps configure the gcloud and kbuectl tools with your integration.
-
-```
-resources:
-  - name: MyGkeConfig
-    type: cliConfig
-    integration: MyGKECredentials
-```
-For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig). Now you'll need a particular job that can utilize that resource
-
-```
-jobs:
-  - name: myCustomDeployment
-    type: runCLI
-    steps:
-      - IN: MyGkeConfig
-      - TASK:
-        - script: kubectl get namespaces
-```
-For now, we'll just add a simple command to list our namespaces.
-
-
-In your job's logs, you should see the results of the `get namespaces` command.
-
-Next, we'll include a gitRepo that contains a static pod spec json object, which we update any time we want to deploy a new image version.  To add this resource, you'll need a subscription integration for your github credentials.
-```
-resources:
-  - name: MyPodSpecRepo
-    type: gitRepo
-    integration: MyGithubIntegration
-    pointer:
-      sourceName: shippablesamples/podTemplates
-      branch: master
-
-```
-
-Now your pipeline should look something like this:
-<img src="../../images/deploy/gke/basic-deployment-unmanaged.png" alt="Alternate Pipeline">
-
-Now, update the job to use this gitRepo as an `IN`, and add some extra commands to create the replicationController on the cluster.
-
-- list the namespaces
-- use kubectl to create the controller
-- describe the RCs in the namespace
-
-```
-jobs:
-  - name: myCustomDeployment
-    type: runCLI
-    steps:
-      - IN: MyAwsConfig
-      - IN: MyPodSpecRepo
-      - TASK:
-        - script: kubectl get namespaces
-        - script: kubectl create -f ${MYPODSPECREPO}/templates/sample.yaml --namespace=shippable
-        - script: kubectl describe replicationControllers --namespace=shippable
-
-```
-
-Inside the 'templates' directory in my `gitRepo`, I have a file called `sample.yaml` that contains this task definition:
-
-```
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  name: sample-app
-spec:
-  replicas: 2
-  selector:
-    app: sample
-  template:
-    metadata:
-      name: sample-app
-      labels:
-        app: sample
-    spec:
-      containers:
-      - name: node-app
-        image: gcr.io/sample-gke/basic-node-deploy-gke
-        ports:
-        - containerPort: 80
-
-```
-
-The `runCLI` job will automatically configure kubectl based on the json key associated with your GKE integration.  This means that you don't have to do any setup yourself. Your script can be focused on the actions you want to take.  In this case, we are creating a new replication controller in the `shippable` namespace to run our sample app and expose it on port 80.
+We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
