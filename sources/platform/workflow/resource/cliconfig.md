@@ -48,7 +48,7 @@ resources:
 <a name="cliConfigTools"></a>
 ## Configured CLI tools
 
-The runCLI and runSh job uses the subscription integration specified in the
+A runSh job uses the subscription integration specified in the
 cliConfig to determine which CLI tools to configure.
 These tools are configured with the credentials contained in the subscription
 integration. Here is a list of the tools configured for each integration type:

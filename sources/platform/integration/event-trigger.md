@@ -4,18 +4,21 @@ sub_section: Integrations
 page_title: Event Trigger integration
 
 # Event Trigger Integration
-Available under the Integration Family: **Notifications**
 
-`Event Trigger` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can
+**Event Trigger** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can
 
 * Create a daisy chain of projects, so that you can trigger one from another
 * Send a webhook to an external service with custom payloads
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+## Adding the account integration
 
-This is the information you would require to create this integration:
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
 
-* **Name** -- friendly name for the integration
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Notifications**
+* **Integration type** -- **Event Trigger**
+* **Name** -- choose a friendly name for the integration
 * **Trigger endpoint** -- Dropdown with following values
 	* project -- used to trigger other CI projects on Shippable. (Deprecated feature - You can achieve this more easily with Assembly Lines)
 		* Authorization -- Shippable API Token. Format `apiToken ae45edaa-adfa-bgdf-ae45edaaae45`
@@ -23,13 +26,18 @@ This is the information you would require to create this integration:
 		* WebhookURL -- endpoint to send payload to
 		* Authorization -- Token based auth to the external URL
 
-## Resources that use this Integration
-Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with an `Event Trigger` integration.
+## Usage in CI
+
+* [Triggering sequential, parameterized builds](http://blog.shippable.com/triggering-a-parameterized-build-after-continuous-integration)
+
+## Usage in Assembly Lines
+
+Event triggers can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [notification](/platform/workflow/resource/notification)
 * [ciRepo](/platform/workflow/resource/cirepo)
 
-## Default Environment Variables
+### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
 `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
@@ -40,7 +48,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_WEBHOOKURL		| Webhook URL, it is available for Generic Webhooks only |
 | `<NAME>`\_INTEGRATION\_AUTHORIZATION	| Authorization token that was set in the integration  |
 
-## Shippable Utility Functions
+### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
 How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).

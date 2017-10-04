@@ -42,11 +42,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: major
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: major
 ```
 
 - Running the release job will set the current version to 2.0.0 since `bump` was set to `major`.
@@ -60,11 +59,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: minor
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: minor
 ```
 
 - Running the release job will set the current version to 1.1.0 since `bump` was set to `minor`.
@@ -78,11 +76,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: patch
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: patch
 ```
 
 - Running the release job will set the current version to 1.0.1 since `bump` was set to `patch`.
@@ -96,11 +93,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: alpha
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: alpha
 ```
 
 - Running the release job will set the current version to 1.0.0-alpha since `bump` was set to `alpha`. The next run will set the version to 1.0.0-alpha.1.
@@ -114,11 +110,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: beta
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: beta
 ```
 
 - Running the release job will set the current version to 1.0.0-beta since `bump` was set to `beta`. The next run will set the version to 1.0.0-beta.1.
@@ -133,11 +128,10 @@ The `bump` directive in the release job specifies how the version number should 
   # Release job    
   - name: release-job
     type: release
+    bump: rc
     steps:
       - IN: java-img-manifest
       - IN: release-version
-      - TASK: managed
-        bump: rc
 ```
 
 - Running the release job will set the current version to 1.0.0-rc since `bump` was set to `rc`. The next run will set the version to 1.0.0-rc.1.

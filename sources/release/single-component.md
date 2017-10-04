@@ -45,11 +45,10 @@ jobs:
   # Release job
   - name: my-release
     type: release
+    bump: beta
     steps:
       - IN: my-version
       - IN: my-manifest
-      - TASK: managed
-        bump: beta
 ```
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG.

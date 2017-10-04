@@ -9,16 +9,17 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 If you're building a big project, you might want to break it down into smaller chunks and use git submodules to make everything work.
 
-If you have a `.gitmodules` file at the root of the repo, it is automatically intialized as part of your build by default.
+If you have a `.gitmodules` file at the root of the repo, it is automatically initialized as part of your build by default.
 
-##Public submodules
-If your submodules are in a public repository, use the public Git URL in your .gitmodules file:
+## Public submodules
+If your submodules are in a public repository, use the public Git URL in your `.gitmodules` file:
 
 ```
 https://github.com/someuser/somelibrary.git
+
 ```
 
-##Private submodules
+## Private submodules
 If your submodules are in a private repository, you will need to add your Shippable subscription's deploy key to the private repository on your source control, so that we have access to pull from the repository.
 
 -  First, go to your Subscription's **Settings** tab and copy the deploy key (key in image is redacted for privacy):

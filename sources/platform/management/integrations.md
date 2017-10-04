@@ -10,21 +10,9 @@ A complete list of all supported third-party integrations is [available in the i
 
 This page shows you how to manage your integrations and perform the following actions:
 
-- [Viewing an account integration](#view-integration)
 - [Adding an account integration](#add-integration)
+- [Viewing an account integration](#view-integration)
 - [Deleting an account integration](#delete-integration)
-
-<a name="view-integration"></a>
-##Viewing your account integrations
-
-- Click on **Integrations** in the left sidebar menu.
-
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
-
-This will show you a list of all configured integrations.
-
-<img src="/images/getting-started/list-integrations.png" alt="List of integrations
-under Account Settings">
 
 <a name="add-integration"></a>
 ##Adding an account integration
@@ -51,6 +39,18 @@ The integration should now show up on your **Integrations** page. This integrati
 
 Further details and examples of how a specific integration is used is available in the
 section for each integration.
+
+<a name="view-integration"></a>
+##Viewing your account integrations
+
+- Click on **Integrations** in the left sidebar menu.
+
+<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+
+This will show you a list of all configured integrations.
+
+<img src="/images/getting-started/list-integrations.png" alt="List of integrations
+under Account Settings">
 
 <a name="delete-integration"></a>
 ## Deleting an account integration

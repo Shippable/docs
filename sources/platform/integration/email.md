@@ -3,24 +3,33 @@ main_section: Platform
 sub_section: Integrations
 page_title: EMail integration
 
-# EMail Integration
-Available under the Integration Family: **Notifications**
+# Email Integration
 
-`Email` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to an email address.
+The **Email** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to an email address.
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+## Adding account integration
 
-This is the information you would require to create this integration:
+You do not need to add an email account integration if you're just configuring `shippable.yml` for CI workflows.
 
-* **Name** -- friendly name for the integration
+If you're configuring notifications for Assembly Lines, you will need this integration. You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Notifications**
+* **Integration type** -- **Email**
+* **Name** -- choose a friendly name for the integration
 * **Email Address** -- email address you want to send notifications to. You can add additional addresses when used in a resource.
 
-## Resources that use this Integration
-Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with an `Email` integration.
+## Usage in CI
+
+* [Sending Email notifications](/ci/email-notifications/)
+
+## Usage in Assembly Lines
+
+Email can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [ciRepo](/platform/workflow/resource/cirepo)
 * [notification](/platform/workflow/resource/notification)
-
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

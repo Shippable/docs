@@ -4,7 +4,7 @@ sub_section: Deploy using Cloud Native CLI
 
 # Deployments using cloud-native CLI
 
-Most applications today run in the Cloud. Each cloud provider has a native CLI.
+Most applications today run in the cloud. Each cloud provider has a native CLI.
 
 Shippable platform offers very rich support for CLI's by:
 
@@ -30,10 +30,10 @@ Here is a list of CLIs and their specific versions that we have available as par
 
 ## Initializing the CLI runtime
 
-Shippable platform automatically initializes the CLI runtime with your credentials securely. This allows you to focus more on the CLI commands than credentials management and initializing your CLI everytime you need to use it. To learn more, see our CLI tutorials below.
+Shippable platform automatically initializes the CLI runtime with your credentials securely. This allows you to focus more on the CLI commands than credentials management and initializing your CLI every time you need to use it. To learn more, see our CLI tutorials below.
 
 ## Further Reading
 
-* [Using the AWS CLI to deploy to ECS](/deploy/cd_with_cloud_native_cli)
-* [runSH job](/platform/workflow/job/runsh/)
-* [cliConfig](/platform/workflow/resource/cliconfig/#cliconfig) resource.
+* [Using the AWS CLI to deploy to ECS](/deploy/deploy-amazon-ecs-cloud-native-cli)
+* [runSh job](/platform/workflow/job/runsh/)
+* [cliConfig](/platform/workflow/resource/cliconfig/) resource.
