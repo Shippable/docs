@@ -11,13 +11,13 @@ Make sure you have a cluster set up on Google Container Engine (GKE), then creat
 
 ## Managed
 
-Managed jobs maintain their own state, and it cannot be customized.  To set environment variables for managed jobs, use the `params` resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
+Managed jobs maintain their own state.  To set environment variables for managed jobs, use the `params` resource.  This resource type can be applied to manifests or individual images within a manifest.  They can be overridden as your pipeline moves from one environment to another, and they have support for secure encrypted variables.
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
-Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two GKE environments.
+Managing state and utilizing ENVs is a critical part of writing robust runSh scripts. This section will give a simple example of using state and ENVs to deploy to two GKE environments.
 
 First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [documentation](../ci/trigger-pipeline-jobs) for instructions on how to set that up.
 
@@ -31,12 +31,12 @@ resources:
       versionName: master.7
 ```
 
-Now we should add this image as an IN to our runCLI job.
+Now we should add this image as an IN to our runSh job.
 
 ```
 jobs:
   - name: myCustomDeployment
-    type: runCLI
+    type: runSh
     steps:
       - IN: MyGkeConfig
       - IN: MyAppImage
@@ -47,7 +47,7 @@ jobs:
 
 ### Environment Variables
 
-By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runCLI job so that we can see what is available.
+By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runSh job so that we can see what is available.
 
 Resource-specific ENVs always start with the resource name. Job specific ENVs always start with the word `JOB`.  Shippable-added ENVs are always in all caps.
 
@@ -113,7 +113,7 @@ All resources have environment variables like this. We've documented the list of
 
 ### Resource State Management
 
-Every job in Shippable Pipelines has a `state` directory where information is written to be stored for use later on in the pipeline.  The location of this directory is found in the environment as `$JOB_STATE`.  
+Every job in Shippable Assembly Lines has a `state` directory where information is written to be stored for use later on in the pipeline.  The location of this directory is found in the environment as `$JOB_STATE`.  
 
 When you list a resource as an `OUT`, a `<resourcename>.env` file is created in the `$JOB_STATE` directory. This is the file that you need to write to if you want to update the state of that resource.
 
@@ -127,11 +127,11 @@ version:
     desiredCount: 1
 ```
 
-Then add it as an OUT of one runCLI job that determines what the value should be, like this:
+Then add it as an OUT of one runSh job that determines what the value should be, like this:
 
 ```
 name: MyLoadChecker
-type: runCLI
+type: runSh
 steps:
   - IN: MyGkeConfig
   - IN: MyGKECluster
@@ -148,7 +148,7 @@ Now, you'll want a second job that uses the `params` resource as an IN step.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: MyGkeConfig
   - IN: MyGKECluster
@@ -192,15 +192,15 @@ You don't have to rely on other resources to transfer information from one job t
 
 Instead of writing to a `<resourceName>.env` file, just write any file you want to that same state directory, and use the job itself as input to the next job.
 
-Here's an example of a runCLI job that takes another job as IN, and references the previous job's state directory.
+Here's an example of a runSh job that takes another job as IN, and references the previous job's state directory.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: MyGkeConfig
   - IN: MyGKECluster
-  - IN: MyLoadChecker  #another runCLI job
+  - IN: MyLoadChecker  #another runSh job
   - TASK:
     - script: ls $MYLOADCHECKER_STATE
     - script: YAML_FILE=$MYLOADCHECKER_STATE/templates/sample.yaml

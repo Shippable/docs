@@ -42,13 +42,13 @@ We will now proceed to implementing the jobs and resources in the workflow.
 
 They are two configuration files that are needed to achieve this usecase -
 
-* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
 These files should be committed to your source control. Step 6 of the workflow below will describe how to add the config to Shippable.
 
-## Prequisites for VMs
+## Prerequisites for VMs
 
 Since we are deploying and running a NodeJS application, preinstall nodejs, npm, and forever on each VM host.
 
@@ -56,7 +56,7 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 ###1. Define `app_file`
 
-* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
+* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
 * **Required:** Yes.
 
 **Steps**
@@ -102,7 +102,7 @@ resources:
 
 ###3. Define `app_service_def`.
 
-* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package resource. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package resource. The definition is also versioned (any change to the inputs of the manifest creates a new version of the manifest) and is immutable.
 * **Required:** Yes.
 
 **Steps**
@@ -120,10 +120,10 @@ jobs:
 
 ###4. Define `app_beta_cluster` and `app_prod_cluster`.
 
-* **Description:** `app_beta_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed to. In our example, each cluster resource points to two AWS EC2 machines.
+* **Description:** `app_beta_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed. In our example, each cluster resource points to two AWS EC2 machines.
 * **Required:** Yes.
 * **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
-In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
+In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application.
 
 **Steps**
 
@@ -149,7 +149,7 @@ resources:
 
 * **Description:** `app_beta_deploy` and `app_prod_deploy` are [deploy](/platform/workflow/job/deploy) jobs that actually deploys the application manifest to their respective VM clusters.
 
-    Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files, it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
+    Without adding any custom script, this deploy job will take any files in the manifest, and copy them to the nodes in the cluster.  It doesn't take any specific action with the files; it simply downloads them to a particular location on the hosts.  Since we want this deployment to actually update our running application, we'll have to add some commands to the job.
 
     Unlike deployments to our supported container services, deployments to VM clusters allow for custom scripting.  This is because anything written in the `TASK` section of the job is executed *on the individual machines*, not on the Shippable platform.  So, if your VM cluster has two machines, the Shippable deployment service will ssh into each machine, one at a time, download the files from the manifest, and run the series of script commands in the `TASK` section.
 
@@ -205,7 +205,7 @@ Also, our application is written in nodejs and we're using foreverjs to run the 
 
 ###6. Import configuration into your Shippable account.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 

@@ -1,4 +1,4 @@
-page_main_title: runSH
+page_main_title: runSh
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Jobs
@@ -7,13 +7,13 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # runSh
-`runSh` is a Job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo` etc. the vision of "Everything as Code" can be realized.
+`runSh` is a job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo`, etc., the vision of "Everything as Code" can be realized.
 
-You should use this job type if you need the freedom that some of the pre-packaged Jobs like [deploy](/platform/workflow/job/deploy) and [manifest](/platform/workflow/job/manifest) do not provide, or if they do not support the 3rd party end-point you want to integrate to. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a job of type `runSh`.
+You should use this job type if you need the freedom that some of the pre-packaged jobs like [deploy](/platform/workflow/job/deploy) and [manifest](/platform/workflow/job/manifest) do not provide, or if they do not support the 3rd party end-point you want to integrate with. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a job of type `runSh`.
 
 You can also add [cliConfig](/platform/workflow/resource/cliconfig) resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](/platform/workflow/resource/cliconfig#cliConfigTools).
 
-A new version is created anytime this Job is executed.
+A new version is created anytime this job is executed.
 
 You can create a `runSh` Job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes](/platform/runtime/overview#nodes) or [Custom Nodes](/platform/runtime/overview#nodes)
 
@@ -79,7 +79,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 ## cliConfig special handling
-If a Resource of type [cliConfig](/platform/workflow/resource/cliconfig) based Resource is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The runCLI job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. For e.g. if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
+If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
 
 Here is a list of the tools configured for each integration type:
 

@@ -16,12 +16,12 @@ resources:
     type: cliConfig
     integration: MyGKECredentials
 ```
-For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig). Now you'll need a particular job that can utilize that resource
+For more details on the `cliConfig` resource, [see here](../platform/workflow/resource/cliconfig). Now you'll need a job that can utilize that resource.
 
 ```
 jobs:
   - name: myCustomDeployment
-    type: runCLI
+    type: runSh
     steps:
       - IN: MyGkeConfig
       - TASK:
@@ -56,7 +56,7 @@ Now, update the job to use this gitRepo as an `IN`, and add some extra commands 
 ```
 jobs:
   - name: myCustomDeployment
-    type: runCLI
+    type: runSh
     steps:
       - IN: MyAwsConfig
       - IN: MyPodSpecRepo
@@ -92,4 +92,4 @@ spec:
 
 ```
 
-The `runCLI` job will automatically configure kubectl based on the json key associated with your GKE integration.  This means that you don't have to do any setup yourself. Your script can be focused on the actions you want to take.  In this case, we are creating a new replication controller in the `shippable` namespace to run our sample app and expose it on port 80.
+The `runSh` job will automatically configure kubectl based on the json key associated with your GKE integration.  This means that you don't have to do any setup yourself. Your script can be focused on the actions you want to take.  In this case, we are creating a new replication controller in the `shippable` namespace to run our sample app and expose it on port 80.

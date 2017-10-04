@@ -10,13 +10,13 @@ However, CI is just part of end to end software delivery and most customers also
 
 In this broader end to end workflow, CI is just the first step. This page shows you how you can connect your CI job to the rest of your pipeline.
 
-<img src="../../images/ci/connect-ci-pipelines.png" alt="Add Docker Hub credentials">
+<img src="../../images/ci/connect-ci-pipelines.png" alt="CI to Pipeline">
 
 ##The runCI job
 
-The secret to connecting CI with the rest of your pipeline is the **runCI** job that gets automatically created when you enable a project for CI. You can see this job already in your pipeline by going to the **Pipelines** tab of your Subscription.
+The secret to connecting CI with the rest of your pipeline is the **runCI** job that gets automatically created when you enable a project for CI. You can see this job already in your pipeline by going to your subscription dashboard.
 
-<img src="../../images/ci/runCI-job.png" alt="Add Docker Hub credentials">
+<img src="../../images/ci/runCI-job.png" alt="Subscription Dashboard">
 
 The automatically created job is named with a standard convention of appending **_runCI** to your project name. Follow the steps below to connect it to the next job in your pipeline.
 
@@ -32,7 +32,7 @@ jobs:
       - OUT: my_image
 
   - name: next-job-in-pipeline
-    type: deploy/manifest/runSh/runCLI
+    type: deploy/manifest/runSh
     steps:
       - IN: my_image
 

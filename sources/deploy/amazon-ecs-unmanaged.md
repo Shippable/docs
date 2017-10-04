@@ -6,9 +6,9 @@ sub_section: Amazon ECS
 
 The managed [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization.
 
-These are called "unmanaged" or "custom" deployments and are implemented with a [runSH job](/platform/workflow/job/runsh/).
+These are called "unmanaged" or "custom" deployments and are implemented with a [runSh job](/platform/workflow/job/runsh/).
 
-This page walks through an example of deploying to Amazon ECS using runCLI.
+This page walks through an example of deploying to Amazon ECS using runSh.
 
 ## Building blocks
 
@@ -22,14 +22,14 @@ You need the following building blocks for this scenario:
 
 **Jobs**
 
-- [runSH](/platform/workflow/job/runsh/)
+- [runSh](/platform/workflow/job/runsh/)
 
 ## Basic deployment
 
 You will need two configuration files:
 
-- `shippable.resources.yml` which contains resource definitions
-- `shippable.jobs.yml` which contains job definitions
+- `shippable.resources.yml`, which contains resource definitions
+- `shippable.jobs.yml`, which contains job definitions
 
 These files should be in your [syncRepo](/platform/workflow/resource/syncrepo/). Please read the [configuration](/deploy/configuration/) to find out how to add a syncRepo to Shippable.
 
@@ -51,7 +51,7 @@ Create an account integration for GitHub by following [instructions here](/platf
 For other source control providers, go to one of these:
 
 - [Bitbucket](/platform/integration/bitbucket/)
-- [Gitlab](/platform/integration/gitlab/)
+- [GitLab](/platform/integration/gitlab/)
 - [GitHub Enterprise](/platform/integration/github-enterprise/)
 
 
@@ -112,13 +112,13 @@ For a complete reference, check out the [gitRepo](/platform/workflow/resource/gi
 
 Jobs are defined in your `shippable.jobs.yml`.
 
-Let's add a basic **runCLI** job which takes in the resources we created above.
+Let's add a basic **runSh** job which takes in the resources we created above.
 
 
 ```
 jobs:
   - name: deploy-ecs-unmanaged-cli
-    type: runCLI
+    type: runSh
     steps:
       - IN: deploy-ecs-unmanaged-config
       - IN: deploy-ecs-unmanaged-image
@@ -181,7 +181,7 @@ Your pipeline should look like this:
 
 ###5: Trigger your pipeline
 
-Right click on the **runCLI** job, select "run job", and you should get some output from AWS like this:
+Right click on the **runSh** job, select "run job", and you should get some output from AWS like this:
 <img src="../../images/deploy/amazon-ecs/basic-deployment-runcli-output.png" alt="runCLI Output">
 
 And if you check ECS, you should see your service running your task definition!
@@ -190,7 +190,7 @@ And if you check ECS, you should see your service running your task definition!
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runCLI job.
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runSh job.
 
 **Source code:**  [devops-recipes/deploy-ecs-unmanaged](https://github.com/devops-recipes/deploy-ecs-unmanaged)
 
@@ -204,7 +204,7 @@ You can run your awscli commands against any cluster and region that you want. D
 
 ##Attaching a load balancer
 
-If your load balancer is already created on AWS, deploying with it in a **runCLI** job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
+If your load balancer is already created on AWS, deploying with it in a **runSh** job should be as simple as just adding the `LoadBalancers` array to your service template as described [here](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html).
 
 Note that a service that's already running cannot be updated with a load balancer.  You'll have to destroy/create the service from scratch with the load balancer for it to take effect.  Shippable's [managed deploy jobs](../platform/workflow/job/deploy) handle scenarios like this automatically for you.
 
@@ -218,14 +218,14 @@ Update your **sampleTaskDef.json** to include any additional settings you'd like
 
 ## Using State and Environment Variables
 
-Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
+Managing state and utilizing ENVs is a critical part of writing robust runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
 In the above sample project, we used an image IN along with `shippable_replace` to fill in our task definition on the fly.  This is utilizing Shippable's built-in resource ENVs.
 
 
 ### Environment Variables
 
-By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runCLI job so that we can see what is available.
+By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runSh job so that we can see what is available.
 
 Resource-specific ENVs always start with the resource name. Job specific ENVs always start with the word `JOB`.  Shippable-added ENVs are always in all caps.
 
@@ -273,11 +273,11 @@ version:
     desiredCount: 1
 ```
 
-Then add it as an OUT of one runCLI job that determines what the value should be, like this:
+Then add it as an OUT of one runSh job that determines what the value should be, like this:
 
 ```
 name: MyLoadChecker
-type: runCLI
+type: runSh
 steps:
   - IN: MyAwsConfig
   - IN: MyECSCluster
@@ -294,7 +294,7 @@ Now, you'll want a second job that uses the `params` resource as an IN step.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: deploy-ecs-unmanaged-config
   - IN: deploy-ecs-unmanaged-image
@@ -330,14 +330,14 @@ You don't have to rely on other resources to transfer information from one job t
 
 Instead of writing to a `<resourceName>.env` file, just write any file you want to that same state directory, and use the job itself as input to the next job.
 
-Here's an example of a runCLI job that takes another job as IN, and references the previous job's state directory.
+Here's an example of a runSh job that takes another job as IN, and references the previous job's state directory.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: MyAwsConfig
-  - IN: MyLoadChecker  #another runCLI job
+  - IN: MyLoadChecker  #another runSh job
   - TASK:
     - script: ls $MYLOADCHECKER_STATE
     - script: JSON_FILE=$MYLOADCHECKER_STATE/myService.json

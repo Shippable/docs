@@ -58,7 +58,7 @@ On clicking the build button, you get few options which allow you to make small 
 
 <img src="/images/getting-started/manual-build-config.png" alt="Build Config">
 
-For runSH and runCI jobs, you can provide custom environment variables.
+For runSh and runCI jobs, you can provide custom environment variables.
 
 <img src="/images/getting-started/manual-build-env.png" alt="Custom ENV">
 

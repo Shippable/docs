@@ -4,7 +4,7 @@ sub_section: Deploy using Cloud Native CLI
 
 # Deploying to Amazon ECS using cloud-native CLI
 
-The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the AWS CLI to  deploy a docker image to one ECS cluster.
+The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring your existing proven CLI based deployment scripts over to Shippable.  This page walks through an example of using the AWS CLI to deploy a Docker image to one ECS cluster.
 
 ## Topics Covered
 
@@ -16,21 +16,21 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 They are two configuration files that are needed to achieve this usecase -
 
-* Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-* Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
 ## Steps
 
 ###1. Define `app_image`.
 
-* **Description:** `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker hub.
+* **Description:** `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker Hub.
 * **Required:** Yes.
 * **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for your docker registry.
+1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
@@ -48,7 +48,7 @@ They are two configuration files that are needed to achieve this usecase -
 
 ###2. Define `app_gitRepo`.
 
-* **Description:** `app_gitRepo` is a [gitRepo](/platform/workflow/resource/gitrepo/#gitrepo) resource which is a pointer to the git repository that contains your cli scripts.
+* **Description:** `app_gitRepo` is a [gitRepo](/platform/workflow/resource/gitrepo/) resource which is a pointer to the git repository that contains your cli scripts.
 * **Required:** Yes.
 * **Integrations needed:** default SCM account integration or other source control providers.
 
@@ -58,7 +58,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 - [GitHub]([instructions here](/platform/integration/github/))
 - [Bitbucket](/platform/integration/bitbucket/)
-- [Gitlab](/platform/integration/gitlab/)
+- [GitLab](/platform/integration/gitlab/)
 - [GitHub Enterprise](/platform/integration/github-enterprise/)
 
 **Steps**  
@@ -81,7 +81,7 @@ resources:
 
 ###3. Define `app_cliConfig`.
 
-* **Description:** `app_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/#cliconfig) resource used to store configuration information needed to setup a CLI for your orchestration platform.
+* **Description:** `app_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource used to store configuration information needed to setup a CLI for your orchestration platform.
 * **Required:** Yes.
 * **Integrations needed:** AWS. The complete list of supported CLI integrations can be found [here](/platform/workflow/resource/cliconfig/#configured-cli-tools).
 
@@ -137,7 +137,7 @@ ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get
 
 ###5. Define `app_cli_job`.
 
-* **Description:** `app_cli_job` is a [runSH](/platform/workflow/job/runsh/) job that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. Note that we have set `switch: off` for `app_gitRepo` since we do not want to trigger the runSH job every time a commit occurs on the repo. We want the runSH job to trigger only after the container image has been built.s
+* **Description:** `app_cli_job` is a [runSh](/platform/workflow/job/runsh/) job that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. Note that we have set `switch: off` for `app_gitRepo` since we do not want to trigger the runSh job every time a commit occurs on the repo. We want the runSh job to trigger only after the container image has been built.
 
 * **Required:** Yes.
 
@@ -148,7 +148,7 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
   - name: app_cli_job
-    type: runSH
+    type: runSh
     steps:
       - IN: app_image
       - IN: app_gitRepo
@@ -165,13 +165,13 @@ jobs:
 The snippet above does the following:
 
 - Uses `shippable_replace` utility to fill in environment variables for our task definition template.
-- Register a new task definition on Amazon ECS based on our json file using the AWS CLI.
-- Captures the revision number from the output, store it in the ENV, and echo it to the console.
+- Registers a new task definition on Amazon ECS based on our json file using the AWS CLI.
+- Captures the revision number from the output, stores it in the ENV, and echos it to the console.
 - Updates the service using the `--task-definition family:revision` syntax.
 
 ##6. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ##7. Trigger your pipeline
 
@@ -180,6 +180,6 @@ When you're ready for deployment, right-click on the `app_cli_job` job in the [S
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runCLI job.
+the image to Amazon ECR. It also contains all of the pipelines configuration files for deploying to Amazon ECS via runSh job.
 
 **Source code:**  [devops-recipes/deploy-ecs-unmanaged](https://github.com/devops-recipes/deploy-ecs-unmanaged)

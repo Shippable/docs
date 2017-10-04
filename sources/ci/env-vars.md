@@ -22,7 +22,7 @@ We support the following kinds of environment variables.
 
 [**User defined environment variables**](#usrEnv) are your custom variables which you can define in the `env` section of your `shippable.yml`. You can define one or multiple variables, as well as encrypt variables to store sensitive information. For example, the snippet below makes the variables $TEST and $FOO available during your build workflow.
 
-[**Unmanaged jobs environment variables**] are environment variables that can be used in [runCI](/platform/workflow/job/runci/) and [runSH](/platform/workflow/job/runsh/) jobs.
+[**Unmanaged jobs environment variables**](/platform/workflow/job/runsh/#default-environment-variables) are environment variables that can be used in [runCI](/platform/workflow/job/runci/) and [runSh](/platform/workflow/job/runsh/) jobs.
 
 ```
 env:

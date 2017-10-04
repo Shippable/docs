@@ -5,7 +5,7 @@ sub_sub_section: AWS Elastic Beanstalk
 
 # Deploy single container to multiple AWS EB environments.
 
-The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring over your existing proven CLI based deployment scripts over to Shippable. This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to multiple EB environments.
+The [deploy job](/platform/workflow/job/deploy) helps make your deployments very easy and quick to configure. However, you might want to write your deployment scripts yourself for added control and customization or simply to bring your existing proven CLI based deployment scripts over to Shippable. This page walks through an example of using the Elastic Beanstalk (EB) CLI to deploy a single container application to multiple EB environments.
 
 One common concept for multiple environments is having a beta environment that receives automatic deployments, and a production environment that is only deployed manually.  Each environment might need its own unique parameters and settings, and both environments are likely deploying to completely separate EB environments.
 
@@ -15,7 +15,7 @@ One common concept for multiple environments is having a beta environment that r
 
 ## Devops Assembly pipeline
 
-This is a pictorial representation of the workflow required to deploy your application. The green boxes are jobs and the grey boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
+This is a pictorial representation of the workflow required to deploy your application. The larger boxes are jobs and the smaller boxes are the input resources for the jobs. Both jobs and inputs are specified in Shippable configuration files.
 
 <img src="/images/deploy/elasticbeanstalk/eb-serial-envs.png" alt="Final Pipeline">
 
@@ -25,11 +25,11 @@ We will be defining the jobs and resources in a step by step manner below.
 
 They are four configuration files that are needed to achieve this usecase -
 
-* **[shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/):** Resources are defined in this file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* **[shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/):** Resources are defined in this file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-* **[shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/):** Jobs are defined in this file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* **[shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/):** Jobs are defined in this file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
-* **`Dockerrun.aws.json`**: This file specifies the image and environment configuration. Placeholders are defined in this file for the image and environment configuration. These Placeholders give us flexibility to use the image and environment configuration that you will define in Shippable configuration files.
+* **`Dockerrun.aws.json`**: This file specifies the image and environment configuration. Placeholders are defined in this file for the image and environment configuration. These placeholders give us flexibility to use the image and environment configuration that you will define in Shippable configuration files.
 
 Content of [`Dockerrun.aws.json`](https://raw.githubusercontent.com/devops-recipes/deploy-beanstalk-basic/master/single_container/Dockerrun.aws.json)
 ```
@@ -93,7 +93,7 @@ global:
 
 Inside `config.yml`, you will see placeholders defined for application, environment and region. These placeholders will be replaced dynamically with your Shippable configuration giving you tremendous flexibility and reuse.
 
-## Prequisites
+## Prerequisites
 
 ### Create a Beanstalk application and environment
 
@@ -128,7 +128,7 @@ resources:
 
 ###2. Define `deploy-eb-basic-config`.
 
-* **Description:** `deploy-eb-basic-config` is a [cliConfig](/platform/workflow/resource/cliconfig/#cliconfig) resource that references credentials needed to setup a CLI for EB.
+* **Description:** `deploy-eb-basic-config` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource that references credentials needed to setup a CLI for EB.
 
 * **Required:** Yes.
 
@@ -154,7 +154,7 @@ resources:
 
 ###3. Define `deploy-eb-basic-params` and `prod-params`
 
-* **Description:** `deploy-eb-basic-params` and `prod-params` are [params](/platform/workflow/resource/params/#params) resources that define variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files. Furthermore, these params are environment specific allowing each environment to be customized.
+* **Description:** `deploy-eb-basic-params` and `prod-params` are [params](/platform/workflow/resource/params/) resources that define variables we want to make easily configurable. These variables definitions replace the placeholders in the `Dockerrun.aws.json` and `config.yml` files. Furthermore, these params are environment specific allowing each environment to be customized.
 
 * **Required:** Yes.
 
@@ -182,7 +182,7 @@ resources:
         AWS_EB_ENVIRONMENT_SINGLE: "prod"
 ```
 
-* **Description:** `deploy-eb-basic-params` is a [params](/platform/workflow/resource/params/#params) resource the defines variables we want to make easily configurable. These variables definitions replace the placeholders in the `Docker.aws.json` and `config.yml` files.
+* **Description:** `deploy-eb-basic-params` is a [params](/platform/workflow/resource/params/) resource that defines variables we want to make easily configurable. These variables definitions replace the placeholders in the `Dockerrun.aws.json` and `config.yml` files.
 
 * **Required:** Yes.
 
@@ -203,7 +203,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 ###4. Define `deploy-eb-basic-repo`
 
-* **Description:** `deploy-eb-basic-repo` is a [gitRepo](/platform/workflow/resource/gitrepo/#gitrepo) resource which represents the repository of our application that has all the source and the configuration files we created earlier. We need this resource to access and replace content dynamically in the `Docker.aws.json` and `config.yml` files.  
+* **Description:** `deploy-eb-basic-repo` is a [gitRepo](/platform/workflow/resource/gitrepo/) resource which represents our application repository that has all the source and the configuration files we created earlier. We need this resource to access and replace content dynamically in the `Dockerrun.aws.json` and `config.yml` files.  
 
 * **Required:** Yes.
 
@@ -223,11 +223,11 @@ resources:
 
 ###5. Define `deploy-beta` and `deploy-prod`
 
-* **Description:** `deploy-beta` and `deploy-prod` are [runSH](/platform/workflow/job/runsh/) jobs that lets you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
+* **Description:** `deploy-beta` and `deploy-prod` are [runSh](/platform/workflow/job/runsh/) jobs, which let you run any shell script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
 
     A couple of points to note:
 
-    - We Utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholder with actual configuration.
+    - We utilize the built-in `shippable_replace` utility on the `Dockerrun.aws.json` file as well as the `config.yml` file to replace placeholders with the actual configuration.
     - We export the `IMAGE` env variable using the image resource environment variable in the beta job.
     - To ensure that the same image is deployed to production, we store the image tag in the job state of the `deploy-beta` job and use it in the `deploy-prod` job.
     - All the inputs of the `deploy-prod` are switched off, since we want to manually trigger prod deployment.
@@ -283,7 +283,7 @@ We use the ebcli to perform the deployment, since it comes pre-installed on the 
 
 ###6. Import configuration into your Shippable account.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ###7. Trigger your pipeline
 

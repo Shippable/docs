@@ -4,7 +4,7 @@ sub_section: Provisioning with Ansible
 
 # Google Cloud with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
-infrastructure on [Google Cloud](https://cloud.google.com/). You would do so with a `runCLI` or
+infrastructure on [Google Cloud](https://cloud.google.com/). You would do so with a
 `runSh` job. Both of those jobs have ansible command line tools and [google module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#google) requirements (python >= 2.6 and apache-libcloud) installed already.
 
 ##Setup
@@ -33,9 +33,9 @@ resources and jobs:
     *  **cliConfig** - to configure the default google cloud cli settings
     *  **gitRepo** - contains your Ansible scripts
 -  jobs
-    *  **runCLI** - for executing your Ansible scripts
+    *  **runSh** - for executing your Ansible scripts
 
-in `shippable.resources.yml`, define the following resources to be used as
+In `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -53,13 +53,13 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Ansible
-an Ansible playbook to provision on google cloud from your pipeline:
+In `shippable.jobs.yml`, define the following job in order to execute
+an Ansible playbook to provision on Google Cloud from your pipeline:
 
 ```yaml
 # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myGclCliConfig
@@ -70,7 +70,7 @@ an Ansible playbook to provision on google cloud from your pipeline:
             ansible-playbook -v google-cloud-provision.yml
 ```
 
-`myGithubRepo` git repository should contain `google-cloud-provision.yml` which should be a valid ansible playbook having a provisioning task for google cloud. Example of `google-cloud-provision.yml` might be
+`myGithubRepo` git repository should contain `google-cloud-provision.yml` which should be a valid ansible playbook with a provisioning task for Google Cloud. Example of `google-cloud-provision.yml` might be
 
 ```yaml
 
@@ -89,15 +89,16 @@ an Ansible playbook to provision on google cloud from your pipeline:
         project_id: "{{ ansible_env.MYGCLCLICONFIG_INTEGRATION_PROJECTNAME }}"
 ```
 
-In our `runCLI` job, `IN: myGclCliConfig` gives the following environment variables
-- `MYGCLCLICONFIG_INTEGRATION_PROJECTNAME` - Project name given in the google cloud account integration.
-- `MYGCLCLICONFIG_INTEGRATION_SERVICEACCOUNTEMAIL` - Service Account Email given in the google cloud account integration.
-- `MYGCLCLICONFIG_INTEGRATION_CREDENTIALFILE_PATH` - Path of the credential file with the content given in the google cloud account integration.
+In our `runSh` job, `IN: myGclCliConfig` gives the following environment variables:
 
-Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case.
+  - `MYGCLCLICONFIG_INTEGRATION_PROJECTNAME` - Project name given in the Google Cloud account integration.
+  - `MYGCLCLICONFIG_INTEGRATION_SERVICEACCOUNTEMAIL` - Service Account Email given in the Google Cloud account integration.
+  - `MYGCLCLICONFIG_INTEGRATION_CREDENTIALFILE_PATH` - Path of the credential file with the content given in the Google Cloud account integration.
+
+Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores removed.
 
 ### Create timed Ansible pipeline job
-To schedule a Pipeline job to automatically execute an Ansible playbook on a
+To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -113,7 +114,7 @@ recurring basis, add a `time` resource.
 ```yaml
 # job to execute Ansible script to provision google cloud instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myNightlyTrigger
 ```

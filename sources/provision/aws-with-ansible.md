@@ -4,8 +4,7 @@ sub_section: Provisioning with Ansible
 
 # AWS with Ansible
 With Shippable, you can use Ansible from Red Hat within Pipelines to provision
-infrastructure on AWS. You would do so with a `runCLI` or
-`runSh` job.
+infrastructure on AWS. You would do so with a `runSh` job.
 
 ##Setup
 
@@ -21,9 +20,8 @@ Integration**
 -  Locate **AWS** in the list and click on **Create Integration**
 -  Name your integration and enter your AWS Access Key ID and AWS Secret Access
 Key for an IAM User with the appropriate policies set to perform the provisioning
-actions you will execute (e.g. create/delete EC/2 instances)
--  Choose the Subscription(s) that are allowed to use these credentials.
-push the image
+actions you will execute (e.g. create/delete EC2 instances)
+-  Choose the subscription(s) that are allowed to use these credentials.
 -  Click **Save**
 
 <img src="../../images/provision/amazon-web-services-integration.png" alt="add
@@ -39,9 +37,9 @@ resources and jobs:
     *  **gitRepo** - contains your Ansible scripts
     *  **integration** - to store you ssh key for use by ansible
 -  jobs
-    *  **runCLI** - for executing your Ansible scripts
+    *  **runSh** - for executing your Ansible scripts
 
-in `shippable.resources.yml`, define the following resources to be used as
+In `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -66,13 +64,13 @@ inputs to your pipeline:
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Ansible
-an Ansible playbook to provision on aws from your pipeline:
+In `shippable.jobs.yml`, define the following job in order to execute
+an Ansible playbook to provision on AWS from your pipeline:
 
 ```yaml
 # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myAwsCliConfig
@@ -105,7 +103,7 @@ Using Ansible with AWS, you'll likely want to separate your 'provision' actions
 from your 'terminate' actions. In this manner you can easily trigger either
 action on-demand or via automated triggers.
 
-To set up this Pipeline, simply separate your provision and terminate actions
+To set up this pipeline, simply separate your provision and terminate actions
 into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
@@ -113,7 +111,7 @@ into separate jobs and name the 'provision' job as an input to the
 ```yaml
 # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myAwsCliConfig
@@ -142,7 +140,7 @@ into separate jobs and name the 'provision' job as an input to the
 
 # job to execute Ansible script to terminate aws instances
   - name: myTerminateJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myProvisionJob     
       - IN: myGithubRepo
@@ -172,7 +170,7 @@ into separate jobs and name the 'provision' job as an input to the
 ```
 
 ### Create timed Ansible pipeline job
-To schedule a Pipeline job to automatically execute an Ansible playbook on a
+To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -188,7 +186,7 @@ recurring basis, add a `time` resource.
 ```yaml
 # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
 ```

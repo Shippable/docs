@@ -247,9 +247,9 @@ You'll see in the logs that each manifest is deployed in turn, and the deploy jo
 
 ## Unmanaged Deployments
 
-In an unmanaged scenario, you'll be using a runCLI job with an GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with an GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
-For unamanged jobs, the deployment workflow is under your control, but here is a description of how shippable treats different scenarios in the managed jobs.  You can duplicate this functionlity in your own scripts and even discover ways of improving the logic.
+For unamanged jobs, the deployment workflow is under your control, but here is a description of how shippable treats different scenarios in the managed jobs.  You can duplicate this functionality in your own scripts and even discover ways of improving the logic.
 
 two manifests into a single deploy job:
 
