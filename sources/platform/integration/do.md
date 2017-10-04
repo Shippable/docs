@@ -7,17 +7,22 @@ page_title: Amazon ECR integration
 
 Available under the Integration Family: **generic**
 
-`Digital Ocean` Integration is used to connect Shippable DevOps Assembly Lines platform to Digital Ocean to interact with its cloud services in order to provision machines.
+`Digital Ocean` Integration is used to connect Shippable DevOps Assembly Lines platform to [Digital Ocean](https://www.digitalocean.com/) to interact with its cloud services in order to provision machines.
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
 
-This is the information you would require to create this integration:
+Here is the information you need to create this integration:
 
 * **Name** -- friendly name for the integration
 * **API Token** -- Token to connect to the Digital Ocean API
 
-## Resources that use this Integration
-Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Digital Ocean` integration.
+## Usage
+
+After you create the account integration, it can be used in the following scenarios:
+
+**Assembly Lines**
+
+The following [resource](/platform/workflow/resource/overview/) types can be created with an `Digital Ocean` integration for use in Assembly Lines config.
 
 * [integration](/platform/workflow/resource/integration)
 
