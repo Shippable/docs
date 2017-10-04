@@ -5,22 +5,36 @@ page_title: Hipchat integration
 
 # Hipchat Integration
 
-Available under the Integration Family: **Notifications**
+The **Hipchat** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 
-`Hipchat` Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
+## Adding account integration
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
 
-This is the information you would require to create this integration:
+Here is the information you need to create this integration:
 
-* **Name** -- friendly name for the integration
+* **Integration Family** -- **Notifications**
+* **Integration type** -- **Hipchat**
+* **Name** -- choose a friendly name for the integration
 * **Token** -- HipChat account token
 
-## Resources that use this Integration
-Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `HipChat` integration.
+Here is how you can get your [Hipchat account token](https://developer.atlassian.com/hipchat/guide/hipchat-rest-api/api-access-tokens).
 
-* [notification](/platform/workflow/resource/notification)
+## Usage
+
+After you create the account integration, it can be used in the following scenarios:
+
+### CI
+
+* [Sending Hipchat notifications](/ci/hipchat-notifications/)
+
+### Assembly Lines
+
+The Hipchat integration can be used in the following [resources](/platform/workflow/resource/overview/):
+
 * [ciRepo](/platform/workflow/resource/cirepo)
+* [integration](/platform/workflow/resource/integration)
+* [notification](/platform/workflow/resource/notification)
 
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

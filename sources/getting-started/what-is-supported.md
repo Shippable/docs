@@ -33,14 +33,15 @@ For both OS versions, we maintain language-specific images that are updated ever
 
 We support the following languages:
 
-* [Clojure](/platform/runtime/language/clojure/)
-* [Go](/platform/runtime/language/go/)
-* [Java](/platform/runtime/language/java/)
-* [Node JS](/platform/runtime/language/nodejs/)
-* [PHP](/platform/runtime/language/php/)
-* [Python](/platform/runtime/language/python/)
-* [Ruby](/platform/runtime/language/ruby/)
-* [Scala](/platform/runtime/language/scala/)
+* [C/C++](/ci/cpp-continuous-integration/)
+* [Clojure](/ci/clojure-continuous-integration/)
+* [Go](/ci/go-continuous-integration/)
+* [Java](/ci/java-continuous-integration/)
+* [Node JS](/ci/nodejs-continuous-integration/)
+* [PHP](/ci/php-continuous-integration/)
+* [Python](/ci/python-continuous-integration/)
+* [Ruby](/ci/ruby-continuous-integration/)
+* [Scala](/ci/scala-continuous-integration/)
 
 ## Services
 To make your builds even faster, we pre-install a bunch of **Services** that your application may need. These are also updated on a monthly cadence.

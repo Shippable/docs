@@ -5,20 +5,23 @@ page_title: Joyent Triton integration
 
 # Joyent Triton Integration
 
-Available under the Integration Family: **deploy**
+The [Joyent Triton](https://www.joyent.com/triton/compute) Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
-`Joyent Triton` Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
+## Adding account integration
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
 
-This is the information you would require to create this integration:
+Here is the information you need to create this integration:
 
-* **Name** -- friendly name for the integration
+* **Integration Family** -- **deploy**
+* **Integration type** -- **Joyent Triton Public Cloud**
+* **Name** -- choose a friendly name for the integration
 * **Username** -- Username to login to Mesos master VM
 * **Validity Period** -- Certificate validity in number of days
 
-## Resources that use this Integration
-Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Joyent Triton` integration.
+## Usage in Assembly Lines
+
+The Joyent Triton integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
