@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # runCLI
 
-The runCLI job is deprecated. The complete functionality that was available in the runCLI job has been made available in the [runSH](/platform/workflow/job/runsh/#runsh) job. Our recommendation is to only use the [runSH](/platform/workflow/job/runsh/#runsh) job going forward. Your existing runCLI jobs will continue to run since we are passionate about not breaking any of our customers. We strongly encourage you regardless at the bare minimum, to rename the `type` attribute in your runCLI job yml to runSH. All your existing functionality will work as is and no further change is required to the yml block.
+The runCLI job is deprecated. The complete functionality that was available in the runCLI job has been made available in the [runSh](/platform/workflow/job/runsh/#runsh) job. Our recommendation is to only use the [runSh](/platform/workflow/job/runsh/#runsh) job going forward. Your existing runCLI jobs will continue to run since we are passionate about not breaking any of our customers. We strongly encourage you regardless at the bare minimum, to rename the `type` attribute in your runCLI job yml to runSh. All your existing functionality will work as is and no further change is required to the yml block.
 
 However, [Shippable Server](http://docs.shippable.com/platform/tutorial/server/install/) customers who are running older versions of Server (versions 5.7.3 and below) will still need to use the runCLI job. The documentation below should only be used by them.
 

@@ -4,7 +4,7 @@ sub_section: Provisioning with Ansible
 
 # Microsoft Azure with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
-infrastructure on [Microsoft Azure](https://azure.microsoft.com/). You would do so with a `runCLI` or
+infrastructure on [Microsoft Azure](https://azure.microsoft.com/). You would do so with a
 `runSh` job. Both of those jobs have ansible command line tools and [azure module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) requirements (python >= 2.6 and azure) installed already.
 
 ##Setup
@@ -33,9 +33,9 @@ resources and jobs:
     *  **cliConfig** - to configure the default microsoft azure cli settings
     *  **gitRepo** - contains your Ansible scripts
 -  jobs
-    *  **runCLI** - for executing your Ansible scripts
+    *  **runSh** - for executing your Ansible scripts
 
-in `shippable.resources.yml`, define the following resources to be used as
+In `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -53,13 +53,13 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Ansible
+In `shippable.jobs.yml`, define the following job in order to execute
 an Ansible playbook to provision on Microsoft Azure from your pipeline:
 
 ```yaml
 # job to execute Ansible script to provision Microsoft Azure instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myMazCliConfig
@@ -70,7 +70,7 @@ an Ansible playbook to provision on Microsoft Azure from your pipeline:
             ansible-playbook -v microsoft-azure-provision.yml
 ```
 
-`myGithubRepo` git repository should contain `microsoft-azure-provision.yml` which should be a valid ansible playbook having a provisioning task for microsoft azure. Example of `microsoft-azure-provision.yml` might be
+`myGithubRepo` git repository should contain `microsoft-azure-provision.yml` which should be a valid ansible playbook with a provisioning task for Microsoft Azure. Example of `microsoft-azure-provision.yml` might be
 
 ```yaml
 
@@ -112,15 +112,16 @@ an Ansible playbook to provision on Microsoft Azure from your pipeline:
           version: latest
 ```
 
-In our `runCLI` job, `IN: myMazCliConfig` gives the following environment variables
-- `MYMAZCLICONFIG_INTEGRATION_USERNAME` - Username given in the microsoft azure account integration.
-- `MYMAZCLICONFIG_INTEGRATION_PASSWORD` - Password given in the microsoft azure account integration.
-- `MYMAZCLICONFIG_INTEGRATION_SUBSCRIPTIONID` - Subscription Id given in the microsoft azure account integration.
+In our `runSh` job, `IN: myMazCliConfig` gives the following environment variables
 
-Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case.
+  - `MYMAZCLICONFIG_INTEGRATION_USERNAME` - Username given in the Microsoft Azure account integration.
+  - `MYMAZCLICONFIG_INTEGRATION_PASSWORD` - Password given in the Microsoft Azure account integration.
+  - `MYMAZCLICONFIG_INTEGRATION_SUBSCRIPTIONID` - Subscription Id given in the Microsoft Azure account integration.
+
+Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores removed.
 
 ### Create timed Ansible pipeline job
-To schedule a Pipeline job to automatically execute an Ansible playbook on a
+To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -136,7 +137,7 @@ recurring basis, add a `time` resource.
 ```yaml
 # job to execute Ansible script to provision microsoft azure instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myNightlyTrigger
 ```

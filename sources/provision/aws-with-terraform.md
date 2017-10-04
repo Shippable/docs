@@ -3,8 +3,8 @@ main_section: Provision
 sub_section: Provisioning with Terraform
 
 # AWS with Terraform
-With Shippable, you can use Terraform from Hashicorp within Pipelines to
-provision infrastructure on AWS. You would do so with a `runCLI` or `runSh` job.
+With Shippable, you can use Terraform from Hashicorp within Shippable Assembly Lines to
+provision infrastructure on AWS. You would do so with a `runSh` job.
 
 ##Setup
 
@@ -20,9 +20,8 @@ Integration**
 -  Locate **AWS** in the list and click on **Create Integration**
 -  Name your integration and enter your AWS Access Key ID and AWS Secret Access
 Key for an IAM User with the appropriate policies set to perform the provisioning
-actions you will execute (e.g. create/delete EC/2 instances)
--  Choose the Subscription(s) that are allowed to use these credentials.
-push the image
+actions you will execute (e.g. create/delete EC2 instances)
+-  Choose the subscription(s) that are allowed to use these credentials.
 -  Click **Save**
 
 <img src="../../images/provision/amazon-web-services-integration.png" alt="add
@@ -37,9 +36,9 @@ resources and jobs:
     *  **cliConfig** - to configure the default AWS CLI settings
     *  **gitRepo** - contains your Terraform scripts
 -  jobs
-    *  **runCLI** - for executing your Terraform scripts
+    *  **runSh** - for executing your Terraform scripts
 
-in `shippable.resources.yml`, define the following resources to be used as
+In `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -59,13 +58,13 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Terraform
+In `shippable.jobs.yml`, define the following job in order to execute Terraform
 scripts to provision on AWS from your pipeline:
 
 ```yaml
 # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myAwsCliConfig
@@ -96,8 +95,8 @@ scripts to provision on AWS from your pipeline:
           cp terraform.tfstate /build/state
 ```
 
-NOTE: The Terraform CLI is pre-installed on Shippable's standard runCLI job
-runtime images. You do not need to do so as part of your runCLI job.
+NOTE: The Terraform CLI is pre-installed on Shippable's standard runSh job
+runtime images. You do not need to do so as part of your runSh job.
 
 
 ## Advanced config
@@ -106,7 +105,7 @@ Using Terraform with AWS, you'll likely want to separate your 'provision' action
 from your 'terminate' actions. In this manner you can easily trigger either
 action on-demand or via automated triggers.
 
-To set up this Pipeline, simply separate your provision and terminate actions
+To set up this pipeline, simply separate your provision and terminate actions
 into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
@@ -114,7 +113,7 @@ into separate jobs and name the 'provision' job as an input to the
 ```yaml
 # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myAwsCliConfig
@@ -146,7 +145,7 @@ into separate jobs and name the 'provision' job as an input to the
 
 # job to execute Terraform script to terminate AWS instances
   - name: myTerminateJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myProvisionJob     
       - IN: myGithubRepo
@@ -180,7 +179,7 @@ into separate jobs and name the 'provision' job as an input to the
 ```
 
 ### Create timed Terraform pipeline job
-To schedule a Pipeline job to automatically execute a Terraform script on a
+To schedule a pipeline job to automatically execute a Terraform script on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -196,7 +195,7 @@ recurring basis, add a `time` resource.
 ```yaml
 # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myNightlyTrigger
 ```

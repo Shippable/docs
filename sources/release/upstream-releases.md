@@ -60,12 +60,11 @@ images that we want to version before deployment to the Amazon ECS cluster.
   # Release job
   - name: release-from-upstream-release-upstream-release-job
     type: release
+    bump: beta
     steps:
       - IN: release-from-upstream-release-node-img-manifest-job
       - IN: release-from-upstream-release-java-img-manifest-job
       - IN: upstream-release-version
-      - TASK: managed
-        bump: beta
     flags:
       - release-from-upstream-release-jobs
 ```
@@ -88,10 +87,9 @@ This results in the version of the upstream release job being fed as input to it
 
     - name: release-from-upstream-release-downstream-release-job
       type: release
+      bump: rc
       steps:
         - IN: release-from-upstream-release-deploy-ecs-job
-        - TASK: managed
-          bump: rc
       flags:
         - release-from-upstream-release-jobs
 ```

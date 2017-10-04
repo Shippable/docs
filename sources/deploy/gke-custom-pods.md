@@ -74,6 +74,6 @@ resources:
 ```
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
-If you've completed the basic scenario, you've already done everything required to support these options.  Just update your replicationController.yaml to include any additional settings you'd like, and update your cluster via `kubectl` commands. Refer directly to the kubernetes documentation for all possible available options.
+If you've completed the basic scenario, you've already done everything required to support these options.  Just update your replicationController.yaml to include any additional settings you'd like, and update your cluster via `kubectl` commands. Refer directly to the Kubernetes documentation for all possible available options.

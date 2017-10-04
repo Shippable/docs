@@ -89,7 +89,7 @@ resources:
       namespace: "prod"
 
 ```
-Notice how the cluster is actually the same, but the namespace field has changed. This is the recommended way to create separation on kubernetes.  Namespaces are isolated, so it's rarely necessary to create extra clusters.
+Notice how the cluster is actually the same, but the namespace field has changed. This is the recommended way to create separation on Kubernetes.  Namespaces are isolated, so it's rarely necessary to create extra clusters.
 
 Finally, lets add two deploy jobs. The first one (beta) should take the beta params, beta cluster, and the manifest as `IN` statements.  The second deploy job (prod) should take the beta deploy job, prod params, and prod cluster as `IN` statements.
 
@@ -253,6 +253,6 @@ Now, switch back to your SPOG view, right-click the production deploy job, and c
 
 ## Unmanaged deployments
 
-In an unmanaged scenario, you'll be using a runCLI job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
 For unmanaged jobs, you can run your kubectl and gcloud commands against any cluster and region that you want.

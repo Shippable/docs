@@ -168,6 +168,6 @@ Depending on how many manifests you're deploying, you should notice a significan
 
 ## Unmanaged Deployments
 
-In an unmanaged scenario, you'll be using a runCLI job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with a GKE cliConfig [as described in the unmanaged section of our basic scenario](./gke#unmanaged-deployments).
 
 From that starting point, there are no pre-built deployment strategies for GKE for unmanaged jobs, however the power and flexibility of Shippable Assembly Lines is available to you to script whatever deployment behavior works best for your environment.

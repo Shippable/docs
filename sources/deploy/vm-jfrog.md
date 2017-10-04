@@ -29,13 +29,13 @@ We will now proceed to implementing the jobs and resources in the workflow.
 
 They are two configuration files that are needed to achieve this usecase -
 
-* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
 
-* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
 
 These files should be committed to your source control. Step 6 of the workflow below will describe how to add the config to Shippable.
 
-## Prequisites for VMs
+## Prerequisites for VMs
 
 Since we are deploying and running a NodeJS application, preinstall nodejs, npm, and forever on each VM host.
 
@@ -43,7 +43,7 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 ###1. Define `app_file`
 
-* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/#file) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
+* **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
 * **Required:** Yes.
 * **Integrations needed:** [JFrog Artifactory](/platform/integration/jfrog-artifactory/)
 
@@ -90,7 +90,7 @@ resources:
 
 ###3. Define `app_service_def`.
 
-* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package and environment. The definition is also versioned (any change to the inputs of the manifest creates a new semantic version of the manifest) and is immutable.
+* **Description:** `app_service_def` is a [manifest](/platform/workflow/job/manifest) job used to create a service definition of a deployable unit of your application. The service definition consists of the application package and environment. The definition is also versioned (any change to the inputs of the manifest creates a new version of the manifest) and is immutable.
 * **Required:** Yes.
 
 **Steps**
@@ -108,10 +108,10 @@ jobs:
 
 ###4. Define `app_cluster`.
 
-* **Description:** `app_cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed to. In our example, the cluster points to two AWS EC2 machines.
+* **Description:** `app_cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed. In our example, the cluster points to two AWS EC2 machines.
 * **Required:** Yes.
 * **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
-In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application to.
+In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application.
 
 **Steps**
 
@@ -162,16 +162,15 @@ jobs:
 
 ```
 
-  In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
+In this case, we know that files are copied to a specific location on the host, and that is the `/tmp/shippable` directory.  From that point, there will be a directory named after the `deploy` job, and one or more directories inside that folder named for each manifest being deployed.  In this case, we're using the names of our resources to build the path to the downloaded file.
 
-  Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
+Since our application is written in nodejs, we're using foreverjs to run the process in the background.  After extracting our package, we stop any existing running forever scripts, and then we start our application.
 
-  **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
-
+**You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
 ###6. Import configuration into your Shippable account.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 

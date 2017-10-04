@@ -4,7 +4,7 @@ sub_section: Provisioning with Ansible
 
 # Digital Ocean with Ansible
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
-infrastructure on [Digital Ocean](https://www.digitalocean.com/). You would do so with a `runCLI` or
+infrastructure on [Digital Ocean](https://www.digitalocean.com/). You would do so with a
 `runSh` job. Both of those jobs have ansible command line tools and [digital ocean module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#digital-ocean) requirements (python >= 2.6 and dopy) installed already.
 
 ##Setup
@@ -33,9 +33,9 @@ resources and jobs:
     *  **cliConfig** - to configure the default digital ocean cli settings
     *  **gitRepo** - contains your Ansible scripts
 -  jobs
-    *  **runCLI** - for executing your Ansible scripts
+    *  **runSh** - for executing your Ansible scripts
 
-in `shippable.resources.yml`, define the following resources to be used as
+In `shippable.resources.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -53,13 +53,13 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute Ansible
+in `shippable.jobs.yml`, define the following job in order to execute
 an Ansible playbook to provision on digital ocean from your pipeline:
 
 ```yaml
 # job to execute Ansible script to provision droplets
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myGithubRepo
       - IN: myDOCliConfig
@@ -70,7 +70,7 @@ an Ansible playbook to provision on digital ocean from your pipeline:
             ansible-playbook -v digital-ocean-provision.yml
 ```
 
-`myGithubRepo` git repository should contain `digital-ocean-provision.yml` which should be a valid ansible playbook having a provisioning task for digital ocean. Example of `digital-ocean-provision.yml` might be
+`myGithubRepo` git repository should contain `digital-ocean-provision.yml` which should be a valid Ansible playbook with a provisioning task for Digital Ocean. Example of `digital-ocean-provision.yml` might be
 
 ```yaml
 - name: Digital Ocean Cloud Provision
@@ -87,10 +87,10 @@ an Ansible playbook to provision on digital ocean from your pipeline:
         image_id: "ubuntu-16-04-x64"
 ```
 
-In our `runCLI` job, `IN: myDOCliConfig` gives an environment variable named `MYDOCLICONFIG_INTEGRATION_APITOKEN` that will be having the API token specified in the Digital Ocean integration. Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case.
+In our `runSh` job, `IN: myDOCliConfig` gives an environment variable named `MYDOCLICONFIG_INTEGRATION_APITOKEN` that will have the API token specified in the Digital Ocean integration. Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores removed.
 
 ### Create timed Ansible pipeline job
-To schedule a Pipeline job to automatically execute an Ansible playbook on a
+To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
 `shippable.resources.yml`:
@@ -106,7 +106,7 @@ recurring basis, add a `time` resource.
 ```yaml
 # job to execute Ansible script to provision droplet
   - name: myProvisionJob
-    type: runCLI
+    type: runSh
     steps:
       - IN: myNightlyTrigger
 ```

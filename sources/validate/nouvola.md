@@ -9,7 +9,7 @@ performance tests on your application using a third party tool.
 
 [**Nouvola**](http://www.nouvola.com/) is a popular third-party service that offers real-world performance & load testing for web, mobile, API and IoT apps so developers, DevOps and engineering managers can release better code faster
 
-You can automatically trigger your test suite authored in Nouvola, after your application has been deployed using Shippable. This tutorial demonstrates how to run Nouvola test plans using [runSH](/platform/workflow/job/runsh/) jobs on a service you have already deployed.
+You can automatically trigger your test suite authored in Nouvola, after your application has been deployed using Shippable. This tutorial demonstrates how to run Nouvola test plans using [runSh](/platform/workflow/job/runsh/) jobs on a service you have already deployed.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ resources:
         secure: QbUdwdZzHSnFlKPxcsjJMp/qyICw4DPa2+VkqG9G42rYGCIAbecTVdIC933mljlJ1Z+OKhxk2zEevrczi7FxqLR+ts16AtvXHgRgwdmLLWmxX3trjfXDSWXOE5+GNHYmaZOQLm8qQjouogP8Kkx8njYj9Uut4ONaNZUsHvVroVSyfwiPktyKjQP8iEIzaV/Jb1wWwLHsDf1n4GaCcbm1VuloxoNuJkG5VftcnMqULWyN9YeZTxQ43PiflTWFqBHV9hPpbVU+N5Jt1kGfhBlj6FdiIiB69KrXXd/ooBwz7UuuNgPyXEjZtUC0tp0CzZlovnNPBdrMRiZ/yE1ZgbuDbQ==
 ```
 5. You can find the Plan ID in the test plan page, in parenthesis (xxx), next to the test Name in the Nouvola dashboard.
-6. We are going to call a script that executes Nouvola API calls in our runSH job. In order to do so, we need to also specify our repository as a resource in the shippable.resources.yml file.
+6. We are going to call a script that executes Nouvola API calls in our runSh job. In order to do so, we need to also specify our repository as a resource in the shippable.resources.yml file.
 
 ```
 # GitHub repo holding scripts to be used in runsh pipeline job
@@ -94,9 +94,9 @@ you will see something like this in your console -
 
 The build will complete when status transitions from Waiting->Starting->Working->Analyzing->Emailed.
 
-## Connecting the runSH job to your deploy job in the pipeline
+## Connecting the runSh job to your deploy job in the pipeline
 
-If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSH job to your deploy job. We will connect the deploy job specified in[ECS deploy](/deploy/cd_of_single_container_applications_to_orchestration_platforms/) using an OUT directive.
+If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in[ECS deploy](/deploy/cd_of_single_container_applications_to_orchestration_platforms/) using an OUT directive.
 
 ```
   - name: deploy-ecs-basic-deploy

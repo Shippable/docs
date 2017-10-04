@@ -15,9 +15,9 @@ Managed jobs maintain their own state, and it cannot be customized.  To set envi
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
-Managing state and utilizing ENVs is a critical part of writing robust runCLI and runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
+Managing state and utilizing ENVs is a critical part of writing robust runSh scripts. This section will give a simple example of using state and ENVs to deploy to two Amazon ECS environments.
 
 First, we'll need an image to deploy.  This image will be updated automatically via Shippable CI.  You can check the [documentation](../ci/trigger-pipeline-jobs) for instructions on how to set that up.
 
@@ -31,12 +31,12 @@ resources:
       versionName: master.7
 ```
 
-Now we should add this image as an IN to our runCLI job.
+Now we should add this image as an IN to our runSh job.
 
 ```
 jobs:
   - name: myCustomDeployment
-    type: runCLI
+    type: runSh
     steps:
       - IN: MyAwsConfig
       - IN: MyAppImage
@@ -47,7 +47,7 @@ jobs:
 
 ### Environment Variables
 
-By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runCLI job so that we can see what is available.
+By adding resources as `IN` steps, we have automatic access to several environment variables that will be useful for writing generic scripts.  Let's look at an excerpt of a printenv from this runSh job so that we can see what is available.
 
 Resource-specific ENVs always start with the resource name. Job specific ENVs always start with the word `JOB`.  Shippable-added ENVs are always in all caps.
 
@@ -120,11 +120,11 @@ version:
     desiredCount: 1
 ```
 
-Then add it as an OUT of one runCLI job that determines what the value should be, like this:
+Then add it as an OUT of one runSh job that determines what the value should be, like this:
 
 ```
 name: MyLoadChecker
-type: runCLI
+type: runSh
 steps:
   - IN: MyAwsConfig
   - IN: MyECSCluster
@@ -141,7 +141,7 @@ Now, you'll want a second job that uses the `params` resource as an IN step.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: MyAwsConfig
   - IN: MyECSCluster
@@ -176,15 +176,15 @@ You don't have to rely on other resources to transfer information from one job t
 
 Instead of writing to a `<resourceName>.env` file, just write any file you want to that same state directory, and use the job itself as input to the next job.
 
-Here's an example of a runCLI job that takes another job as IN, and references the previous job's state directory.
+Here's an example of a runSh job that takes another job as IN, and references the previous job's state directory.
 
 ```
 name: MyServiceUpdater
-type: runCLI
+type: runSh
 steps:
   - IN: MyAwsConfig
   - IN: MyECSCluster
-  - IN: MyLoadChecker  #another runCLI job
+  - IN: MyLoadChecker  #another runSh job
   - TASK:
     - script: ls $MYLOADCHECKER_STATE
     - script: JSON_FILE=$MYLOADCHECKER_STATE/taskdefinitions/sample.json

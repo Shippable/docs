@@ -287,7 +287,7 @@ To enable caching, navigate to the `Build configuration` section in the `Configu
 ###9. Setup System or BYON node.
 * After step 7, login to Shippable Server as super user account.
 * If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
-setup the system or custom nodes to run your builds as well as runSh, and runCLI jobs.
+setup the system or custom nodes to run your CI and runSh jobs.
 * System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
 * To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
 * To setup System nodes, click on Admin -> Nodes -> System and click on '+' button. Follow the instructions

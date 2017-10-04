@@ -32,6 +32,6 @@ Upgrade and replace deployments expect `deployName` to be present during the fir
 
 ## Unmanaged
 
-In an unmanaged scenario, you'll be using a runCLI job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
+In an unmanaged scenario, you'll be using a runSh job with an AWS cliConfig [as described in the unmanaged section of our basic scenario](./amazon-ecs#unmanaged-deployments).
 
 Name of the task definition can be given in the taskDefinition.json and service name could be changed via `--service` option in aws command line.
