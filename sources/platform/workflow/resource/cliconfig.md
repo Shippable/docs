@@ -23,7 +23,7 @@ resources:
 * **`type`** -- is set to `cliConfig`
 
 * **`integration`** -- name of the subscription integration. Currently supported integration types are:
-	* [Amazon ECR](/platform/integration/aws-ecr)
+	* [Amazon ECR](/platform/integration/aws-keys)
 	* [Docker Hub](/platform/integration/docker-hub)
 	* [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 	* [Docker Private Registry](/platform/integration/docker-private-registry)

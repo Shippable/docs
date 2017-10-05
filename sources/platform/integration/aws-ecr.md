@@ -1,6 +1,7 @@
 page_main_title: Amazon ECR
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Amazon ECR integration
 
 # Amazon ECR integration (Deprecated)
