@@ -383,8 +383,8 @@ The usual workflow for a pull request is:
 * The pull request is merged. This will trigger a build if the destination (base) branch is enabled on Shippable.
 
 ---
-### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](/platform/integration/aws-keys), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+### How do I specify a region while setting up AWS Keys Integration for ECR?
+When you set up the [AWS keys integration](/platform/integration/aws-keys), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:

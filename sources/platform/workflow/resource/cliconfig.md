@@ -23,7 +23,7 @@ resources:
 * **`type`** -- is set to `cliConfig`
 
 * **`integration`** -- name of the subscription integration. Currently supported integration types are:
-	* [Amazon ECR](/platform/integration/aws-keys)
+	* [AWS Keys](/platform/integration/aws-keys)
 	* [Docker Hub](/platform/integration/docker-hub)
 	* [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 	* [Docker Private Registry](/platform/integration/docker-private-registry)
@@ -34,10 +34,22 @@ resources:
 	* [Quay](/platform/integration/quay)
 
 * **`pointer`** -- is an object that contains integration specific properties
-	* For an Amazon ECR integration:
+	* For an AWS integration:
 
 	        pointer:
 	           region: <AWS region, e.g., us-east-1, us-west-1, etc.>
+
+      * If you need the CLI to also configure ECR, you need to pass it in as a scope in the job. Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: aws-keys-integration
+                    scopes:
+                      - ecr
+                  - TASK:
+                    - script: ls
 
 	* For Google integrations, if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster. If not provided, just the authentication to Google Cloud is done automatically.
 
@@ -56,7 +68,7 @@ integration. Here is a list of the tools configured for each integration type:
 | Integration Type                    | Configured Tools           |
 | ------------------------------------|-------------|
 | AWS                                 | [AWS CLI](/platform/runtime/cli/aws); [AWS Elastic Beanstalk CLI](/platform/runtime/cli/awseb) |
-| Amazon EC2 Container Registry (ECR) | [Docker Engine](/platform/runtime/cli/docker) |
+| AWS with `ecr` scope                | [Docker Engine](/platform/runtime/cli/docker) |
 | Docker Hub                          | [Docker Engine](/platform/runtime/cli/docker) |
 | Docker Private Registry             | [Docker Engine](/platform/runtime/cli/docker) |
 | Docker Trusted Registry             | [Docker Engine](/platform/runtime/cli/docker) |
