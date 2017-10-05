@@ -132,7 +132,7 @@ resources:
 
 * **Required:** Yes.
 
-* **Integrations needed:** [Amazon ECR](/platform/integration/aws-ecr).
+* **Integrations needed:** [Amazon ECR](/platform/integration/aws-keys).
 
     The integration defines the AWS key/secret pair that Shippable platform will use to communicate with EB on our behalf. Make sure that the key has appropriate permissions for the different actions required for EB deployments.
 

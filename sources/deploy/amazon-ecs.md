@@ -67,7 +67,7 @@ These files should be committed to your source control. Step 5 of the workflow b
 1. Create an account integration for Amazon ECR in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Amazon ECR integration](/platform/integration/aws-ecr/)
+    * [Amazon ECR integration](/platform/integration/aws-keys/)
 
     Copy the friendly name of the integration.
 
@@ -133,7 +133,7 @@ resources:
 
 ###4. Create deployment job
 
-* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container. 
+* **Description:** `app_deploy_job` is a [deploy](/platform/workflow/job/deploy) job that actually deploys the application manifest to the cluster and starts the container.
 * **Required:** Yes.
 
 **Steps**

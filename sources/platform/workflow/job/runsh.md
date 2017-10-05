@@ -85,8 +85,8 @@ Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools|
 | ------------------------------------|-------------|
-| [AWS](/platform/integration/aws) | [AWS](/platform/runtime/cli/aws) & [Elastic Beanstalk](/platform/runtime/cli/awseb) |
-| [AWS ECR](/platform/integration/aws-ecr) | [Docker](/platform/runtime/cli/docker) |
+| [AWS](/platform/integration/aws-keys) | [AWS](/platform/runtime/cli/aws) & [Elastic Beanstalk](/platform/runtime/cli/awseb) |
+| [AWS ECR](/platform/integration/aws-keys) | [Docker](/platform/runtime/cli/docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/cli/azure) |
 | [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/cli/docker) |
 | [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/cli/docker) |

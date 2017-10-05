@@ -1,9 +1,17 @@
 page_main_title: Amazon ECR
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Amazon ECR integration
 
-# Amazon ECR integration
+# Amazon ECR integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called ["AWS Keys"](/platform/integration/aws-keys) has been introduced which can be used instead. It aims to simplify and unify existing AWS functionalities.
+
+If you have any existing ECR integrations you _can_ continue to use them. New integrations of type ECR _cannot_ be created anymore.
+
+---
 
 The **Amazon ECR** Integration is used to connect Shippable DevOps Assembly Lines platform to [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/) so that you can pull and push Docker images.
 

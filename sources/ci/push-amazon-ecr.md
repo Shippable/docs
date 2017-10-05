@@ -13,8 +13,8 @@ Before you start, you will need to connect your Amazon account with Shippable so
 #### Generating access keys for Amazon ECR
 - To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
-#### Adding Amazon ECR Integration to your Shippable Account
-- Follow the steps [here](/platform/integration/aws-ecr/#amazon-ecr-integration).
+#### Adding Amazon Keys integration to your Shippable Account
+- Follow the steps [here](/platform/integration/aws-keys).
 
 ##Basic config
 
@@ -27,12 +27,12 @@ build:
 
 integrations:
   hub:
-    - integrationName: ecr-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your integration name
       region: us-east-1                   #replace with your AWS region
       type: ecr
 ```
 
-You can replace your ecr-integration, aws-account-id, region, image-name and image-tag as required in the snippet above.
+You can replace your aws-keys-integration, aws-account-id, region, image-name and image-tag as required in the snippet above.
 
 ## Advanced config
 
@@ -47,7 +47,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: ecr-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
       branches:
@@ -69,14 +69,14 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-ecr    #replace with your integration name
+    - integrationName: master-aws-keys    #replace with your integration name
       type: ecr
       region: us-east-1              #replace with your AWS region
       branches:
         only:
           - master
 
-    - integrationName: dev-ecr    #replace with your integration name
+    - integrationName: dev-aws-keys    #replace with your integration name
       type: ecr
       region: us-east-1           #replace with your AWS region
       branches:
@@ -85,7 +85,7 @@ integrations:
 
 ```
 
-###Pushing the CI container with all artifacts intact
+### Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to Amazon ECR and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
 
@@ -98,7 +98,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: ecr-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
 ```
@@ -118,7 +118,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: ecr-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
 ```
@@ -134,7 +134,7 @@ You can solve this in 2 ways:
 ```
 integrations:
   hub:
-    - integrationName: ecr-integration  #replace with your integration name
+    - integrationName: aws-keys-integration  #replace with your integration name
       type: ecr
       region: us-east-1                 #replace with your AWS region
       agent_only: true

@@ -24,9 +24,9 @@ If you do not have GitHub account, you can also use Bitbucket and follow these i
 
 Login to [Shippable](http://www.shippable.com) using your GitHub credentials.
 
-###3. Create the ECR integration
+###3. Create the AWS Keys Integration
 
-- Create an ECR Integration following the directions [here](/ci/push-amazon-ecr/#setup) and name the integration dr-ecr. If you choose
+- Create an AWS Keys integration following the directions [here](/ci/push-amazon-ecr/#setup) and name the integration dr-ecr. If you choose
 a different name, replace dr-ecr with your integration name in the `shippable.resources.yml` file.
 
 - Create the deploy-ecs-basic repository in your AWS account.

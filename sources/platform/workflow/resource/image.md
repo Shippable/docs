@@ -14,6 +14,7 @@ resources:
     type:           image
     integration:    <string>
     pointer:        <object>
+    seed:           <object>
 ```
 
 * **`name`** -- should be an easy to remember text string
@@ -21,7 +22,7 @@ resources:
 * **`type`** -- is set to `image`
 
 * **`integration`** -- name of the subscription integration. Currently supported integration types are
-	- [Amazon Elastic Container Registry (ECR)](/platform/integration/aws-ecr)
+	- [AWS Keys](/platform/integration/aws-keys)
 	- [Docker Hub](/platform/integration/docker-hub)
 	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 	- [Docker Private Registry](/platform/integration/docker-private-registry)

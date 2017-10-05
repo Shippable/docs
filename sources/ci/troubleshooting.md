@@ -384,7 +384,7 @@ The usual workflow for a pull request is:
 
 ---
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](/platform/integration/aws-ecr/#amazon-ecr-integration), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [Amazon ECR integration](/platform/integration/aws-keys), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:
