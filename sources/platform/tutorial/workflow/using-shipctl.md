@@ -6,7 +6,8 @@ page_title: shipctl - DevOps Assembly Line Jobs
 page_description: How to use shipctl
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# shipctl
+# Using the shipctl utility
+
 This is a command utility that is available in both [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) jobs. This is used to perform common operations like getting the path of where state files are stored; getting the config value of the integration used in a Resource and so on.
 
 These are the current functions that can be used in your tasks

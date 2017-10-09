@@ -5,26 +5,43 @@ page_title: AWS Keys Integration
 
 # AWS Keys Integration
 
-Available under the integration family: **Generic**
+AWS Keys integration is used to connect Shippable to AWS services, such as:
 
-AWS Keys integration is used to connect Shippable to the AWS services like ECR, ECS, EC2, S3 etc.
+* [ECR](https://aws.amazon.com/ecr/)
+* [ECS](https://aws.amazon.com/ecs/)
+* [EC2](https://aws.amazon.com/ec2/)
+* [S3](https://aws.amazon.com/s3/)
+* Any other service that needs AWS Access and Secret keys to connect
 
-You can create this from the integrations page by following instructions [here](/platform/management/integrations/#adding-an-account-integration).
+## Adding account integration
 
-This is the information you would require to create this integration:
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
 
-* **Name**: A friendly name for the integration
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Generic**
+* **Integration type** -- **AWS Keys**
+* **Name** -- choose a friendly name for the integration
 * **Access Key**: Access key obtained from AWS
 * **Secret Key**: Secret key obtained from AWS
 
-## Resource That Use This Integration
-Resources are the building blocks of "Assembly Lines" and some types of resources refer to integrations by their names.
+## Usage in CI
 
-The following resource types can be created with an AWS Keys integration:
+* [Using a custom image for CI](/ci/custom-docker-image/)
+* [Pushing artifacts to Amazon ECR](/ci/push-amazon-ecr/)
+
+## Usage in Assembly Lines
+
+The AWS Keys integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [image](/platform/workflow/resource/image)
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
+
+The following scenarios need this integration:
+
+* All [Deploy to Container Orchestration Platforms](/deploy/deploy-docker-overview/) scenarios if you're deploying to Amazon ECS
+* Tutorial: [Deploying a Docker application to Amazon ECS](/deploy/amazon-ecs/)
 
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when a resource with this integration type is used.

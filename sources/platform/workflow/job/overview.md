@@ -127,7 +127,7 @@ Shippable supports the following jobs types:
 
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
-# Further Reading
+## Further Reading
 * [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)
 * [Resources](/platform/workflow/resource/overview)
