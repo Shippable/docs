@@ -4,10 +4,18 @@ sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Share data between Jobs
 
-# state
-A `state` resource type is used to create a central state that can be used across the entire pipelines. This resource can be used as IN and OUT step for [any job](/platform/workflow/job/overview/).
+# Sharing data between jobs
 
-You can create this resource by adding it to `shippable.resources.yml`
+A `state` resource type is used to create a central state that can be used across the entire Assembly Line. This central state can be anything from a file location, to
+
+
+This resource can be used as IN and OUT step for [any job](/platform/workflow/job/overview/).
+
+## Instructions
+
+### Step 1: Add a state resource
+
+You can create a `state` resource by adding it to `shippable.resources.yml`:
 
 ```
 resources:
@@ -19,7 +27,11 @@ resources:
 
 * `type` is always set to 'state'.
 
-You can use the state resource as an input and output for multiple jobs to maintain a common state.
+### Step 2: Use state as IN/OUT for jobs
+
+You can use the state resource as an input and output for multiple `runSH` or `runCI` jobs to maintain a common state. Any job that requires the state in order to execute should take the state resource as an `IN`, and any job that writes to the state should have the state resource as an `OUT`.
+
+For example, both `tfDeploy-1` and `tfDeploy-2` have the same state resource as IN and OUT in the snippet below:
 
 ```
 jobs:
@@ -44,17 +56,20 @@ jobs:
       - OUT: res-state
 
 ```
-* Updating the resource version for `type: state` will not trigger subsequent jobs.
 
-The tfDeploy1.sh script will be extracting the central state and also will be saving the new state file whenever created.
-The script will look something like this
+### Step 3: Set the resource value in your jobs
+
+Please note that you will need to handle the actual update of the resource in your scripts in the `TASK` section.
+
+For example, the tfDeploy1.sh script below extracts values from `res-state` and saves the new state file, whenever created:
+
 
 ```
 #Extract central state
 echo -e "\n*** extracting central state for this job ***"
 get_central_statefile() {
-  local central_statefile_location="/build/IN/res-state/state"
-  if [ -f "$central_statefile_location" ]; then
+  local central_statefile_location="$(shipctl get_resource_state res-state)"  #extract the current value from res-state resource
+  if [ -f "$central_statefile_location" ]; then                 # if state is found, set
     cp $central_statefile_location /build/IN/repo-tfScripts/gitRepo
     echo 'restored central statefile'
   else
@@ -67,6 +82,7 @@ get_central_statefile
 echo -e "\n*** provisioning infrastructure on AWS ***"
 provision_infra() {
   cd /build/IN/repo-tfScripts/gitRepo
+  repoPath="$(shipctl get_resource_state repo-tfScripts)"
   export AWS_ACCESS_KEY_ID=$aws_access_key_id
   export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
   export AWS_DEFAULT_REGION=$REGION
@@ -83,5 +99,7 @@ createOutStateRes() {
 createOutStateRes
 ```
 
-* When tfDeploy-1 job is completed, there is an state resource as an OUT, which will update the files in the resource and save the state files.
-* Since the state resource is also an input to tfDeploy-2. When Job 2 will be triggered we will fetch the latest state files for the state resource based on the version being used and on completion of tfDeploy-2 job, we will again do an OUT on the same state resource to update the files.
+* The `tfDeploy-1` job writes to the state resource `res-state`, which is set as an `OUT` for the job.
+* The `tfDeploy-2` job has the `res-state` resource as an `IN`, so it consumes the information from the resource and then also writes to it since it's also an `OUT` resource.
+* This information is then consumed by  `tfDeploy1` and so on...
+* **Updating the resource version for `type: state` will not trigger subsequent jobs.**

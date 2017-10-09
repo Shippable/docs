@@ -4,7 +4,7 @@ sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Share data between Jobs
 
-###Replicating an input to OUT resources
+#Replicating an IN resource to an OUT
 
 You might want to update a resource with a copy of another resource in your job.  For example, if you have two image resources and want to update the second with the same tag as the first at the end of your job.  To do this, you can use the `replicate` option.
 

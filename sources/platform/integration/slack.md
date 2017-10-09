@@ -22,7 +22,7 @@ Here is the information you need to create this integration:
 
 * [Sending Slack notifications](/ci/slack-notifications/)
 
-### Usage in Assembly Lines
+## Usage in Assembly Lines
 
 The Slack integration can be used in the following [resources](/platform/workflow/resource/overview/):
 

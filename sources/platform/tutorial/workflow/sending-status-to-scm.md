@@ -6,7 +6,7 @@ page_title: DevOps Assembly Line Jobs
 page_description: How to add, delete and update jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-## Status notifications for Pull Requests
+# Status notifications for Pull Requests
 
 If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runSh` job, you can see the job status for pull requests to your git repository .
 

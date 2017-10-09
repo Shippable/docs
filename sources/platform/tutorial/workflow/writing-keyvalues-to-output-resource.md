@@ -4,7 +4,7 @@ sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Share data between Jobs
 
-###Updating versions for an OUT resource
+# Updating versions for an OUT resource
 
 Resource updates for `OUT` resources are automatically handled by managed jobs, but custom jobs need to update these resources as part of their custom scripts. Updating these `OUT` resources is essential to trigger subsequent portions of your deployment pipeline.
 
