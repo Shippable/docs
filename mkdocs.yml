@@ -277,7 +277,7 @@ pages:
       - Node Cluster: platform/integration/node-cluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Private Registries: platform/integration/docker-private-registry.md
-      - Quay.io: platform/integration/quay.md
+      - Quay.io: platform/integration/quayLogin.md
       - Slack: platform/integration/slack.md
       - SSH Keys: platform/integration/sshKey.md
       - Deprecated:
@@ -286,6 +286,7 @@ pages:
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
         - SSH Keys: platform/integration/key-ssh.md
+        - Quay.io: platform/integration/quay.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:

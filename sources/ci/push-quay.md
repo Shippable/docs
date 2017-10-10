@@ -22,7 +22,7 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 -  **Authorize Application** and copy the **Access Token**.
 
 #### Adding Quay.io Integration to your Shippable Account
-- Follow the steps outlined [here](/platform/integration/quay/).
+- Follow the steps outlined [here](/platform/integration/quayLogin/).
 
 ##Basic config
 
@@ -36,7 +36,7 @@ build:
 integrations:
   hub:
     - integrationName: quay-integration    #replace with your integration name
-      type: quay.io
+      type: quayLogin
 ```
 
 You can replace your quay-integration, organization, repository-name and image-tag as required in the snippet above.
@@ -55,7 +55,7 @@ G  post_ci:
 integrations:
   hub:
     - integrationName: quay-integration    #replace with your integration name
-      type: quay.io
+      type: quayLogin
       branches:
         only:
           - master
@@ -76,13 +76,13 @@ build:
 integrations:
   hub:
     - integrationName: master-quay    #replace with your integration name
-      type: quay.io
+      type: quayLogin
       branches:
         only:
           - master
 
     - integrationName: dev-quay    #replace with your integration name
-      type: quay.io
+      type: quayLogin
       branches:
         only:
           - dev
@@ -103,7 +103,7 @@ build:
 integrations:
   hub:
     - integrationName: quay-integration    #replace with your integration name
-      type: quay.io
+      type: quayLogin
 ```
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
@@ -122,7 +122,7 @@ build:
 integrations:
   hub:
     - integrationName: quay-integration    #replace with your integration name
-      type: quay.io
+      type: quayLogin
 
 ```
 

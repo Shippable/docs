@@ -27,7 +27,7 @@ resources:
 	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 	- [Docker Private Registry](/platform/integration/docker-private-registry)
 	- [Google Container Registry (GCR)](/platform/integration/gcr)
-	- [Quay.io](/platform/integration/quay)
+	- [Quay.io](/platform/integration/quayLogin)
 
 * **`pointer`** -- is an object that contains integration specific properties
 

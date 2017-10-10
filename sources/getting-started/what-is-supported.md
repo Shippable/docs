@@ -136,7 +136,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 - [AWS Elastic Container Registry](/platform/integration/aws-keys)
 - [Google Container Registry](/platform/integration/gcr)
-- [Quay](/platform/integration/quay)
+- [Quay](/platform/integration/quayLogin)
 - [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 - [AWS S3](/platform/integration/aws-keys)
 
