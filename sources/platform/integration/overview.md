@@ -45,7 +45,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Docker Private Registry](/platform/integration/docker-private-registry)
 - [Google Container Registry](/platform/integration/gcr)
 - [Quay](/platform/integration/quay)
-- [JFrog](/platform/integration/jfrog-artifactory)
+- [JFrog](/platform/integration/jfrog-artifactoryKey)
 
 ## Supported SCM Integrations
 
