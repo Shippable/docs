@@ -48,7 +48,7 @@ Whenever `integration` is used as an `IN` or `OUT` for a `runSh` or `runCI` job,
 
 * If the integration is of type [Key-Value pair](/platform/integration/key-value), the key-values are exported as-is without adding `RESOURCENAME_INTEGRATION_` in the key name. They act like [params](/platform/workflow/resource/params) resources, but are stored encrypted for security reasons.
 
-* If the integration of type [ssh-key](/platform/integration/key-ssh) or [pemKey](/platform/integration/pemKey) is used, the environment variable will mess up the key structure due to carriage returns. Hence the platform will extract the private key into a file and puts the location in the environment variable below.
+* If the integration of type [sshKey](/platform/integration/sshKey) or [pemKey](/platform/integration/pemKey) is used, the environment variable will mess up the key structure due to carriage returns. Hence the platform will extract the private key into a file and puts the location in the environment variable below.
 
 	| Environment variable        |  Description                               |
 	|-----------------------------|--------------------------------------------|

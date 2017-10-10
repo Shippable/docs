@@ -65,7 +65,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 - [Key-Value Pair](/platform/integration/key-value)
 - [PEM keys](/platform/integration/pemKey)
-- [SSH keys](/platform/integration/key-ssh)
+- [SSH keys](/platform/integration/sshKey)
 - [Digital Ocean](/platform/integration/do)
 - [Google Cloud](/platform/integration/gce)
 - [Event Trigger](/platform/integration/event-trigger)

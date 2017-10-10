@@ -279,12 +279,13 @@ pages:
       - Private Registries: platform/integration/docker-private-registry.md
       - Quay.io: platform/integration/quay.md
       - Slack: platform/integration/slack.md
-      - SSH Keys: platform/integration/key-ssh.md
+      - SSH Keys: platform/integration/sshKey.md
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
+        - SSH Keys: platform/integration/key-ssh.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:

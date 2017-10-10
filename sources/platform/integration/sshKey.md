@@ -1,15 +1,25 @@
-page_main_title: SSH Keys (Deprecated)
+page_main_title: SSH Keys
 main_section: Platform
 sub_section: Integrations
-page_title: SSH keys integration (Deprecated)
+page_title: SSH keys integration
 
-# SSH Keys Integration (Deprecated)
+# SSH Keys Integration
 
 **SSH Key** Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow SSH based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform and Ansible use this to execute scripts on a machine.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting ssh-key integrations. You can use the [sshKey](/platform/integration/sshKey) integration instead which will work exactly the same way as the deprecated ssh-key integration.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Generic**
+* **Integration type** -- **SSH key**
+* **Name** -- choose a friendly name for the integration
+* **Public Key** -- Public SSH Key
+* **Private Key** -- Private SSH Key
+
+**Note:** The SSH Key must be generated without passphrase.
 
 ## Usage in CI
 
@@ -28,7 +38,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
-| `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
+| `<NAME>`\_NAME   			| Name supplied in the integration |
 | `<NAME>`\_INTEGRATION\_PUBLICKEY		| Public Key supplied in the integration |
 | `<NAME>`\_INTEGRATION\_PRIVATEKEY		| Private Key supplied in the integration |
 | `<NAME>`\_INTEGRATION\_PUBLIC\_KEY\_PATH		| Path of a file containing the public key supplied in the integration |
