@@ -9,10 +9,10 @@ Documentation for [Shippable's Automated DevOps platform](https://www.shippable.
 ```bash
 $ git clone git@github.com:Shippable/docs.git shippable-docs
 $ cd shippable-docs
-$ ./base
+$ ./onebox
 ```
 
-Docs should be available at `localhost:5555` once the base script finishes successfully.
+Docs should be available at `localhost:5555` once the onebox script finishes successfully.
 
 
 #### Without Docker
@@ -34,4 +34,3 @@ To start documentation server at `localhost:5555`:
 (venv)$ mkdocs serve --dev-addr=localhost:5555
 ```
 This uses livereload to monitors changes to the files. Therefore as soon as you save a file, the browser is refreshed.
-
