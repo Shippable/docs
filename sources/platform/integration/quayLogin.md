@@ -26,7 +26,7 @@ Instructions to create access tokens [are here](https://docs.quay.io/glossary/ac
 ## Usage in CI
 
 * [Using a custom image for CI](/ci/custom-docker-image/)
-* [Pushing artifacts to Quay](/ci/push-to-quay/)
+* [Pushing artifacts to Quay](/ci/push-quay/)
 
 ## Usage in Assembly Lines
 

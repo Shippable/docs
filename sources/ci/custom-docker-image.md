@@ -83,7 +83,7 @@ integrations:
         - Note: For running builds on docker version 17.06.0-ce and above, make sure that the `aws` cli installed in the image is 1.11.91 version or above.
     * `gcr` for Google Container Registry (GCR)
     * `"Docker Trusted Registry"` for Docker Trusted Registry
-    * `quay` for Quay.io
+    * `quayLogin` for Quay.io
 
 
 <a name="build-image"></a>
@@ -134,6 +134,6 @@ integrations:
     * `ecr` for Amazon ECR
     * `gcr` for Google Container Registry (GCR)
     * `"Docker Trusted Registry"` for Docker Trusted Registry
-    * `quay` for Quay.io
+    * `quayLogin` for Quay.io
 
 This should configure your workflow to build `my_registry_repo/my_image` image and use it for your CI.
