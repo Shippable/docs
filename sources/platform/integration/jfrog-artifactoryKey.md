@@ -29,7 +29,6 @@ Here is the information you need to create this integration:
 The JFrog Artifactory integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [file](/platform/workflow/resource/file)
-* [image](/platform/workflow/resource/image)
 * [integration](/platform/workflow/resource/integration)
 
 ### Default Environment Variables

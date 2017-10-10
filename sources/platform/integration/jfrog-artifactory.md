@@ -20,7 +20,6 @@ Since this integration has been deprecated, you cannot create new account integr
 The JFrog Artifactory integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [file](/platform/workflow/resource/file)
-* [image](/platform/workflow/resource/image)
 * [integration](/platform/workflow/resource/integration)
 
 ### Default Environment Variables
