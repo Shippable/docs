@@ -27,7 +27,6 @@ resources:
 	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
 	- [Docker Private Registry](/platform/integration/docker-private-registry)
 	- [Google Container Registry (GCR)](/platform/integration/gcr)
-	- [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	- [Quay.io](/platform/integration/quay)
 
 * **`pointer`** -- is an object that contains integration specific properties
