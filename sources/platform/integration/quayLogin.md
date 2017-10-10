@@ -9,7 +9,19 @@ The [CoreOs Quay](https://quay.io/) Integration is used to connect Shippable Dev
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Quay.io integrations. You can use the new [Quay.io quayLogin](/platform/integration/quayLogin) instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **Quay**
+* **Name** -- choose a friendly name for the integration
+* **Username** -- login to your Quay Account
+* **Password** -- password of your Quay Account
+* **Email** -- email of your Quay Account
+* **Access Token** -- access token of your Quay Account
+
+Instructions to create access tokens [are here](https://docs.quay.io/glossary/access-token.html).
 
 ## Usage in CI
 

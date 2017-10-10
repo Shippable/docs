@@ -31,7 +31,7 @@ resources:
 	* [Google Container Engine](/platform/integration/gke)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	* [Kubernetes](/platform/integration/kubernetes)
-	* [Quay](/platform/integration/quay)
+	* [Quay](/platform/integration/quayLogin)
 
 * **`pointer`** -- is an object that contains integration specific properties
 	* For an AWS integration:

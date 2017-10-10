@@ -56,7 +56,7 @@ Follow the steps below to pull a private image:
     - [Amazon ECR](../platform/integration/aws-keys/)    
     - [GCR](../platform/integration/gcr/)
     - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
-    - [Quay](../platform/integration/quay/)      
+    - [Quay](../platform/integration/quayLogin/)      
 
 - Add the following to your `shippable.yml`
 
@@ -118,7 +118,7 @@ build:
         - [Amazon ECR](../platform/integration/aws-keys/)    
         - [GCR](../platform/integration/gcr/)
         - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
-        - [Quay](../platform/integration/quay/)      
+        - [Quay](../platform/integration/quayLogin/)      
     *  Add the integration name to your `yml`:
 
 ```

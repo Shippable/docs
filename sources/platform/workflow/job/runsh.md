@@ -98,7 +98,7 @@ Here is a list of the tools configured for each integration type:
 | [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/cli/docker) |
 | [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/cli/jfrog) |
 | [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/cli/kubectl) |
-| [Quay](/platform/integration/quay) | [Docker](/platform/runtime/cli/docker) |
+| [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/cli/docker) |
 | For all Integrations above | [Packer](/platform/runtime/cli/packer) & [Terraform](/platform/runtime/cli/terraform)|
 
 ## Default Environment Variables
