@@ -137,7 +137,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [AWS Elastic Container Registry](/platform/integration/aws-keys)
 - [Google Container Registry](/platform/integration/gcr)
 - [Quay](/platform/integration/quay)
-- [JFrog Artifactory](/platform/integration/jfrog-artifactory)
+- [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 - [AWS S3](/platform/integration/aws-keys)
 
 ### Messaging Providers

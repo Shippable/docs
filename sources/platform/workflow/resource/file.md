@@ -21,7 +21,7 @@ resources:
 * **`type`** -- is set to `file`
 
 * **`integration`** -- name of the subscription integration. Currently supported integration types are:
-	* [JFrog Artifactory](/platform/integration/jfrog-artifactory)
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 
 * **`pointer`** -- is an object that contains integration specific properties
 	* Without an integration:

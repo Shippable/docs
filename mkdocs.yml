@@ -270,7 +270,8 @@ pages:
       - HipChat: platform/integration/hipchat.md
       - IRC: platform/integration/irc.md
       - Jenkins: platform/integration/jenkins.md
-      - JFrog Artifactory: platform/integration/jfrog-artifactory.md
+      - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
+      - JFrog Artifactory(Deprecated): platform/integration/jfrog-artifactory.md
       - Joyent Triton: platform/integration/tripub.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md

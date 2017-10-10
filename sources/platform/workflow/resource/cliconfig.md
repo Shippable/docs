@@ -29,7 +29,7 @@ resources:
 	* [Docker Private Registry](/platform/integration/docker-private-registry)
 	* [Google Container Registry](/platform/integration/gcr)
 	* [Google Container Engine](/platform/integration/gke)
-	* [JFrog Artifactory](/platform/integration/jfrog-artifactory)
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	* [Kubernetes](/platform/integration/kubernetes)
 	* [Quay](/platform/integration/quay)
 

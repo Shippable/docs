@@ -45,7 +45,7 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 * **Description:** `app_file` is an [file resource](/platform/workflow/resource/file/) resource that points to the URL of your application package. In our example, we're hosting the application in an public AWS S3 bucket with object versioning.
 * **Required:** Yes.
-* **Integrations needed:** [JFrog Artifactory](/platform/integration/jfrog-artifactory/)
+* **Integrations needed:** [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey/)
 
 **Steps**  
 

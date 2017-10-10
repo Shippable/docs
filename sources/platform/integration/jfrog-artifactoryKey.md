@@ -9,7 +9,16 @@ page_title: JFrog Artifactory integration
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting JFrog artifactory integrations. You can use the [JFrog artifactoryKey](/platform/integration/jfrog-artifactoryKey) instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **JFrog Artifactory**
+* **Name** -- choose a friendly name for the integration
+* **HTTP Endpoint** -- Enter the HTTP Endpoint (URL) of your artifact repository
+* **Username** -- Username of your JFrog account
+* **Password** -- Password of your JFrog account
 
 ## Usage in CI
 
