@@ -116,7 +116,7 @@ integrations:
           - master
   key:
     - integrationName: my_custom_key
-      type: ssh-key
+      type: sshKey
 
   deploy:									# deprecated
     - integrationName: "aws-eb-integration"
@@ -216,7 +216,7 @@ integrations:
 
 	* `key` -- an SSH key integration to connect to external systems. [Read more](/ci/ssh-keys/)
 		* `integrationName` -- name of the subscription integration to use (refer to type guides)
-		* `type` -- [ssh-key](/ci/ssh-keys)
+		* `type` -- [sshKey](/ci/ssh-keys)
 
 	* `deploy` -- integration used to deploy non-container apps to Amazon Elastic Beanstalk. [Read more](/ci/deploy-to-aws-beanstalk/). To deploy Docker apps, [go here](/deploy/aws-elastic-beanstalk/)
 		* `integrationName` -- name of the subscription integration to use (refer to type guides)
