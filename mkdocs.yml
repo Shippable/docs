@@ -275,7 +275,7 @@ pages:
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/node-cluster.md
-      - PEM Keys: platform/integration/key-pem.md
+      - PEM Keys: platform/integration/pemKey.md
       - Private Registries: platform/integration/docker-private-registry.md
       - Quay.io: platform/integration/quay.md
       - Slack: platform/integration/slack.md
@@ -283,6 +283,7 @@ pages:
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - PEM Keys: platform/integration/key-pem.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
