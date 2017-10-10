@@ -1,15 +1,24 @@
-page_main_title: PEM Keys (Deprecated)
+page_main_title: PEM Keys
 main_section: Platform
 sub_section: Integrations
-page_title: PEM integration (Deprecated)
+page_title: PEM integration
 
-# PEM Key Integration (Deprecated)
+# PEM Key Integration
 
 The PEM Key Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow PEM based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform and Ansible use this to execute scripts on a machine.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting pem-key integrations. You can use the [pemKeys](/platform/integration/pemKey) integration instead which will work exactly the same way as the deprecated pem-key integration.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Generic**
+* **Integration type** -- **PEM key**
+* **Name** -- choose a friendly name for the integration
+* **Key** -- Encrypted Key in PEM format
+
+**Note:** The PEM Key must be generated without passphrase.
 
 ## Usage in CI
 

@@ -64,7 +64,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 ## Supported Miscellaneous Integrations
 
 - [Key-Value Pair](/platform/integration/key-value)
-- [PEM keys](/platform/integration/key-pem)
+- [PEM keys](/platform/integration/pemKey)
 - [SSH keys](/platform/integration/key-ssh)
 - [Digital Ocean](/platform/integration/do)
 - [Google Cloud](/platform/integration/gce)
