@@ -57,7 +57,7 @@ resources:
 	          namespace:  <optional namespace you want to deploy to>
 
 	* For Node Cluster integrations - N/A
-  * For Joyent Triton integrations,
+	* For Joyent Triton integrations,
 
 	        pointer:
 	          region: <region eg., us-east-1, us-east-2, eu-ams-1, etc.>
