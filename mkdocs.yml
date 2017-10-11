@@ -258,7 +258,6 @@ pages:
       - Docker Datacenter: platform/integration/docker-datacenter.md
       - Docker Hub: platform/integration/docker-hub.md
       - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
-      - Email: platform/integration/email.md
       - Event Trigger: platform/integration/event-trigger.md
       - Git Credential: platform/integration/git-credential.md
       - GitHub: platform/integration/github.md
@@ -287,6 +286,7 @@ pages:
         - PEM Keys: platform/integration/key-pem.md
         - SSH Keys: platform/integration/key-ssh.md
         - Quay.io: platform/integration/quay.md
+        - Email: platform/integration/email.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
