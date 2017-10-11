@@ -14,7 +14,7 @@ Since this integration has been deprecated, you cannot create new account integr
 ## Usage in CI
 
 * [Using a custom image for CI](/ci/custom-docker-image/)
-* [Pushing artifacts to Quay](/ci/push-to-quay/)
+* [Pushing artifacts to Quay](/ci/push-quay/)
 
 ## Usage in Assembly Lines
 
