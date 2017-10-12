@@ -6,7 +6,7 @@ page_title: EMail integration
 # Email Integration (Deprecated)
 
 ## Deprecation Note
-This integration has been deprecated. You can get email notifications in [CI](/ci/email-notifications.md) and [assembly lines](platform/workflow/resource/notification/) by specifying recipients in yml files.
+This integration has been deprecated. You can get email notifications in [CI](/ci/email-notifications.md) and [assembly lines](/platform/workflow/resource/notification/) by specifying recipients in yml files.
 
 If you have any existing Email integrations you _can_ continue to use them. New integrations of type Email _cannot_ be created anymore.
 
