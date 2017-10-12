@@ -3,7 +3,14 @@ main_section: Platform
 sub_section: Integrations
 page_title: EMail integration
 
-# Email Integration
+# Email Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. You can get email notifications in [CI](/ci/email-notifications.md) and [assembly lines](platform/workflow/resource/notification/) by specifying recipients in yml files.
+
+If you have any existing Email integrations you _can_ continue to use them. New integrations of type Email _cannot_ be created anymore.
+
+---
 
 The **Email** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to an email address.
 
