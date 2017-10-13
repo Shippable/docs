@@ -206,7 +206,7 @@ For example:
 build:
   ci:
     - mvn install  
-    - cp -r target shippable/codecoverage
+    - cp -r target/site/jacoco/my.package.name/source-file-name.java.html shippable/codecoverage
 ```
 
 This will allow Shippable to use additional metadata about your tests to produce more detailed reports.
