@@ -395,7 +395,6 @@ pages:
         - Caching: platform/tutorial/runtime/caching.md
         - Environment Variables: platform/tutorial/runtime/environment-variables.md
         - AMI Overview: platform/tutorial/runtime/ami-overview.md
-        - AMI v5.9.4 aarch64: platform/tutorial/runtime/ami-v594-aarch64.md
         - AMI v5.8.2: platform/tutorial/runtime/ami-v582.md
         - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
         - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
