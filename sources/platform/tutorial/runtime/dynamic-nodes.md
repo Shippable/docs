@@ -72,24 +72,6 @@ alt="Machine Image for a Subscription" style="width:800px;"/>
 
 <a name="change-machine-image"></a>
 
-## Changing the Organization/Team Architecture
-
-To select a different Machine Image:
-
--  Go to the `Settings` tab of your Subscription
--  Click on `Nodes` and select the architecture you want from the
-dropdown under the 'Architecture' section. Please note that this setting will
-affect all projects and builds in your Subscription.
-
-<img src="/images/ci/change-machine-architecture.png"
-alt="Architecture for a Subscription" style="width:800px;"/>
-
-Also currently, only x86_64 architecture
-is supported. Builds won't run on aarch64 architecture.
-
-<img src="/images/ci/dynamic-node-aarch64.png"
-alt="Architecture for a Subscription" style="width:800px;"/>
-
 ## Changing the Organization/Team Machine image
 
 To select a different Machine Image:
