@@ -181,21 +181,34 @@ To avoid executing the default command, include a simple command in like `pwd` o
 
 ###Advanced test reports
 
-When using Jacoco for code coverage, Shippable supports creating advanced test reports that provide information well beyond the typical summary.
+When using Jacoco for code coverage, you can get standard or advanced reports, depending on what you copy to the `shippable/codecoverage` folder.
 
-* You must make sure to save all of the correct output from the result of the Jacoco processing.  Typically, Jacoco creates a folder structure like `target/site/jacoco/jacoco.xml`.  For simple reporting, copying the jacoco.xml file is good enough, but for advanced reporting, Shippable requires that the whole `target` directory is copied to the `shippable/codecoverage` folder.
+Here is a basic file structure that is needed for seeing both standard and advanced jacoco reports.
+
+```
+target/
+ -- site
+     -- jacoco
+        |-- com.mycompany.app
+        |    -- App.java.html
+        |-- jacoco.xml
+```
+
+
+* For standard reports, copy `target/site/jacoco/jacoco.xml` to `shippable/codecoverage`
+
+
+* For advanced reports, copy `target/site/jacoco/your.package.name/SourceFileName.java.html` to `shippable/codecoverage`
+
+For example:
 
 ```
 build:
-  advancedReporting: true
   ci:
     - mvn install  
-    - cp -r target shippable/codecoverage
+    - cp -r target/site/jacoco/my.package.name/source-file-name.java.html shippable/codecoverage
 ```
 
 This will allow Shippable to use additional metadata about your tests to produce more detailed reports.
 
-Note:
-`advancedReporting` flag has been deprecated. All test reports will have advanced reporting turned on by default.
-
- Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
+Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
