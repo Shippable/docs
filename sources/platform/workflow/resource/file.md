@@ -4,7 +4,7 @@ sub_section: Workflow
 sub_sub_section: Resources
 
 # file
-`file` resource is a pointer to a file on an external file share. When used as an `IN` to a job, the file is downloaded and available to be used.
+`file` resource is a pointer to a file on an external file share. It can be used as an `IN` for `manifest` jobs to create a service definition with a file, or in a `runSh` job that needs the file to run scripts.
 
 You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
@@ -14,6 +14,8 @@ resources:
     type:           file
     integration:    <string>
     pointer:        <object>
+    seed:
+      versionName: <string>
 ```
 
 * **`name`** -- should be an easy to remember text string
@@ -34,12 +36,19 @@ resources:
 	        pointer:
 	          sourceName: <"repositoryName/path" of an Artifactory repository file>
 
+* **`seed`** -- is an object that can contain any information that's relevant to the file. For example, the commitSHA.
+
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs:
 
-* [deploy](/platform/workflow/job/deploy)
-* [runSh](/platform/workflow/job/runsh)
-* [manifest](/platform/workflow/job/manifest)
+* [manifest](/platform/workflow/job/manifest): Creating a service definition when your package is a file like a JAR/WAR file for example
+* [runSh](/platform/workflow/job/runsh): If your scripted job needs a file hosted on Artifactory.
+
+## Used in scenarios
+
+* [Deploying an application to a VM Cluster from AWS S3](/deploy/vm-basic/)
+* [Deploying an application to multiple VM Clusters from AWS S3](/deploy/vm-multiple-environments/)
+* [Deploying an application to a VM Cluster from a JFrog Artifactory repository](/deploy/vm-jfrog/)
 
 ## Default Environment Variables
 Whenever `file` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

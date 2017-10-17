@@ -53,9 +53,10 @@ pages:
       - Selenium: ci/selenium.md
       - SQLite: ci/sqlite.md
     - Building and testing your project:
-      - Configuring your CI: ci/build-and-test.md
+      - Configuring CI commands: ci/build-and-test.md
       - Running tests in parallel: ci/parallelize-tests.md
-      - Status code: ci/build_status.md
+      - Building Docker images: ci/build-docker-images.md
+      #- Status code: ci/build_status.md
     - Configuring test/code coverage:
       - Basic config: ci/test-code-coverage-reports.md
       - JaCoCo reports: ci/jacoco-reports.md
