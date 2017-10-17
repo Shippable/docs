@@ -267,7 +267,6 @@ pages:
       - Google Container Engine: platform/integration/gke.md
       - Google Container Registry: platform/integration/gcr.md
       - HipChat: platform/integration/hipchat.md
-      - IRC: platform/integration/irc.md
       - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/tripub.md
@@ -282,11 +281,12 @@ pages:
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - Email: platform/integration/email.md
+        - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
-        - SSH Keys: platform/integration/key-ssh.md
         - Quay.io: platform/integration/quay.md
-        - Email: platform/integration/email.md
+        - SSH Keys: platform/integration/key-ssh.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Operating System:
