@@ -22,7 +22,8 @@ pages:
     - Run our samples:
       - Run your first build: getting-started/ci-sample.md
       - Deploy your first app: getting-started/cd-sample.md
-    - Kubernetes Quickstart: getting-started/kubernetes-tutorial.md 
+    - Kubernetes Quickstart: getting-started/kubernetes-tutorials.md
+    - Amazon ECS Quickstart: getting-started/amazon-ecs-tutorials.md
     - FAQ: getting-started/support.md
   - CI:
     - Overview:
