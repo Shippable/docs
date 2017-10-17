@@ -1,7 +1,7 @@
-page_main_title: Kubernetes tutorial: Deploying Docker applications
+page_main_title: Kubernetes tutorials: Deploying Docker applications
 main_section: Getting started
 
-# Kubernetes tutorial: Deploying Docker applications
+# Kubernetes tutorials: Deploying Docker applications
 
 The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-to-end deployment pipelines for Kubernetes, including CI, functional testing, release orchestration, and infrastructure provisioning.
 
