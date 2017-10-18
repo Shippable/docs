@@ -1,6 +1,6 @@
-page_main_title: Provision Kubernetes cluster on GKE With Google Cloud SDK
+page_main_title: Provision Kubernetes cluster on GKE with Google Cloud SDK (gcloud CLI)
 main_section: Provision
-sub_section: Provisioning with Cloud Native CLI
+sub_section: Google Cloud infrastructure
 
 # Provision Kubernetes cluster on GKE with Google Cloud SDK (gcloud CLI)
 

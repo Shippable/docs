@@ -1,8 +1,9 @@
-page_main_title: Digital Ocean Infrastructure
+page_main_title: Provisioning Digital Ocean infrastructure with Ansible
 main_section: Provision
-sub_section: Provisioning with Ansible
+sub_section: Digital Ocean infrastructure
 
-# Digital Ocean with Ansible
+# Provisioning Digital Ocean infrastructure with Ansible
+
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
 infrastructure on [Digital Ocean](https://www.digitalocean.com/). You would do so with a
 `runSh` job. Both of those jobs have ansible command line tools and [digital ocean module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#digital-ocean) requirements (python >= 2.6 and dopy) installed already.

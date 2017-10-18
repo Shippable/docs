@@ -1,9 +1,10 @@
-page_main_title: With Ansible
+page_main_title: Provisioning AWS infrastructure with Ansible
 main_section: Provision
-sub_section: Provisioning with Ansible
+sub_section: AWS infrastructure
 
-# AWS with Ansible
-With Shippable, you can use Ansible from Red Hat within Pipelines to provision
+# Provisioning AWS infrastructure with Ansible
+
+With Shippable, you can use Ansible from Red Hat within Assembly Lines to provision
 infrastructure on AWS. You would do so with a `runSh` job.
 
 ##Setup

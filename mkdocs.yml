@@ -206,15 +206,16 @@ pages:
       - Single pane of glass: provision/single-pane-of-glass-spog.md
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
-    - Provisioning with Terraform:
-      - AWS infrastructure: provision/aws-with-terraform.md
-    - Provisioning with Ansible:
-      - AWS infrastructure: provision/aws-with-ansible.md
-      - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
-      - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
-      - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
-    - Provisioning with Cloud Native CLI:
-      - Provision Kubernetes cluster on GKE With Google Cloud SDK: provision/kubernetes-with-gkecli.md
+    - AWS infrastructure:
+      - Provision with Terraform: provision/aws-with-terraform.md
+      - Provision with Ansible: provision/aws-with-ansible.md
+    - Google Cloud infrastructure:
+      - Provision with Ansible: provision/google-cloud-with-ansible.md
+      - Provision Kubernetes cluster with Google Cloud SDK: provision/kubernetes-with-gkecli.md
+    - Microsoft Azure infrastructure:
+      - Provision with Ansible: provision/microsoft-azure-with-ansible.md
+    - Digital Ocean infrastructure:
+      - Provision with Ansible: provision/digital-ocean-with-ansible.md
   - Platform:
     - Overview: platform/overview.md
     - Workflow:
