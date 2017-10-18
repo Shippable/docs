@@ -43,7 +43,7 @@ Check our blog ["Notifying CI failure/success status on Email and Slack"](http:/
 
 ###1. Limiting branches
 
-By default, Slack notifications are sent for builds for all branches. If you want to only send notifications for specific branch(es), you can do so with the `branches` keyword.
+By default, email notifications are sent for builds for all branches. If you want to only send notifications for specific branch(es), you can do so with the `branches` keyword.
 
 ```yaml
 integrations:                               

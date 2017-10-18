@@ -191,7 +191,7 @@ Sends email notifications and will only be started if there is an email provider
 Sends Hipchat notifications and will only run if Hipchat is selected in the add-ons panel.
 
 #### irc
-Sends IRC notifications and will only run if IRC is selected in the add-ons panel.
+Sends IRC notifications and will only run if IRC is selected in the install panel.
 
 #### jSync
 Updates `jenkins` pipeline jobs and will only run if Jenkins is selected in the add-ons panel.

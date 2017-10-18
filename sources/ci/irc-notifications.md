@@ -9,19 +9,14 @@ page_keywords: irc, Continuous Integration, Continuous Deployment, CI/CD, testin
 
 You can send IRC notifications for various events in your CI workflow, including when builds start or finish.
 
-##Setup
-
-Before you start, you will need to connect your IRC account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Account Integrations](/platform/integration/overview/), so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
-
 ##Basic config
 
-Once you have completed the Setup steps, you are ready to configure your `shippable.yml` to send IRC notifications. The basic configuration looks like this:
-
+The basic configuration looks like this:
 
 ```
 integrations:
   notifications:
-    - integrationName: irc-integration
+    - integrationName: irc
       type: irc
       recipients:
         - "chat.freenode.net#channel1"
@@ -29,23 +24,23 @@ integrations:
 ```
 Use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
-- `integrationName` value is the name of the IRC integration you added to your settings. It is important the name matches exactly. If not, the build will fail with error as [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
+- `integrationName` value is always `irc` since no account or subscription integration is required.
 - `type` is `irc`.
 - `recipients` is an array that specifies the channels you want to send the notification to. If there is just a single recipient, use the format `recipients: "chat.freenode.net#channel1"`
 
-And you're done. You will receive IRC notifications for all branches when builds fail, or change from failed to passed, or pull requests are built. To change some of these default configs, please see the Advanced config section below.
+And you're done. You will receive IRC notifications for all branches when builds fail, or change from failed to passed, or pull requests are built. To change some of these default configs, please see the advanced config section below.
 
 
 ##Advanced config
 
 ###1. Limiting branches
 
-By default, IRC notifications are sent for builds for all branches. If you want to only send notifications for specific branch(es), you can do so with the `branches` keyword.
+By default, IRC notifications are sent for builds for all branches. If you want to only send notifications for specific branches, you can do so with the `branches` keyword.
 
 ```
 integrations:                               
   hub:
-    - integrationName: irc-integration     #replace with your integration name   
+    - integrationName: irc   
       type: irc  
       recipients:
         - "chat.freenode.net#channel1"
@@ -55,7 +50,7 @@ integrations:
           - master
 ```
 
-`branches` allows you to choose the branches you want to send notifications for. The `only` tag should be used when you want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. Wildcards are also supported.
+`branches` allows you to choose the branches for which you want to send notifications. The `only` tag should be used when you only want to send notifications for builds of specific branches. You can also use the `except` tag to exclude specific branches. Wildcards are also supported.
 
 
 ###2. Customizing notification triggers
@@ -64,7 +59,7 @@ By default, IRC notifications are sent for the following events:
 
 - <i class="ion-ios-minus-empty"></i> A build fails
 - <i class="ion-ios-minus-empty"></i> Build status for a project changes from failed to passed
-- <i class="ion-ios-minus-empty"></i> A Pull request is built
+- <i class="ion-ios-minus-empty"></i> A pull request is built
 
 <br>
 You can further customize these defaults with the following config:
@@ -72,7 +67,7 @@ You can further customize these defaults with the following config:
 ```
 integrations:                               
   hub:
-    - integrationName: irc-integration     #replace with your integration name   
+    - integrationName: irc
       type: irc  
       recipients:
         - "chat.freenode.net#channel1"
@@ -98,8 +93,6 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 ##Removing IRC notifications
 
 To stop sending IRC notifications, simply remove the configuration from the `shippable.yml` for that project.
-
-If you are not using your IRC notification anywhere else, you can delete it from your Account Integrations list as well.
 
 ## Improve this page
 
