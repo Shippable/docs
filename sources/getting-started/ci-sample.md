@@ -1,9 +1,9 @@
 page_main_title: Run your first build
 main_section: Getting started
-sub_section: Run our samples
+sub_section: Run CI/CD samples
 page_title: Running your first sample build
-page_description: Setup up documentation for a sample build
-page_keywords: getting started, build, quick start, documentation, shippable, continous integration
+page_description: Continuous integration for a simple Node.js project
+page_keywords: ci/cd, ci, continuous integration, shippable, Docker
 
 # Run a sample CI build
 

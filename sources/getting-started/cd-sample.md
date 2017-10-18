@@ -1,6 +1,8 @@
 page_main_title: Deploy your first app
 main_section: Getting started
-sub_section: Run our samples
+sub_section: Run CI/CD samples
+page_description: Continuous deployment for a Docker based app to Amazon ECS
+page_keywords: ci/cd, amazon ecs, ci, continuous integration, continuous delivery shippable, Docker
 
 # Deploy your first app
 
