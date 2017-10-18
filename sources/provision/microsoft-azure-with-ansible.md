@@ -1,8 +1,9 @@
-page_main_title: Microsoft Infrastructure
+page_main_title: Provisioning Microsoft Azure with Ansible
 main_section: Provision
-sub_section: Provisioning with Ansible
+sub_section: Microsoft Azure infrastructure
 
-# Microsoft Azure with Ansible
+# Provisioning Microsoft Azure infrastructure with Ansible
+
 With Shippable, you can use [Ansible](https://www.ansible.com/) from Red Hat within Pipelines to provision
 infrastructure on [Microsoft Azure](https://azure.microsoft.com/). You would do so with a
 `runSh` job. Both of those jobs have ansible command line tools and [azure module](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) requirements (python >= 2.6 and azure) installed already.

@@ -1,8 +1,9 @@
-page_main_title: With Terraform
+page_main_title: Provisioning AWS infrastructure with Terraform
 main_section: Provision
-sub_section: Provisioning with Terraform
+sub_section: AWS infrastructure
 
-# AWS with Terraform
+# Provisioning AWS infrastructure with Terraform
+
 With Shippable, you can use Terraform from Hashicorp within Shippable Assembly Lines to
 provision infrastructure on AWS. You would do so with a `runSh` job.
 
