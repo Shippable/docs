@@ -213,6 +213,8 @@ pages:
       - Digital Ocean infrastructure: provision/digital-ocean-with-ansible.md
       - Google Cloud infrastructure: provision/google-cloud-with-ansible.md
       - Microsoft Azure infrastructure: provision/microsoft-azure-with-ansible.md
+    - Provisioning with Cloud Native CLI:
+      - Provision Kubernetes cluster on GKE With Google Cloud SDK: provision/kubernetes-with-gkecli.md
   - Platform:
     - Overview: platform/overview.md
     - Workflow:

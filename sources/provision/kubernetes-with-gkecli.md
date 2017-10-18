@@ -54,9 +54,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 **Steps**  
 
-1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
-
-Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
+1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -82,9 +80,7 @@ resources:
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
-
-Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
+1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -117,7 +113,7 @@ triggers:
 
 ```
 
-###5. Define `provision_gke_cluster_job` and `deprovision_gke_cluster_job`.
+###4. Define `provision_gke_cluster_job` and `deprovision_gke_cluster_job`.
 
 * **Description:** `provision_gke_cluster_job` and `deprovision_gke_cluster_job` are [runSh](/platform/workflow/job/runsh/) jobs that let you run any shell script as part of your DevOps Assembly Line. `runSh` is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
 
@@ -161,7 +157,7 @@ jobs:
         - script: . $APP_GITREPO_PATH/gitRepo/deprovision_gke_cluster.sh test-cluster $GKE_CLICONFIG_POINTER_REGION
 ```
 
-Simple provisioning script `provision_gke_cluster.sh`
+#### Provisioning script `provision_gke_cluster.sh`
 ```
 # This script provisions a GKE cluster
 #! /bin/bash -e
@@ -169,7 +165,7 @@ Simple provisioning script `provision_gke_cluster.sh`
 gcloud container clusters create $1 --num-nodes=1 --machine-type=n1-standard-1
 ```
 
-Simple deprovisioning script `deprovision_gke_cluster.sh`
+#### Deprovisioning script `deprovision_gke_cluster.sh`
 ```
 # This script deprovisions a GKE cluster
 #! /bin/bash -e
@@ -191,7 +187,7 @@ then
 fi
 ```
 
-##6. Import configuration into your Shippable account to create the assembly line for the application.
+###5. Import configuration into your Shippable account to create the assembly line for the application.
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
@@ -199,7 +195,7 @@ Once you have imported your configuration, your assemble line will look like thi
 
 <img src="/images/provision/pipeline-provision-gkecluster.png"/>
 
-##7. Trigger your pipeline
+###6. Trigger your pipeline
 
 When you're ready for deployment, right-click on the `provision_gke_cluster_job` job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Build Job**.
 
@@ -208,6 +204,6 @@ Screenshots of the jobs as viewed in the SPOG.
 <img src="/images/provision/pipeline-provision-gke-job.png"/>
 <img src="/images/provision/pipeline-deprovision-gke-job.png"/>
 
-## Sample project
+### Sample project
 
 **Source code:**  [devops-recipes/provision-gke-kubernetes-cluster](https://github.com/devops-recipes/provision-gke-kubernetes-cluster)
