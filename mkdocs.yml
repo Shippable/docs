@@ -19,11 +19,13 @@ pages:
       - What is Shippable?: index.md
       - What do we support?: getting-started/what-is-supported.md
       - How much does it cost?: getting-started/billing-overview.md
-    - Run our samples:
-      - Run your first build: getting-started/ci-sample.md
+    - Quickstarts:
+      - Kubernetes tutorials: getting-started/kubernetes-tutorials.md
+      - Amazon ECS tutorials: getting-started/amazon-ecs-tutorials.md
+      - GKE tutorials: getting-started/gke-tutorials.md
+    - Run CI/CD samples:
+      - Run your first CI build: getting-started/ci-sample.md
       - Deploy your first app: getting-started/cd-sample.md
-    - Kubernetes Quickstart: getting-started/kubernetes-tutorials.md
-    - Amazon ECS Quickstart: getting-started/amazon-ecs-tutorials.md
     - FAQ: getting-started/support.md
   - CI:
     - Overview:
