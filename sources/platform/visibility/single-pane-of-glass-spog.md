@@ -18,6 +18,14 @@ Each job in this view will update colors in real time based on the status of the
 
 <img src="/images/getting-started/spog.png" alt="SPOG: Single pane of glass">
 
+To view the SPOG, do the following:
+
+- Navigate to your subscription dashboard.
+- Click on the `eye icon` with the tooltip `Views`.
+- Click on `Show SPOG View`.
+
+<img src="/images/getting-started/view-spog.png" alt="SPOG: Single pane of glass">
+
 You can interact with the SPOG view in the following ways:
 
 - [Zoom in](#zoom) and out to see additional details for any part of the pipeline

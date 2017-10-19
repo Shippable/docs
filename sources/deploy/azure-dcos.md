@@ -60,16 +60,11 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 * **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in Docker Hub
 * **Required:** Yes.
-* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+* **Integrations needed:** [Docker Hub integration](/platform/integration/docker-hub/), or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
 
 **Steps**  
 
-1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
-
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Docker Hub integration](/platform/integration/docker-hub/)
-
-    Copy the friendly name of the integration.
+1. Create an account integration using your Shippable account for your Docker registry. Instructions to create an integration  can be found [here](/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration. We're using `app_docker_hub` for our sample snippet in the next step.
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -111,14 +106,9 @@ jobs:
 
 **Steps**
 
-1. Create an account integration for Microsoft Azure DC/OS in your Shippable UI. Instructions to create an integration are here:
+1. Create an account integration for [Microsoft Azure DC/OS](/platform/integration/azure-dcos/) in your Shippable UI. Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Microsoft Azure DC/OS integration](/platform/integration/azure-dcos/)
-
-    Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
-
-3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
