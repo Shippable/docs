@@ -20,7 +20,7 @@ resources:
 
 * **`type`** -- is set to `loadBalancer`
 
-* **`integration`** -- name of the subscription integration. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
 	* [Google Container Engine (GKE)](/platform/integration/gke)
 
 * **`pointer`** -- is an object that contains provider specific properties

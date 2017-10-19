@@ -371,6 +371,9 @@ pages:
       - Generating API Tokens: platform/management/api-tokens.md
       - Setting up your Shippable Account: platform/management/git-identities.md
       - Setting Acount email: platform/management/set-email.md
+    - API:
+      - Overview: platform/api/api-overview.md
+      - Tokens: platform/api/api-tokens.md
     - Tutorials:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md
@@ -410,9 +413,6 @@ pages:
         - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
         - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
         - AMI stable: platform/tutorial/runtime/ami-stable.md
-      - API:
-        - Overview: platform/tutorial/api/api-overview.md
-        - Tokens: platform/tutorial/api/api-tokens.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md

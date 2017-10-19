@@ -20,7 +20,7 @@ resources:
 
 * **`type`** -- is set to `gitRepo`
 
-* **`integration`** -- name of the subscription integration. Currently supported integration types are:
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [Bitbucket](/platform/integration/bitbucket)
 	* Bitbucket Server (Shippable Server only)
 	* [GitHub](/platform/integration/github)

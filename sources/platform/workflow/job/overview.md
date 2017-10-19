@@ -130,6 +130,4 @@ If you need a job that is not listed above, send us an email at [support@shippab
 ## Further Reading
 * [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)
-* [Resources](/platform/workflow/resource/overview)
-* [Quick Start to CI](/getting-started/ci-sample)
-* [Quick Start to CD](/getting-started/cd-sample)
+* []

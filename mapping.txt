@@ -97,7 +97,7 @@ integrations/deploy/nodeCluster /platform/integration/node-cluster
 integrations/keys/ssh /platform/integration/key-ssh
 integrations/keys/pem /platform/integration/key-pem
 api/overview /getting-started/api-tokens/
-api/docs /platform/tutorial/api/api-overview
+api/docs /platform/api/api-overview
 tutorials/continuous-integration /getting-started/ci-sample/
 tutorials/continuous-integration/#interacting-with-docker-registries /platform/integration/overview/#docker-registries
 tutorials/continuous-delivery-pipelines /getting-started/cd-sample/
@@ -128,7 +128,7 @@ tutorials/pipelines/rollback-deployments /deploy/rollback/
 tutorials/pipelines/deploy-to-kubernetes /deploy/kubernetes/
 tutorials/pipelines/runShUseIntegrations /platform/workflow/job/runsh/
 tutorials/pipelines/updateResourceVersion /release/increment-version-number/
-navigatingUI/accountSettings/api /platform/tutorial/api/api-tokens
+navigatingUI/accountSettings/api /platform/api/api-tokens
 reference/shippable-yml /platform/tutorial/workflow/shippable-yml
 reference/shippable-jobs-yml /platform/tutorial/workflow/shippable-jobs-yml
 reference/shippable-resources-yml /platform/tutorial/workflow/shippable-resources-yml
@@ -160,8 +160,8 @@ reference/resource-state /platform/workflow/resource/state
 reference/resource-syncrepo /platform/workflow/resource/syncrepo
 reference/resource-time /platform/workflow/resource/time
 reference/resource-version /platform/workflow/resource/version
-reference/api-overview /platform/tutorial/api/api-overview
-reference/api-tokens  /platform/tutorial/api/api-tokens
+reference/api-overview /platform/api/api-overview
+reference/api-tokens  /platform/api/api-tokens
 reference/machine-images-overview /platform/tutorial/runtime/ami-overview
 reference/machine-image-v573 /platform/tutorial/runtime/ami-v573
 reference/machine-image-v561 /platform/tutorial/runtime/ami-v561
@@ -224,3 +224,5 @@ deploy/gke-strategy /deploy/deployment-method-blue-green
 deploy/gke-loadbalancer /deploy/lb-gke
 deploy/gke-multiple-containers /deploy/continuous-delivery-multi-container-docker-application
 deploy/gke-multiple-environments /deploy/multi-stage-deployments
+platform/tutorial/api/api-overview /platform/api/api-overview
+platform/tutorial/api/api-tokens /platform/api/api-tokens

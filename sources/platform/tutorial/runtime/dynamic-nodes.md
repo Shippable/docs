@@ -4,11 +4,6 @@ sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Dynamic Nodes Overview
 
-# TODO
-| Tasks  | Status |
-|--------|--------|
-| Timeout | Open |
-
 # Dedicated Dynamic Nodes
 
 Dedicated Dynamic nodes are dynamically provisioned on EC2 when a job runs and terminated after the job completes. These nodes are dedicated to a specific build, meaning they are not multi-tenant.

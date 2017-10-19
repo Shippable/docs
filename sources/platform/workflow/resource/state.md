@@ -19,7 +19,8 @@ resources:
 * **`type`** -- is set to `state`
 
 ## Used in Jobs
-This resource is used as an `IN` or `OUT` of any of job.
+
+This resource is used as an `IN` or `OUT` of any job.
 
 ## Default Environment Variables
 Whenever `state` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

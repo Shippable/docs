@@ -4,7 +4,7 @@ sub_section: Building and testing your project
 
 #Build status
 
-The status code for CI builds and pipeline job runs can be seen in the dashboard and via [Shippable API](/platform/tutorial/api/api-overview/). The [/runs](/platform/tutorial/api/api-overview/#!/Runs/get_runs),  [/runs/{runId}](/platform/tutorial/api/api-overview/#!/Runs/get_runs_runId),  [/jobs](/platform/tutorial/api/api-overview/#!/Jobs/get_jobs), [/jobs/{jobId}](/platform/tutorial/api/api-overview/#!/Jobs/get_jobs_jobId), [/projects/:projectId/branchRunStatus](/platform/tutorial/api/api-overview/#!/Projects/get_projects_projectId_branchRunStatus) and [/accounts/:id/runStatus](/platform/tutorial/api/api-overview/#!/Accounts/get_accounts_accountId_runStatus) routes in Shippable API return the status code in an attribute called `statusCode`.
+The status code for CI builds and pipeline job runs can be seen in the dashboard and via [Shippable API](/platform/api/api-overview/). The [/runs](/platform/api/api-overview/#!/Runs/get_runs),  [/runs/{runId}](/platform/api/api-overview/#!/Runs/get_runs_runId),  [/jobs](/platform/api/api-overview/#!/Jobs/get_jobs), [/jobs/{jobId}](/platform/api/api-overview/#!/Jobs/get_jobs_jobId), [/projects/:projectId/branchRunStatus](/platform/api/api-overview/#!/Projects/get_projects_projectId_branchRunStatus) and [/accounts/:id/runStatus](/platform/api/api-overview/#!/Accounts/get_accounts_accountId_runStatus) routes in Shippable API return the status code in an attribute called `statusCode`.
 
 ## Build status definitions:
 Complete States
