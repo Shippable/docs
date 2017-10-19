@@ -68,9 +68,6 @@ Follow the steps below for each integration that needs to be updated. You need t
 <img width="75%" height="75%" src="/images/platform/tutorial/integrations/swap-account-integrations.png" alt="List subscriptions">
 
 
-
-
-
 ## Further Reading
 * [Working with Resources](/platform/tutorial/workflow/crud-resource)
 * [Working with Jobs](/platform/tutorial/workflow/crud-job)

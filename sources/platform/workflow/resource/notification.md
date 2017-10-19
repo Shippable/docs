@@ -32,7 +32,7 @@ resources:
 
 * **`type`** -- is set to `notification`
 
-* **`integration`** -- name of the subscription integration. Currently supported providers are:
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported providers are:
 	- Email - No integration required
 	- [HipChat](/platform/integration/hipchat)
 	- IRC - No integration required

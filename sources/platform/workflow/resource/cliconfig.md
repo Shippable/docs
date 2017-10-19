@@ -22,7 +22,7 @@ resources:
 
 * **`type`** -- is set to `cliConfig`
 
-* **`integration`** -- name of the subscription integration. Currently supported integration types are:
+* **`integration`** -- name of the Subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Docker Hub](/platform/integration/docker-hub)
 	* [Docker Trusted Registry](/platform/integration/docker-trusted-registry)

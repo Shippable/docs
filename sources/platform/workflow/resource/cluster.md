@@ -23,7 +23,7 @@ resources:
 
 * **`type`** -- is set to `cluster`
 
-* **`integration`** -- name of the subscription integration. Currently supported integration types are:
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Azure Container Service](/platform/integration/azure-dcos)
 	* [Docker Cloud](/platform/integration/docker-cloud)

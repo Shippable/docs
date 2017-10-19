@@ -19,7 +19,6 @@ Here is the information you need to create this integration:
 * **Username** -- login to your Docker Cloud Account
 * **Token** -- API Token to deploy to your Docker Cloud Account
 
-
 ## Usage in Assembly Lines
 
 The Docker Cloud integration can be used in the following [resources](/platform/workflow/resource/overview/):

@@ -20,6 +20,23 @@ Some of the key benefits of this are:
 ## Components of Job Runtime
 Job Runtime consists of the following components.
 
+<a name="nodes"></a>
+### Nodes
+To run you DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
+
+#### [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes)
+These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
+	* 2 core, 3.75GB RAM (default) -- this is equivalent to AWS c4.large instance type
+	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
+	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
+
+More on Dynamic Nodes in our [Tutorial](/platform/tutorial/runtime/dynamic-nodes/).
+
+#### [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes)
+These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
+
+More on Custom Nodes in our [Tutorial](/platform/tutorial/runtime/custom-nodes/). 
+
 <a name="os"></a>
 ### Operating System
 Job Runtime is designed to work on any Linux distro. Most of our SaaS customers use Ubuntu and we supply pre-built images for the following.
@@ -107,17 +124,6 @@ Here is a list of CLIs we have available as part of Job Runtime -
 * [Packer](/platform/runtime/cli/packer)
 * [Terraform](/platform/runtime/cli/terraform)
 * [Kubectl](/platform/runtime/cli/kubectl)
-
-<a name="nodes"></a>
-### Nodes
-To run you DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
-
-* [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes) -- these are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
-	* 2 core, 3.75GB RAM (default) -- this is equivalent to AWS c4.large instance type
-	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
-	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
-
-* [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes) -- these are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
 
 <a name="env"></a>
 ### Environment variables

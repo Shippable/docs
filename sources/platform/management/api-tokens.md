@@ -4,7 +4,7 @@ sub_section: Management
 
 #API Tokens
 
-The [REST-based Shippable API](/platform/tutorial/api/api-overview/) is fully documented and you can implement custom workflows by calling the API as needed. You need an API token in order to make calls to our API.
+The [REST-based Shippable API](/platform/api/api-overview/) is fully documented and you can implement custom workflows by calling the API as needed. You need an API token in order to make calls to our API.
 
 All paid subscriptions have complete access to all available APIs. Free subscriptions can only call a subset of APIs [documented here.](#free-api-token).
 

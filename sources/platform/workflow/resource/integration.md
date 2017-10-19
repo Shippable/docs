@@ -20,7 +20,7 @@ resources:
 
 * **`type`** -- is set to `integration`
 
-* **`integration`** -- name of the subscription integration. All [Shippable Integrations](/platform/integration/overview/) can be used here
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. All [Shippable Integrations](/platform/integration/overview/) can be used here
 
 ## Used in Jobs
 This resource is used as an IN for the following jobs
