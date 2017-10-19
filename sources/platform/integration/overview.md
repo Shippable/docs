@@ -31,7 +31,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Amazon ECS](/platform/integration/amazon-ecs)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gke)
-- [Azure Container Service](/platform/integration/azure-dcos)
+- [Azure](/platform/integration/azure/)
 - [Azure DC/OS](/platform/integration/azure-dcos)
 - [Docker Cloud](/platform/integration/docker-cloud)
 - [Docker Datacenter](/platform/integration/docker-datacenter)
