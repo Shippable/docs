@@ -9,7 +9,6 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ## Step-by-step tutorials
 
 ### CI
-
 * [Building a Docker image](/ci/build-docker-images/)
 * [Pushing a Docker image to a Registry](/ci/push-artifacts/)
 
@@ -26,12 +25,13 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Multi-stage deployments](/deploy/multi-stage-deployments/)
 * [Gated deployments](/deploy/gated-deployments/)
 
-## Sample application
+### Provisioning Kubernetes clusters
+* [Provision Kubernetes cluster on GKE with gcloud CLI](/provision/kubernetes-with-gkecli/)
 
+## Sample application
 * [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic)
 
 ## Reference
-
 * [Kubernetes docs](https://kubernetes.io/docs/home/)
 * [Shippable CI YML structure](/ci/yml-structure/)
 * [Shippable Workflow Docs](/platform/workflow/overview/)
