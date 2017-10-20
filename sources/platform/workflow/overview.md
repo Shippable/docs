@@ -32,7 +32,8 @@ At a very fundamental level, Workflow consists of 4 key elements.
 
 <a name="state"></a>
 ### State
-[State(ful)](/platform/workflow/state/overview) workflow means that it is designed to remember information from preceding activities and make it available to dependent activities. The State component is key to frictionless Continuous Delivery since it helps your fragmented DevOps toolchain exchange necessary information across tools without writing custom scripts. This built-in capability also helps avoid sharing this information through external spreadsheets, file storage, ticketing systems, Slack channels, etc.
+
+[State(ful) workflows](/platform/workflow/state/overview/) are designed to remember information from preceding activities and make it available to dependent activities. The State component is key to frictionless Continuous Delivery since it helps your fragmented DevOps toolchain exchange necessary information across tools without writing custom scripts. This built-in capability also helps avoid sharing this information through external spreadsheets, file storage, ticketing systems, Slack channels, etc.
 
 <a name="trigger"></a>
 ### Triggers
