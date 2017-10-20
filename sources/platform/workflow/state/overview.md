@@ -31,6 +31,8 @@ Key-values can be stored in a [params](/platform/workflow/resource/params/) reso
 
 <img src="/images/platform/workflow/key-value-state.png" alt="DevOps tools exchanging information">
 
+For an example, check out our tutorial on [Writing key-values to an OUT resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource/)   
+
 ### File-based state
 
 File-based state is available only in jobs and using the central state resource described in the next bullet. Files up to 1MB can be stored for every version, i.e. run, of a job. Every subsequent job that has this as an input has access to those files. This makes it easy to transfer stateful data from one job to another.
@@ -45,11 +47,10 @@ The `state` resource is key for these scenarios since it is the **only resource*
 
 <img src="/images/platform/workflow/shared-state-resource.png" alt="DevOps tools exchanging information">
 
-For more information, read the [state resource page](/platform/workflow/resource/state/)
+For more information, read the [state resource page](/platform/workflow/resource/state/) and check out our tutorial on [Using central state](/platform/tutorial/workflow/using-central-state.md)
 
 
-## Further Reading
-* [How to store custom key-value information about a Job](/platform/tutorial/workflow/sharing-data-between-runs.md)
+## Tutorials
+* [Sharing information between successive runs of a job](/platform/tutorial/workflow/sharing-data-between-runs.md)
 * [Writing key-value information to an OUT Resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource.md)
-* [How to use central state ](/platform/tutorial/workflow/using-central-state.md)
-* [How to use state from prior run of a Job](/platform/tutorial/workflow/sharing-data-between-runs.md)
+* [How to use central state to share files or key:value pairs across your Assembly Line](/platform/tutorial/workflow/using-central-state.md)

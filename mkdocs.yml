@@ -385,7 +385,7 @@ pages:
         - Working with Jobs: platform/tutorial/workflow/crud-job.md
         - Working with syncRepo: platform/tutorial/workflow/crud-syncrepo.md
         - Using Shippable Utility shipctl: platform/tutorial/workflow/using-shipctl.md
-        - Using central state: platform/tutorial/workflow/using-central-state.md        
+        - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
         - Writing key-values into an Output Resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Extracting additional version info from a Resource: platform/tutorial/workflow/extracting-additional-resource-version-info.md
