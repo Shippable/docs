@@ -4,25 +4,41 @@ sub_section: Workflow
 sub_sub_section: Resources
 
 # state
-`state` resource is a special resource used to store data that can be shared between jobs. Shippable DevOps Assembly lines do not allow workflows that have circular dependencies. There are certain situations where data needs to be passed back and forth between jobs. For example, Terraform tasks create a state that needs to be persisted each time the job runs. `state` resource was specifically designed to achieve circular dependencies in DevOps Assembly Lines.
+
+The `state` resource is a special resource used to store information that can be shared between jobs upstream and downstream across your Assembly Line. This information can be a file and/or key:value pairs.
+
+For any other job or resource, we do not allow workflows that have circular dependencies to avoid infinite loops. However, there are some situations where you do need information passed back and forth between jobs. A classic example is if you're provisioning and de-provisioning environments using **Terraform**, which means that the Terraform statefile will need to be persisted across job runs and *shared* between different jobs.
+
+<img src="/images/platform/resources/sharing-terraform-state-ci-cd.png" alt="DevOps tools exchanging information">
+
+The `state` resource allows circular references since it **never** triggers the dependent job when it changes. It is only meant to store information and make it available when the job needs it.
 
 You can create a `state` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
 
 ```
 resources:
-  - name:           <string>
-    type: 			state
+  - name: <string>
+    type: state
 ```
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `state`
 
+## Tutorial
+
+Please read the [Sharing data between jobs](/platform/tutorial/workflow/sharing-data-between-jobs/) tutorial to learn about using `state` in jobs.
+
 ## Used in Jobs
 
-This resource is used as an `IN` or `OUT` of any job.
+This resource is used as an `IN` or `OUT` of `runSH` and `runCI` jobs.
 
-## Default Environment Variables
+If you want to update state as part of a job, the `state` resource should be an `OUT` for the job and the job scripts should copy files to the `<NAME>_PATH` directory. `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed.
+
+If you want to consume the state in your job scripts, the `state` resource should be an `IN` for your job and read the state from the `<NAME>_PATH` directory.
+
+### Default Environment Variables
+
 Whenever `state` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
 `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
@@ -39,7 +55,7 @@ Whenever `state` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
 
-## Shippable Utility Functions
+### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
 How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
