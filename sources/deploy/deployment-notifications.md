@@ -25,7 +25,7 @@ You can also send email or IRC notifications, for which you do not need an accou
 For help with completing the fields needed for each provider, select your provider below:
 
 * [Slack](/platform/integration/slack/)
-* [HipChat](/platform/integration/hipchat/)
+* [HipChat](/platform/integration/hipchatKey/)
 
 Set the friendly name of the integration as `app_notification_provider`. If you change the name, you'll need to change it in the yml snippet in the step below.
 
