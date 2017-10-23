@@ -57,7 +57,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 ## Supported Notification Integrations
 
-- [HipChat](/platform/integration/hipchat)
+- [HipChat](/platform/integration/hipchatKey)
 - [Slack](/platform/integration/slack)
 - [IRC](/integration/irc/)
 

@@ -274,7 +274,7 @@ pages:
       - Google Cloud: platform/integration/gce.md
       - Google Container Engine: platform/integration/gke.md
       - Google Container Registry: platform/integration/gcr.md
-      - HipChat: platform/integration/hipchat.md
+      - HipChat: platform/integration/hipchatKey.md
       - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/tripub.md
@@ -290,6 +290,7 @@ pages:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
         - Email: platform/integration/email.md
+        - HipChat: platform/integration/hipchat.md
         - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md

@@ -34,7 +34,7 @@ resources:
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported providers are:
 	- Email - No integration required
-	- [HipChat](/platform/integration/hipchat)
+	- [HipChat](/platform/integration/hipchatKey)
 	- IRC - No integration required
 	- [Slack](/platform/integration/slack)
 

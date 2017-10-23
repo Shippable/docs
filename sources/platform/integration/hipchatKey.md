@@ -3,14 +3,14 @@ main_section: Platform
 sub_section: Integrations
 page_title: Hipchat integration
 
-# Hipchat Integration (Deprecated)
+# Hipchat Key Integration
 
-## Deprecation Note
-This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [hipchatKey](/platform/integration/hipchatKey.md) integration instead.
+## Note
 
 ---
 
-The **Hipchat** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
+The **Hipchat Key** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
+Refer [Hipchat Integration](/platform/integration/hipchat) if you are using older hipchat integration. 
 
 ## Adding account integration
 
@@ -18,7 +18,7 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Notifications**
+* **Integration Family** -- **generic**
 * **Integration type** -- **Hipchat**
 * **Name** -- choose a friendly name for the integration
 * **Token** -- HipChat account token
@@ -37,7 +37,6 @@ After you create the account integration, it can be used in the following scenar
 
 The Hipchat integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
-* [ciRepo](/platform/workflow/resource/cirepo)
 * [integration](/platform/workflow/resource/integration)
 * [notification](/platform/workflow/resource/notification)
 
