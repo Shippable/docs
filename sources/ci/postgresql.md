@@ -54,14 +54,14 @@ env:
 ```
 
 ###Using Postgis
-We do not have Postgis installed on our official build images. If you want to use it for your build, you will need to install and activate it in your yml.  Check the SHIPPABLE_POSTGRES_VERSION matches the postgis version your are installing.
+We do not have Postgis installed on our official build images. If you want to use it for your build, you will need to install and activate it in your yml.  Check the SHIPPABLE_POSTGRES_VERSION matches the postgis version you are installing.
 
 ```
 build:
   ci:
     - echo $SHIPPABLE_POSTGRES_VERSION
     - sudo apt-get install postgresql-9.6-postgis-2.3
-    - psql -U postgres -c 'create database your_database_name;'
+    - psql -U postgres -c "create database your_database_name;"
     - psql -U postgres -d your_database_name -c "create extension postgis;"
 ```
 
