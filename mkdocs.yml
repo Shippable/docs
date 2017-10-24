@@ -282,7 +282,6 @@ pages:
       - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/node-cluster.md
       - PEM Keys: platform/integration/pemKey.md
-      - Private Registries: platform/integration/docker-private-registry.md
       - Quay.io: platform/integration/quayLogin.md
       - Slack: platform/integration/slack.md
       - SSH Keys: platform/integration/sshKey.md
@@ -296,6 +295,7 @@ pages:
         - PEM Keys: platform/integration/key-pem.md
         - Quay.io: platform/integration/quay.md
         - SSH Keys: platform/integration/key-ssh.md
+        - Private Registries: platform/integration/docker-private-registry.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - CI:
