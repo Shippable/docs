@@ -62,14 +62,14 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 * **Description:** `app_image_1` and `app_image_2` are [image](/platform/workflow/resource/image/) resources that represent the Docker images of your application. In our example, we're using a Node.js image and an nginx image, hosted on Docker hub.
 * **Required:** Yes.
-* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+* **Integrations needed:** any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 
 1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Docker Hub integration](/platform/integration/docker-hub/)
+    * [Docker Registry integration](/platform/integration/dockerRegistryLogin/)
 
     Copy the friendly name of the integration, in our case we named it **app_docker_hub**.
 
