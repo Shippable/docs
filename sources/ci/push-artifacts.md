@@ -13,6 +13,5 @@ We have native support for many popular artifact repositories. Please click on t
 - [Amazon S3](push-to-s3/)
 - [Amazon ECR](push-amazon-ecr/)
 - [GCR](push-gcr/)
-- [Docker Trusted registry](push-docker-private-registry/)
 - [Docker Registry](push-docker-registry/)
 - [Quay](push-quay/)

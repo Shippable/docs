@@ -78,7 +78,6 @@ pages:
       - Push Docker image to Amazon ECR: ci/push-amazon-ecr.md
       - Push Docker image to GCR: ci/push-gcr.md
       - Push Docker image to Quay: ci/push-quay.md
-      - Push Docker image to Docker Trusted registry: ci/push-docker-private-registry.md
       - Push Docker image to Docker registry: ci/push-docker-registry.md
     - Deployments:
       - Overview: ci/deployment-overview.md
@@ -368,6 +367,7 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - How to use Docker Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-registry-in-runci.md
       - Runtime:
         - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md

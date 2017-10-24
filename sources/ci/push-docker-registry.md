@@ -130,7 +130,7 @@ integrations:
 ## Sample project
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
-the image to a Docker Private Registry.
+the image to a Docker Registry.
 
 **Source code:**  [devops-recipes/ci-push-docker-private-registry](https://github.com/devops-recipes/ci-push-docker-private-registry).
 
