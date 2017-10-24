@@ -1,7 +1,7 @@
 page_main_title: Language versions on each image
 main_section: Platform
 sub_section: Runtime
-sub_sub_section: CI
+sub_sub_section: Machine image
 page_title: CI/CD for Clojure Applications
 
 # Languages

@@ -1,31 +1,35 @@
-page_main_title: v5.5.1
+page_main_title: v5.3.2
 main_section: Platform
 sub_section: Runtime
-sub_sub_section: CI
-page_title: Description of what is available in Machine Image v5.5.1
-page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.5.1
+sub_sub_section: Machine image
+page_title: Description of what is available in Machine Image v5.3.2
+page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.3.2
 page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker
 
-# Machine image v5.5.1 (Docker TAG v5.5.1)
+# Machine image v5.3.2 (Docker TAG v5.3.2)
 
-**Release Date:** April 26, 2017
+**Release Date:** March 11, 2017
 
 **What is installed**
 
 * Operating System: Ubuntu 14.04.5 LTS
-* Kernel Version: 3.13.0-117-generic
+* Kernel Version: 3.19.0-51-generic
 * **Docker Server Version: 1.13.0**
 * Storage Driver: aufs
 * Root Dir: /data/aufs
 * Backing Filesystem: extfs
 * Dirperm1 Supported: true
 * Cgroup Driver: cgroupfs
-* Shippable Official Docker Images with TAG: `v5.5.1`
+* Shippable Official Docker Images with TAG: `v5.3.2`
 
 ## Shippable Official Docker Images
-These are the images used to run your CI jobs. The default image is picked up based on the `language` you set in your yml. All these images are available on our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is availabe on our [Github dry-dock org](https://github.com/dry-dock)
+These are the images used to run your CI jobs. The default image is picked up
+based on the `language` you set in your yml. All these images are available on
+our [Docker drydock Hub](https://hub.docker.com/u/drydock/). The source code is
+available on our [Github dry-dock org](https://github.com/dry-dock)
 
-If you would like to use your own CI images in place of the official images, instructions are [described here](/ci/custom-docker-image/)
+If you would like to use your own CI images in place of the official images,
+instructions are [described here](/ci/custom-docker-image/)
 
 These are the official language images in this version
 

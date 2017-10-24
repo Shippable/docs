@@ -1,28 +1,30 @@
 page_main_title: Overview
 main_section: Platform
 sub_section: Runtime
-sub_sub_section: CI
+sub_sub_section: Machine image
 page_title: Machine Images on Shippable
 page_description: An explanation of the images used for CI
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker, version, 1.11, 1.12
 
 # What are Machine images?
-A Machine image is an pre-baked image that contains all the necessary components
-installed. This is used to spin up minions for running your CI jobs on it. Every
-subscription (org/team depending on SCM you use) has a default
-version of the machine image configured. This default is setup whenever the first
-CI or Pipeline job is configured.
 
-The following picture shows the relationship between the build machine and the
-build container. The build container is spun up on the build machine using either
-the default Docker image depending the `language` tag in your yml configuration
-or a custom Docker image if specified in the yml.
+A Machine image is an pre-baked image that contains all the necessary components installed to run your CI (`runCI`) or `runSh` jobs.  Every
+Subscription (org/team depending on SCM you use) has a default version of the machine image configured. This default is setup whenever the first
+CI or Assembly Line is enabled on Shippable.
 
-<img src="/images/ci/shippableOverview.png"
+The following picture shows the components of the machine image and how they interact with each other.
+
+* When a new job is triggered, Shippable orchestration spins up a new build node, aka minion, with your default Subscription machine image.
+*  For CI jobs configured with `shippable.yml`, the Shippable Agent on the build node spins up a build container  using either
+the default Docker image depending on the `language` tag in your [yml configuration](/ci/yml-structure) or a [custom Docker image](/ci/custom-docker-image/) if specified in the yml. All commands in the `ci` and `post_ci` section of your YAML are run inside the build container.
+* For `runSh` jobs configured with  `shippable.jobs.yml`, the commands in the `script` section are run in the Shippable Agent.
+
+<img src="/images/platform/runtime/build-workflow.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
 
-We currently offer the following Machine Images. You can click on any one to see
-what is pre-installed on that image:
+We currently offer the following Machine Images. **The default Machine Image for your subscription is the latest image available when your Subscription was added to Shippable.**
+
+You can click on any image below to see what is pre-installed:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
@@ -34,11 +36,7 @@ what is pre-installed on that image:
 | [v5.3.2](ami-v532/)        | Mar 11, 2017    |
 | [Stable](ami-stable/)      | Feb 19, 2016 (deprecated) |
 
-**The default Machine Image for your subscription is the latest image available
-when your Subscription was added to Shippable.**
-
-In most cases, the default Machine image set for your Subscription will be
-sufficient to run your builds. The main reasons why you might want to consider
+In most cases, the default Machine image set for your Subscription will be sufficient to run your builds. The main reasons why you might want to consider
 changing to a more recent image are:
 
 -  You need a newer language/service/package version
