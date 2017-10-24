@@ -138,8 +138,6 @@ pages:
         - Amazon ECS Application Load Balancer: deploy/lb-amazon-ecs-app.md
         - Kubernetes: deploy/lb-kubernetes.md
         - GKE: deploy/lb-gke.md
-      - Kubernetes:
-        - Multi-stage deployments: deploy/kube-multi-stage-deployments.md
       - Advanced topics:
         - Multi-stage deployments: deploy/multi-stage-deployments.md
         - Gated deployments: deploy/gated-deployments.md
@@ -167,6 +165,7 @@ pages:
       - Kubernetes:
         - Single-container app: deploy/kubernetes.md
         - Multi-container app: deploy/kubernetes-multiple-containers.md
+        - Multi-stage deployments: deploy/kube-multi-stage-deployments.md
       - GKE:
         - Single-container app: deploy/gke.md
         # - Using custom pod templates: deploy/gke-custom-pods.md
