@@ -92,7 +92,7 @@ Here is a list of the tools configured for each integration type:
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/cli/docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/cli/azure) |
 | [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/cli/docker) |
-| [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/cli/docker) |
+| [Docker Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/cli/docker) |
 | [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/cli/docker) |
 | [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/cli/gke) & [Kubectl](/platform/runtime/cli/kubectl) |
 | [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/cli/docker) |

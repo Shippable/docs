@@ -78,7 +78,7 @@ pages:
       - Push Docker image to Amazon ECR: ci/push-amazon-ecr.md
       - Push Docker image to GCR: ci/push-gcr.md
       - Push Docker image to Quay: ci/push-quay.md
-      - Push Docker image to Docker Private/Trusted registry: ci/push-docker-private-registry.md
+      - Push Docker image to Docker registry: ci/push-docker-registry.md
     - Deployments:
       - Overview: ci/deployment-overview.md
       - Heroku: ci/deploy-to-heroku.md
@@ -283,7 +283,6 @@ pages:
       - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/node-cluster.md
       - PEM Keys: platform/integration/pemKey.md
-      - Private Registries: platform/integration/docker-private-registry.md
       - Quay.io: platform/integration/quayLogin.md
       - Slack: platform/integration/slack.md
       - SSH Keys: platform/integration/sshKey.md
@@ -297,6 +296,7 @@ pages:
         - PEM Keys: platform/integration/key-pem.md
         - Quay.io: platform/integration/quay.md
         - SSH Keys: platform/integration/key-ssh.md
+        - Private Registries: platform/integration/docker-private-registry.md
         - Docker Hub: platform/integration/docker-hub.md
     - Runtime:
       - Overview: platform/runtime/overview.md
@@ -369,6 +369,7 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - How to use Docker Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-registry-in-runci.md
       - Runtime:
         - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
