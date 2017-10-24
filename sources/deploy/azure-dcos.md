@@ -60,7 +60,7 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 * **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in Docker Hub
 * **Required:** Yes.
-* **Integrations needed:** [Docker Hub integration](/platform/integration/docker-hub/), or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+* **Integrations needed:** any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 

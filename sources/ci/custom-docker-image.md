@@ -52,10 +52,9 @@ To pull a private image, you will first need to add an account integration for t
 Follow the steps below to pull a private image:
 
 - Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
-    - [Docker Hub](../platform/integration/docker-hub/)
+    - [Docker Registry](../platform/integration/dockerRegistryLogin/)
     - [Amazon ECR](../platform/integration/aws-keys/)    
     - [GCR](../platform/integration/gcr/)
-    - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
     - [Quay](../platform/integration/quayLogin/)      
 
 - Add the following to your `shippable.yml`
@@ -73,16 +72,15 @@ build:
 integrations:                 
   hub:
     - integrationName: my-docker-hub   ##replace with your integration name
-      type: docker
+      type: dockerRegistryLogin
 ```
 
 * `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
 * `type` depends on the registry you are pulling from:
-    * `docker` for Docker Hub
+    * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR.
         - Note: For running builds on docker version 17.06.0-ce and above, make sure that the `aws` cli installed in the image is 1.11.91 version or above.
     * `gcr` for Google Container Registry (GCR)
-    * `"Docker Trusted Registry"` for Docker Trusted Registry
     * `quayLogin` for Quay.io
 
 
@@ -114,10 +112,9 @@ build:
 
 * If your Dockerfile contains a `FROM` command that needs a private image, you will also need to follow a couple of additional steps:
     * Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
-        - [Docker Hub](../platform/integration/docker-hub/)
+        - [Docker Registry](../platform/integration/dockerRegistryLogin/)
         - [Amazon ECR](../platform/integration/aws-keys/)    
         - [GCR](../platform/integration/gcr/)
-        - [Docker Trusted/Private registry](../platform/integration/docker-trusted-registry/)
         - [Quay](../platform/integration/quayLogin/)      
     *  Add the integration name to your `yml`:
 
@@ -125,15 +122,14 @@ build:
 integrations:                 
   hub:
     - integrationName: my-docker-hub   ##replace with your integration name
-      type: docker
+      type: dockerRegistryLogin
 ```
 
 * `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
 * `type` depends on the registry you are pulling from:
-    * `docker` for Docker Hub
+    * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR
     * `gcr` for Google Container Registry (GCR)
-    * `"Docker Trusted Registry"` for Docker Trusted Registry
     * `quayLogin` for Quay.io
 
 This should configure your workflow to build `my_registry_repo/my_image` image and use it for your CI.

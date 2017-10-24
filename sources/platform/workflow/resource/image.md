@@ -23,9 +23,7 @@ resources:
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are
 	- [AWS Keys](/platform/integration/aws-keys)
-	- [Docker Hub](/platform/integration/docker-hub)
-	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-	- [Docker Private Registry](/platform/integration/docker-private-registry)
+	- [Docker Registries](/platform/integration/dockerRegistryLogin)
 	- [Google Container Registry (GCR)](/platform/integration/gcr)
 	- [Quay.io](/platform/integration/quayLogin)
 

@@ -24,7 +24,7 @@ Here is the information you need to create this integration:
 ## Usage in CI
 
 * [Using a custom image for CI](/ci/custom-docker-image/)
-* [Pushing artifacts to Docker Hub](/ci/push-to-docker-private-registry/)
+* [Pushing artifacts to Docker Hub](/ci/push-docker-registry/)
 
 ## Usage in Assembly Lines
 
