@@ -42,7 +42,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [AWS ECR](/platform/integration/aws-keys)
 - [Docker Hub](/platform/integration/docker-hub)
 - [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-- [Docker Private Registry](/platform/integration/docker-private-registry)
+- [Docker Registry](/platform/integration/dockerRegistryLogin)
 - [Google Container Registry](/platform/integration/gcr)
 - [Quay](/platform/integration/quayLogin)
 - [JFrog](/platform/integration/jfrog-artifactoryKey)

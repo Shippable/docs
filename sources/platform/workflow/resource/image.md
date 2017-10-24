@@ -25,7 +25,7 @@ resources:
 	- [AWS Keys](/platform/integration/aws-keys)
 	- [Docker Hub](/platform/integration/docker-hub)
 	- [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
-	- [Docker Private Registry](/platform/integration/docker-private-registry)
+	- [Docker Registry](/platform/integration/dockerRegistryLogin)
 	- [Google Container Registry (GCR)](/platform/integration/gcr)
 	- [Quay.io](/platform/integration/quayLogin)
 
