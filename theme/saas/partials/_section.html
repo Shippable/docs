@@ -16,7 +16,13 @@
   {# If the sub-section does not contain children, then display a link. #}
   {% else %}
     <li>
-      <a class="subSectionHeader" href="{{ sub_section.url }}" name="{{ sub_section.title }}">{{ sub_section.title }}</a>
+      {% if page.url == sub_section.url %}
+      <a class="subSectionHeader current" href="{{ sub_section.url }}" name="{{ sub_section.title }}">
+      {% else %}
+      <a class="subSectionHeader" href="{{ sub_section.url }}" name="{{ sub_section.title }}">
+      {% endif %}
+        {{ sub_section.title }}
+      </a>
     </li>
   {% endif %}
 {% endfor %}
