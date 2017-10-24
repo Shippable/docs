@@ -57,5 +57,6 @@ For more information, read the [state resource page](/platform/workflow/resource
 
 ## Tutorials
 * [Sharing information through jobs](/platform/tutorial/workflow/sharing-data-between-jobs.md)
-* [Writing key-value information to an OUT Resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource.md)
+* [Reading information from an IN resource](/platform/tutorial/workflow/access-resource-data)
+* [Writing information to an OUT Resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource.md)
 * [How to use central state to share files or key:value pairs across your Assembly Line](/platform/tutorial/workflow/using-central-state.md)
