@@ -165,6 +165,7 @@ pages:
       - Kubernetes:
         - Single-container app: deploy/kubernetes.md
         - Multi-container app: deploy/kubernetes-multiple-containers.md
+        - Multi-stage deployments: deploy/kube-multi-stage-deployments.md
       - GKE:
         - Single-container app: deploy/gke.md
         # - Using custom pod templates: deploy/gke-custom-pods.md
