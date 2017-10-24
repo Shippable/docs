@@ -28,6 +28,24 @@ You can see what's included in each resource version through the Shippable UI.
 * Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Resources in Grid View
 * Search for your resource and click on it. This will show you a historical list of all resource versions with additional information.
 
+## Read from/Write to a resource
+
+Please refer to these tutorials:
+
+* [Read information from an `IN` resource](/platform/tutorial/workflow/access-resource-data)
+* [Write to an `OUT` resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource)
+
+
+## Deleting Resources
+Deleting Resources is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Resource means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.
+
+Here are the steps to delete a Resource
+
+1. Delete the Resource definition from the YML and commit the change to the repo. Automatic sync process will execute and mark the removed Resource as soft deleted. All version data is still available and no data is lost at this stage. If any Jobs are still using this deleted Resource and they are still active, those Jobs will be marked inconsistent and will not be triggered until fixed
+1. Now log into your SPOG, make sure that you have not hidden deleted Objects from your view. All the soft deleted Resources will appear on the bottom of your SPOG. Right click on each of them and delete. If these Resources are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Resource. Once you delete from the SPOG, all data is permanently destroyed
+
+### Deleting all resources at the same time
+If you right click on the `syncRepo` resource you added to create the assembly lines and delete it from the UI, all the resources defined in the YML file will all be marked soft-deleted along with the syncRepo resource. Now hard delete the syncRepo resource as any other resource, Shippable will delete all the resources automatically now. Only the syncRepo resource can be soft-deleted from the UI. All other resources needs to be managed from the YML.
 
 ## Migrating a Resource from one YML to another
 There are some situations where you might need to reorganize where your Resources are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative.
@@ -45,17 +63,6 @@ Here are the steps to migrate -
 <img src="/images/pipelines/resumeJob.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 5. Now, your resources are migrated to the destination repository. You can add, remove or update them there.
-
-## Deleting Resources
-Deleting Resources is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Resource means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.
-
-Here are the steps to delete a Resource
-
-1. Delete the Resource definition from the YML and commit the change to the repo. Automatic sync process will execute and mark the removed Resource as soft deleted. All version data is still available and no data is lost at this stage. If any Jobs are still using this deleted Resource and they are still active, those Jobs will be marked inconsistent and will not be triggered until fixed
-1. Now log into your SPOG, make sure that you have not hidden deleted Objects from your view. All the soft deleted Resources will appear on the bottom of your SPOG. Right click on each of them and delete. If these Resources are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Resource. Once you delete from the SPOG, all data is permanently destroyed
-
-## Deleting all resources at the same time
-If you right click on the `syncRepo` resource you added to create the assembly lines and delete it from the UI, all the resources defined in the YML file will all be marked soft-deleted along with the syncRepo resource. Now hard delete the syncRepo resource as any other resource, Shippable will delete all the resources automatically now. Only the syncRepo resource can be soft-deleted from the UI. All other resources needs to be managed from the YML.
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

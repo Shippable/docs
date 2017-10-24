@@ -1,15 +1,15 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Tutorials
-sub_sub_section: Runtime
+sub_section: Runtime
+sub_sub_section: CI
 page_title: Machine Images on Shippable
 page_description: An explanation of the images used for CI
 page_keywords: ci/cd dashboard, subscription settings, CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker, version, 1.11, 1.12
 
 # What are Machine images?
 A Machine image is an pre-baked image that contains all the necessary components
-installed. This is used to spin up minions for running your CI, RunSH & RunCLI
-jobs on it. Every subscription (org/team depending on SCM you use) has a default
+installed. This is used to spin up minions for running your CI jobs on it. Every
+subscription (org/team depending on SCM you use) has a default
 version of the machine image configured. This default is setup whenever the first
 CI or Pipeline job is configured.
 
@@ -44,13 +44,16 @@ changing to a more recent image are:
 -  You need a newer language/service/package version
 -  You need a newer Docker version
 
-
+<a name="view-machine-image"></a>
 ## Viewing Subscription Machine Image
 
-To see what Machine Image is being used for your subscription, go to the
-`Settings` tab of your Subscription and click on `Options` in the left sidebar.
+To see what Machine Image is being used for your subscription:
 
-The top item on this page will show you the machine image currently being used:
+* From the left sidebar menu, click on your Subscription
+
+<img src="/images/getting-started/account-settings.png" alt="View Subscription">
+
+* On your Subscription Dashboard, click on the **Gears** icon on the right which will show a dropdown. Click on **Nodes**
 
 <img src="/images/ci/view-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
@@ -58,11 +61,9 @@ alt="Machine Image for a Subscription" style="width:800px;"/>
 <a name="change-machine-image"></a>
 ## Changing the Subscription Machine image
 
-To select a different Machine Image:
+To view your machine, image follow instructions in [Viewing Subscription Machine Image](#view-machine-image) section above.
 
--  Go to the `Settings` tab of your Subscription
--  Click on `Options` in the left sidebar and select the image you want from the
-dropdown under the 'Machine Images' section. Please note that this setting will
+You can click on the **Machine Images** dropdown to select a different image. Please note that this setting will
 affect all projects and builds in your Subscription.
 
 <img src="/images/ci/change-machine-image.png"

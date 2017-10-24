@@ -21,30 +21,7 @@ Jobs are defined in a configuration file `shippable.jobs.yml` and this file is a
 
 Once the Jobs are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/workflow/resource/syncrepo)
 
-After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately
-
-<a name="migrate"></a>
-## Migrating a Job from one YML to another
-There are some situations where you might need to reorganize where your Jobs are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative
-
-Here are the steps to migrate -
-
-Here are the steps to migrate -
-
-1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform//tutorial/workflow/crud-job#pausing-jobs).
-
-2. Add the jobs you want to migrate to the destination repository's yml files.
-
-3. Run the rSync job of the destination repository. Once the rSync job completes, migration will be complete. Your SPOG will however not change as no dependency has changed. Therefore, to verify this you can check the logs of the rSync job.
-<img src="/images/pipelines/migrationConsoleLog.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-4. From the source repository, delete all the migrated jobs. This will automatically trigger the rSync job and it should succeed.
-<img src="/images/pipelines/resumeJob.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-5. Now, your jobs are migrated to the destination repository. You can add, remove or update them there.
-
-**NOTE:** While migrating a job you should copy it exactly as it is in the source repository. You can add or remove dependencies only once the job is successfully migrated to destination repository.
-
+After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 
 <a name="pause"></a>
 ## Pausing jobs
@@ -77,6 +54,15 @@ You can see what's included in each job version through the Shippable UI.
 
 * Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Jobs in Grid View
 * Search for your Job and click on it. This will show you a historical list of all versions and you can drill down to see additional information.
+
+## Sharing information across jobs and runs
+
+Please refer to these tutorials:
+
+* [Read information from an `IN` resource](/platform/tutorial/workflow/access-resource-data)
+* [Write to an `OUT` resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource)
+* [Sharing information through jobs](/platform/tutorial/workflow/sharing-data-between-jobs)
+* [Using central state](/platform/tutorial/workflow/using-central-state)
 
 <a name="pin"></a>
 ## Pinning specific resource versions
@@ -119,6 +105,28 @@ Here are the steps to delete a Job
 
 1. Delete the Job definition from the YML and commit the change to the repo. Automatic sync process will execute and mark the removed Job as soft deleted. All version data is still available and no data is lost at this stage. If any Jobs are still using this deleted Job and they are still active, those Jobs will be marked inconsistent and will not be triggered until fixed
 1. Now log into your SPOG, make sure that you have not hidden deleted Job from your view. All the soft deleted Jobs will appear on the bottom of your SPOG. Right click on each of them and delete. If these Jobs are still being used, then delete option is not presented until you make sure there are no references to the soft deleted Job. Once you delete from the SPOG, all data is permanently destroyed
+
+<a name="migrate"></a>
+## Migrating a Job from one YML to another
+There are some situations where you might need to reorganize where your Jobs are defined. If you delete and recreate, you will lose all the historical versions. If history is important, migration might be a better alternative
+
+Here are the steps to migrate -
+
+Here are the steps to migrate -
+
+1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform//tutorial/workflow/crud-job#pausing-jobs).
+
+2. Add the jobs you want to migrate to the destination repository's yml files.
+
+3. Run the rSync job of the destination repository. Once the rSync job completes, migration will be complete. Your SPOG will however not change as no dependency has changed. Therefore, to verify this you can check the logs of the rSync job.
+<img src="/images/pipelines/migrationConsoleLog.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+4. From the source repository, delete all the migrated jobs. This will automatically trigger the rSync job and it should succeed.
+<img src="/images/pipelines/resumeJob.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+5. Now, your jobs are migrated to the destination repository. You can add, remove or update them there.
+
+**NOTE:** While migrating a job you should copy it exactly as it is in the source repository. You can add or remove dependencies only once the job is successfully migrated to destination repository.
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)

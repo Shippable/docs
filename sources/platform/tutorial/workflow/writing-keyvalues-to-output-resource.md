@@ -4,67 +4,72 @@ sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Share data between Jobs
 
-# Updating versions for an OUT resource
+# Writing to an OUT resource
 
-Resource updates for `OUT` resources are automatically handled by managed jobs, but custom jobs need to update these resources as part of their custom scripts. Updating these `OUT` resources is essential to trigger subsequent portions of your deployment pipeline.
+Resource updates for `OUT` resources are automatically handled by managed jobs, but scripted jobs like `runSh` and `runCI` need to update these resources as part of their  scripts. Updating these `OUT` resources is essential to trigger subsequent portions of your deployment pipeline.
+
+
+## Updating versionName
 
 Updating the `versionName` for `OUT` resources will trigger a new version of the resource and any jobs that depend on the resource will be triggered.
 
-Let us assume you have an unmanaged job `myCustomJob` that takes two input resources: a [gitRepo resource](/platform/workflow/resource/gitrepo/) `myRepo` and a Docker registry [integration resource](/platform/workflow/resource/integration/) `myIntegration`. It builds a Docker image `myImage` as part of the custom script `doSomething.sh` and wants to push the image to a Docker registry. The next job in the pipeline, `nextJob` depends on myImage, so every time myImage changes, the version needs to be updated. Visually, it looks like this:
+Let us assume you have two `runSh` jobs **job_1** and **job_2**. Resource **myImage** is an `image` resource which is an `OUT` for **job_1** and an `IN` for **job_2**
 
-<img src="/images/platform/jobs/runSh/runShUpdateResource.png" alt="Updating a custom job's resource" style="width:700px;"/>
-<br>
-
-Let us define the resources in `shippable.resources.yml`:
-
-```
-resources:
-  #define gitRepo: myRepo
-
-  #define docker registry integration: myIntegration
-
-  #define image resource
-  - name: myImage							#required
-    type: image								#required
-    integration: myIntegration				#required
-    pointer:
-      sourceName: "myRepo/myImage"			#required
-    seed:
-      versionName: 1.1						#required
-
-```
-
-
-The custom job will be defined in `shippable.jobs.yml` as shown below. myRepo and myIntegration are `IN` values and `myImage` is the `OUT` value:
+You can use the method `shipctl post_resource_state <resource name> versionName <value>` as shown below:
 
 ```
 jobs:
-  - name: myCustomJob
+  - name: job_1
     type: runSh
     steps:
-      - IN: myRepo
-      - IN: myIntegration
-      - TASK:
-        - script: ./IN/mexec-repo/gitRepo/doSomething.sh
+      #IN section will go here
       - OUT: myImage
-```
-
-In order to increment resource version for `myImage` and ensure that `nextJob` is triggered each time the image is updated, you will need to update the `versionName` of the image resource after building and pushing the image in doSomething.sh:
-
-
-```
-#build image command
-
-#push image command
-
-#update output image
-createOutState() {
-  echo versionName=$IMAGE_TAG > $JOB_STATE/myImage.env
-  cat /build/state/myImage.env
-}
+      - TASK:
+        - script: |
+          shipctl post_resource_state myImage versionName $BRANCH.$BUILD_NUMBER
 
 ```
 
-When you update the `versionName`, Shippable creates a new version for this resource and this triggers the rest of your deployment pipeline.
+##Updating key-value information
 
-**This method of updating versions works for all types of resources.**
+You can also update the key-values for an `OUT` resource, i.e. update the resource state. This works for `params` resources which only contain key-value pairs, as well as other resources which can store key-values in state.
+
+To reset key-value pairs in state and add a new one, include the following in the `TASK` section of your `runSh` job or in your `runCI` scripts:
+
+```
+shipctl post_resource_state <resource name> <key> <value>
+```
+
+To append key-value pairs to state, include the following in the `TASK` section of your `runSh` job or in your `runCI` scripts:
+
+```
+shipctl put_resource_state <resource name> <key> <value>
+```
+
+## Replicating an IN resource to an OUT
+
+For some scenarios, you might want to update an `OUT` resource with a copy of an `IN` resource in your job.
+
+For example, if you have a [multi-stage CI workflow](http://blog.shippable.com/multi-stage-ci) with two jobs **run_lint** which lints the code and **run_all_tests** which runs tests. You want **run_lint** to be triggered automatically on commit or pull request. If everything looks good, it needs to update the OUT resource **my_gitrepo_2** so that **run_all_tests** can be triggered for the same commitSHA.
+
+<img src="/images/platform/tutorial/workflow/multi-stage-ci.png" alt="Multi-stage CI">
+
+You can use the `replicate` option to copy an `IN` resource to an `OUT` resource of the same type in `shippable.jobs.yml`:
+
+```
+jobs:
+  - name: run_lint
+    type: runSh
+    steps:
+      - IN: my_gitrepo_1
+      - TASK:
+        - script: doSomething.sh
+      - OUT: my_gitrepo_2
+        replicate: my_gitrepo_1
+```
+
+The `replicate` option will copy all of the version information from the input resource to the output resource and will work with all output resources in unmanaged jobs.  Additional information, such as a different tag or updated params, may also be added to this version in the same way as versions created without `replicate`.
+
+##Updating a `state` resource
+
+Please read our docs on [Using central state](/platform/tutorial/workflow/using-central-state) to learn how to write to the `state` resource.

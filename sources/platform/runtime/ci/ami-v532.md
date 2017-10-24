@@ -1,7 +1,7 @@
 page_main_title: v5.3.2
 main_section: Platform
-sub_section: Tutorials
-sub_sub_section: Runtime
+sub_section: Runtime
+sub_sub_section: CI
 page_title: Description of what is available in Machine Image v5.3.2
 page_description: A complete list of language versions, Docker versions, packages and tools available in Machine Image v5.3.2
 page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AMI, Docker
