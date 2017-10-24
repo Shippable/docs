@@ -431,6 +431,10 @@ menu,ol.shipNav,ul.shipNav {
   background-image: url(../ionicons/css/caret-closed.svg);
 }
 
+.subSectionHeader.current:not(.hasChildren) {
+  color: #006cd1;
+}
+
 /* Subsection link styling */
 .subSubSectionLink {
   display: block;
@@ -446,6 +450,10 @@ menu,ol.shipNav,ul.shipNav {
 
 .subSubSectionLink:focus, .subSubSectionLink:hover {
   color: #49b882;
+}
+
+.subSubSectionLink.current {
+  color: #006cd1;
 }
 
 /* ---------------------- */
