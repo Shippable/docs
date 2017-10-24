@@ -264,7 +264,7 @@ pages:
       - Digital Ocean: platform/integration/do.md
       - Docker Cloud: platform/integration/docker-cloud.md
       - Docker Datacenter: platform/integration/docker-datacenter.md
-      - Docker Hub: platform/integration/docker-hub.md
+      - Docker Registry: platform/integration/dockerRegistryLogin.md
       - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
       - Event Trigger: platform/integration/event-trigger.md
       - Git Credential: platform/integration/git-credential.md
@@ -274,7 +274,8 @@ pages:
       - Google Cloud: platform/integration/gce.md
       - Google Container Engine: platform/integration/gke.md
       - Google Container Registry: platform/integration/gcr.md
-      - HipChat: platform/integration/hipchatKey.md
+      #- HipChat: platform/integration/hipchatKey.md
+      - HipChat: platform/integration/hipchat.md
       - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/tripub.md
@@ -289,24 +290,25 @@ pages:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
         - Email: platform/integration/email.md
-        - HipChat: platform/integration/hipchat.md
+        #- HipChat: platform/integration/hipchat.md
         - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
         - Quay.io: platform/integration/quay.md
         - SSH Keys: platform/integration/key-ssh.md
         - Private Registries: platform/integration/docker-private-registry.md
+        - Docker Hub: platform/integration/docker-hub.md
     - Runtime:
       - Overview: platform/runtime/overview.md
-      - CI:
-        - Overview: platform/runtime/ci/ami-overview.md
-        - AMI v5.8.2: platform/runtime/ci/ami-v582.md
-        - AMI v5.7.3: platform/runtime/ci/ami-v573.md
-        - AMI v5.6.1: platform/runtime/ci/ami-v561.md
-        - AMI v5.5.1: platform/runtime/ci/ami-v551.md
-        - AMI v5.4.1: platform/runtime/ci/ami-v541.md
-        - AMI v5.3.2: platform/runtime/ci/ami-v532.md
-        - AMI stable: platform/runtime/ci/ami-stable.md
+      - Machine image:
+        - Overview: platform/runtime/machine-image/ami-overview.md
+        - AMI v5.8.2: platform/runtime/machine-image/ami-v582.md
+        - AMI v5.7.3: platform/runtime/machine-image/ami-v573.md
+        - AMI v5.6.1: platform/runtime/machine-image/ami-v561.md
+        - AMI v5.5.1: platform/runtime/machine-image/ami-v551.md
+        - AMI v5.4.1: platform/runtime/machine-image/ami-v541.md
+        - AMI v5.3.2: platform/runtime/machine-image/ami-v532.md
+        - AMI stable: platform/runtime/machine-image/ami-stable.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
@@ -351,7 +353,7 @@ pages:
         - Working with Resources: platform/tutorial/workflow/crud-resource.md
         - Working with Triggers: platform/tutorial/workflow/crud-trigger.md
         - Working with Jobs: platform/tutorial/workflow/crud-job.md
-        - Adding an Assembly Line: platform/tutorial/workflow/crud-syncrepo.md
+        - Add/Update an Assembly Line: platform/tutorial/workflow/crud-syncrepo.md
         - Reading data from an IN resource: platform/tutorial/workflow/access-resource-data.md
         - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md

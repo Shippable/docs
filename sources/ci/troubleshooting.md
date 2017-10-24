@@ -212,7 +212,7 @@ Post https://xxxxxx.dkr.ecr.us-east-1.amazonaws.com/v2/xxxxx/node/blobs/uploads/
 ```
 Reason: The Hub integration needs to be configured correctly.
 
-**How to avoid:** Check the following settings to ensure the Hub integration has been configured correctly.
+**How to avoid:** Check the following settings to ensure the Hub/Generic integration has been configured correctly.
 
 1. Ensure the Hub integration has been correctly set in the 'Account' settings based on the Docker Registry used **UpdateLink**
 2. Check the 'Project' Settings to ensure the above integration is listed under the 'Hub Integration'. Read instructions on setting it up **UpdateLink**, if it is not.

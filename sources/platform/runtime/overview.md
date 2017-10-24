@@ -4,6 +4,7 @@ sub_section: Runtime
 page_title: Job Runtime Overview
 
 # Runtime
+
 Every activity in your DevOps Assembly Line requires a place to execute that activity. Job Runtime provides that so that the environment is prepped with the necessary OS, software tools and packages, runtime configurations, and secrets to authenticate with 3rd party services that the activity might interact with.
 
 Some of the key benefits of this are:
@@ -18,7 +19,8 @@ Some of the key benefits of this are:
 * Ability to run your build environment behind a firewall and still leverage the SaaS-based DevOps Assembly Line platform.
 
 ## Components of Job Runtime
-Job Runtime consists of the following components.
+
+Job Runtime consists of the following components:
 
 <a name="nodes"></a>
 ### Nodes
@@ -42,7 +44,7 @@ These are nodes that you manage yourself and hook to Shippable Assembly Lines to
 
 Depending on when your subscription was added to Shippable, we use an appropriate machine image to spin up your node. This determines the OS, languages, services, CLIs, and other packages and tools pre-installed for your convenience.
 
-For a detailed look at machine images used for CI, please read the [CI Machine Image overview](/platform/runtime/ci/ami-overview) page.
+Please note that these machine images are spun up for scripted jobs like `runCI` and `runSh`. For a detailed look at machine images and what is installed on each one, please read the [Machine Image overview](/platform/runtime/machine-image/ami-overview) page.
 
 <a name="env"></a>
 ### Environment variables

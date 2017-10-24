@@ -210,7 +210,7 @@ integrations:
 
 	* `hub` -- used to connect to artifact/Docker registries to pull/push images/artifacts. [Read more](push-artifacts/)
 		* `integrationName` -- name of the Subscription integration to use (refer to type guides)
-		* `type` -- [artifactory](/ci/push-to-artifactory), [docker](/ci/push-docker-hub), [ecr](/ci/push-amazon-ecr), [gcr](/ci/push-gcr), [quay.io](/ci/push-quay) & [docker registry](/ci/push-docker-registry)
+		* `type` -- [artifactory](/ci/push-to-artifactory), [docker registries](/ci/push-docker-registry), [ecr](/ci/push-amazon-ecr), [gcr](/ci/push-gcr), [quay.io](/ci/push-quay)
 		* `branches` -- limiting which branches this integration applies to. This lets you set different credentials for different branches.
 			* `only` -- array of branch names
 

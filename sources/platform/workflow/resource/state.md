@@ -25,17 +25,10 @@ resources:
 
 * **`type`** -- is set to `state`
 
-## Tutorial
 
-Please read the [Sharing data between jobs](/platform/tutorial/workflow/sharing-data-between-jobs/) tutorial to learn about using `state` in jobs.
+## Usage in Assembly Lines
 
-## Used in Jobs
-
-This resource is used as an `IN` or `OUT` of `runSH` and `runCI` jobs.
-
-If you want to update state as part of a job, the `state` resource should be an `OUT` for the job and the job scripts should copy files to the `<NAME>_PATH` directory. `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed.
-
-If you want to consume the state in your job scripts, the `state` resource should be an `IN` for your job and read the state from the `<NAME>_PATH` directory.
+This resource is used as an `IN` or `OUT` of `runSH` and `runCI` jobs. Please read the [**Using central state**](/platform/tutorial/workflow/using-central-state/) tutorial to learn about how you can store and use files and key-value pairs in the `state` resource..
 
 ### Default Environment Variables
 
@@ -50,7 +43,6 @@ Whenever `state` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `state`. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
-| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 

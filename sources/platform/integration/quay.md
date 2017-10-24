@@ -1,9 +1,9 @@
-page_main_title: Quay.io
+page_main_title: Quay.io (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: Quay integration
+page_title: Quay integration (Deprecated)
 
-# Quay Integration
+# Quay Integration (Deprecated)
 
 The [CoreOs Quay](https://quay.io/) Integration is used to connect Shippable DevOps Assembly Lines platform to Quay Docker Registry so that you can pull and push Docker images.
 

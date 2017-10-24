@@ -8,7 +8,7 @@ At the end of your CI workflow, you might want to push artifacts like a JAR/WAR 
 
 We have native support for many popular artifact repositories. Please click on the one you're interested in for detailed instructions on pushing your artifacts:
 
-- [Docker Hub](push-docker-hub/)
+- [Docker Registry](push-docker-registry/)
 - [JFrog Artifactory](push-to-artifactory/)
 - [Amazon S3](push-to-s3/)
 - [Amazon ECR](push-amazon-ecr/)
