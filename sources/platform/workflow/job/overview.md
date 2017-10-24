@@ -12,6 +12,8 @@ Jobs are the executable units of your pipelines that can execute any DevOps acti
 
 Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview), execute tasks that perform the operations necessary and then produce a result i.e. Output(s). Now these Outputs can become Inputs to other jobs and so on forming a dependency-based, event-driven DevOps Assembly Line.
 
+Please note that each job runs on a separate node, but can [share information with other jobs](/platform/workflow/state/overview/).
+
 <img src="/images/platform/jobs/jobWorkflow.png" alt="Connecting jobs into a DevOps Assembly Line" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Typical examples of jobs are:

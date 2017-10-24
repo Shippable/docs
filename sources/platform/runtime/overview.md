@@ -22,7 +22,7 @@ Job Runtime consists of the following components.
 
 <a name="nodes"></a>
 ### Nodes
-To run you DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
+To run your DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
 
 #### [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes)
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
@@ -30,100 +30,19 @@ These are managed and dynamically provisioned by Shippable Platform. There is no
 	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
 
-More on Dynamic Nodes in our [Tutorial](/platform/tutorial/runtime/dynamic-nodes/).
+[Read more on Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes/).
 
 #### [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes)
 These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
 
-More on Custom Nodes in our [Tutorial](/platform/tutorial/runtime/custom-nodes/). 
+[Read more on Custom Nodes](/platform/tutorial/runtime/custom-nodes/).
 
-<a name="os"></a>
-### Operating System
-Job Runtime is designed to work on any Linux distro. Most of our SaaS customers use Ubuntu and we supply pre-built images for the following.
+<a name="machine-image"></a>
+### Machine image
 
-* [Ubuntu 14.04 LTS](/platform/runtime/os/ubuntu14)
-* [Ubuntu 16.04 LTS](/platform/runtime/os/ubuntu16)
+Depending on when your subscription was added to Shippable, we use an appropriate machine image to spin up your node. This determines the OS, languages, services, CLIs, and other packages and tools pre-installed for your convenience.
 
-#### Common components installed
-All our images come pre-installed with the following packages:
-
-* build-essential
-* curl
-* gcc
-* gettext
-* git
-* htop
-* jq
-* libxml2-dev
-* libxslt-dev
-* make
-* nano
-* openssh-client
-* openssl
-* psmisc
-* python-dev
-* python-pip
-* python-software-properties
-* software-properties-common
-* sudo
-* texinfo
-* unzip
-* virtualenv
-
-Since we are a Docker based platform, any custom image based on a Linux distro can be used in Job Runtime.
-
-<a name="language"></a>
-### Language
-For both OS versions, we maintain [language](/platform/runtime/language/overview)  specific images that are constantly updated so that the latest and greatest versions are always available for you to test. We update these version on a monthly cadence.
-We support the following languages -
-
-* [C/C++](/platform/runtime/language/cplusplus)
-* [Clojure](/platform/runtime/language/clojure)
-* [Go](/platform/runtime/language/go)
-* [Java](/platform/runtime/language/java)
-* [Node JS](/platform/runtime/language/nodejs)
-* [PHP](/platform/runtime/language/php)
-* [Python](/platform/runtime/language/python)
-* [Ruby](/platform/runtime/language/ruby)
-* [Scala](/platform/runtime/language/scala)
-
-<a name="service"></a>
-### Services
-To make your builds even faster, we also pre-install a bunch of [services](/platform/runtime/service/overview) that your application may need. These are also updated on a monthly cadence.
-
-Following are the services that are pre-installed -
-
-* [Cassandra](/platform/runtime/service/cassandra)
-* [CouchDB](/platform/runtime/service/couchdb)
-* [Elasticsearch](/platform/runtime/service/elasticsearch)
-* [Memcached](/platform/runtime/service/memcached)
-* [MongoDB](/platform/runtime/service/mongodb)
-* [MySQL](/platform/runtime/service/mysql)
-* [Neo4j](/platform/runtime/service/neo4j)
-* [Postgres](/platform/runtime/service/postgres)
-* [RabbitMQ](/platform/runtime/service/rabbitmq)
-* [Redis](/platform/runtime/service/redis)
-* [RethinkDB](/platform/runtime/service/rethinkdb)
-* [Riak](/platform/runtime/service/riak)
-* [Selenium](/platform/runtime/service/selenium)
-* [SQLLite](/platform/runtime/service/sqllite)
-
-<a name="cli"></a>
-### Command Line Interfaces (CLI)
-The majority of apps today run in the cloud. Each cloud provider has a native CLI and we want to avoid you having to install and configure them. In addition we also pre-install some popular DevOps tools. The goals is to try and prep the build environment as close to your desired state as possible so that you can spend less time prepping and more time developing applications.
-
-Here is a list of CLIs we have available as part of Job Runtime -
-
-* [Ansible](/platform/runtime/cli/ansible)
-* [AWS](/platform/runtime/cli/aws)
-* [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
-* [Azure](/platform/runtime/cli/azure)
-* [Docker](/platform/runtime/cli/docker)
-* [Google Cloud](/platform/runtime/cli/gke)
-* [JFrog](/platform/runtime/cli/jfrog)
-* [Packer](/platform/runtime/cli/packer)
-* [Terraform](/platform/runtime/cli/terraform)
-* [Kubectl](/platform/runtime/cli/kubectl)
+For a detailed look at machine images used for CI, please read the [CI Machine Image overview](/platform/runtime/ci/ami-overview) page.
 
 <a name="env"></a>
 ### Environment variables

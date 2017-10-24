@@ -23,27 +23,32 @@ You can use state as you need, depending on your workflow. At the end of the day
 <a name="types"></a>
 ## Types of state
 
-The Assembly Lines platform supports three types of state: key-value pairs, files, and a third state we call 'central state'.
+The Assembly Lines platform supports three types of state: job-based state, resource-based state, and central state. Job-based state allows you to share key-value pairs between connected jobs and subsequent runs of the same job. Resource-based state allows you to share key-value pairs or files across any job in your Assembly Line. Central state allows you to share files or key-value pairs and is very useful in situations where multiple jobs in your Assembly Line need to consume as well as update the data.
 
-### Key-value state
+###Job-based state
 
-Key-values can be stored in a [params](/platform/workflow/resource/params/) resource or as a property in the immutable version of any resource or job. Every job that has the resource or job as an `IN` can access the key-value information in its scripts.
+You can store key-value pairs or files up to 1Mb as state for every immutable version, i.e. run, of a job. This state is available to any connected downstream jobs, or to subsequent runs of the same job. This makes it easy to transfer state-ful information from one job to another or across runs.
 
-<img src="/images/platform/workflow/key-value-state.png" alt="DevOps tools exchanging information">
+<img src="/images/platform/workflow/job-based-state.png" alt="DevOps tools exchanging information">
 
-For an example, check out our tutorial on [Writing key-values to an OUT resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource/)   
+To learn how to store key-value state or files in job state, read our tutorial on [Read/write from job-based-state](/platform/tutorial/workflow/sharing-data-between-jobs/)
 
-### File-based state
+###Resource-based state
 
-File-based state is available only in jobs and using the central state resource described in the next bullet. Files up to 1MB can be stored for every version, i.e. run, of a job. Every subsequent job that has this as an input has access to those files. This makes it easy to transfer stateful data from one job to another.
+Key-values can be stored in a [params](/platform/workflow/resource/params/) resource or as a property in the immutable version of any resource. Every job that has the resource or job as an `IN` can access the key-value information in its scripts.
 
-<img src="/images/platform/workflow/file-state-job.png" alt="DevOps tools exchanging information">
+<img src="/images/platform/workflow/resource-based-state.png" alt="DevOps tools exchanging information">
 
-### Shared state (central state)
+For an example, check out our tutorials:
 
-The scenarios above are simple since one job creates/updates state and another job or subsequent runs of the same job consume the state. However, you will sometimes need to store files or key:value pairs that are changed and maintained by several jobs in your Assembly Line.
+* [Reading data from an IN resource](/platform/tutorial/workflow/access-resource-data)
+* [Writing to an OUT resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource/)   
+
+### Central state
+
+The scenarios above are simple since one job creates/updates state and another job or subsequent runs of the same job consume the state. However, you will sometimes need to store files or key-value pairs that are changed and maintained by several jobs in your Assembly Line.
 For example, **Terraform** creates a statefile when `terraform apply` is run, and subsequent jobs in your Assembly Line might want to change this statefile. These updates now need to flow back to your earlier job so it is aware of the latest statefile. Using the methods above would create a circular reference which is not allowed for jobs or resources in an Assembly Line.
-The `state` resource is key for these scenarios since it is the **only resource** that can create a circular loop without creating problems in your Assembly Line. This is because the `state` resource never triggers the job automatically even when it changes. It just maintains central state for the jobs that need them and make it available when required.
+The `state` resource is key for these scenarios since it is the **only resource** that can create a circular loop without creating problems in your Assembly Line. This is because the `state` resource never triggers the job automatically even when it changes. It just maintains central state for the jobs that need them and make it available when required. You can store key-value pairs or files up to 1MB in the `state` resource.
 
 <img src="/images/platform/workflow/shared-state-resource.png" alt="DevOps tools exchanging information">
 
@@ -51,6 +56,6 @@ For more information, read the [state resource page](/platform/workflow/resource
 
 
 ## Tutorials
-* [Sharing information between successive runs of a job](/platform/tutorial/workflow/sharing-data-between-runs.md)
+* [Sharing information through jobs](/platform/tutorial/workflow/sharing-data-between-jobs.md)
 * [Writing key-value information to an OUT Resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource.md)
 * [How to use central state to share files or key:value pairs across your Assembly Line](/platform/tutorial/workflow/using-central-state.md)

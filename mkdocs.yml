@@ -298,48 +298,15 @@ pages:
         - SSH Keys: platform/integration/key-ssh.md
     - Runtime:
       - Overview: platform/runtime/overview.md
-      - Operating System:
-        - Ubuntu 14:04: platform/runtime/os/ubuntu14.md
-        - Ubuntu 16:04: platform/runtime/os/ubuntu16.md
-        - Ubuntu 16:04 - aarch64: platform/runtime/os/ubuntu16-aarch64.md
-      - Languages:
-        - Overview: platform/runtime/language/overview.md
-        - Nodejs: platform/runtime/language/nodejs.md
-        - Python: platform/runtime/language/python.md
-        - Java: platform/runtime/language/java.md
-        - Ruby: platform/runtime/language/ruby.md
-        - Go: platform/runtime/language/go.md
-        - PHP: platform/runtime/language/php.md
-        - Clojure: platform/runtime/language/clojure.md
-        - Scala: platform/runtime/language/scala.md
-        - C/C++: platform/runtime/language/cplusplus.md
-      - CLIs:
-        - Amazon Web Services: platform/runtime/cli/aws.md
-        - AWS Elastic Beanstalk: platform/runtime/cli/awseb.md
-        - Google Cloud: platform/runtime/cli/gke.md
-        - Kubernetes Controller: platform/runtime/cli/kubectl.md
-        - Terraform: platform/runtime/cli/terraform.md
-        - Ansible: platform/runtime/cli/ansible.md
-        - JFrog: platform/runtime/cli/jfrog.md
-        - Azure: platform/runtime/cli/azure.md
-        - Packer: platform/runtime/cli/packer.md
-        - Docker: platform/runtime/cli/docker.md
-      - Services:
-        - Overview: platform/runtime/service/overview.md
-        - Cassandra: platform/runtime/service/cassandra.md
-        - Couchdb: platform/runtime/service/couchdb.md
-        - Elasticsearch: platform/runtime/service/elasticsearch.md
-        - Neo4j: platform/runtime/service/neo4j.md
-        - Memcached: platform/runtime/service/memcached.md
-        - MongoDB: platform/runtime/service/mongodb.md
-        - MySQL: platform/runtime/service/mysql.md
-        - Postgres: platform/runtime/service/postgres.md
-        - RabbitMQ: platform/runtime/service/rabbitmq.md
-        - Redis: platform/runtime/service/redis.md
-        - RethinkDB: platform/runtime/service/rethinkdb.md
-        - Riak: platform/runtime/service/riak.md
-        - Selenium: platform/runtime/service/selenium.md
-        - SQLite: platform/runtime/service/sqllite.md
+      - CI:
+        - Overview: platform/runtime/ci/ami-overview.md
+        - AMI v5.8.2: platform/runtime/ci/ami-v582.md
+        - AMI v5.7.3: platform/runtime/ci/ami-v573.md
+        - AMI v5.6.1: platform/runtime/ci/ami-v561.md
+        - AMI v5.5.1: platform/runtime/ci/ami-v551.md
+        - AMI v5.4.1: platform/runtime/ci/ami-v541.md
+        - AMI v5.3.2: platform/runtime/ci/ami-v532.md
+        - AMI stable: platform/runtime/ci/ami-stable.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
@@ -384,15 +351,14 @@ pages:
         - Working with Resources: platform/tutorial/workflow/crud-resource.md
         - Working with Triggers: platform/tutorial/workflow/crud-trigger.md
         - Working with Jobs: platform/tutorial/workflow/crud-job.md
-        - Working with syncRepo: platform/tutorial/workflow/crud-syncrepo.md
-        - Using Shippable Utility shipctl: platform/tutorial/workflow/using-shipctl.md
+        - Adding an Assembly Line: platform/tutorial/workflow/crud-syncrepo.md
+        - Reading data from an IN resource: platform/tutorial/workflow/access-resource-data.md
+        - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md
+        - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
         - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
-        - Writing key-values into an Output Resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
-        - Extracting additional version info from a Resource: platform/tutorial/workflow/extracting-additional-resource-version-info.md
-        - Replicating IN Resource to a OUT Resource: platform/tutorial/workflow/replicating-in-to-out-resource.md
-        - Sharing data between Runs: platform/tutorial/workflow/sharing-data-between-runs.md
         - Encrypting information: platform/tutorial/workflow/encrypt-vars.md
+        - Shippable Utility shipctl reference: platform/tutorial/workflow/using-shipctl.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
@@ -406,14 +372,6 @@ pages:
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
         - Caching: platform/tutorial/runtime/caching.md
         - Environment Variables: platform/tutorial/runtime/environment-variables.md
-        - AMI Overview: platform/tutorial/runtime/ami-overview.md
-        - AMI v5.8.2: platform/tutorial/runtime/ami-v582.md
-        - AMI v5.7.3: platform/tutorial/runtime/ami-v573.md
-        - AMI v5.6.1: platform/tutorial/runtime/ami-v561.md
-        - AMI v5.5.1: platform/tutorial/runtime/ami-v551.md
-        - AMI v5.4.1: platform/tutorial/runtime/ami-v541.md
-        - AMI v5.3.2: platform/tutorial/runtime/ami-v532.md
-        - AMI stable: platform/tutorial/runtime/ami-stable.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md

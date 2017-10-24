@@ -35,12 +35,32 @@ resources:
 ```
 For a detailed explanation of each field, read [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml).
 
-## Versions
+## Resource structure
 
-A key strength of a resource is that it is versioned. This is critical if you want to be able to roll back, upgrade, or [pin the resource](/platform/tutorial/workflow/crud-job/#pin) to a particular point of time. User-defined key-value pairs can be stored as part of resource versions.
+<img src="/images/platform/resources/resource-description.png" alt="DevOps resources">
+
+A resource consists of the following components:
+
+* `resourceID` which uniquely identifies the resource. This is unique across the entire platform and is auto-generated when a resource is added.
+* `versionNumber` which is created every time the resource is updated, resulting in a new versionNumber
+* `versionName` which is an optional user-defined name.
+* `meta` which is a json object containing the resource definition and information. For example, if you have a cluster resource, the pointer information is stored in this json object.
+* `state` which stores user-defined key-value pairs, if any, for the resource. For the `state` resource, this can also contain files in addition to key-value pairs
+* `path` which stores data that was pulled by the resource. For example, for a `gitRepo` resource, this contains a clone of the Git repository.
+
+To understand how you can access the above components through your job scripts, read our tutorial on [Accessing resource data](/platform/tutorial/workflow/access-resource-data/)
+
+## Resource versioning
+
+All resources are versioned. A new resource version is created in two ways:
+
+* When you update the resource definition in `shippable.resources.yml`
+* When a job updates an `OUT` resource
+
+This is critical if you want to be able to roll back, upgrade, or [pin the resource](/platform/tutorial/workflow/crud-job/#pin) to a particular point of time.
 
 <a name="types"></a>
-## Types
+## Resource types
 
 These are the types of resources that Shippable Workflow supports:
 
