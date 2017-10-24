@@ -1,29 +1,37 @@
-page_main_title: Docker Hub (Deprecated)
+page_main_title: Docker Registry
 main_section: Platform
 sub_section: Integrations
-page_title: Docker Hub integration (Deprecated)
+page_title: Docker Registry integration
 
-# Docker Hub Integration (Deprecated)
+# Docker Registry Integration
 
-The [Docker Hub](https://hub.docker.com/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Hub so that you can pull and push Docker images.
+The [Docker Registry](https://docs.docker.com/registry/deploying/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Hub, Docker Trusted Registry or privately hosted Docker Hub so that you can pull and push Docker images.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Hub integrations. You can use the new [Docker Registry](/platform/integration/dockerRegistryLogin) instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **Docker Registry**
+* **Name** -- choose a friendly name for the integration
+* **URL** -- an optional field which will default to Docker Hub if left empty. To use with Docker Trusted Registry or Docker Private Registry fill with the location of your private registry. Format `https://foo.com`
+* **Username** -- login to your Docker Registry Account
+* **Password** -- password of your Docker Registry Account
+* **Email** -- email of your Docker Registry Account
 
 ## Usage in CI
 
 * [Using a custom image for CI](/ci/custom-docker-image/)
-* [Pushing artifacts to Docker Hub](/ci/push-to-docker-hub/)
+* [Pushing artifacts to Docker Hub](/ci/push-to-docker-private-registry/)
 
 ## Usage in Assembly Lines
 
-The Docker Hub integration can be used in the following [resources](/platform/workflow/resource/overview/):
+The Docker Registry integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [image](/platform/workflow/resource/image)
 * [integration](/platform/workflow/resource/integration)
-
-This integration can be used for the scenarios listed in [Deploy to Container Orchestration Platforms](/deploy/deploy-docker-overview/) if you're using Docker Hub as your Docker registry. 
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
@@ -32,6 +40,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
+| `<NAME>`\_INTEGRATION\_URL   			| URL supplied in the integration |
 | `<NAME>`\_INTEGRATION\_USERNAME   		| Username supplied in the integration |
 | `<NAME>`\_INTEGRATION\_PASSWORD			| Password supplied in the integration |
 | `<NAME>`\_INTEGRATION\_EMAIL			| Email supplied in the integration |

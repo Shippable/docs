@@ -14,7 +14,7 @@ You can add this account integration by following steps on the [Adding an accoun
 Here is the information you need to create this integration:
 
 * **Integration Family** -- **generic**
-* **Integration type** -- **Quay**
+* **Integration type** -- **Quay.io**
 * **Name** -- choose a friendly name for the integration
 * **Username** -- login to your Quay Account
 * **Password** -- password of your Quay Account
