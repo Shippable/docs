@@ -14,11 +14,11 @@ Resources are defined in a yml-based configuration file `shippable.resources.yml
 
 <a name="adding"></a>
 ## Adding Resources
-Resources are defined in a configuration file `shippable.resources.yml` and this file is added to the root of a source control repository. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Resources defined in the repo.
+Resources are defined in a configuration file `shippable.resources.yml` and this file is added to the root of a source control repository, which we call your [Sync repository](/platform/workflow/resource/syncrepo). All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Resources defined in the repo.
 
-Once the Resources are defined and added to the repo, you will have to connect it to SPOG by creating a `syncRepo` using the UI. Detailed step by step instructions are [here ](/platform/workflow/resource/syncrepo).
+Once `shippable.resources.yml` is committed to a repository, you will have to add them to Shippable through the UI. Detailed step by step instructions are [here ](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 
-After adding a `syncRepo`, our DevOps Assembly Lines are watching for changes (Resource adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
+Once your Sync repository is added, the platform watches for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 
 <a name="viewing"></a>
 ## Viewing resource information
@@ -27,14 +27,6 @@ You can see what's included in each resource version through the Shippable UI.
 
 * Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Resources in Grid View
 * Search for your resource and click on it. This will show you a historical list of all resource versions with additional information.
-
-## Read from/Write to a resource
-
-Please refer to these tutorials:
-
-* [Read information from an `IN` resource](/platform/tutorial/workflow/access-resource-data)
-* [Write to an `OUT` resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource)
-
 
 ## Deleting Resources
 Deleting Resources is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Resource means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.

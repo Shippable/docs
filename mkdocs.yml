@@ -351,7 +351,7 @@ pages:
         - Working with Resources: platform/tutorial/workflow/crud-resource.md
         - Working with Triggers: platform/tutorial/workflow/crud-trigger.md
         - Working with Jobs: platform/tutorial/workflow/crud-job.md
-        - Adding an Assembly Line: platform/tutorial/workflow/crud-syncrepo.md
+        - Add/Update an Assembly Line: platform/tutorial/workflow/crud-syncrepo.md
         - Reading data from an IN resource: platform/tutorial/workflow/access-resource-data.md
         - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md
