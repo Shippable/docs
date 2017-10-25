@@ -5,6 +5,13 @@ page_title: Docker Private Registry integration (Deprecated)
 
 # Docker Private Registry Integration (Deprecated)
 
+## Deprecation Note
+This integration has been deprecated. A new integration called [Docker Registry](/platform/integration/dockerRegistryLogin) has been introduced which can be used instead. It aims to simplify and unify existing Docker Hub, Docker Private/Trusted Registry functionalities.
+
+If you have any existing Docker Private Registry account integrations, you can continue to use them.
+
+---
+
 The [Docker Private Registry](https://docs.docker.com/registry/deploying/) Integration is used to connect Shippable DevOps Assembly Lines platform to a privately hosted Docker Hub so that you can pull and push Docker images.
 
 ## Adding account integration
