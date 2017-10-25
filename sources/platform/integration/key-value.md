@@ -39,8 +39,8 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
-| KEY											| Name of the First Key defined and will have value set |
-| KEY											| Name of the Nth Key defined and will have value set |
+| MY_KEY_1											| Name of the First Key defined and will have value set |
+| MY_KEY_N											| Name of the Nth Key defined and will have value set |
 
 ### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.

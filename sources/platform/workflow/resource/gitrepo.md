@@ -81,6 +81,7 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `gitRepo`. |
+| `<NAME>`\_PATH 							| The path of the root directory of the gitRepo. |
 | `<NAME>`\_BASE\_BRANCH       			| If the version was created for a pull request, this is the name of the base branch into which the pull request changes will be merged. |
 | `<NAME>`\_BRANCH            			| When the version was created for a commit, this is the name of branch on which the commit occurred. If it was created for a pull request, this is the base branch. |
 | `<NAME>`\_COMMIT            			| SHA of the commit of the version being used. |

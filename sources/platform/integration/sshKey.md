@@ -39,8 +39,8 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_NAME   			| Name supplied in the integration |
-| `<NAME>`\_INTEGRATION\_PUBLICKEY		| Public Key supplied in the integration |
-| `<NAME>`\_INTEGRATION\_PRIVATEKEY		| Private Key supplied in the integration |
+| `<NAME>`\_PUBLICKEY		| Public Key supplied in the integration |
+| `<NAME>`\_PRIVATEKEY		| Private Key supplied in the integration |
 | `<NAME>`\_PUBLIC\_KEY\_PATH		| Path of a file containing the public key supplied in the integration |
 | `<NAME>`\_PRIVATE\_KEY\_PATH		| Path of a file containing the private key supplied in the integration |
 
