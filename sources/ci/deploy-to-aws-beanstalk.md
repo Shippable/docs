@@ -60,6 +60,8 @@ To enable Shippable to perform these steps, you will need to configure the follo
 
 To enable AWS EB integration for your project, add the following to the `shippable.yml` file for that project.
 
+**Note:** Both the deprecated [ECR integration](/platform/integration/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
+
 ```
 integrations:
   deploy:
