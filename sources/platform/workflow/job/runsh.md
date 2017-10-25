@@ -91,9 +91,7 @@ Here is a list of the tools configured for each integration type:
 | [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/machine-image/cli-versions/#aws) & [Elastic Beanstalk](platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
-| [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
-| [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
-| [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Docker Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#gke) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Google Cloud with GCR scope](/platform/integration/gcloudKey) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/machine-image/cli-versions/#jfrog) |

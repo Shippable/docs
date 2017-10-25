@@ -132,8 +132,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 ### Artifact Repositories
 
-- [Docker Hub](/platform/integration/dockerRegistryLogin)
-- [Docker Trusted Registry](/platform/integration/dockerRegistryLogin)
+- [Docker Registries](/platform/integration/dockerRegistryLogin)
 - [AWS Elastic Container Registry](/platform/integration/aws-keys)
 - [Google Container Registry](/platform/integration/gcloudKey)
 - [Quay](/platform/integration/quayLogin)

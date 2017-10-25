@@ -81,11 +81,9 @@ integration. Here is a list of the tools configured for each integration type:
 | ------------------------------------|-------------|
 | AWS                                 | [AWS CLI](/platform/runtime/machine-image/cli-versions/#aws); [AWS Elastic Beanstalk CLI](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | AWS with `ecr` scope                | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
-| Docker Hub                          | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
-| Docker Private Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
-| Docker Trusted Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Docker Registry                     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Google Container Engine             | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
-| Google Cloud with `gcr` scope     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Google Cloud with `gcr` scope       | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | JFrog Artifactory                   | [JFrog CLI](/platform/runtime/machine-image/cli-versions/#jfrog) |
 | Kubernetes                          | [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Quay.io                             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |

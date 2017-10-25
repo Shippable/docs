@@ -1,30 +1,20 @@
-page_main_title: Docker Trusted Registry
+page_main_title: Docker Trusted Registry (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: Docker Private/Trusted Registry integration
+page_title: Docker Trusted Registry integration (Deprecated)
 
-# Docker Trusted Registry Integration
+# Docker Trusted Registry Integration (Deprecated)
 
 The **Docker Trusted Registry** Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Trusted Registry so that you can pull and push Docker images.
 
 ## Adding account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
-
-Here is the information you need to create this integration:
-
-* **Integration Family** -- **hub**
-* **Integration type** -- **Docker Private Registry**
-* **Name** -- choose a friendly name for the integration
-* **URL** -- location of your private registry. Format `https://foo.com`
-* **Username** -- login to your Docker Registry Account
-* **Password** -- password of your Docker Registry Account
-* **Email** -- email of your Docker Registry Account
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Private Registry integrations. You can use the new [Docker Registry](/platform/integration/dockerRegistryLogin) instead.
 
 ## Usage in CI
 
 * [Using a custom image for CI](/ci/custom-docker-image/)
-* [Pushing artifacts to Docker Hub](/ci/push-docker-private-registry/)
+* [Pushing artifacts to Docker Hub](/ci/push-docker-registry/)
 
 ## Usage in Assembly Lines
 
