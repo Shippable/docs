@@ -91,7 +91,7 @@ These files should be committed to your source control. Step 11 of the workflow 
 
 * **Description:** `dmsk_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image in your pipeline. In our example, we're using an image hosted on GCR.
 * **Required:** Yes.
-* **Integrations needed:** [GCR Integration](/platform/integration/gcr/), or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
+* **Integrations needed:** [Google cloud Integration](/platform/integration/gcloudKey/), or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 

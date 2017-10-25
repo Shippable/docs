@@ -43,7 +43,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Docker Hub](/platform/integration/dockerRegistryLogin)
 - [Docker Trusted Registry](/platform/integration/dockerRegistryLogin)
 - [Docker Private Registry](/platform/integration/dockerRegistryLogin)
-- [Google Container Registry](/platform/integration/gcr)
+- [Google Container Registry](/platform/integration/gcloudKey)
 - [Quay](/platform/integration/quayLogin)
 - [JFrog](/platform/integration/jfrog-artifactoryKey)
 

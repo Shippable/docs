@@ -69,7 +69,7 @@ These files should be committed to your source control. Step 5 of the workflow b
 1. Create an account integration for GCR in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [GCR integration](/platform/integration/gcr/)
+    * [Google cloud integration](/platform/integration/gcloudKey/)
 
     Copy the friendly name of the integration.
 

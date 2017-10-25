@@ -20,40 +20,40 @@ You can create a `runSh` Job by [adding](/platform/tutorial/workflow/crud-job#ad
 ## YML Definition
 ```
 jobs:
-  - name: 					<string>
-    type: 					runSh
+  - name:           <string>
+    type:           runSh
     on_start:
-      - NOTIFY: 			<notification resource name>
+      - NOTIFY:       <notification resource name>
     steps:
-      - IN: 				<resource>
-        switch: 			off
-      - IN: 				<job>
-      - IN: 				<resource>
-        versionName: 		<name of the version you want to pin>
-      - IN: 				<resource>
-        versionNumber: 		<number of the version you want to pin>        
-      - IN: 				<gitRepoResource with buildOnPullRequest: true>
-        showBuildStatus:	true       
+      - IN:         <resource>
+        switch:       off
+      - IN:         <job>
+      - IN:         <resource>
+        versionName:    <name of the version you want to pin>
+      - IN:         <resource>
+        versionNumber:    <number of the version you want to pin>        
+      - IN:         <gitRepoResource with buildOnPullRequest: true>
+        showBuildStatus:  true       
       - IN:         <cliConfig with scope support>
         scopes:
           - scope        <scope that you want configured>
       - TASK:
-        - script: 			<any shell command>
-        - script: 			<any shell command>
-      - OUT: 				<resource>
-      - OUT: 				<resource>
-        replicate: 			<IN resource>
-      - OUT: 				<resource>
-        overwrite: 			true
+        - script:       <any shell command>
+        - script:       <any shell command>
+      - OUT:        <resource>
+      - OUT:        <resource>
+        replicate:      <IN resource>
+      - OUT:        <resource>
+        overwrite:      true
     on_success:
-      - script: 			echo "SUCCESS"
+      - script:       echo "SUCCESS"
     on_failure:
-      - script: 			echo "FAILED"
-      - NOTIFY: 			<notification resource name>
+      - script:       echo "FAILED"
+      - NOTIFY:       <notification resource name>
     on_cancel:
-      - script: 			echo "CANCEL"
+      - script:       echo "CANCEL"
     always:
-      - script: 			pwd
+      - script:       pwd
 ```
 
 A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
@@ -92,33 +92,32 @@ Here is a list of the tools configured for each integration type:
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
 | [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
-| [Docker Private Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#gke) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
-| [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Google Cloud with GCR scope](/platform/integration/gcloudKey) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/machine-image/cli-versions/#jfrog) |
 | [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | For all Integrations above | [Packer](/platform/runtime/machine-image/cli-versions/#packer) & [Terraform](/platform/runtime/machine-image/cli-versions/#terraform)|
-
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
 
 In addition, the Job itself comes with its own default set of variables. This is the list for this Job type
 
-| Environment variable						| Description                         |
-| ------------- 								|------------------------------------ |
-| JOB_NAME 									| The name of the Job, given in the YML |
-| JOB_TYPE 									| The type of the Job. In this case `runSh`|
-| BUILD_ID 									| Internal Id of the current build thats executing|
-| BUILD_NUMBER 								| Sequentional number for the Job thats executing|
-| BUILD_JOB_ID    							| Internal ID of the currently running Job |
-| BUILD_JOB_NUMBER    						| Sequential number of the Job |
-| SUBSCRIPTION_ID    						| Shippable ID that represents git organization uniquely |
-| JOB_PATH    								| The path of the directory containing files critical for this job |
-| JOB_STATE      							| The location of the `state` directory for this job|
-| JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
+| Environment variable            | Description                         |
+| -------------                 |------------------------------------ |
+| JOB_NAME                  | The name of the Job, given in the YML |
+| JOB_TYPE                  | The type of the Job. In this case `runSh`|
+| BUILD_ID                  | Internal Id of the current build thats executing|
+| BUILD_NUMBER                | Sequentional number for the Job thats executing|
+| BUILD_JOB_ID                  | Internal ID of the currently running Job |
+| BUILD_JOB_NUMBER                | Sequential number of the Job |
+| SUBSCRIPTION_ID               | Shippable ID that represents git organization uniquely |
+| JOB_PATH                    | The path of the directory containing files critical for this job |
+| JOB_STATE                   | The location of the `state` directory for this job|
+| JOB_PREVIOUS_STATE            | The location of the directory containing the `state` information from when the job last ran. |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
