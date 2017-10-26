@@ -17,10 +17,11 @@ Integration](/platform/management/integrations#add-integration) so that your Shi
 navigation bar.
 -  Click on **Integrations** in the left sidebar menu and then click on **Add
 Integration**
--  Locate **Google Cloud** in the list and click on **Create Integration**
--  Name your integration and enter your project name, service account email, and credential file content.
+- Select the Integration Family as `generic` from the dropdown
+-  Locate **Google Cloud** in the Integration Type dropdown
+-  Name your integration and enter your credential file content.
 -  Choose the Subscription(s) that are allowed to use these credentials.
--  Click **Save**
+-  Click **Create**
 
 <img src="../../images/provision/google-cloud-integration.png" alt="add
 google cloud credentials">
@@ -54,6 +55,50 @@ inputs to your pipeline:
       branch: master
 ```
 
+### Provisioning using the new [Google Cloud](/platform/integration/gcloudKey) integration the following is valid:
+In `shippable.jobs.yml`, define the following job in order to execute
+an Ansible playbook to provision on Google Cloud from your pipeline:
+
+```yaml
+# job to execute Ansible script to provision aws instances
+  - name: myProvisionJob
+    type: runSh
+    steps:
+      - IN: myGithubRepo
+      - IN: myGclCliConfig
+      - TASK:
+        # Execute Ansible playbook
+        - script: export CREDENTIALFILE_PATH="$(shipctl get_resource_meta "$MYGCLCLICONFIG_NAME")/key.json"
+        - script: export SERVICEACCOUNTEMAIL="$(shipctl get_json_value "$CREDENTIALFILE_PATH" "client_email")"
+        - script: export PROJECTID="$(shipctl get_json_value "$CREDENTIALFILE_PATH" "project_id")"
+        - script: |
+            cd $MYGITHUBREPO_STATE
+            ansible-playbook -v google-cloud-provision.yml
+```
+
+This is required as we need to export the integration path containing your Google Service Accout Key and also the project id and service account mail associated with your key so that ansible can use this credentials to provision the VM instances.
+
+Now we need to use this exported environment variables in your ansible playbook.
+`myGithubRepo` git repository should contain `google-cloud-provision.yml` which should be a valid ansible playbook with a provisioning task for Google Cloud. Example of `google-cloud-provision.yml` might be
+
+```yaml
+
+- name: Google Cloud Provision
+  hosts: localhost
+  tasks:
+    - name: provision api instance
+      gce:
+        instance_names: api-instance
+        zone: us-central1-a
+        machine_type: f1-micro
+        image: debian-8
+        state: present
+        service_account_email: "{{ ansible_env.SERVICEACCOUNTEMAIL }}"
+        credentials_file: "{{ ansible_env.CREDENTIALFILE_PATH }}"
+        project_id: "{{ ansible_env.PROJECTID }}"
+```
+
+### Provisioning using the deprecated [Google Cloud](/platform/integration/gce) integration the following is valid:
 In `shippable.jobs.yml`, define the following job in order to execute
 an Ansible playbook to provision on Google Cloud from your pipeline:
 
@@ -90,7 +135,8 @@ an Ansible playbook to provision on Google Cloud from your pipeline:
         project_id: "{{ ansible_env.MYGCLCLICONFIG_INTEGRATION_PROJECTNAME }}"
 ```
 
-In our `runSh` job, `IN: myGclCliConfig` gives the following environment variables:
+
+In our `runSh` job, `IN: myGclCliConfig` gives the following environment variables for the deprecated [Google Cloud](/platform/integration/gce) integration. These environment variables won't be exported if you are using the new [Google Cloud](/platform/integration/gcloudKey):
 
   - `MYGCLCLICONFIG_INTEGRATION_PROJECTNAME` - Project name given in the Google Cloud account integration.
   - `MYGCLCLICONFIG_INTEGRATION_SERVICEACCOUNTEMAIL` - Service Account Email given in the Google Cloud account integration.
