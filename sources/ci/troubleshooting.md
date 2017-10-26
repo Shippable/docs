@@ -174,8 +174,8 @@ Reason: When you are using a custom image for your CI & you have specified a Goo
 ```
 integrations:
   hub:
-    - integrationName: gcr_int_name
-      type: gcr
+    - integrationName: gcloudKey_int_name
+      type: gcloudKey
       agent_only: true
 ```
 If you would like to push your image to GCR, then use the `push` section after the `build: ci` section, which ensures the image is pushed after the CI is completed and this command is run outside the build container.

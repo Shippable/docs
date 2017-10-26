@@ -12,6 +12,6 @@ We have native support for many popular artifact repositories. Please click on t
 - [JFrog Artifactory](push-to-artifactory/)
 - [Amazon S3](push-to-s3/)
 - [Amazon ECR](push-amazon-ecr/)
-- [GCR](push-gcr/)
+- [Google Cloud](push-gcr/)
 - [Docker Registry](push-docker-registry/)
 - [Quay](push-quay/)

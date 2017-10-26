@@ -54,7 +54,7 @@ Follow the steps below to pull a private image:
 - Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
     - [Docker Registry](../platform/integration/dockerRegistryLogin/)
     - [Amazon ECR](../platform/integration/aws-keys/)    
-    - [GCR](../platform/integration/gcr/)
+    - [Google Cloud](../platform/integration/gcloudKey/)
     - [Quay](../platform/integration/quayLogin/)      
 
 - Add the following to your `shippable.yml`
@@ -80,7 +80,7 @@ integrations:
     * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR.
         - Note: For running builds on docker version 17.06.0-ce and above, make sure that the `aws` cli installed in the image is 1.11.91 version or above.
-    * `gcr` for Google Container Registry (GCR)
+    * `gcloudKey` for Google Container Registry (GCR) (If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same)
     * `quayLogin` for Quay.io
 
 
@@ -114,7 +114,7 @@ build:
     * Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
         - [Docker Registry](../platform/integration/dockerRegistryLogin/)
         - [Amazon ECR](../platform/integration/aws-keys/)    
-        - [GCR](../platform/integration/gcr/)
+        - [Google Cloud](../platform/integration/gcloudKey/)
         - [Quay](../platform/integration/quayLogin/)      
     *  Add the integration name to your `yml`:
 
@@ -129,7 +129,7 @@ integrations:
 * `type` depends on the registry you are pulling from:
     * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR
-    * `gcr` for Google Container Registry (GCR)
+    * `gcloudKey` for Google Container Registry (GCR) (If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same)
     * `quayLogin` for Quay.io
 
 This should configure your workflow to build `my_registry_repo/my_image` image and use it for your CI.

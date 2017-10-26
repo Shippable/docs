@@ -20,7 +20,7 @@ If your Dockerfile specifies a private image in its `FROM` section, we need to a
 
     - [Docker Registry](/platform/integration/dockerRegistryLogin)
     - [AWS Elastic Container Registry](/platform/integration/aws-keys)
-    - [Google Container Registry](/platform/integration/gcr)
+    - [Google Container Registry](/platform/integration/gcloudKey)
     - [Quay](/platform/integration/quayLogin)
     - [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 
@@ -33,14 +33,14 @@ For example, here is a snippet for Docker Hub and Docker Private/Trusted Registr
 ```
 integrations:
   hub:
-    - integrationName: myIntegration    #replace with your integration name   
-      type: dockerRegistryLogin     
+    - integrationName: myIntegration    #replace with your integration name
+      type: dockerRegistryLogin
 ```
 
 For other registries, the `type` is set as follows:
 
   - Amazon ECR: `type: ecr`
-  - GCR: `type: gcr`
+  - GCR: `type: gcloudKey` (set the type to `gcloudKey` if you are using the new [Google Cloud Integration](/platform/integration/gcloudKey). If you are still using the deprecated [GCR Integration](/platform/integration/gcr), set the type to `gcr`)
   - CoreOS Quay: `type: quay`
 
 ###3. Building Docker image

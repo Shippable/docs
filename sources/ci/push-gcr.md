@@ -8,7 +8,7 @@ You can push your image to GCR in any section [of your yml](/ci/yml-structure/#a
 
 ##Setup
 
-Before you start, you will need to connect your  GCR account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your  Google cloud account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 #### Generating a JSON key on Google Developers Console (GDC)
 -  In the top navigation bar, select the project you want to integrate with Shippable.
@@ -22,21 +22,22 @@ Before you start, you will need to connect your  GCR account with Shippable so w
 -  Your new **JSON key** is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 -  For more on JSON keys and Service accounts, read
 <a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
-#### Adding GCR Integration to your Shippable Account
--  Please follow the steps mentioned [here](/platform/integration/gcr/).
+#### Adding Google cloud Integration to your Shippable Account
+-  Please follow the steps mentioned [here](/platform/integration/gcloudKey/).
 
-<img src="/images/platform/integrations/gcr-integration.png" alt="Add  GCR credentials">
+<img src="/images/platform/integrations/gcloud-integration.png" alt="Add  Google Cloud credentials">
 
 ##Basic config
 
 2. After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with GCR using your credentials.
 
 ```
-integrations:                               
+integrations:
   hub:
-    - integrationName: gcr-integration    #replace with your integration name
-      type: gcr                        
+    - integrationName: gcloud-integration    #replace with your integration name
+      type: gcloudKey
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 3. Push to GCR in your `shippable.yml` file:
 
@@ -58,15 +59,17 @@ build:
   post_ci:
     - if [ "$BRANCH" == "master" ]; then docker push gcr.io/myOrg/myImageRepo:myTag; fi
 
-integrations:                               
+integrations:
   hub:
-    - integrationName: gcr-integration    #replace with your integration name   
-      type: gcr    
+    - integrationName: gcloud-integration    #replace with your integration name
+      type: gcloudKey
       branches:
         only:
           - master
 
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+
 In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
 
 ### Pushing to different accounts based on branch
@@ -79,21 +82,22 @@ build:
     - if [ "$BRANCH" == "master" ]; then docker push gcr.io/myOrg-One/myImageRepo:myTag; fi
     - if [ "$BRANCH" == "dev" ]; then docker push gcr.io/myOrg-Two/myImageRepo:myTag; fi
 
-integrations:                               
+integrations:
   hub:
-    - integrationName: master-gcr    #replace with your integration name   
-      type: gcr    
+    - integrationName: master-gcloud    #replace with your integration name
+      type: gcloudKey
       branches:
         only:
           - master
 
-    - integrationName: dev-gcr    #replace with your integration name   
-      type: gcr    
+    - integrationName: dev-gcloud    #replace with your integration name
+      type: gcloudKey
       branches:
         only:
           - dev
 
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 ###Pushing the CI container with all artifacts intact
 
@@ -106,11 +110,12 @@ build:
     - docker commit $SHIPPABLE_CONTAINER_NAME gcr.io/myOrg/myImageRepo:myTag
     - docker push gcr.io/myOrg/myImageRepo:myTag
 
-integrations:                               
+integrations:
   hub:
-    - integrationName: gcr-integration    #replace with your integration name   
-      type: gcr              
+    - integrationName: gcloud-integration    #replace with your integration name
+      type: gcloudKey
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
 
@@ -125,12 +130,14 @@ build:
     - docker push gcr.io/myOrg/myImageRepo:image-tag-1
     - docker push gcr.io/myOrg/myImageRepo:image-tag-2
 
-integrations:                               
+integrations:
   hub:
-    - integrationName: gcr-integration   #replace with your integration name   
-      type: gcr
+    - integrationName: gcloud-integration   #replace with your integration name
+      type: gcloudKey
 
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+
 
 ### Using a custom image for CI
 
@@ -142,10 +149,11 @@ You can solve this in 2 ways:
 ```
 integrations:
   hub:
-    - integrationName: gcr-integration
-      type: gcr
+    - integrationName: gcloud-integration
+      type: gcloudKey
       agent_only: true
 ```
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 If `agent_only` tag is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to GCR in the `pre_ci` and `push` sections of the yml.
 
@@ -156,7 +164,7 @@ If `agent_only` tag is set to `true`, we will not attempt to login to the regist
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to GCR.
 
-**Source code:**  [devops-recipes/ci-push-gcr](https://github.com/devops-recipes/ci-push-gcr).
+**Source code:**  [ci-push-gcr](https://github.com/mohit5it9/ci-push-gcr).
 
 **Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-gcr/runs/1/1/console"> CI build on Shippable</a>
 

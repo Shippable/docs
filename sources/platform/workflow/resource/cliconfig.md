@@ -24,8 +24,10 @@ resources:
 
 * **`integration`** -- name of the Subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
-	* [Docker Registries](/platform/integration/dockerRegistryLogin)
-	* [Google Container Registry](/platform/integration/gcr)
+	* [Docker Hub](/platform/integration/docker-hub)
+	* [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
+	* [Docker Private Registry](/platform/integration/docker-private-registry)
+	* [Google Cloud](/platform/integration/gcloudKEy)
 	* [Google Container Engine](/platform/integration/gke)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	* [Kubernetes](/platform/integration/kubernetes)
@@ -55,6 +57,18 @@ resources:
 	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
 	          clusterName: <cluster name>
 
+      * If you need the CLI to also configure GCR, you need to pass it in as a scope in the job. However, if you pass `scopes` as gcr as below the region and cluster even, if provided will be ignored.  Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: gcloud-key-integration
+                    scopes:
+                      - gcr
+                  - TASK:
+                    - script: ls
+
 <a name="cliConfigTools"></a>
 ## Configured CLI tools
 
@@ -71,7 +85,7 @@ integration. Here is a list of the tools configured for each integration type:
 | Docker Private Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Docker Trusted Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Google Container Engine             | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
-| Google Container Registry (GCR)     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Google Cloud with `gcr` scope     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | JFrog Artifactory                   | [JFrog CLI](/platform/runtime/machine-image/cli-versions/#jfrog) |
 | Kubernetes                          | [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Quay.io                             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
