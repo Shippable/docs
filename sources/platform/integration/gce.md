@@ -9,14 +9,9 @@ Available under the Integration Family: **generic**
 
 `Google Cloud` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Cloud and manage entities and services provided by Google Cloud.
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+## Adding account integration
 
-This is the information you would require to create this integration:
-
-* **Name** -- friendly name for the integration
-* **Project Name** -- Project Name from Google Developers Console
-* **Service Account Email** -- Email for the service account
-* **Credential File** -- JSON Security Key for Google Cloud
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCR integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 
 ## Resources that use this Integration
 Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Google Cloud` integration.

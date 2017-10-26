@@ -25,7 +25,7 @@ resources:
 * **`integration`** -- name of the Subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
-	* [Google Cloud](/platform/integration/gcloudKEy)
+	* [Google Cloud](/platform/integration/gcloudKey)
 	* [Google Container Engine](/platform/integration/gke)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	* [Kubernetes](/platform/integration/kubernetes)
