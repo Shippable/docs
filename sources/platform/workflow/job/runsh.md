@@ -88,18 +88,19 @@ Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools|
 | ------------------------------------|-------------|
-| [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/cli/aws) & [Elastic Beanstalk](/platform/runtime/cli/awseb) |
-| [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/cli/docker) |
-| [Azure](/platform/integration/azure) | [Azure](/platform/runtime/cli/azure) |
-| [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/cli/docker) |
-| [Docker Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/cli/docker) |
-| [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/cli/docker) |
-| [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/cli/gke) & [Kubectl](/platform/runtime/cli/kubectl) |
-| [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/cli/docker) |
-| [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/cli/jfrog) |
-| [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/cli/kubectl) |
-| [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/cli/docker) |
-| For all Integrations above | [Packer](/platform/runtime/cli/packer) & [Terraform](/platform/runtime/cli/terraform)|
+| [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/machine-image/cli-versions/#aws) & [Elastic Beanstalk](platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
+| [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
+| [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Docker Private Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#gke) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/machine-image/cli-versions/#jfrog) |
+| [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| For all Integrations above | [Packer](/platform/runtime/machine-image/cli-versions/#packer) & [Terraform](/platform/runtime/machine-image/cli-versions/#terraform)|
+
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`

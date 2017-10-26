@@ -15,18 +15,18 @@ Shippable platform offers very rich support for CLI's by:
 
 Our goals is to try and prep your build environment as close to your desired state so that you can spend less time prepping and more time developing applications.
 
-Here is a list of CLIs and their specific versions that we have available as part of our images:
+Here is a list of CLIs and their specific versions that we have already installed [as part of our images](/platform/runtime/overview):
 
-* [Ansible](/platform/runtime/cli/ansible/)
-* [AWS](/platform/runtime/cli/aws/)
-* [AWS Elastic Beanstalk](/platform/runtime/cli/awseb/)
-* [Azure](/platform/runtime/cli/azure/)
-* [Docker](/platform/runtime/cli/docker/)
-* [GKE](/platform/runtime/cli/gke/)
-* [JFrog](/platform/runtime/cli/jfrog/)
-* [Packer](/platform/runtime/cli/packer/)
-* [Terraform](/platform/runtime/cli/terraform/)
-* [Kubectl](/platform/runtime/cli/kubectl/)
+* Ansible
+* AWS
+* AWS Elastic Beanstalk
+* Azure
+* Docker
+* GKE
+* JFrog
+* Packer
+* Terraform
+* Kubectl
 
 ## Initializing the CLI runtime
 

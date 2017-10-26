@@ -303,7 +303,11 @@ pages:
       - Overview: platform/runtime/overview.md
       - Machine image:
         - Overview: platform/runtime/machine-image/ami-overview.md
-        - AMI v5.8.2: platform/runtime/machine-image/ami-v582.md
+        - OS versions: platform/runtime/machine-image/os-versions.md
+        - Language versions: platform/runtime/machine-image/language-versions.md
+        - CLI versions: platform/runtime/machine-image/cli-versions.md
+        - Services versions: platform/runtime/machine-image/services-versions.md
+        - AMI v5.8.2 (latest): platform/runtime/machine-image/ami-v582.md
         - AMI v5.7.3: platform/runtime/machine-image/ami-v573.md
         - AMI v5.6.1: platform/runtime/machine-image/ami-v561.md
         - AMI v5.5.1: platform/runtime/machine-image/ami-v551.md

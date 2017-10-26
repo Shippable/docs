@@ -1,0 +1,129 @@
+page_main_title: Services versions on each image
+main_section: Platform
+sub_section: Runtime
+sub_sub_section: Machine image
+page_title: Popular services and the machine images where they are installed
+
+# Services
+
+When you run a `runCI` job on Shippable, the following popular services are already pre-installed for your convenience:
+
+* [CouchDB](/ci/couchdb/)
+* [ElasticSearch](/ci/elasticsearch/)
+* [Memcached](/ci/memcached/)
+* [MongoDB](/ci/mongodb/)
+* [MySQL](/ci/mysql/)
+* [Neo4j](/ci/neo4j/)
+* [Postgres](/ci/postgres/)
+* [RabbitMQ](/ci/rabbitmq/)
+* [Redis](/ci/redis/)
+* [RethinkDB](/ci/rethinkdb/)
+* [Riak](/ci/riak/)
+* [Selenium](ci/selenium/)
+* [SqlLite](/ci/sqllite/)
+
+This page describes the versions available for each Service and the Machine Image(s) where you can find them. These services can be started automatically in a [runCI job](/platform/workflow/job/runci).
+
+
+## CouchDB
+
+| Version  |  Machine Images       
+|----------|---------
+| 1.6.1    | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later
+
+
+## ElasticSearch
+
+| Version  | Machine Images       
+|----------|---------
+|5.5.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+|5.5.0  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+|5.1.2  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+
+## Memcached
+
+| Version  | Machine Images         
+|----------|---------
+|1.5.0     | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+|1.4.39    | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+|1.4.34    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+
+## MongoDB
+
+| Version  | Machine Images      
+|----------|---------
+| 3.4.7    | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.4.6    | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+| 3.4.4    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) (Ubuntu 16.04)
+| 3.4.3    | [v5.4.1](/platform/runtime/machine-image/ami-v541/) and [v5.5.1](/platform/runtime/machine-image/ami-v551/) (Ubuntu 16.04)
+| 3.4.2    | [v5.3.2](/platform/runtime/machine-image/ami-v532/) (Ubuntu 16.04)
+| 3.0.15   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) (Ubuntu 14.04)
+| 3.0.14   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)
+
+## MySQL
+
+| Version  |  Machine Images | OS          
+|----------|---------| ------
+| 5.7.19  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)  | Ubuntu 16.04 |
+| 5.7.18  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/) | Ubuntu 16.04 |
+| 5.7.17  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | Ubuntu 16.04 |
+| 5.6.33  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later  | Ubuntu 14.04 |
+
+## Neo4j
+
+| Version  |  Machine Images          
+|----------|---------
+|3.2.3  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+|3.2.2  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+|3.1.1  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier  
+
+## Postgres
+
+| Version  |   Machine Images          
+|----------|---------
+| 9.6.3    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
+| 9.6.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier  
+
+## RabbitMQ
+
+| Version  | Machine Images              
+|----------|---------
+| 3.6.10   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
+| 3.6.6    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier  
+
+## Redis
+
+| Version  |  Machine Images             
+|----------|---------
+| 4.0.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.2.9  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+| 3.2.8  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+
+## RethinkDB
+
+| Version  |   Machine Images              
+|----------|---------
+|2.3.6 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+|2.3.5 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier  
+
+## Riak
+
+| Version  |   Machine Images    
+|----------|---------
+|2.2.3 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
+|2.2.0  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier  
+
+## Selenium
+
+| Version  |  Tags   
+|----------|---------
+| 3.4.0    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
+| 3.0.1    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier  
+
+##SQLite
+
+| Version  |  Tags   
+|----------|---------
+| 3.19.3   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
+| 3.11.0   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier (Ubuntu 16.04)
+| 3.8.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)

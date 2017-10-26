@@ -39,15 +39,15 @@ For both OS versions, we maintain language-specific images that are updated ever
 
 We support the following languages:
 
-* [C/C++](/platform/runtime/language/cplusplus/)
-* [Clojure](/platform/runtime/language/clojure/)
-* [Go](/platform/runtime/language/go/)
-* [Java](/platform/runtime/language/java/)
-* [Node JS](/platform/runtime/language/nodejs/)
-* [PHP](/platform/runtime/language/php/)
-* [Python](/platform/runtime/language/python/)
-* [Ruby](/platform/runtime/language/ruby/)
-* [Scala](/platform/runtime/language/scala/)
+* [C/C++](/ci/cpp-continuous-integration/)
+* [Clojure](/ci/clojure-continuous-integration/)
+* [Go](/ci/go-continuous-integration/)
+* [Java](/ci/java-continuous-integration/)
+* [Node JS](/ci/nodejs-continuous-integration/)
+* [PHP](/ci/php-continuous-integration/)
+* [Python](/ci/python-continuous-integration/)
+* [Ruby](/ci/ruby-continuous-integration/)
+* [Scala](/ci/scala-continuous-integration/)
 
 
 ## Services
@@ -55,25 +55,25 @@ To make your builds even faster, we pre-install a bunch of **Services** that you
 
 Following are the service that are pre-installed:
 
-* [Cassandra](/platform/runtime/service/cassandra/)
-* [CouchDB](/platform/runtime/service/couchdb/)
-* [ElasticSearch](/platform/runtime/service/elasticsearch/)
-* [Memcached](/platform/runtime/service/memcached/)
-* [MongoDB](/platform/runtime/service/mongodb/)
-* [MySQL](/platform/runtime/service/mysql/)
-* [Neo4j](/platform/runtime/service/neo4j/)
-* [Postgres](/platform/runtime/service/postgres/)
-* [RabbitMQ](/platform/runtime/service/rabbitmq/)
-* [Redis](/platform/runtime/service/redis/)
-* [RethinkDB](/platform/runtime/service/rethinkdb/)
-* [Riak](/platform/runtime/service/riak/)
-* [Selenium](/platform/runtime/service/selenium/)
-* [SqlLite](/platform/runtime/service/sqllite/)
+<!-- * [Cassandra](/ci/cassandra/) -->
+* [CouchDB](/ci/couchdb/)
+* [ElasticSearch](/ci/elasticsearch/)
+* [Memcached](/ci/memcached/)
+* [MongoDB](/ci/mongodb/)
+* [MySQL](/ci/mysql/)
+* [Neo4j](/ci/neo4j/)
+* [Postgres](/ci/postgres/)
+* [RabbitMQ](/ci/rabbitmq/)
+* [Redis](/ci/redis/)
+* [RethinkDB](/ci/rethinkdb/)
+* [Riak](/ci/riak/)
+* [Selenium](ci/selenium/)
+* [SqlLite](/ci/sqllite/)
 
 For more information, read our [working with services](/ci/services-overview/) section.
 
 ## Testing Frameworks
-Our [Runtime Images](/platform/tutorial/runtime/ami-overview/) also come pre-installed with all the tooling necessary to runs tests based on a plethora of frameworks. Some of the popular ones are
+Our [Runtime Images](/platform/runtime/machine-image/ami-overview/) also come pre-installed with all the tooling necessary to runs tests based on a plethora of frameworks. Some of the popular ones are
 
 * JUnit
 * XUnit
@@ -86,18 +86,18 @@ Our [Runtime Images](/platform/tutorial/runtime/ami-overview/) also come pre-ins
 
 Most applications today run in the Cloud. Each cloud provider has a native CLI and we want to avoid you having to install and configure them. In addition we also pre-install some popular DevOps tools also. The goals is to try and prep the build environment as close to your desired state so that you can spend less time prepping and more time developing applications.
 
-Here is a list of CLIs we have available as part of Job Runtime:
+Here is a list of CLIs we have available as part of our [pre-configured job runtime](/platform/runtime/overview/):
 
-* [Ansible](/platform/runtime/cli/ansible/)
-* [AWS](/platform/runtime/cli/aws/)
-* [AWS Elastic Beanstalk](/platform/runtime/cli/awseb/)
-* [Azure](/platform/runtime/cli/azure/)
-* [Docker](/platform/runtime/cli/docker/)
-* [GKE](/platform/runtime/cli/gke/)
-* [JFrog](/platform/runtime/cli/jfrog/)
-* [Packer](/platform/runtime/cli/packer/)
-* [Terraform](/platform/runtime/cli/terraform/)
-* [Kubectl](/platform/runtime/cli/kubectl/)
+* Ansible
+* AWS
+* AWS Elastic Beanstalk
+* Azure
+* Docker
+* GKE
+* JFrog
+* Packer
+* Terraform
+* Kubectl
 
 ## 3rd Party Integrations
 
@@ -120,7 +120,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 ### Container Orchestration Systems
 
-- [AWS Elastic Beanstalk](/platform/runtime/cli/awseb)
+- [AWS Elastic Beanstalk](/deploy/aws-elastic-beanstalk/)
 - [AWS Elastic Container Service](/platform/integration/aws-keys)
 - [Mesos DC/OS](/platform/integration/azure-dcos)
 - [Kubernetes](/platform/integration/kubernetes)
@@ -163,17 +163,17 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 ### DevOps Tools
 
-- [Ansible](/platform/runtime/cli/ansible)
+- [Ansible](/platform/runtime/machine-image/ami-v582/)
 - Chef
 - Puppet
 - Saltstack
-- [AWS Cloud Formations](/platform/runtime/cli/aws)
-- [Terraform](/platform/runtime/cli/terraform)
-- [Packer](/platform/runtime/cli/packer)
+- [AWS Cloud Formations](/platform/runtime/machine-image/ami-v582/)
+- [Terraform](/platform/runtime/machine-image/ami-v582/)
+- [Packer](/platform/runtime/machine-image/ami-v582/)
 
 ### Deployment Tools
 
-- [AWS Codedeploy](/platform/runtime/cli/aws)
+- [AWS Codedeploy](/platform/runtime/machine-image/ami-v582/)
 - Capistrano
 
 ## Further Reading

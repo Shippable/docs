@@ -74,6 +74,6 @@ Read more [about caching here](/platform/tutorial/runtime/caching).
 
 ## Further Reading
 * [Build Images](/platform/tutorial/runtime/ami-overview)
-* [More about Environment Variables](/platform/tutorial/runtime/environment-variables)
+* [CI Environment Variables](/ci/env-vars/)
 * [More about Caching](/platform/tutorial/runtime/caching)
 * [Jobs Overview](/platform/workflow/job/overview)

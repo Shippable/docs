@@ -17,7 +17,7 @@ The following picture shows the components of the machine image and how they int
 * When a new job is triggered, Shippable orchestration spins up a new build node, aka minion, with your default Subscription machine image.
 *  For CI jobs configured with `shippable.yml`, the Shippable Agent on the build node spins up a build container  using either
 the default Docker image depending on the `language` tag in your [yml configuration](/ci/yml-structure) or a [custom Docker image](/ci/custom-docker-image/) if specified in the yml. All commands in the `ci` and `post_ci` section of your YAML are run inside the build container.
-* For `runSh` jobs configured with  `shippable.jobs.yml`, the commands in the `script` section are run in the Shippable Agent.
+* For `runSh` jobs configured with  `shippable.jobs.yml`, commands in the `script` section are run in the Shippable Agent.
 
 <img src="/images/platform/runtime/build-workflow.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
@@ -51,7 +51,7 @@ To see what Machine Image is being used for your subscription:
 
 <img src="/images/getting-started/account-settings.png" alt="View Subscription">
 
-* On your Subscription Dashboard, click on the **Gears** icon on the right which will show a dropdown. Click on **Nodes**
+* On your Subscription Dashboard, click on **Settings**, i.e. the **Gears** icon, on the right which will show a dropdown. Click on **Nodes**
 
 <img src="/images/ci/view-machine-image.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
