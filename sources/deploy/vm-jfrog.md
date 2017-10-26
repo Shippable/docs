@@ -108,14 +108,14 @@ jobs:
 
 ###4. Define `app_cluster`.
 
-* **Description:** `app_cluster` is a [cluster](/platform/integration/node-cluster) resource that represents the VM cluster where your application is deployed. In our example, the cluster points to two AWS EC2 machines.
+* **Description:** `app_cluster` is a [cluster](/platform/integration/nodeCluster) resource that represents the VM cluster where your application is deployed. In our example, the cluster points to two AWS EC2 machines.
 * **Required:** Yes.
-* **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
+* **Integrations needed:** [Node Cluster](/platform/integration/nodeCluster/)
 In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application.
 
 **Steps**
 
-1. Create an account integration using your Shippable account for [`Node Cluster`](/platform/integration/node-cluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an account integration using your Shippable account for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
 2. Set the friendly name of the integration as `vm_nodes_int`. If you change the name, please change it also in the yml below.
 

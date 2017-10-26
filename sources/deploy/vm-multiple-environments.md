@@ -120,14 +120,14 @@ jobs:
 
 ###4. Define `app_beta_cluster` and `app_prod_cluster`.
 
-* **Description:** `app_beta_cluster` and `app_prod_cluster` are [cluster](/platform/integration/node-cluster) resources that represents the dev and prod VM clusters where your application will be deployed. In our example, each cluster resource points to two AWS EC2 machines.
+* **Description:** `app_beta_cluster` and `app_prod_cluster` are [cluster](/platform/integration/nodeCluster) resources that represents the dev and prod VM clusters where your application will be deployed. In our example, each cluster resource points to two AWS EC2 machines.
 * **Required:** Yes.
-* **Integrations needed:** [Node Cluster](/platform/integration/node-cluster/)
+* **Integrations needed:** [Node Cluster](/platform/integration/nodeCluster/)
 In this integration, we specify the public IP addresses of all the VMs where we want to deploy the application.
 
 **Steps**
 
-1. Create two account integrations using your Shippable account for [`Node Cluster`](/platform/integration/node-cluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create two account integrations using your Shippable account for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
 
 2. Set the friendly names of the integrations as `dev_vm_int` and `prod_vm_int`. If you change the name, please change it also in the yml below.
 
