@@ -1,9 +1,16 @@
-page_main_title: Google Container Engine
+page_main_title: Google Cloud Integration (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: GKE integration
+page_title: GCL integration (Deprecated)
 
-# Google Cloud Integration
+# Google Cloud Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR and GCL functionalities.
+
+If you have any existing GCL integrations, you can continue to use them.
+
+---
 
 Available under the Integration Family: **generic**
 

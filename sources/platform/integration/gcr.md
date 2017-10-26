@@ -3,7 +3,14 @@ main_section: Platform
 sub_section: Integrations
 page_title: GCR integration (Deprecated)
 
-# GCR integration
+# GCR integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR and GCL functionalities.
+
+If you have any existing GCL integrations, you can continue to use them.
+
+---
 
 The GCR Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Registry so that you can pull and push Docker images.
 
