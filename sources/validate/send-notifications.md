@@ -14,7 +14,7 @@ This step is only required for Slack or Hipchat notifications. For email and IRC
 
 Instructions are at :
 
-- [Create Slack integration](/platform/integration/slack/)
+- [Create Slack integration](/platform/integration/slackKey/)
 - [Create Hipchat integration](/platform/integration/hipchatKey/)
 
 
