@@ -18,8 +18,7 @@ If your Dockerfile specifies a private image in its `FROM` section, we need to a
 
 * Add an integration for the Docker registry where the private image is stored. Instructions are here:
 
-    - [Docker Hub](/platform/integration/docker-hub)
-    - [Docker Trusted Registry](/platform/integration/docker-trusted-registry)
+    - [Docker Registry](/platform/integration/dockerRegistryLogin)
     - [AWS Elastic Container Registry](/platform/integration/aws-keys)
     - [Google Container Registry](/platform/integration/gcr)
     - [Quay](/platform/integration/quayLogin)
@@ -29,20 +28,19 @@ If your Dockerfile specifies a private image in its `FROM` section, we need to a
 
 * Include the integration in your `shippable.yml`.
 
-For example, here is a snippet for Docker Hub:
+For example, here is a snippet for Docker Hub and Docker Private/Trusted Registry:
 
 ```
 integrations:
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker     
+      type: dockerRegistryLogin     
 ```
 
 For other registries, the `type` is set as follows:
 
   - Amazon ECR: `type: ecr`
   - GCR: `type: gcr`
-  - Docker Private/Trusted Registry: `type: private docker registry`
   - CoreOS Quay: `type: quay`
 
 ###3. Building Docker image
@@ -85,13 +83,13 @@ build:
 integrations:                               
   hub:
     - integrationName: master-DockerHub    #replace with your integration name   
-      type: docker                #replace with your registry type   
+      type: dockerRegistryLogin            #replace with your registry type   
       branches:                   # use this integration only for master branch
         only:
           - master
 
     - integrationName: dev-DockerHub    #replace with your integration name   
-      type: docker                 #replace with your registry type   
+      type: dockerRegistryLogin         #replace with your registry type   
       branches:                   # use this integration only for dev branch
         only:
           - dev
@@ -110,7 +108,7 @@ build:
 integrations:                               
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker     #replace with your registry type   
+      type: dockerRegistryLogin         #replace with your registry type   
 
 ```
 

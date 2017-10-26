@@ -37,9 +37,9 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
-| `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
+| `<NAME>`\_NAME   			| Name supplied in the integration |
 | `<NAME>`\_INTEGRATION\_KEY				| PEM Key supplied in the integration |
-| `<NAME>`\_INTEGRATION\_KEYPATH				| The path of a file with the PEM Key supplied in the integration |
+| `<NAME>`\_KEYPATH				| The path of a file with the PEM Key supplied in the integration |
 
 ### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.

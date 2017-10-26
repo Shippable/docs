@@ -26,7 +26,7 @@ They are two configuration files that are needed to achieve this usecase -
 
 * **Description:** `app_image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Docker Hub.
 * **Required:** Yes.
-* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
+* **Integrations needed:** any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 

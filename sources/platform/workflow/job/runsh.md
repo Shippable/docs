@@ -92,7 +92,7 @@ Here is a list of the tools configured for each integration type:
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
 | [Docker Hub](/platform/integration/docker-hub) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
-| [Docker Private Registry](/platform/integration/docker-private-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
+| [Docker Private Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Docker Trusted Registry](/platform/integration/docker-trusted-registry) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Google Container Engine](/platform/integration/gke) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#gke) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Google Container Registry](/platform/integration/gcr) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
@@ -100,6 +100,7 @@ Here is a list of the tools configured for each integration type:
 | [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | For all Integrations above | [Packer](/platform/runtime/machine-image/cli-versions/#packer) & [Terraform](/platform/runtime/machine-image/cli-versions/#terraform)|
+
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`

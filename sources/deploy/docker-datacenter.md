@@ -59,14 +59,14 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 * **Description:** `app_image` is an [image resource](/platform/workflow/resource/image/) that represents your Docker image stored in Docker Hub
 * **Required:** Yes.
-* **Integrations needed:** Docker Hub, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in Docker Hub.
+* **Integrations needed:** any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations).
 
 **Steps**  
 
 1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Docker Hub integration](/platform/integration/docker-hub/)
+    * [Docker Registry integration](/platform/integration/dockerRegistryLogin/)
 
     Copy the friendly name of the integration.
 

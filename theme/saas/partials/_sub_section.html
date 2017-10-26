@@ -8,14 +8,25 @@
     <a class="subSubSectionHeader hasChildren">{{ sub_sub_section.title }}</a>
     <nav class="subSubSectionNav">
       {% for article in sub_sub_section.children %}
+        {% if page.url == article.url %}
+        <a class="subSubSectionLink current" href="{{ article.url }}">
+        {% else %}
         <a class="subSubSectionLink" href="{{ article.url }}">
+        {% endif %}
           {{ article.title }}
         </a>
       {% endfor %}
     </nav>
   </li>
+{# If the sub-sub-section does not contain children, then display a link. #}
 {% else %}
   <li>
-    <a class="subSubSectionLink" href="{{ sub_sub_section.url }}">{{ sub_sub_section.title }}</a>
+    {% if page.url == sub_sub_section.url %}
+    <a class="subSubSectionLink current" href="{{ sub_sub_section.url }}">
+    {% else %}
+    <a class="subSubSectionLink" href="{{ sub_sub_section.url }}">
+    {% endif %}
+      {{ sub_sub_section.title }}
+    </a>
   </li>
 {% endif %}
