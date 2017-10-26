@@ -69,10 +69,10 @@ an Ansible playbook to provision on Google Cloud from your pipeline:
       - TASK:
         # Execute Ansible playbook
         - script: export CREDENTIALFILE_PATH="$(shipctl get_resource_meta "$MYGCLCLICONFIG_NAME")/key.json"
-        - script: export SERVICEACCOUNTEMAIL="$(shipctl get_json_value "$int_path" "client_email")"
-        - script: export PROJECTID="$(shipctl get_json_value "$int_path" "project_id")"
+        - script: export SERVICEACCOUNTEMAIL="$(shipctl get_json_value "$CREDENTIALFILE_PATH" "client_email")"
+        - script: export PROJECTID="$(shipctl get_json_value "$CREDENTIALFILE_PATH" "project_id")"
         - script: |
-            cd $MYGITHUBREPO_STATE  
+            cd $MYGITHUBREPO_STATE
             ansible-playbook -v google-cloud-provision.yml
 ```
 
