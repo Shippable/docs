@@ -1,9 +1,16 @@
-page_main_title: JFrog Artifactory
+page_main_title: JFrog Artifactory (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: JFrog Artifactory integration
+page_title: JFrog Artifactory integration (Deprecated)
 
-# JFrog Artifactory Integration
+# JFrog Artifactory Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [JFrog artifactoryKey](/platform/integration/jfrog-artifactoryKey) has been introduced which can be used instead.
+
+If you have any existing JFrog Artifactory account integrations, you can continue to use them.
+
+---
 
 [JFrog Artifactory](https://www.jfrog.com/artifactory/) Integration is used to connect Shippable DevOps Assembly Lines platform to JFrog Artifactory so that you can pull and push artifacts, including Docker images.
 

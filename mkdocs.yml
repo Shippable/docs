@@ -266,7 +266,6 @@ pages:
       - Docker Cloud: platform/integration/docker-cloud.md
       - Docker Datacenter: platform/integration/docker-datacenter.md
       - Docker Registry: platform/integration/dockerRegistryLogin.md
-      - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
       - Event Trigger: platform/integration/event-trigger.md
       - Git Credential: platform/integration/git-credential.md
       - GitHub: platform/integration/github.md
@@ -300,6 +299,7 @@ pages:
         - SSH Keys: platform/integration/key-ssh.md
         - Private Registries: platform/integration/docker-private-registry.md
         - Docker Hub: platform/integration/docker-hub.md
+        - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Machine image:

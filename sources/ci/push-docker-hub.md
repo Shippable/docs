@@ -10,7 +10,7 @@ You can push your image to Docker Hub in any section [of your yml](/ci/yml-struc
 
 Before you start, you will need to connect your Docker Hub account with Shippable so we have the credentials to push your image on your behalf.
 
-To add the Docker hub account, please follow steps [here](/platform/integration/docker-hub/#docker-hub-integration). Once you add an account integration, you can use it for all your projects without needing to add it again.
+To add the Docker hub account, please follow steps [here](/platform/integration/dockerRegistryLogin). Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 ##Basic config
 
@@ -21,7 +21,7 @@ authenticate with Docker Hub using your credentials.
 integrations:                               
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker                        
+      type: dockerRegistryLogin                        
 ```
 
 3. Push to Docker hub in your `shippable.yml` file:
@@ -47,7 +47,7 @@ build:
 integrations:                               
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker    
+      type: dockerRegistryLogin    
       branches:
         only:
           - master
@@ -68,13 +68,13 @@ build:
 integrations:                               
   hub:
     - integrationName: master-DockerHub    #replace with your integration name   
-      type: docker    
+      type: dockerRegistryLogin    
       branches:
         only:
           - master
 
     - integrationName: dev-DockerHub    #replace with your integration name   
-      type: docker    
+      type: dockerRegistryLogin    
       branches:
         only:
           - dev
@@ -95,7 +95,7 @@ build:
 integrations:                               
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker              
+      type: dockerRegistryLogin              
 ```
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
@@ -114,7 +114,7 @@ build:
 integrations:                               
   hub:
     - integrationName: myIntegration    #replace with your integration name   
-      type: docker
+      type: dockerRegistryLogin
 
 ```
 ## Sample project
