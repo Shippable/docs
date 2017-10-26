@@ -25,7 +25,7 @@ The versions of Python available vary depending on the tag of the language image
 
 | Python Version |   Language Image Tags  | Supported OS
 |----------------|------------------------|--------------
-|3.6.2           |   v5.8.2               | All          
+|3.6.2           |   v5.8.2 and later     | All          
 |3.6.1           |   v5.7.3               | All          
 |3.6.0           |   v5.5.1 and earlier   | All          
 |3.5.2           |   v5.8.2 and earlier   | 16.04 only
@@ -35,7 +35,7 @@ The versions of Python available vary depending on the tag of the language image
 |3.4.3           |   v5.8.2 and earlier   | 14.04 only
 |3.3.6           |   v5.7.3 and earlier   | All        
 |3.2.6           |   v5.6.1 and earlier   | All        
-|2.7.12          |   v5.7.3, v5.8.2       | All        
+|2.7.12          |   v5.7.3 and later     | All        
 |2.7.6           |   v5.6.1 and earlier   | 14.04 only
 |2.6.9           |   v5.6.1 and earlier   | All        
 |pypy2-v5.8.0    |   v5.7.3               | All        
@@ -69,7 +69,8 @@ Each of the language images is built from the respective base OS version of the 
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-drydock/u16pytall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u16pytall:v5.10.4  | Oct 2017 - Latest Version | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+drydock/u16pytall:v5.8.2  | Aug 2017  | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 drydock/u16pytall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u16pytall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u16pytall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
@@ -82,7 +83,8 @@ drydock/u16pytall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-drydock/u14pytall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u14pytall:v5.10.4  | Oct 2017 - Latest Version | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+drydock/u14pytall:v5.8.2  | Aug 2017  | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 drydock/u14pytall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u14pytall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u14pytall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)

@@ -15,7 +15,8 @@ This CLI is installed in the Shippable base images along with other CLIs. The fo
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-[drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u16all:v5.10.4](/platform/runtime/os/ubuntu16#v5104)  | Oct 2017 - Latest | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+[drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 [drydock/u16all:v5.6.1](/platform/runtime/os/ubuntu16#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 [drydock/u16all:v5.5.1](/platform/runtime/os/ubuntu16#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
@@ -27,7 +28,8 @@ This CLI is installed in the Shippable base images along with other CLIs. The fo
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-[drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u14all:v5.10.4](/platform/runtime/os/ubuntu16#v5104)  | Oct 2017 - Latest | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+[drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 [drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 [drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
@@ -40,6 +42,7 @@ This table helps you choose the right image tag based on the version of the CLI 
 
 | Version  |  Tags    
 |----------|---------
+|2.0.19    | v5.10.4
 |2.0.12    | v5.8.2
 |2.0.6     | v5.6.1 and v5.7.3
 

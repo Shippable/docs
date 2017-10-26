@@ -21,6 +21,7 @@ The language image with a particular tag will be available on the edition of the
 
 | Version  |  Tags    
 |----------|---------
+| 3.4.9    | v5.10.4
 | 3.4.7    | v5.8.2
 | 3.4.6    | v5.7.3
 | 3.4.4    | v5.6.1 (Ubuntu 16.04)
@@ -36,7 +37,8 @@ This service is installed in the Shippable base images along with other services
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-[drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u16all:v5.10.4](/platform/runtime/os/ubuntu16#v5104)  | Oct 2017 - Latest | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+[drydock/u16all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u16all:v5.7.3](/platform/runtime/os/ubuntu16#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 [drydock/u16all:v5.6.1](/platform/runtime/os/ubuntu16#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 [drydock/u16all:v5.5.1](/platform/runtime/os/ubuntu16#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
@@ -48,7 +50,8 @@ This service is installed in the Shippable base images along with other services
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-[drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu14#v582)  | Aug 2017 - Latest | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+[drydock/u14all:v5.10.4](/platform/runtime/os/ubuntu16#v5104)  | Oct 2017 - Latest | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+[drydock/u14all:v5.8.2](/platform/runtime/os/ubuntu16#v582)  | Aug 2017 | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 [drydock/u14all:v5.7.3](/platform/runtime/os/ubuntu14#v573)  | Jul 2017 | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 [drydock/u14all:v5.6.1](/platform/runtime/os/ubuntu14#v561)  | Jun 2017 | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 [drydock/u14all:v5.5.1](/platform/runtime/os/ubuntu14#v551)  | May 2017 | [v5.5.1](/platform/tutorial/runtime/ami-v551)
