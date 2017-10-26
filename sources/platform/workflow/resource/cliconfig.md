@@ -67,16 +67,16 @@ integration. Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools           |
 | ------------------------------------|-------------|
-| AWS                                 | [AWS CLI](/platform/runtime/cli/aws); [AWS Elastic Beanstalk CLI](/platform/runtime/cli/awseb) |
-| AWS with `ecr` scope                | [Docker Engine](/platform/runtime/cli/docker) |
-| Docker Hub                          | [Docker Engine](/platform/runtime/cli/docker) |
-| Docker Private Registry             | [Docker Engine](/platform/runtime/cli/docker) |
-| Docker Trusted Registry             | [Docker Engine](/platform/runtime/cli/docker) |
-| Google Container Engine             | [gcloud](/platform/runtime/cli/gke); [kubectl](/platform/runtime/cli/kubectl) |
-| Google Container Registry (GCR)     | [Docker Engine](/platform/runtime/cli/docker) |
-| JFrog Artifactory                   | [JFrog CLI](/platform/runtime/cli/jfrog) |
-| Kubernetes                          | [kubectl](/platform/runtime/cli/kubectl) |
-| Quay.io                             | [Docker Engine](/platform/runtime/cli/docker) |
+| AWS                                 | [AWS CLI](/platform/runtime/machine-image/cli-versions/#aws); [AWS Elastic Beanstalk CLI](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
+| AWS with `ecr` scope                | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Docker Hub                          | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Docker Private Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Docker Trusted Registry             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Google Container Engine             | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Google Container Registry (GCR)     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| JFrog Artifactory                   | [JFrog CLI](/platform/runtime/machine-image/cli-versions/#jfrog) |
+| Kubernetes                          | [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Quay.io                             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs
