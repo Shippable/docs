@@ -283,22 +283,23 @@ pages:
       - Node Cluster: platform/integration/node-cluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Quay.io: platform/integration/quayLogin.md
-      - Slack: platform/integration/slack.md
+      - Slack: platform/integration/slackKey.md
       - SSH Keys: platform/integration/sshKey.md
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - Docker Hub: platform/integration/docker-hub.md
+        - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
         - Email: platform/integration/email.md
         - HipChat: platform/integration/hipchat.md
         - Google Container Registry: platform/integration/gcr.md
         - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
-        - Quay.io: platform/integration/quay.md
-        - SSH Keys: platform/integration/key-ssh.md
         - Private Registries: platform/integration/docker-private-registry.md
-        - Docker Hub: platform/integration/docker-hub.md
-        - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
+        - Quay.io: platform/integration/quay.md
+        - Slack: platform/integration/slack.md
+        - SSH Keys: platform/integration/key-ssh.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Machine image:

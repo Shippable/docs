@@ -6,7 +6,7 @@ page_title: Hipchat integration
 # Hipchat Integration (Deprecated)
 
 ## Deprecation Note
-This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [hipchatKey](/platform/integration/hipchatKey.md) integration instead.
+This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [Hipchat Key](/platform/integration/hipchatKey.md) integration instead.
 
 ---
 
