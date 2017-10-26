@@ -1,20 +1,24 @@
-page_main_title: Google Container Engine
+page_main_title: Google Container Engine (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: GKE integration
+page_title: GKE integration (Deprecated)
 
-# Google Container Engine Integration
+# Google Container Engine Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR, GKE and GCL functionalities.
+
+If you have any existing GKE integrations, you can continue to use them.
+
+---
 
 Available under the Integration Family: **deploy**
 
 `Google Container Engine` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Engine that runs Kubernetes behind the scenes so that you can deploy Docker-based applications.
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
+## Adding account integration
 
-This is the information you would require to create this integration:
-
-* **Name** -- friendly name for the integration
-* **JSON Key** -- JSON Security Key for Google Cloud
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCR integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 
 ## Resources that use this Integration
 Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Google Container Engine` integration.

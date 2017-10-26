@@ -273,7 +273,6 @@ pages:
       - GitHub Enterprise: platform/integration/github-enterprise.md
       - GitLab: platform/integration/gitlab.md
       - Google Cloud: platform/integration/gcloudKey.md
-      - Google Container Engine: platform/integration/gke.md
       - HipChat: platform/integration/hipchatKey.md
       - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
@@ -294,6 +293,7 @@ pages:
         - HipChat: platform/integration/hipchat.md
         - Google Cloud: platform/integration/gce.md
         - Google Container Registry: platform/integration/gcr.md
+        - Google Container Engine: platform/integration/gke.md
         - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md

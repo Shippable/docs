@@ -6,7 +6,7 @@ page_title: GCL integration (Deprecated)
 # Google Cloud Integration (Deprecated)
 
 ## Deprecation Note
-This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR and GCL functionalities.
+This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR, GKE and GCL functionalities.
 
 If you have any existing GCL integrations, you can continue to use them.
 

@@ -21,7 +21,7 @@ resources:
 * **`type`** -- is set to `loadBalancer`
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
-	* [Google Container Engine (GKE)](/platform/integration/gke)
+	* [Google Cloud](/platform/integration/gcloudKey)
 
 * **`pointer`** -- is an object that contains provider specific properties
 	* For [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/),
@@ -42,7 +42,7 @@ resources:
 
 	    Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, Shippable will search for one that has the right level of trust automatically. If none is found, the job where this resource is used will fail.
 
-	* For [GKE Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
+	* For [Google Cloud Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
 	        pointer:
 	          sourceName:           <lowercase alphanumeric name only>
