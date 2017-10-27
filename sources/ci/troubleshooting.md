@@ -61,7 +61,7 @@ The shippable.yml reference guide is the best resource to learn what's possible 
 ```
 Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/platform/integration/slack/#slack-integration) and [hub](/platform/integration/overview/) integration for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/platform/integration/slackKey/#slack-integration) and [hub](/platform/integration/overview/) integration for more details.
 
 ---
 ### common2| cleanRunYml|callerId:
@@ -289,7 +289,7 @@ integrations:
 
 Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
-Read more about [configuring Slack notifications](/platform/integration/slack/#slack-integration) in our documentation.
+Read more about [configuring Slack notifications](/platform/integration/slackKey/#slack-integration) in our documentation.
 
 ---
 ### I have enabled my repository and committed code, but my build doesn't start. What could be wrong?
