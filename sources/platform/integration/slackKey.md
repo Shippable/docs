@@ -3,14 +3,9 @@ main_section: Platform
 sub_section: Integrations
 page_title: Slack integration
 
-# Slack integration (Deprecated)
+# Slack Key integration
 
-## Deprecation Note
-This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [Slack Key](/platform/integration/slackKey.md) integration instead.
-
----
-
-A Slack integration is required to send notifications to channels or rooms for CI and Assembly Line events.
+A Slack Key integration is required to send notifications to channels or rooms for CI and Assembly Line events. Refer [Slack Integration](/platform/integration/slack.md) if you are using older slack integration.
 
 ## Adding the account integration
 
@@ -18,7 +13,7 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Notifications**
+* **Integration Family** -- **Generic**
 * **Integration type** -- **Slack**
 * **Name** -- choose a friendly name for the integration
 * **WebhookUrl** -- Webhook URL to your Slack channel. This can be overridden when creating a resource. This looks like this: `https://hooks.slack.com/services/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`

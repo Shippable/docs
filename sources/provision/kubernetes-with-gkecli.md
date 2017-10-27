@@ -76,7 +76,7 @@ resources:
 
 * **Description:** `gke_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
 * **Required:** Yes.
-* **Integrations needed:** [GKE Integration](/platform/integration/gke/)
+* **Integrations needed:** [Google Cloud Integration](/platform/integration/gcloudKey/)
 
 **Steps**  
 

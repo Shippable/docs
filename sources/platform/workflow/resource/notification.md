@@ -36,7 +36,7 @@ resources:
 	- Email - No integration required
 	- [HipChat](/platform/integration/hipchatKey)
 	- IRC - No integration required
-	- [Slack](/platform/integration/slack)
+	- [Slack](/platform/integration/slackKey)
 
 * **`pointer`** -- is an object that contains provider specific properties
 	* For email,

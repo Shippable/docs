@@ -11,12 +11,12 @@ The Shippable Platform provides images with multiple versions of commonly-used l
 
 Our language specific images that are updated monthly so that the latest and greatest versions are always available for you to test.  See the following pages for more information about which versions are available in each image.
 
-* [C/C++](/platform/runtime/language/cplusplus)
-* [Clojure](/platform/runtime/language/clojure)
-* [Go](/platform/runtime/language/go)
-* [Java](/platform/runtime/language/java)
-* [Node JS](/platform/runtime/language/nodejs)
-* [PHP](/platform/runtime/language/php)
-* [Python](/platform/runtime/language/python)
-* [Ruby](/platform/runtime/language/ruby)
-* [Scala](/platform/runtime/language/scala)
+* [C/C++](/platform/runtime/machine-image/language-versions/#cc)
+* [Clojure](/platform/runtime/machine-image/language-versions/#clojure)
+* [Go](/platform/runtime/machine-image/language-versions/#go)
+* [Java](/platform/runtime/machine-image/language-versions/#java)
+* [Node JS](/platform/runtime/machine-image/language-versions/#nodejs)
+* [PHP](/platform/runtime/machine-image/language-versions/#php)
+* [Python](/platform/runtime/machine-image/language-versions/#python)
+* [Ruby](/platform/runtime/machine-image/language-versions/#ruby)
+* [Scala](/platform/runtime/machine-image/language-versions/#scala)

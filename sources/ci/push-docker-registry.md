@@ -37,7 +37,7 @@ authenticate with Docker registry using your credentials
 integrations:
   hub:
     - integrationName: docker-registry-integration    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
 ```
 
 You can replace your docker-registry-integration, image-name and image-tag as required in the snippet above.
@@ -56,7 +56,7 @@ build:
 integrations:
   hub:
     - integrationName: docker-registry-integration    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
       branches:
         only:
           - master
@@ -77,13 +77,13 @@ build:
 integrations:
   hub:
     - integrationName: master-docker-registry    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
       branches:
         only:
           - master
 
     - integrationName: dev-docker-registry    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
       branches:
         only:
           - dev
@@ -104,7 +104,7 @@ build:
 integrations:
   hub:
     - integrationName: docker-registry-integration    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
 ```
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
@@ -123,7 +123,7 @@ build:
 integrations:
   hub:
     - integrationName: docker-registry-integration    #replace with your integration name
-      type: "dockerRegistryLogin"
+      type: dockerRegistryLogin
 
 ```
 

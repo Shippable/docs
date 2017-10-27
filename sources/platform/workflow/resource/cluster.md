@@ -28,9 +28,9 @@ resources:
 	* [Azure Container Service](/platform/integration/azure-dcos)
 	* [Docker Cloud](/platform/integration/docker-cloud)
 	* [Docker Datacenter](/platform/integration/docker-datacenter)
-	* [Google Container Engine (GKE)](/platform/integration/gke)
+	* [Google Google Cloud)](/platform/integration/gcloudKey)
 	* [Kubernetes](/platform/integration/kubernetes)
-	* [Node Cluster](/platform/integration/node-cluster)
+	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/tripub)
 
 * **`pointer`** -- is an object that contains integration specific properties
@@ -49,7 +49,7 @@ resources:
 
 	* For Docker Datacenter integrations - N/A
 	* For Kubernetes integrations - N/A
-	* For GKE integrations:
+	* For Google Cloud integrations:
 
 	        pointer:
 	          region:     <region, e.g., us-central1-a, us-west1-b, etc.>

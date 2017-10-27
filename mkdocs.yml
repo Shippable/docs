@@ -163,6 +163,7 @@ pages:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md
         - Multi-container app: deploy/amazon-ecs-multiple-containers.md
+        - Resetting a deploy job: deploy/amazon-ecs-deploy-reset.md
       - Kubernetes:
         - Single-container app: deploy/kubernetes.md
         - Multi-container app: deploy/kubernetes-multiple-containers.md
@@ -267,43 +268,50 @@ pages:
       - Docker Cloud: platform/integration/docker-cloud.md
       - Docker Datacenter: platform/integration/docker-datacenter.md
       - Docker Registry: platform/integration/dockerRegistryLogin.md
-      - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
       - Event Trigger: platform/integration/event-trigger.md
       - Git Credential: platform/integration/git-credential.md
       - GitHub: platform/integration/github.md
       - GitHub Enterprise: platform/integration/github-enterprise.md
       - GitLab: platform/integration/gitlab.md
-      - Google Cloud: platform/integration/gce.md
-      - Google Container Engine: platform/integration/gke.md
-      - Google Container Registry: platform/integration/gcr.md
-      #- HipChat: platform/integration/hipchatKey.md
-      - HipChat: platform/integration/hipchat.md
+      - Google Cloud: platform/integration/gcloudKey.md
+      - HipChat: platform/integration/hipchatKey.md
       - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/tripub.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
-      - Node Cluster: platform/integration/node-cluster.md
+      - Node Cluster: platform/integration/nodeCluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Quay.io: platform/integration/quayLogin.md
-      - Slack: platform/integration/slack.md
+      - Slack: platform/integration/slackKey.md
       - SSH Keys: platform/integration/sshKey.md
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - Docker Hub: platform/integration/docker-hub.md
+        - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
         - Email: platform/integration/email.md
-        #- HipChat: platform/integration/hipchat.md
+        - HipChat: platform/integration/hipchat.md
+        - Google Cloud: platform/integration/gce.md
+        - Google Container Registry: platform/integration/gcr.md
+        - Google Container Engine: platform/integration/gke.md
         - IRC: platform/integration/irc.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
-        - Quay.io: platform/integration/quay.md
-        - SSH Keys: platform/integration/key-ssh.md
         - Private Registries: platform/integration/docker-private-registry.md
-        - Docker Hub: platform/integration/docker-hub.md
+        - Quay.io: platform/integration/quay.md
+        - Slack: platform/integration/slack.md
+        - SSH Keys: platform/integration/key-ssh.md
+        - Node Cluster: platform/integration/node-cluster.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Machine image:
         - Overview: platform/runtime/machine-image/ami-overview.md
+        - OS versions: platform/runtime/machine-image/os-versions.md
+        - Language versions: platform/runtime/machine-image/language-versions.md
+        - CLI versions: platform/runtime/machine-image/cli-versions.md
+        - Services versions: platform/runtime/machine-image/services-versions.md
+        - AMI v5.10.4 (latest): platform/runtime/machine-image/ami-v5104.md
         - AMI v5.8.2: platform/runtime/machine-image/ami-v582.md
         - AMI v5.7.3: platform/runtime/machine-image/ami-v573.md
         - AMI v5.6.1: platform/runtime/machine-image/ami-v561.md

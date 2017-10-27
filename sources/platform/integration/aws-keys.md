@@ -27,8 +27,11 @@ Here is the information you need to create this integration:
 
 ## Usage in CI
 
+**Note:** Since this is integration is of generic type, it can be plugged into other sections like hub, deploy in the following use cases:
+
 * [Using a custom image for CI](/ci/custom-docker-image/)
 * [Pushing artifacts to Amazon ECR](/ci/push-amazon-ecr/)
+* [Deploying to EBS](/ci/deploy-to-aws-beanstalk)
 
 ## Usage in Assembly Lines
 

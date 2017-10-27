@@ -6,7 +6,7 @@ page_title: Ubuntu 16.04 Image for CI
 
 # Ubuntu 16.04
 
-Ubuntu 16.04 based images for Shippable Continuous Integration are available as part of the platform. All our Ubuntu 16.04 [language images](/platform/runtime/language/overview) are derived from this base image. This image comes pre-installed with the latest versions of Java, Ruby, and Node along with the OS default version of Python. We also install all the [services](/platform/runtime/service/overview) we support on this image.
+Ubuntu 16.04 based images for Shippable Continuous Integration are available as part of the platform. All our Ubuntu 16.04 [language images](/platform/runtime/machine-images/ami-overview) are derived from this base image. This image comes pre-installed with the latest versions of Java, Ruby, and Node along with the OS default version of Python. We also install all the [services](/platform/runtime/service/overview) we support on this image.
 
 We update this image, `drydock/u16all`, monthly and push a unique tag to our [drydock repository](https://hub.docker.com/r/drydock/u16all/) on Docker Hub. The tag is of the format `<Version>.<Month>.<Release Number>`.
 

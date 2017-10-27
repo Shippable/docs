@@ -30,7 +30,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 - [Amazon ECS](/platform/integration/amazon-ecs)
 - [Kubernetes](/platform/integration/kubernetes)
-- [Google Container Engine](/platform/integration/gke)
+- [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure](/platform/integration/azure/)
 - [Azure DC/OS](/platform/integration/azure-dcos)
 - [Docker Cloud](/platform/integration/docker-cloud)
@@ -43,7 +43,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Docker Hub](/platform/integration/dockerRegistryLogin)
 - [Docker Trusted Registry](/platform/integration/dockerRegistryLogin)
 - [Docker Private Registry](/platform/integration/dockerRegistryLogin)
-- [Google Container Registry](/platform/integration/gcr)
+- [Google Container Registry](/platform/integration/gcloudKey)
 - [Quay](/platform/integration/quayLogin)
 - [JFrog](/platform/integration/jfrog-artifactoryKey)
 
@@ -58,7 +58,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 ## Supported Notification Integrations
 
 - [HipChat](/platform/integration/hipchatKey)
-- [Slack](/platform/integration/slack)
+- [Slack](/platform/integration/slackKey)
 - [IRC](/integration/irc/)
 
 ## Supported Miscellaneous Integrations
@@ -67,7 +67,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [PEM keys](/platform/integration/pemKey)
 - [SSH keys](/platform/integration/sshKey)
 - [Digital Ocean](/platform/integration/do)
-- [Google Cloud](/platform/integration/gce)
+- [Google Cloud](/platform/integration/gcloudKey)
 - [Event Trigger](/platform/integration/event-trigger)
 
 ## Further Reading

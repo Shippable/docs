@@ -24,7 +24,6 @@ Here is the information you need to create this integration:
 
 The AWS IAM integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
-* [image](/platform/workflow/resource/image)
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
 

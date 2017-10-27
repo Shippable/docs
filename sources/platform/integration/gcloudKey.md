@@ -1,30 +1,36 @@
-page_main_title: Google Cloud Integration (Deprecated)
+page_main_title: Google CLoud
 main_section: Platform
 sub_section: Integrations
-page_title: GCL integration (Deprecated)
+page_title: Google Cloud integration
 
-# Google Cloud Integration (Deprecated)
-
-## Deprecation Note
-This integration has been deprecated. A new integration called [Google Cloud](/platform/integration/gcloudKey) has been introduced which can be used instead. It aims to simplify and unify existing GCR, GKE and GCL functionalities.
-
-If you have any existing GCL integrations, you can continue to use them.
-
----
-
-Available under the Integration Family: **generic**
+# Google Cloud Integration
 
 `Google Cloud` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Cloud and manage entities and services provided by Google Cloud.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCL integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
+You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/management/integrations/#adding-an-account-integration).
 
-## Resources that use this Integration
+This is the information you would require to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration Type** -- **Google Cloud**
+* **Name** -- Friendly name for the integration
+* **JSON Key** -- JSON Security Key for Google Cloud
+
+## Usage in CI
+**Note:** Since this is integration is of generic type, it can be plugged into hub section in the following use cases:
+
+* [Using a custom image for CI](/ci/custom-docker-image/)
+* [Pushing artifacts to GCR](/ci/push-gcr/)
+
+## Resources that use this Integration in Assembly Lines
 Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Google Cloud` integration.
 
+* [cluster](/platform/workflow/resource/cluster)
 * [image](/platform/workflow/resource/image)
 * [integration](/platform/workflow/resource/integration)
+* [loadbalancer](/platform/workflow/resource/loadbalancer)
 
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
@@ -33,10 +39,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						| Description      |
 | ------			 							|----------------- |
-| `<NAME>`\_INTEGRATION\_NAME   			      | Name supplied in the integration |
-| `<NAME>`\_INTEGRATION\_PROJECTNAME		      | Project Name supplied in the integration |
-| `<NAME>`\_INTEGRATION\_SERVICEACCOUNTEMAIL  | Email address supplied in the integration |
-| `<NAME>`\_INTEGRATION\_CREDENTIALFILE	      | Key supplied in the integration |
+| `<NAME>`\_INTEGRATION\_JSON_KEY		      | JSON key supplied in the integration |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.

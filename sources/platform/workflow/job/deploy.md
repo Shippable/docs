@@ -104,8 +104,8 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
         * Any other job or resource will only participate in triggering the `deploy` job, not in the processing of it.
 
-    * `TASK` -- Optional, this should only be used for scripts following deployment of files to a [Node Cluster](/platform/integration/node-cluster/).
-        * `script` -- Optional input. This is used to run a script after deployment, but this can be used only if the `deploy` is for a `file`-based `manifest` and the `cluster` resource has an integration of type [Node Cluster](/platform/integration/node-cluster/).
+    * `TASK` -- Optional, this should only be used for scripts following deployment of files to a [Node Cluster](/platform/integration/nodeCluster/).
+        * `script` -- Optional input. This is used to run a script after deployment, but this can be used only if the `deploy` is for a `file`-based `manifest` and the `cluster` resource has an integration of type [Node Cluster](/platform/integration/nodeCluster/).
 
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to a provider like Slack, Email, IRC, Hipchat, etc.
