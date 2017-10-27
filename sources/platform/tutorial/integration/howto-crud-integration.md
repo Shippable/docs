@@ -38,7 +38,7 @@ Once an integration is enabled for a Subscription, you can use it in any project
 
 Integrations can be configured in your `shippable.yml` if you're [configuring CI](/ci/yml-structure), or in the `shippable.resources.yml` if you're [configuring an Assembly Line](/platform/workflow/resource/integration/).
 
-## Adding your integration to additional Subscriptions
+## Adding integration to a subscription
 
 If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
 
