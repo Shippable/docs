@@ -30,7 +30,7 @@ resources:
 	* [Docker Datacenter](/platform/integration/docker-datacenter)
 	* [Google Container Engine (GKE)](/platform/integration/gke)
 	* [Kubernetes](/platform/integration/kubernetes)
-	* [Node Cluster](/platform/integration/node-cluster)
+	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/tripub)
 
 * **`pointer`** -- is an object that contains integration specific properties

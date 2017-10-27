@@ -281,7 +281,7 @@ pages:
       - Joyent Triton: platform/integration/tripub.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
-      - Node Cluster: platform/integration/node-cluster.md
+      - Node Cluster: platform/integration/nodeCluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Quay.io: platform/integration/quayLogin.md
       - Slack: platform/integration/slack.md
@@ -301,6 +301,7 @@ pages:
         - Private Registries: platform/integration/docker-private-registry.md
         - Docker Hub: platform/integration/docker-hub.md
         - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
+        - Node Cluster: platform/integration/node-cluster.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Machine image:
