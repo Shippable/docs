@@ -26,7 +26,6 @@ resources:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
 	* [Google Cloud](/platform/integration/gcloudKey)
-	* [Google Container Engine](/platform/integration/gke)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
 	* [Kubernetes](/platform/integration/kubernetes)
 	* [Quay](/platform/integration/quayLogin)
@@ -49,11 +48,23 @@ resources:
                   - TASK:
                     - script: ls
 
-	* For Google integrations, if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster. If not provided, just the authentication to Google Cloud is done automatically.
+	* For Google integrations, if no scopes are mentioned just the authentication to Google Cloud is done automatically. If no scopes are passed then, the region and cluster name will be ignored.
 
 	        pointer:
 	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
 	          clusterName: <cluster name>
+
+      * If you need the CLI to also configure GKE, you need to pass it in as a scope in the job. if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster.  Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: gcloud-key-integration
+                    scopes:
+                      - gke
+                  - TASK:
+                    - script: ls
 
       * If you need the CLI to also configure GCR, you need to pass it in as a scope in the job. However, if you pass `scopes` as gcr as below the region and cluster even, if provided will be ignored.  Example:
 
@@ -66,6 +77,7 @@ resources:
                       - gcr
                   - TASK:
                     - script: ls
+
 
 <a name="cliConfigTools"></a>
 ## Configured CLI tools
@@ -80,11 +92,14 @@ integration. Here is a list of the tools configured for each integration type:
 | AWS                                 | [AWS CLI](/platform/runtime/machine-image/cli-versions/#aws); [AWS Elastic Beanstalk CLI](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | AWS with `ecr` scope                | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Docker Registry                     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
-| Google Container Engine             | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Google Cloud                        | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Google Cloud with `gke` scope       | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Google Cloud with `gcr` scope       | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | JFrog Artifactory                   | [JFrog CLI](/platform/runtime/machine-image/cli-versions/#jfrog) |
 | Kubernetes                          | [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Quay.io                             | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+
+**Note**: Google Cloud with `gke` scope is used to configure the cluster name and region. For all other google cloud integration type(with no scopes or when scope is `gcr`) the cluster name and region will be ignored.
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs

@@ -19,7 +19,7 @@ The main idea here is that we define the configuration and the deployment artifa
 
 ## Assumptions
 
-We assume that the application is already packaged as a Docker image. We have chosen GKE as our Docker registry, but you can use any Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
+We assume that the application is already packaged as a Docker image. We have chosen Google Cloud as our Docker registry, but you can use any Docker registry that [Shippable supports](/platform/integration/overview/#supported-docker-registry-integrations). If you want to know how to build, test and push a Docker image through CI to a Docker registry, these links will help:
 
 * [Getting started with CI](/ci/why-continuous-integration/)
 * [CI configuration](/ci/yml-structure/)
@@ -233,11 +233,11 @@ resources:
 
 * **Description:** `dmsk_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
 * **Required:** Yes.
-* **Integrations needed:** [GKE Integration](/platform/integration/gke/)
+* **Integrations needed:** [Google Cloud Integration](/platform/integration/gcloudKey/)
 
-**Steps**  
+**Steps**
 
-1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
+1. Create an account integration using your Shippable account for Google Cloud. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -310,7 +310,7 @@ resources:
 
 * **Description:** `dmsk_test_cluster` and `dmsk_prod_cluster` are [cluster](/platform/workflow/resource/cluster/) resources that represents the Test/Prod Kubernetes clusters where your application is deployed to.
 * **Required:** Yes.
-* Integrations needed: [GKE](/platform/integration/gke/)
+* Integrations needed: [Google Cloud](/platform/integration/gcloudKey/)
 
 3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -319,7 +319,7 @@ resources:
 
   - name: dmsk_test_cluster
     type: cluster
-    integration: drship_gke    #replace with your GKE integration name
+    integration: drship_gke    #replace with your Google Cloud integration name
     pointer:
       sourceName: "dmsk-test-cluster"
       region: us-central1-b
@@ -327,7 +327,7 @@ resources:
 
   - name: dmsk_prod_cluster
     type: cluster
-    integration: drship_gke    #replace with your GKE integration name
+    integration: drship_gke    #replace with your Google Cloud integration name
     pointer:
       sourceName: "dmsk-prod-cluster"
       region: us-central1-a
