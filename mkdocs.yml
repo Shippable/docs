@@ -162,6 +162,7 @@ pages:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md
         - Multi-container app: deploy/amazon-ecs-multiple-containers.md
+        - Resetting a deploy job: deploy/amazon-ecs-deploy-reset.md
       - Kubernetes:
         - Single-container app: deploy/kubernetes.md
         - Multi-container app: deploy/kubernetes-multiple-containers.md
