@@ -23,6 +23,7 @@ Any Go version tag can be used on any image, but using an image that has the req
 
 | Go Version | Language Image Tags | Supported OS
 |------------|---------------------|-----------
+|1.9       |  v5.10.4   |  All
 |1.8.3       |  v5.7.3 and later   |  All
 |1.7.6       |  v5.7.3 and later   |  All
 |1.7.5       |  v5.6.1 and earlier |  All
@@ -63,7 +64,8 @@ Each of the language images is built from the respective base OS version of the 
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-drydock/u16golall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u16golall:v5.10.4  | Oct 2017 - Latest Version | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+drydock/u16golall:v5.8.2  | Aug 2017  | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 drydock/u16golall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u16golall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u16golall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)
@@ -76,7 +78,8 @@ drydock/u16golall:v5.3.2  | Mar 2017  | [v5.3.2](/platform/tutorial/runtime/ami-
 
 |Image| Release Date |Available in AMI |
 |----------|------------|-----|
-drydock/u14golall:v5.8.2  | Aug 2017 - Latest Version | [v5.8.2](/platform/tutorial/runtime/ami-v582)
+drydock/u14golall:v5.10.4  | Oct 2017 - Latest Version | [v5.10.4](/platform/tutorial/runtime/ami-v5104)
+drydock/u14golall:v5.8.2  | Aug 2017  | [v5.8.2](/platform/tutorial/runtime/ami-v582)
 drydock/u14golall:v5.7.3  | Jul 2017  | [v5.7.3](/platform/tutorial/runtime/ami-v573)
 drydock/u14golall:v5.6.1  | Jun 2017  | [v5.6.1](/platform/tutorial/runtime/ami-v561)
 drydock/u14golall:v5.5.1  | May 2017  | [v5.5.1](/platform/tutorial/runtime/ami-v551)

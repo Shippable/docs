@@ -67,7 +67,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [PEM keys](/platform/integration/pemKey)
 - [SSH keys](/platform/integration/sshKey)
 - [Digital Ocean](/platform/integration/do)
-- [Google Cloud](/platform/integration/gce)
+- [Google Cloud](/platform/integration/gcloudKey)
 - [Event Trigger](/platform/integration/event-trigger)
 
 ## Further Reading
