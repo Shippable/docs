@@ -301,6 +301,7 @@ pages:
         - Quay.io: platform/integration/quay.md
         - Slack: platform/integration/slack.md
         - SSH Keys: platform/integration/key-ssh.md
+        - Node Cluster: platform/integration/node-cluster.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Machine image:
