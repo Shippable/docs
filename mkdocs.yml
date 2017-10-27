@@ -132,6 +132,7 @@ pages:
         - Blue-green: deploy/deployment-method-blue-green.md
         - Upgrade: deploy/deployment-method-upgrade.md
         - Replace: deploy/deployment-method-replace.md
+        - Parallel: deploy/deployment-method-parallel.md
       - Using load balancers:
         - Overview: deploy/lb-overview.md
         - Amazon ECS Classic Load Balancer: deploy/lb-amazon-ecs-classic.md
