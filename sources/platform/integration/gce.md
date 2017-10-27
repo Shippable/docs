@@ -18,7 +18,7 @@ Available under the Integration Family: **generic**
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCR integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCL integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 
 ## Resources that use this Integration
 Resources are the building blocks of assembly lines and some types of resources refer to integrations by their names. The following resource types can be created with a `Google Cloud` integration.
