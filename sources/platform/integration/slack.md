@@ -6,7 +6,7 @@ page_title: Slack integration
 # Slack integration (Deprecated)
 
 ## Deprecation Note
-This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [Slack Key](/platform/integration/slackKey.md) integration instead.
+This integration has been marked deprecated. Existing integrations will continue to work as expected. You cannot create any new integrations of this type. Use [Slack Key](/platform/integration/slackKey) integration instead.
 
 ---
 

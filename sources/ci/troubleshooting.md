@@ -338,7 +338,7 @@ webhook build will not be executed.
 ### In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
-If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/platform/tutorial/runtime/custom-nodes/).
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/platform/runtime/nodes/#custom-nodes).
 ---
 ### I am pushing to Heroku as part of my build. Why is this suddenly failing?
 
@@ -466,4 +466,4 @@ While the job is running, you can view the job being run on a particular node by
 
 ---
 ### Builds fail on all my custom nodes
-We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/platform/tutorial/runtime/custom-nodes/) for builds to run successfully.
+We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/platform/runtime/nodes/#custom-nodes) for builds to run successfully.

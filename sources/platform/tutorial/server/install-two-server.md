@@ -253,7 +253,7 @@ authorization provider.
 <img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
 ##5. Enabling caching
-To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/tutorial/runtime/caching/#caching).
+To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
 ###6. Configure Services
 * Click on `Services`.
