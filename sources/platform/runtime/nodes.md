@@ -8,7 +8,7 @@ page_title: Node types
 You need a virtual machine, i.e. node, on which your job is executed. The Shippable SaaS platform supports two types of nodes:
 
 * **Dynamic nodes** which are provisioned when a job is triggered and destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
-* ** **Custom nodes** which are build nodes provided by you and attached to your Shippable Subscription. These nodes should be running and available when a job is triggered, since the Shippable platform does not dynamically provision them.
+* **Custom nodes** which are build nodes provided by you and attached to your Shippable Subscription. These nodes should be running and available when a job is triggered, since the Shippable platform does not dynamically provision them.
 
 Please note that a node can run one job at a time, so the number of nodes in your plan is the number of parallel jobs you can run for your Subscription.
 
