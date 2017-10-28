@@ -93,8 +93,9 @@ fbold {
 .navbar-default.navbar-transparent .navbar-nav > li > a.btn-primary:hover {
   color: #DA5A5B;
 }
+
 .navbar-default.navbar-transparent .navbar-nav > li > a:hover {
-  color: #DA5A5B;
+  font-weight: 600;
 }
 
 .navbar-default.navbar-transparent.shrink .navbar-nav > li > a.btn-primary:hover {
