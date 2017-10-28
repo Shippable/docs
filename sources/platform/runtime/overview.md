@@ -74,7 +74,8 @@ Caching speeds up your CI builds by automatically setting up your static depende
 Read more [about caching here](/platform/runtime/caching).
 
 ## Further Reading
-* [Build Images](/platform/tutorial/runtime/ami-overview)
+* [Machine Images](/platform/runtime/machine-image/ami-overview/)
 * [CI Environment Variables](/ci/env-vars/)
+* [More on Nodes](/platform/runtime/nodes)
 * [More about Caching](/platform/runtime/caching)
 * [Jobs Overview](/platform/workflow/job/overview)
