@@ -22,5 +22,5 @@ To get here:
 
 ## Further Reading
 
-* [Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes/)
-* [Using Custom Nodes](/platform/tutorial/runtime/custom-nodes/)
+* [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/)
+* [Using Custom Nodes](/platform/runtime/nodes/#custom-nodes)

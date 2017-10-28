@@ -17,7 +17,7 @@ In a nutshell, our Hosted service pricing is:
 | c4.large (2 cores, 3.75GB) 	|                                   One node included                                   	|                             $25/month for each build node                             	|
 | c4.xlarge (4 cores, 7.5GB) 	|                                           X                                           	|                             $75/month for each build node                             	|
 | c4.2xlarge (8 cores, 15GB) 	|                                           X                                           	|                             $150/month for each build node                            	|
-| [BYON](/platform/tutorial/runtime/custom-nodes/) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
+| [BYON](/platform/runtime/nodes/#custom-nodes) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
 
 ##Shippable Server
 

@@ -4,28 +4,22 @@ sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Environment Variables
 
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-
 # Environment variables
-Environment variables are used to control the context of your DevOps activity. 
+Environment variables are used to control the context of your DevOps activity.
 
-This can be very error prone and missed configurations can cause serious trouble. You might be actually working on production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes. 
+This can be very error prone and missed configurations can cause serious trouble. You might be actually working on production system when you thought you had your laptop configured to use your test system. To avoid this, Job Runtime provides very many easy ways to inject this into your Job Runtime before you start your activity and also clear the state completely once the activity finishes.
 
 Typical use cases for this are
 
 * Configuring your AWS Credentials to connect to a VPC
-* SSH Keys to access your VMs 
+* SSH Keys to access your VMs
 * Login to your Docker hub
 * Stage specific application configurations e.g. Dev Settings vs Test Settings
-* Logging verbosity for different stages of Software Delivery 
+* Logging verbosity for different stages of Software Delivery
 * Docker options for multi stage deployments
 
 ## Methods to set Environment Variables
-Shippable DevOps Assembly Lines provide multiple ways to control how environment variables are injected into your Job Runtime. This also varies a bit depending on the [Resource Type]() you are using. This is to introduce the concepts and more detail information on how to use it is documented in the respective Job/Resource pages. 
+Shippable DevOps Assembly Lines provide multiple ways to control how environment variables are injected into your Job Runtime. This also varies a bit depending on the [Resource Type]() you are using. This is to introduce the concepts and more detail information on how to use it is documented in the respective Job/Resource pages.
 
 The building block of [Assembly Line workflows]() are [Resources]() and they supply information to [Jobs]() which are activities. So resources are the way to push this information into jobs. These are some common ways to use resources for environment variables
 

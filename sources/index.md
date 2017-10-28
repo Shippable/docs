@@ -49,7 +49,7 @@ There is also a third hybrid option through Custom Nodes, where build orchestrat
 
 You do not need to explicitly create an account on the Hosted version of Shippable to start using it. You can [sign in](https://app.shippable.com/) using your GitHub or Bitbucket credentials. We use OAuth authentication so you will need to authorize Shippable the first time you sign in. We sync all organizations/repos from your source control based on the access granted. You can then click into any organization to [enable projects](/ci/enable-project/).
 
-If you want the benefits of using a SaaS platform, but still want to run your jobs on your own nodes, you can attach custom nodes to your Shippable subscription. More on Custom nodes is [described here](/platform/tutorial/runtime/custom-nodes/).
+If you want the benefits of using a SaaS platform, but still want to run your jobs on your own nodes, you can attach custom nodes to your Shippable subscription. More on Custom nodes is [described here](/platform/runtime/nodes/#custom-nodes).
 
 
 ### Using Shippable Server
