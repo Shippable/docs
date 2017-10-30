@@ -345,6 +345,8 @@ pages:
         - Dashboard: platform/visibility/job/dashboard.md
         - Settings: platform/visibility/job/settings.md
         - Console: platform/visibility/job/console.md
+    - Security:
+      - Overview: platform/security/overview.md 
     - Management:
       - Overview: platform/management/overview.md
       - Setting your plan: platform/management/manage-plan.md
