@@ -36,21 +36,20 @@ resources:
 	        pointer:
 	          sourceName: <"repositoryName/path" of an Artifactory repository file>
 
-* **`seed`** -- is an object that can contain any information that's relevant to the file. For example, the commitSHA.
+* **`seed`** -- is an object that can contain any information that's relevant to the file. For example, the commitSHA. This is currently a required field, so you should set thr `versionName` to a dummy value like `none` if you do not want to use this field. We are working on making this field optional.
 
-## Used in Jobs
-This resource is used as an `IN` for the following jobs:
+## Used in Assembly Lines
 
-* [manifest](/platform/workflow/job/manifest): Creating a service definition when your package is a file like a JAR/WAR file for example
-* [runSh](/platform/workflow/job/runsh): If your scripted job needs a file hosted on Artifactory.
-
-## Used in scenarios
+This resource is used in the following documented scenarios:
 
 * [Deploying an application to a VM Cluster from AWS S3](/deploy/vm-basic/)
 * [Deploying an application to multiple VM Clusters from AWS S3](/deploy/vm-multiple-environments/)
 * [Deploying an application to a VM Cluster from a JFrog Artifactory repository](/deploy/vm-jfrog/)
 
-## Default Environment Variables
+
+A `file` resource can be used as an `IN` for a [manifest](/platform/workflow/job/manifest) job and [runSh](/platform/workflow/job/runsh) job, or as an `OUT` for a `runSh` job.
+
+### Default Environment Variables
 Whenever `file` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
 `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
@@ -69,7 +68,8 @@ Whenever `file` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set 
 | `<NAME>`\_VERSIONNAME						| The versionName of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 
-## Shippable Utility Functions
+### Shippable Utility Functions
+
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
 How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
