@@ -37,7 +37,7 @@ If you're a Docker enthusiast and want to spin up your build minion based on you
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes.
 
-Each minion has 2 cores and 4GB RAM, unless you upgrade your subscription to a higher tier. If you use your own infrastructure to run your builds with [Custom Nodes](/platform/tutorial/runtime/custom-nodes/) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
+Each minion has 2 cores and 4GB RAM, unless you upgrade your subscription to a higher tier. If you use your own infrastructure to run your builds with [Custom Nodes](/platform/runtime/nodes/#custom-nodes) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
 
 ---
 ## Do I need to create an Account on Shippable?

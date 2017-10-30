@@ -37,7 +37,7 @@ The workflow for CI is simple.
 Our CI configuration is highly flexible and supports the following advanced scenarios:
 
 - [Matrix builds](/ci/matrix-builds/)
-- Docker-based workflows, including using [custom CI containers](/ci/custom-docker-image/), [Docker caching](/platform/tutorial/runtime/custom-nodes/), [Docker compose](/ci/docker-compose/) and native integrations with all [Docker registries](/getting-started/what-is-supported/#artifact-repositories) and [Container Orchestration platforms](/getting-started/what-is-supported/#container-orchestration-systems).
+- Docker-based workflows, including using [custom CI containers](/ci/custom-docker-image/), [Docker caching](/platform/runtime/nodes/#custom-nodes), [Docker compose](/ci/docker-compose/) and native integrations with all [Docker registries](/getting-started/what-is-supported/#artifact-repositories) and [Container Orchestration platforms](/getting-started/what-is-supported/#container-orchestration-systems).
 - [Parallel testing](/ci/matrix-builds/), i.e. you can split your tests across build machines
 
 For more on CI, read our [CI docs](/ci/why-continuous-integration/).

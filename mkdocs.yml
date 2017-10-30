@@ -300,11 +300,12 @@ pages:
         - PEM Keys: platform/integration/key-pem.md
         - Private Registries: platform/integration/docker-private-registry.md
         - Quay.io: platform/integration/quay.md
-        - Slack: platform/integration/slack.md
+        - Slack(old): platform/integration/slack.md
         - SSH Keys: platform/integration/key-ssh.md
         - Node Cluster: platform/integration/node-cluster.md
     - Runtime:
       - Overview: platform/runtime/overview.md
+      - Nodes: platform/runtime/nodes.md
       - Machine image:
         - Overview: platform/runtime/machine-image/ami-overview.md
         - OS versions: platform/runtime/machine-image/os-versions.md
@@ -319,6 +320,7 @@ pages:
         - AMI v5.4.1: platform/runtime/machine-image/ami-v541.md
         - AMI v5.3.2: platform/runtime/machine-image/ami-v532.md
         - AMI stable: platform/runtime/machine-image/ami-stable.md
+      - Caching: platform/runtime/caching.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
@@ -343,6 +345,8 @@ pages:
         - Dashboard: platform/visibility/job/dashboard.md
         - Settings: platform/visibility/job/settings.md
         - Console: platform/visibility/job/console.md
+    - Security:
+      - Overview: platform/security/overview.md 
     - Management:
       - Overview: platform/management/overview.md
       - Setting your plan: platform/management/manage-plan.md
@@ -379,12 +383,11 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
-        - How to use Docker Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-registry-in-runci.md
       - Runtime:
-        - Dynamic Nodes: platform/tutorial/runtime/dynamic-nodes.md
+        #- Dynamic Nodes: platform/runtime/nodes/#dynamic-nodes.md
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
-        - Caching: platform/tutorial/runtime/caching.md
-        - Environment Variables: platform/tutorial/runtime/environment-variables.md
+        #- Caching: platform/tutorial/runtime/caching.md
+        #- Environment Variables: platform/tutorial/runtime/environment-variables.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md

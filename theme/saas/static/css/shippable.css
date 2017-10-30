@@ -93,8 +93,9 @@ fbold {
 .navbar-default.navbar-transparent .navbar-nav > li > a.btn-primary:hover {
   color: #DA5A5B;
 }
+
 .navbar-default.navbar-transparent .navbar-nav > li > a:hover {
-  color: #DA5A5B;
+  font-weight: 600;
 }
 
 .navbar-default.navbar-transparent.shrink .navbar-nav > li > a.btn-primary:hover {
@@ -105,7 +106,8 @@ fbold {
 }
 
 .navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar-default.navbar-transparent .navbar-nav > .open > a:focus, .navbar-default.navbar-transparent .navbar-nav > .open > a:hover, .navbar-default.navbar-transparent .navbar-nav > .active > a, .navbar-default.navbar-transparent .navbar-nav > .active > a:focus, .navbar-default.navbar-transparent .navbar-nav > .active > a:hover {
-  color: #DA5A5B;
+  background-color: #e4edf5;
+  color: #333;
 }
 
 .navbar-default.navbar-transparent.shrink .navbar-nav > .open > a, .navbar-default.navbar-transparent.shrink .navbar-nav > .open > a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav > .open > a:hover, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a:focus, .navbar-default.navbar-transparent.shrink .navbar-nav > .active > a:hover {

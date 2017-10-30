@@ -24,20 +24,21 @@ Job Runtime consists of the following components:
 
 <a name="nodes"></a>
 ### Nodes
+
 To run your DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
 
-#### [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes)
+#### [Dedicated Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes)
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
 	* 2 core, 3.75GB RAM (default) -- this is equivalent to AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
 
-[Read more on Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes/).
+[Read more on Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes).
 
-#### [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes)
+#### [Dedicated Custom Nodes](/platform/runtime/nodes/#custom-nodes)
 These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
 
-[Read more on Custom Nodes](/platform/tutorial/runtime/custom-nodes/).
+[Read more on Custom Nodes](/platform/runtime/nodes/#custom-nodes).
 
 <a name="machine-image"></a>
 ### Machine image
@@ -70,10 +71,11 @@ Caching speeds up your CI builds by automatically setting up your static depende
 - ruby gems
 - static binaries from external sources
 
-Read more [about caching here](/platform/tutorial/runtime/caching).
+Read more [about caching here](/platform/runtime/caching).
 
 ## Further Reading
-* [Build Images](/platform/tutorial/runtime/ami-overview)
+* [Machine Images](/platform/runtime/machine-image/ami-overview/)
 * [CI Environment Variables](/ci/env-vars/)
-* [More about Caching](/platform/tutorial/runtime/caching)
+* [More on Nodes](/platform/runtime/nodes)
+* [More about Caching](/platform/runtime/caching)
 * [Jobs Overview](/platform/workflow/job/overview)

@@ -149,7 +149,7 @@ After initializing the infrastructure, select which provider(s) will be availabl
 Additional optional services and integrations may be enabled from this panel. For example, you can enable various hub integrations for your users to push or pull from Docker registries.
 
 ### Enabling caching
-To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/tutorial/runtime/caching/#caching).
+To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
 ## /etc/shippable
 The installer stores files in `/etc/shippable`. These files include configuration information, keys, and initialization scripts. The following are found in `/etc/shippable`.

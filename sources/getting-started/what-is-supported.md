@@ -12,18 +12,18 @@ Here are some of the major things we support out of the box. With that being sai
 
 To run your DevOps activities, you need a Node (virtual machine). Shippable supports the two types of Nodes described below. **By default, all your jobs run on Dynamic nodes.**
 
-### [Dedicated Dynamic Nodes](/platform/tutorial/runtime/dynamic-nodes/)
+### [Dedicated Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/)
 
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need.
 	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
 
-### [Dedicated Custom Nodes](/platform/tutorial/runtime/custom-nodes/)
+### [Dedicated Custom Nodes](/platform/runtime/nodes/#custom-nodes)
 
 You can also attach your own nodes to your Shippable subscription and all your jobs are routed to those machines. This is great for organizations with specific security requirements that do not allow them to run builds on hosted infrastructure. There are additional advantages to Custom nodes, including Docker caching and faster builds due to no spin up time. There is some management required for Custom Nodes, but in most cases, it is as simple as hitting the **Reset Node** button. With Custom nodes, your code never leaves your infrastructure and your jobs can access internal resources that are inaccessible from the internet.
 
-For more information, check out our [Custom nodes tutorial](/platform/tutorial/runtime/custom-nodes/).
+For more information, check out our [Custom nodes tutorial](/platform/runtime/nodes/#custom-nodes).
 
 ## Operating System
 The platform is designed to work on any Linux distro. We natively support the following versions:

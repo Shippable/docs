@@ -6,75 +6,38 @@ page_title: Custom Nodes Overview
 
 # Custom Nodes
 
-By default, all your builds run in build containers hosted on Shippable's infrastructure.
+To learn the basics of custom nodes, please read [this overview](/platform/runtime/nodes/#custom-nodes).
 
-However, some organizations have very specific security requirements that do not allow them to run builds on hosted infrastructure. Others want to avoid the node spin-up time for every job.
-
-To address these types of scenarios, we offer **Custom Nodes**. This lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. Your custom nodes can be anywhere, such as in your Amazon EC2 VPN, Google Cloud, Linode, or Digital Ocean, or even in your datacenter behind a firewall. The greatest thing about Custom Nodes is that you do not need to open any incoming ports since the Shippable SaaS service never initiates a connection with your nodes.
-
-This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
-
-Advantages are:
-
-**Security:** Your build machines can be inside your VPC and/or behind your firewall, which gives you the ability to configure access, IAM, etc. We even have a way of configuring these machines so that you do not have to grant Shippable SSH access! This means your code never leaves your firewall and no external entity can access your machines.
-
-Complete control over your build machines, including SSH access, ability to choose your cloud provider and size of build machines.
-
-**Faster build times:** You can leave your build machines running all the time, which eliminates the occasional 2-3 mins per build that is added when new machines are spun up on Shippable's hosted infrastructure.
-
-**Docker caching:** If you use Docker for your build workflows like pulling Docker images from a registry or building Docker images, your build machines will already have these images and this will speed up your builds.
-
-## Minimum requirements
-The minimum requirements for a build machine that can be attached to Shippable are:
-
-* 1.8GB RAM
-* 30GB SSD
-* Supported architecture, OS and Docker versions
-
-|Architecture|OS|Docker Version|
-|---|---|---|
-|x86_64|Ubuntu 14.04|1.9|
-|x86_64|Ubuntu 14.04|1.11|
-|x86_64|Ubuntu 14.04|1.13|
-|x86_64|Ubuntu 14.04|17.06|
-|x86_64|Ubuntu 16.04|1.13|
-|x86_64|Ubuntu 16.04|17.06|
-|aarch64|Ubuntu 16.04|17.06|
-
-**Please note that you will need to attach one build machine per parallel build.**
-
-## Software Requirements
-If you choose to run your Custom Node on an unsupported OS like Alpine, please ensure the following packages are pre-installed -
-
-* bash
-* python2.7
-* /proc/sys/kernel/uuid
-* apt-get // this is used to install further dependencies like git and openssh-client
-
-## Managing build infrastructure
-The following guides will help you manage your build infrastructure:
+This tutorial page shows you how to attach/delete your Custom nodes to Shippable, as well as perform periodic maintenance on them.
 
 * [Adding a node](#add-node)
-* [Editing a node](#edit-node)
-* [Resetting a node](#reset-node)
+* [Updating node name](#edit-node)
+* [Re-initializing a node](#reset-node)
 * [Deleting a node](#delete-node)
 
 <a name="add-node"></a>
-###Adding a build node
+##Adding a build node
 Follow the steps below to add a build node:
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+
+<img width="30%" height="30%" src="/images/getting-started/account-settings.png" alt="List subscriptions">
+
+- Click on the **Gears icon** on the right of the Subscription page and then on **Nodes**.
 - Choose the radio button for **Custom**.
+
 <img src="/images/getting-started/byon-select-my-node.png" alt="bring your own node">
+
 - Select the architecture for initializing the node.
+
 <img src="/images/getting-started/change-custom-architecture.png" alt="change custom node architecture">
 
 - To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
 - Select the OS of the nodes you want to add.
 - Enter a name for the node and its IP address.
+
 <img src="/images/getting-started/byon-name-ip.png" alt="Enter name and IP">
+
 - Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
 - You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `Manual (script based)`
 
@@ -110,38 +73,53 @@ will run on your machines. Your nodes can be seen by going to your Subscription 
 <img src="/images/getting-started/list-byon-nodes.png" alt="Select docker version">
 
 <a name="edit-node"></a>
-###Editing a build node
+## Updating node name
+
+You can edit your node name at any time. No other fields of a custom node are editable.
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+
+<img width="30%" height="30%" src="/images/getting-started/account-settings.png" alt="List subscriptions">
+
+- Click on the **Gears icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
-- You can click on the **Edit** button for a build node to edit the node name. Nothing
-else can be edited for a node.
+- You can click on the **Edit** button for a build node to edit the node name.
 
 <a name="reset-node"></a>
-###Resetting a build node
+## Re-initializing a node
+
+You might want to re-initialize a Custom node for the following reasons:
+
+* The node shows a **New version available** message:
+
+<img src="/images/platform/tutorial/runtime/node-update-available.png" alt="List subscriptions">
+
+* You made some changes to the node manually and it is no longer picking up jobs
+* The node isn't picking up jobs and seems 'frozen' for some reason
+
+To re-initialize a node:
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+
+<img width="30%" height="30%" src="/images/getting-started/account-settings.png" alt="List subscriptions">
+
+- Click on the **Gears icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
+- Click on the node you want to reinitialize
 - You can reset a node by clicking on the **Re-initialize** button. This action will initialize/install everything from scratch.
 
-If you have added your own build nodes, you will need to re-download the initialization script and run it on your node.
+If your nodes were not initialized automatically by Shippable, you will need to re-download the initialization script and run it on your node manually.
 
 <a name="delete-node"></a>
-###Deleting a build node
+##Deleting a build node
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
+
 - Click on the **gear icon** on the Subscription page and then on **Nodes**.
 - Click on the node in the **NODE LISTS** section.
 - Scroll to the bottom of the screen and click on **Delete** to delete your build node. This action is final and cannot be undone.
-
-## Updating Custom Nodes
-Custom nodes only need to be updated to the latest image if you want to leverage the latest features that are launched in
-that image.
 
 ## Initialization scripts
 All the scripts for initializing the nodes are are publicly available [here](https://github.com/Shippable/node). We update this repository consistently to fix any bugs and to add support for new operating systems.
