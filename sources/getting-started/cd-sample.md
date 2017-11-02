@@ -67,7 +67,7 @@ This should be the subscription where you forked the repository.
 
 ###7. Add ECS integration
 
-- Add an ECS cluster integration using the directions specified [here](/platform/integration/aws-ecs/). This is the cluster to which the
+- Add an ECS cluster integration using the directions specified [here](/platform/integration/aws-iam/). This is the cluster to which the
 Node.js docker image will be deployed to. Name the integration dr-aws.
 If you choose a different name, replace dr-aws with your integration name in the `shippable.resources.yml` file.
 

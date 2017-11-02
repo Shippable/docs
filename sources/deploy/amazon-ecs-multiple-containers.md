@@ -126,7 +126,7 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 1. Create an account integration for Amazon ECS in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Amazon ECS integration](/platform/integration/aws-ecs/)
+    * [Amazon ECS integration](/platform/integration/aws-iam/)
 
     Copy the friendly name of the integration, in our case we named it **op_int**.
 

@@ -193,9 +193,6 @@ Sends Hipchat notifications and will only run if Hipchat is selected in the add-
 #### irc
 Sends IRC notifications and will only run if IRC is selected in the install panel.
 
-#### jSync
-Updates `jenkins` pipeline jobs and will only run if Jenkins is selected in the add-ons panel.
-
 #### logup
 Uploads build console logs to S3.  This will only run if AWS keys are provided.
 

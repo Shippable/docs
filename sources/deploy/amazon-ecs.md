@@ -114,7 +114,7 @@ jobs:
 1. Create an account integration for Amazon ECR in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Amazon ECS integration](/platform/integration/aws-ecs/)
+    * [Amazon ECS integration](/platform/integration/aws-iam/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
