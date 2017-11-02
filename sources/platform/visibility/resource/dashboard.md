@@ -20,6 +20,6 @@ To get here:
 
 <img src="/images/platform/visibility/resource-view-grid.jpg" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-Your Resource Dashboard displays the YML config for the resource from [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml)
+Your Resource Dashboard displays the YML config for the resource from your [shippable.yml](/platform/tutorial/workflow/shippable-yml).
 
 It also shows the information maintained in the [state](/platform/workflow/state/overview) of the resource for every version.

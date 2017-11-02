@@ -7,7 +7,7 @@ A single package manifest has only one input `image` or `file` resource. If your
 
 <img src="../../images/platform/jobs/manifest/singlePackageManifest.png" alt="Single package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-A manifest is configured in `shippable.jobs.yml` as shown below:
+A manifest is configured in `shippable.yml` as shown below:
 
 ```
 jobs:
@@ -34,7 +34,7 @@ There are some cases where your services are not completely decoupled. For examp
 
 <img src="../../images/platform/jobs/manifest/multiPackageManifest.png" alt="Multi package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-A multi-package manifest is configured in `shippable.jobs.yml` as shown below:
+A multi-package manifest is configured in `shippable.yml` as shown below:
 
 ```
 jobs:

@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # params
 `params` resource stores user defined key-value pairs. This can be then be injected into a job runtime environment where your DevOps activity runs or can set environment variables of your deploy target (VMs or containers).
 
-You can create a `params` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `params` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:

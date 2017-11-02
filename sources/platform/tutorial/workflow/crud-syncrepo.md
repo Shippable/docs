@@ -8,13 +8,13 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Adding/Updating an Assembly Line
 
-The `syncRepo` resource is the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called Sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml), [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml) and [shippable.triggers.yml](/platform/tutorial/workflow/shippable-triggers-yml).
+The `syncRepo` resource is the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.yml](/platform/tutorial/workflow/shippable-yml) files.
 
-When you add a [syncRepo](/platform/workflow/resource/syncrepo), Shippable creates a resource and an [rSync](/platform/workflow/job/rsync/) Job automatically. We also add a webhook to your source control system for the repo so that we can trigger synchronization if you change the definitions of your Assembly Lines.
+When you add a [syncRepo](/platform/workflow/resource/syncrepo), Shippable creates a resource and an [rSync](/platform/workflow/job/rsync/) job automatically. We also add a webhook to your source control system for the repo so that we can trigger synchronization if you change the definitions of your Assembly Lines.
 
-The name of the `syncRepo` is the name of the repository appended to name of the branch with an `_`. `rSync` Job is `syncRepo`'s name + `_rSync`
+The name of the `syncRepo` is the name of the repository with the name of the branch appended with an `_`. The `rSync` job name is the `syncRepo`'s name + `_rSync`
 
-**Note** You should not add the same repository/branch as a sync repo more than once as it can lead to unexpected behaviors.
+**Note** You should not add the same repository/branch as a sync repo more than once.
 
 ## Adding a syncRepo
 
@@ -43,7 +43,7 @@ The name of the `syncRepo` is the name of the repository appended to name of the
 	* `Default Flag` checkbox is checked by default. When this is checked all the resources, jobs or trigger will have a default flag(with same name as the rSync job's name).
 	* Click on **Save** to apply your sync repository configuration.
 
-At this point, Shippable will create `syncRepo` resource and `rSync` job. After that rSync job will parse all configuration files in the  repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml`,  `shippable.resources.yml` and `shippable.triggers.yml` in the Single Pane of Glass (SPOG) (click on the `eye` icon on the top-right corner on your organization's page  and choose `Show SPOG view`).
+At this point, Shippable will create `syncRepo` resource and `rSync` job. After that rSync job will parse all configuration files in the  repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your configuration files in the Single Pane of Glass (SPOG) (click on the `eye` icon on the top-right corner on your organization's page  and choose `Show SPOG view`).
 
 <img src="/images/platform/resources/syncRepo/syncRepo-flag.png" alt="syncRepo flag">
 

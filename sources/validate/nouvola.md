@@ -14,19 +14,19 @@ You can automatically trigger your test suite authored in Nouvola, after your ap
 ## Prerequisites
 
 1. This tutorial executes a test plan on a NodeJS application, whose deployment is covered in
-[this](/deploy/cd_of_single_container_applications_to_orchestration_platforms/) document. The test plan is a simple application availability test that loads
+[this](/deploy/continuous-delivery-single-container-docker-application/) document. The test plan is a simple application availability test that loads
 the landing page of the app, using 2 virtual concurrent users.
 
 2. Define your test plan in Nouvola and note the Plan ID.
 ![test plan](https://github.com/devops-recipes/test-api-nouvola/raw/master/nouvola-test-plan.png)
 
-## Specify the Nouvola API key and test plan id in your shippable.resources.yml file.
+## Specify the Nouvola API key and test plan id in your shippable.yml file.
 
 1. Find your Nouvola API key using this [document](http://blog.nouvola.com/divecloud-api-now-available).
 2. Create a secure environment variable by going to your Subscription settings -> Encrypt.
 ![Secure API env key](https://github.com/devops-recipes/test-api-nouvola/raw/master/encrypt-nouvola-key.png)
 3. Copy the secure key to the clipboard by clicking on Copy.
-4. Specify the secure key and plan id in your shippable.resources.yml file.
+4. Specify the secure key and plan id in your shippable.yml file.
 ```
 resources:
 
@@ -41,21 +41,22 @@ resources:
         secure: QbUdwdZzHSnFlKPxcsjJMp/qyICw4DPa2+VkqG9G42rYGCIAbecTVdIC933mljlJ1Z+OKhxk2zEevrczi7FxqLR+ts16AtvXHgRgwdmLLWmxX3trjfXDSWXOE5+GNHYmaZOQLm8qQjouogP8Kkx8njYj9Uut4ONaNZUsHvVroVSyfwiPktyKjQP8iEIzaV/Jb1wWwLHsDf1n4GaCcbm1VuloxoNuJkG5VftcnMqULWyN9YeZTxQ43PiflTWFqBHV9hPpbVU+N5Jt1kGfhBlj6FdiIiB69KrXXd/ooBwz7UuuNgPyXEjZtUC0tp0CzZlovnNPBdrMRiZ/yE1ZgbuDbQ==
 ```
 5. You can find the Plan ID in the test plan page, in parenthesis (xxx), next to the test Name in the Nouvola dashboard.
-6. We are going to call a script that executes Nouvola API calls in our runSh job. In order to do so, we need to also specify our repository as a resource in the shippable.resources.yml file.
+6. We are going to call a script that executes Nouvola API calls in our runSh job. In order to do so, we need to also specify our repository as a resource in the shippable.yml file.
 
 ```
-# GitHub repo holding scripts to be used in runsh pipeline job
-- name: github-repo
-  type: gitRepo
-  integration: dr-github # replace with your GitHub integration name
-  pointer:
-    sourceName: devops-recipes/test-api-nouvola # replace with source code location (e.g. GitHub) where you cloned this sample project
-    branch: master
-  flags:
-    - test-api-nouvola
+resources:
+  # GitHub repo holding scripts to be used in runsh pipeline job
+  - name: github-repo
+    type: gitRepo
+    integration: dr-github # replace with your GitHub integration name
+    pointer:
+      sourceName: devops-recipes/test-api-nouvola # replace with source code location (e.g. GitHub) where you cloned this sample project
+      branch: master
+    flags:
+      - test-api-nouvola
 ```
 
-## Call the Nouvola API to execute your test plan in shippable.jobs.yml file.
+## Call the Nouvola API to execute your test plan in your shippable.yml file.
 ```
 jobs:
 
@@ -96,7 +97,7 @@ The build will complete when status transitions from Waiting->Starting->Working-
 
 ## Connecting the runSh job to your deploy job in the pipeline
 
-If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in[ECS deploy](/deploy/cd_of_single_container_applications_to_orchestration_platforms/) using an OUT directive.
+If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in[ECS deploy](/deploy/continuous-delivery-single-container-docker-application//) using an OUT directive.
 
 ```
   - name: deploy-ecs-basic-deploy

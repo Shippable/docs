@@ -11,7 +11,7 @@ In this strategy, a new service is only created for the very first deployment. E
 
 The upgrade strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) to `upgrade`.
 
-As an example, the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file for our standard [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) looks like this:
+As an example, the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file for our standard [single container application](/deploy/continuous-delivery-single-container-docker-application/) looks like this:
 
 ```
 jobs:

@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # runCI
 
-`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other Jobs since the actual configuration is driven through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
+`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
 
 `runCI` jobs execute on Shippable provided [Dynamic Nodes or Custom Nodes](/platform/runtime/overview#nodes)
 
@@ -21,7 +21,7 @@ Note: If your `CI` project was enabled before March 2017, you can create these o
 
 ## How do you use it in Assembly Lines?
 
-Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml`. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in the `shippable.jobs.yml`.
+Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/crud-job#adding) it as a job in `shippable.yml`. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in `shippable.yml`.
 
 ## YML Definition
 
@@ -55,7 +55,7 @@ jobs:
       - script: pwd
 
 ```
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page.
+A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view.
 
@@ -78,7 +78,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`.

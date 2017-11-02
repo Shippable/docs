@@ -11,7 +11,7 @@ You might have deployed an application to an orchestration platform like Amazon 
 
 ###1. Update the deploy job.
 
-Locate your `deploy` job in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file and set comment it out or delete it from your yml. For example:
+Locate your `deploy` job in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file and comment it out or delete it from your yml. For example:
 
 ```
 jobs:

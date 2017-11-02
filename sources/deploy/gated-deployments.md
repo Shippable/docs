@@ -9,7 +9,7 @@ You might have a need to manually trigger the deployment of your application to 
 
 ## Instructions to set up manual triggers
 
-1. Locate the [deploy job](/platform/workflow/job/deploy) defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file that you want to turn off automatic triggers for.
+1. Locate the [deploy job](/platform/workflow/job/deploy) defined in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file that you want to turn off automatic triggers for.
 
 2. Specify `switch: off` for the input [manifest](/platform/workflow/job/manifest). This essentially prevents a new version of the manifest from triggering an automated deployment. Your code block should look similar to this:
 

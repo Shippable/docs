@@ -17,7 +17,7 @@ In some scenarios, you might want to validate that your containers are up and ru
 
 The `stabilityDuration` tag on the [deploy](/platform/workflow/job/deploy) job addresses this scenario by allowing you to specify the amount of time in seconds (0-300) that a new service created in a blue-green deployment should be stable before marking the deployment as successful. "Stable" means that the desired number of instances matches the number that are actually running in the cluster for the timeframe specified.
 
-For our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), the [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) snippet looks like this:
+For our [single container application](/deploy/continuous-delivery-single-container-docker-application/), the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) snippet looks like this:
 
 ```
 jobs:

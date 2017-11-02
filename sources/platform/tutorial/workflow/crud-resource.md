@@ -10,15 +10,15 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 [Resources](/platform/workflow/resource/overview/) are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
 
-Resources are defined in a yml-based configuration file `shippable.resources.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+Resources are defined in a yml-based `shippable.yml` configuration file that is committed to source control in your [sync repository](/platform/workflow/resource/syncrepo/).
 
 <a name="adding"></a>
 ## Adding Resources
-Resources are defined in a configuration file `shippable.resources.yml` and this file is added to the root of a source control repository, which we call your [Sync repository](/platform/workflow/resource/syncrepo). All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to Resources defined in the repo.
+Resources are defined in a configuration file, `shippable.yml`, and this file is added to a source control repository, which we call your [sync repository](/platform/workflow/resource/syncrepo). All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to resources defined in the repo.
 
-Once `shippable.resources.yml` is committed to a repository, you will have to add them to Shippable through the UI. Detailed step by step instructions are [here ](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
+Once `shippable.yml` is committed to a repository, you will have to add the repository to Shippable through the UI. Detailed step by step instructions are [here ](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 
-Once your Sync repository is added, the platform watches for changes (Job adds, edits or deleted) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
+Once your sync repository is added, the platform watches for changes (job additions, edits or deletes) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 
 <a name="viewing"></a>
 ## Viewing resource information

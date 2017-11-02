@@ -17,7 +17,7 @@ A release job needs a [manifest](/platform/workflow/job/manifest/) job and a [ve
 
 <img src="/images/release/release-inputs.png" alt="Triggering deployments" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-- First, you will want to create a version resource in your `shippable.resources.yml` file.
+- First, you will want to create a version resource in your `shippable.yml` file.
 
 ```
 resources:
@@ -30,7 +30,7 @@ resources:
 ```
 Set the starting point of your version in the versionName field. The `release` job defined in the next step will use the versionName as the seed and increment it whenever it is triggered.  
 
-- Next, add a `release` job to `shippable.jobs.yml` file. The snippet below also shows sample configuration for the input manifest job:
+- Next, add a `release` job to your `shippable.yml` file. The snippet below also shows sample configuration for the input manifest job:
 
 ```
 jobs:

@@ -54,7 +54,7 @@ For example, if you have a [multi-stage CI workflow](http://blog.shippable.com/m
 
 <img src="/images/platform/tutorial/workflow/multi-stage-ci.png" alt="Multi-stage CI">
 
-You can use the `replicate` option to copy an `IN` resource to an `OUT` resource of the same type in `shippable.jobs.yml`:
+You can use the `replicate` option to copy an `IN` resource to an `OUT` resource of the same type in a job:
 
 ```
 jobs:

@@ -35,7 +35,7 @@ The deploy job allows you to deploy a complex application to any supported orche
 
 To get started, check out our tutorials:
 
-- [Continuous Delivery of a single-container Docker app to an orchestration platform](/deploy/cd_of_single_container_applications_to_orchestration_platforms)
+- [Continuous Delivery of a single-container Docker app to an orchestration platform](/deploy/continuous-delivery-single-container-docker-application/)
 - [Continuous Delivery of a multi-container Docker app to an orchestration platform](/deploy/cd_of_multi_container_applications_to_orchestration_platforms)
 
 <a name="custom-deploy"></a>

@@ -31,21 +31,22 @@ After completing the setup step, you'll configure the following pipeline
 resources and jobs:
 
 -  resources:
-    *  **cliConfig** - to configure the default microsoft azure cli settings
+    *  **cliConfig** - to configure the default Microsoft Azure CLI settings
     *  **gitRepo** - contains your Ansible scripts
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.resources.yml`, define the following resources to be used as
+In `shippable.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for azure cli
+resources:
+  # config for azure cli
   - name: myMazCliConfig
     type: cliConfig
     integration: myMazIntegration # replace with your Microsoft Azure integration name
 
-# source code repo holding Ansible scripts to be used in pipeline
+  # source code repo holding Ansible scripts to be used in pipeline
   - name: myGithubRepo
     type: gitRepo
     integration: myScmIntegration # replace with your scm integration name
@@ -54,11 +55,12 @@ inputs to your pipeline:
       branch: master
 ```
 
-In `shippable.jobs.yml`, define the following job in order to execute
+In `shippable.yml`, define the following job in order to execute
 an Ansible playbook to provision on Microsoft Azure from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision Microsoft Azure instances
+jobs:
+  # job to execute Ansible script to provision Microsoft Azure instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -125,18 +127,17 @@ Note that, the environment variable name is generated based on the format `x_INT
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.resources.yml`:
+`shippable.yml`:
 ```yaml
-# This time resource triggers an attached job nightly at 11:00p
+resources:
+  # This time resource triggers an attached job nightly at 11:00pm UTC
   - name: myNightlyTrigger
     type: time
     seed:
       interval: * 23 * * * *
-```
 
-`shippable.jobs.yml`:
-```yaml
-# job to execute Ansible script to provision microsoft azure instances
+jobs:
+  # job to execute Ansible script to provision microsoft azure instances
   - name: myProvisionJob
     type: runSh
     steps:

@@ -242,6 +242,7 @@ pages:
         - state: platform/workflow/resource/state.md
         - syncRepo: platform/workflow/resource/syncrepo.md
         - time: platform/workflow/resource/time.md
+        - trigger: platform/workflow/resource/trigger.md
         - version: platform/workflow/resource/version.md
       - Jobs:
         - Overview: platform/workflow/job/overview.md

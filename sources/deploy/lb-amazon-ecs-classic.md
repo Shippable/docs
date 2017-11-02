@@ -14,7 +14,7 @@ You can easily add a load balancer and apply it to the specific image/port that 
 
 ###1. Add a loadBalancer resource
 
-Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
+Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. As an example:
 
 ```
 resources:
@@ -32,7 +32,7 @@ resources:
 
 ###2. Update your deploy job
 
-1. Find the `deploy` job where you want to attach the load balancer. In our example for the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), this job is named `app_deploy_job`.
+1. Find the `deploy` job where you want to attach the load balancer. In our example for the [single container application](/deploy/continuous-delivery-single-container-docker-application/), this job is named `app_deploy_job`.
 
 2. Add the `applyTo` section in the `deploy` job. The `applyTo` section expects the following values to be set:
 
@@ -40,7 +40,7 @@ resources:
       - `image` is the resource name of the specific image within that manifest
       - `port` is the *container port* of that container that is being exposed.
 
-In our example for the [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms), the yml snippet would look like this:
+In our example for the [single container application](/deploy/continuous-delivery-single-container-docker-application/), the yml snippet would look like this:
 
 ```
 jobs:

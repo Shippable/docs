@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # loadBalancer
 `loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
-You can create a `loadBalancer` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `loadBalancer` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:
@@ -47,7 +47,7 @@ resources:
 
 	        pointer:
 	          sourceName:           <lowercase alphanumeric name only>
-	          method:               clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
+	          method:               ClusterIP | ExternalName | LoadBalancer | NodePort  #default is ClusterIP
 	          namespace:            <name of the namespace where pod is deployed>       #optional
 	          clusterName:          <name of the GKE cluster>
 	          region:               <name of the region>

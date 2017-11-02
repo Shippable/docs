@@ -48,7 +48,7 @@ For example, if you have authored a job that copies a file to `S3`, Runtime will
 
 ##Configuration
 
-Your Assembly Lines are defined through four yml-based configuration files:
+Your Assembly Lines are defined through yml-based configuration files:
 
 **CI config**
 
@@ -58,11 +58,7 @@ If you're using Shippable for CI only, follow [these instructions](/ci/enable-pr
 
 **Assembly Line config**
 
-`shippable.jobs.yml` contains definitions of the Jobs in your Assembly Line. If you only want to use Shippable for CI, you do not need this file. [Read more...](/platform/tutorial/workflow/shippable-jobs-yml/)
-
-`shippable.resources.yml` contains definitions of the Resources in your Assembly Line. If you only want to use Shippable for CI, you do not need this file. [Read more...](/platform/tutorial/workflow/shippable-resources-yml/)
-
-`shippable.triggers.yml` contains definitions of manual triggers for Jobs in your Assembly Line. You can manually trigger any job in your Assembly Line by pushing a change to this file. This file is optional since you can also run jobs manually through the UI. [Read more...](/platform/tutorial/workflow/shippable-triggers-yml/)
+The same `shippable.yml` file used for CI also contains definitions of the jobs, resources, and triggers in your Assembly Line. [Read more...](/platform/tutorial/workflow/shippable-yml/)
 
 Assembly Line configuration files should be committed to a repository in your source control. This repository is called a **Sync repository**. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories. You can add your Sync Repository by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/) tutorial.
 

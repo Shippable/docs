@@ -20,9 +20,9 @@ The secret to connecting CI with the rest of your pipeline is the **runCI** job 
 
 The automatically created job is named with a standard convention of appending **_runCI** to your project name. Follow the steps below to connect it to the next job in your pipeline.
 
-###1. Adding runCI to your shippable.jobs.yml
+###1. Adding runCI to your shippable.yml
 
-The runCI job can be used as a standard job in your pipeline workflow. You will to define it in your `shippable.jobs.yml` to connect it to another job in your pipeline. Note that the name of your job in the jobs yml has to match the runCI job name created for you.
+The runCI job can be used as a standard job in your pipeline workflow. You will to define it in the `jobs` section of your `shippable.yml` to connect it to another job in your pipeline. Note that the name of your job in the jobs yml has to match the runCI job name created for you.
 
 ```
 jobs:

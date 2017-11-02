@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # cliConfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.
 
-You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`.
+You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 Multiple cliConfig resources may be used as `IN`s and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements wins.
 

@@ -13,7 +13,7 @@ For any other job or resource, we do not allow workflows that have circular depe
 
 The `state` resource allows circular references since it **never** triggers the dependent job when it changes. It is only meant to store information and make it available when the job needs it.
 
-You can create a `state` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `state` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:
