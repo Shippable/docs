@@ -34,7 +34,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Azure](/platform/integration/azure/)
 - [Azure DC/OS](/platform/integration/azure-dcos)
 - [Docker Cloud](/platform/integration/docker-cloud)
-- [Docker Datacenter](/platform/integration/docker-datacenter)
+- [Docker Datacenter](/platform/integration/ddcKey)
 - [Joyent Triton](/platform/integration/tripub)
 
 ## Supported Docker Registry Integrations

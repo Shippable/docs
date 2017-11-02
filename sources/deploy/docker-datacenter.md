@@ -113,7 +113,7 @@ jobs:
 1. Create an account integration for Docker Datacenter in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Docker Datacenter integration](/platform/integration/docker-datacenter/)
+    * [Docker Datacenter integration](/platform/integration/ddcKey/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
