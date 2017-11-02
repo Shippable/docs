@@ -1,7 +1,7 @@
 page_main_title: AWS IAM integration for your deployment pipelines
 main_section: Platform
 sub_section: Integrations
-page_title: Amazon ECS integration
+page_title: AWS IAM Integration
 
 # AWS IAM Integration
 
