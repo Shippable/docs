@@ -122,7 +122,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 - [AWS Elastic Beanstalk](/deploy/aws-elastic-beanstalk/)
 - [AWS Elastic Container Service](/platform/integration/aws-keys)
-- [Mesos DC/OS](/platform/integration/azure-dcos)
+- [Mesos DC/OS](/platform/integration/azureDcosKey)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure Container Service](/platform/integration/azure)

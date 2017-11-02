@@ -106,7 +106,7 @@ jobs:
 
 **Steps**
 
-1. Create an account integration for [Microsoft Azure DC/OS](/platform/integration/azure-dcos/) in your Shippable UI. Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
+1. Create an account integration for [Microsoft Azure DC/OS](/platform/integration/azureDcosKey/) in your Shippable UI. Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 

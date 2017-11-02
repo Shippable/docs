@@ -1,22 +1,24 @@
-page_main_title: Azure DC/OS (Deprecated)
+page_main_title: Azure DC/OS
 main_section: Platform
 sub_section: Integrations
-page_title: Azure DC/OS integration (Deprecated)
+page_title: Azure DC/OS integration
 
-# Azure DC/OS Integration (Deprecated)
-
-## Deprecation Note
-This integration has been deprecated. A new integration called [azureDcosKey](/platform/integration/azureDcosKey) of type generic has been introduced which can be used instead.
-
-If you have any existing Azure DC/OS account integrations of type deploy, you can continue to use them.
-
----
+# Azure DC/OS Integration
 
 The [Azure DC/OS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mesosphere.dcos) integration is used to connect Shippable DevOps Assembly Lines platform to Azure DC/OS to deploy Docker based applications.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting AZURE_DCOS integrations. You can use the [azureDcosKey](/platform/integration/azureDcosKey) integration instead which will work exactly the same way as the deprecated AZURE DC/OS integration.
+You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **Generic**
+* **Integration type** -- **Azure DC/OS**
+* **Name** -- choose a friendly name for the integration
+* **Username** -- Username to login to Mesos master VM
+* **URL** -- DNS or IP address of Mesos master VM
+
 
 ## Usage in Assembly Lines
 
