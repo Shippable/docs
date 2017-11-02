@@ -259,7 +259,7 @@ pages:
         - Overview: platform/workflow/trigger/overview.md
     - Integrations:
       - Overview: platform/integration/overview.md
-      - Amazon ECS: platform/integration/aws-iam.md
+      - AWS IAM: platform/integration/aws-iam.md
       - AWS Keys: platform/integration/aws-keys.md
       - Azure: platform/integration/azure.md
       - Azure DC/OS: platform/integration/azure-dcos.md
