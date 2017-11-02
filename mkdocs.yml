@@ -259,7 +259,7 @@ pages:
         - Overview: platform/workflow/trigger/overview.md
     - Integrations:
       - Overview: platform/integration/overview.md
-      - Amazon ECS: platform/integration/aws-ecs.md
+      - Amazon ECS: platform/integration/aws-iam.md
       - AWS Keys: platform/integration/aws-keys.md
       - Azure: platform/integration/azure.md
       - Azure DC/OS: platform/integration/azure-dcos.md
@@ -288,6 +288,7 @@ pages:
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - Amazon ECS: platform/integration/aws-ecs.md
         - Docker Hub: platform/integration/docker-hub.md
         - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
         - Email: platform/integration/email.md
