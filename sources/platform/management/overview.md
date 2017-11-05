@@ -1,23 +1,28 @@
 page_main_title: Overview
 main_section: Platform
 sub_section: Management
-page_title: Operations Overview
+page_title: Management Overview
 page_description: Overview of Operations capabilities for Shippable DevOps Assembly Line Platform
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# TODO
-| Tasks   |      Status    |
-|----------|-------------|
-| Hotlinking |  Open |
-| Further Reading needs thinking|  Open |
-| Add link to inconsistencies to rSync|  Open |
+# Management overview
 
-## Triggering jobs
+This section of the documentation describes how you can manage settings and other meta data at an Account, Subscription, and Project Levels.
 
-## Pausing jobs
-You can pause any jobs in your pipeline by right-clicking on the job, and clicking `Pause Jobs`. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
+- **Account**
+    - [Set account email](/platform/management/account/set-email)
+    - [Sync your account](/platform/management/account/sync)
+    - [Manage git identities](/platform/management/account/git-identities)
+    - [Manage integrations](/platform/management/account/integrations)
+    - [Manage credit cards](/platform/management/account/manage-payment-methods)
+    - [Create API tokens](/platform/management/account/api-tokens)
+    - [Delete account](/platform/management/account/delete)
 
-# Further Reading
-* Working with Resources
-* Working with Integrations
-* Jobs
+- **Subscription**
+    - [Manage your plan](/platform/management/subscription/billing)
+    - [Manage nodes](/platform/management/subscription/nodes)
+    - [Manage settings](/platform/management/subscription/settings)
+    - [Set up Integrations](/platform/management/subscription/integrations)
+
+- **Project**
+    - [Settings](/platform/management/project/settings)

@@ -331,16 +331,10 @@ pages:
       - Account:
         - Default View: platform/visibility/account/default-view.md
         - Custom View: platform/visibility/account/custom-view.md
-        - Integrations: platform/visibility/account/integrations.md
-        - Profile: platform/visibility/account/profile.md
       - Subscription:
         - Dashboard: platform/visibility/subscription/dashboard.md
-        - Billing: platform/visibility/subscription/billing.md
-        - Settings: platform/visibility/subscription/settings.md
-        - Nodes: platform/visibility/subscription/nodes.md
       - Project:
         - Dashboard: platform/visibility/project/dashboard.md
-        - Settings: platform/visibility/project/settings.md
         - Badges: platform/visibility/project/badges.md
         - Console: platform/visibility/project/console.md
       - Resource:
@@ -350,15 +344,24 @@ pages:
         - Settings: platform/visibility/job/settings.md
         - Console: platform/visibility/job/console.md
     - Security:
-      - Overview: platform/security/overview.md 
+      - Overview: platform/security/overview.md
     - Management:
       - Overview: platform/management/overview.md
-      - Setting your plan: platform/management/manage-plan.md
-      - Setting your payment methods: platform/management/manage-payment-methods.md
-      - Setting up Integrations: platform/management/integrations.md
-      - Generating API Tokens: platform/management/api-tokens.md
-      - Setting up your Shippable Account: platform/management/git-identities.md
-      - Setting Acount email: platform/management/set-email.md
+      - Account:
+        - Set account email: platform/management/account/set-email.md
+        - Sync your account: platform/management/account/sync.md
+        - Manage git identities: platform/management/account/git-identities.md
+        - Manage integrations: platform/management/account/integrations.md
+        - Manage credit cards: platform/management/account/manage-payment-methods.md
+        - Create API tokens: platform/management/account/api-tokens.md
+        - Delete account: platform/management/account/delete.md
+      - Subscription:
+        - Manage your plan: platform/management/subscription/billing.md
+        - Manage nodes: platform/management/subscription/nodes.md
+        - Manage settings: platform/management/subscription/settings.md
+        - Set up Integrations: platform/management/subscription/integrations.md
+      - Project:
+        - Settings: platform/management/project/settings.md
     - API:
       - Overview: platform/api/api-overview.md
       - Tokens: platform/api/api-tokens.md
@@ -377,7 +380,6 @@ pages:
         - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
         - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
-        - Encrypting information: platform/tutorial/workflow/encrypt-vars.md
         - Shippable Utility shipctl reference: platform/tutorial/workflow/using-shipctl.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
@@ -392,6 +394,8 @@ pages:
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
         #- Caching: platform/tutorial/runtime/caching.md
         #- Environment Variables: platform/tutorial/runtime/environment-variables.md
+      - Security:
+         - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md

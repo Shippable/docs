@@ -20,9 +20,7 @@ However, we believe that encrypted strings are problematic due to the unwieldine
 ```
 env:
   global:
-    - AWS_S3_LOCAL_PATH='site'
-    - AWS_S3_BUCKET='s3://rcdocs.shippable.com'
-    - AWS_S3_REGION='us-east-1'
+    # UGLY secure variables.... 
     - secure: YtSX204QeZ4hJ89DCrH/3W+XjbGCBfkhWPwJumHCBMVGkmpF4XWwbLqG65IZtQlRMNRlwI3vsTksDhXnK3ng2nsUUBPyzxbcVI7AJMgd2tIGjGzxqcCLemel+sA+ES/2TBFyy5+mlE2/RqohUWw/xRj45nHQqEIC0xwDmQcQvFObaMjLgceI01uv7AxdLVDpOVMO2i7g7Bxwvfru3EtUVZB+siTAUn28WbCesgSFhNIZa56z+4CpYRfTQP6lfrIWlhtcsHPlb6T0rqXO3gRkaFIBgMLj5Ab/eIeHoOfcdJ/YjsV4NjCYqH/9QgMNMj46EEfcsK2IiFCyFu6X/HwCTw==
 
 ```
