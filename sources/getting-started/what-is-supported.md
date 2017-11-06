@@ -145,7 +145,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [Hipchat](/platform/integration/hipchatKey)
 - [IRC](/platform/integration/irc)
 - [Email](/platform/integration/email)
-- [Custom Webhooks](/platform/integration/event-trigger)
+- [Custom Webhooks](/platform/integration/webhook)
 
 ### PaaS Providers
 

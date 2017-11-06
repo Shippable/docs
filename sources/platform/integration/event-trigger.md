@@ -1,9 +1,16 @@
-page_main_title: Event Trigger
+page_main_title: Event Trigger (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: Event Trigger integration
+page_title: Event Trigger integration (Deprecated)
 
-# Event Trigger Integration
+# Event Trigger Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [Webhook](/platform/integration/webhook) of type generic has been introduced which can be used instead.
+
+If you have any existing Event Trigger account integrations of type notification, you can continue to use them.
+
+---
 
 **Event Trigger** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can
 
@@ -12,7 +19,7 @@ page_title: Event Trigger integration
 
 ## Adding the account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting Event Trigger integrations. You can use the [Webhook](/platform/integration/webhook) integration instead which will work exactly the same way as the typed `Generic Webhook` of deprecated Event Trigger integration.
 
 Here is the information you need to create this integration:
 
