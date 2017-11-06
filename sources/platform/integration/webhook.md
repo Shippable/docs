@@ -3,7 +3,7 @@ main_section: Platform
 sub_section: Integrations
 page_title: Webhook integration
 
-# Event Trigger Integration
+# Webhook Integration
 
 **Webhook** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send a webhook to an external service with custom payloads
 
@@ -23,14 +23,11 @@ Here is the information you need to create this integration:
 
 * [Using Webhook integration in your CI workflow](/ci/webhook/)
 
-* [Triggering sequential, parameterized builds](http://blog.shippable.com/triggering-a-parameterized-build-after-continuous-integration)
-
 ## Usage in Assembly Lines
 
 Webhook can be used in the following [resources](/platform/workflow/resource/overview/):
 
-* [notification](/platform/workflow/resource/notification)
-* [ciRepo](/platform/workflow/resource/cirepo)
+* [integration](/platform/workflow/resource/integration)
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
