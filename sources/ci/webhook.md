@@ -44,7 +44,7 @@ And you're done. You will receive the webhook payload to the endpoint which you 
 
 **For example** on your build start or when your build finishes if you want to create a issue on github. Then you need to provide the github specific repository api endpoint in which u want to create issues while adding account integration.
 
-<img src="../../images/ci/add-webhook-int.png" alt="Adding webhook integration">
+<img src="/images/ci/add-webhook-int.png" alt="Adding webhook integration">
 
 You can configure your `shippable.yml`:
 
