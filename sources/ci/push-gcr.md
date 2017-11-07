@@ -164,7 +164,7 @@ If `agent_only` tag is set to `true`, we will not attempt to login to the regist
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to GCR.
 
-**Source code:**  [ci-push-gcr](https://github.com/mohit5it9/ci-push-gcr).
+**Source code:**  [devops-recipes/ci-push-gcr](https://github.com/devops-recipes/ci-push-gcr).
 
 **Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-gcr/runs/1/1/console"> CI build on Shippable</a>
 

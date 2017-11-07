@@ -1,13 +1,15 @@
 page_main_title: Git identities
 main_section: Platform
 sub_section: Management
+sub_sub_section: Account
 
 # Git identities
 
 Shippable lets you connect several source control providers to your Shippable account. The **Git identities** section of your account settings shows you which source control identities are currently connected.
 
-<img src="/images/getting-started/gitIdentities.png" alt="GitHub and Bitbucket
-identities">
+To get here, choose **Profile** in your left navbar and look at the **Git identities** section.
+
+<img src="/images/getting-started/gitIdentities.png" alt="GitHub and Bitbucket identities">
 
 ##GitHub
 

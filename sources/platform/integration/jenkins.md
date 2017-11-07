@@ -1,34 +1,21 @@
-page_main_title: Jenkins
+page_main_title: Jenkins (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: Jenkins integration
+page_title: Jenkins integration (Deprecated)
 
-# Jenkins integration
+# Jenkins integration (Deprecated)
 
-The [Jenkins](https://jenkins.io/) integration is required if you want to run Jenkins jobs as part of your DevOps Assembly Lines.
-
-This page explains how you can add a Jenkins integration to your account by providing the credentials and URL to access your Jenkins server.
+## Deprecation Note
+This integration has been deprecated and can no longer be further used.
 
 ## Adding account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Jenkins integrations. Also if you have some existing jobs that were using this integration, it'll stop working.
 
-Here is the information you need to create this integration:
-
-* **Integration Family** -- **external ci**
-* **Integration type** -- **Jenkins**
-* **Name** -- choose a friendly name for the integration
-* **Url** -- Enter your Jenkins server URL
-* **Username** -- Username of your Jenkins account
-* **Password/Token** -- Enter your Jenkins token
-
-<img src="../../images/platform/integrations/jenkins-integration.png" alt="Add Jenkins credentials">
 
 ## Usage in Assembly Lines
 
-The Jenkins integration can be used in the following [resources](/platform/workflow/resource/overview/):
-
-* [integration](/platform/workflow/resource/integration)
+The Jenkins integration can no longer be used in your Assembly Lines Setup.
 
 ##Further Reading
 

@@ -123,7 +123,6 @@ Shippable supports the following jobs types:
 | [manifest](/platform/workflow/job/manifest/) | Create App/Service definition (configuration) that is immutable |
 | [provision](/platform/workflow/job/provision/) | Provision specific resources needed by Container Orchestration Platforms |
 | [release](/platform/workflow/job/release/) | Release management for Apps/Services |
-| [jenkinsJob](/platform/workflow/job/jenkinsjob/) | Execute a Jenkins Job from Assembly Lines |
 | [runCI](/platform/workflow/job/runci/) | Execute Shippable CI Job |
 | [runSh](/platform/workflow/job/runsh/) | Execute any Shell command or scripts or supported Command Line Interface commands |
 
@@ -132,4 +131,3 @@ If you need a job that is not listed above, send us an email at [support@shippab
 ## Further Reading
 * [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)
-* []

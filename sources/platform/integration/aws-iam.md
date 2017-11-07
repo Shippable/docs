@@ -1,7 +1,7 @@
 page_main_title: AWS IAM integration for your deployment pipelines
 main_section: Platform
 sub_section: Integrations
-page_title: Amazon ECS integration
+page_title: AWS IAM Integration
 
 # AWS IAM Integration
 
@@ -9,7 +9,16 @@ The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Sh
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Amazon Web Services (IAM) integrations. You can use the [AWS IAM](/platform/integration/aws-iam) instead.
+You will need to add an IAM user to your AWS account to create this integration. Instructions are in the [AWS docs](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
+
+You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **AWS IAM**
+* **Name** -- choose a friendly name for the integration
+* **Assume Role ARN** -- Role to Assume when connecting to AWS
 
 ## Usage in Assembly Lines
 

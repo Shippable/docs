@@ -101,6 +101,7 @@ pages:
       - Console logs: ci/console-logs.md
       - Build badges: ci/build-badges.md
       - Scheduled builds: ci/scheduled-builds.md
+      - Webhook in CI: ci/webhook.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
@@ -245,7 +246,6 @@ pages:
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
-        - jenkinsJob: platform/workflow/job/jenkinsjob.md
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
         - release: platform/workflow/job/release.md
@@ -257,27 +257,28 @@ pages:
         - Overview: platform/workflow/state/overview.md
       - Triggers:
         - Overview: platform/workflow/trigger/overview.md
+      - Deprecated:
+        - jenkinsJob: platform/workflow/job/jenkinsjob.md
     - Integrations:
       - Overview: platform/integration/overview.md
-      - Amazon ECS: platform/integration/aws-ecs.md
+      - AWS IAM: platform/integration/aws-iam.md
       - AWS Keys: platform/integration/aws-keys.md
       - Azure: platform/integration/azure.md
-      - Azure DC/OS: platform/integration/azure-dcos.md
+      - Azure DC/OS: platform/integration/azureDcosKey.md
       - Bitbucket: platform/integration/bitbucket.md
       - Digital Ocean: platform/integration/do.md
-      - Docker Cloud: platform/integration/docker-cloud.md
-      - Docker Datacenter: platform/integration/docker-datacenter.md
+      - Docker Cloud: platform/integration/dclKey.md
+      - Docker Datacenter: platform/integration/ddcKey.md
       - Docker Registry: platform/integration/dockerRegistryLogin.md
-      - Event Trigger: platform/integration/event-trigger.md
+      - Webhook: platform/integration/webhook.md
       - Git Credential: platform/integration/git-credential.md
       - GitHub: platform/integration/github.md
       - GitHub Enterprise: platform/integration/github-enterprise.md
       - GitLab: platform/integration/gitlab.md
       - Google Cloud: platform/integration/gcloudKey.md
       - HipChat: platform/integration/hipchatKey.md
-      - Jenkins: platform/integration/jenkins.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
-      - Joyent Triton: platform/integration/tripub.md
+      - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/nodeCluster.md
@@ -288,21 +289,28 @@ pages:
       - Deprecated:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
+        - Amazon ECS: platform/integration/aws-ecs.md
+        - Docker Cloud: platform/integration/docker-cloud.md
         - Docker Hub: platform/integration/docker-hub.md
         - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
+        - Azure DC/OS: platform/integration/azure-dcos.md
         - Email: platform/integration/email.md
         - HipChat: platform/integration/hipchat.md
         - Google Cloud: platform/integration/gce.md
         - Google Container Registry: platform/integration/gcr.md
         - Google Container Engine: platform/integration/gke.md
         - IRC: platform/integration/irc.md
+        - Jenkins: platform/integration/jenkins.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
         - Private Registries: platform/integration/docker-private-registry.md
         - Quay.io: platform/integration/quay.md
         - Slack(old): platform/integration/slack.md
+        - Event Trigger: platform/integration/event-trigger.md
         - SSH Keys: platform/integration/key-ssh.md
         - Node Cluster: platform/integration/node-cluster.md
+        - Docker Datacenter: platform/integration/docker-datacenter.md
+        - Joyent Triton: platform/integration/tripub.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Nodes: platform/runtime/nodes.md
@@ -327,16 +335,10 @@ pages:
       - Account:
         - Default View: platform/visibility/account/default-view.md
         - Custom View: platform/visibility/account/custom-view.md
-        - Integrations: platform/visibility/account/integrations.md
-        - Profile: platform/visibility/account/profile.md
       - Subscription:
         - Dashboard: platform/visibility/subscription/dashboard.md
-        - Billing: platform/visibility/subscription/billing.md
-        - Settings: platform/visibility/subscription/settings.md
-        - Nodes: platform/visibility/subscription/nodes.md
       - Project:
         - Dashboard: platform/visibility/project/dashboard.md
-        - Settings: platform/visibility/project/settings.md
         - Badges: platform/visibility/project/badges.md
         - Console: platform/visibility/project/console.md
       - Resource:
@@ -346,15 +348,24 @@ pages:
         - Settings: platform/visibility/job/settings.md
         - Console: platform/visibility/job/console.md
     - Security:
-      - Overview: platform/security/overview.md 
+      - Overview: platform/security/overview.md
     - Management:
       - Overview: platform/management/overview.md
-      - Setting your plan: platform/management/manage-plan.md
-      - Setting your payment methods: platform/management/manage-payment-methods.md
-      - Setting up Integrations: platform/management/integrations.md
-      - Generating API Tokens: platform/management/api-tokens.md
-      - Setting up your Shippable Account: platform/management/git-identities.md
-      - Setting Acount email: platform/management/set-email.md
+      - Account:
+        - Set account email: platform/management/account/set-email.md
+        - Sync your account: platform/management/account/sync.md
+        - Manage git identities: platform/management/account/git-identities.md
+        - Manage integrations: platform/management/account/integrations.md
+        - Manage credit cards: platform/management/account/manage-payment-methods.md
+        - Create API tokens: platform/management/account/api-tokens.md
+        - Delete account: platform/management/account/delete.md
+      - Subscription:
+        - Manage your plan: platform/management/subscription/billing.md
+        - Manage nodes: platform/management/subscription/nodes.md
+        - Manage settings: platform/management/subscription/settings.md
+        - Set up Integrations: platform/management/subscription/integrations.md
+      - Project:
+        - Settings: platform/management/project/settings.md
     - API:
       - Overview: platform/api/api-overview.md
       - Tokens: platform/api/api-tokens.md
@@ -373,7 +384,6 @@ pages:
         - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
         - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
-        - Encrypting information: platform/tutorial/workflow/encrypt-vars.md
         - Shippable Utility shipctl reference: platform/tutorial/workflow/using-shipctl.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
@@ -388,6 +398,8 @@ pages:
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
         #- Caching: platform/tutorial/runtime/caching.md
         #- Environment Variables: platform/tutorial/runtime/environment-variables.md
+      - Security:
+         - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md

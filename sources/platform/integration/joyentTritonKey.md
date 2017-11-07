@@ -1,22 +1,23 @@
-page_main_title: Joyent Triton (Deprecated)
+page_main_title: Joyent Triton
 main_section: Platform
 sub_section: Integrations
-page_title: Joyent Triton integration (Deprecated)
+page_title: Joyent Triton integration
 
-# Joyent Triton Integration (Deprecated)
-
-## Deprecation Note
-This integration has been deprecated. A new integration called [Joyent Triton](/platform/integration/joyentTritonKey) of type generic has been introduced which can be used instead.
-
-If you have any existing Joyent Triton account integrations of type deploy, you can continue to use them.
-
----
+# Joyent Triton Integration
 
 The [Joyent Triton](https://www.joyent.com/triton/compute) Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Joyent Triton integrations. You can use the new [Joyent Triton](/platform/integration/joyentTritonKey) of type generic instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **Joyent Triton**
+* **Name** -- choose a friendly name for the integration
+* **Username** -- Username to login to Mesos master VM
+* **Validity Period** -- Certificate validity in number of days
 
 ## Usage in Assembly Lines
 

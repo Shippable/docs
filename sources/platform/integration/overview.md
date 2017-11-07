@@ -28,14 +28,14 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 ## Supported Orchestration Platform Integrations
 
-- [Amazon ECS](/platform/integration/amazon-ecs)
+- [Amazon ECS](/platform/integration/aws-iam)
 - [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure](/platform/integration/azure/)
-- [Azure DC/OS](/platform/integration/azure-dcos)
-- [Docker Cloud](/platform/integration/docker-cloud)
-- [Docker Datacenter](/platform/integration/docker-datacenter)
-- [Joyent Triton](/platform/integration/tripub)
+- [Azure DC/OS](/platform/integration/azureDcosKey)
+- [Docker Cloud](/platform/integration/dclKey)
+- [Docker Datacenter](/platform/integration/ddcKey)
+- [Joyent Triton](/platform/integration/joyentTritonKey)
 
 ## Supported Docker Registry Integrations
 
@@ -68,7 +68,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [SSH keys](/platform/integration/sshKey)
 - [Digital Ocean](/platform/integration/do)
 - [Google Cloud](/platform/integration/gcloudKey)
-- [Event Trigger](/platform/integration/event-trigger)
+- [Webhook](/platform/integration/webhook)
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

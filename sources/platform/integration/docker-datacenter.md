@@ -1,24 +1,22 @@
-page_main_title: Docker Datacenter
+page_main_title: Docker Datacenter (Deprecated)
 main_section: Platform
 sub_section: Integrations
-page_title: Docker Datacenter integration
+page_title: Docker Datacenter integration (Deprecated)
 
-# Docker Datacenter Integration
+# Docker Datacenter Integration (Deprecated)
+
+## Deprecation Note
+This integration has been deprecated. A new integration called [Docker Datacenter](/platform/integration/ddcKey) of generic type has been introduced which can be used instead.
+
+If you have any existing Docker Datacenter account integrations of type deploy, you can continue to use them.
+
+---
 
 The **Docker Datacenter** Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Datacenter so that you can deploy Docker based applications.
 
 ## Adding account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
-
-Here is the information you need to create this integration:
-
-* **Integration Family** -- **deploy**
-* **Integration type** -- **Docker Datacenter**
-* **Name** -- choose a friendly name for the integration
-* **Username** -- login to your Docker Datacenter
-* **Password** -- password of your Docker Datacenter
-* **URL** -- publicly accessible URL of your Docker Datacenter
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Datacenter integrations. You can use the new [Docker Datacenter](/platform/integration/ddcKey) of type generic instead.
 
 ## Usage in Assembly Lines
 

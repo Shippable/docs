@@ -1,8 +1,9 @@
 page_main_title: API tokens
 main_section: Platform
 sub_section: Management
+sub_sub_section: Account
 
-#API Tokens
+# API Tokens
 
 The [REST-based Shippable API](/platform/api/api-overview/) is fully documented and you can implement custom workflows by calling the API as needed. You need an API token in order to make calls to our API.
 
@@ -11,12 +12,12 @@ All paid subscriptions have complete access to all available APIs. Free subscrip
 **Please remember to keep your token safe and do not share it with anyone.** If your token get compromised, API calls can be made on your behalf and compromise the security of your Shippable account.
 Treat your API token like an admin password. If your token does get compromised, deleting the token will remove all access to the token.
 
-##Generating a token
+## Generating a token
 
 To generate a new API token:
 
-- Click on your Profile in the left sidebar menu and scroll to the **API AUTH TOKENS** section.
-- Click on '+'.
+- Click on **Profile** in the left sidebar menu and scroll to the **API AUTH TOKENS** section.
+- Click on **+** on the right side of your screen.
 - Enter a friendly name for the token and click on **Create** to create a new token.
 
 - IMPORTANT: Remember to copy the token. For security reasons, the token will never
@@ -24,7 +25,7 @@ be displayed again.
 
 <img src="/images/getting-started/list-shippable-api-tokens.png" alt="List API tokens on Shippable">
 
-##Deleting a token
+## Deleting a token
 
 - Click on your Profile in the left sidebar menu and scroll to the **API AUTH TOKENS** section.. This will show you a list of your tokens.
 - Click on the token you want to delete.
