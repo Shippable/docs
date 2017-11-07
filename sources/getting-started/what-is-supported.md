@@ -128,7 +128,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [Azure Container Service](/platform/integration/azure)
 - [Joyent Triton](/platform/integration/tripub)
 - [Docker Datacenter](/platform/integration/ddcKey)
-- [Docker Cloud](/platform/integration/docker-cloud)
+- [Docker Cloud](/platform/integration/dclKey)
 
 ### Artifact Repositories
 

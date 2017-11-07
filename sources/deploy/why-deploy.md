@@ -18,9 +18,9 @@ We have put together samples for all common deployment scenarios:
 - [Amazon ECS](/deploy/amazon-ecs/)
 - [Kubernetes](/deploy/kubernetes/)
 - [GKE](/deploy/gke/)
-- [Docker Datacenter](/deploy/continuous_delivery_single_container_docker_application/)
-- [Docker Cloud](/deploy/continuous_delivery_single_container_docker_application/)
-- [Microsoft Azure](/deploy/continuous_delivery_single_container_docker_application/)
+- [Docker Datacenter](/deploy/continuous-delivery-single-container-docker-application/)
+- [Docker Cloud](/deploy/docker-cloud/)
+- [Microsoft Azure](/deploy/continuous-delivery-single-container-docker-application/)
 - [Amazon Elastic Beanstalk (Docker)](/deploy/aws-elastic-beanstalk/)
 
 

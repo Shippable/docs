@@ -114,7 +114,7 @@ jobs:
 1. Create an account integration for Docker Cloud in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Docker Cloud integration](/platform/integration/docker-cloud/)
+    * [Docker Cloud integration](/platform/integration/dclKey/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
@@ -125,7 +125,7 @@ resources:
 
   - name: op_cluster    # resource friendly name
     type: cluster
-    integration: op_int   # friendly name of the integration you created         
+    integration: op_int   # friendly name of the integration you created
     pointer:
       sourceName: "app-dcl-cluster" # name of the actual cluster in Docker Cloud
 ```
