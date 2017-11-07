@@ -32,7 +32,6 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						| Description      |
 | ------			 							|----------------- |
-| `<NAME>`\_INTEGRATION\_NAME				| Name supplied in the integration |
 | `<NAME>`\_INTEGRATION\_USERNAME			| Username supplied in the integration |
 | `<NAME>`\_INTEGRATION\_VALIDITYPERIOD | Validity period supplied in the integration |
 | `<NAME>`\_INTEGRATION\_CERTIFICATES   | Certificates created internally to connect to Triton |
