@@ -32,7 +32,7 @@ resources:
 	* [Google Google Cloud)](/platform/integration/gcloudKey)
 	* [Kubernetes](/platform/integration/kubernetes)
 	* [Node Cluster](/platform/integration/nodeCluster)
-	* [Joyent Triton](/platform/integration/tripub)
+	* [Joyent Triton](/platform/integration/joyentTritonKey)
 
 * **`pointer`** -- is an object that contains integration specific properties
 	* For AWS integrations:
