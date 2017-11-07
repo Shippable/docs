@@ -278,7 +278,7 @@ pages:
       - Google Cloud: platform/integration/gcloudKey.md
       - HipChat: platform/integration/hipchatKey.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
-      - Joyent Triton: platform/integration/tripub.md
+      - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/nodeCluster.md
@@ -310,6 +310,7 @@ pages:
         - SSH Keys: platform/integration/key-ssh.md
         - Node Cluster: platform/integration/node-cluster.md
         - Docker Datacenter: platform/integration/docker-datacenter.md
+        - Joyent Triton: platform/integration/tripub.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Nodes: platform/runtime/nodes.md
