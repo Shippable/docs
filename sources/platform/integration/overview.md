@@ -33,7 +33,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure](/platform/integration/azure/)
 - [Azure DC/OS](/platform/integration/azureDcosKey)
-- [Docker Cloud](/platform/integration/docker-cloud)
+- [Docker Cloud](/platform/integration/dclKey)
 - [Docker Datacenter](/platform/integration/ddcKey)
 - [Joyent Triton](/platform/integration/tripub)
 

@@ -27,7 +27,7 @@ resources:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Azure Container Service](/platform/integration/azureDcosKey)
 	* [Amazon ECS](/platform/integration/aws-iam)
-	* [Docker Cloud](/platform/integration/docker-cloud)
+	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
 	* [Google Google Cloud)](/platform/integration/gcloudKey)
 	* [Kubernetes](/platform/integration/kubernetes)

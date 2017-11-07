@@ -1,20 +1,23 @@
-page_main_title: Docker Cloud (Deprecated)
+page_main_title: Docker Cloud
 main_section: Platform
 sub_section: Integrations
-page_title: Docker cloud integration (Deprecated)
+page_title: Docker cloud integration
 
-# Docker Cloud integration (Deprecated)
+# Docker Cloud integration
 
 The [Docker Cloud](https://cloud.docker.com/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Cloud so that you can deploy Docker based apps to Docker Cloud.
 
-## Deprecation Note
-This integration has been deprecated. A new generic integration called [Docker Cloud](/platform/integration/dclKey) has been introduced which can be used instead.
-
-If you have any existing deprecated Docker Cloud integrations, you can continue to use them in your Assembly lines.
-
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Cloud integrations. You can use the new generic [Docker Cloud](/platform/integration/dclKey) instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **Docker Cloud**
+* **Name** -- choose a friendly name for the integration
+* **Username** -- login to your Docker Cloud Account
+* **Token** -- API Token to deploy to your Docker Cloud Account
 
 ## Usage in Assembly Lines
 
