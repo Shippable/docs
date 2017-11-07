@@ -16,9 +16,10 @@ These are the key components of the assembly line diagram -
 
 **Resources (grey boxes)**
 
-* `app_gitRepo` is a **required** [gitRepo](/platform/workflow/resource/gitrepo/) resource which is a pointer to the git repository that contains your cli scripts.
-* `gke_cliConfig` is a **required** [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
-* `app_trigger` is an **optional** [trigger](/platform/tutorial/workflow/shippable-triggers-yml/) that can be used to trigger the workflow by committing a change to update the version of the trigger.
+* `provgke_cluster_params` is a **required** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
+* `provgke_gitRepo` is a **required** [gitRepo](/platform/workflow/resource/gitrepo/) resource which is a pointer to the git repository that contains your cli scripts.
+* `provgke_cliConfig` is a **required** [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
+* `provgke_trigger` is an **optional** [trigger](/platform/tutorial/workflow/shippable-triggers-yml/) that can be used to trigger the workflow by committing a change to update the version of the trigger.
 
 **Jobs (green boxes)**
 
@@ -37,9 +38,31 @@ They are three configuration files that are needed to achieve this usecase -
 
 ## Steps
 
-###1. Define `app_gitRepo`.
+###1. Define `provgke_cluster_params`.
 
-* **Description:** `app_gitRepo` is a [gitRepo](/platform/workflow/resource/gitrepo/) resource which is a pointer to the git repository that contains your cli scripts.
+* **Description:** `provgke_cluster_params` is a [params](/platform/workflow/resource/params) resource used to specify key-value pairs that are set as environment variables for consumption by the application. We set environment variables needed to create  the cluster such as name, number of nodes, machine type.
+* **Required:** No.
+
+**Steps**
+
+Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+
+```
+resources:
+
+- name: provgke_cluster_params
+  type: params
+  version:
+    params:
+      PROVGKE_CLUSTER_NAME: "test-kube-cluster"
+      PROVGKE_CLUSTER_NUM_NODES: 1
+      PROVGKE_CLUSTER_MACHINE_TYPE: "n1-standard-1"
+      PROVGKE_KUBERNETES_NAMESPACE: "kube-app"
+```
+
+###2. Define `provgke_gitRepo`.
+
+* **Description:** `provgke_gitRepo` is a [gitRepo](/platform/workflow/resource/gitrepo/) resource which is a pointer to the git repository that contains your cli scripts.
 * **Required:** Yes.
 * **Integrations needed:** default SCM account integration or other source control providers.
 
@@ -54,7 +77,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 **Steps**  
 
-1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
+1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_github`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
@@ -62,9 +85,9 @@ If your CLI repository is on another SCM account, create an integration for it b
 resources:
 
   # GitHub repo holding scripts to be used in runsh pipeline job
-  - name: app_gitRepo
+  - name: provgke_gitRepo
     type: gitRepo
-    integration: dr_github # replace with your GitHub integration name
+    integration: drship_github # replace with your GitHub integration name
     pointer:
       # replace with source code location (e.g. GitHub) where you cloned this
       # sample project.
@@ -72,30 +95,30 @@ resources:
       branch: master
 ```
 
-###2. Define `gke_cliConfig`.
+###3. Define `provgke_cliConfig`.
 
-* **Description:** `gke_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
+* **Description:** `provgke_cliConfig` is a [cliConfig](/platform/workflow/resource/cliconfig/) resource which is a pointer to the private key of your service account needed to initialize the gcloud CLI.
 * **Required:** Yes.
 * **Integrations needed:** [Google Cloud Integration](/platform/integration/gcloudKey/)
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
+1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gcloud`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
 
 ```
 resources:
 
-  - name: gke_cliConfig
+  - name: provgke_cliConfig
     type: cliConfig
-    integration: drship_gke
+    integration: drship_gcloud
     pointer:
       region: us-central1-b
 ```
 
-###3. Define `app_trigger`.
-* **Description:** `app_trigger` is a [trigger](/platform/tutorial/workflow/shippable-triggers-yml/) that can be used to trigger the workflow by committing a change to update the version of the trigger. In our example, we have used a simple `counter` attribute as the version, but you can use any attribute of your choice that represents a version such as a SHA, semantic version etc.
+###4. Define `provgke_trigger`.
+* **Description:** `provgke_trigger` is a [trigger](/platform/tutorial/workflow/shippable-triggers-yml/) that can be used to trigger the workflow by committing a change to update the version of the trigger. In our example, we have used a simple `counter` attribute as the version, but you can use any attribute of your choice that represents a version such as a SHA, semantic version etc.
 * **Required:** No.
 
 **Steps**
@@ -105,7 +128,7 @@ Add the following yml block to your [shippable.triggers.yml](/platform/tutorial/
 triggers:
 # triggers for the provision-gke-kubernetes-cluster app
 
-  - name: app_trigger
+  - name: provgke_trigger
     type: trigger
     version:
       # update counter and commit the file to trigger the workflow
@@ -113,7 +136,7 @@ triggers:
 
 ```
 
-###4. Define `provision_gke_cluster_job` and `deprovision_gke_cluster_job`.
+###5. Define `provision_gke_cluster_job` and `deprovision_gke_cluster_job`.
 
 * **Description:** `provision_gke_cluster_job` and `deprovision_gke_cluster_job` are [runSh](/platform/workflow/job/runsh/) jobs that let you run any shell script as part of your DevOps Assembly Line. `runSh` is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted.
 
@@ -133,28 +156,34 @@ jobs:
   - name: provision_gke_cluster_job
     type: runSh
     steps:
-      - IN: app_gitRepo
+      - IN: provgke_cluster_params
+      - IN: provgke_gitRepo
         # manually trigger the cluster provisioning job and not on every commit to the repository
         switch: off
-      - IN: gke_cliConfig
-      - IN: app_trigger
+      - IN: provgke_cliConfig
+        scopes:
+          - gke
+      - IN: provgke_trigger
       - TASK:
-        # invoke a script that provisions the GKE cluster named test-cluster
-        - script: . $APP_GITREPO_PATH/gitRepo/provision_gke_cluster.sh test-cluster
+        # invoke a script that provisions the GKE cluster defined in the provgke_cluster_params params resource
+        - script: . $PROVGKE_GITREPO_PATH/gitRepo/provision_gke_cluster.sh $PROVGKE_CLUSTER_NAME $PROVGKE_CLUSTER_NUM_NODES $PROVGKE_CLUSTER_MACHINE_TYPE
 
   # Job that deprovisions the GKE cluster
   - name: deprovision_gke_cluster_job
     type: runSh
     steps:
-      - IN: app_gitRepo
+      - IN: provgke_cluster_params
+      - IN: provgke_gitRepo
         switch: off
-      - IN: gke_cliConfig
+      - IN: provgke_cliConfig
+        scopes:
+          - gke
       - IN: provision_gke_cluster_job
       - TASK:
-        # invoke a script that deprovisions the GKE cluster named test-cluster
+        # invoke a script that deprovisions the GKE cluster defined in the provgke_cluster_params params resource
         # $GKE_CLICONFIG_POINTER_REGION is an environment variable that is automatically created and injected
         # by the gke_cliConfig resource and points to the availability zone.
-        - script: . $APP_GITREPO_PATH/gitRepo/deprovision_gke_cluster.sh test-cluster $GKE_CLICONFIG_POINTER_REGION
+        - script: . $PROVGKE_GITREPO_PATH/gitRepo/deprovision_gke_cluster.sh $PROVGKE_CLUSTER_NAME $PROVGKE_CLICONFIG_POINTER_REGION $PROVGKE_KUBERNETES_NAMESPACE
 ```
 
 #### Provisioning script `provision_gke_cluster.sh`
@@ -162,7 +191,7 @@ jobs:
 # This script provisions a GKE cluster
 #! /bin/bash -e
 
-gcloud container clusters create $1 --num-nodes=1 --machine-type=n1-standard-1
+gcloud container clusters create $1 --num-nodes=$2 --machine-type=$3
 ```
 
 #### Deprovisioning script `deprovision_gke_cluster.sh`
@@ -173,21 +202,18 @@ gcloud container clusters create $1 --num-nodes=1 --machine-type=n1-standard-1
 # generate the kubectl config file
 gcloud container clusters get-credentials $1 --zone $2
 
-# replace service with your own service name
-service="hello-world"
-
 # check if services are running and delete cluster only if no service is found
-response=$(kubectl get service $service || echo "ServiceNotFound")
-echo "service query response: "$response
+response=$(kubectl get pods --namespace $3)
+echo "Pods for namespace: "$response
 
-if [[ $response = "ServiceNotFound" ]]
-then
-   echo "no service found, deleting cluster"
-   gcloud -q container clusters delete $1 --zone=$2
-fi
+# delete all pods and services
+kubectl -n $3 delete po,svc --all
+
+# delete the container
+gcloud -q container clusters delete $1 --zone=$2
 ```
 
-###5. Import configuration into your Shippable account to create the assembly line for the application.
+###6. Import configuration into your Shippable account to create the assembly line for the application.
 
 Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
@@ -195,7 +221,7 @@ Once you have imported your configuration, your assemble line will look like thi
 
 <img src="/images/provision/pipeline-provision-gkecluster.png"/>
 
-###6. Trigger your pipeline
+###7. Trigger your pipeline
 
 When you're ready for deployment, right-click on the `provision_gke_cluster_job` job in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/), and select **Build Job**.
 
