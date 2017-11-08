@@ -45,25 +45,9 @@ node_js:
   - 5.12.0
 ```
 
-Our official build images, which are used to run your builds by default, come installed with multiple versions of Node. Currently, the following versions are pre-installed:
+Our official build images, which are used to run your builds by default, come installed with multiple versions of Node.
 
--  0.10
--  0.12 (default if no runtime specified)
--  4.2.3
--  4.6.0
--  5.12.0
--  6.7.0
--  6.8.0
--  6.9.4
--  7.0.0
--  7.2.1
--  7.3.0
--  7.4.0
--  iojs 1.0
--  iojs 2.0
--  iojs 3.3.1
-
-To find out which versions are supported out of the box for your build image, read our [Machine images overview](/platform/tutorial/runtime/ami-overview/).
+To find out which versions are supported out of the box for your build image, read our [languages overview for Node](/platform/runtime/machine-image/language-versions/#nodejs).
 
 If you want to test against several versions of Node.js, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
 
