@@ -126,7 +126,7 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Kubernetes integration](/platform/integration/kubernetes/)
+    * [Kubernetes integration](/platform/integration/kubernetes-config/)
 
     Copy the friendly name of the integration, in our case we named it `op_int`.
 
@@ -154,11 +154,12 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-  - name: app_deploy_job
+  - name: app-deploy-job
     type: deploy
     steps:
       - IN: app_service_def
       - IN: op_cluster
+      - IN: key_integration_resource # If using bastion host for configuring kubernetes clusters
 ```
 
 ###5. Add config to Shippable
@@ -216,7 +217,7 @@ Next, you should update your `manifest` with this new resource:
 ```
 jobs:
 
-  - name: app_service_def
+  - name: app-service-def
     type: manifest
     steps:
      - IN: app_image_1
@@ -259,7 +260,7 @@ Next, you should update your `manifest` with this new resource:
 ```
 jobs:
 
-  - name: app_service_def
+  - name: app-service-def
     type: manifest
     steps:
      - IN: app_image_1
@@ -294,10 +295,10 @@ Next, you should update your `deploy` with this new resource:
 ```
 jobs:
 
-  - name: app_deploy_job
+  - name: app-deploy-job
     type: deploy
     steps:
-      - IN: app_service_def
+      - IN: app-service-def
       - IN: op_cluster
       - IN: app_replicas
 ```

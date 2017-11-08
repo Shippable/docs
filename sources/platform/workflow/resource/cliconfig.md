@@ -27,7 +27,7 @@ resources:
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
 	* [Google Cloud](/platform/integration/gcloudKey)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
-	* [Kubernetes](/platform/integration/kubernetes)
+	* [Kubernetes](/platform/integration/kubernetes-config)
 	* [Quay](/platform/integration/quayLogin)
 
 * **`pointer`** -- is an object that contains integration specific properties

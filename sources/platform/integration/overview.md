@@ -29,7 +29,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 ## Supported Orchestration Platform Integrations
 
 - [Amazon ECS](/platform/integration/aws-iam)
-- [Kubernetes](/platform/integration/kubernetes)
+- [Kubernetes](/platform/integration/kubernetes-config)
 - [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure](/platform/integration/azure/)
 - [Azure DC/OS](/platform/integration/azureDcosKey)

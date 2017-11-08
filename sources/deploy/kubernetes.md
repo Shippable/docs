@@ -97,7 +97,7 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-  - name: app_service_def
+  - name: app-service-def
     type: manifest
     steps:
      - IN: app_image
@@ -114,7 +114,7 @@ jobs:
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Kubernetes integration](/platform/integration/kubernetes/)
+    * [Kubernetes integration](/platform/integration/kubernetes-config/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
@@ -127,7 +127,7 @@ resources:
     type: cluster
     integration: op_int   # friendly name of the integration you created         
     pointer:
-      sourceName: "app-kubernetes-cluster" # name of the actual cluster in Kubernetes
+      sourceName: "kubernetes-test-cluster"    # name of the actual cluster
 ```
 
 ###4. Create deployment job
@@ -142,10 +142,10 @@ Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/work
 ```
 jobs:
 
-  - name: app_deploy_job
+  - name: app-deploy-job
     type: deploy
     steps:
-      - IN: app_service_def
+      - IN: app-service-def
       - IN: op_cluster
 ```
 
@@ -235,7 +235,7 @@ Next, you should update your `manifest` with this new resource:
 ```
 jobs:
 
-  - name: app_service_def
+  - name: app-service-def
     type: manifest
     steps:
      - IN: app_image
@@ -272,10 +272,10 @@ Next, you should update your `deploy` with this new resource:
 ```
 jobs:
 
-  - name: app_deploy_job
+  - name: app-deploy-job
     type: deploy
     steps:
-      - IN: app_service_def
+      - IN: app-service-def
       - IN: op_cluster
       - IN: app_replicas
 ```
