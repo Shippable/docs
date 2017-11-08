@@ -103,6 +103,7 @@ A full detailed description of each tag is available on the [Job Anatomy](/platf
             * `port` -- Required for loadBalancer. The container port that will be exposed to the load balancer.
 
         * Any other job or resource will only participate in triggering the `deploy` job, not in the processing of it.
+        * While using a kubernetes [cluster](/platform/workflow/resource/cluster) or [loadBalancer](/platform/workflow/resource/loadbalancer) if bastion host is used to configured kubernetes cluster a sshKey or pemKey [integration](/platform/workflow/resource/integration) resource is required.
 
     * `TASK` -- Optional, this should only be used for scripts following deployment of files to a [Node Cluster](/platform/integration/nodeCluster/).
         * `script` -- Optional input. This is used to run a script after deployment, but this can be used only if the `deploy` is for a `file`-based `manifest` and the `cluster` resource has an integration of type [Node Cluster](/platform/integration/nodeCluster/).

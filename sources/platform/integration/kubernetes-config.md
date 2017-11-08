@@ -9,7 +9,14 @@ The [Kubernetes](https://kubernetes.io) Integration is used to connect Shippable
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Kubernetes integrations. You can use the new [Kubernetes](/platform/integration/kubernetes-config) instead.  
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration Family** -- **generic**
+* **Integration type** -- **Kubernetes**
+* **Name** -- choose a friendly name for the integration
+* **KubeConfig File** -- Configuration file to access Kubernetes cluster  
 
 ## Creating a kubeconfig file
 
@@ -102,6 +109,7 @@ The Kubernetes integration can be used in the following [resources](/platform/wo
 
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
+* [loadbalancer](/platform/workflow/resource/loadbalancer)
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
@@ -111,12 +119,7 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | Environment variable						            | Description      |
 | ------			 							            |----------------- |
 | `<NAME>`\_INTEGRATION\_NAME          	            | Name supplied in the integration |
-| `<NAME>`\_INTEGRATION\_CLUSTERACCESSTYPE          | Access Type supplied in the integration |
-| `<NAME>`\_INTEGRATION\_MASTERKUBECONFIGCONTENT    | Kube config when kube master was chosen as access type |
-| `<NAME>`\_INTEGRATION\_BASTIONKUBECONFIGCONTENT   | Kube config when bastion was chosen as access type |
-| `<NAME>`\_INTEGRATION\_BASTIONHOSTIP              | Bastion Host IP when bastion was chosen as access type |
-| `<NAME>`\_INTEGRATION\_BASTIONPRIVATEKEY          | Private Key to access the bastion host |
-| `<NAME>`\_INTEGRATION\_BASTIONPUBLICKEY           | Public Key to access the bastion host |
+| `<NAME>`\_INTEGRATION\_KUBECONFIGCONTENT    | Kube config file content |
 
 ### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.

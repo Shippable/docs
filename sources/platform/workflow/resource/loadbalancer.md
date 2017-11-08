@@ -22,6 +22,7 @@ resources:
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
 	* [Google Cloud](/platform/integration/gcloudKey)
+	* [Kubernetes](/platform/integration/kubernetes-config)
 
 * **`pointer`** -- is an object that contains provider specific properties
 	* For [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/),
@@ -45,6 +46,36 @@ resources:
 	* For [Google Cloud Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
 	        pointer:
+	          sourceName:           <lowercase alphanumeric name only>
+	          method:               clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
+	          namespace:            <name of the namespace where pod is deployed>       #optional
+	          clusterName:          <name of the GKE cluster>
+	          region:               <name of the region>
+	        version:
+	          ports:
+	            - name:             <string>
+	              protocol:         TCP | UDP #default TCP
+	              port:             <integer>
+	              targetPort:       <string>
+	              nodePort:         <integer>
+	          selector:
+	            <string> : <string>
+	          clusterIP:            None | "" | <string>
+	          externalIPs:
+	            - <string>
+	          sessionAffinity:      ClientIP | None
+	          loadBalancerIP:       <string>
+	          loadBalancerSourceRanges:
+	            - <string>
+	          externalName:         <string>
+
+	* For [Kubernetes Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
+
+	        pointer:
+	          bastionHost: # If using bastion host for configuring kubernetes clusters
+			     address:        <public address of your bastion host>
+			     user:           <bastionHost user>
+			     keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 	          sourceName:           <lowercase alphanumeric name only>
 	          method:               clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
 	          namespace:            <name of the namespace where pod is deployed>       #optional

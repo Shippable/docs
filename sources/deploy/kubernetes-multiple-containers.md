@@ -126,7 +126,7 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
-    * [Kubernetes integration](/platform/integration/kubernetes/)
+    * [Kubernetes integration](/platform/integration/kubernetes-config/)
 
     Copy the friendly name of the integration, in our case we named it `op_int`.
 
@@ -139,6 +139,10 @@ resources:
     type: cluster
     integration: op_int    # friendly name from step 1         
     pointer:
+      bastionHost:   # If using bastion host for configuring kubernetes clusters
+        address:        <public address of your bastion host>
+        user:           <bastionHost user>
+        keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
       sourceName: "kubernetes-test-cluster"    # name of the actual cluster
 ```
 
@@ -159,6 +163,7 @@ jobs:
     steps:
       - IN: app_service_def
       - IN: op_cluster
+      - IN: key_integration_resource # If using bastion host for configuring kubernetes clusters
 ```
 
 ###5. Add config to Shippable

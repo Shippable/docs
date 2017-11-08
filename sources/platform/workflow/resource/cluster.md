@@ -30,7 +30,7 @@ resources:
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
 	* [Google Google Cloud)](/platform/integration/gcloudKey)
-	* [Kubernetes](/platform/integration/kubernetes)
+	* [Kubernetes](/platform/integration/kubernetes-config)
 	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/joyentTritonKey)
 
@@ -42,14 +42,22 @@ resources:
 	          sourceName: <Amazon ECS cluster name>
 
 	* For Azure integrations - N/A
-	* For Kubernetes integrations - N/A
+	* For Kubernetes integrations:
+
+		In Kubernetes you can specify the bastionHost information in the pointer section
+
+		     pointer:
+			   bastionHost:
+			     address:        <public address of your bastion host>
+			     user:           <bastionHost user>
+			     keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
+
 	* For Docker Cloud integrations,
 
 	        pointer:
 	          sourceName: <Docker Cloud Cluster Name>
 
 	* For Docker Datacenter integrations - N/A
-	* For Kubernetes integrations - N/A
 	* For Google Cloud integrations:
 
 	        pointer:

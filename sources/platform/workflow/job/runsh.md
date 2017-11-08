@@ -96,7 +96,7 @@ Here is a list of the tools configured for each integration type:
 | [Google Cloud with GKE scope](/platform/integration/gcloudKey) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#gke) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Google Cloud with GCR scope](/platform/integration/gcloudKey) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/machine-image/cli-versions/#jfrog) |
-| [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| [Kubernetes](/platform/integration/kubernetes-config) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | For all Integrations above | [Packer](/platform/runtime/machine-image/cli-versions/#packer) & [Terraform](/platform/runtime/machine-image/cli-versions/#terraform)|
 

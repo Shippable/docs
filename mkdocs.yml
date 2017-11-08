@@ -280,7 +280,7 @@ pages:
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
-      - Kubernetes: platform/integration/kubernetes.md
+      - Kubernetes: platform/integration/kubernetes-config.md
       - Node Cluster: platform/integration/nodeCluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Quay.io: platform/integration/quayLogin.md
@@ -301,6 +301,7 @@ pages:
         - Google Container Engine: platform/integration/gke.md
         - IRC: platform/integration/irc.md
         - Jenkins: platform/integration/jenkins.md
+        - Kubernetes: platform/integration/kubernetes.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
         - PEM Keys: platform/integration/key-pem.md
         - Private Registries: platform/integration/docker-private-registry.md

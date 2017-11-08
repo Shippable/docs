@@ -46,6 +46,7 @@ jobs:
     * `IN` -- You need at least 1 or more `loadBalancer` resource(s) as an input. Currently we only support `loadBalancer` resource on GKE or Kubernetes services. If you need other entities [please let us know](https://www.github.com/Shippable/support/issues/new).
         * [loadBalancer](/platform/workflow/resource/loadbalancer/) -- If a `loadBalancer` is provided, the `provision` job will attempt to create a loadBalancer based on the integration associated with the resource.
   * Any other Job or Resource will only participate in triggering the `provision` job, but not in of the processing of it.
+  * While using a kubernetes [loadBalancer](/platform/workflow/resource/loadbalancer) if bastion host is used to configured kubernetes cluster a sshKey or pemKey [integration](/platform/workflow/resource/integration) resource is required.
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
