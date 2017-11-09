@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **SCM**
 * **Integration type** -- **GitHub Enterprise**
 * **Name** -- choose a friendly name for the integration
 * **URL** -- location of your GHE server API. The format is in `https://(GitHub Enterprise URL)/api/v3`

@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Generic**
 * **Integration type** -- **Webhook**
 * **Name** -- choose a friendly name for the integration
 * **WebhookURL** -- endpoint to send payload to

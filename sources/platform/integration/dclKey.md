@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **generic**
 * **Integration type** -- **Docker Cloud**
 * **Name** -- choose a friendly name for the integration
 * **Username** -- login to your Docker Cloud Account

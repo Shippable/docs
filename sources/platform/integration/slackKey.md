@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Generic**
 * **Integration type** -- **Slack**
 * **Name** -- choose a friendly name for the integration
 * **WebhookUrl** -- Webhook URL to your Slack channel. This can be overridden when creating a resource. This looks like this: `https://hooks.slack.com/services/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`

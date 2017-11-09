@@ -27,7 +27,7 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 <img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Amazon ECS credentials">
 
 2. Click on the **Add Integration** button.
-3. For **Integration type**, locate **AWS** from the list of integrations.
+3. For **Integration type**, locate **AWS-Keys** from the list of integrations.
 4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **AWS-Integration**.
 5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.  These keys should be associated with an account that has access to a policy with rules described [here](#policy).
 6. Click on **Save**.

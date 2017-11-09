@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **SCM**
 * **Integration type** -- **Gitlab**
 * **Name** -- choose a friendly name for the integration
 * **URL** -- location of your GitLab API. The URL should be in the format `https://(GitLab URL)/api/(api version)`. For example, if you're using gitlab.com, this will be `https://gitlab.com/api/v4`. Please note that if you're using Gitlab version 9.0 or later, you should use `v4` for api version. If you're using Gitlab version 8.17 or earlier, you should use `v3` for api version. API v3 is unsupported from Gitlab 9.5 according to this [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html)
