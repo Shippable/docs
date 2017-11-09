@@ -22,8 +22,9 @@ You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#ad
 jobs:
   - name:             <string>
     type:             runSh
+    triggerMode:      <parallel/serial>
     on_start:
-      - NOTIFY:       <notification resource name>
+        - NOTIFY:       <notification resource name>
     steps:
       - IN:           <resource>
         switch:       off
@@ -32,7 +33,7 @@ jobs:
         versionName:  <name of the version you want to pin>
       - IN:           <resource>
         versionNumber:    <number of the version you want to pin>        
-      - IN:           <gitRepoResource with buildOnPullRequest: true>
+      - IN:           <gitRepo resource with buildOnPullRequest: true>
         showBuildStatus:  true       
       - IN:           <cliConfig with scope support>
         scopes:
@@ -61,6 +62,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`name`** -- Required, should be an easy to remember text string
 
 * **`type`** -- Required, is set to `runSh`
+
+* **`triggerMode`** -- Optional, can be `parallel` or `serial`.  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
 
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
