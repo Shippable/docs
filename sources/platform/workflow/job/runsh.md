@@ -24,7 +24,7 @@ jobs:
     type:             runSh
     triggerMode:      <parallel/serial>
     on_start:
-        - NOTIFY:       <notification resource name>
+      - NOTIFY:       <notification resource name>
     steps:
       - IN:           <resource>
         switch:       off
