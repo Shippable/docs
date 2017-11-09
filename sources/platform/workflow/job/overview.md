@@ -39,7 +39,8 @@ Jobs are defined in the `shippable.yml` config file with the syntax below. Pleas
 jobs:
   - name: 					<string>
     type: 					<job type name>
-	 on_start:
+    triggerMode: 		    <parallel/serial; only for runSh jobs>
+    on_start:
       - NOTIFY: 			<notification resource name>
     steps:
       - IN: 				<resource>
@@ -58,7 +59,7 @@ jobs:
           - manifest: 		<manifest>
             image: 			<image>              
             port: 			<number>
-      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+      - IN: 				<gitRepo resource with buildOnPullRequest: true>
         showBuildStatus: 	true
       - IN: 				<manifest/release>
         force: 				true
@@ -70,14 +71,14 @@ jobs:
         replicate: 			<IN resource>
       - OUT: 				<resource>
         overwrite: 			true
-	 on_success:
+    on_success:
       - script: 			echo "SUCCESS"
-	 on_failure:
+    on_failure:
       - script: 			echo "FAILED"
       - NOTIFY: 			<notification resource name>
-	 on_cancel:
+    on_cancel:
       - script: 			echo "CANCEL"
-	 always:
+    always:
       - script: 			pwd
 ```
 
