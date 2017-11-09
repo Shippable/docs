@@ -20,7 +20,7 @@ A `manifest` can contain the following:
 
 A `manifest` is always deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one changed. If you want them to deployed independently, you should create multiple manifests to represent them.
 
-You can create a `manifest` Job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml`.
+You can create a `manifest` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml`.
 
 ## YML Definition
 
@@ -77,7 +77,7 @@ jobs:
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page.
+The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
 **Notes:**
 

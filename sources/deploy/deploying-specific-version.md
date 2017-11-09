@@ -18,7 +18,7 @@ In some scenarios (e.g. rollback), you might want to deploy a specific image ver
 
 ### Pinning using YAML config
 
-There are two ways to achieve pinning in your `shippable.jobs.yml`.
+There are two ways to achieve pinning in your `shippable.yml`.
 
 ####**Pinning an input image for a manifest job**
 
@@ -44,7 +44,7 @@ Please be aware that while a specific image tag is pinned in the manifest job, a
 
 ####**Pinning an input manifest for a deploy job**
 
-You can also pin a [manifest](/platform/workflow/job/manifest) version in your `deploy` job. The snippet below shows how this code will look for our [Single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms):
+You can also pin a [manifest](/platform/workflow/job/manifest) version in your `deploy` job. The snippet below shows how this code will look for our [single container application](/deploy/continuous-delivery-single-container-docker-application/):
 
 ```
 jobs:

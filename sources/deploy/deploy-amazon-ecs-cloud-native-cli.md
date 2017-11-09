@@ -14,11 +14,11 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 ## Configuration
 
-They are two configuration files that are needed to achieve this usecase -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file  -
 
-* Resources are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* [Resources](/platform/workflow/resource/overview/) are defined in the `resources` section of the`shippable.yml` file.
 
-* Jobs are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* [Jobs](/platform/workflow/job/overview/) are defined in the `jobs` section of the`shippable.yml` file.
 
 ## Steps
 
@@ -33,7 +33,7 @@ They are two configuration files that are needed to achieve this usecase -
 1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
   resources:
@@ -67,7 +67,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 Set the friendly name of the integration as `app_scm`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -91,7 +91,7 @@ resources:
 
 Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -143,7 +143,7 @@ ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -171,7 +171,7 @@ The snippet above does the following:
 
 ##6. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ##7. Trigger your pipeline
 

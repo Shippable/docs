@@ -40,10 +40,11 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.resources.yml`, define the following resources to be used as
+In `shippable.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
+resources:
 # config for awscli
   - name: myAwsCliConfig
     type: cliConfig
@@ -65,11 +66,12 @@ inputs to your pipeline:
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
-In `shippable.jobs.yml`, define the following job in order to execute
+And, in `shippable.yml`, define the following job in order to execute
 an Ansible playbook to provision on AWS from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision aws instances
+jobs:
+  # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -108,9 +110,10 @@ To set up this pipeline, simply separate your provision and terminate actions
 into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
-`shippable.jobs.yml`:
+`shippable.yml`:
 ```yaml
-# job to execute Ansible script to provision aws instances
+jobs:
+  # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -139,7 +142,7 @@ into separate jobs and name the 'provision' job as an input to the
             cd $MYGITHUBREPO_STATE  
             ansible-playbook -v my-ansible-provision-playbook.yml
 
-# job to execute Ansible script to terminate aws instances
+  # job to execute Ansible script to terminate aws instances
   - name: myTerminateJob
     type: runSh
     steps:
@@ -174,18 +177,17 @@ into separate jobs and name the 'provision' job as an input to the
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.resources.yml`:
+`shippable.yml`:
 ```yaml
-# This time resource triggers an attached job nightly at 11:00p
+resources:
+  # This time resource triggers an attached job nightly at 11:00pm UTC
   - name: myNightlyTrigger
     type: time
     seed:
       interval: * 23 * * * *
-```
 
-`shippable.jobs.yml`:
-```yaml
-# job to execute Ansible script to provision aws instances
+jobs:
+  # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runSh
     steps:

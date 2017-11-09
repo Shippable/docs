@@ -14,7 +14,7 @@ increments the beta tag, while after deploying to beta, another release job incr
 retaining the same major/minor/patch version number.
 
 ##Setup
-The basic setup needs a manifest job for each component that has to be versioned in the shippable.resources.yml file.
+The basic setup needs a manifest job for each component that has to be versioned in the shippable.yml file.
 
 This tutorial uses Docker images built by -
 
@@ -26,8 +26,9 @@ that builds a Java war Docker image and pushes the image to Amazon EC2 Container
 ## Basic Configuration
 
 - Once you have completed the setup above, add a version resource that will be used as an input to the upstream release job
-to the shippable.resources.yml file. This resource specifies the version seed, which will flow throughout the pipeline.
+to the shippable.yml file. This resource specifies the version seed, which will flow throughout the pipeline.
 ```
+resources:
   - name: upstream-release-version
     type: version
     seed:
@@ -36,9 +37,10 @@ to the shippable.resources.yml file. This resource specifies the version seed, w
       - release-from-upstream-release-jobs
 ```
 
-- Next add the upstream release job to the shippable.jobs.yml file. This job takes as inputs the two Docker
+- Next add the upstream release job to the shippable.yml file. This job takes as inputs the two Docker
 images that we want to version before deployment to the Amazon ECS cluster.
 ```
+jobs:
   # Manifest job
   - name: release-from-upstream-release-node-img-manifest-job
     type: manifest
@@ -73,10 +75,11 @@ When this release job runs, it increments the beta version and sets the version 
 
 **Release job screenshot**![Release job screenshot](https://github.com/devops-recipes/release-from-upstream-release-jobs/raw/master/public/resources/images/beta-release-version.png)
 
-- Next add the downstream release job to the shippable.jobs.yml file. This job takes as input the deploy
+- Next add the downstream release job to the shippable.yml file. This job takes as input the deploy
 job. It does **not** have its own version resource, since the upstream release job is specified as input to the deploy job.
 This results in the version of the upstream release job being fed as input to itself.
 ```
+jobs:
     - name: release-from-upstream-release-deploy-ecs-job
       type: deploy
       steps:

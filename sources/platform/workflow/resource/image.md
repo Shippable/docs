@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # image
 `image` resource is used to add a reference to a Docker image to your pipeline.
 
-You can create a `image` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `image` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:

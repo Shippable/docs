@@ -46,13 +46,13 @@ that represents the options of the application container.
 
 ## Configuration
 
-They are two configuration files that are needed to achieve this usecase -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
 
-* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
 
-These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+This file should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
 
 ## Deployment instructions
 
@@ -66,12 +66,12 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 1. Create an account integration for Docker Hub in your Shippable UI. Instructions to create an integration are here:
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
     * [Docker Registry integration](/platform/integration/dockerRegistryLogin/)
 
     Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -92,7 +92,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -113,12 +113,12 @@ jobs:
 
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
     * [Kubernetes integration](/platform/integration/kubernetes-config/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
-3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+3. Add the following yml block to the existing `resources` sectino of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -137,7 +137,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -151,7 +151,7 @@ jobs:
 
 ###5. Add config to Shippable
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` files as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
@@ -176,7 +176,7 @@ However, you can customize these and many other options by including a [dockerOp
 
 ###1. Add a dockerOptions resource
 
-Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
+Add a `dockerOptions` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
 resources:
@@ -212,7 +212,7 @@ You can also include environment variables needed by your application in your se
 
 ###1. Add a params resource
 
-Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+Add a `params` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set environment variables needed to connect to your database:
 
 ```
 resources:
@@ -252,7 +252,7 @@ By default, we always deploy one instance of your application. You can scale it 
 
 ###1. Add a replicas resource
 
-Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
+Add a `replicas` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to scale your application to 5 instances:
 
 ```
 resources:

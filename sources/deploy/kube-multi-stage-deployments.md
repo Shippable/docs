@@ -1,6 +1,6 @@
 page_main_title: Multi-stage deployments to Test and Prod Environments
 main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+sub_section: Tutorials
 sub_sub_section: Kubernetes
 
 # Multi-stage deployments to Kubernetes clusters through Test and Prod Environments
@@ -77,13 +77,13 @@ environment variables for consumption by the application in the dev environment.
 
 # Configuration
 
-They are two configuration files that are needed to achieve this usecase -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
 
-* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
 
-These files should be committed to your source control. Step 11 of the workflow below will describe how to add the config to Shippable.
+This file should be committed to your source control. Step 11 of the workflow below will describe how to add the config to Shippable.
 
 ## Instructions
 
@@ -101,7 +101,7 @@ Instructions to create an integration can be found [here](http://docs.shippable.
 2. Set the friendly name of the integration as `drship_gcr`. If you change the name,
 please change it also in the yml below.
 
-3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+3. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -129,7 +129,7 @@ If no options are specified, the platform sets the following default options -
 
 **Steps**  
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -156,7 +156,7 @@ resources:
 
 **Steps**  
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -181,7 +181,7 @@ resources:
 
 **Steps**  
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -214,7 +214,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -239,7 +239,7 @@ resources:
 
 1. Create an account integration using your Shippable account for Google Cloud. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -263,7 +263,7 @@ Note that this job takes the `dmsk_cliConfig` resource as an INPUT. This initial
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -290,7 +290,7 @@ jobs:
 
 **Steps**  
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -312,7 +312,7 @@ resources:
 * **Required:** Yes.
 * Integrations needed: [Google Cloud](/platform/integration/gcloudKey/)
 
-3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -343,7 +343,7 @@ resources:
 
 **Steps**  
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -370,7 +370,7 @@ Note that this job takes the `dmsk_cliConfig` resource as an INPUT. This initial
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -404,7 +404,7 @@ The `bump` tag specifies how the release version will be incremented each time t
 
 **Steps**  
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -426,7 +426,7 @@ jobs:
 
 **Steps**  
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -442,7 +442,7 @@ jobs:
 
 ###14. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` file as described above, commit it to your repository. You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ###15. Trigger your pipeline
 

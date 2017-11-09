@@ -14,7 +14,7 @@ The `state` resource can be used as IN and OUT step for [any job](/platform/work
 
 ### Step 1: Add a state resource
 
-You can create a `state` resource by adding it to `shippable.resources.yml`:
+You can create a `state` resource by adding it to `shippable.yml`:
 
 ```
 resources:
@@ -22,14 +22,14 @@ resources:
     type: state
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `jobs` section of `shippable.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 * `type` is always set to 'state'.
 
 
 ### Step 2: Use state as IN/OUT for jobs
 
-You can use the state resource as an input and output for multiple `runSH` or `runCI` jobs to maintain a common state. Any job that requires the state in order to execute should take the state resource as an `IN`, and any job that writes to the state should have the state resource as an `OUT`.
+You can use the state resource as an input and output for multiple `runSh` or `runCI` jobs to maintain a common state. Any job that requires the state in order to execute should take the state resource as an `IN`, and any job that writes to the state should have the state resource as an `OUT`.
 
 We will use the [shipctl utility](/platform/tutorial/workflow/using-shipctl/) to write and read from the state resource.
 

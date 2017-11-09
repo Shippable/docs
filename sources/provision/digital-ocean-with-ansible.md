@@ -36,16 +36,17 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.resources.yml`, define the following resources to be used as
+In `shippable.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for doctl cli
+resources:
+  # config for doctl cli
   - name: myDOCliConfig
     type: cliConfig
     integration: myDOIntegration # replace with your digital ocean integration name
 
-# source code repo holding Ansible scripts to be used in pipeline
+  # source code repo holding Ansible scripts to be used in pipeline
   - name: myGithubRepo
     type: gitRepo
     integration: myScmIntegration # replace with your scm integration name
@@ -54,11 +55,12 @@ inputs to your pipeline:
       branch: master
 ```
 
-in `shippable.jobs.yml`, define the following job in order to execute
-an Ansible playbook to provision on digital ocean from your pipeline:
+And, in `shippable.yml`, define the following job in order to execute
+an Ansible playbook to provision on Digital Ocean from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision droplets
+jobs:
+  # job to execute Ansible script to provision droplets
   - name: myProvisionJob
     type: runSh
     steps:
@@ -94,18 +96,16 @@ In our `runSh` job, `IN: myDOCliConfig` gives an environment variable named `MYD
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.resources.yml`:
+`shippable.yml`:
 ```yaml
-# This time resource triggers an attached job nightly at 11:00p
+resources:
+  # This time resource triggers an attached job nightly at 11:00pm UTC
   - name: myNightlyTrigger
     type: time
     seed:
       interval: * 23 * * * *
-```
-
-`shippable.jobs.yml`:
-```yaml
-# job to execute Ansible script to provision droplet
+jobs:
+  # job to execute Ansible script to provision droplet
   - name: myProvisionJob
     type: runSh
     steps:

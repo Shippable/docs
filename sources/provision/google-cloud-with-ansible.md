@@ -37,16 +37,17 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.resources.yml`, define the following resources to be used as
+In `shippable.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for google cloud cli
+resources:
+  # config for google cloud cli
   - name: myGclCliConfig
     type: cliConfig
     integration: myGclIntegration # replace with your Google Cloud integration name
 
-# source code repo holding Ansible scripts to be used in pipeline
+  # source code repo holding Ansible scripts to be used in pipeline
   - name: myGithubRepo
     type: gitRepo
     integration: myScmIntegration # replace with your scm integration name
@@ -56,11 +57,12 @@ inputs to your pipeline:
 ```
 
 ### Provisioning using the new [Google Cloud](/platform/integration/gcloudKey) integration the following is valid:
-In `shippable.jobs.yml`, define the following job in order to execute
+In `shippable.yml`, define the following job in order to execute
 an Ansible playbook to provision on Google Cloud from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision aws instances
+jobs:
+  # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -99,11 +101,12 @@ Now we need to use this exported environment variables in your ansible playbook.
 ```
 
 ### Provisioning using the deprecated [Google Cloud](/platform/integration/gce) integration the following is valid:
-In `shippable.jobs.yml`, define the following job in order to execute
+In `shippable.yml`, define the following job in order to execute
 an Ansible playbook to provision on Google Cloud from your pipeline:
 
 ```yaml
-# job to execute Ansible script to provision aws instances
+jobs:
+  # job to execute Ansible script to provision aws instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -148,18 +151,17 @@ Note that, the environment variable name is generated based on the format `x_INT
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.resources.yml`:
+`shippable.yml`:
 ```yaml
-# This time resource triggers an attached job nightly at 11:00p
+jobs:
+  # This time resource triggers an attached job nightly at 11:00pm UTC
   - name: myNightlyTrigger
     type: time
     seed:
       interval: * 23 * * * *
-```
 
-`shippable.jobs.yml`:
-```yaml
-# job to execute Ansible script to provision google cloud instances
+resources:
+  # job to execute Ansible script to provision google cloud instances
   - name: myProvisionJob
     type: runSh
     steps:

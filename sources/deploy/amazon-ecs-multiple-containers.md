@@ -7,7 +7,7 @@ sub_sub_section: Amazon ECS
 
 The strength of Amazon ECS is in its ability to orchestrate multi-container applications across a cluster of machines. There are several ways to accomplish this on Shippable.  
 
-A multiple container application could be a web application, API endpoint, microservice, or any application component that is packaged as multiple docker images. This page describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a multiple container application to Amazon ECS.
+A multiple container application could be a web application, API endpoint, microservice, or any application component that is packaged as multiple Docker images. This page describes how you can use the [Shippable Assembly Lines platform](/platform/overview/) to deploy such a multiple container application to Amazon ECS.
 
 ## Assumptions
 
@@ -48,13 +48,13 @@ that represents the options of the application container for `app_image_1` and `
 
 ## Configuration
 
-They are two configuration files that are needed to achieve this usecase -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
 
-* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository.
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
 
-These files should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
+This file should be committed to your source control. Step 5 of the workflow below will describe how to add the config to Shippable.
 
 ## Instructions
 
@@ -68,12 +68,12 @@ These files should be committed to your source control. Step 5 of the workflow b
 
 1. Create an account integration for Amazon ECR in your Shippable UI. Instructions to create an integration are here:
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
     * [Amazon ECR integration](/platform/integration/aws-keys/)
 
     Copy the friendly name of the integration, in our case we named it **app_ecr**.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -101,7 +101,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -125,12 +125,12 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 
 1. Create an account integration for Amazon ECS in your Shippable UI. Instructions to create an integration are here:
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and .
+    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
     * [Amazon ECS integration](/platform/integration/aws-iam/)
 
     Copy the friendly name of the integration, in our case we named it **op_int**.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block in the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -150,7 +150,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block in the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -164,7 +164,7 @@ jobs:
 
 ###5. Add config to Shippable
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
@@ -186,7 +186,7 @@ However, you can customize these and many other options for each container by in
 
 ###1. Add dockerOptions resources
 
-Add a `dockerOptions` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file for each container you want to customize.
+Add a `dockerOptions` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file for each container you want to customize.
 
 For example, to set memory to 1024MB and exposing port 80 for the `app_image_1` image and set the memory to 2048MB and exposing port 8080 for the `app_image_2` image., you would write the following snippet:
 
@@ -237,7 +237,7 @@ You can also include environment variables needed by your application in your se
 
 ###1. Add a params resource
 
-Add a `params` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to set environment variables needed to connect to your database:
+Add a `params` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set environment variables needed to connect to your database:
 
 ```
 resources:
@@ -275,7 +275,7 @@ By default, we always deploy one instance of your application. You can scale it 
 
 ###1. Add a replicas resource
 
-Add a `replicas` resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. For example, to scale your application to 5 instances:
+Add a `replicas` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to scale your application to 5 instances:
 
 ```
 resources:

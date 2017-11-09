@@ -10,7 +10,7 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 
 ## Configuration reference
 
-You can define `dockerOptions` by adding it to `shippable.resources.yml` as shown below:
+You can define `dockerOptions` by adding it to `shippable.yml` as shown below:
 
 ```yml
 resources:
@@ -85,7 +85,7 @@ resources:
         - <string>
       cGroupParent: <string>                    # Optional
       memoryReservation: <number>               # This should be given in MB
-      pid: <string>                            # Optional
+      pid: <string>                             # Optional
       network: <string>                         # Optional
       devices:                                  # For DCL
         - <string>
@@ -103,7 +103,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 - name: <string>
 ```
 
-`name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+`name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in jobs. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 ```
   type: dockerOptions
@@ -577,4 +577,4 @@ In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After t
 
 When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
 
-To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](/platform/tutorial/workflow/shippable-triggers-yml/).
+To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](/platform/workflow/resource/trigger) .

@@ -1,8 +1,8 @@
-page_main_title: Share data between Jobs
+page_main_title: Creating a kubeconfig file
 main_section: Platform
 sub_section: Tutorials
-sub_sub_section: Jobs
-page_title: Share data between Jobs
+sub_sub_section: Integrations
+page_title: Creating a kubeconfig file
 
 The best way to create an isolated set of credentials for use with Shippable Pipelines is to create a Kubernetes Service Account, and set up a kubeconfig file that utilizes it.
 

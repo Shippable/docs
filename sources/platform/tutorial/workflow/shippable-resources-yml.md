@@ -8,6 +8,12 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.resources.yml
 
+## Deprecation Note
+This file has been deprecated. All resources can now be defined in the `resources` section of `shippable.yml`.  See [anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/) for more information.
+
+---
+
+
 [Resources](/platform/workflow/resource/overview/) are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
 
 Resources are defined in a yml-based configuration file `shippable.resources.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
@@ -24,13 +30,14 @@ resources:
     version:		<object>
 ```
 
-* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represent e.g. `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to Jobs.
+* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represents, e.g., `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to jobs.
 
-* **`type`** -- Name of the resource type that this resource is an instance of. [Here](/platform/workflow/resource/overview#types) is a list of all types
+* **`type`** -- Name of the resource type that this resource is an instance of. [Here](/platform/workflow/resource/overview#types) is a list of all types.
 
-* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets For e.g. webhook token, Docker hub credentials and so on
+* **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets. For example, webhook token, Docker Hub credentials, and so on.
 
-* **`pointer`** -- section is used when the resource needs to reference something, usually on a third-party provider. For example, a [cluster](/platform/workflow/resource/cluster/) resource has a pointer section which needs cluster name, region name, etc. In case of [gitRepo](/platform/workflow/resource/gitrepo/), pointer contains  `sourceName` that points to the repo name along with other pieces of information like `branch` etc.
+
+* **`pointer`** -- section is used when the resource needs to reference something, usually on a third-party provider. For example, a [cluster](/platform/workflow/resource/cluster/) resource has a pointer section which needs cluster name, region name, etc. A [gitRepo](/platform/workflow/resource/gitrepo/) pointer contains `sourceName` to point to the repository along with other pieces of information like `branch`.
 
 * **`seed`** -- section is used to specify a starting value for a resource. This is relevant for resources like [image](/platform/workflow/resource/image/) since this tells Shippable what value to use for this resource when running the connected job for the first time. After the first run, the seed values are ignored. However, you can still use `seed` to reset the resource to start with a new value by changing it and committing the yml. This will create a new resource version as a new starting point.
 

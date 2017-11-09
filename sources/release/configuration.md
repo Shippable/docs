@@ -4,13 +4,7 @@ sub_section: Before you start
 
 #Configuration
 
-Your pipelines are defined through three yml-based configuration files:
-
-- `shippable.jobs.yml` contains definitions of the Jobs in your pipeline.
-
-- `shippable.resources.yml` contains definitions of the Resources in your pipeline.
-
-- `shippable.triggers.yml` contains definitions of manual triggers for Jobs in your pipeline. You can manually trigger any job in your pipeline and by pushing a change to this file. This file is optional since you can also run jobs manually through the UI.
+Your pipelines are defined through yml-based configuration files. The [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file contains definitions of the jobs, resources, and triggers in your pipeline.
 
 Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 
@@ -20,7 +14,7 @@ You may have the entire pipeline configuration maintained in one repository, spl
 <a name="sync"></a>
 ##Sync repository
 
-A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains one or more of `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.
+A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains `shippable.yml` files.
 
 You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 
@@ -43,7 +37,7 @@ You may have the entire pipeline configuration maintained in one repository, spl
 	* Name your sync repository with an easy to remember name.
 * Click on **Save** to apply your sync repository configuration.
 
-At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml` in the Single Pane of Glass (SPOG).
+At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your configuration files in the Single Pane of Glass (SPOG).
 
 ###Testing your configuration
 

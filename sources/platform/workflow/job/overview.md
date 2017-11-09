@@ -33,7 +33,7 @@ Typical examples of jobs are:
 
 ## YML Definition
 
-Jobs are defined in the config file `shippable.resources.yml` with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
+Jobs are defined in the `shippable.yml` config file with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
 
 ```
 jobs:
@@ -81,7 +81,7 @@ jobs:
       - script: 			pwd
 ```
 
-For more information, read [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml)
+For more information, read the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
 ## When does a Job execute?
 
@@ -129,5 +129,5 @@ Shippable supports the following jobs types:
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 ## Further Reading
-* [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
+* [Anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)

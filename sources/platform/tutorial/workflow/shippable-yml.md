@@ -19,19 +19,19 @@ language:	<Language name>
   - <version>
   - <version2>
 
-branches:
-  only:
-    - master
-    - release/*
-  except:
-    - feat*
-
 #### special tags for ruby language ####
 gemfile:
   - <version>
   - <version 2>
 bundler_args: arg 1
 #### end special tags for ruby language ####
+
+branches:
+  only:
+    - master
+    - release/*
+  except:
+    - feat*
 
 git:
    submodules: <boolean>
@@ -131,9 +131,62 @@ integrations:
       image_tag: <image tag>
       bucket_name: <s3 bucket>
       #### special tags for docker app ####
+
+resources:
+  - name:           <string>
+    type:           <resource type name>
+    integration:    <string>
+    pointer:        <object>
+    seed:           <object>
+    version:        <object>
+
+jobs:
+  - name:           <string>
+    type:           <job type name>
+    on_start:
+      - NOTIFY:     <notification resource name>
+    steps:
+      - IN:         <resource>
+        switch:     off
+      - IN:         <job>
+      - IN:         <resource>
+        versionName: <name of the version you want to pin>
+      - IN:         <resource>
+        versionNumber: <number of the version you want to pin>
+      - IN:         <params/dockerOption/replicas resource>
+        applyTo:
+          - <image/manifest/release>
+          - <image/manifest/release>
+      - IN:         <loadBalancer resource>
+        applyTo:
+          - manifest: <manifest>
+            image:    <image>
+            port:     <number>
+      - IN:         <gitRepo resource with buildOnPullRequest: true>
+        showBuildStatus: true
+      - IN:         <manifest/release>
+        force:      true
+      - TASK:
+        - script:   <any shell command>
+        - script:   <any shell command>
+      - OUT:        <resource>
+      - OUT:        <resource>
+        replicate:  <IN resource>
+    on_success:
+      - script:     echo "SUCCESS"
+    on_failure:
+      - script:     echo "FAILED"
+      - NOTIFY:     <notification resource name>
+    on_cancel:
+      - script:     echo "CANCEL"
+    always:
+      - script:     pwd
+
 ```
 
-* **`language`** -- this drives which Runtime image is used for your CI workflow. [Read more](set-language/). We currently support the following languages:
+## CI
+### Language
+* **`language`** -- this drives which Runtime image is used for your CI workflow. [Read more](/ci/set-language/). We currently support the following languages:
 	* [C/C++](/ci/cpp-continuous-integration/)
 	* [Clojure](/ci/clojure-continuous-integration/)
 	* [GO](/ci/go-continuous-integration/)
@@ -144,18 +197,24 @@ integrations:
 	* [Ruby](/ci/ruby-continuous-integration/)
 	* [Scala](/ci/scala-continuous-integration/)
 
-* **`<language version>`** -- this tag key name changes depending on the language, for example you'll need to specify `nodejs` for Node.js. Set the value of this tag to the language version(s) you want to test against. [Read more](set-language/)
-
-* **`branches`** -- is used to control which branch(es) trigger a CI build
- * `only` -- is used to set which branch(es) can trigger a run. You can set branch names or regex. In the snippet above, only `master` branch and all gitflow based `release` branches will trigger a run.
- * `except` -- is used to exclude specific branch(es) names from triggering a CI run.
+* **`<language version>`** -- this tag key name changes depending on the language, for example you'll need to specify `nodejs` for Node.js. Set the value of this tag to the language version(s) you want to test against. [Read more](/ci/set-language/)
 
 * **`gemfile `** -- is used only when the language is Ruby. If you include more than one, it will trigger a matrix build. [Read more](/ci/ruby-continuous-integration/).
 
+* **`bundler_args `** -- is used only when the language is Ruby. It is used to specify additional arguments for `bundle install`. [Read more](/ci/ruby-continuous-integration/).
+
+### Branches
+* **`branches`** -- is used to control which branch(es) trigger a CI build
+
+    * `only` -- is used to set which branch(es) can trigger a run. You can set branch names or regex. In the snippet above, only `master` branch and all gitflow based `release` branches will trigger a run.
+    * `except` -- is used to exclude specific branch(es) names from triggering a CI run.
+
+### Submodules
 * **`git `** -- used to specify repos that contain dependencies you need for your build. [Read more](/ci/git-submodules/)
 	* `submodules`
 
-* **`services `** -- Specify the services you need for your CI workflow, e.g. postgres, mysql, etc. The service will be started before any of your `ci` scripts execute. [Read more](services-overview/). Supported services are:
+### Services
+* **`services `** -- Specify the services you need for your CI workflow, e.g. postgres, mysql, etc. The service will be started before any of your `ci` scripts execute. [Read more](/ci/services-overview/). Supported services are:
 
 	* [Cassandra](/ci/cassandra)
 	* [CouchDB](/ci/couchdb)
@@ -172,45 +231,49 @@ integrations:
 	* [Selenium](/ciselenium)
 	* [SqlLite](/ci/sqllite)
 
-* **`env `** -- Set custom environment variables for your builds. , including  `secure` variables, i.e. encrypted variables  used to store sensitive information. [Read more](env-vars/).
+### Environment
+* **`env `** -- Set custom environment variables for your builds, including `secure` variables, i.e. encrypted variables, used to store sensitive information. [Read more](/ci/env-vars/).
 
 	* `global` -- variables defined in this section do not trigger a matrix run even when multiple variables are defined. They are available to all jobs within the run.
 
-* `matrix` -- Used to include or exclude only specific combination(s) from a build matrix. This is only relevant if you  are triggering matrix builds, i.e. running several builds per trigger.  [Read more](matrix-builds/).
+### Matrix
+* **`matrix`** -- Used to include or exclude only specific combination(s) from a build matrix. This is only relevant if you are triggering matrix builds, i.e. running several builds per trigger.  [Read more](/ci/matrix-builds/).
 
 	* `include` -- used to only include specific combinations of matrix jobs
 	* `exclude` -- used to exclude a specific combination of matrix jobs
-	* `allow_failures` -- this is used to ignore the result of specific jobs from the overall status of the run
+	* `allow_failures` -- this is used to ignore the result of specific jobs in the overall status of the run
 
+### Build
 * **`build `** -- this is the section that actually runs the scripts of your CI job.
 
-	* `pre_ci` -- this is used to prep the host before starting your `ci` section. Please note anything environment variables, files etc. that you create here will not be available in `ci` section. Typically used to [build your own ci runtime](/ci/custom-docker-image).
-	* `pre_ci_boot` -- is used to override the default image used for CI with your own custom image. You can also set specific options  for booting up the default CI container. [Read more](build-image/).
-	* `ci` -- this is the meat and potatoes section of your ci commands that install dependencies, create databases and folders, and include your build and test commands. [Read more](build-and-test/).
-	* `post_ci` -- includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry. [Read more](build-and-test/).
-	* `on_success` -- includes commands you want to execute only if your CI workflow passes, i.e. the ci section exits with 0. [Read more](build-and-test/).
-	* `on_failure` -- includes commands you want to execute only if your CI workflow fails, i.e. the ci section does not exit with a 0. [Read more](build-and-test/).
-	* `cache` -- boolean value, used to turn on caching. If set to true, the build directory SHIPPABLE_BUILD_DIR is cached. To cache specific folders, you can use the tag cache_dir_list. [Read more](/ci/caching/).
+	* `pre_ci` -- this is used to prep the host before starting your `ci` section. Please note that any environment variables, files, etc. that you create here will not be available in the `ci` section. Typically used to [build your own ci runtime](/ci/custom-docker-image).
+	* `pre_ci_boot` -- is used to override the default image used for CI with your own custom image. You can also set specific options for booting up the default CI container. [Read more](/ci/build-image/).
+	* `ci` -- this is the meat and potatoes section of your ci commands that installs dependencies, creates databases and folders, and includes your build and test commands. [Read more](/ci/build-and-test/).
+	* `post_ci` -- includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry. [Read more](/ci/build-and-test/).
+	* `on_success` -- includes commands you want to execute only if your CI workflow passes, i.e. the ci section exits with 0. [Read more](/ci/build-and-test/).
+	* `on_failure` -- includes commands you want to execute only if your CI workflow fails, i.e. the ci section does not exit with 0. [Read more](/ci/build-and-test/).
+	* `cache` -- Boolean value, used to turn on caching. If set to true, the build directory SHIPPABLE_BUILD_DIR is cached. To cache specific folders, you can use the tag cache_dir_list. [Read more](/ci/caching/).
 	* `cache_dir_list` -- Used to specify a list of folders that you want to cache between builds. [Read more](/ci/caching/).
 
-* **`integrations`** -- Wrapper for several subsections like `notifications`, `hub`,  and `keys`. This overall section lets you specify sensitive information like passwords, tokens, keys, etc needed to connect to third-party services.
-	* `notifications` -- Used to send Slack, Hipchat, IRC notifications as well as to customize default email notification settings. This section can also be used to trigger a custom webhook or to trigger another Shippable project at various points during your CI workflow. [Read more](send-notifications/).
-		* `integrationName` -- name of the Subscription integration to use (refer to type guides)
+### Integrations
+* **`integrations`** -- Wrapper for several subsections like `notifications`, `hub`,  and `keys`. This overall section lets you specify sensitive information like passwords, tokens, keys, etc. needed to connect to third-party services.
+	* `notifications` -- Used to send Slack, Hipchat, and IRC notifications as well as to customize default email notification settings. This section can also be used to trigger a custom webhook or to trigger another Shippable project at various points during your CI workflow. [Read more](/ci/send-notifications/).
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
 		* `type` -- [slack](/ci/slack-notifications), [email](/ci/email-notifications), [hipchat](/ci/hipchat-notifications) & [irc](/ci/irc-notifications)
-		* `recipients` -- an array or emails/rooms/channels etc.
+		* `recipients` -- an array of emails/rooms/channels etc.
 		* `branches` -- limiting when to send notifications
-			* `only` -- arrary of branch names
+			* `only` -- an array of branch names
 		* `on_success` -- control the behaviour when the CI run is successful
 		* `on_failure` -- control the behaviour when the CI run has failed
 		* `on_cancel` -- control the behaviour when the CI run is cancelled
 		* `on_start` -- control the behaviour when the CI run has started
 		* `on_pull_request` -- control the behaviour when the CI run is for a pull request
-		* `sendConsoleLogs` -- send consoles logs as attachement (email type only)
-		* `sendCoverageReports ` -- send coverage reports as attachement (email type only)
+		* `sendConsoleLogs` -- send consoles logs as attachment (email type only)
+		* `sendCoverageReports ` -- send coverage reports as attachment (email type only)
 
-	* `hub` -- used to connect to artifact/Docker registries to pull/push images/artifacts. [Read more](push-artifacts/)
-		* `integrationName` -- name of the Subscription integration to use (refer to type guides)
-		* `type` -- [artifactory](/ci/push-to-artifactory), [docker registries](/ci/push-docker-registry), [ecr](/ci/push-amazon-ecr), [gcr](/ci/push-gcr), [quay.io](/ci/push-quay)
+	* `hub` -- used to connect to artifact/Docker registries to pull/push images/artifacts. [Read more](/ci/push-artifacts/)
+		* `integrationName` -- name of the subscription integration to use (refer to type guides)
+		* `type` -- [artifactory](/ci/push-to-artifactory), [docker registry](/ci/push-docker-registry), [ecr](/ci/push-amazon-ecr), [gcr](/ci/push-gcr), [quay.io](/ci/push-quay)
 		* `branches` -- limiting which branches this integration applies to. This lets you set different credentials for different branches.
 			* `only` -- array of branch names
 
@@ -226,9 +289,65 @@ integrations:
 		* `application_name` -- Your EBS application name
 		* `env_name` -- EBS application environment
 		* `region` -- AWS Region
-		* `image_name` -- Docker image name if your app is  docker based
-		* `image_tag` -- Docker image tag if your app is  docker based
+		* `image_name` -- Docker image name if your app is Docker-based
+		* `image_tag` -- Docker image tag if your app is Docker-based
 		* `bucket_name` -- S3 bucket name to upload your config
+
+## Resources
+* **`resources`** -- Shippable Assembly Line resources.  These resources will appear in your Shippable Assembly Lines when this file is part of a [syncRepo](/platform/tutorial/workflow/crud-syncrepo/).
+
+    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represents, e.g., `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to jobs.
+
+    * **`type`** -- Name of the resource type that this resource is an instance of. [Here](/platform/workflow/resource/overview#types) is a list of all types.
+
+    * **`integration`** -- this may be required depending on the resource type. Integrations are an abstraction to 3rd party authentication secrets. For example, webhook token, Docker Hub credentials, and so on.
+
+    * **`pointer`** -- section is used when the resource needs to reference something, usually on a third-party provider.  See the documentation for each of the resource types for more information.
+
+    * **`seed`** -- section is used to specify a starting value for a resource. After the first run, the seed values are ignored. However, you can still use `seed` to reset the resource to start with a new value by changing it and committing the yml. This will create a new resource version as a new starting point.
+
+    * **`version`** -- section contains information is not expected to change dynamically during a job run. Any time information changes in this section, a new version of the resource is created.
+
+## Jobs
+* **`jobs`** -- Shippable Assembly Line jobs.  These jobs will appear in your Shippable Assembly Lines when this file is part of a [syncRepo](/platform/tutorial/workflow/crud-syncrepo/).
+
+    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does, e.g. `prov_test_env` to represent a job that provisions a test environment.
+
+    * **`type`** -- Name of the job type of which this job is an instance. [Here](/platform/workflow/job/overview#types) is a list of all types
+
+    * **`steps`** -- is the heart of the job. It is an array of INs, TASK & OUTs.
+      * `IN` -- specifies a resource or a preceding job that should be used as an input to this job. Whenever there is a change to an input, this job will be triggered. `IN`s have additional attributes that are used to control the flow.
+        * `switch` -- this determines whether a change to this input entity will trigger a new run or not. The default is `on` and `switch` can be set to `off` to turn off auto triggering.
+        * `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and the job will use the most recent matching version. You can pin your job to use a specific `versionName` for any of the `INs` in a job. This is typically used to control which version gets deployed or even [rollback](/deploy/rollback/) if you need to.
+        * `versionNumber` -- this is used to pin a particular version of the input entity. Since every `versionNumber` is unique, this is guaranteed to give you predictable results. You can pin your job to use a specific versionNumber of any `INs` that the job uses. This is typically used to control which version gets deployed or even [rollback](/deploy/rollback/) if you need to. Both `versionName` and `versionNumber` cannot be used for the same `IN`.
+        * `applyTo` - Optional setting allowed only [loadBalancer](/platform/workflow/resource/loadbalancer/), [image](/platform/workflow/resource/image/) & [dockerOptions](/platform/workflow/resource/dockeroptions/) resources when used in conjunction with a [deploy](/platform/workflow/job/deploy/) or [manifest](/platform/workflow/job/manifest/) job. In all other cases, it is ignored. If it is set in the context of a loadBalancer, it is an object that sets the manifest that the loadBalancer will connect to and the container image and port for the listener. In other cases, it expects either a manifest, release or an image name.
+        * `force` -- an optional setting used only in [deploy](/platform/workflow/job/deploy/) jobs when the context is a `manifest` or `release` resource. This setting will force the deployment each time the job is triggered even if the manifest or release entity has not changed. Typically used if your images use static tags.
+        * `showBuildStatus ` - this is allowed only for [gitRepo](/platform/workflow/resource/gitrepo/) resources with `buildOnPullRequest` turned on. This setting will push execution status messages to the open PR. For example, the following messages are shown in the GitHub UI:
+
+            * Job is processing
+          <img src="/images/platform/jobs/runSh/processingBuildStatus.png" alt="Build Status Processing" style="width:;vertical-align: middle;display: block;margin-right: auto;"/>
+
+            * Job was successful
+          <img src="/images/platform/jobs/runSh/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+            * Job was canceled or failed
+          <img src="/images/platform/jobs/runSh/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+
+      * `TASK` -- in a [`runSh`](/platform/workflow/job/runsh/) job, this is an array of single line scripts that are executed as part of the job. These are executed in series and will stop processing the moment an exit code is encountered.  Only `runSh` jobs require a `TASK`.
+
+      * `OUT` -- only resources can be `OUT`s. This is used when the current job is altering the state of the resource that is defined in the `OUT`. Any resource can be used for storing key-value pairs output by a job. The [state](/platform/workflow/resource/state/) resource can be used to store both key-value pairs and files. Only `state` resources can be both IN and OUT for the same job to avoid circular dependencies, which will cause a loop in your DevOps Assembly Lines.
+        * `replicate` -- an optional setting that allows you to copy the current version of an `IN` resource in the context of the job to the desired `OUT` resource. This is useful if you need some pre-processing, for example, to validate the commit message of a git commit before you execute the actual job. A word of caution: this, if used improperly, can lead to unexpected behavior in your workflow
+        * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
+
+    * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
+    	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
+    	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
+    * **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+    * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+    * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+    * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+
 
 ## Further Reading
 * [Getting started with CI](/ci/why-continuous-integration/)

@@ -15,7 +15,7 @@ Shippable does not directly integrate GKE load balancers (services) in `deploy` 
 
 ###1. Add a loadBalancer resource.
 
-Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file. As an example:
+Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. As an example:
 
 ```
 resources:
@@ -54,7 +54,7 @@ If you want to set custom labels for your loadBalancer, check out the [instructi
 
 The [provision](/platform/workflow/job/provision/) job is used to create ancillary objects like load balancers on Container Orchestration Platforms like GKE and Kubernetes.
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -76,7 +76,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
 
 **Steps**
 
-* Add a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+* Add a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -89,7 +89,7 @@ resources:
         environment: "test"
 ```
 
-* Specify `app_labels` as an additional input to the [manifest job](/platform/workflow/job/manifest). For example, the yml snippet for our [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
+* Specify `app_labels` as an additional input to the [manifest job](/platform/workflow/job/manifest). For example, the yml snippet for our [single container application](/deploy/continuous-delivery-single-container-docker-application/) would look like this:
 
 ```
 jobs:
@@ -103,7 +103,7 @@ jobs:
       - IN: app_labels
 ```
 
-* Update the `selector` section in the `loadBalancer` resource to match the labels you used in `dockerOptions`. The yml snippet for our [single container application](/deploy/cd_of_single_container_applications_to_orchestration_platforms) would look like this:
+* Update the `selector` section in the `loadBalancer` resource to match the labels you used in `dockerOptions`. The yml snippet for our [single container application](/deploy/continuous-delivery-single-container-docker-application/) would look like this:
 
 ```
 resources:

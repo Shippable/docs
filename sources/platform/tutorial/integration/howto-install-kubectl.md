@@ -1,8 +1,8 @@
-page_main_title: Share data between Jobs
+page_main_title: Installing kubectl
 main_section: Platform
 sub_section: Tutorials
-sub_sub_section: Jobs
-page_title: Share data between Jobs
+sub_sub_section: Integrations
+page_title: Installing kubectl
 
 If your Kubernetes master node is not publicly accessible from the internet, Shippable's hosted service cannot communicate with it. To get around this problem, we need you to configure a Bastion host which is publicly accessible and can also communicate with the Kubernetes master node.
 
