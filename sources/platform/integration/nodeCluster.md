@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Generic**
 * **Integration type** -- **Node Cluster**
 * **Name** -- choose a friendly name for the integration
 * **Nodes** -- The IP addresses of the nodes in the cluster

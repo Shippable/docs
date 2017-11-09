@@ -17,7 +17,6 @@ Integration](/platform/management/integrations#add-integration) so that your Shi
 navigation bar.
 -  Click on **Integrations** in the left sidebar menu and then click on **Add
 Integration**
-- Select the Integration Family as `generic` from the dropdown
 -  Locate **Google Cloud** in the Integration Type dropdown
 -  Name your integration and enter your credential file content.
 -  Choose the Subscription(s) that are allowed to use these credentials.

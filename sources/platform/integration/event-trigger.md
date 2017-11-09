@@ -23,7 +23,6 @@ Since this integration has been deprecated, you cannot create new account integr
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Notifications**
 * **Integration type** -- **Event Trigger**
 * **Name** -- choose a friendly name for the integration
 * **Trigger endpoint** -- Dropdown with following values

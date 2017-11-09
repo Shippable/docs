@@ -22,7 +22,6 @@ If you're configuring notifications for Assembly Lines, you will need this integ
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **Notifications**
 * **Integration type** -- **Email**
 * **Name** -- choose a friendly name for the integration
 * **Email Address** -- email address you want to send notifications to. You can add additional addresses when used in a resource.

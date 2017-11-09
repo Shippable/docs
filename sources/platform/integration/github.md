@@ -17,7 +17,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **SCM**
 * **Integration type** -- **GitHub**
 * **Name** -- choose a friendly name for the integration
 * **URL** -- your GitHub API endpoint. This is already hard-coded to https://api.github.com

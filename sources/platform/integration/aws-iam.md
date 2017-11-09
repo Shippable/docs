@@ -15,7 +15,6 @@ You can add an account integration to Shippable by following steps on the [Addin
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **generic**
 * **Integration type** -- **AWS IAM**
 * **Name** -- choose a friendly name for the integration
 * **Assume Role ARN** -- Role to Assume when connecting to AWS

@@ -11,11 +11,10 @@ page_description: How to create an Amazon Web Services (AWS) IAM account integra
 
 <img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
 
-2. Select **deploy** as the Integration family.
-3. Choose **AWS (IAM)** from the list of integration types.
-4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
-5. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
-6. Click **Save**
+2. Choose **AWS (IAM)** from the list of integration types.
+3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
+4. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
+5. Click **Save**
 
 <img src="/images/platform/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
 
@@ -26,7 +25,7 @@ page_description: How to create an Amazon Web Services (AWS) IAM account integra
 <img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Amazon ECS credentials">
 
 2. Click on the **Add Integration** button.
-3. For **Integration type**, locate **AWS** from the list of integrations.
+3. For **Integration type**, locate **AWS-Keys** from the list of integrations.
 4. For **Integration Name** use a distinctive name that's easy to associate to the integration and recall. Example: **AWS-Integration**.
 5. Enter your access and secret keys provided by AWS. <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key" target="_blank"> See here</a> for info on how to generate them.  These keys should be associated with an account that has access to a policy with rules described [here](#policy).
 6. Click on **Save**.

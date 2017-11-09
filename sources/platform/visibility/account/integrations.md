@@ -13,10 +13,10 @@ Data that is stored as part of the Integration is encrypted both at rest and in 
 
 You can also update the values stored and since all [Jobs](/platform/workflow/job/overview) that use this integration refer to it with pointers, they all get the new values the next time the job executes
 
-<img src="/images/platform/visibility/account-integration-view.jpg" alt="List of all Account Integrations for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/account-integration-view.png" alt="List of all Account Integrations for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 You can add any number of Integrations to your account.
 
-<img src="/images/platform/visibility/account-integration-add.jpg" alt="Adding Account Integrations for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/account-integration-add.png" alt="Adding Account Integrations for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 This view changes depending on the [Integration](/platform/integration/overview) you choose to add.

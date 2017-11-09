@@ -13,7 +13,6 @@ You can create this from the integrations page by following instructions here: [
 
 This is the information you would require to create this integration:
 
-* **Integration Family** -- **generic**
 * **Integration Type** -- **Google Cloud**
 * **Name** -- Friendly name for the integration
 * **JSON Key** -- JSON Security Key for Google Cloud

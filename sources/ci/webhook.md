@@ -15,7 +15,7 @@ Before you start, you will need to connect your external entity with Shippable s
 ###Add the Webhook integration to your Account
 
 -  Go to your **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Locate **Webhook** in the list of `generic` integration family and click on **Create Integration**
+-  Locate **Webhook** in the list of integration types and click on **Create Integration**
 -  Name your integration with a friendly name and enter the webhook URL endpoint where you want to send the payload to in the 'Webhook URL' field 
 -  Choose the Subscription which contains the repository for which you want to send payload. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
 -  Click **Save**

@@ -13,7 +13,6 @@ You can add this account integration by following steps on the [Adding an accoun
 
 Here is the information you need to create this integration:
 
-* **Integration Family** -- **generic**
 * **Integration type** -- **Docker Registry**
 * **Name** -- choose a friendly name for the integration
 * **URL** -- an optional field which will default to Docker Hub if left empty. To use with Docker Trusted Registry or Docker Private Registry fill with the location of your private registry. Format `https://foo.com`
