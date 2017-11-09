@@ -12,11 +12,10 @@ The best way to create an isolated set of credentials for use with Shippable Pip
 
 <img width="75%" height="75%" src="/images/platform/integrations/account-settings.png" alt="Add Azure DC/OS credentials">
 
-2. Select **deploy** as the Integration family.
-3. Choose **AWS (IAM)** from the list of integration types.
-4. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
-5. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
-6. Click **Save**
+2. Choose **AWS (IAM)** from the list of integration types.
+3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: **manishas-aws-iam**
+4. Enter the ARN for the role **shippable-role-to-allow-ecs-access**. This will be a string with format like this **arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access**. This role should be associated with a policy as defined [here](#policy)
+5. Click **Save**
 
 <img src="/images/platform/integrations/aws-iam-integration.png" alt="Amazon ECS credentials">
 
