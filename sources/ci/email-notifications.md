@@ -64,7 +64,8 @@ integrations:
 You can set sendConsoleLogs: true in your email notification configuration in shippable.yml to receive console logs as attachments in build emails.
 
 ```yaml
-notifications:
+integrations:                               
+  notifications:
     - integrationName: email
       type: email
       recipients:
@@ -76,7 +77,8 @@ notifications:
 You can set sendCoverageReports: true in your email notification configuration in shippable.yml to receive coverage reports as attachments in build emails.
 
 ```yaml
-notifications:
+integrations:                               
+  notifications:
     - integrationName: email
       type: email
       recipients:
