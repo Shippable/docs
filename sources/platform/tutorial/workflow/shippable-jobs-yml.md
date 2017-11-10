@@ -8,11 +8,6 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.jobs.yml
 
-## Deprecation Note
-This file has been deprecated. All jobs can now be defined in the `jobs` section of `shippable.yml`.  See [anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/) for more information.
-
----
-
 [Jobs](/platform/workflow/job/overview/) are the executable units of your pipelines that can execute any DevOps activity. A simple way to think of it is, if something can execute in the shell of your laptop, it can execute as a Job.
 
 Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview), execute tasks that perform the operations necessary and then produce a result i.e. Output(s). Now these Outputs can become Inputs to other jobs and so on forming a dependency-based, event-driven DevOps Assembly Line.

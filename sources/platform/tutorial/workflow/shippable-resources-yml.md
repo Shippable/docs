@@ -8,12 +8,6 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.resources.yml
 
-## Deprecation Note
-This file has been deprecated. All resources can now be defined in the `resources` section of `shippable.yml`.  See [anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/) for more information.
-
----
-
-
 [Resources](/platform/workflow/resource/overview/) are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
 
 Resources are defined in a yml-based configuration file `shippable.resources.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
