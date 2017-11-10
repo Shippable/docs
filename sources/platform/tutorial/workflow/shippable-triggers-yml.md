@@ -8,12 +8,6 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.triggers.yml
 
-## Deprecation Note
-This file has been deprecated. Triggers can now be defined in the `resources` section of `shippable.yml`.  See [anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/) for more information.
-
----
-
-
 [Triggers](/platform/workflow/trigger/overview/) are used to manually start a job. They are very similar to resources, the only difference being that updating a resource in the YML will not start the dependent job(s), but a updating a trigger will.
 
 A YML config file `shippable.triggers.yml` is used to define triggers. Anatomy of the yml is here: [Anatomy of triggers yml](/platform/tutorial/workflow/shippable-triggers-yml/)
