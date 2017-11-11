@@ -8,11 +8,18 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.yml
 
-Shippable's DevOps Platform leverages a declarative syntax for Continuous Integration. A YML `shippable.yml` config file is used to define the tasks. It is added to your the root of your source code repo just like any other piece of code and the platform recognizes the changes you make to it through webhooks and fires CI Runs.
+Shippable's DevOps Platform leverages a declarative syntax for Continuous Integration and Assembly Line configuration with a YAML config file `shippable.yml`.
 
-The anatomy of the jobs configuration generally follows the structure below
+Please note that if you only want to use Shippable for a simple CI workflow, your `shippable.yml` needs to be at the root of the repository you want to enable for CI.
+
+If you're using the `jobs` and `resources` sections of the yml to configure Assembly Lines, your configuration is global across all repositories in your Subscription and can be committed to any folder in any repository that you [add as a **Sync repository**](/platform/tutorial/workflow/crud-syncrepo).
+
+The anatomy of `shippable.yml` follows the structure below:
 
 ```
+
+#### CI CONFIG
+
 language:	<Language name>
 
 <language version>: #depending on language
@@ -132,6 +139,10 @@ integrations:
       bucket_name: <s3 bucket>
       #### special tags for docker app ####
 
+#### END CI CONFIG
+
+#### RESOURCES CONFIG (GLOBAL ACROSS SUBSCRIPTION)
+
 resources:
   - name:           <string>
     type:           <resource type name>
@@ -139,6 +150,10 @@ resources:
     pointer:        <object>
     seed:           <object>
     version:        <object>
+
+#### END RESOURCES CONFIG
+
+#### JOBS CONFIG (GLOBAL ACROSS SUBSCRIPTION)
 
 jobs:
   - name:           <string>
@@ -182,9 +197,12 @@ jobs:
     always:
       - script:     pwd
 
+#### END JOBS CONFIG
+
 ```
 
-## CI
+## CI config
+
 ### Language
 * **`language`** -- this drives which Runtime image is used for your CI workflow. [Read more](/ci/set-language/). We currently support the following languages:
 	* [C/C++](/ci/cpp-continuous-integration/)
@@ -293,10 +311,15 @@ jobs:
 		* `image_tag` -- Docker image tag if your app is Docker-based
 		* `bucket_name` -- S3 bucket name to upload your config
 
-## Resources
+## Resources config
+
+This section defines [resources for your Assembly Lines](/platform/workflow/resource/overview).
+
+Please remember that everything under the `jobs` and `resources` sections is global across your Subscription, and you can reference jobs and resources across different repositories in the same Subscription.
+
 * **`resources`** -- Shippable Assembly Line resources.  These resources will appear in your Shippable Assembly Lines when this file is part of a [syncRepo](/platform/tutorial/workflow/crud-syncrepo/).
 
-    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represents, e.g., `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to jobs.
+    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represents, e.g., `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to jobs, and needs to be unique across all repositories in your Subscription.
 
     * **`type`** -- Name of the resource type that this resource is an instance of. [Here](/platform/workflow/resource/overview#types) is a list of all types.
 
@@ -308,10 +331,15 @@ jobs:
 
     * **`version`** -- section contains information is not expected to change dynamically during a job run. Any time information changes in this section, a new version of the resource is created.
 
-## Jobs
+## Jobs config
+
+This section defines [jobs for your Assembly Lines](/platform/workflow/job/overview).
+
+Please remember that everything under the `jobs` and `resources` sections is global across your Subscription, and you can reference jobs and resources across different repositories in the same Subscription.
+
 * **`jobs`** -- Shippable Assembly Line jobs.  These jobs will appear in your Shippable Assembly Lines when this file is part of a [syncRepo](/platform/tutorial/workflow/crud-syncrepo/).
 
-    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does, e.g. `prov_test_env` to represent a job that provisions a test environment.
+    * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does, e.g. `prov_test_env` to represent a job that provisions a test environment. Names of jobs need to be unique across all repositories in your Subscription.
 
     * **`type`** -- Name of the job type of which this job is an instance. [Here](/platform/workflow/job/overview#types) is a list of all types
 

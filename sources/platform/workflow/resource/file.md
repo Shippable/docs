@@ -4,7 +4,8 @@ sub_section: Workflow
 sub_sub_section: Resources
 
 # file
-`file` resource is a pointer to a file on an external file share. It can be used as an `IN` for `manifest` jobs to create a service definition with a file, or in a `runSh` job that needs the file to run scripts.
+
+A `file` resource is a pointer to a file on an external file share. It can be used as an `IN` for `manifest` jobs to create a service definition with a file, or in a `runSh` job that needs the file to run scripts.
 
 You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
