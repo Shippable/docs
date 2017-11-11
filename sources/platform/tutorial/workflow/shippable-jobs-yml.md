@@ -12,7 +12,9 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview), execute tasks that perform the operations necessary and then produce a result i.e. Output(s). Now these Outputs can become Inputs to other jobs and so on forming a dependency-based, event-driven DevOps Assembly Line.
 
-Jobs are defined in a yml-based configuration file `shippable.jobs.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+Jobs can be defined in `shippable.yml` (the preferred approach) or in `shippable.jobs.yml`(the legacy approach) committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+
+For anatomy of `shippable.yml`, please [read this doc](/platform/tutorial/workflow/shippable-yml).
 
 The anatomy of the jobs configuration in `shippable.jobs.yml` generally follows the structure below:
 
