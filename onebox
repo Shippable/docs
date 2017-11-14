@@ -7,41 +7,41 @@ readonly CYAN="\e[96m"
 readonly RESET="\e[39m"
 
 log.info() {
-  echo -e "$CYAN$@$RESET"
+  echo -e "$CYAN" "$@" "$RESET"
 }
 
 log.verbose() {
-  echo -e $@
+  echo -e $"@"
 }
 
-stop() {
-  local onebox_exist=$(sudo docker ps -a | grep $ONEBOX_NAME | awk '{print $1}')
-  if [[ ! -z "$onebox_exist" ]]; then
+docker-stop() {
+  local onebox_exist; onebox_exist=$(sudo docker ps -a | grep $ONEBOX_NAME | awk '{print $1}')
+  if [[ -n $onebox_exist ]]; then
     log.info "Removing $COMPONENT container..."
-    sudo docker rm -f $ONEBOX_NAME > /dev/null
+    sudo docker rm -f $ONEBOX_NAME >/dev/null
   fi
 }
 
-build() {
+docker-build() {
   log.info "Building $COMPONENT image..."
   sudo docker build -t shipimg/$COMPONENT .
 }
 
-run() {
+docker-run() {
   log.info "Running $COMPONENT..."
   sudo docker run --name=$ONEBOX_NAME \
     -d -p $PORT:$PORT \
-    -v $(pwd):/home/shippable/$COMPONENT:rw \
+    -v "$(pwd):/home/shippable/$COMPONENT:rw" \
     -t shipimg/$COMPONENT \
-    > /dev/null
+    >/dev/null
 
   log.verbose "Running at http://localhost:$PORT"
 }
 
 main() {
-  stop
-  build
-  run
+  docker-stop
+  docker-build
+  docker-run
 }
 
 main
