@@ -8,7 +8,7 @@
   {# Loop through all the main sections in the navigation. #}
   {% for main_section in nav %}
     {# If the main section matches the main section of the current page, display it. Skip otherwise. #}
-    {% if main_section.title in meta.main_section %}
+    {% if main_section.title in page.meta.main_section %}
       {% include 'partials/_section.html' %}
     {% endif %}
   {% endfor %}

@@ -1,7 +1,7 @@
 {% for sub_section in main_section.children %}
   {# If the sub-section contains children, then display a dropdown. #}
   {% if sub_section.children %}
-    {% if sub_section.title in meta.sub_section %}
+    {% if sub_section.title in page.meta.sub_section %}
     <li class="subSection active">
     {% else %}
     <li class="subSection">
