@@ -45,10 +45,11 @@ resources:
               only:
                 - <tag name>
                 - <tag name>
-            buildOnCommit:          <Boolean>
-            buildOnPullRequest:     <Boolean>
-            buildOnRelease:         <Boolean>
-            buildOnTagPush:         <Boolean>
+            buildOnCommit:            <Boolean>
+            buildOnPullRequest:       <Boolean>
+            buildOnPullRequestClose:  <Boolean>
+            buildOnRelease:           <Boolean>
+            buildOnTagPush:           <Boolean>
 
 * Detailed explation of the pointer properties:
 	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**
@@ -61,6 +62,7 @@ resources:
     	* `only` -- (optional) Can be used to include only a collection of specific tags or releases
     * `buildOnCommit` -- (default is true) used to control whether the resource will be updated for commit webhooks
     * `buildOnPullRequest` -- (default is false) used to control whether the resource will be updated for pull request webhooks
+    * `buildOnPullRequestClose` -- (default is false) used to control whether the resource will be updated for closing a pull request webhook
     * `buildOnRelease` -- (default is false) used to control whether the resource will be updated for release webhooks    
     * `buildOnTagPush` -- (default is false) used to control whether the resource will be updated for tag webhooks
 
@@ -113,7 +115,8 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 | `<NAME>`\_VERSIONNAME   					| The commitSHA of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
-
+| `<NAME>`\_IS_PULL\_REQUEST                | Set to `TRUE` if the version in context is a git open pull request based build. |
+| `<NAME>`\_IS_PULL\_REQUEST\_CLOSE         | Set to `TRUE` if the version in context is a git closed pull request based build. Supported only if the integration is of GitHub or Bitbucket or Gitlab.|
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
