@@ -18,7 +18,7 @@ You can send notifications upon the following events in your workflow:
 * Job failed (on_failure)
 * Job canceled (on_cancel)
 
-You can create a `notification` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `notification` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:

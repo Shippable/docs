@@ -8,11 +8,11 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Status notifications for Pull Requests
 
-If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runSh` job, you can see the job status for pull requests to your git repository .
+If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runSh` job, you can see the job status for pull requests to your git repository.
 
 You can turn this ON or OFF using the `showBuildStatus` tag in the `gitRepo` resource.
 
-For example, the runSh job will be configured in `shippable.jobs.yml` as shown below for this scenario:
+For example, the runSh job will be configured as shown below for this scenario:
 
 ```
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
 ```
 
-The corresponding  `gitRepo` resource in `shippable.resources.yml` needs to include the tag `buildOnPullRequest: true` and `buildOnPullRequestClose: true`as shown below:
+The corresponding  `gitRepo` resource needs to include tags `buildOnPullRequest: true` and `buildOnPullRequestClose: true`as shown below:
 
 ```
 resources:
@@ -37,8 +37,8 @@ resources:
     pointer:
       sourceName: <repoName>                    
       branch: <branchName>                      
-      buildOnPullRequest: true     #specify true to trigger the job for pull requests to the git repository
-      buildOnPullRequestClose: true #specify true to trigger the runSh job for closed pull requests to the git repository
+      buildOnPullRequest: true       #specify true to trigger the job for pull requests to the git repository
+      buildOnPullRequestClose: true  #specify true to trigger the runSh job for closed pull requests to the git repository
 
 ```
 

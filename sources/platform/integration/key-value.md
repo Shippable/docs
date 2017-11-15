@@ -19,7 +19,7 @@ Here is the information you need to create this integration:
 
 ## Usage in CI
 
-You can use a Key-value integration with CI only if you have a `runCI` job in your `shippable.jobs.yml` which has a key-value integration as an `IN`.
+You can use a Key-value integration with CI by adding it as an `IN` to the `runCI` job or by adding it to your `shippable.yml` as described [here](/platform/tutorial/integration/howto-use-key-value-in-runci/).
 
 You can also set key-value pairs as [environment variables in CI](/ci/env-vars/#usrEnv).
 

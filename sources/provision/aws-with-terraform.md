@@ -39,18 +39,19 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Terraform scripts
 
-In `shippable.resources.yml`, define the following resources to be used as
+In `shippable.yml`, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
-# config for awscli
+resources:
+  # config for awscli
   - name: myAwsCliConfig
     type: cliConfig
     integration: myAwsIntegration # replace with your AWS integration name
     pointer:
       region: us-east-1 # replace with your AWS region
 
-# source code repo holding Terraform scripts to be used in pipeline
+  # source code repo holding Terraform scripts to be used in pipeline
   - name: myGithubRepo
     type: gitRepo
     integration: myScmIntegration # replace with your scm integration name
@@ -59,11 +60,12 @@ inputs to your pipeline:
       branch: master
 ```
 
-In `shippable.jobs.yml`, define the following job in order to execute Terraform
+And, in `shippable.yml`, define the following job in order to execute Terraform
 scripts to provision on AWS from your pipeline:
 
 ```yaml
-# job to execute Terraform script to provision AWS instances
+jobs:
+  # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -110,9 +112,10 @@ To set up this pipeline, simply separate your provision and terminate actions
 into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
-`shippable.jobs.yml`:
+`shippable.yml`:
 ```yaml
-# job to execute Terraform script to provision AWS instances
+jobs:
+  # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runSh
     steps:
@@ -144,7 +147,7 @@ into separate jobs and name the 'provision' job as an input to the
           cd $MYGITHUBREPO_STATE
           cp terraform.tfstate /build/state
 
-# job to execute Terraform script to terminate AWS instances
+  # job to execute Terraform script to terminate AWS instances
   - name: myTerminateJob
     type: runSh
     steps:
@@ -183,18 +186,17 @@ into separate jobs and name the 'provision' job as an input to the
 To schedule a pipeline job to automatically execute a Terraform script on a
 recurring basis, add a `time` resource.
 
-`shippable.resources.yml`:
+`shippable.yml`:
 ```yaml
-# This time resource triggers an attached job nightly at 11:00p
+resources:
+  # This time resource triggers an attached job nightly at 11:00pm UTC
   - name: myNightlyTrigger
     type: time
     seed:
       interval: * 23 * * * *
-```
 
-`shippable.jobs.yml`:
-```yaml
-# job to execute Terraform script to provision AWS instances
+jobs:
+  # job to execute Terraform script to provision AWS instances
   - name: myProvisionJob
     type: runSh
     steps:

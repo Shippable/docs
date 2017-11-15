@@ -135,7 +135,7 @@ If you have a [`gitRepo`](/platform/resource-gitrepo/) as IN to your `runCLI` jo
 
 You can turn this ON or OFF using the `showBuildStatus` tag in the `gitRepo` resource.
 
-For example, the runCLI job will be configured in `shippable.jobs.yml` as shown below for this scenario:
+For example, the runCLI job will be configured as shown below for this scenario:
 
 ```
 jobs:
@@ -150,7 +150,7 @@ jobs:
 
 ```
 
-The corresponding  `gitRepo` resource in `shippable.resources.yml` needs to include the tag `buildOnPullRequest: true` as shown below:
+The corresponding `gitRepo` resource needs to include the tag `buildOnPullRequest: true` as shown below:
 
 ```
 resources:

@@ -10,7 +10,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 **Our recommended approach for abstracting sensitive information like passwords, keys, etc is to use the `key-value` integration. These are encrypted at rest and in flight and stored in our Vault.**
 
-However, there are times when you just want to encrypt something so you can use it in your YAML, for example in your `shippable.yml` or while configuring a `params` resource.  
+However, there are times when you just want to encrypt something so you can use it in your YAML, for example in the `env` section of your `shippable.yml` or while configuring a `params` resource.  
 
 ## Encrypting information
 
@@ -37,7 +37,7 @@ build:
     - echo $FOO  
 ```
 
-You can also use secure variables in the `params` resource in `shippable.resources.yml`:
+You can also use secure variables in a `params` resource in `shippable.yml`:
 
 ```
 resources:

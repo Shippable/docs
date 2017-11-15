@@ -9,7 +9,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Setup
 
--  Create a [version](/platform/workflow/resource/version/) resource in the shippable.resources.yml file. Specify your starting version in the versionName field.
+-  Create a [version](/platform/workflow/resource/version/) resource in the shippable.yml file. Specify your starting version in the versionName field.
 
 ```
  # Version resource
@@ -19,7 +19,7 @@ The `bump` directive in the release job specifies how the version number should 
       versionName: "1.0.0"
 ```
 
--  Add a [manifest](/platform/workflow/job/manifest/) job to your shippable.jobs.yml file.
+-  Add a [manifest](/platform/workflow/job/manifest/) job to your shippable.yml file.
 
 ```
  # Manifest job  
@@ -35,7 +35,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing major version
 
-- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+- After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
@@ -52,7 +52,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing minor version
 
- - After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+ - After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
   we provide a single manifest job as an input.
 
 ```
@@ -69,7 +69,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing patch version
 
-- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+- After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
@@ -86,7 +86,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing alpha version
 
-- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+- After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
@@ -103,7 +103,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing beta version
 
-- After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+- After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
  we provide a single manifest job as an input.
 
 ```
@@ -120,7 +120,7 @@ The `bump` directive in the release job specifies how the version number should 
 
 ## Incrementing rc version
 
- - After completing the setup section above, add a release job to the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
+ - After completing the setup section above, add a release job to the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example,
   we provide a single manifest job as an input.
 
 

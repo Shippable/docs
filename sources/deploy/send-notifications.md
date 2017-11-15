@@ -18,9 +18,9 @@ Instructions are at :
 - [Create Hipchat integration](/platform/integration/hipchatKey/)
 
 
-###Step 2: Update shippable.resources.yml
+###Step 2: Update shippable.yml
 
-Next, you should define a [notification resource](/platform/workflow/resource/notification/) in your `shippable.resources.yml`.
+Next, you should define a [notification resource](/platform/workflow/resource/notification/) in your `shippable.yml`.
 
 
 ####Example: Slack
@@ -72,9 +72,9 @@ resources:
         - "chat.freenode.net#channel1"
 ```
 
-###Step 3: Add the resource to jobs yml
+###Step 3: Add the resource to a job
 
-You can use your resource in your `shippable.jobs.yml` to configure when notifications are sent:
+You can use your resource in jobs in your `shippable.yml` to configure when notifications are sent:
 
 ```
   - name: your-job-name

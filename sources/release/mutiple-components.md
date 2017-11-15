@@ -8,7 +8,7 @@ This tutorial demonstrates how to version multiple components before they are de
 
 ##Setup
 
-The basic setup requires a manifest job for each component that is to be versioned in the shippable.resources.yml file. Here we demonstrate the steps to version a Node Docker image and a Java Docker image before they are deployed to an Amazon ECS cluster using a release job.
+The basic setup requires a manifest job for each component that is to be versioned in the shippable.yml file. Here we demonstrate the steps to version a Node Docker image and a Java Docker image before they are deployed to an Amazon ECS cluster using a release job.
 
 This tutorial uses docker images built in the following tutorials:
 
@@ -17,8 +17,9 @@ This tutorial uses docker images built in the following tutorials:
 
 ## Basic Configuration
 
-- Once you have completed the setup above, add a version resource to the shippable.resources.yml file.
+- Once you have completed the setup above, add a version resource to the shippable.yml file.
 ```
+resources:
   - name: release-version
     type: version
     seed:
@@ -29,9 +30,10 @@ This tutorial uses docker images built in the following tutorials:
 Set the starting point of your version in the versionName field. The release job, which we will define next, will use the versionName as the seed and increment it whenever it is triggered.  
 
 
-- Next add the manifest jobs and a release job to the shippable.jobs.yml file.
+- Next add the manifest jobs and a release job to the shippable.yml file.
 ```
-# Manifest job for node image
+jobs:
+  # Manifest job for node image
   - name: node-img-manifest
     type: manifest
     steps:
@@ -40,7 +42,7 @@ Set the starting point of your version in the versionName field. The release job
     flags:
       - release-multiple-component
 
-# Manifest job for java image
+  # Manifest job for java image
   - name: java-img-manifest
     type: manifest
     steps:
@@ -49,7 +51,7 @@ Set the starting point of your version in the versionName field. The release job
     flags:
       - release-multiple-component
 
-# Release job
+  # Release job
   - name: multiple-components-release
     type: release
     steps:
@@ -64,7 +66,7 @@ Set the starting point of your version in the versionName field. The release job
 
 We provide the two manifest jobs as inputs to the release job `multiple-components-release`. Each manifest job takes its associated image as its input.
 
-The version resource `release-version` defined earlier in shippable.resources.yml is provided as the third input to the release job.
+The version resource `release-version` defined earlier in shippable.yml is provided as the third input to the release job.
 
 The bump field will increment the version and set the version to 1.1.0-beta. The bump field can be configured to increment major, minor, patch, alpha, beta, or rc.
 

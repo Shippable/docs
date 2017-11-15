@@ -7,44 +7,45 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # runSh
-`runSh` is a job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile Jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo`, etc., the vision of "Everything as Code" can be realized.
+`runSh` is a job that lets you run any `shell` script as part of your DevOps Assembly Line. It is one of the most versatile jobs in the arsenal and can be used to pretty much execute any DevOps activity that can be scripted. With a combination of `IN`s like `params`, `integration`, `gitRepo`, etc., the vision of "Everything as Code" can be realized.
 
 You should use this job type if you need the freedom that some of the pre-packaged jobs like [deploy](/platform/workflow/job/deploy) and [manifest](/platform/workflow/job/manifest) do not provide, or if they do not support the 3rd party end-point you want to integrate with. For example, pushing to Heroku is not yet natively supported through a managed job type, so you can write the scripts needed to do this and add it to your workflow as a job of type `runSh`.
 
 You can also add [cliConfig](/platform/workflow/resource/cliconfig) resources as inputs to this job. The relevant CLI tools will be preconfigured for your scripts to use. For a complete list of supported cliConfig integrations see [here](/platform/workflow/resource/cliconfig#cliConfigTools).
 
-A new version is created anytime this job is executed.
+A new version is created every time this job is executed.
 
-You can create a `runSh` Job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml` and it executes on Shippable provided [Dynamic Nodes](/platform/runtime/overview#nodes) or [Custom Nodes](/platform/runtime/overview#nodes)
+You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml` and it executes on Shippable provided [Dynamic Nodes](/platform/runtime/overview#nodes) or [Custom Nodes](/platform/runtime/overview#nodes).
 
 ## YML Definition
 ```
 jobs:
-  - name:           <string>
-    type:           runSh
+  - name:             <string>
+    type:             runSh
+    triggerMode:      <parallel/serial>
     on_start:
       - NOTIFY:       <notification resource name>
     steps:
-      - IN:         <resource>
+      - IN:           <resource>
         switch:       off
-      - IN:         <job>
-      - IN:         <resource>
-        versionName:    <name of the version you want to pin>
-      - IN:         <resource>
+      - IN:           <job>
+      - IN:           <resource>
+        versionName:  <name of the version you want to pin>
+      - IN:           <resource>
         versionNumber:    <number of the version you want to pin>        
-      - IN:         <gitRepoResource with buildOnPullRequest: true and buildOnPullRequestClose: true>
+      - IN:         <gitRepo resource with buildOnPullRequest: true and buildOnPullRequestClose: true>
         showBuildStatus:  true       
-      - IN:         <cliConfig with scope support>
+      - IN:           <cliConfig with scope support>
         scopes:
-          - scope        <scope that you want configured>
+          - scope     <scope that you want configured>
       - TASK:
-        - script:       <any shell command>
-        - script:       <any shell command>
-      - OUT:        <resource>
-      - OUT:        <resource>
-        replicate:      <IN resource>
-      - OUT:        <resource>
-        overwrite:      true
+        - script:     <any shell command>
+        - script:     <any shell command>
+      - OUT:          <resource>
+      - OUT:          <resource>
+        replicate:    <IN resource>
+      - OUT:          <resource>
+        overwrite:    true
     on_success:
       - script:       echo "SUCCESS"
     on_failure:
@@ -56,22 +57,24 @@ jobs:
       - script:       pwd
 ```
 
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
 * **`name`** -- Required, should be an easy to remember text string
 
 * **`type`** -- Required, is set to `runSh`
 
+* **`triggerMode`** -- Optional, can be `parallel` or `serial`.  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
+
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
-* **`steps `** -- is an object which contains specific instructions to run this Job
-    * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
+* **`steps `** -- is an object which contains specific instructions to run this job
+    * `IN` -- Optional, any resource or job can be used here, with as many `IN` resources and jobs as you need. The `switch`, `versionNumber`, `versionName` and `showBuildStatus` options are supported, too. However, `applyTo` is not supported.
 
     * `TASK` -- Required, at least one script line needs to be present
         * `- script:` -- a line of bash script to be executed
-    * `OUT` -- Optional, any Resource can be used here and as many as you need
-    * `replicate` -- Optional, any `IN` Resource of same type can be used
-    * `overwrite` -- Optional, default is `false`
+    * `OUT` -- Optional, any resource can be used here and as many as you need
+        * `replicate` -- Optional, any `IN` resource of same type can be used
+        * `overwrite` -- Optional, default is `false`
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
@@ -103,9 +106,9 @@ Here is a list of the tools configured for each integration type:
 **Note**: Google Cloud with `gke` scope is used to set the cluster name and region. For all other google cloud integration type(with no scopes or when scope is `gcr`) the cluster name and region will be ignored.
 
 ## Default Environment Variables
-In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`
+In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runSh` job. Visit the resource page for each type to get the list of environment variables that are set when a resource is included as an `IN` or `OUT`.
 
-In addition, the Job itself comes with its own default set of variables. This is the list for this Job type
+In addition, the job itself comes with its own default set of variables. This is the list for this job type:
 
 | Environment variable            | Description                         |
 | -------------                 |------------------------------------ |

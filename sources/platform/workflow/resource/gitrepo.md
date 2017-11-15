@@ -6,7 +6,7 @@ sub_sub_section: Resources
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with with webhook payload. This will trigger any jobs that have this resource as an `IN`.
 
-You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.resources.yml`
+You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
 ```
 resources:

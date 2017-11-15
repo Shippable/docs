@@ -23,11 +23,9 @@ We will be defining the jobs and resources in a step by step manner below.
 
 ## Configuration
 
-They are four configuration files that are needed to achieve this usecase -
+They are three configuration files that are needed to achieve this usecase -
 
-* **[shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/):** Resources are defined in this file. Please find an overview of resources [here](/platform/workflow/resource/overview/).
-
-* **[shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/):** Jobs are defined in this file. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* **[shippable.yml](/platform/tutorial/workflow/shippable-yml/):** [Resources](/platform/workflow/resource/overview/) and [jobs](/platform/workflow/job/overview/) are defined in this file.
 
 * **`Dockerrun.aws.json`**: This file specifies the image and environment configuration. Placeholders are defined in this file for the image and environment configuration. These placeholders give us flexibility to use the image and environment configuration that you will define in Shippable configuration files.
 
@@ -112,7 +110,7 @@ Once the creation is done, you should see this:
 * **Description:** `deploy-eb-basic-image` represents your Docker image in your pipeline. In our example, we're using an image hosted on Amazon ECR.
 * **Required:** Yes.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -141,7 +139,7 @@ resources:
 1. Create an account integration using your Shippable account for Amazon ECR.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -160,7 +158,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block in the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -188,7 +186,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
   - name: deploy-eb-basic-params
@@ -209,7 +207,7 @@ Add the following yml block to your [shippable.resources.yml](/platform/tutorial
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -236,7 +234,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 
 ```
@@ -283,7 +281,7 @@ We use the ebcli to perform the deployment, since it comes pre-installed on the 
 
 ###6. Import configuration into your Shippable account.
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ###7. Trigger your pipeline
 

@@ -4,20 +4,22 @@ sub_section: Managing release versions
 
 # Setting the version number for a Release
 
--  Create a version resource in the shippable.resources.yml file. Specify your initial version in the versionName field.
+-  Create a version resource in the shippable.yml file. Specify your initial version in the versionName field.
 
 ```
- # Version resource
- - name: release-version
+resources:
+  # Version resource
+  - name: release-version
     type: version
     seed:
       versionName: "1.0.0"
 ```
 
-- Create a release job in the shippable.jobs.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example
+- Create a release job in the shippable.yml file. Specify the version resource and your manifest or deploy jobs as inputs. In this example
  we provide a single manifest job as an input.
 
 ```
+jobs:
   #Manifest job  
   - name: java-img-manifest
     type: manifest

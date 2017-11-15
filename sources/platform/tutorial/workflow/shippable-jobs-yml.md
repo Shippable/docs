@@ -12,7 +12,9 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview), execute tasks that perform the operations necessary and then produce a result i.e. Output(s). Now these Outputs can become Inputs to other jobs and so on forming a dependency-based, event-driven DevOps Assembly Line.
 
-Jobs are defined in a yml-based configuration file `shippable.jobs.yml` that is committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+Jobs can be defined in `shippable.yml` (the preferred approach) or in `shippable.jobs.yml`(the legacy approach) committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+
+For anatomy of `shippable.yml`, please [read this doc](/platform/tutorial/workflow/shippable-yml).
 
 The anatomy of the jobs configuration in `shippable.jobs.yml` generally follows the structure below:
 
@@ -39,7 +41,7 @@ jobs:
           - manifest: 		<manifest>
             image: 			<image>              
             port: 			<number>
-      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+      - IN: 				<gitRepo resource with buildOnPullRequest: true>
         showBuildStatus: 	true
       - IN: 				<manifest/release>
         force: 				true
@@ -63,41 +65,42 @@ jobs:
 
 Any special `YML` tags that are job specific is defined in respective job pages.
 
-* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does e.g. `prov_test_env` to represent a job that provisions test environment.
+* **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the job does, e.g. `prov_test_env` to represent a job that provisions a test environment.
 
-* **`type`** -- Name of the job type that this job is an instance of. [Here](/platform/workflow/job/overview#types) is a list of all types
+* **`type`** -- Name of the job type of which this job is an instance. [Here](/platform/workflow/job/overview#types) is a list of all types
 
-* **`steps`** -- is an object that is the heart of the Job. It usually is made up of and array of INs, TASK & OUTs
-	* `IN` -- represents the input Resource or a preceding Job. Whenever there is a change to these inputs, this job will be triggered to run. `IN`s have attributes that are used to control the flow
-		* `switch` -- this determines whether a chance to the input entity will trigger a new run or not. default is `on` and can be set to `off` to turn of auto triggering
+* **`steps`** -- is the heart of the job. It is an array of INs, TASK & OUTs.
+  * `IN` -- specifies a resource or a preceding job that should be used as an input to this job. Whenever there is a change to an input, this job will be triggered. `IN`s have additional attributes that are used to control the flow.
+    * `switch` -- this determines whether a change to this input entity will trigger a new run or not. The default is `on` and `switch` can be set to `off` to turn off auto triggering.
 
-		* `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and will take in the first matching one from the list of versions chronologically descending. You can pin your Job to use specific versionName of the `INs` that the job takes in as inputs. This is typically used to control which version gets deployed etc. or even [rollback](/deploy/rollback/) if you need to.
-		* `versionNumber` -- this is a special used to pin a particular version of the input entity. Since every versionNumber is unique, this is guaranteed to give you predictable results. You can pin your Job to use specific versionNumber of the `INs` that the job takes in as inputs. This is typically used to control which version gets deployed etc. or even [rollback](/deploy/rollback/) if you need to. Both `versionName` and `versionNumber` cannot be used for the same `IN`
-		* `applyTo` - Optional setting and this is allowed only for [loadBalancer]() [image]() & [dockerOptions]() Resources when used in conjunction with a [deploy]() or [manifest]() Job. In all other cases, it is ignored. If it is set in the context of a loadBalancer, it takes in an object which sets the manifest that the loadBalancer connects to, the container image and port to create is listner to needs to be set. In other cases, it expects either a manifest, release or an image name.
-		* `force` -- and Optional setting and it is used only when the context is a `manifest` or `release` Resource and its used in a [deploy]() Job. This setting will force the deployment even if the manifest or release entity has not change. Typically used if your images use static tags.
-		* `showBuildStatus ` - this is allowed only for [gitRepo]() Resource with `buildOnPullRequest` option turned on. This setting will push execution status message to the open PR. For example, the following messages are shown in the GitHub UI:
+    * `versionName` -- this is used to pin a particular version of the input entity. This is a friendly name and the job will use the most recent matching version. You can pin your job to use a specific `versionName` for any of the `INs` in a job. This is typically used to control which version gets deployed or even [rollback](/deploy/rollback/) if you need to.
+    * `versionNumber` -- this is used to pin a particular version of the input entity. Since every `versionNumber` is unique, this is guaranteed to give you predictable results. You can pin your job to use a specific versionNumber of any `INs` that the job uses. This is typically used to control which version gets deployed or even [rollback](/deploy/rollback/) if you need to. Both `versionName` and `versionNumber` cannot be used for the same `IN`.
+    * `applyTo` - Optional setting allowed only [loadBalancer](/platform/workflow/resource/loadbalancer/), [image](/platform/workflow/resource/image/) & [dockerOptions](/platform/workflow/resource/dockeroptions/) resources when used in conjunction with a [deploy](/platform/workflow/job/deploy/) or [manifest](/platform/workflow/job/manifest/) job. In all other cases, it is ignored. If it is set in the context of a loadBalancer, it is an object that sets the manifest that the loadBalancer will connect to and the container image and port for the listener. In other cases, it expects either a manifest, release or an image name.
+    * `force` -- an optional setting used only in [deploy](/platform/workflow/job/deploy/) jobs when the context is a `manifest` or `release` resource. This setting will force the deployment each time the job is triggered even if the manifest or release entity has not changed. Typically used if your images use static tags.
+    * `showBuildStatus ` - this is allowed only for [gitRepo](/platform/workflow/resource/gitrepo/) resources with `buildOnPullRequest` turned on. This setting will push execution status messages to the open PR. For example, the following messages are shown in the GitHub UI:
 
-			* Job is processing
-			<img src="/images/platform/jobs/runSh/processingBuildStatus.png" alt="Build Status Processing" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+        * Job is processing
+        <img src="/images/platform/jobs/runSh/processingBuildStatus.png" alt="Build Status Processing" style="width:;vertical-align: middle;display: block;margin-right: auto;"/>
 
-			* Job was successful
-			<img src="/images/platform/jobs/runSh/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+        * Job was successful
+        <img src="/images/platform/jobs/runSh/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
-			* Job was canceled or failed
-			<img src="/images/platform/jobs/runSh/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+        * Job was canceled or failed
+        <img src="/images/platform/jobs/runSh/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
-	* `TASK` -- is an array of single line scripts that are executed as part of the Job. These are executed in series and will stop processing the moment an exit code is encountered
-	* `OUT` -- only Resources can be `OUT`s. This means the current Job is altering the state of the Resource that is defined in the `OUT`. Any Resource can be used for storing key-value pairs are output of the Job. But a special Resource [state]() can be used for both key-value pairs and files. A Resource cannot both IN and OUT for the same Job unless it is a `state` Resource. This is to avoid circular dependencies which will cause a loop in your DevOps Assembly Lines
-		* `replicate` -- an optional setting, that allows you to copy the current version of an `IN` Resource in the context of the Job to the desired `OUT` Resource. This is useful if you need some pre-processing for example "validate commit message of a git commit before you execute the actual Job". A word of caution; this if used improperly can lead to unexpected behavior in your workflow
-		* `overwrite` -- an optional setting, that allows you to completely replace the state of the `OUT` Resource. This is useful, for example, if you have multiple jobs that affect the state of the Resource and you want the state of your Resource to always reflect the most recent update. The default value is `false`, which means the state of your Resource is always appended to by the `OUT`, never replaced.
+  * `TASK` -- in a [`runSh`](/platform/workflow/job/runsh/) job, this is an array of single line scripts that are executed as part of the job. These are executed in series and will stop processing the moment an exit code is encountered.  Only `runSh` jobs require a `TASK`.
 
-* **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
-	* `script` -- any single line shell script can be executed here. This section is only available to `runCI` and `runSh`
-	* `NOTIFY` -- a Resource of type [notification]() can be added to send alerts about the Job
-* **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs
-* **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs
-* **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs
-* **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs
+  * `OUT` -- only resources can be `OUT`s. This is used when the current job is altering the state of the resource that is defined in the `OUT`. Any resource can be used for storing key-value pairs output by a job. The [state](/platform/workflow/resource/state/) resource can be used to store both key-value pairs and files. Only `state` resources can be both IN and OUT for the same job to avoid circular dependencies, which will cause a loop in your DevOps Assembly Lines.
+    * `replicate` -- an optional setting that allows you to copy the current version of an `IN` resource in the context of the job to the desired `OUT` resource. This is useful if you need some pre-processing, for example, to validate the commit message of a git commit before you execute the actual job. A word of caution: this, if used improperly, can lead to unexpected behavior in your workflow
+    * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
+
+  * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
+  	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
+  	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
+  * **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+  * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+  * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+  * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
 
 
 ## Further Reading

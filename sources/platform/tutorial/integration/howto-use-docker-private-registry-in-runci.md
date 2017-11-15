@@ -1,10 +1,9 @@
-page_main_title: Share data between Jobs
+page_main_title: Using a Docker Private Registry Integration in CI
 main_section: Platform
 sub_section: Tutorials
-sub_sub_section: Jobs
-page_title: Share data between Jobs
-
-The best way to create an isolated set of credentials for use with Shippable Pipelines is to create a Kubernetes Service Account, and set up a kubeconfig file that utilizes it.
+sub_sub_section: Integrations
+page_title: Using a Docker Private Registry Integration in CI
+page_description: How to use a Docker Private Registry integration in CI
 
 ###Configure Private Docker Registry integration in the `shippable.yml`
 To enable Private Docker Registry integration for your project, add the following to the `shippable.yml` file for that project.

@@ -4,7 +4,7 @@ sub_section: Deploy to Container Orchestration Platforms
 
 # Continuous Delivery for a single container Docker application
 
-A single container application could be a web application, API endpoint, a microservice, or any application component that is packaged as a single Docker image. This document describes how you can use the [Shippable assembly lines platform](/platform/overview/) to deploy such a single container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE, or Azure.
+A single container application could be a web application, API endpoint, a microservice, or any application component that is packaged as a single Docker image. This document describes how you can use the [Shippable Assembly Lines platform](/platform/overview/) to deploy such a single container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE, or Azure.
 
 ## Assumptions
 
@@ -53,13 +53,13 @@ that represents the options of the application container.
 
 ## Configuration
 
-They are two configuration files that are needed to achieve this usecase -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* Resources (grey boxes) are defined in your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file, that should be created at the root of your repository. Please find an overview of resources [here](/platform/workflow/resource/overview/).
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
 
-* Jobs (green boxes) are defined in your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file, that should be created at the root of your repository. Please find an overview of jobs [here](/platform/workflow/job/overview/).
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
 
-These files should be committed to your source control. Step 8 of the workflow below will describe how to add the config to Shippable.
+This file should be committed to your source control. Step 8 of the workflow below will describe how to add the config to Shippable.
 
 ## Instructions
 
@@ -74,7 +74,7 @@ These files should be committed to your source control. Step 8 of the workflow b
 1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -103,7 +103,7 @@ If no options are specified, the platform sets the following default options -
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -123,7 +123,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -142,7 +142,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -163,7 +163,7 @@ jobs:
 
 **Steps**
 
-Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -188,7 +188,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 2. Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
 
-3. Add the following yml block to your [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml/) file.
+3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
@@ -208,7 +208,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.jobs.yml](/platform/tutorial/workflow/shippable-jobs-yml/) file.
+Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 jobs:
@@ -223,7 +223,7 @@ jobs:
 
 ###8. Add config to Shippable
 
-Once you have these jobs and resources yml files as described above, commit them to your repository. This repository is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 

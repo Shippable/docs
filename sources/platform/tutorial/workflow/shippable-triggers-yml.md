@@ -20,7 +20,7 @@ The anatomy of the triggers configuration in `shippable.triggers.yml`  generally
 triggers:
   - name: 				<string>
     type: 				trigger
-	 version:
+    version:
       counter: 			1
 ```
 

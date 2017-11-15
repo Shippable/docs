@@ -22,7 +22,7 @@ They are predominantly used for the following reasons:
 
 ## YML Definition
 
-Resources are defined in `shippable.resources.yml` as shown below:
+Resources are defined in `shippable.yml` as shown below:
 
 ```
 resources:
@@ -33,7 +33,7 @@ resources:
     seed:               <object>
     version:            <object>
 ```
-For a detailed explanation of each field, read [shippable.resources.yml](/platform/tutorial/workflow/shippable-resources-yml).
+For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
 
 ## Resource structure
 
@@ -54,7 +54,7 @@ To understand how you can access the above components through your job scripts, 
 
 All resources are versioned. A new resource version is created in two ways:
 
-* When you update the resource definition in `shippable.resources.yml`
+* When you update the resource definition in `shippable.yml`
 * When a job updates an `OUT` resource
 
 This is critical if you want to be able to roll back, upgrade, or [pin the resource](/platform/tutorial/workflow/crud-job/#pin) to a particular point of time.

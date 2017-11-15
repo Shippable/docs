@@ -21,7 +21,7 @@ Shippable DevOps Assembly Lines store the service definitions in the versions of
 
 All of the above jobs can be used as `IN`s to create a new `release`. A new version is created anytime this job is executed.
 
-You can create a `release` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.jobs.yml` and these jobs execute on Shippable provided shared runtime.
+You can create a `release` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml` and these jobs execute on Shippable provided shared runtime.
 
 
 ## YML Definition
@@ -73,7 +73,7 @@ jobs:
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
-A full detailed description of each tag is available on the [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml) page
+The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
 **Notes:**
 

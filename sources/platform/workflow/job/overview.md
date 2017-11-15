@@ -33,13 +33,14 @@ Typical examples of jobs are:
 
 ## YML Definition
 
-Jobs are defined in the config file `shippable.resources.yml` with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
+Jobs are defined in the `shippable.yml` config file with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
 
 ```
 jobs:
   - name: 					<string>
     type: 					<job type name>
-	 on_start:
+    triggerMode: 		    <parallel/serial; only for runSh jobs>
+    on_start:
       - NOTIFY: 			<notification resource name>
     steps:
       - IN: 				<resource>
@@ -58,7 +59,7 @@ jobs:
           - manifest: 		<manifest>
             image: 			<image>              
             port: 			<number>
-      - IN: 				<gitRepoResource with buildOnPullRequest: true>
+      - IN: 				<gitRepo resource with buildOnPullRequest: true>
         showBuildStatus: 	true
       - IN: 				<manifest/release>
         force: 				true
@@ -70,18 +71,18 @@ jobs:
         replicate: 			<IN resource>
       - OUT: 				<resource>
         overwrite: 			true
-	 on_success:
+    on_success:
       - script: 			echo "SUCCESS"
-	 on_failure:
+    on_failure:
       - script: 			echo "FAILED"
       - NOTIFY: 			<notification resource name>
-	 on_cancel:
+    on_cancel:
       - script: 			echo "CANCEL"
-	 always:
+    always:
       - script: 			pwd
 ```
 
-For more information, read [Job Anatomy](/platform/tutorial/workflow/shippable-jobs-yml)
+For more information, read the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
 ## When does a Job execute?
 
@@ -129,5 +130,5 @@ Shippable supports the following jobs types:
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 ## Further Reading
-* [Anatomy of a Job yml](/platform/tutorial/workflow/shippable-jobs-yml/)
+* [Anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)
