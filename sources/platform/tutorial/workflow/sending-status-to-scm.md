@@ -27,7 +27,7 @@ jobs:
 
 ```
 
-The corresponding  `gitRepo` resource in `shippable.resources.yml` needs to include the tag `buildOnPullRequest: true` as shown below:
+The corresponding  `gitRepo` resource in `shippable.resources.yml` needs to include the tag `buildOnPullRequest: true` and `buildOnPullRequestClose: true`as shown below:
 
 ```
 resources:
@@ -38,6 +38,7 @@ resources:
       sourceName: <repoName>                    
       branch: <branchName>                      
       buildOnPullRequest: true     #specify true to trigger the job for pull requests to the git repository
+      buildOnPullRequestClose: true #specify true to trigger the runSh job for closed pull requests to the git repository
 
 ```
 
