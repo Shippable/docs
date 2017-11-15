@@ -54,6 +54,8 @@ Our official build images, which are used to run your builds by default, come in
 -  1.6.4
 -  1.7
 -  1.7.5
+-  1.8
+-  1.9
 
 To find out which versions are supported out of the box for your build image, read our [Machine images overview](/platform/tutorial/runtime/ami-overview/)
 
@@ -62,7 +64,7 @@ If you want to test against several versions of Go, you can specify multiple run
 ```
 go:
   - 1.6
-	- 1.7
+  - 1.7
 
 ```
 
