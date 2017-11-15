@@ -27,7 +27,7 @@ jobs:
 
 ```
 
-The corresponding  `gitRepo` resource needs to include tags `buildOnPullRequest: true` and `buildOnPullRequestClose: true`as shown below:
+The corresponding  `gitRepo` resource needs to include the tag `buildOnPullRequest: true` as shown below:
 
 ```
 resources:
@@ -37,8 +37,7 @@ resources:
     pointer:
       sourceName: <repoName>                    
       branch: <branchName>                      
-      buildOnPullRequest: true       #specify true to trigger the job for pull requests to the git repository
-      buildOnPullRequestClose: true  #specify true to trigger the runSh job for closed pull requests to the git repository
+      buildOnPullRequest: true     #specify true to trigger the job for pull requests to the git repository
 
 ```
 

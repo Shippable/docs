@@ -116,7 +116,7 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_VERSIONNAME   					| The commitSHA of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 | `<NAME>`\_IS_PULL\_REQUEST                | Set to `TRUE` if the version in context is a git open pull request based build. |
-| `<NAME>`\_IS_PULL\_REQUEST\_CLOSE         | Set to `TRUE` if the version in context is a git closed pull request based build. Supported only for runSH jobs and only if the integration is GitHub or Bitbucket or Gitlab.|
+| `<NAME>`\_IS_PULL\_REQUEST\_CLOSE         | Set to `TRUE` if the version in context is a git closed pull request based build. Supported only if the integration is of GitHub or Bitbucket or Gitlab.|
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 

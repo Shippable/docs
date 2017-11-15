@@ -33,7 +33,7 @@ jobs:
         versionName:  <name of the version you want to pin>
       - IN:           <resource>
         versionNumber:    <number of the version you want to pin>        
-      - IN:         <gitRepo resource with buildOnPullRequest: true and buildOnPullRequestClose: true>
+      - IN:           <gitRepo resource with buildOnPullRequest: true>
         showBuildStatus:  true       
       - IN:           <cliConfig with scope support>
         scopes:
