@@ -26,6 +26,7 @@ This integration uses service principal for configuring cli. [Here](https://docs
 The Microsoft Azure integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [integration](/platform/workflow/resource/integration)
+* [cliConfig](/platform/workflow/resource/cliconfig/)
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
