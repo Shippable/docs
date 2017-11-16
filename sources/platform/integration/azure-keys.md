@@ -9,13 +9,22 @@ The [Microsoft Azure](https://azure.microsoft.com/en-us/) Integration is used to
 
 ## Adding account integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting JFrog artifactory integrations. You can use the [Azure Keys](/platform/integration/azure-keys) instead.
+You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+
+Here is the information you need to create this integration:
+
+* **Integration type** -- Microsoft Azure
+* **Name** -- choose a friendly name for the integration
+* **AppId** -- AppId of your application.
+* **Password** -- Password of Active Directory User
+* **Tenant** -- Active Directory Tenant name
+
+This integration uses service principal for configuring cli. [Here](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) is some more info about service principal and how to create them.
 
 ## Usage in Assembly Lines
 
 The Microsoft Azure integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
-* [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
 
 ### Default Environment Variables
@@ -26,9 +35,9 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | Environment variable						| Description        |
 | ------			 							|----------------- |
 | `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
-| `<NAME>`\_INTEGRATION\_SUBSCRIPTIONID	| Subscription ID supplied in the integration |
-| `<NAME>`\_INTEGRATION\_USERNAME			| Username supplied in the integration |
+| `<NAME>`\_INTEGRATION\_APPID	| AppId supplied in the integration |
 | `<NAME>`\_INTEGRATION\_PASSWORD			| Password supplied in the integration |
+| `<NAME>`\_INTEGRATION\_TENANT			| Tenant supplied in the integration |
 
 ### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
