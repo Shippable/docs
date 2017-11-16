@@ -3,13 +3,12 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Shippable Server
 page_title: Admiral - Bitbucket Server Integration
-page_description: Shippable Server (SE/EE) and Bitbucket Server Integration
+page_description: Shippable Server and Bitbucket Server Integration
 
 # Bitbucket Server integration
 
-Integration with Atlassian Stash 3.x, and BitBucket Server 4.x up to 5.2.2 is supported with Shippable Server SE and EE editions.
-To build repositories hosted on Bitbucket Server with Shippable Server, you will need to sign into Shippable with your Bitbucket
-Server account.
+Integration with Atlassian Stash 3.x, and BitBucket Server 4.x up to 5.2.2 is supported with Shippable Server.
+To build repositories hosted on Bitbucket Server with Shippable Server, you will first need to install Shippable Server.
 
 Steps to configure Bitbucket Server integration -
 

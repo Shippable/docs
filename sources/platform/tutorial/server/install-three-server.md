@@ -57,13 +57,20 @@ $ sudo apt-get update
 $ sudo apt-get install git-core ssh
 ```
 
+If you are installing on an Ubuntu 14.04 machine, you will need to update the kernel if its version is below 3.19. The following commands will update the kernel to 3.19:
+```
+$ sudo apt-get update
+$ sudo apt-get install linux-generic-lts-vivid
+$ sudo reboot #restart is required after kernel upgrade
+```
+
 ##1. Install Shippable Server Installer (Admiral)
-SSH into Server 1 and run the following commands.
+SSH into the machine where you are installing Admiral and run the following commands.
 
 ```
 $ git clone https://github.com/Shippable/admiral.git
 $ cd admiral
-$ git checkout <latest tag>
+$ git checkout v5.11.1
 ```
 
 `ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
@@ -75,29 +82,14 @@ Receiving objects: 100% (6100/6100), 3.57 MiB | 0 bytes/s, done.
 Resolving deltas: 100% (3997/3997), done.
 Checking connectivity... done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
-ubuntu@ip-172-31-29-44:~/admiral$ git tag
-v5.4.1
-v5.4.2
-v5.4.3
-v5.4.4
-v5.5.1
-v5.5.2
-v5.5.3
-v5.5.4
-v5.5.5
-v5.6.1
-v5.6.2
-v5.6.3
-v5.6.4
-v5.6.5
-v5.7.1
-ubuntu@ip-172-31-29-44:~/admiral$ git checkout -b v5.7.1
-Switched to a new branch 'v5.7.1'
-ubuntu@ip-172-31-29-44:~/admiral$ git branch
-  master
-* v5.7.1`
+ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.1
+HEAD is now at 9018791... updating version.txt to v5.11.1
+`
 
-##2. Launch Admiral to install Shippable Server EE
+To see all the versions of Admiral if you want to install a specific version, you can run `git tag` and thereafter git checkout the specific tag. Here we have checked out v5.11.1, which is the latest version as of November 2017.
+
+##2. Run Admiral CLI
+
 Ensure you have the installer access key, secret and public ip address of the state machine.
 Admiral will install the postgres database in this step and download all the images. You will be asked to run
 a specific script on Server 2 during this step to authorize ssh access for Server 1.
