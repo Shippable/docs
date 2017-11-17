@@ -256,10 +256,6 @@ pages:
         - rSync: platform/workflow/job/rsync.md
       - State:
         - Overview: platform/workflow/state/overview.md
-      - Triggers:
-        - Overview: platform/workflow/trigger/overview.md
-      - Deprecated:
-        - jenkinsJob: platform/workflow/job/jenkinsjob.md
     - Integrations:
       - Overview: platform/integration/overview.md
       - AWS IAM: platform/integration/aws-iam.md
@@ -385,8 +381,8 @@ pages:
         - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
-        - Sending status to Source Control Systems: platform/tutorial/workflow/sending-status-to-scm.md
-        - Shippable Utility shipctl reference: platform/tutorial/workflow/using-shipctl.md
+        - Sending status to Source Control: platform/tutorial/workflow/sending-status-to-scm.md
+        - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
