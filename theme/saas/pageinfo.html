@@ -13,7 +13,7 @@
   </li>
   <div class="space-20"></div>
   <li>
-    <a href="{{ repo_url }}{% if current_page %}/edit/master/sources/{{ current_page.input_path }}{% endif %}" target="_blank">
+    <a href="{{ config.repo_url }}{% if page %}/edit/master/sources/{{ page.input_path }}{% endif %}" target="_blank">
       <i class="ion-edit"></i> &nbsp;
       Edit this page
     </a>
@@ -25,11 +25,11 @@
     </a>
   </li>
 
-{% if toc|first and toc|first|attr('children') %}
+{% if page.toc|first and page.toc|first|attr('children') %}
   <li>
     <span class="shipNavItemTitle">ON THIS PAGE</span>
   </li>
-  {% for toc_item in toc %}
+  {% for toc_item in page.toc %}
     {% for toc_h2_item in toc_item.children %}
       <li>
         <a href="{{ toc_h2_item.url }}">

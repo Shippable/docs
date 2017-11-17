@@ -1,6 +1,6 @@
 FROM drydock/microbase:v5.4.1
 
-ADD . /home/shippable/docs
+COPY . /home/shippable/docs
 
 RUN cd /home/shippable/docs && pip install -r requirements.txt
 

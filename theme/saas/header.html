@@ -27,25 +27,25 @@
     </div>
     <div id="navhead">
       <ul class="nav navbar-nav navbar-right">
-        <li {% if "Getting started" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Getting started" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/">Getting Started</a>
         </li>
-        <li {% if "Platform" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Platform" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/platform/overview">Platform</a>
         </li>
-        <li {% if "CI" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "CI" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/ci/why-continuous-integration/">CI</a>
         </li>
-        <li {% if "Deploy" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Deploy" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/deploy/why-deploy/">Deploy</a>
         </li>
-        <li {% if "Validate" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Validate" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/validate/devops-validate/">Validate</a>
         </li>
-        <li {% if "Release" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Release" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/release/devops-release-management/">Release</a>
         </li>
-        <li {% if "Provision" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "Provision" in page.meta.main_section %} class="active" {% endif %}>
           <a href="/provision/why-infrastructure-provisioning">Provision</a>
         </li>
       </ul>
