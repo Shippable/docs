@@ -6,9 +6,16 @@ page_title: Admiral - Installing on a single machine
 page_description: How to install Shippable
 page_keywords: install, onebox, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# Installing on One Machine
+# Shippable Server EE edition - onebox installation
 
-Shippable may be installed so that everything except build nodes run on one machine.  This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
+Shippable Server EE comprises of the following -
+
+* Stateless micro services
+* Stateful Components - Database(Postgres), Secret Store and SCM.
+* Transient State Components - Redis and RabbitMQ
+* Shippable Server Installer and webapp (Admiral)
+
+This document describes the steps to install Shippable Server EE on a single server. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
 
 ## Requirements
 One instance with:
@@ -19,191 +26,253 @@ One instance with:
 - 8 GB memory
 - 100 GB disk space
 
-The following ports must be exposed on the instance:
+The minimum requirements for a VM on AWS for example is a [C4.Large](https://aws.amazon.com/ec2/instance-types/) machine.
 
+## Ports to open
 - 22: ssh into the machine
 - 80: internal gitlab server api endpoint
 - 443: internal gitlab server secure api endpoint
 - 2222: internal gitlab server ssh port
 - 5432: database
+- 8200: vault
 - 5672: amqp
 - 15672: amqp admin
 - 6379: redis
-- 8200: vault
 - 50000: Shippable api
 - 50001: Shippable post-login ui
 - 50002: Shippable pre-login ui
 - 50003: Shippable admin panel
+- 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
-If you are installing on a AWS Ubuntu 14.04 AMI, you may need to update the kernel.  The following commands will update to 3.19:
+## Packages to be pre-installed
+Git and SSH must be installed before running Admiral.  Install these by running the following on the instance:
+```
+$ sudo apt-get update
+$ sudo apt-get install git-core ssh
+```
+
+If you are installing on an Ubuntu 14.04 machine, you will need to update the kernel if its version is below 3.19. The following commands will update the kernel to 3.19:
 ```
 $ sudo apt-get update
 $ sudo apt-get install linux-generic-lts-vivid
 $ sudo reboot #restart is required after kernel upgrade
 ```
 
-## Installing
-Once you have provisioned an instance with the correct exposed ports and checked that you have a supported kernel (run `uname -r` to print the version if you're not sure), install `git` and `ssh`.  These are required to run the installer.
-```
-$ sudo apt-get update
-$ sudo apt-get install git-core ssh
-```
+##1. Install Shippable Server Installer (Admiral)
+SSH into the machine where you are installing Admiral and run the following commands.
 
-Then you can clone the Admiral repository.
 ```
 $ git clone https://github.com/Shippable/admiral.git
-```
-
-Navigate to that repository and select the version you would like to install by checking out the appropriate tag.
-```
-ubuntu@ip-172-31-28-128:~/admiral$ git tag
-v5.4.1
-v5.4.2
-v5.4.3
-v5.4.4
-v5.5.1
-v5.5.2
-v5.5.3
-v5.5.4
-v5.5.5
-v5.6.1
-v5.6.2
-v5.6.3
-```
-
-To install v5.6.3, for example -
-
-```
 $ cd admiral
-$ git checkout v5.6.3
+$ git checkout v5.11.1
 ```
 
-And start the installer CLI:
+`ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
+Cloning into 'admiral'...
+remote: Counting objects: 6100, done.
+remote: Compressing objects: 100% (82/82), done.
+remote: Total 6100 (delta 48), reused 73 (delta 23), pack-reused 5994
+Receiving objects: 100% (6100/6100), 3.57 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (3997/3997), done.
+Checking connectivity... done.
+ubuntu@ip-172-31-29-44:~$ cd admiral/
+ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.1
+HEAD is now at 9018791... updating version.txt to v5.11.1
+`
+
+To see all the versions of Admiral if you want to install a specific version, you can run `git tag` and thereafter git checkout the specific tag. Here we have checked out v5.11.1, which is the latest version as of November 2017.
+
+##2. Run Admiral CLI
+Ensure you have the installer access key, secret and public ip address of the state machine.
+Admiral will install the postgres database in this step and download all the Shippable docker images.
+
 ```
-$ ./admiral.sh install
+sudo ./admiral.sh install
 ```
 
-Enter the installer access and secret keys when prompted.  These are provided by Shippable with a server license. If you don't have them, <a href="https://www.shippable.com/contact.html">contact us</a>.
+As an example,
 
-Then enter the IP address of your instance for your current IP address.  In most cases this is the external address you used to SSH into the instance and needs to be accessible from the location(s) where you plan to use Shippable.
+```
+ubuntu@ip-172-31-29-44:~/admiral$ sudo ./admiral.sh install
+|___ Loading ADMIRAL_ENV from /etc/shippable/admiral.env
+|___ SSH keys already present, skipping
 
-Enter "D" when asked for the database address.  This will install the database locally.  Choose a password for the database when prompted.
+# 21:48:29 #######################################
+# Shippable Server Software License Agreement
+##################################################
+|___ BY INSTALLING OR USING THE SOFTWARE, YOU ARE CONFIRMING THAT YOU UNDERSTAND THE SHIPPABLE SERVER SOFTWARE LICENSE AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS.
+|___ This agreement is available for you to read here: /home/ubuntu/admiral/SHIPPABLE_SERVER_LICENSE_AGREEMENT
+|___ Do you wish to continue? (Y to confirm)
+Y
+|___ Thank you for accepting the Shippable Server Software License Agreement. Continuing with installation.
 
-Check that the values you have entered are correct, and enter "Y" to continue.  At this point, dependencies and the database will be installed and a UI started.  This may take several minutes.
+# 21:48:31 #######################################
+# Validating runtime
+##################################################
+|___ Using release: master
+|___ Updating RELEASE in ADMIRAL_ENV file
+|___ LOGIN_TOKEN already generated, skipping
+|___ Services: /home/ubuntu/admiral/common/scripts/configs/services.json
 
-When this step of the installation is complete, you will be shown an address for the admin panel and a login token.  Navigate to the admin panel in a web browser and enter the login token.
+# 21:48:31 #######################################
+# Collecting required information
+##################################################
+|___ ACCESS_KEY is not set
+|___ If you don't have an access key, you can obtain one by contacting us at www.shippable.com/contact.html
+|___ Setting installer access key
+|___ Please enter the provided installer access key.
+XXXXXXXXXXXX
+|___ SECRET_KEY is not set
+|___ If you don't have a secret key, you can obtain one by contacting us at www.shippable.com/contact.html
+|___ Setting installer secret key
+|___ Please enter the provided installer secret key.
+XXXXXXXXXXXX
+|___ ADMIRAL_IP not set
+|___ Setting value of admiral IP address
+|___ Please enter your current IP address. This will be the address at which you access the installer webpage. Type D to set default (127.0.0.1) value.
+52.72.112.131
+|___ Setting value of database IP address
+|___ Please enter the IP address of the database or D to set the default (52.72.112.131).
+174.129.68.195
+|___ Enter I to install a new database or E to use an existing one.
+|___ Existing databases must be Postgres 9.5 and have a user named apiuser with full permissions on a database named shipdb.
+I
+|___ A new database will be installed
+|___ DB_PORT is not set
+|___ Setting value of database port
+|___ DB_PASSWORD is not set
+|___ Setting database password
+|___ Please enter the password for your database.
+database123
+|___ PUBLIC_IMAGE_REGISTRY already set, skipping
+|___ These values are easy to set now, but hard to change later! Please confirm that they are correct:
+Installer Access Key:     ********************
+Installer Secret Key:     *****************************************
+Admin Panel Address:      52.72.112.131
+Database Address:         174.129.68.195
+Database Type:            New
+Database Port:            5432
+Database Password:        ***********
+|___ Enter Y to confirm or N to re-enter these values.
+|___ Enter Y to confirm or N to re-enter these values.
+Y
+|___ Confirmation received
+|___ Saving values
+|___ Saved access key
+|___ Saved secret key
+|___ Saved admin panel address
+|___ Saved database address
+|___ Saved database installation type
+|___ Saved database port
+|___ Saved database password
+|___ Run the following command on 174.129.68.195 to allow SSH access:
+sudo mkdir -p /root/.ssh; echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG0dECmRM0AEdxdlo5IUk59o47Q2sciQxSFGfxTLwNxPLw6yx33+voa8tYUPSfug3XnA4SW8oZa704Us6FbNCRcPxD2rFJxMIoOl6dvm1B6dLfeugqTq97mXylZKmPSHpB2iB1DXGLxBuP1/RIea0pjdE2fR3uBY5OTcQgOZYKLKMZyqN0EUVapaCC/h7kfH10l5nqV4urSNI0D6C2m+wwJNsBmIrp+rWgJ4Tw4ka0wELFfG747xv69y1yTByHlAtseUwTyUbn8/gSz8vM6vS3Lxzfl9mgJzCh7lWz2K/PayFSe41uvgYiYtWWKl7aWWPu0S6qcoFQDznDVA92dJhF root@ip-172-31-29-44 | sudo tee -a /root/.ssh/authorized_keys;
+|___ Enter Y to confirm that you have run this command
+Y
+|___ Confirmation received
 
-After entering the login token, you'll be taken to the installer dashboard.  The first step here is to initialize the infrastructure.  Enter passwords for the messaging and state components and click "initialize."  This will install and initialize all of the infrastructure components and may take a few minutes.
+# 21:51:59 #######################################
+# Checking dependencies
+##################################################
+```
 
-Once the infrastructure has been initialized, expand the second panel to configure and start the core services. You will need to configure the following:
+Once Postgres is installed, you will see a message like this -
 
-- Select the auth provider(s) you would like to use and enter the values from the OAuth applications or OAuth consumers created on those providers.
-- Select an email provider to send email notifications and enter the credentials.
-- Select the type(s) of build nodes you will use
+You will see a message like this -
+```
+#------------------------------------------------------
+#----------- Shippable Postgres Config ----------------
+#------------------------------------------------------
+host all  all    0.0.0.0/0  md5
+Starting Postgres
+ * Starting PostgreSQL 9.5 database server
+   ...done.
+CREATE ROLE
+CREATE ROLE
+CREATE TABLESPACE
+CREATE DATABASE
+REVOKE
+GRANT
+~
 
-And then click "install."  The configuration selected will be saved and the core services started.  When this is complete, your Shippable installation will be accessible on port 50002 and you may log in.
+# 22:05:47 #######################################
+# Creating vault table in database
+##################################################
+|___ Validating vault store script
+|___ Vault config dir already present
+|___ Upserting vault store in db
+CREATE TABLE
+CREATE INDEX
+ALTER TABLE
+```
 
-If you would like any extra options enabled, you may select those in the add-ons panel.
+###3. Connect to Admiral web app in your browser.
+* You will see a message like this once Admiral installation completes.
+```
+# 22:05:48 #######################################
+# Booting Admiral UI
+##################################################
+|___ Checking if admiral is running
+|___ Generating admiral ENV variables
+|___ Generating admiral mounts
+a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
+|___ Admiral container successfully running
+|___ Go to 52.72.112.131:50003 to access the admin panel
+|___ Login Token: 16a31009-0faa-460d-957a-0a98740fa1e4
+|___ Command successfully completed !!!
+```
+* Save the `Login Token` as you will need it every time you want to login into the Admiral UI.
+* Launch the browser and navigate to the specified host and port mentioned above and login
+using the Login Token.
+* Specify the passwords in the `Messaging` and `State` sections.
+* Click on `Initialize`.
+* Once initialization is complete, you should see `Initialized` status for every line item in the
+`Initialize Infrastructure` section.
 
-## Components
-The following components will run on the Admiral instance:
+<img src="/images/platform/admiral/Admiral-2server-2.png" alt="Admiral-2-server">
 
-### Core Services
+###4. Specify Authorization and Source Control Management (SCM) Providers
+* Click on `Configure & Install`.
+* In the `Authorization and Source Control Management (SCM) Providers` section, select and configure one
+authorization provider.
+* For detailed instructions on configuring GitHub Enterprise, please look at [this document](/platform/tutorial/server/install-ghe).
+* For detailed instructions on configuring BitBucker Server, please look at [this document](/platform/tutorial/server/install-bbs).
+* Click `Install`.
 
-#### db
-The Postgres database container.
+<img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
-#### admiral
-The UI used to initialize infrastructure, install components, and configure the installation.
+##5. Enabling caching
+To enable caching of build artifacts such as node modules or the gradle cache, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
-#### secrets
-The Vault container used to store integration values.
+###6. Configure Services
+* Click on `Services`.
+* Configure the #replicas (or use the default values) and click `Save`.
 
-#### msg
-RabbitMQ used by Shippable to send messages to microservices.
+###7. Configure add-ons
+* Click on `Add-ons`
+* Select the account integrations (you can always enable / disable) add-ons later.
+* Click `Install Add-ons`
 
-#### state
-A GitLab container used to store state information.
+###8. Login to Shippable Server and setup Super user account.
+* Login to Shippable server with your admin account for the SCM provider.You should see your team/organizations/repositories sync. To find the Login URL, click on `Configure and Install`. The URL is in the `Shippable UI` section.
 
-#### redis
-The Redis server used by the Shippable UI.
+<img src="/images/platform/admiral/Admiral-login.png" alt="Admiral-github">
 
-#### api
-The Shippable API.
+* After Logging in, grant permissions in the OAuth dialog.
+* Click to `Profile` in the left sidebar and note down the `Account Id` at the bottom of the screen.
 
-#### charon
-Removes soft-deleted pipelines deployments from the cloud providers.
+<img src="/images/platform/admiral/Admiral-accountid.png" alt="Admiral-github">
 
-#### cron
-Runs periodic processes such as timing out jobs and checking statistics on build nodes.
+* Switch back to Admiral and scroll the screen all the way down to the `Manage System SuperUsers` section.
+* Paste the Account id and click Add.
 
-#### deploy
-Runs deploy-type jobs in pipelines.
+<img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
-#### jobRequest
-Processes requests for CI jobs, creating the jobs to be queued.
-
-#### jobTrigger
-Triggers both CI and pipelines jobs, queuing them to be picked up and processed when minions are available.
-
-#### manifest
-Processes manifest-type pipeline jobs.
-
-#### mktg
-The pre-login part of the Shippable UI.
-
-#### nexec
-Provisions custom and system nodes.
-
-#### nf
-Processes notifications, sending messages to the other microservices to deliver the notifications through the correct channels.
-
-#### release
-Processes release-type pipeline jobs.
-
-#### rSync
-Processes rSync pipeline jobs.
-
-#### sync
-Synchronizes user permissions with the SCM providers.
-
-#### timeTrigger
-Updates `time` resources in pipelines.
-
-#### versionTrigger
-Triggers pipeline jobs.
-
-#### www
-The Shippable UI used for enabling projects and viewing builds.
-
-### Optional Services
-
-#### certgen
-This will run if either Kubernetes or Joyent Triton Public Cloud is enabled in the add-ons panel and is used to generate certificates.
-
-#### ec2
-This is used to provision dynamic build nodes and will run if AWS keys are provided.
-
-#### email
-Sends email notifications and will only be started if there is an email provider selected.
-
-#### hipchat
-Sends Hipchat notifications and will only run if Hipchat is selected in the add-ons panel.
-
-#### irc
-Sends IRC notifications and will only run if IRC is selected in the install panel.
-
-#### logup
-Uploads build console logs to S3.  This will only run if AWS keys are provided.
-
-#### marshaller
-Part of the dynamic node provisioning; this will only run if AWS keys are provided.
-
-#### provision
-Processes provision-type pipeline jobs; this will only run if Google Container Engine is enabled in add-ons.
-
-#### slack
-Sends Slack notifications; this only runs if Slack is selected in the add-ons section.
-
-#### webhook
-Sends webhook notifications; this will only run if webhook is selected in the add-ons panel.
+###8. Setup System or BYON node.
+* After step 7, login to Shippable Server as super user account.
+* If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
+setup the system or custom nodes to run your CI and runSh jobs.
+* System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
+* To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
+* To setup System nodes, click on Admin -> Nodes -> System and click on '+' button. Follow the instructions
+on that screen.

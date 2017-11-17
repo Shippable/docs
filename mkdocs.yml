@@ -409,12 +409,13 @@ pages:
         - Installing EE on two machines: platform/tutorial/server/install-two-server.md
         - Installing EE on three machines: platform/tutorial/server/install-three-server.md
         - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md
+        - Bitbucket Server Integration: platform/tutorial/server/install-bbs.md
+        - GitHub Enterprise Integration: platform/tutorial/server/install-ghe.md
         - Database Configuration: platform/tutorial/server/install-db.md
         - State Storage Configuration: platform/tutorial/server/install-gitlab.md
         - Message Configuration: platform/tutorial/server/install-rabbitmq.md
         - Redis Configuration: platform/tutorial/server/install-redis.md
         - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
         - Vault Configuration: platform/tutorial/server/install-vault.md
-        - Bitbucket Server Configuration: platform/tutorial/server/install-bbs.md
       - Glossary:
         - Complete list of terms: platform/tutorial/glossary.md
