@@ -405,7 +405,7 @@ pages:
       - Shippable Server:
         - Installer: platform/tutorial/server/install.md
         - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
-        - Installing SE on a single machine: platform/tutorial/server/install-onebox.md
+        - Installing EE on a single machine: platform/tutorial/server/install-onebox.md
         - Installing EE on two machines: platform/tutorial/server/install-two-server.md
         - Installing EE on three machines: platform/tutorial/server/install-three-server.md
         - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md

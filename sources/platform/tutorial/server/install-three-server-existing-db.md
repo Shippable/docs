@@ -77,7 +77,7 @@ $ sudo apt-get install linux-generic-lts-vivid
 $ sudo reboot #restart is required after kernel upgrade
 ```
 
-##1. Install Shippable Server Installer (Admiral)
+###1. Install Shippable Server Installer (Admiral)
 SSH into the machine where you are installing Admiral and run the following commands.
 
 ```
@@ -101,7 +101,7 @@ HEAD is now at 9018791... updating version.txt to v5.11.1
 
 To see all the versions of Admiral if you want to install a specific version, you can run `git tag` and thereafter git checkout the specific tag. Here we have checked out v5.11.1, which is the latest version as of November 2017.
 
-##2. Run Admiral CLI
+###2. Run Admiral CLI
 
 * Ensure you have the installer access key, secret and public ip address of the database machine.
 Admiral will download all the images and created tables on your database.
@@ -472,7 +472,7 @@ authorization provider.
 
 <img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
-##5. Enabling caching
+###5. Enabling caching
 To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
 ###6. Configure Services

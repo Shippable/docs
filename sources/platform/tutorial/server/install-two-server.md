@@ -45,7 +45,7 @@ Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-ty
 - 50003: Shippable admin panel
 - 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
-###Packages to be pre-installed
+##Packages to be pre-installed
 Git and SSH must be installed before running Admiral.  Install these by running the following on the instance:
 ```
 $ sudo apt-get update
@@ -59,8 +59,8 @@ $ sudo apt-get install linux-generic-lts-vivid
 $ sudo reboot #restart is required after kernel upgrade
 ```
 
-##1. Install Shippable Server Installer (Admiral)
-SSH into the machine where you are installing Admiral and run the following commands.
+###1. Install Shippable Server Installer (Admiral)
+SSH into the machine where you are installing Admiral (Server 1) and run the following commands.
 
 ```
 $ git clone https://github.com/Shippable/admiral.git
@@ -83,7 +83,7 @@ HEAD is now at 9018791... updating version.txt to v5.11.1
 
 To see all the versions of Admiral if you want to install a specific version, you can run `git tag` and thereafter git checkout the specific tag. Here we have checked out v5.11.1, which is the latest version as of November 2017.
 
-##2. Run Admiral CLI
+###2. Run Admiral CLI
 Ensure you have the installer access key, secret and public ip address of the state machine.
 Admiral will install the postgres database in this step and download all the images. You will be asked to run
 a specific script on Server 2 during this step to authorize ssh access for Server 1.
@@ -179,7 +179,6 @@ Y
 
 Once Postgres is installed, you will see a message like this -
 
-You will see a message like this -
 ```
 #------------------------------------------------------
 #----------- Shippable Postgres Config ----------------
@@ -243,7 +242,7 @@ authorization provider.
 
 <img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
-##5. Enabling caching
+###5. Enabling caching
 To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
 ###6. Configure Services
@@ -270,7 +269,7 @@ To enable caching, navigate to the `Build configuration` section in the `Configu
 
 <img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
-###8. Setup System or BYON node.
+###9. Setup System or BYON node.
 * After step 7, login to Shippable Server as super user account.
 * If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
 setup the system or custom nodes to run your CI and runSh jobs.
