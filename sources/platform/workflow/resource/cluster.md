@@ -7,6 +7,7 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # cluster
+
 `cluster` is used to represent a set of machines or a container orchestration system. It is predominantly used to deploy services/apps to the specified cluster and in some cases it can also be used to run certain maintenance activities on the cluster as a whole.
 
 You can create a `cluster` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
@@ -29,7 +30,7 @@ resources:
 	* [Amazon ECS](/platform/integration/aws-iam)
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
-	* [Google Google Cloud)](/platform/integration/gcloudKey)
+	* [Google Cloud)](/platform/integration/gcloudKey)
 	* [Kubernetes](/platform/integration/kubernetes-config)
 	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/joyentTritonKey)
