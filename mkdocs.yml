@@ -347,6 +347,7 @@ pages:
         - Console: platform/visibility/job/console.md
     - Security:
       - Overview: platform/security/overview.md
+      - Permissions and RBAC: platform/security/ci-cd-permissions.md
     - Management:
       - Overview: platform/management/overview.md
       - Account:
