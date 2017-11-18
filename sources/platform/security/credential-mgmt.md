@@ -20,7 +20,7 @@ However, we believe that encrypted strings are problematic due to the unwieldine
 ```
 env:
   global:
-    # UGLY secure variables....
+    # UGLY secure variables.... 
     - secure: YtSX204QeZ4hJ89DCrH/3W+XjbGCBfkhWPwJumHCBMVGkmpF4XWwbLqG65IZtQlRMNRlwI3vsTksDhXnK3ng2nsUUBPyzxbcVI7AJMgd2tIGjGzxqcCLemel+sA+ES/2TBFyy5+mlE2/RqohUWw/xRj45nHQqEIC0xwDmQcQvFObaMjLgceI01uv7AxdLVDpOVMO2i7g7Bxwvfru3EtUVZB+siTAUn28WbCesgSFhNIZa56z+4CpYRfTQP6lfrIWlhtcsHPlb6T0rqXO3gRkaFIBgMLj5Ab/eIeHoOfcdJ/YjsV4NjCYqH/9QgMNMj46EEfcsK2IiFCyFu6X/HwCTw==
 
 ```
@@ -41,4 +41,18 @@ We support the following levels of permissions for your Assembly Lines and jobs:
 
 You can configure these permissions through your source control provider and the Shippable platform will respect them.
 
-For more information, read our document on [Managing permissions with RBAC](/platform/security/ci-cd-permissions).
+### CI permissions
+
+To understand how CI permissions are handled, please read the [CI permissions document](/ci/permissions/).
+
+### Assembly Line permissions
+
+Since your Assembly Line is added to Shippable through your [Sync repository](/platform/workflow/resource/syncrepo), we determine permissions for each user based on their access to the Sync repository in source control.
+
+For example:
+
+* Someone with **Admin** or **Write** access to the Sync repository will be able to view and take action on all jobs and resources in the Assembly Line defined in that repository
+* Someone with **Read** access to the Sync repository will be able to view the Assembly Line in SPOG and Grid views, but will not be able to run any jobs or take any other action that changes or executes the Assembly Line.
+* Someone with no access to the Sync repository will not have any access to view or interact with the Assembly Line on Shippable.
+
+This design allows a lot of flexibility in how you design your Assembly Lines. **Remember that one continuous Assembly Line can be split across several Sync repositories.** This enables you to easily implement a model where the team responsible for a portion of the Assembly Line can have complete access to just that portion, and yet have complete visibility into the end-to-end workflow.
