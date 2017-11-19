@@ -348,6 +348,7 @@ pages:
     - Security:
       - Overview: platform/security/overview.md
       - Permissions and RBAC: platform/security/ci-cd-permissions.md
+      - Credentials management: platform/security/credential-mgmt.md
     - Management:
       - Overview: platform/management/overview.md
       - Account:

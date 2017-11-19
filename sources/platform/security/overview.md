@@ -11,25 +11,13 @@ Please read our blog on [Security best practices at Shippable](http://blog.shipp
 
 The sections below talk about security and permissions feature built into the product to ensure that your automation scripts are secure and you can grant the right level of access to every team member.
 
-## Separation of secrets from automation scripts
+## Abstraction of secrets
 
-Most CI/CD providers offer a way for you to encrypt your secrets so that you're not forced to include passwords, token, and other sensitive information in plain text your automation scripts. At Shippable as well, we support secure environment variables which are encrypted key:value pairs you can use in your configuration.
+Shippable provides a couple of ways to abstract your secrets from your automation scripts so that you don't accidentally disclose sensitive information like keys, passwords, tokens, etc.
 
-However, we believe that encrypted strings are problematic due to the unwieldiness of managing a completely meaningless sequence of characters. For example:
+We support secure environment variables like most CI/CD providers, as well as our preferred method with **Integrations**.
 
-```
-env:
-  global:
-    # UGLY secure variables....
-    - secure: YtSX204QeZ4hJ89DCrH/3W+XjbGCBfkhWPwJumHCBMVGkmpF4XWwbLqG65IZtQlRMNRlwI3vsTksDhXnK3ng2nsUUBPyzxbcVI7AJMgd2tIGjGzxqcCLemel+sA+ES/2TBFyy5+mlE2/RqohUWw/xRj45nHQqEIC0xwDmQcQvFObaMjLgceI01uv7AxdLVDpOVMO2i7g7Bxwvfru3EtUVZB+siTAUn28WbCesgSFhNIZa56z+4CpYRfTQP6lfrIWlhtcsHPlb6T0rqXO3gRkaFIBgMLj5Ab/eIeHoOfcdJ/YjsV4NjCYqH/9QgMNMj46EEfcsK2IiFCyFu6X/HwCTw==
-
-```
-
-To improve the experience around handling secrets, we have introduced the concept of **Integrations**, which allow users to store their sensitive information with a friendly name that can be used to configure CI or Assembly Line workflows. These Integrations are encrypted at rest and in flight, and are stored in our Vault.
-
-This means you will never again accidentally disclose keys, passwords or other sensitive information, while still retaining the ability to identify who added an integration and which third-party provider it connects to. It is also easy to manage the underlying values in one place without needing to go update all your scripts.
-
-For more on the advantages of using Integrations, [read our docs here](/platform/integration/overview).
+To understand both approaches, please read the docs on [Credentials management](/platform/security/credential-mgmt).
 
 ## User permissions
 
@@ -42,3 +30,31 @@ We support the following levels of permissions for your Assembly Lines and jobs:
 You can configure these permissions through your source control provider and the Shippable platform will respect them.
 
 For more information, read our document on [Managing permissions with RBAC](/platform/security/ci-cd-permissions).
+
+## Additional security considerations
+
+### No separate Shippable Account
+
+We do not require you to create a separate account for Shippable, and instead support sign-in through OAuth with GitHub, Bitbucket, and Gitlab.  As a result, we do not request any sensitive information or store anything unless it been allowed to be publicly shared as part of your source control system.
+
+We do cache the authorization token provided by  GitHub/Bitbucket/Gitlab, but this can be invalidated with a single action which will force you to redo the authentication process. We also store SSH keys that can access your source control repositories, but they are encrypted at rest in Vault and only available during the build process on the builder node.
+
+### No storage of credit card information
+
+If you want to [upgrade your Subscription](/platform/management/subscription/billing/) to a paid plan, someone with Admin privileges for that  Subscription needs to set up billing/payment processing. Nobody else from your organization has any access to billing information.
+To handle payments, we use Braintree, which is a PCI compliant 3rd party service. Shippable does not store any information pertaining to credit cards other than a Transaction ID which is used to identity the information on Braintree.
+
+### Build security
+
+When a build is triggered, we spin up a build node and pull your source code on your build node. This is a transient node that is permanently destroyed if there is more than a maximum of 50 minutes of idle time.
+
+Results of a build like logs, reports etc. are stored in our DB or S3 bucket. S3 buckets are secured for every single customer with separate keys and the DB is not accessible to anyone other than the API and operations team.
+
+All build artifacts are deleted permanently when a repo is disabled or a build is deleted.
+
+### Custom Nodes and Shippable Server
+
+For customers who cannot use a SaaS service for compliance reasons or personal preference, we offer two alternatives:
+
+- [Custom Nodes](/platform/runtime/nodes/#custom-nodes), where all the build orchestration happens through SaaS but the actual build nodes can be on-premises behind your firewall with no incoming traffic initiated from our SaaS service, and,
+- [Shippable Server](/platform/tutorial/server/install/), our Enterprise solution that you can install and manage behind your firewall
