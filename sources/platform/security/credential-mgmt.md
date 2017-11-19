@@ -30,7 +30,7 @@ Here is how integrations work at a high level:
 - You add your secrets as integrations to your account and set permissions on those secrets. This means that only the subscriptions or repositories you choose will have access to your integrations.
 - You refer to the integrations with their friendly name in your YAML.
 
-<img src="/images/platform/security/adding-integrations-1.png" alt="Adding integrations">
+<img src="/images/platform/security/adding-integrations.png" alt="Adding integrations">
 
 Let's see how the scenarios above will play out with integrations:
 
