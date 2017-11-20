@@ -90,6 +90,9 @@ You can also choose to push your images to different Docker Hub accounts, depend
 When a release is created, a tag is specified. The account that is chosen is the one that matches the tag name.
 Wild cards are supported. If a release is created without an existing tag, the tag version is used for matching.
 
+To use release tags, please go to your project dashboard, click on `Settings(gear icon)` and enable `Releases` in `WEBHOOK CONFIG`
+section.
+
 ```
 build:
   post_ci:
