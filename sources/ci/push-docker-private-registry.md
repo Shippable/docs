@@ -77,6 +77,38 @@ integrations:
 
 ```
 
+In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
+
+### Pushing to different accounts based on release tags
+
+You can also choose to push your images to different Docker Private Registries, depending on the release tag.
+When a release is created, a tag is specified. The account that is chosen is the one that matches the tag name.
+Wild cards are supported. If a release is created without an existing tag, the tag version is used for matching.
+
+```
+build:
+  post_ci:
+    - if [ "$BRANCH" == "master" ]; then docker push docker-pvt-registry-url-1/image-name:image-tag; fi
+    - if [ "$BRANCH" == "dev" ]; then docker push docker-pvt-registry-url-2/image-name:image-tag; fi
+
+integrations:                               
+  hub:
+    - integrationName: master-docker-pvt    #replace with your integration name   
+      type: "private docker registry"    
+      branches:
+        only:
+          - v1.* # production release tag
+
+    - integrationName: dev-docker-pvt    #replace with your integration name   
+      type: "private docker registry"    
+      branches:
+        only:
+          - v0.2-beta # beta release tag
+
+```
+
+In addition to the `only` tag which includes specific release tags, you can also use the `except` tag to exclude specific release tags.
+
 ###Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to Docker Private Registry and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
