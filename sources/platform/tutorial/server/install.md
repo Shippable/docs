@@ -22,9 +22,9 @@ installation. Thereafter to scale the server for improved throughput and perform
 Here are the documents for different install scenarios -
 
 * [One box installation](/platform/tutorial/server/install-onebox)
-* [Two server installation](/platform/tutorial/server/install-two-server//)
-* [Three server installation](/platform/tutorial/server/install-three-server/)
-* [Three server installation using an existing PostgreSQL database instance](/platform/tutorial/server/install-three-server-existing-db/)
+* [Two server installation](/platform/tutorial/server/install-two-server)
+* [Three server installation](/platform/tutorial/server/install-three-server)
+* [Three server installation using an existing PostgreSQL database instance](/platform/tutorial/server/install-three-server-existing-db)
 
 ## The Admiral CLI
 The CLI supports the following commands.
