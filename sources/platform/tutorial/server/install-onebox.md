@@ -20,8 +20,8 @@ This document describes the steps to install Shippable Server EE on a single ser
 ## Pre-requisites
 
 ### Machine Requirements
-Y
-ou will need a machine/VM with:
+
+You will need a machine/VM with:
 
 - Ubuntu 14.04 LTS (Only Ubuntu 14.04 is supported at this time.)
 - Kernel 3.19 (or above)
