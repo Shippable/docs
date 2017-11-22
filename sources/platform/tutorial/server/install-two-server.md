@@ -11,7 +11,7 @@ another machine.
 Shippable Server EE comprises of the following -
 
 * Stateless micro services
-* Stateful Components - Database(Postgres), Secret Store and SCM.
+* Stateful Components - PostgreSQL, Secret Store and GitLab server.
 * Transient State Components - Redis and RabbitMQ
 * Shippable Server Installer and webapp (Admiral)
 
