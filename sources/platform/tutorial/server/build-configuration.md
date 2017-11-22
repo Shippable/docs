@@ -2,7 +2,7 @@ page_main_title: Shippable installer
 main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Shippable Server
-page_title: Shippable Server installation with 2 servers
+page_title: Configuring Builds
 page_description: Shippable Server installation with 2 servers with persistent state on one machine and everything else on
 another machine.
 
@@ -21,13 +21,11 @@ This document describes the steps to install Shippable Server EE onto two server
 
 * **Server 2** - Contains Stateful components. Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
 
-## Pre-requisites
-
-### Open ports
+## Ports to open
 
 Before we start, you need to open the following ports so that various Shippable Server components can communicate with each other.
 
-#### Server 1
+### Server 1
 - 22: ssh into the machine
 - 5672: amqp
 - 15672: amqp admin
@@ -38,7 +36,7 @@ Before we start, you need to open the following ports so that various Shippable 
 - 50003: Shippable admin panel
 - 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
-#### Server 2
+### Server 2
 
 - 22: ssh into the machine
 - 80: internal gitlab server api endpoint
@@ -47,9 +45,9 @@ Before we start, you need to open the following ports so that various Shippable 
 - 5432: database
 - 8200: vault
 
-### Pre-install packages
+## Packages to be pre-installed
 
-You need to install Git and SSH on **Server 1** before downloading and running Admiral, the Shippable Server installer.  Install these by running the following on **Server 1**:
+You first need to install Git and SSH on **Server 1** before downloading and running Admiral, the Shippable Server installer.  Install these by running the following on **Server 1**:
 
 ```
 $ sudo apt-get update
@@ -68,7 +66,7 @@ $ sudo reboot #restart is required after kernel upgrade
 
 **Please make sure you have the Shippable Server Installer access key and secret key before starting the steps below. Contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact) if you need access and secret keys.**
 
-###1. Install Admiral
+###1. Install Admiral (Server installer)
 
 SSH into **Server 1** and run the following commands:
 
@@ -276,10 +274,7 @@ a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
 |___ Login Token: 16a31009-0faa-460d-957a-0a98740fa1e4
 |___ Command successfully completed !!!
 ```
-
-You can run `sudo ./admiral.sh info` at any time to retrieve your Login token and Admiral URL.
-
-* Launch the browser and navigate to the specified host and port. Enter the admin token. It might be a good idea to bookmark the Admiral URL.
+* Launch the browser and navigate to the specified host and port. Enter the admin token.
 
 * The **Installer Access key** and **Installer Secret key** should be pre-populated. Do not change these.
 
@@ -312,7 +307,7 @@ You can run `sudo ./admiral.sh info` at any time to retrieve your Login token an
 
 If anything shows **failed** status, read the [**Troubleshooting**](#troubleshooting) section at the bottom of this page for tips. If you still run into issues, please contact us [over email](mailto:support@shippable.com) or through a [github issue](https://www.github.com/Shippable/issues).
 
-###4. Configure Source Control Provider(s)
+###4. Specify Authorization and Source Control Management (SCM) Providers
 
 * Click on **Configure & Install**.
 
@@ -323,121 +318,55 @@ authorization provider.
 
 * For **GitHub**, you will need a **Client ID** and **Client Secret**. You can get these by [adding Shippable Server as an OAuth application in GitHub](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/).
     * Check **GitHub** in the **Authorization** column.
-    * In your Github account, go to your [Settings->Developer settings->OAuth Apps](https://github.com/settings/developers) and click on **New OAuth App**.
+    * Go to your [Settings->Developer settings->OAuth Apps](https://github.com/settings/developers) and click on **New OAuth App**.
     * Enter an easy to remember **Application name**. You need to enter something for **Homepage URL**, but this value isn't relevant to our scenario.
     * Copy the **Callback URL** from your Admiral UI:
 
-    <img src="/images/platform/tutorial/server/callback-url-for-github.png" alt="Admiral-2-server">
+    <img src="/images/platform/admiral/callback-url-for-github.png" alt="Admiral-2-server">
 
     * Paste the Callback URL into the **Authorization callback URL** field in the GitHub UI and click on **Register Application**
     * Copy the **Client ID** and **Client Secret** for your new application.
     * Paste the values into the Admiral UI.
 
-* For **GitHub Enterprise**, follow instructions on the [GitHub Enterprise configuration page](/platform/tutorial/server/install-ghe)
-
-* For **Bitbucket Server (Stash)**, follow instructions on the [Bitbucket Server config page](/platform/tutorial/server/install-bbs)
-
-* For **Bitbucket Cloud**, [follow instructions to add an OAuth app](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html) and note down the client ID and secret which you will need to enter in the Admiral UI.
-
-* For now, leave the **Build configuration**, **Email**, **IRC**, and **System Settings** as-is. We will come back to them later.
-
 * Click **Install**.
 
-* After the installation is complete, you will see two buttons. Click **Save** and again click **Save** on the confirmation dialog.
-
-* Click on **Restart services** and click on **Yes** in the confirmation dialog.
+<img src="/images/platform/admiral/Admiral-github.png" alt="Admiral-github">
 
 ###5. Enabling caching
-
-You can turn on caching by following the steps below:
-
-* Navigate to the **Build configuration** section in the **Configure and Install** panel.
-* Select the **Upload artifacts to AWS** option and enter your AWS Access and Secret Keys.
-* Click on **Save** and **Restart Services**.
-
-To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
+To enable caching, navigate to the `Build configuration` section in the `Configure and Install` panel. Select the `Upload artifacts to AWS` option. Click on `Save` and `Restart Services`. To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
 
 ###6. Configure Services
-
-By default, we run one copy of every microservice., which should be sufficient for most installations. You can skip this section and come back to it later if a specific service becomes a bottleneck.
-
-* Click on **Services**.
-* Configure the number of replicas (or use the default values) and click **Save**.
+* Click on `Services`.
+* Configure the #replicas (or use the default values) and click `Save`.
 
 ###7. Configure add-ons
+* Click on `Add-ons`
+* Select the account integrations (you can always enable / disable) add-ons later.
+* Click `Install Add-ons`
 
-If you want your users to be able to connect to third party services through [integrations](/platform/integration/overview), you need to configure them in this section.
+###8. Login to Shippable Server and setup Super user account.
+* Login to Shippable server with your admin account for the SCM provider.You should see your team/organizations/repositories sync. To find the Login URL, click on `Configure and Install`. The URL is in the `Shippable UI` section.
 
-* Click on **Add-ons**
-* Select the account integrations you want to make available to your users.
-* Click **Install Add-ons**.
+<img src="/images/platform/admiral/Admiral-login.png" alt="Admiral-github">
 
-###8. Setup superuser
-
-* You will first need to log in to Shippable Server with your Admin account for the source control provider. To find the Server URL, look in the **Configure and Install->Service Addresses->Shippable UI** section of the Admiral UI:
-
- <img src="/images/platform/tutorial/server/shippable-server-url.png" alt="Admiral-2-server">
-
-* From the Shippable Server URL, sign in to Shippable Server with your Admin account for the SCM provider, and authorize the application. You will need to click **Authorize** twice.
-
-* You should see your team/organizations/repositories sync and appear under the **Subscriptions** section of the left navbar.
-
-<img src="/images/platform/tutorial/server/shippable-left-navbar.png" alt="Admiral-2-server">
-
-* Click **Profile** in the left sidebar and note down the `Account Id` at the bottom of the screen.
+* After Logging in, grant permissions in the OAuth dialog.
+* Click to `Profile` in the left sidebar and note down the `Account Id` at the bottom of the screen.
 
 <img src="/images/platform/admiral/Admiral-accountid.png" alt="Admiral-github">
 
-* Switch back to Admiral UI and scroll the screen all the way down to the **Manage System SuperUsers** section.
-
-* Paste the Account id and click **Add**.
+* Switch back to Admiral and scroll the screen all the way down to the `Manage System SuperUsers` section.
+* Paste the Account id and click Add.
 
 <img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
-###9. Configure nodes.
-
-You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
-
-By default, a Server installation is configured to support **System Nodes** and **Custom Nodes**. You can turn on **Dynamic Nodes** if you want your nodes to be spun up on demand. We support AWS for dynamic nodes.
-
-<img src="/images/platform/tutorial/server/default-nodes-config.png" alt="Admiral-2-server">
-
-#### System nodes
-
-System nodes are available for all subscriptions and projects across your installation and are always ON and waiting to pick up triggered jobs.
-
-To configure system nodes, follow the instructions below:
-
-* From the Shippable Server UI, click on **Admin** in the left navbar and click on **Nodes** and then on **System**.
-* Click on **+** at the top right
-
-<img src="/images/platform/tutorial/server/system-nodes.png" alt="Admiral-2-server">
-
-* Follow instructions to add a node. You can follow guidelines [described at Step 6 onwards on the Add a node page](/platform/tutorial/runtime/custom-nodes/#adding-a-build-node)
-
-* Repeat these steps for the number of system nodes you want to add.
-
-#### Custom nodes
-
-Custom nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add custom nodes.
-
-To restrict addition of Custom Nodes to Shippable Server Admins, check the **Restrict custom node creation to admins only** checkbox in the Admiral UI.
-
-To set up Custom nodes, sign in to Shippable Server with your admin credentials and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
-
-#### Dynamic Nodes
-
-Dynamic nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand.
-
-However, please note that nodes on AWS need 2-4 minutes to be spun up, so you will have to live with that overhead for some builds when a fresh node needs to be spun up.
-
-To enable **Dynamic nodes**:
-
-* Check the **Enable dynamic nodes** checkbox
-* Enter your AWS Access and Secret keys.
-* Choose an instance size. Our default is c4.large.
-* You can leave the other settings as-is.
-* Click on **Save** for the **Configure and Install** section.
+###9. Setup System or BYON node.
+* After step 7, login to Shippable Server as super user account.
+* If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
+setup the system or custom nodes to run your CI and runSh jobs.
+* System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
+* To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
+* To setup System nodes, click on Admin -> Nodes -> System and click on '+' button. Follow the instructions
+on that screen.
 
 ## Troubleshooting
 
@@ -466,7 +395,3 @@ $ sudo ./admiral.sh restart
 ```
 
 * Re-open the admiral UI and click on **Initialize** in the **Initialize Infrastructure** section.
-
-### Missing subscriptions
-
-If you sign in to Shippable Server and are missing some subscriptions (organizations or teams) from your SCM, click on **Profile** in your left navbar and then click on **Sync**. Recheck if the missing organizations are now visible under **Subscriptions**.

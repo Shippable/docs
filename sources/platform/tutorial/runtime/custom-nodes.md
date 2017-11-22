@@ -19,29 +19,29 @@ This tutorial page shows you how to attach/delete your Custom nodes to Shippable
 ##Adding a build node
 Follow the steps below to add a build node:
 
-- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+1. From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
 
 <img width="30%" height="30%" src="/images/getting-started/account-settings.png" alt="List subscriptions">
 
-- Click on the **Gears icon** on the right of the Subscription page and then on **Nodes**.
-- Choose the radio button for **Custom**.
+2. Click on the **Gears icon** on the right of the Subscription page and then on **Nodes**.
+3. Choose the radio button for **Custom**.
 
 <img src="/images/getting-started/byon-select-my-node.png" alt="bring your own node">
 
-- Select the architecture for initializing the node.
+4. Select the architecture for initializing the node.
 
 <img src="/images/getting-started/change-custom-architecture.png" alt="change custom node architecture">
 
-- To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
-- Select the OS of the nodes you want to add.
-- Enter a name for the node and its IP address.
+5. To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
+6. Select the OS of the nodes you want to add.
+7. Enter a name for the node and its IP address.
 
 <img src="/images/getting-started/byon-name-ip.png" alt="Enter name and IP">
 
-- Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
-- You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `Manual (script based)`
+8. Click on the **Docker version** dropdown and select the version you want installed on your nodes. Please note that the list of available versions is populated based on your choice of OS.
+9. You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `Manual (script based)`
 
-* To initialize the node through Shippable,
+10. To initialize the node through Shippable,
     * Enter the SSH port for your build host. This is usually port 22, but is configurable.
     * Choose whether you want to enable swap space on your machine.
     * Copy the command shown and run it on your build host. This will create a
@@ -56,7 +56,7 @@ Follow the steps below to add a build node:
 <img src="/images/getting-started/intialize-byon-shippable.png" alt="Select docker version">
 
 
-* To run the initialization scripts yourself,
+11. To run the initialization scripts yourself,
     * Choose whether you want to enable swap space on your machine.
     * Click on **Generate initialization scripts** to generate the script.
     * Click on **Download scripts** to download. Copy it to your build machine and
