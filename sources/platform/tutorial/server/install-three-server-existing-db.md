@@ -10,22 +10,26 @@ page_description: Shippable Server installation with 3 servers and an existing d
 Shippable Server EE comprises of the following -
 
 * Stateless micro services
-* Stateful Components - Database(Postgres), Secret Store and SCM.
+* Stateful Components - PostgreSQL, Secret Store and GitLab server.
 * Transient State Components - Redis and RabbitMQ
 * Shippable Server Installer and webapp (Admiral)
 
-This document describes the steps to install Shippable Server EE onto three servers -
+This document describes the steps to install Shippable Server EE onto three servers using an existing
+PostgreSQL database.
 
 * **Server 1** - Admiral web app, micro services
 
-Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
-* **Server 2** - Stateful Components (sans database)
+    Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
 
-Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
-* **Server 3** - Transient state
+* **Server 2** - All Stateful Components except PostgreSQL
 
-Machine minimum requirements - [T2.medium](https://aws.amazon.com/ec2/instance-types/) or equivalent
-* **Server 4** - Existing Database
+    Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
+
+* **Server 3** - Transient state Components
+
+    Machine minimum requirements - [T2.medium](https://aws.amazon.com/ec2/instance-types/) or equivalent
+
+* **Server 4** - Machine with existing PostgreSQL database.
 
 
 ##Server 4
