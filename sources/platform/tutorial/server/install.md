@@ -8,70 +8,23 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 
 # Admiral, the Shippable Server installer
 
-Admiral is used to install Shippable Server. It installs the services required to run Shippable and the Shippable microservices. A server license is required to install Shippable. For more information, <a href="https://www.shippable.com/contact.html">contact us</a>.
+Shippable Server is a DevOps platform that help teams ship software more frequently and predictably by unifying DevOps tools and activities into assembly lines with rich logistics. It can run behind your corporate firewall thereby allowing you to securely connect to your repositories running on your intranet and run CI/CD flows on them. Shippable Server natively integrates with GitHub Enterprise, Bitbucket Server, and Gitlab Enterprise. User management, permissions, and source code repositories are synced with your source control provider.
 
-Admiral contains a CLI to install the basic dependencies and a user interface to complete the installation and manage the configuration of options. Both of these are available in the <a href="https://github.com/Shippable/admiral"> Admiral GitHub repository</a>.
+**Admiral CLI** is used to install Shippable Server. A server license is required to install Shippable. For more information, <a href="https://www.shippable.com/contact.html">contact us</a>.
 
-To get started with Admiral, check that you have the prerequisites, clone the repository, and check out the tag you plan to install:
-```
-$ git clone https://github.com/Shippable/admiral.git
-$ cd admiral
-$ git checkout <selected tag>
-```
-Then you can run `./admiral.sh install` and follow the prompts.
+Admiral CLI installs the basic dependencies and a user interface to complete the installation and manage the configuration of options. Both of these are available in the <a href="https://github.com/Shippable/admiral"> Admiral GitHub repository</a>.
 
-## Prerequisites
-###Instance Requirements
-Minimum requirements to run Admiral and all core Shippable services and components on one instance:
+## Installation
 
-- Ubuntu 14.04 LTS (Only Ubuntu 14.04 is supported at this time.)
-- Kernel 3.19 (or above)
-- 4 cores
-- 8 GB memory
-- 100 GB disk space
+Shippable server can be installed on a single machine/vm or multiple machines. For pilots and trials, we recommend a one-box
+installation. Thereafter to scale the server for improved throughput and performance, you can consider distributing the installation of different server components over multiple machines/vms.
 
-The following ports must be exposed on the instance, either externally or to the network in
-which they will run:
+Here are the documents for different install scenarios -
 
-- 22: ssh into the machine
-- 80: internal gitlab server api endpoint
-- 443: internal gitlab server secure api endpoint
-- 2222: internal gitlab server ssh port
-- 5432: database
-- 5672: amqp
-- 15672: amqp admin
-- 6379: redis
-- 8200: vault
-- 50000: Shippable api
-- 50001: Shippable post-login ui
-- 50002: Shippable pre-login ui
-- 50003: Shippable admin panel
-
-Git and SSH must be installed before running Admiral.  Install these by running the following on the instance:
-```
-$ sudo apt-get update
-$ sudo apt-get install git-core ssh
-```
-
-If you are installing on a AWS Ubuntu 14.04 AMI, you may need to update the kernel.  The following commands will update to 3.19:
-```
-$ sudo apt-get update
-$ sudo apt-get install linux-generic-lts-vivid
-$ sudo reboot #restart is required after kernel upgrade
-```
-
-### Load balancers
-The usual (and recommended) way of exposing Shippable service end points is via loadbalancers. The loadbalancers are not required to be exposed to the public facing internet but should be accessible to all users in a VPN. A typical setup creates the following routing:
-
-    User (shippable.mycompany.com) -> Route 53 -> Internal LB -> Shippable API
-    (running on one or more machines)
-
-Shippable requires 4 loadbalancers with listeners on these ports:
-
-- **API, port 50000**: Shippable api will be used by all the microservices and should be available via IP/DNS.
-- **WWW, port 50001**: This service is what users access to use Shippable.
-- **Admin, port 50003**: This is where the Shippable admin panel (Admiral) runs
-- **Message queue, ports 443, 5671 and 15671**: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
+* [One box installation](/platform/tutorial/server/install-onebox)
+* [Two server installation](/platform/tutorial/server/install-two-server//)
+* [Three server installation](/platform/tutorial/server/install-three-server/)
+* [Three server installation using an existing PostgreSQL database instance](/platform/tutorial/server/install-three-server-existing-db/)
 
 ## The Admiral CLI
 The CLI supports the following commands.
