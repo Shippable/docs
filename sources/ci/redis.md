@@ -6,7 +6,7 @@ sub_section: Working with services
 
 Redis is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Redis.
 
-##Starting Redis
+##Startung Redis
 
 To start redis, include the following in your  `shippable.yml`:
 
