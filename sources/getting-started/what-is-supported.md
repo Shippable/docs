@@ -157,7 +157,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 -  [AWS EC2](/platform/integration/aws-keys)
 -  [Google Cloud](/platform/integration/gcloudKey)
--  [Microsoft Azure](/platform/integration/azure)
+-  [Microsoft Azure](/platform/integration/azure-keys)
 -  [Digital Ocean](/platform/integration/do)
 
 ### DevOps Tools

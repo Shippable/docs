@@ -260,7 +260,7 @@ pages:
       - Overview: platform/integration/overview.md
       - AWS IAM: platform/integration/aws-iam.md
       - AWS Keys: platform/integration/aws-keys.md
-      - Azure: platform/integration/azure.md
+      - Azure: platform/integration/azure-keys.md
       - Azure DC/OS: platform/integration/azureDcosKey.md
       - Bitbucket: platform/integration/bitbucket.md
       - Digital Ocean: platform/integration/do.md
@@ -287,6 +287,7 @@ pages:
         - Amazon ECR: platform/integration/aws-ecr.md
         - Amazon Web Services: platform/integration/aws.md
         - Amazon ECS: platform/integration/aws-ecs.md
+        - Azure: platform/integration/azure.md
         - Docker Cloud: platform/integration/docker-cloud.md
         - Docker Hub: platform/integration/docker-hub.md
         - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
