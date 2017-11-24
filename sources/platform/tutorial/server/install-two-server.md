@@ -363,7 +363,7 @@ To learn more about the benefits of caching, go [here](/platform/runtime/caching
 
 ###6. Configure Services
 
-By default, we run one copy of every microservice., which should be sufficient for most installations. You can skip this section and come back to it later if a specific service becomes a bottleneck.
+By default, we run one copy of every microservice, which should be sufficient for most installations. You can skip this section and come back to it later if a specific service becomes a bottleneck.
 
 * Click on **Services**.
 * Configure the number of replicas (or use the default values) and click **Save**.
