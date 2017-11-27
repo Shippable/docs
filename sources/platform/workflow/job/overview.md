@@ -40,12 +40,17 @@ jobs:
   - name: 					<string>
     type: 					<job type name>
     triggerMode: 		    <parallel/serial; only for runSh jobs>
+    dependencyMode:         <chrono, strict or immediate>
     on_start:
       - NOTIFY: 			<notification resource name>
     steps:
       - IN: 				<resource>
         switch: 			off
       - IN: 				<job>
+      - IN: 				<resource>
+        dependencyMode:     <chrono, strict or immediate; to override dependencyMode at job level>
+      - IN: 				<job>
+        dependencyMode:     <chrono, strict or immediate; to override dependencyMode at job level>
       - IN: 				<resource>
         versionName: 		<name of the version you want to pin>
       - IN: 				<resource>
@@ -92,7 +97,7 @@ Jobs can be triggered in multiple ways, including both automated and manual trig
 
 In this configuration, Job-4 will be triggered in one of 4 ways:
 
-* A previous job in the Assembly Line changes an `IN` resource, i.e. **Job-4** will be triggered every time **Job-3** updates **resource-2**.   
+* A previous job in the Assembly Line changes an `IN` resource, i.e. **Job-4** will be triggered every time **Job-3** updates **resource-2**.
 * An `IN` job successfully completed execution, i.e. **Job-4** will be triggered every time **Job-2** succeeds. A couple of exceptions to this rule are:
     * If any Jobs defined as `IN`s are currently processing, have queued builds or are in a failed state. So in the example above, if Job-1 is in failed state or is queued, **Job-4** will not trigger even when **Job-2** completes successfully.
     * If the Job is in [inconsistent](/platform/workflow/job/rsync) state due to dependency failures
@@ -113,6 +118,59 @@ When triggered, a Job does the following:
 
 
 Every time a job executes, a new immutable **version** is created. This makes it easy to 'replay' older job versions, though you should do this only after verifying that the old input values will not create problems in your Assembly Line.
+
+<a name="trigger-modes"></a>
+## Job triggering modes
+
+Once a job completes successfully or a resource is updated, it looks for all the other job resources that are using it as INs and depending on the dependencyMode of those job resources, it decides whether to create a waiting or queued build for that job. Specifying dependencyMode is optional. `dependencyMode` can only be `chrono`, `immediate` or `strict`. Default dependencyMode is `chrono`.
+
+<img src="/images/platform/jobs/chrono-dependencyMode.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+* **chrono dependencyMode**
+
+    This is the default dependencyMode.  When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated and the ones which have consistent(valid yml definition and success state) IN resources/jobs are triggered. These jobs will get processed only when all of their IN and OUT jobs are in complete state.
+
+    Example:
+
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will trigger `job-5` once but not `job-4` since it has an inconsistent IN `job-1`. As `job-3` is still in processing state, `job-5` will remain in queued state until `job-3` is complete. Once `job-3` completes it will trigger `job-5` again. `job-5` will have 2 queued builds for it. If `job-7` is in processing state, then `job-5` will wait for that also to complete and then both of its builds will go to processing state one by one.
+
+* **immediate dependencyMode**
+
+    As the name suggests, jobs are triggered immediately without waiting for any incomplete IN/OUT jobs to be completed and jobs also get triggered even if IN resources are inconsistent. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are triggered.
+
+    Example:
+
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will trigger `job-5` and `job-4` both even though `job-4` has an inconsistent IN `job-1`. While `job-3` is still in processing state, `job-5`and `job-4` will goto processing state immediately if required minions(or nodes) are available even if `job-7` and `job-6` are processing. Now, when job `job-3` completes, it will trigger
+    `job-5` again and this build will go to processing state as soon as first build for `job-5` is complete.
+
+* **strict dependencyMode**
+
+    In the `chrono` and `immediate` modes, dependent jobs are triggered multiple times when more than two IN jobs are running. In `strict` mode we only trigger a job once when more than one IN jobs completes. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated and the ones which have consistent(valid yml definition and success state) and no processing IN resources/jobs are triggered, `waiting jobs` are created for consistent dependencies which have processing IN jobs.
+
+    You can see the waiting jobs on dashboards' grid-view. In case your waiting job is not getting processed and all the IN jobs are in complete state then you can delete them.
+
+    <img src="/images/platform/jobs/waiting-jobs.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+    Example:
+
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will not trigger any job. It will not trigger `job-5` since `job-3` is still running and it will not trigger `job-4` since it has an inconsistent IN `job-1`. A `waiting job` is created for `job-5`. Once `job-3` completes it will trigger `job-5`. `job-5` will then go to processing state even if job `job-7` is processing.
+
+You can also control which mode a job should follow once a particular IN job completes by specifying the dependencyMode at IN dependency level.
+
+```
+jobs:
+  - name: job-5
+    type: runSh
+    dependencyMode: strict
+    steps:
+      - IN: resource-1
+      - IN: job-2
+        dependencyMode: immediate   
+      - IN: job-3
+      - TASK:
+        - script: echo "do something";
+```
+Here, if `job-5` is triggered by `job-2` then it'll follow `immediate` mode even though it has `strict` mode at job level. When triggered by resource `resource-1` or job `job-3`, it will follow `strict` mode.
 
 <a name="types"></a>
 ## Supported job types
