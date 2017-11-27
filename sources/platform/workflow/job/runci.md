@@ -48,8 +48,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`type`** -- Required, is set to `runCI`
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
-    * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
-
+    * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.
     * `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
     * `OUT` -- Optional, any Resource can be used here and as many as you need.
         * `replicate` -- Optional, any `IN` Resource of same type can be used.
