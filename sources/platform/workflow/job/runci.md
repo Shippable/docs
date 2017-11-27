@@ -37,8 +37,6 @@ jobs:
         versionName: <name of the version you want to pin>
       - IN: <resource>
         versionNumber: <number of the version you want to pin>        
-      - IN: <gitRepoResource with buildOnPullRequest: true>
-        showBuildStatus: true       
       - OUT: <resource>
       - OUT: <resource>
         replicate: <resource>
