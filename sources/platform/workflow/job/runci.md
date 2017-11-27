@@ -29,8 +29,6 @@ Now if you want your `runCI` job to interact with other entities of the Assembly
 jobs:
   - name: <name of the runCI>
     type: runCI
-    on_start:
-      - NOTIFY: <notification resource name>
     steps:
       - IN: <resource>
         switch: off
@@ -44,16 +42,6 @@ jobs:
       - OUT: <resource>
       - OUT: <resource>
         replicate: <resource>
-    on_success:
-      - script: echo "SUCCESS"
-    on_failure:
-      - script: echo "FAILED"
-      - NOTIFY: <notification resource name>
-    on_cancel:
-      - script: echo "CANCEL"
-    always:
-      - script: pwd
-
 ```
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
@@ -61,22 +49,12 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`type`** -- Required, is set to `runCI`
 
-* **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
-
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, `versionName` and `showBuildStatus` is supported too. `applyTo` is not supported
 
     * `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
     * `OUT` -- Optional, any Resource can be used here and as many as you need.
         * `replicate` -- Optional, any `IN` Resource of same type can be used.
-
-* **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used.
-
-* **`on_failure `** -- Optional, and both `script` and `NOTIFY` types can be used.
-
-* **`on_cancel `** -- Optional, and both `script` and `NOTIFY` types can be used.
-
-* **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
 The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
