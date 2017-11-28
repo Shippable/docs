@@ -24,6 +24,7 @@ resources:
 
 * **`integration`** -- name of the Subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
+	* [Azure Keys](/platform/integration/azure-keys)
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
 	* [Google Cloud](/platform/integration/gcloudKey)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
@@ -91,6 +92,7 @@ integration. Here is a list of the tools configured for each integration type:
 | ------------------------------------|-------------|
 | AWS                                 | [AWS CLI](/platform/runtime/machine-image/cli-versions/#aws); [AWS Elastic Beanstalk CLI](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | AWS with `ecr` scope                | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
+| Azure                               | [Azure CLI](/platform/runtime/machine-image/cli-versions/#azure) |
 | Docker Registry                     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Google Cloud                        | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Google Cloud with `gke` scope       | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
