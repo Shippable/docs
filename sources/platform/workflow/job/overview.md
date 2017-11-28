@@ -122,38 +122,37 @@ Every time a job executes, a new immutable **version** is created. This makes it
 <a name="trigger-modes"></a>
 ## Job triggering modes
 
-Once a job completes successfully or a resource is updated, it looks for all the other job resources that are using it as INs and depending on the dependencyMode of those job resources, it decides whether to create a waiting or queued build for that job. Specifying dependencyMode is optional. `dependencyMode` can only be `chrono`, `immediate` or `strict`. Default dependencyMode is `chrono`.
+Once a job completes successfully or a resource is updated, all downstream jobs will be triggered. In some scenarios, you might want your downstream job to run immediately. In others, you might want it to wait until all of the processing upstream jobs are complete. This exact behavior can be controlled using the dependencyMode option. Specifying `dependencyMode` is optional. It defaults to `chrono`, but It can also be `immediate` or `strict`.
 
-<img src="/images/platform/jobs/chrono-dependencyMode.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/jobs/dependencyMode.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-* **chrono dependencyMode**
+* **dependencyMode: chrono**
 
-    This is the default dependencyMode.  When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated and the ones which have consistent(valid yml definition and success state) IN resources/jobs are triggered. These jobs will get processed only when all of their IN and OUT jobs are in complete state.
-
-    Example:
-
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will trigger `job-5` once but not `job-4` since it has an inconsistent IN `job-1`. As `job-3` is still in processing state, `job-5` will remain in queued state until `job-3` is complete. Once `job-3` completes it will trigger `job-5` again. `job-5` will have 2 queued builds for it. If `job-7` is in processing state, then `job-5` will wait for that also to complete and then both of its builds will go to processing state one by one.
-
-* **immediate dependencyMode**
-
-    As the name suggests, jobs are triggered immediately without waiting for any incomplete IN/OUT jobs to be completed and jobs also get triggered even if IN resources are inconsistent. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are triggered.
+    This is the default dependencyMode. When an upstream job completes or resource is updated, this job will be triggered if all of its dependencies are consistent and in a successful state. However, the job won't run at the same time as any of its directly connected upstream or downstream jobs. Instead, the job will enter a 'queued' state. It will be picked up when its dependencies have stopped processing and when its chronological turn has arrived.
 
     Example:
 
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will trigger `job-5` and `job-4` both even though `job-4` has an inconsistent IN `job-1`. While `job-3` is still in processing state, `job-5`and `job-4` will goto processing state immediately if required minions(or nodes) are available even if `job-7` and `job-6` are processing. Now, when job `job-3` completes, it will trigger
-    `job-5` again and this build will go to processing state as soon as first build for `job-5` is complete.
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. It will trigger `job-5` once but not `job-4`, since `job-1` is an inconsistent dependency. As `job-3` is still in processing state, `job-5` will remain in queued state until `job-3` is complete. Once `job-3` completes it will trigger `job-5` again. `job-5` will have 2 queued builds created for it. If `job-7` is in processing state, then `job-5` will also wait for that to complete and then both of its builds will go to processing state one by one.
 
-* **strict dependencyMode**
+* **dependencyMode: immediate**
 
-    In the `chrono` and `immediate` modes, dependent jobs are triggered multiple times when more than two IN jobs are running. In `strict` mode we only trigger a job once when more than one IN jobs completes. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated and the ones which have consistent(valid yml definition and success state) and no processing IN resources/jobs are triggered, `waiting jobs` are created for consistent dependencies which have processing IN jobs.
+    In this mode, jobs are triggered without waiting for any incomplete dependencies to reach a final state. Jobs will also be triggered even if IN resources are inconsistent. When a job completes or a resource is updated, all the consistent downstream jobs are triggered.
 
-    You can see the waiting jobs on dashboards' grid-view. In case your waiting job is not getting processed and all the IN jobs are in complete state then you can delete them.
+    Example:
+
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. It will trigger both `job-5` and `job-4`, even though `job-1` is an inconsistent dependency for `job-4`. While `job-3` is still in processing state, `job-5` and `job-4` will immediately go to a processing state as well as long as there are available minions. This mode also disregards the state of downstream jobs, so if `job-7` and `job-6` are processing, `job-4` and `job-5` will still be triggered. Now, when job `job-3` completes, it will trigger `job-5` again and this build will go to processing state as soon as first build for `job-5` is complete.
+
+* **dependencyMode: strict**
+
+    In the `chrono` and `immediate` modes, dependent jobs end up running multiple times when more than one IN dependency completes. In strict mode, the goal is to only trigger the job once when all of the upstream dependencies have reached a final state. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated, and the ones which have are consistent with no waiting or processing upstream dependencies are triggered. If there are processing or waiting upstream dependencies, `waiting jobs` are created, which will be resolved once all of the processing/waiting upstream dependencies have reached a final state.
+
+    You can see the waiting jobs on dashboards' grid-view. In case your waiting job is not getting processed and all the IN jobs are in a final state then you can delete them.
 
     <img src="/images/platform/jobs/waiting-jobs.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
     Example:
 
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose, `job-2` completes first then it will not trigger any job. It will not trigger `job-5` since `job-3` is still running and it will not trigger `job-4` since it has an inconsistent IN `job-1`. A `waiting job` is created for `job-5`. Once `job-3` completes it will trigger `job-5`. `job-5` will then go to processing state even if job `job-7` is processing.
+    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. In this case, it will not trigger any subsequent job. It will not trigger `job-5` since `job-3` is still running and it will not trigger `job-4` since it has an inconsistent IN `job-1`. Instead, a waiting job is created for `job-5`. Once `job-3` completes it will trigger `job-5`. `job-5` will then be removed from the waiting jobs list and move to a queued state even if `job-7` is processing. Once in a queued state, the job will be picked up to run as soon as minions are available.
 
 You can also control which mode a job should follow once a particular IN job completes by specifying the dependencyMode at IN dependency level.
 
