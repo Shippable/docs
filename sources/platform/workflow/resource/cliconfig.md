@@ -104,7 +104,6 @@ integration. Here is a list of the tools configured for each integration type:
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs
 
-* [runCI](/platform/workflow/job/runci/)
 * [runSh](/platform/workflow/job/runsh/)
 
 ## Default Environment Variables
