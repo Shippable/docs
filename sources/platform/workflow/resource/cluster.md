@@ -30,7 +30,7 @@ resources:
 	* [Amazon ECS](/platform/integration/aws-iam)
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
-	* [Google Cloud)](/platform/integration/gcloudKey)
+	* [Google Cloud](/platform/integration/gcloudKey)
 	* [Kubernetes](/platform/integration/kubernetes-config)
 	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/joyentTritonKey)
@@ -65,6 +65,17 @@ resources:
 	          region:     <region, e.g., us-central1-a, us-west1-b, etc.>
 	          sourceName: <Google Container Engine cluster name>
 	          namespace:  <optional namespace you want to deploy to>
+
+        You can also specify a bastion host to use when connecting to the cluster in the pointer section:
+
+             pointer:
+               region:     <region, e.g., us-central1-a, us-west1-b, etc.>
+               sourceName: <Google Container Engine cluster name>
+               namespace:  <optional namespace you want to deploy to>
+               bastionHost:
+                 address:        <public address of your bastion host>
+                 user:           <bastionHost user>
+                 keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 
 	* For Node Cluster integrations - N/A
 	* For Joyent Triton integrations,

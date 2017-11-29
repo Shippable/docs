@@ -43,33 +43,7 @@ resources:
 
 	    Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, Shippable will search for one that has the right level of trust automatically. If none is found, the job where this resource is used will fail.
 
-	* For [Google Cloud Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
-
-	        pointer:
-	          sourceName:           <lowercase alphanumeric name only>
-	          method:               ClusterIP | ExternalName | LoadBalancer | NodePort  #default is ClusterIP
-	          namespace:            <name of the namespace where pod is deployed>       #optional
-	          clusterName:          <name of the GKE cluster>
-	          region:               <name of the region>
-	        version:
-	          ports:
-	            - name:             <string>
-	              protocol:         TCP | UDP #default TCP
-	              port:             <integer>
-	              targetPort:       <string>
-	              nodePort:         <integer>
-	          selector:
-	            <string> : <string>
-	          clusterIP:            None | "" | <string>
-	          externalIPs:
-	            - <string>
-	          sessionAffinity:      ClientIP | None
-	          loadBalancerIP:       <string>
-	          loadBalancerSourceRanges:
-	            - <string>
-	          externalName:         <string>
-
-	* For [Kubernetes Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
+	* For [Google Cloud Load Balancers](https://kubernetes.io/docs/user-guide/services/) or [Kubernetes Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
 	        pointer:
 	          bastionHost: # If using bastion host for configuring kubernetes clusters
@@ -98,6 +72,8 @@ resources:
 	          loadBalancerSourceRanges:
 	            - <string>
 	          externalName:         <string>
+
+        Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/gke/) integration.
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs:
