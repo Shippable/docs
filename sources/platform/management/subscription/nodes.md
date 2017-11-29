@@ -24,7 +24,7 @@ You can view all the currently active nodes in your Subscription by following th
 
 <img src="/images/platform/visibility/subscription-nodes-view.jpg" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-<img src="/images/platform/visibility/subscription-nodes-system.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/management/subscription-nodes-system.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Please note that if you're using Shippable [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/), you will only see active nodes, if any. For Custom nodes, they will always be shown here since they are always on and available.
 
