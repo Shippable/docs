@@ -5,7 +5,7 @@ sub_sub_section: GKE
 
 # Deploying to Google Container Engine (GKE)
 
-NOTE: [This page on Kubernetes](./kubernetes) describes the preferred way to deploy to a k8s cluster on Shippable, as it communicates directly with the cluster.  The Shippable `kubernetes` integration also utilizes `deployment` objects, while the `gke` integration uses `replicationControllers` (RC).
+NOTE: Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects, while the deprecated [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers` (RC). Either integration can be used to deploy to GKE.
 
 There are many strategies that can be used to deploy containers to [GKE](https://cloud.google.com/container-engine/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on GKE.
 
@@ -69,7 +69,7 @@ This file should be committed to your source control. Step 5 of the workflow bel
 1. Create an account integration for GCR in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
-    * [Google cloud integration](/platform/integration/gcloudKey/)
+    * [Google Cloud integration](/platform/integration/gcloudKey/)
 
     Copy the friendly name of the integration.
 
@@ -116,7 +116,7 @@ jobs:
 1. Create an account integration for Google Cloud in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/)
-    * [Google cloud integration](/platform/integration/gcloudKey/)
+    * [Google Cloud integration](/platform/integration/gcloudKey/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 
