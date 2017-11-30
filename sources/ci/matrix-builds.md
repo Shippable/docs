@@ -45,9 +45,9 @@ Even though each build in the matrix is a separate build, the Shippable UI also 
 
 ##Advanced config
 
-###Excluding specific jobs
-
 The `matrix` tag lets you refine the build matrix by including/excluding specific combinations, or allowing specific jobs to fail without affecting overall build status.
+
+###Excluding specific jobs
 
 Suppose you have:
 
@@ -70,7 +70,7 @@ You can exclude a specific job from a matrix by configuring your yml with an `ex
 matrix:
   exclude:
     - rvm: 1.9.2
-      gemfiles/Gemfile.rails-3.0.x
+      gemfile: gemfiles/Gemfile.rails-3.0.x
 ```
 
 The snippet above excludes the job for the combination of `runtime 1.9.2` and `gemfiles/Gemfile.rails-3.0.x` parameters from the build matrix.
@@ -94,7 +94,7 @@ You can use this method to create a build matrix containing only specific combin
 matrix:
   include:
     - rvm: 1.9.3
-      gemfiles/Gemfile.rails-2.3.x
+      gemfile: gemfiles/Gemfile.rails-2.3.x
       env: ISOLATED=false
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile.rails-3.0.x
