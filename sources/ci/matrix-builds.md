@@ -91,9 +91,6 @@ This adds a particular job to the build matrix with the specified parameters.
 You can use this method to create a build matrix containing only specific combinations. Consider the example bellow:
 
 ```
-# Language setting
-language: python
-
 matrix:
   include:
     - rvm: 1.9.3
