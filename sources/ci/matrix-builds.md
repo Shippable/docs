@@ -45,52 +45,62 @@ Even though each build in the matrix is a separate build, the Shippable UI also 
 
 ##Advanced config
 
-###including/excluding specific jobs
-
 The `matrix` tag lets you refine the build matrix by including/excluding specific combinations, or allowing specific jobs to fail without affecting overall build status.
+
+###Excluding specific jobs
+
+Suppose you have:
+
+```
+rvm:
+  - 1.9.2
+  - 1.9.3
+  - 2.0.0
+
+gemfile:
+  - gemfiles/Gemfile.rails-2.3.x
+  - gemfiles/Gemfile.rails-3.0.x
+
+```
+This results in a `3x2` build matrix. 
 
 You can exclude a specific job from a matrix by configuring your yml with an `exclude` tag:
 
 ```
-rvm:
-  - 1.9.2
-  - 1.9.3
-  - 2.0.0
-
-gemfile:
-  - gemfiles/Gemfile.rails-2.3.x
-  - gemfiles/Gemfile.rails-3.0.x
-
 matrix:
   exclude:
     - rvm: 1.9.2
-      gemfiles/Gemfile.rails-3.0.x
+      gemfile: gemfiles/Gemfile.rails-3.0.x
 ```
 
-The snippet above excludes the job for the combination of `runtime 1.9.2` and `gemfiles/Gemfile.rails-3.0.x` from the build matrix.
+The snippet above excludes the job for the combination of `runtime 1.9.2` and `gemfiles/Gemfile.rails-3.0.x` parameters from the build matrix.
 
-You can also include only specific combinations in a build matrix by using the `include` tag as shown below:
+###Including jobs
+
+It is also possible to include entries into the matrix with `include` tag as shown below:
 
 ```
-rvm:
-  - 1.9.2
-  - 1.9.3
-  - 2.0.0
-  
-gemfile:
-  - gemfiles/Gemfile.rails-2.3.x
-  - gemfiles/Gemfile.rails-3.0.x
-
-env:
-  - ISOLATED=true
-  - ISOLATED=false
-
 matrix:
   include:
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=false
 ```
+This adds a particular job to the build matrix with the specified parameters.
+
+You can use this method to create a build matrix containing only specific combinations. Consider the example bellow:
+
+```
+matrix:
+  include:
+    - rvm: 1.9.3
+      gemfile: gemfiles/Gemfile.rails-2.3.x
+      env: ISOLATED=false
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile.rails-3.0.x
+      env: ISOLATED=true
+```
+This creates a build matrix with 2 jobs with the specified parameters.
 
 ### allowing failures
 
