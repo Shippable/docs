@@ -6,38 +6,38 @@ resources:
       sourceName: shippable/docs
       branch: master
 
-##  - name: aws_rc_cli
-##    type: cliConfig
-##    integration: aws_rc_access
-##    pointer:
-##      region: us-east-1
-##
-##  - name: aws_prod_cli
-##    type: cliConfig
-##    integration: aws_prod_access
-##    pointer:
-##      region: us-west-2
-#
-#jobs:
-##  - name: publish_prod_docs
-##    type: runSh
-##    steps:
-##      - IN: docs_repo
-##        switch: off
-##      - IN: aws_prod_cli
-##      - TASK:
-##        - script: |
-##          pushd ./IN/docs_repo/gitRepo
-##          deployDocs.sh s3://docs.shippable.com us-west-2 production
-##          popd
-##
-##  - name: publish_rc_docs
-##    type: runSh
-##    steps:
-##      - IN: docs_repo
-##      - IN: aws_rc_cli
-##      - TASK:
-##        - script: |
-##          pushd ./IN/docs_repo/gitRepo
-##          deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
-##          popd
+  - name: aws_rc_cli
+    type: cliConfig
+    integration: aws_rc_access
+    pointer:
+      region: us-east-1
+
+  - name: aws_prod_cli
+    type: cliConfig
+    integration: aws_prod_access
+    pointer:
+      region: us-west-2
+
+jobs:
+  - name: publish_prod_docs
+    type: runSh
+    steps:
+      - IN: docs_repo
+        switch: off
+      - IN: aws_prod_cli
+      - TASK:
+        - script: |
+          pushd ./IN/docs_repo/gitRepo
+          deployDocs.sh s3://docs.shippable.com us-west-2 production
+          popd
+
+  - name: publish_rc_docs
+    type: runSh
+    steps:
+      - IN: docs_repo
+      - IN: aws_rc_cli
+      - TASK:
+        - script: |
+          pushd ./IN/docs_repo/gitRepo
+          deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
+          popd
