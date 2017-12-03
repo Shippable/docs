@@ -27,9 +27,9 @@ jobs:
       - IN: aws_prod_cli
       - TASK:
         - script: |
-          pushd ./IN/docs_repo/gitRepo
-          deployDocs.sh s3://docs.shippable.com us-west-2 production
-          popd
+            pushd ./IN/docs_repo/gitRepo
+            deployDocs.sh s3://docs.shippable.com us-west-2 production
+            popd
 
   - name: publish_rc_docs
     type: runSh
@@ -38,6 +38,6 @@ jobs:
       - IN: aws_rc_cli
       - TASK:
         - script: |
-          pushd ./IN/docs_repo/gitRepo
-          deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
-          popd
+            pushd ./IN/docs_repo/gitRepo
+            deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
+            popd
