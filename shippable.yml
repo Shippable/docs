@@ -2,14 +2,14 @@ language : none
 build:
   ci:
     - ls -al
-
-resources:
-  - name: docs_repo
-    type: gitRepo
-    integration: ric03uec-github
-    pointer:
-      sourceName: shippable/docs
-      branch: master
+#
+#resources:
+#  - name: docs_repo
+#    type: gitRepo
+#    integration: ric03uec-github
+#    pointer:
+#      sourceName: shippable/docs
+#      branch: master
 
 ##  - name: aws_rc_cli
 ##    type: cliConfig
