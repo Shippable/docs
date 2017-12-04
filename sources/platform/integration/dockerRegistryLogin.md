@@ -9,7 +9,7 @@ The [Docker Registry](https://docs.docker.com/registry/deploying/) Integration i
 
 ## Adding account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 

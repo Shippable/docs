@@ -11,7 +11,7 @@ The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Sh
 
 You will need to add an IAM user to your AWS account to create this integration. Instructions are in the [AWS docs](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
-You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 

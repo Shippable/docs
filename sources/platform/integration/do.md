@@ -9,7 +9,7 @@ Available under the Integration Family: **generic**
 
 `Digital Ocean` Integration is used to connect Shippable DevOps Assembly Lines platform to [Digital Ocean](https://www.digitalocean.com/) to interact with its cloud services in order to provision machines.
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 
