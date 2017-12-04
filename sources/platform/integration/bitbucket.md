@@ -10,12 +10,12 @@ Available under the Integration Family: **SCM**
 `Bitbucket` Integration is used to connect Shippable DevOps Assembly Lines platform to bitbucket.org. There are 3 ways in which this type of integration can be added:
 
 * You sign in to Shippable with Bitbucket credentials. In this case, we automatically set up an Account Integration named `Bitbucket` for you. This integration is the default one that we use when you enable CI projects for your repos and sync your permissions with Bitbucket.
-* Second, you can manually add this to your [account integrations](/platform/management/integrations/#adding-an-account-integration). This takes a Bitbucket APO `Token` value as input and gives you whatever level of access as the token has.
+* Second, you can manually add this to your [account integrations](/platform/tutorial/integration/howto-crud-integration/). This takes a Bitbucket APO `Token` value as input and gives you whatever level of access as the token has.
 * Third, if you used another method of signing into Shippable, then from your _Account Profile_ you can connect your Bitbucket account to have multi-provider login to your account
 
 ## Adding account integration manually
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 

@@ -8,12 +8,12 @@ page_title: GitHub integration
 The [GitHub](https://github.com) Integration is used to connect Shippable DevOps Assembly Lines platform to GitHub. There are 3 ways in which this type of integration can be added:
 
 * You sign in to Shippable with GitHub credentials. In this case, we automatically set up an Account Integration named `github` for you. This integration is the default one that we use when you enable CI projects for your repositories and sync your permissions with GitHub.
-* Second, you can manually add this to your [account integrations](/platform/management/integrations/#adding-an-account-integration). This takes in `Token` value as input and gives you whatever level of access as the token has.
+* Second, you can manually add this to your [account integrations](/platform/tutorial/integration/howto-crud-integration/). This takes in `Token` value as input and gives you whatever level of access as the token has.
 * Third, if you used another method of signing into Shippable, then from your **Account Profile** you can connect your GitHub account to have multi-provider login to your account.
 
 ## Adding account integration manually
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 
