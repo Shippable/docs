@@ -1,6 +1,7 @@
 page_main_title: SSH Keys (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: SSH keys integration (Deprecated)
 
 # SSH Keys Integration (Deprecated)

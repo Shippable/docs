@@ -1,6 +1,7 @@
 page_main_title: Quay.io (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Quay integration (Deprecated)
 
 # Quay Integration (Deprecated)

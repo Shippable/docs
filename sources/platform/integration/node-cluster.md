@@ -1,6 +1,7 @@
 page_main_title: Node Cluster (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Node cluster integration (Deprecated)
 
 # Node Cluster Integration (Deprecated)

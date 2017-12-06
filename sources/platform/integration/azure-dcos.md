@@ -1,6 +1,7 @@
 page_main_title: Azure DC/OS (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Azure DC/OS integration (Deprecated)
 
 # Azure DC/OS Integration (Deprecated)

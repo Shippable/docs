@@ -1,6 +1,7 @@
 page_main_title: Email
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: EMail integration
 
 # Email Integration (Deprecated)

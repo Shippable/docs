@@ -1,6 +1,7 @@
 page_main_title: Docker Trusted Registry (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Docker Trusted Registry integration (Deprecated)
 
 # Docker Trusted Registry Integration (Deprecated)

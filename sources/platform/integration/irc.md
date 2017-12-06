@@ -1,6 +1,7 @@
 page_main_title: IRC
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: IRC integration
 
 # IRC Integration (Deprecated)

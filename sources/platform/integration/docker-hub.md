@@ -1,6 +1,7 @@
 page_main_title: Docker Hub (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Docker Hub integration (Deprecated)
 
 # Docker Hub Integration (Deprecated)
@@ -30,7 +31,7 @@ The Docker Hub integration can be used in the following [resources](/platform/wo
 * [image](/platform/workflow/resource/image)
 * [integration](/platform/workflow/resource/integration)
 
-This integration can be used for the scenarios listed in [Deploy to Container Orchestration Platforms](/deploy/deploy-docker-overview/) if you're using Docker Hub as your Docker registry. 
+This integration can be used for the scenarios listed in [Deploy to Container Orchestration Platforms](/deploy/deploy-docker-overview/) if you're using Docker Hub as your Docker registry.
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

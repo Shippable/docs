@@ -27,6 +27,7 @@ resources:
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
 	* [AWS Keys](/platform/integration/aws-keys)
 	* [Azure Container Service](/platform/integration/azureDcosKey)
+	* [Azure Container Service (AKS)](/platform/integration/azure-keys)
 	* [Amazon ECS](/platform/integration/aws-iam)
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
@@ -42,7 +43,16 @@ resources:
 	          region:     <AWS region, e.g., us-east-1, us-west-1, etc.>
 	          sourceName: <Amazon ECS cluster name>
 
-	* For Azure integrations - N/A
+	* For Azure DC/OS integrations - N/A
+	* For Azure Container Service (AKS) integrations:
+	    If you are using a bastion host, include the `bastionHost` information in the pointer section
+
+              pointer:
+                  bastionHost:
+                    address:        <public address of your bastion host>
+                    user:           <bastionHost user>
+                    keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
+
 	* For Kubernetes integrations:
 
 		In Kubernetes you can specify the bastionHost information in the pointer section

@@ -1,6 +1,7 @@
 page_main_title: Docker Datacenter (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Docker Datacenter integration (Deprecated)
 
 # Docker Datacenter Integration (Deprecated)

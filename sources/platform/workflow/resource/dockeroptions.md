@@ -278,46 +278,46 @@ There are two levels of mapping in dockerOptions.
 
 The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the top level docker options mentioned in  [Provider specific options](/platform/workflow/resource/dockeroptions/#provider-specific-options).
 
-| Shippable Tag                     | Amazon ECS                       | Kubernetes                        | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] | Azure DC/OS |
-|-------------------------------|----------------------------------|----------------------------|----------------------------|---------------------------|-----------------|-------------------------|---------------------|
-| **memory**                        | memory                           | memory                     | memory                     | Memory                    | mem_limit       | Memory                  | mem             |
-| **cpuShares**                     | cpu                              | cpu                        | cpu                        | CpuShares                 | cpu_shares      | CpuShares               | cpus            |
-| **portMappings**                  | portMappings                     | port                       | port                       | None                      | container_ports | PortBindings            | portMappings    |
-| **links**                         | links                            | None                       | None                       | Links                     | links           | Links                   | None            |
-| **hostName**                      | hostname                         |  Coming soon...             | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                | None           |
-| **domainName**                    | None                             |   Coming soon...          | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              | None             |
-| **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    | user            |
-| **memorySwap**                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              | None             |
-| **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             | None            |
-| **attachStdout**                  | None                             | None                       | None                       | AttachStdOut              | None            | AttachStdOut            | None            |
-| **attachStderr**                  | None                             | None                       | None                       | AttachStderr              | None            | AttachStderr            | None            |
-| **tty**                           | None                             | tty                        | tty                        | Tty                       | tty             | Tty                     | None            |
-| **stdin**                         | None                             | stdin                      | stdin                      | OpenStdin                 | stdin_open      | OpenStdin               | None            |
-| **stdinOnce**                     | None                             | stdinOnce                  | stdinOnce                  | StdinOnce                 | None            | StdinOnce               | None            |
-| **labels**                        | dockerLabels                     | labels                     | labels                     | Labels                    | labels          | labels                  | labels          |
-| **cmd**                           | command                          | args                       | args                       | cmd                       | command         | cmd                     | cmd             |
-| **entryPoint**                    | entryPoint                       | command                    | command                    | EntryPoint                | entrypoint      | EntryPoint              | None            |
-| **volumes**                       | TOP LEVEL -> volumes/mountPoints | volumes/volumeMounts       | volumes/volumeMounts       | Volume                    | volumes         | Volume/binds            | volumes         |
-| **networkDisabled**               | disableNetworking                | None                       | None                       | None                      | None            | NetworkDisabled         | None            |
-| **publishAllPorts**               | None                              | None                       | None                       | PublishAllPorts           | None            | PublishAllPorts         | None           |
-| **privileged**                    | privileged                       | privileged                 | privileged                 | Privileged                | privileged      | Privileged              | privileged      |
-| **readOnlyRootFilesystem**        | readonlyRootFilesystem           | readOnlyRootFilesystem     | readOnlyRootFilesystem     | ReadonlyRootfs            | read_only       | ReadonlyRootfs          | None            |
-| **dnsServers**                    | dnsServers                       | None                       | None                       | Dns                       | dns             | Dns                     | None            |
-| **dnsSearch**                     | dnsSearchDomains                 | None                       | None                       | DnsSearch                 | dns_search      | DnsSearch               | None            |
-| **extraHosts**                    | extraHosts                       | None                       | None                       | None                      | extra_hosts     | ExtraHosts              | None            |
-| **volumesFrom**                   | volumesFrom                      | None                       | None                       | VolumesFrom               | volumes_from    | VolumesFrom             | None            |
-| **capAdd**                        | None                             | add                        | add                        | None                      | cap_add         | CapAdd                  | None            |
-| **capDrop**                       | None                             | drop                       | drop                       | None                      | cap_drop        | resourceslimits         | None            |
-| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           | None            |
-| **network**                       | TOP LEVEL -> networkMode         | None                       | None                       | None                      | net             | NetworkMode             |network          |
-| **devices**                       | None                             | None                       | None                       | None                      | devices         | Devices                 | None            |
-| **ulimits**                       | ulimits                          | None                       | None                       | Ulimits                   | None            | Ulimits                 | None            |
-| **securityOptions**               | dockerSecurityOptions            | None                       | None                       | None                      | security_opt    | SecurityOpt             | None            |
-| **logConfig**                     | logConfiguration                 | None                        | None                       | LogConfig                 | None            | LogConfig               | None           |
-| **cGroupParent**                  | None                             | None                       | None                       | None                      | cgroup_parent   | CgroupParent            | None            |
-| **memoryReservation**  [ in MB ]  | memoryReservation                | None                       | None                       | None                      | None            | MemoryReservation              | None     |
-| **workingDir**                    | workingDirectory                 | workingDir                 | workingDir                 | None                      | working_dir     | working_dir       | None                  |
-| **pid**                           | None                             | None                       | None                       | None                      | pid             | PidMode                 | None            |
+| Shippable Tag                     | Amazon ECS                       | Kubernetes                 | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] | Azure DC/OS     | Azure Container Service (AKS) |
+|-----------------------------------|----------------------------------|----------------------------|----------------------------|---------------------------|-----------------|-------------------------|-----------------|-------------------------------|
+| **memory**                        | memory                           | memory                     | memory                     | Memory                    | mem_limit       | Memory                  | mem             | memory                        |
+| **cpuShares**                     | cpu                              | cpu                        | cpu                        | CpuShares                 | cpu_shares      | CpuShares               | cpus            | cpu                           |
+| **portMappings**                  | portMappings                     | port                       | port                       | None                      | container_ports | PortBindings            | portMappings    | port                          |
+| **links**                         | links                            | None                       | None                       | Links                     | links           | Links                   | None            | None                          |
+| **hostName**                      | hostname                         |  Coming soon...            | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                | None            | None                          |
+| **domainName**                    | None                             |  Coming soon...            | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              | None            | None                          |
+| **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    | user            | runAsUser                     |
+| **memorySwap**                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              | None            | None                          |
+| **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             | None            | None                          |
+| **attachStdout**                  | None                             | None                       | None                       | AttachStdOut              | None            | AttachStdOut            | None            | None                          |
+| **attachStderr**                  | None                             | None                       | None                       | AttachStderr              | None            | AttachStderr            | None            | None                          |
+| **tty**                           | None                             | tty                        | tty                        | Tty                       | tty             | Tty                     | None            | tty                           |
+| **stdin**                         | None                             | stdin                      | stdin                      | OpenStdin                 | stdin_open      | OpenStdin               | None            | stdin                         |
+| **stdinOnce**                     | None                             | stdinOnce                  | stdinOnce                  | StdinOnce                 | None            | StdinOnce               | None            | stdinOnce                     |
+| **labels**                        | dockerLabels                     | labels                     | labels                     | Labels                    | labels          | labels                  | labels          | labels                        |
+| **cmd**                           | command                          | args                       | args                       | cmd                       | command         | cmd                     | cmd             | args                          |
+| **entryPoint**                    | entryPoint                       | command                    | command                    | EntryPoint                | entrypoint      | EntryPoint              | None            | command                       |
+| **volumes**                       | TOP LEVEL -> volumes/mountPoints | volumes/volumeMounts       | volumes/volumeMounts       | Volume                    | volumes         | Volume/binds            | volumes         | volumes/volumeMounts          |
+| **networkDisabled**               | disableNetworking                | None                       | None                       | None                      | None            | NetworkDisabled         | None            | None                          |
+| **publishAllPorts**               | None                             | None                       | None                       | PublishAllPorts           | None            | PublishAllPorts         | None            | None                          |
+| **privileged**                    | privileged                       | privileged                 | privileged                 | Privileged                | privileged      | Privileged              | privileged      | privileged                    |
+| **readOnlyRootFilesystem**        | readonlyRootFilesystem           | readOnlyRootFilesystem     | readOnlyRootFilesystem     | ReadonlyRootfs            | read_only       | ReadonlyRootfs          | None            | readOnlyRootFilesystem        |
+| **dnsServers**                    | dnsServers                       | None                       | None                       | Dns                       | dns             | Dns                     | None            | None                          |
+| **dnsSearch**                     | dnsSearchDomains                 | None                       | None                       | DnsSearch                 | dns_search      | DnsSearch               | None            | None                          |
+| **extraHosts**                    | extraHosts                       | None                       | None                       | None                      | extra_hosts     | ExtraHosts              | None            | None                          |
+| **volumesFrom**                   | volumesFrom                      | None                       | None                       | VolumesFrom               | volumes_from    | VolumesFrom             | None            | None                          |
+| **capAdd**                        | None                             | add                        | add                        | None                      | cap_add         | CapAdd                  | None            | add                           |
+| **capDrop**                       | None                             | drop                       | drop                       | None                      | cap_drop        | resourceslimits         | None            | drop                          |
+| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           | None            | TOP LEVEL -> restartPolicy    |
+| **network**                       | TOP LEVEL -> networkMode         | None                       | None                       | None                      | net             | NetworkMode             | network         | None                          |
+| **devices**                       | None                             | None                       | None                       | None                      | devices         | Devices                 | None            | None                          |
+| **ulimits**                       | ulimits                          | None                       | None                       | Ulimits                   | None            | Ulimits                 | None            | None                          |
+| **securityOptions**               | dockerSecurityOptions            | None                       | None                       | None                      | security_opt    | SecurityOpt             | None            | None                          |
+| **logConfig**                     | logConfiguration                 | None                       | None                       | LogConfig                 | None            | LogConfig               | None            | None                          |
+| **cGroupParent**                  | None                             | None                       | None                       | None                      | cgroup_parent   | CgroupParent            | None            | None                          |
+| **memoryReservation**  [ in MB ]  | memoryReservation                | None                       | None                       | None                      | None            | MemoryReservation       | None            | None                          |
+| **workingDir**                    | workingDirectory                 | workingDir                 | workingDir                 | None                      | working_dir     | working_dir             | None            | workingDir                    |
+| **pid**                           | None                             | None                       | None                       | None                      | pid             | PidMode                 | None            | None                          |
 
 
 
@@ -331,6 +331,7 @@ Here are links to docs for each Container Service:
 * [Docker Cloud](https://docs.docker.com/apidocs/docker-cloud/#service)
 * [Docker Datacenter](https://docs.docker.com/engine/api/v1.27/)
 * [Azure DC/OS](https://mesosphere.github.io/marathon/docs/native-docker.html)
+* [Azure Container Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
 
 ## Provider specific options
 Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
@@ -409,6 +410,7 @@ resources:
       pod:
         terminationGracePeriodSeconds: <number>
         activeDeadlineSeconds: <number>
+        restartPolicy: <string>
         dnsPolicy: <string>
         nodeSelector:
           <object>
@@ -445,8 +447,11 @@ resources:
 ```
 
 ### Google Container Engine
+Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
 
-Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine. In future, Shippable might support more top level objects like `replication controller` or `namespace`. Please open a [support ticket](https://github.com/Shippable/support), if you need a specific top level option.
+
+#### Deploying with a Google Container Engine integration
+Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
 ```
 resources:
   - name: <string>
@@ -465,6 +470,76 @@ resources:
         hostPID: <boolean>
         imagePullSecrets:
           - <string>
+```
+
+#### Deploying with a Google Cloud integration
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
 ```
 
 ### Docker Datacenter
@@ -562,6 +637,76 @@ resources:
         - <string>
       parameters:
         - <string>: <string>
+```
+
+### Azure Container Service (AKS)
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
 ```
 
 ## Overriding dockerOptions

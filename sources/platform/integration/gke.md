@@ -1,6 +1,7 @@
 page_main_title: Google Container Engine (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: GKE integration (Deprecated)
 
 # Google Container Engine Integration (Deprecated)

@@ -1,7 +1,7 @@
-page_main_title: Azure DC/OS
+page_main_title: Microsoft Azure
 main_section: Platform
 sub_section: Integrations
-page_title: Azure DC/OS integration
+page_title: Microsoft Azure integration
 
 # Microsoft Azure Integration
 
@@ -27,6 +27,8 @@ The Microsoft Azure integration can be used in the following [resources](/platfo
 
 * [integration](/platform/workflow/resource/integration)
 * [cliConfig](/platform/workflow/resource/cliconfig/)
+* [cluster](/platform/workflow/resource/cluster/)
+* [loadBalancer](/platform/workflow/resource/loadbalancer/)
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

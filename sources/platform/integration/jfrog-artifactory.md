@@ -1,6 +1,7 @@
 page_main_title: JFrog Artifactory (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: JFrog Artifactory integration (Deprecated)
 
 # JFrog Artifactory Integration (Deprecated)
