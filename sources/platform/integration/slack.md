@@ -14,7 +14,7 @@ A Slack integration is required to send notifications to channels or rooms for C
 
 ## Adding the account integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/management/integrations/#adding-an-account-integration) page.
+You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
 Here is the information you need to create this integration:
 
