@@ -28,6 +28,7 @@ in files with values from the environment.
 jobs:
   - name: myRunCLIJob
     type: runCLI
+    dependencyMode: <chrono/strict/immediate>   # optional
     steps:
       - IN: awsCLIConfig
       - TASK:
@@ -41,6 +42,8 @@ describes what the job does and is easy to remember. This will be the display
 name of the job in your pipeline visualization.
 
 - [type](runcli.md#type): The type of your job. This must be `runCLI`.
+
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
 - [steps](runcli.md#steps): The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are

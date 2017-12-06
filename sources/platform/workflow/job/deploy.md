@@ -22,6 +22,7 @@ jobs:
     stabilityDuration:  <0-300 seconds>           # optional, blueGreen only
     method:             <deploy strategies>       # optional
     workflow:           <workflow options>        # optional
+    dependencyMode:     <chrono/strict/immediate> # optional
     on_start:                                     # optional
       - NOTIFY:         <notification resource name>
     steps:
@@ -78,6 +79,8 @@ A description of the job YML structure and the tags available is in the [jobs se
     * `replace` -- The old version of the service is brought down before deploying the new version. This type of deployment always has some downtime, depending on how quickly the container service is able to stop and start applications. It is mostly intended to be used for deployments to clusters with limited resources, where it's not possible to run more than one instance of the same task in parallel.
 
 * **`workflow`** -- Optional. This may be set to either `serial` (default) or `parallel`.  If it is `parallel`, manifests will be deployed in parallel.
+
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes) 
 
 * **`steps`** -- is an object which contains specific instructions to run this job
     * `IN` -- You need one `cluster` and at least one `manifest`-based input (`manifest`, `release`, or `deploy`). You have can have more than one of these and if you use multiple, each `manifest` will be deployed as a separate service. Below is the list of all resources and jobs that can be supplied as `IN`.

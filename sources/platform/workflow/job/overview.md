@@ -33,58 +33,20 @@ Typical examples of jobs are:
 
 ## YML Definition
 
-Jobs are defined in the `shippable.yml` config file with the syntax below. Please note that this is the complete syntax and an actual job definition is much smaller than shown here.
+Jobs are defined in `shippable.yml` as shown below:
 
 ```
 jobs:
-  - name: 					<string>
-    type: 					<job type name>
-    triggerMode: 		    <parallel/serial; only for runSh jobs>
-    dependencyMode:         <chrono, strict or immediate>
-    on_start:
-      - NOTIFY: 			<notification resource name>
+  - name:               <string>
+    type:               <job type name>
+    dependencyMode:     <chrono/strict/immediate>
     steps:
-      - IN: 				<resource>
-        switch: 			off
-      - IN: 				<job>
-      - IN: 				<resource>
-        dependencyMode:     <chrono, strict or immediate; to override dependencyMode at job level>
-      - IN: 				<job>
-        dependencyMode:     <chrono, strict or immediate; to override dependencyMode at job level>
-      - IN: 				<resource>
-        versionName: 		<name of the version you want to pin>
-      - IN: 				<resource>
-        versionNumber: 		<number of the version you want to pin>
-      - IN: 				<params/dockerOption/replicas resource>
-        applyTo:
-          - 				<image/manifest/release>
-          - 				<image/manifest/release>
-      - IN: 				<loadBalancer resource>
-        applyTo:
-          - manifest: 		<manifest>
-            image: 			<image>              
-            port: 			<number>
-      - IN: 				<gitRepo resource with buildOnPullRequest: true>
-        showBuildStatus: 	true
-      - IN: 				<manifest/release>
-        force: 				true
+      - IN:             <job>
+      - IN:             <resource>
+      - OUT:            <resource>
       - TASK:
         - script: 			<any shell command>
         - script: 			<any shell command>
-      - OUT: 				<resource>
-      - OUT: 				<resource>
-        replicate: 			<IN resource>
-      - OUT: 				<resource>
-        overwrite: 			true
-    on_success:
-      - script: 			echo "SUCCESS"
-    on_failure:
-      - script: 			echo "FAILED"
-      - NOTIFY: 			<notification resource name>
-    on_cancel:
-      - script: 			echo "CANCEL"
-    always:
-      - script: 			pwd
 ```
 
 For more information, read the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
@@ -118,58 +80,6 @@ When triggered, a Job does the following:
 
 
 Every time a job executes, a new immutable **version** is created. This makes it easy to 'replay' older job versions, though you should do this only after verifying that the old input values will not create problems in your Assembly Line.
-
-<a name="trigger-modes"></a>
-## Job triggering modes
-
-Once a job completes successfully or a resource is updated, all downstream jobs will be triggered. In some scenarios, you might want your downstream job to run immediately. In others, you might want it to wait until all of the processing upstream jobs are complete. This exact behavior can be controlled using the dependencyMode option. Specifying `dependencyMode` is optional. It defaults to `chrono`, but It can also be `immediate` or `strict`.
-
-<img src="/images/platform/jobs/dependencyMode.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-* **dependencyMode: chrono**
-
-    This is the default dependencyMode. When an upstream job completes or resource is updated, this job will be triggered if all of its dependencies are consistent and in a successful state. However, the job won't run at the same time as any of its directly connected upstream or downstream jobs. Instead, the job will enter a 'queued' state. It will be picked up when its dependencies have stopped processing and when its chronological turn has arrived.
-
-    Example:
-
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. It will trigger `job-5` once but not `job-4`, since `job-1` is an inconsistent dependency. As `job-3` is still in processing state, `job-5` will remain in queued state until `job-3` is complete. Once `job-3` completes it will trigger `job-5` again. `job-5` will have 2 queued builds created for it. If `job-7` is in processing state, then `job-5` will also wait for that to complete and then both of its builds will go to processing state one by one.
-
-* **dependencyMode: immediate**
-
-    In this mode, jobs are triggered without waiting for any incomplete dependencies to reach a final state. Jobs will also be triggered even if IN resources are inconsistent. When a job completes or a resource is updated, all the consistent downstream jobs are triggered.
-
-    Example:
-
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. It will trigger both `job-5` and `job-4`, even though `job-1` is an inconsistent dependency for `job-4`. While `job-3` is still in processing state, `job-5` and `job-4` will immediately go to a processing state as well as long as there are available minions. This mode also disregards the state of downstream jobs, so if `job-7` and `job-6` are processing, `job-4` and `job-5` will still be triggered. Now, when job `job-3` completes, it will trigger `job-5` again and this build will go to processing state as soon as first build for `job-5` is complete.
-
-* **dependencyMode: strict**
-
-    In the `chrono` and `immediate` modes, dependent jobs end up running multiple times when more than one IN dependency completes. In strict mode, the goal is to only trigger the job once when all of the upstream dependencies have reached a final state. When a job completes or a resource is updated, all the consistent jobs which are using this resource/job as IN are evaluated, and the ones which have are consistent with no waiting or processing upstream dependencies are triggered. If there are processing or waiting upstream dependencies, `waiting jobs` are created, which will be resolved once all of the processing/waiting upstream dependencies have reached a final state.
-
-    You can see the waiting jobs on dashboards' grid-view. In case your waiting job is not getting processed and all the IN jobs are in a final state then you can delete them.
-
-    <img src="/images/platform/jobs/waiting-jobs.png" alt="How are DevOps activities triggered?" style="width:100%;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-    Example:
-
-    In the above assembly line, `job-2` and `job-3` are triggered manually. Suppose `job-2` completes first. In this case, it will not trigger any subsequent job. It will not trigger `job-5` since `job-3` is still running and it will not trigger `job-4` since it has an inconsistent IN `job-1`. Instead, a waiting job is created for `job-5`. Once `job-3` completes it will trigger `job-5`. `job-5` will then be removed from the waiting jobs list and move to a queued state even if `job-7` is processing. Once in a queued state, the job will be picked up to run as soon as minions are available.
-
-You can also control which mode a job should follow once a particular IN job completes by specifying the dependencyMode at IN dependency level.
-
-```
-jobs:
-  - name: job-5
-    type: runSh
-    dependencyMode: strict
-    steps:
-      - IN: resource-1
-      - IN: job-2
-        dependencyMode: immediate   
-      - IN: job-3
-      - TASK:
-        - script: echo "do something";
-```
-Here, if `job-5` is triggered by `job-2` then it'll follow `immediate` mode even though it has `strict` mode at job level. When triggered by resource `resource-1` or job `job-3`, it will follow `strict` mode.
 
 <a name="types"></a>
 ## Supported job types
