@@ -30,6 +30,8 @@ jobs:
       - IN:             <manifest/release/deploy> # required
       - IN:             <manifest/release/deploy> # optional
         force:          true
+      - IN:             <manifest>                # optional
+        deployName:     <custom name>
       - IN:             <dockerOptions>           # optional
       - IN:             <dockerOptions>           # optional
         applyTo:
@@ -80,7 +82,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`workflow`** -- Optional. This may be set to either `serial` (default) or `parallel`.  If it is `parallel`, manifests will be deployed in parallel.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes) 
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
 * **`steps`** -- is an object which contains specific instructions to run this job
     * `IN` -- You need one `cluster` and at least one `manifest`-based input (`manifest`, `release`, or `deploy`). You have can have more than one of these and if you use multiple, each `manifest` will be deployed as a separate service. Below is the list of all resources and jobs that can be supplied as `IN`.
@@ -88,6 +90,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
         * [manifest](/platform/workflow/job/manifest) -- You can add zero or more of these. If you add more than one, they will be deployed as separate entities. This means if only one of the manifests changes, only that one will be deployed.
             * `force` -- (default `false`) Optional input. Set to `true` if you need to deploy the `manifest` even when it hasn't changed (deployment could have been triggered by some other change).
+            * `deployName` -- Optional input. The deploy job uses the value given for the deployName tag as the deployment name. Note that blueGreen deployments will have a suffix of build number in their deployment names. So the deployment name will be of the format deployName-buildNumber in a blueGreen deployment. Upgrade and replace deployments expect deployName to be present during the first deployment. The name used in the previous deployment will be used in subsequent deployments for upgrade or replace deploy methods. Hence, modifying deployName in a later deployment will not take effect with an upgrade or replace method.
 
         * [release](/platform/workflow/job/release) -- You can add zero or more of these. `release` jobs can also contain zero or more `manifests` that have been semantically tagged with a release version number. If you have more than one `release` job as `IN` they are deployed seperately and only the ones that change are deployed.
             * `force` -- (default `false`) Optional input. Set to `true` if you need to deploy the `release` manifests even if nothing has changed.
