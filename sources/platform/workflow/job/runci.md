@@ -29,6 +29,7 @@ Now if you want your `runCI` job to interact with other entities of the Assembly
 jobs:
   - name: <name of the runCI>
     type: runCI
+    dependencyMode: <chrono/strict/immediate>   # optional
     steps:
       - IN: <resource>
         switch: off
@@ -46,6 +47,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view.
 
 * **`type`** -- Required, is set to `runCI`
+
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.

@@ -23,6 +23,7 @@ jobs:
   - name:             <string>
     type:             runSh
     triggerMode:      <parallel/serial>
+    dependencyMode:   <chrono/strict/immediate>   # optional
     on_start:
       - NOTIFY:       <notification resource name>
     steps:
@@ -64,6 +65,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`type`** -- Required, is set to `runSh`
 
 * **`triggerMode`** -- Optional, can be `parallel` or `serial`.  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
+
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 

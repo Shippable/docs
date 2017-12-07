@@ -26,10 +26,11 @@ You can create a `manifest` job by [adding](/platform/tutorial/workflow/crud-job
 
 ```
 jobs:
-  - name: 			<string>				# required
-    type: 			manifest				# required
-	 on_start:								# optional
-	   - NOTIFY: <notification resource name>
+  - name: 			    <string>				# required
+    type: 			    manifest				# required
+    dependencyMode:     <chrono/strict/immediate> # optional
+	on_start:				            # optional
+	  - NOTIFY:     <notification resource name>
     steps:
       - IN: 		<image/file>			# required
       - IN: 		<image/file>			# optional
@@ -62,6 +63,8 @@ jobs:
 * **`name`** -- should be an easy to remember text string.
 
 * **`type`** -- is set to `manifest`.
+
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
 * **`steps `** -- is an object which contains specific instructions to run this Job.
 
