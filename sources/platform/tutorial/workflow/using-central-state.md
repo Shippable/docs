@@ -45,7 +45,7 @@ jobs:
     steps:
       - TASK:
         #reference is here: http://docs.shippable.com/platform/tutorial/workflow/using-shipctl/#shipctl-refresh_file_to_out_path-filename-resource-name
-        - shipctl refresh_file_to_out_path ./release.template.yml res_state
+        - shipctl copy_file_to_resource_state ./release.template.yml res_state
       - OUT: res-state
 ```
 
@@ -61,7 +61,7 @@ jobs:
       - IN: res_state
       - TASK:
         #reference is here: http://docs.shippable.com/platform/tutorial/workflow/using-shipctl/#shipctl-copy_resource_file_from_state-resource-name-filename-topath
-        - shipctl copy_resource_file_from_state res_state release.template.yml .
+        - shipctl copy_file_from_resource_state res_state release.template.yml .
 ```
 
 ####c. Putting a key-value pair to state
