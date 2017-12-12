@@ -13,7 +13,7 @@ When you run a `runSh` or `runCI` job on Shippable, the following popular CLIs a
 * AWS Elastic Beanstalk
 * Azure
 * Docker
-* GKE
+* Google Cloud Platform (gcloud)
 * JFrog
 * Kubernetes (kubectl)
 * Packer
@@ -65,7 +65,7 @@ Please refer to the [Azure CLI Reference page](https://docs.microsoft.com/en-us/
 
 Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/reference/commandline/docker/) for help with CLI commands.
 
-## GKE
+## Google Cloud Platform
 
 | Version  |  Machine Images          
 |----------|---------

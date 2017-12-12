@@ -43,7 +43,7 @@ resources:
               - name: runSh-success-1
                 type: runSh
                 steps:
-                  - IN: aws-keys-integration
+                  - IN: aws-keys-cliConfig
                     scopes:
                       - ecr
                   - TASK:
@@ -55,29 +55,48 @@ resources:
 	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
 	          clusterName: <cluster name>
 
-      * If you need the CLI to also configure GKE, you need to pass it in as a scope in the job. if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster.  Example:
+      * If you need the CLI to also configure GKE, you need to pass it in as a scope in the job. if region and clusterName are provided `gcloud` and `kubectl` will be automatically configured to use that region and cluster.  Otherwise, an error will occur when attempting to authenticate. Example:
 
             jobs:
               - name: runSh-success-1
                 type: runSh
                 steps:
-                  - IN: gcloud-key-integration
+                  - IN: gcloud-key-cliConfig
                     scopes:
-                      - gke
+                      - gke  # if present, region and clusterName must exist in the cliConfig resource
                   - TASK:
-                    - script: ls
+                    - script: kubectl get namespaces
 
-      * If you need the CLI to also configure GCR, you need to pass it in as a scope in the job. However, if you pass `scopes` as gcr as below the region and cluster even, if provided will be ignored.  Example:
+      * If you need the CLI to also configure GCR, you need to pass it in as a scope in the job. However, if you pass `scopes` as gcr as below , the region and cluster, even if provided, will be ignored.  Example:
 
             jobs:
               - name: runSh-success-1
                 type: runSh
                 steps:
-                  - IN: gcloud-key-integration
+                  - IN: gcloud-key-cliConfig
                     scopes:
                       - gcr
                   - TASK:
                     - script: ls
+
+
+    * For Azure integrations, the pointer section is optional.  If left blank, Shippable will simply perform an `az login` using the credentials in your integration.  If you're planning to use AKS, then your pointer section will need to contain the Azure resource group name, and the cluster name of your AKS cluster.
+
+            pointer:
+              groupName:      <your cluster's azure resource group name>
+              clusterName:    <name of your aks cluster>
+
+      * To properly configure AKS, you'll also need to add an extra 'scope' option to your cliConfig IN step.  Shippable will attempt to use the `az` cli to authenticate with your cluster using the values provided in the pointer section.  If they are not present, the job will fail with an error.  Once authentication is successful, `kubectl` can be used to issue commands to your cluster.  Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: azure-key-cliConfig
+                    scopes:
+                      - aks # if present, groupName and clusterName must exist in the cliConfig resource
+                  - TASK:
+                    - script: kubectl get namespaces
 
 
 <a name="cliConfigTools"></a>
@@ -93,9 +112,10 @@ integration. Here is a list of the tools configured for each integration type:
 | AWS                                 | [AWS CLI](/platform/runtime/machine-image/cli-versions/#aws); [AWS Elastic Beanstalk CLI](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | AWS with `ecr` scope                | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | Azure                               | [Azure CLI](/platform/runtime/machine-image/cli-versions/#azure) |
+| Azure with `aks` scope              | [Azure CLI](/platform/runtime/machine-image/cli-versions/#azure); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Docker Registry                     | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
-| Google Cloud                        | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
-| Google Cloud with `gke` scope       | [gcloud](/platform/runtime/machine-image/cli-versions/#gke); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Google Cloud                        | [gcloud](/platform/runtime/machine-image/cli-versions/#google-cloud-platform); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| Google Cloud with `gke` scope       | [gcloud](/platform/runtime/machine-image/cli-versions/#google-cloud-platform); [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | Google Cloud with `gcr` scope       | [Docker Engine](/platform/runtime/machine-image/cli-versions/#docker) |
 | JFrog Artifactory                   | [JFrog CLI](/platform/runtime/machine-image/cli-versions/#jfrog) |
 | Kubernetes                          | [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
