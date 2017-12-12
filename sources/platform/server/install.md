@@ -1,10 +1,11 @@
-page_main_title: Shippable installer
+page_main_title: Installing Shippable Server
 main_section: Platform
-sub_section: Tutorials
-sub_sub_section: Shippable Server
-page_title: Admiral - Installing Shippable
-page_description: How to install Shippable
-page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+sub_section: Shippable Server
+sub_sub_section: Installation instructions
+page_title: Admiral reference
+page_description: Reference page for installing the Shippable CI/CD and DevOps platform behind your firewall
+page_keywords: ci, continuous integration, devops, docker, on-premises
+
 
 # Admiral, the Shippable Server installer
 
@@ -14,19 +15,8 @@ Shippable Server is a DevOps platform that help teams ship software more frequen
 
 Admiral CLI installs the basic dependencies and a user interface to complete the installation and manage the configuration of options. Both of these are available in the <a href="https://github.com/Shippable/admiral"> Admiral GitHub repository</a>.
 
-## Installation
-
-Shippable server can be installed on a single machine/vm or multiple machines. For pilots and trials, we recommend a one-box
-installation. Thereafter to scale the server for improved throughput and performance, you can consider distributing the installation of different server components over multiple machines/vms.
-
-Here are the documents for different install scenarios -
-
-* [One box installation](/platform/tutorial/server/install-onebox)
-* [Two server installation](/platform/tutorial/server/install-two-server)
-* [Three server installation](/platform/tutorial/server/install-three-server)
-* [Three server installation using an existing PostgreSQL database instance](/platform/tutorial/server/install-three-server-existing-db)
-
 ## The Admiral CLI
+
 The CLI supports the following commands.
 
 ```bash

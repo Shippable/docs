@@ -2,10 +2,11 @@ page_main_title: Shippable installer
 main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Shippable Server
-page_title: Shippable Server installation with 2 servers
-page_description: Shippable Server installation with 2 servers with persistent state on one machine and everything else on another machine.
+page_title: Admiral - Installing on a single machine
+page_description: How to install Shippable
+page_keywords: install, onebox, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
-# Shippable Server EE edition - two server installation scenario
+# Shippable Server EE edition - onebox installation
 
 Shippable Server EE comprises of the following -
 
@@ -14,20 +15,30 @@ Shippable Server EE comprises of the following -
 * Transient State Components - Redis and RabbitMQ
 * Shippable Server Installer and webapp (Admiral)
 
-This document describes the steps to install Shippable Server EE onto two servers -
-
-* **Server 1** - Contains Admiral web app, transient state, micro services. Machine minimum requirements - [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) or equivalent
-
-* **Server 2** - Contains Stateful components. Machine minimum requirements - [C4.Large](https://aws.amazon.com/ec2/instance-types/) or equivalent
+This document describes the steps to install Shippable Server EE on a single server. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
 
 ## Pre-requisites
 
-### Open ports
+### Machine Requirements
 
-Before we start, you need to open the following ports so that various Shippable Server components can communicate with each other.
+You will need a machine/VM with:
 
-#### Server 1
+- Ubuntu 14.04 LTS (Only Ubuntu 14.04 is supported at this time.)
+- Kernel 3.19 (or above)
+- 4 cores
+- 8 GB memory
+- 100 GB disk space
+
+The minimum requirements for a VM on AWS for example is a [C4.Large](https://aws.amazon.com/ec2/instance-types/) machine.
+
+### Ports to open
+
 - 22: ssh into the machine
+- 80: internal gitlab server api endpoint
+- 443: internal gitlab server secure api endpoint
+- 2222: internal gitlab server ssh port
+- 5432: database
+- 8200: vault
 - 5672: amqp
 - 15672: amqp admin
 - 6379: redis
@@ -37,18 +48,9 @@ Before we start, you need to open the following ports so that various Shippable 
 - 50003: Shippable admin panel
 - 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
 
-#### Server 2
-
-- 22: ssh into the machine
-- 80: internal gitlab server api endpoint
-- 443: internal gitlab server secure api endpoint
-- 2222: internal gitlab server ssh port
-- 5432: database
-- 8200: vault
-
 ### Pre-install packages
 
-You need to install Git and SSH on **Server 1** before downloading and running Admiral, the Shippable Server installer.  Install these by running the following on **Server 1**:
+You need to install Git and SSH  before downloading and running Admiral, the Shippable Server installer.  Install these by running the following:
 
 ```
 $ sudo apt-get update
@@ -68,8 +70,7 @@ $ sudo reboot #restart is required after kernel upgrade
 **Please make sure you have the Shippable Server Installer access key and secret key before starting the steps below. Contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact) if you need access and secret keys.**
 
 ###1. Install Admiral
-
-SSH into **Server 1** and run the following commands:
+SSH into the machine where you are installing Admiral and run the following commands.
 
 ```
 $ git clone https://github.com/Shippable/admiral.git
@@ -79,8 +80,7 @@ $ git checkout v5.11.1
 
 You will see the following output:
 
-```
-ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
+`ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
 Cloning into 'admiral'...
 remote: Counting objects: 6100, done.
 remote: Compressing objects: 100% (82/82), done.
@@ -91,20 +91,19 @@ Checking connectivity... done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
 ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.1
 HEAD is now at 9018791... updating version.txt to v5.11.1
-```
+`
 
 We have checked out tag v5.11.1, which is the latest tag available as of November 2017. To see previous versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want.
 
 ###2. Run Admiral CLI
 
-Ensure you have the installer access key, secret, and public ip address of the state machine.
-Admiral will install the Postgres database in this step and download all images. You will be asked to run
-a specific script on **Server 2** during this step to authorize ssh access for **Server 1**.
+Ensure you have the installer access key, secret and public ip address of the state machine.
+Admiral will install the postgres database in this step and download all the Shippable docker images.
 
-Run the following command on **Server 1**:
+Run the following command:
 
 ```
-$ sudo ./admiral.sh install
+sudo ./admiral.sh install
 ```
 
 Follow the steps below:
@@ -121,9 +120,11 @@ ubuntu@ip-172-31-29-44:~/admiral$ sudo ./admiral.sh install
 |___ This agreement is available for you to read here: /home/ubuntu/admiral/SHIPPABLE_SERVER_LICENSE_AGREEMENT
 |___ Do you wish to continue? (Y to confirm)
 ```
+
 Type **Y** to proceed.
 
 ```
+Y
 |___ Thank you for accepting the Shippable Server Software License Agreement. Continuing with installation.
 
 # 21:48:31 #######################################
@@ -159,7 +160,7 @@ Enter your secret key
 |___ Setting value of admiral IP address
 |___ Please enter your current IP address. This will be the address at which you access the installer webpage. Type D to set default (127.0.0.1) value.
 ```
-Enter the IP address of **Server 1** if you want to access the installer web page at that address. This can be the private IP address, or the public IP address if you've set up your network to grant access to incoming ports through the public IP.
+Enter the IP address if you want to access the installer web page at that address. This can be the private IP address, or the public IP address if you've set up your network to grant access to incoming ports through the public IP.
 
 Typing **D** will set the IP address to the default value of `127.0.0.1`.
 
@@ -168,17 +169,17 @@ Typing **D** will set the IP address to the default value of `127.0.0.1`.
 |___ Please enter the IP address of the database or D to set the default (52.72.112.131).
 ```
 
-If you are not using an existing database, enter the private IP address of **Server 2** since that is where the database will be installed. This can also be the public IP address if you've set up your network to grant access to incoming ports through the public IP.
-
-If you're using an existing database, enter the IP address of that database.
+If you do NOT want to use an existing PostgreSQL database, enter the IP address of this machine. Admiral will then install PostgreSQL on this machine itself.
+If you however want to use an existing PostgreSQL instance, enter the IP address of the server running it.
 
 ```
 |___ Enter I to install a new database or E to use an existing one.
 |___ Existing databases must be Postgres 9.5 and have a user named apiuser with full permissions on a database named shipdb.
 ```
-Type **I** to install a new database, or **E** to use an existing one.
+Type **I** to install a new database, or **E** to use an existing one. In this example, we specify I.
 
 ```
+I
 |___ A new database will be installed
 |___ DB_PORT is not set
 |___ Setting value of database port
@@ -205,6 +206,7 @@ Database Password:        ***********
 Enter **Y**.
 
 ```
+Y
 |___ Confirmation received
 |___ Saving values
 |___ Saved access key
@@ -217,11 +219,7 @@ Enter **Y**.
 |___ Run the following command on 174.129.68.195 to allow SSH access:
 sudo mkdir -p /root/.ssh; echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG0dECmRM0AEdxdlo5IUk59o47Q2sciQxSFGfxTLwNxPLw6yx33+voa8tYUPSfug3XnA4SW8oZa704Us6FbNCRcPxD2rFJxMIoOl6dvm1B6dLfeugqTq97mXylZKmPSHpB2iB1DXGLxBuP1/RIea0pjdE2fR3uBY5OTcQgOZYKLKMZyqN0EUVapaCC/h7kfH10l5nqV4urSNI0D6C2m+wwJNsBmIrp+rWgJ4Tw4ka0wELFfG747xv69y1yTByHlAtseUwTyUbn8/gSz8vM6vS3Lxzfl9mgJzCh7lWz2K/PayFSe41uvgYiYtWWKl7aWWPu0S6qcoFQDznDVA92dJhF root@ip-172-31-29-44 | sudo tee -a /root/.ssh/authorized_keys;
 |___ Enter Y to confirm that you have run this command
-```
-
-Enter **Y** after you run the command on **Server 2** or the machine where you have an existing database.
-
-```
+Y
 |___ Confirmation received
 
 # 21:51:59 #######################################
@@ -271,12 +269,12 @@ ALTER TABLE
 |___ Generating admiral mounts
 a52aa954c202c917cf6bd09d544f9818debe949816e02b7fc38c6e53b98cd511
 |___ Admiral container successfully running
-|___ Go to **52.72.112.131:50003** to access the admin panel
+|___ Go to 52.72.112.131:50003 to access the admin panel
 |___ Login Token: 16a31009-0faa-460d-957a-0a98740fa1e4
 |___ Command successfully completed !!!
 ```
 
-You can run `sudo ./admiral.sh info` at any time to retrieve your Login token and Admiral URL.
+* You can run `sudo ./admiral.sh info` at any time to retrieve your Login token and Admiral URL.
 
 * Launch the browser and navigate to the specified host and port. Enter the admin token. It might be a good idea to bookmark the Admiral URL.
 
@@ -284,19 +282,11 @@ You can run `sudo ./admiral.sh info` at any time to retrieve your Login token an
 
 <img src="/images/platform/tutorial/server/admiral-install-1.png" alt="Admiral-2-server">
 
-* Leave the **Admiral environment** and **Database** sections as-is for now.
+* Leave the **Admiral environment**, **Database** and **Secrets** sections as-is for now.
 
-* For the **Secrets** section, select **New Node**. Enter the IP address of **Server 2**. Copy the command, run it on **Server 2**, and then check the box after you have run the command.
+* For the **Messaging** section, leave the **This Node** selected and then enter an easy to remember password.
 
-<img src="/images/platform/tutorial/server/admiral-install-2.png" alt="Admiral-2-server">
-
-* For the **Messaging** section, leave the **This Node** selected, and then enter an easy to remember password.
-
-<img src="/images/platform/tutorial/server/admiral-install-3.png" alt="Admiral-2-server">
-
-*  For the **State** section, select **New Node**. Enter an easy-to-remember password and the IP address of **Server 2**. Copy the command, run it on **Server 2**, and then check the box after you have run the command.
-
-<img src="/images/platform/tutorial/server/admiral-install-4.png" alt="Admiral-2-server">
+* For the **State** section, leave the **This Node** selected and then enter an easy-to-remember password.
 
 * For **Redis** and **Swarm** sections, leave **This Node** checked.
 
@@ -306,10 +296,6 @@ You can run `sudo ./admiral.sh info` at any time to retrieve your Login token an
 
 * Once initialization is complete, you should see `Initialized` status for every section in the
 **Initialize Infrastructure** section.
-
-<img src="/images/platform/admiral/Admiral-2server-2.png" alt="Admiral-2-server">
-
-If anything shows **failed** status, read the [**Troubleshooting**](#troubleshooting) section at the bottom of this page for tips. If you still run into issues, please contact us [over email](mailto:support@shippable.com) or through a [github issue](https://www.github.com/Shippable/issues).
 
 ###4. Configure Source Control Provider(s)
 
@@ -351,6 +337,8 @@ authorization provider.
 
 * Click on **Restart services** and click on **Yes** in the confirmation dialog.
 
+Please note that if you make a mistake while entering the fields above and encounter a failure, you should correct the problem , click on **Save**, and then on **Restart services**.
+
 ###5. Enabling caching
 
 You can turn on caching by following the steps below:
@@ -360,6 +348,7 @@ You can turn on caching by following the steps below:
 * Click on **Save** and **Restart Services**.
 
 To learn more about the benefits of caching, go [here](/platform/runtime/caching/#caching).
+
 
 ###6. Configure Services
 

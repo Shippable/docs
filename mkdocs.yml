@@ -370,6 +370,27 @@ pages:
     - API:
       - Overview: platform/api/api-overview.md
       - Tokens: platform/api/api-tokens.md
+    - Shippable Server:
+      - Overview: platform/server/overview.md
+      - Installation instructions:
+        - Small to mid-sized teams:  platform/server/install-two-server.md
+        - Enterprise installations: platform/server/enterprise.md
+        - Troubleshooting: platform/server/troubleshooting.md
+        - Installer reference: platform/server/install.md
+      - Configuration:
+        - Database: platform/server/install-db.md
+        - Secrets: platform/server/install-vault.md
+        - Message queue: platform/server/install-rabbitmq.md
+        - State Storage: platform/server/install-gitlab.md
+        - Redis: platform/server/install-redis.md
+        - Swarm: platform/server/install-swarm-workers.md
+        - Service addresses: platform/server/service-addresses.md
+        - Auth and source control: platform/server/auth-source-control.md
+        - Build config: platform/server/build-config.md
+        - System settings: platform/server/system-settings.md
+        - Services: platform/server/services.md
+        - Integrations: platform/server/integrations.md
+        - Manage admins: platform/server/superuser.md
     - Tutorials:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md
@@ -395,26 +416,8 @@ pages:
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
-        #- Dynamic Nodes: platform/runtime/nodes/#dynamic-nodes.md
         - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
-        #- Caching: platform/tutorial/runtime/caching.md
-        #- Environment Variables: platform/tutorial/runtime/environment-variables.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
-      - Shippable Server:
-        - Installer overview: platform/tutorial/server/install.md
-        - Installing SE from AWS Marketplace: platform/tutorial/server/install-aws-marketplace.md
-        - Installing EE on one machine: platform/tutorial/server/install-onebox.md
-        - Installing EE on two machines: platform/tutorial/server/install-two-server.md
-        - Installing EE on three machines: platform/tutorial/server/install-three-server.md
-        - Installing EE on three machines with an existing DB: platform/tutorial/server/install-three-server-existing-db.md
-        - Bitbucket Server Integration: platform/tutorial/server/install-bbs.md
-        - GitHub Enterprise Integration: platform/tutorial/server/install-ghe.md
-        - Database Configuration: platform/tutorial/server/install-db.md
-        - State Storage Configuration: platform/tutorial/server/install-gitlab.md
-        - Message Configuration: platform/tutorial/server/install-rabbitmq.md
-        - Redis Configuration: platform/tutorial/server/install-redis.md
-        - Swarm Worker Configuration: platform/tutorial/server/install-swarm-workers.md
-        - Vault Configuration: platform/tutorial/server/install-vault.md
       - Glossary:
         - Complete list of terms: platform/tutorial/glossary.md
