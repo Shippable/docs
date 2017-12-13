@@ -226,3 +226,17 @@ deploy/gke-multiple-containers /deploy/continuous-delivery-multi-container-docke
 deploy/gke-multiple-environments /deploy/multi-stage-deployments
 platform/tutorial/api/api-overview /platform/api/api-overview
 platform/tutorial/api/api-tokens /platform/api/api-tokens
+platform/tutorial/server/install /platform/server/overview
+platform/tutorial/server/install-aws-marketplace /platform/server/install-two-server
+platform/tutorial/server/install-onebox /platform/server/install-two-server
+platform/tutorial/server/install-two-server /platform/server/install-two-server
+platform/tutorial/server/install-three-server /platform/server/install-two-server
+platform/tutorial/server/install-three-server-existing-db /platform/server/install-two-server
+platform/tutorial/server/install-db /platform/server/install-db.md
+platform/tutorial/server/install-gitlab /platform/server/install-gitlab
+platform/tutorial/server/install-rabbitmq /platform/server/install-rabbitmq
+platform/tutorial/server/install-redis /platform/server/install-redis
+platform/tutorial/server/install-swarm-workers /platform/server/install-swarm-workers
+platform/tutorial/server/install-vault /platform/server/install-vault
+platform/tutorial/server/install-bbs /platform/server/auth-source-control
+platform/tutorial/server/install-ghe /platform/server/auth-source-control
