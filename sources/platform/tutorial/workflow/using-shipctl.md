@@ -210,6 +210,28 @@ shipctl refresh_file_to_state "config.json"
 
 The methods in this section apply to both jobs and resources, even though the names might suggest they only work with resources.
 
+### get_resource_env
+
+**Description**
+
+Get an environment value specific to a particular resource or job.  Rather than trying to figure out the sanitized ENV name to use, you can simply utilize this function with your exact resource name to get any special ENV that Shippable adds to your environment for each resource.
+
+**Usage**
+```
+shipctl get_resource_env <resource name> <env name>
+```
+
+- `resource name` is the name of the resource (or job) for which you want the env value.
+- `env name` is the piece of the envrionment variable that is typically appended to the resource name.
+
+**Example**
+
+If you have an IN gitRepo resource named myGitRepo, you can access the current commit directly by using `$MYGITREPO_COMMIT`, or you can utilize this new function to avoid having to figure out the name sanitization.
+
+```
+shipctl get_resource_env myGitRepo commit
+```
+
 ### get_resource_id
 
 **Description**
