@@ -79,7 +79,7 @@ A description of the job YML structure and the tags available is in the [jobs se
         * `replicate` -- Optional, any `IN` resource of same type can be used
         * `overwrite` -- Optional, default is `false`
 
-    * `showBuildStatus` -- Optional. If set to true, build status will be set on the gitRepo depending on how the gitRepo
+    * `showBuildStatus` -- Optional, defaults to false. If set to true, build status will be set on the gitRepo depending on how the gitRepo
     resource is configured. For example if `buildOnCommit:false` and `buildOnPullRequest:true`, then status will be updated
     on the gitRepo for pull requests only.
 
