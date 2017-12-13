@@ -34,7 +34,7 @@ jobs:
         versionName:  <name of the version you want to pin>
       - IN:           <resource>
         versionNumber:    <number of the version you want to pin>        
-      - IN:           <gitRepo resource with buildOnPullRequest: true>
+      - IN:           <gitRepo resource>
         showBuildStatus:  true       
       - IN:           <cliConfig with scope support>
         scopes:
@@ -78,6 +78,10 @@ A description of the job YML structure and the tags available is in the [jobs se
     * `OUT` -- Optional, any resource can be used here and as many as you need
         * `replicate` -- Optional, any `IN` resource of same type can be used
         * `overwrite` -- Optional, default is `false`
+
+    * `showBuildStatus` -- Optional. If set to true, build status will be set on the gitRepo depending on how the gitRepo
+    resource is configured. For example if `buildOnCommit:false` and `buildOnPullRequest:true`, then status will be updated
+    on the gitRepo for pull requests only.
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
 
