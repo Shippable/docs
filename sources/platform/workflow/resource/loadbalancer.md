@@ -21,8 +21,9 @@ resources:
 * **`type`** -- is set to `loadBalancer`
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
-	* [Google Cloud](/platform/integration/gcloudKey)
-	* [Kubernetes](/platform/integration/kubernetes-config)
+    * [Azure Container Service (AKS)](/platform/integration/azure-keys)
+    * [Google Cloud](/platform/integration/gcloudKey)
+    * [Kubernetes](/platform/integration/kubernetes-config)
 
 * **`pointer`** -- is an object that contains provider specific properties
 	* For [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/),
@@ -51,7 +52,7 @@ resources:
 			     user:           <bastionHost user>
 			     keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 	          sourceName:           <lowercase alphanumeric name only>
-	          method:               clusterIP | ExternalName | LoadBalancer | NodePort  #default is clusterIP
+	          method:               ClusterIP | ExternalName | LoadBalancer | NodePort  #default is ClusterIP
 	          namespace:            <name of the namespace where pod is deployed>       #optional
 	          clusterName:          <name of the GKE cluster>
 	          region:               <name of the region>
@@ -74,6 +75,37 @@ resources:
 	          externalName:         <string>
 
         Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/gke/) integration.
+
+      * For [Azure Container Service (AKS) Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
+
+              pointer:
+                bastionHost: # If using bastion host for the cluster
+                  address:        <public address of your bastion host>
+                  user:           <bastionHost user>
+                  keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
+                sourceName:           <lowercase alphanumeric name only>
+                method:               ClusterIP | ExternalName | LoadBalancer | NodePort  #default is ClusterIP
+                namespace:            <name of the namespace where pod is deployed>       #optional
+                clusterName:          <name of the cluster>
+                groupName:            <name of the resource group>
+              version:
+                ports:
+                  - name:             <string>
+                    protocol:         TCP | UDP #default TCP
+                    port:             <integer>
+                    targetPort:       <string>
+                    nodePort:         <integer>
+                selector:
+                  <string> : <string>
+                clusterIP:            None | "" | <string>
+                externalIPs:
+                  - <string>
+                sessionAffinity:      ClientIP | None
+                loadBalancerIP:       <string>
+                loadBalancerSourceRanges:
+                  - <string>
+                externalName:         <string>
+
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs:

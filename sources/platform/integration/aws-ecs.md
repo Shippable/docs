@@ -1,6 +1,7 @@
 page_main_title: AWS IAM integration for your deployment pipelines
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Amazon ECS integration
 
 # AWS IAM Integration

@@ -1,6 +1,7 @@
 page_main_title: Google Container Registry (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: GCR integration (Deprecated)
 
 # GCR integration (Deprecated)

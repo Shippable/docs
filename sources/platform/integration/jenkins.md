@@ -1,6 +1,7 @@
 page_main_title: Jenkins (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Jenkins integration (Deprecated)
 
 # Jenkins integration (Deprecated)

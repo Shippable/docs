@@ -1,6 +1,7 @@
 page_main_title: Slack
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Slack integration
 
 # Slack integration (Deprecated)

@@ -1,6 +1,7 @@
 page_main_title: Google Cloud Integration (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: GCL integration (Deprecated)
 
 # Google Cloud Integration (Deprecated)

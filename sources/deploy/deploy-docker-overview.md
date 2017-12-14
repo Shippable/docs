@@ -17,7 +17,7 @@ Shippable supports deploying simple or complex Docker applications from any [sup
 - [Docker Cloud](https://cloud.docker.com/)
 - [Docker Datacenter](https://www.docker.com/enterprise-edition)
 - [Joyent Triton](https://www.joyent.com/triton/compute)
-- [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (Coming soon)
+- [Azure Container Service (AKS)](https://azure.microsoft.com/en-us/services/container-service/)
 
 You can deploy using one of two methods:
 

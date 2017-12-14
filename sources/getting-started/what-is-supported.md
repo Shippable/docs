@@ -115,7 +115,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 -  [Amazon Web Services](/platform/integration/aws-keys)
 -  [Google Cloud](/platform/integration/gcloudKey)
--  [Microsoft Azure](/platform/integration/azure)
+-  [Microsoft Azure](/platform/integration/azure-keys)
 -  [Digital Ocean](/platform/integration/do)
 
 ### Container Orchestration Systems
@@ -125,7 +125,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [Mesos DC/OS](/platform/integration/azureDcosKey)
 - [Kubernetes](/platform/integration/kubernetes-config)
 - [Google Container Engine](/platform/integration/gcloudKey)
-- [Azure Container Service](/platform/integration/azure)
+- [Azure Container Service](/platform/integration/azure-keys)
 - [Joyent Triton](/platform/integration/joyentTritonKey)
 - [Docker Datacenter](/platform/integration/ddcKey)
 - [Docker Cloud](/platform/integration/dclKey)

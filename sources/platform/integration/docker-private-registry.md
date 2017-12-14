@@ -1,6 +1,7 @@
 page_main_title: Docker Private Registry (Deprecated)
 main_section: Platform
 sub_section: Integrations
+sub_sub_section: Deprecated
 page_title: Docker Private Registry integration (Deprecated)
 
 # Docker Private Registry Integration (Deprecated)

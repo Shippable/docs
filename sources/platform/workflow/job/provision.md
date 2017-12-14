@@ -12,6 +12,7 @@ The `provision` job is used to create ancillary objects like load balancers on C
 
 - Google Container Engine (GKE)
 - Kubernetes
+- Azure Container Service (AKS)
 
 **Please note that when `provision` jobs are deleted, the resulting objects are also deleted from the container service.**
 
@@ -45,11 +46,11 @@ jobs:
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
-* **`steps`** -- is an object which contains specific instructions to run this Job
+* **`steps`** -- is an object which contains specific instructions to run this job
     * `IN` -- You need at least one `loadBalancer` resource as an input. Multiple `loadBalancer` resources may be listed as inputs. Currently we only support `loadBalancer` resource on GKE or Kubernetes services. If you need other entities [please let us know](https://www.github.com/Shippable/support/issues/new).
         * [loadBalancer](/platform/workflow/resource/loadbalancer/) -- If a `loadBalancer` is provided, the `provision` job will attempt to create a loadBalancer based on the integration associated with the resource.
   * Any other job or resource will only participate in triggering the `provision` job, but not in of the processing of it.
-  * While using a kubernetes [loadBalancer](/platform/workflow/resource/loadbalancer) if bastion host is used to configured kubernetes cluster a sshKey or pemKey [integration](/platform/workflow/resource/integration) resource is required.
+  * While using a Kubernetes [loadBalancer](/platform/workflow/resource/loadbalancer), if a bastion host is used to access the configured Kubernetes cluster, an sshKey or pemKey [integration](/platform/workflow/resource/integration) resource is required.
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
