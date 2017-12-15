@@ -12,7 +12,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 **What is installed on the machine image?**
 
-* Operating System: Ubuntu 14.04.5 LTS
+* Operating System: Ubuntu 16.04.3 LTS
 * Kernel Version: 3.13.0-125-generic
 * **Docker Server Version: 17.06.0-ce**
 * Storage Driver: aufs
