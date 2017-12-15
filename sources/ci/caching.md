@@ -80,7 +80,7 @@ If you're running multiple builds per trigger, aka [matrix builds](matrix-builds
 ## Clearing cache
 You can clear cache in one of two ways:
 
-*  Including ``[reset minion]`` or ``[reset_minion]`` in your commit message.
+*  Including ``[reset cache]`` or ``[reset_cache]`` or ``[cache reset]`` or ``[cache_reset]`` in your commit message.
 *  Clicking on the **Clear cache** in your Project Settings UI.
 
 <br>
