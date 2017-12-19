@@ -22,6 +22,11 @@ This document describes the steps to install Shippable Server EE onto two server
 
 ## Pre-requisites
 
+### OS versions
+
+- Ubuntu 14.04 is required on Server 1 and Server 2.
+- Both Ubuntu 14.04 and 16.04 are supported for Build hosts.
+
 ### Open ports
 
 Before we start, you need to open the following ports so that various Shippable Server components can communicate with each other.
@@ -80,7 +85,7 @@ SSH into **Server 1** and run the following commands:
 ```
 $ git clone https://github.com/Shippable/admiral.git
 $ cd admiral
-$ git checkout v5.11.1
+$ git checkout v5.11.3
 ```
 
 You will see the following output:
@@ -95,11 +100,11 @@ Receiving objects: 100% (6100/6100), 3.57 MiB | 0 bytes/s, done.
 Resolving deltas: 100% (3997/3997), done.
 Checking connectivity... done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
-ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.1
-HEAD is now at 9018791... updating version.txt to v5.11.1
+ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.3
+HEAD is now at 9018791... updating version.txt to v5.11.3
 ```
 
-We have checked out tag v5.11.3, which is the latest tag available as of December 2017. To see previous versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want.
+We have checked out tag v5.11.3, which is the latest tag available as of December 2017. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that 5.11.3 will be available January 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
 
 ###2. Run Admiral CLI
 
