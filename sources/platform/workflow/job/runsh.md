@@ -24,6 +24,7 @@ jobs:
     type:             runSh
     triggerMode:      <parallel/serial>
     dependencyMode:   <chrono/strict/immediate>   # optional
+    allowPublicAccess: <true/false> # optional
     on_start:
       - NOTIFY:       <notification resource name>
     steps:
@@ -64,9 +65,11 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`type`** -- Required, is set to `runSh`
 
-* **`triggerMode`** -- Optional, can be `parallel` or `serial`.  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
+* **`triggerMode`** -- Optional, can be `parallel` or `serial` and  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+
+* **`allowPublicAccess`** -- Optional, defaults to false. When set to `true`, this job becomes visible to everyone. A good usecase for allowing public visibility if a runSh job has a `gitRepo` input which points to a public repository. If this job is building this repository or running tests on this repository and publishing commit/pr/release status on the public repository, then it would be beneficial to enable public access to the console of this job.
 
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
