@@ -75,6 +75,7 @@ In this configuration, Job-4 will be triggered in one of 4 ways:
 When triggered, a Job does the following:
 
 - Get the latest versions of `IN` resources or latest state information from an `IN` job. If an input resource version is [**pinned**](/platform/tutorial/workflow/crud-job/#pinning-specific-resource-versions), then use that version instead of latest.
+- Replace any [templated values](/platform/tutorial/workflow/crud-resource/#templating-resources) in the `IN` resource details. 
 - Execute all commands to perform the activity. The set of commands depends on [job type](#types).
 - Update all `OUT` resources
 

@@ -28,6 +28,25 @@ You can see what's included in each resource version through the Shippable UI.
 * Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Resources in Grid View
 * Search for your resource and click on it. This will show you a historical list of all resource versions with additional information.
 
+<a name="templating"></a>
+## Templating Resources
+
+Instead of providing exact details for your resource in your `Shippable.yml` file, you can instead use shell notation to "template" your resources.  For example:
+
+```
+- name: kube-prod
+  type: cluster
+  pointer:
+    sourceName: "prod-cluster"
+    region: "us-central1-f"
+    namespace: "${NAMESPACE}"
+```
+
+Now, when you use this resource in a job, Shippable will automatically attempt to fill in your placeholder with a value from the environment.  These environment values can be set and controlled using a [params resource](/platform/workflow/resource/params/#resource-templating).  This allows you to repurpose the same resource across multiple environments by simply changing the environment that the resource is used in.  The params resource is not required.  Shippable adds many variables to the environment based on the combination of job and resources that are present.  As long as you know the name of the environment variable, you can use it in your templating.
+
+**Note**: if the variable is not present in the environment, the placeholder will be replaced with emptiness.
+
+<a name="deleting"></a>
 ## Deleting Resources
 Deleting Resources is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Resource means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.
 
