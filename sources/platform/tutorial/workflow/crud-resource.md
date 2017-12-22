@@ -31,7 +31,7 @@ You can see what's included in each resource version through the Shippable UI.
 <a name="templating"></a>
 ## Templating Resources
 
-Instead of providing exact details for your resource in your `Shippable.yml` file, you can instead use shell notation to "template" your resources.  For example:
+Instead of providing exact details for your resource in your `shippable.yml` file, you can instead use shell notation to "template" your resources.  For example:
 
 ```
 - name: kube-prod
@@ -42,9 +42,9 @@ Instead of providing exact details for your resource in your `Shippable.yml` fil
     namespace: "${NAMESPACE}"
 ```
 
-Now, when you use this resource in a job, Shippable will automatically attempt to fill in your placeholder with a value from the environment.  These environment values can be set and controlled using a [params resource](/platform/workflow/resource/params/#resource-templating).  This allows you to repurpose the same resource across multiple environments by simply changing the environment that the resource is used in.  The params resource is not required.  Shippable adds many variables to the environment based on the combination of job and resources that are present.  As long as you know the name of the environment variable, you can use it in your templating.
+When you use this resource in a job, Shippable will automatically attempt to fill in your placeholder with a value from the environment.  These environment values can be set and controlled using a [params resource](/platform/workflow/resource/params/#resource-templating).  This allows you to reuse the same resource across multiple environments with attributes specific to each environment.  The params resource is not required.  By default, Shippable adds [environment variables](/platform/workflow/job/runsh/#default-environment-variables) based on the current job and its inputs.  As long as you know the name of the environment variable, you can use it in your templating.
 
-**Note**: if the variable is not present in the environment, the placeholder will be replaced with emptiness.
+**Note**: The variable must be present in the environment before the templated resource is processed.  If the variable is not present, the placeholder will be replaced with emptiness.
 
 <a name="deleting"></a>
 ## Deleting Resources

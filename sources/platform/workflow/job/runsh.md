@@ -133,6 +133,7 @@ In addition, the job itself comes with its own default set of variables. This is
 | JOB_PATH                    | The path of the directory containing files critical for this job |
 | JOB_STATE                   | The location of the `state` directory for this job|
 | JOB_PREVIOUS_STATE            | The location of the directory containing the `state` information from when the job last ran. |
+| JOB_TRIGGERED_BY_NAME  | The name of the resource that caused this job to execute. |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
