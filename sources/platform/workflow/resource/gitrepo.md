@@ -83,7 +83,8 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_NAME 							| The name of the resource. |
 | `<NAME>`\_ID 								| The ID of the resource. |
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `gitRepo`. |
-| `<NAME>`\_PATH 							| The path of the root directory of the gitRepo. |
+| `<NAME>`\_PATH 							| The path of the directory containing all the files for the resource. The repository is checked out in the `gitRepo` subdirectory of this directory. |
+| `<NAME>`\_STATE 							| The directory where the repository is checked out. |
 | `<NAME>`\_BASE\_BRANCH       			| If the version was created for a pull request, this is the name of the base branch into which the pull request changes will be merged. |
 | `<NAME>`\_BRANCH            			| When the version was created for a commit, this is the name of branch on which the commit occurred. If it was created for a pull request, this is the base branch. |
 | `<NAME>`\_COMMIT            			| SHA of the commit of the version being used. |
@@ -97,7 +98,6 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_IS\_RELEASE        			| Set to `TRUE` if the version in context is a git release based build. Supported only if the integration is GitHub. |
 | `<NAME>`\_KEYPATH           			| Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
-| `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_POINTER_BRANCH    			| Branch if defined in the pointer. |
 | `<NAME>`\_POINTER\_BRANCHES\_EXCEPT\_0 | Branches except collection if defined in the pointer. 0 through N elements |
 | `<NAME>`\_POINTER\_BRANCHES\_ONLY\_0 | Branches only collection if defined in the pointer. 0 through N elements. |
