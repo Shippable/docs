@@ -55,6 +55,38 @@ Whenever `params` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a se
 | KEY1    									| params section of the version is parsed and values are sourced. From above, e.g., KEY1 will be set to `value1`. |
 | KEY2    									| params section of the version is parsed and values are sourced. From above, e.g., KEY2 will be set to `value2`. |
 
+
+## Resource Templating
+
+Since the key/value pairs from params are automatically added to the environment, this makes them a great candidate for use in templated resources.  Any time another resource is defined in the `shippable.yml` using an environment variable where a constant value would normally go, the environment variable will get replaced at runtime with values from the environment. For example:
+
+```
+resources:
+  - name: prod-params
+    type: params
+    version:
+      params:
+        NAMESPACE: production
+
+  - name: beta-params
+    type: params
+    version:
+      params:
+        NAMESPACE: beta
+
+  - name: kube-cluster
+    type: cluster
+    integration: my-kube-key
+    pointer:
+      sourceName: "cluster-1"
+      region: "us-central1-f"
+      namespace: "${NAMESPACE}"
+```
+
+In this case, `NAMESPACE` will become "production" when `kube-cluster` is used together in a job with `prod-params`, and it will become `beta` when used together in a job with `beta-params`.  This way, the same cluster definition can be used with the same integration to deploy to multiple namespaces.  Job inputs are processed in order, so as long as the `params` resource is declared as an `IN` above the `cluster` resource, the variables will be added, and the cluster's placeholder will be replaced by the value from `params`
+
+**Note**: Templating a `params` resource is not supported.  Any placeholders in a `params` resource will not be replaced.
+
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 

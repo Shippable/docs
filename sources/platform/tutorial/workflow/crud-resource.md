@@ -28,6 +28,27 @@ You can see what's included in each resource version through the Shippable UI.
 * Navigate to the [Subscription dashboard](/platform/visibility/subscription/dashboard/) and scroll down to view the list of Resources in Grid View
 * Search for your resource and click on it. This will show you a historical list of all resource versions with additional information.
 
+<a name="templating"></a>
+## Templating Resources
+
+Instead of providing exact details for your resource in your `shippable.yml` file, you can instead use shell notation to "template" your resources.  For example:
+
+```
+- name: kube-prod
+  type: cluster
+  pointer:
+    sourceName: "prod-cluster"
+    region: "us-central1-f"
+    namespace: "${NAMESPACE}"
+```
+
+When you use this resource in a job, Shippable will automatically attempt to fill in your placeholder with a value from the environment.  These environment values can be set and controlled using a [params resource](/platform/workflow/resource/params/#resource-templating).  This allows you to reuse the same resource across multiple environments with attributes specific to each environment.  The params resource is not required.  By default, Shippable adds [environment variables](/platform/workflow/job/runsh/#default-environment-variables) based on the current job and its inputs.  As long as you know the name of the environment variable, you can use it in your templating.
+
+The pool of available variables is based on the job and any resources included as `IN` steps before the templated resource.  If the variable is not present in the environment when the templated resouce is processed, the placeholder will be replaced with emptiness.
+
+**Note**:  Templating a `params` resource is not supported.  Any placeholders in a `params` resource will not be replaced.
+
+<a name="deleting"></a>
 ## Deleting Resources
 Deleting Resources is a 2 step process. Deleting from the YML causes it to be soft deleted and then you will have to manually delete it from SPOG view of the UI. The 2 step process is an insurance policy to prevent accidental deletes. Deleting a Resource means all historical versions are deleted permanently and this can really mess up your DevOps Assembly Lines as it is a connected interdependent workflow.
 
