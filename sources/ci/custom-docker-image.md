@@ -16,6 +16,19 @@ There are two available options to spin up your CI container with a custom image
 - [Pull an image](#pull-image) from a supported Docker registry and use it to spin up your CI container
 - [Build an image](#build-image) and use it to spin up your CI container
 
+##Minimum requirements
+
+If your custom Docker image has `apt-get` pre-installed, we will install any additional packages required at runtime.
+
+If your image does not have `apt-get` and you do not want it on your image for some reason, you should install the following packages:
+
+* git
+* ssh-agent or openssh
+* sudo
+* Python 2.7
+
+In addition, it is recommended that you install any dependencies, test tools, language versions, etc, in your custom image. This will make your builds faster since installing them in your build scripts will add the installation time to each build.
+
 <a name="pull-image"></a>
 ##Pulling your custom image and using it for CI
 
