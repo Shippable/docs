@@ -39,9 +39,9 @@ ci/advancedOptions/byon /getting-started/byon-overview
 ci/advancedOptions/testCoverage /ci/test-code-coverage-reports
 ci/advancedOptions/timeouts /ci/custom-timeouts
 ci/advancedOptions/console-logs /ci/console-logs
-ci/advancedOptions/machineImages /platform/tutorial/runtime/ami-overview
+ci/advancedOptions/machineImages /platform/runtime/machine-image/ami-overview/
 ci/troubleshoot /ci/troubleshooting
-ci/machine-images/overview /platform/tutorial/runtime/ami-overview
+ci/machine-images/overview /platform/runtime/machine-image/ami-overview/
 pipelines/overview /getting-started/pipeline-basics/
 pipelines/gettingStarted /platform/visibility/single-pane-of-glass-spog
 pipelines/resources/overview /platform/workflow/resource/overview
