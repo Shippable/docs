@@ -54,6 +54,7 @@ The following steps configure GitHub Enterprise as an authorization provider for
 ### Finish Admiral config
 
 * Switch back to Admiral UI in your browser and enter the **Client ID** and **Client Secret**
+* Note that the **URL** field must contain the full path to your GitHub Enterprise server's API end point. This will typically end with `/api/v3`. Example: `https://github.example.com/api/v3`.
 
 <img src="/images/platform/tutorial/admiral/ss-ghe.png">
 
