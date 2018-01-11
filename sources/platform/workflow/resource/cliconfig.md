@@ -10,6 +10,103 @@ You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/cr
 
 Multiple cliConfig resources may be used as `IN`s and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements wins.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](/platform/workflow/resource/cliconfig/#latestSyntax)
+- [Old Syntax (forward compatible)](/platform/workflow/resource/cliconfig/#oldSyntax)
+
+<a name="latestSyntax"></a>
+## Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:             <string>
+    type:             cliConfig
+    integration:      <string>
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `cliConfig`
+
+* **`integration`** -- name of the Subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
+	* [AWS Keys](/platform/integration/aws-keys)
+	* [Azure Keys](/platform/integration/azure-keys)
+	* [Docker Registry](/platform/integration/dockerRegistryLogin)
+	* [Google Cloud](/platform/integration/gcloudKey)
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
+	* [Kubernetes](/platform/integration/kubernetes-config)
+	* [Quay](/platform/integration/quayLogin)
+
+* **`versionTemplate`** -- is an object that contains integration specific properties
+	* For an AWS integration:
+
+	        versionTemplate:
+	           region: <AWS region, e.g., us-east-1, us-west-1, etc.>
+
+      * If you need the CLI to also configure ECR, you need to pass it in as a scope in the job. Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: aws-keys-cliConfig
+                    scopes:
+                      - ecr
+                  - TASK:
+                    - script: ls
+
+	* For Google integrations, if no scopes are mentioned just the authentication to Google Cloud is done automatically. If no scopes are passed, then the region and cluster name will be ignored.
+
+	        versionTemplate:
+	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
+	          clusterName: <cluster name>
+
+      * If you need the CLI to also configure GKE, you need to pass it in as a scope in the job. If region and clusterName are provided, `gcloud` and `kubectl` will be automatically configured to use that region and cluster.  Otherwise, an error will occur when attempting to authenticate. Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: gcloud-key-cliConfig
+                    scopes:
+                      - gke  # if present, region and clusterName must exist in the cliConfig resource
+                  - TASK:
+                    - script: kubectl get namespaces
+
+      * If you need the CLI to also configure GCR, you need to pass it in as a scope in the job. When passing `scopes` as gcr, the region and cluster are not required, and are not used even if provided.  Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: gcloud-key-cliConfig
+                    scopes:
+                      - gcr
+                  - TASK:
+                    - script: ls
+
+
+    * For Azure integrations, the pointer section is optional.  If left blank, Shippable will simply perform an `az login` using the credentials in your integration.  If you're planning to use AKS, then your pointer section will need to contain the Azure resource group name, and the cluster name of your AKS cluster.
+
+            versionTemplate:
+              groupName:      <your cluster's azure resource group name>
+              clusterName:    <name of your aks cluster>
+
+      * To properly configure AKS, you'll also need to add an extra 'scope' option to your cliConfig IN step.  Shippable will attempt to use the `az` cli to authenticate with your cluster using the values provided in the pointer section.  If they are not present, the job will fail with an error.  Once authentication is successful, `kubectl` can be used to issue commands to your cluster.  Example:
+
+            jobs:
+              - name: runSh-success-1
+                type: runSh
+                steps:
+                  - IN: azure-key-cliConfig
+                    scopes:
+                      - aks # if present, groupName and clusterName must exist in the cliConfig resource
+                  - TASK:
+                    - script: kubectl get namespaces
+
+<a name="oldSyntax"></a>
+## Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>
@@ -49,7 +146,7 @@ resources:
                   - TASK:
                     - script: ls
 
-	* For Google integrations, if no scopes are mentioned just the authentication to Google Cloud is done automatically. If no scopes are passed then, the region and cluster name will be ignored.
+	* For Google integrations, if no scopes are mentioned just the authentication to Google Cloud is done automatically. If no scopes are passed, then the region and cluster name will be ignored.
 
 	        pointer:
 	          region:      <region, e.g., us-central1-a, us-west1-b, etc.>
