@@ -9,6 +9,44 @@ A `file` resource is a pointer to a file on an external file share. It can be us
 
 You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+## Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:           <string>
+    type:           file
+    integration:    <string>
+    versionTemplate:        
+      versionName:  <string>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `file`
+
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
+	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
+
+* **`versionTemplate`** -- is an object that contains integration specific properties as well as a seed name that you'd like your file version to be tagged with.
+	* Without an integration:
+
+	        versionTemplate:
+	          sourceName: <points to publicly accessible file URI>
+            seed: <any uniquely identifying label, such as a commit sha>
+
+	* With a JFrog Artifactory integration:
+
+	        versionTemplate:
+	          sourceName: <"repositoryName/path" of an Artifactory repository file>
+            seed: <any uniquely identifying label, such as a commit sha>
+
+<a name="oldSyntax"></a>
+## Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

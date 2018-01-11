@@ -20,6 +20,68 @@ You can send notifications upon the following events in your workflow:
 
 You can create a `notification` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+## Latest Syntax (Shippable v6.1.1 and above)
+
+
+```
+resources:
+  - name:             <string>
+    type:             notification
+    integration:      <string>
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `notification`
+
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported providers are:
+	- Email - No integration required
+	- [HipChat](/platform/integration/hipchatKey)
+	- IRC - No integration required
+	- [Slack](/platform/integration/slackKey)
+
+* **`versionTemplate`** -- is an object that contains provider specific properties
+	* For email,
+
+	        versionTemplate:
+	          method: email
+	          recipients:
+	            - "foo@foo.com"
+	            - "boo@boo.com"
+
+	* For IRC,
+
+	        versionTemplate:
+	          method: irc
+	          recipients:
+	            - "#beta"
+	            - "@botnot"
+
+	* For Slack
+
+	        integration: <slack integration name>
+	        versionTemplate:
+	          recipients:
+	            - "#beta"
+	            - "@botnot"
+
+	* For HipChat,
+
+	        integration: <hipchat integration name>
+	        versionTemplate:
+	          recipients:
+	            - "#beta"
+	            - "@botnot"
+
+
+<a name="oldSyntax"></a>
+## Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

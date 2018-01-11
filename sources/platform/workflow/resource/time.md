@@ -9,6 +9,35 @@ sub_sub_section: Resources
 
 You can create a `time` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+## Latest Syntax (Shippable v6.1.1 and above)
+
+
+```
+resources:
+  - name:             <string>
+    type:             time
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `time`
+
+* **`versionTemplate`** -- is an object which contains specific properties that apply to this resource
+
+	        versionTemplate:
+	          interval: "*/2 * * * *"
+
+    The `interval` follows the [standard Cron format](https://en.wikipedia.org/wiki/Cron). For example, the snippet above will trigger the job at 2 min intervals.
+
+<a name="oldSyntax"></a>
+## Old Syntax (forward compatible)
+
+
 ```
 resources:
   - name:           <string>
@@ -43,7 +72,6 @@ Whenever `time` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set 
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
 | `<NAME>`\_SEED\_INTERVAL 				| Interval defined in the seed section. |
-| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 

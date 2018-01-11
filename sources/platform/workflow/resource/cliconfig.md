@@ -10,8 +10,8 @@ You can create a `cliConfig` resource by [adding](/platform/tutorial/workflow/cr
 
 Multiple cliConfig resources may be used as `IN`s and their respective CLIs are configured automatically. If more than one cliConfig of the same integration type is added, the last one used in `IN` statements wins.
 
-- [Latest Syntax (Shippable v6.1.1 and above)](/platform/workflow/resource/cliconfig/#latestSyntax)
-- [Old Syntax (forward compatible)](/platform/workflow/resource/cliconfig/#oldSyntax)
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
 ## Latest Syntax (Shippable v6.1.1 and above)
