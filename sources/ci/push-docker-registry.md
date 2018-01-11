@@ -10,7 +10,9 @@ You can push your image to Docker Registry in any section [of your yml](/ci/yml-
 
 Before you start, you will need to connect your Docker Registry with Shippable so we have the credentials to push your image on your behalf.
 
-Please follow the steps outlined [here](/platform/integration/dockerRegistryLogin/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+* Please follow the steps outlined [here](/platform/integration/dockerRegistryLogin/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+* Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
+* Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
 
 ##Basic config
 
@@ -36,7 +38,7 @@ authenticate with Docker registry using your credentials
 ```
 integrations:
   hub:
-    - integrationName: docker-registry-integration    #replace with your integration name
+    - integrationName: docker-registry-integration    #replace with your subscription integration name
       type: dockerRegistryLogin
 ```
 
@@ -55,7 +57,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-registry-integration    #replace with your integration name
+    - integrationName: docker-registry-integration    #replace with your subscription integration name
       type: dockerRegistryLogin
       branches:
         only:
@@ -76,13 +78,13 @@ build:
 
 integrations:
   hub:
-    - integrationName: master-docker-registry    #replace with your integration name
+    - integrationName: master-docker-registry    #replace with your subscription integration name
       type: dockerRegistryLogin
       branches:
         only:
           - master
 
-    - integrationName: dev-docker-registry    #replace with your integration name
+    - integrationName: dev-docker-registry    #replace with your subscription integration name
       type: dockerRegistryLogin
       branches:
         only:
@@ -110,13 +112,13 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-docker-registry   #replace with your integration name   
+    - integrationName: master-docker-registry   #replace with your subscription integration name   
       type: dockerRegistryLogin    
       branches:
         only:
           - v1.* # production release tag
 
-    - integrationName: dev-docker-registry    #replace with your integration name   
+    - integrationName: dev-docker-registry    #replace with your subscription integration name   
       type: dockerRegistryLogin    
       branches:
         only:
@@ -139,7 +141,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-registry-integration    #replace with your integration name
+    - integrationName: docker-registry-integration    #replace with your subscription integration name
       type: dockerRegistryLogin
 ```
 
@@ -158,7 +160,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-registry-integration    #replace with your integration name
+    - integrationName: docker-registry-integration    #replace with your subscription integration name
       type: dockerRegistryLogin
 
 ```

@@ -40,10 +40,10 @@ If you sign in to Shippable Server and are missing some subscriptions (organizat
 
 ### Login fails every time after first Login with nginx setup as a reverse proxy
 
-This occurs if nginx is not setup to forward websocket traffic.
+This occurs if nginx is not setup to forward websocket traffic. Your nginx configuration should be  
+authored as described below for authentication to work.
 
-This is what the nginx configuration needs to look like for authentication (www app):
-
+```
 server {
   listen 443 ssl;
 
@@ -65,6 +65,7 @@ server {
     proxy_set_header Host            $host;
   }
 }
+```
 
 ### DNS resolution errors
 
