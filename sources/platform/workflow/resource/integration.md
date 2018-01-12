@@ -12,7 +12,7 @@ You can create a `integration` resource by [adding](/platform/tutorial/workflow/
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 ```
 resources:
@@ -29,7 +29,7 @@ resources:
 
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 ```
 resources:

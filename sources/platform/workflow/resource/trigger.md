@@ -13,7 +13,7 @@ You can create a `trigger` resource by [adding](/platform/tutorial/workflow/crud
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 ```
 resources:
@@ -35,7 +35,7 @@ resources:
     The `counter` should be updated each time you want to trigger the jobs that have this resource as an input.
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 ```
 resources:

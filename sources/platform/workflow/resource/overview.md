@@ -28,7 +28,7 @@ Resources are defined in `shippable.yml` as shown below:
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 
 ```
@@ -41,7 +41,7 @@ resources:
 For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 
 ```

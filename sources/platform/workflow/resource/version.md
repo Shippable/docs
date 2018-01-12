@@ -12,7 +12,7 @@ You can create a `version` resource by [adding](/platform/tutorial/workflow/crud
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 ```
 resources:
@@ -33,7 +33,7 @@ resources:
     `versionName` is a string that represents a semantic version that is used as a starting point when used with a release job. You can also also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 ```
 resources:

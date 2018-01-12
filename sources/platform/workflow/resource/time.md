@@ -13,7 +13,7 @@ You can create a `time` resource by [adding](/platform/tutorial/workflow/crud-re
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 
 ```
@@ -35,7 +35,7 @@ resources:
     The `interval` follows the [standard Cron format](https://en.wikipedia.org/wiki/Cron). For example, the snippet above will trigger the job at 2 min intervals.
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 
 ```

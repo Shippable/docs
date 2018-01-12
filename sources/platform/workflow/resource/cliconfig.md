@@ -14,7 +14,7 @@ Multiple cliConfig resources may be used as `IN`s and their respective CLIs are 
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 ```
 resources:
@@ -105,7 +105,7 @@ resources:
                     - script: kubectl get namespaces
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 ```
 resources:

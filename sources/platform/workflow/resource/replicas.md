@@ -12,7 +12,7 @@ You can create a `replicas` resource by [adding](/platform/tutorial/workflow/cru
 - [Old Syntax (forward compatible)](#oldSyntax)
 
 <a name="latestSyntax"></a>
-## Latest Syntax (Shippable v6.1.1 and above)
+### Latest Syntax (Shippable v6.1.1 and above)
 
 
 ```
@@ -32,7 +32,7 @@ resources:
 	          count: 1          #integer value > 0
 
 <a name="oldSyntax"></a>
-## Old Syntax (forward compatible)
+### Old Syntax (forward compatible)
 
 
 ```
