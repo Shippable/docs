@@ -176,6 +176,6 @@ If you came to this page to configure Gitlab while installing Shippable server f
 
 If you already have a working Shippable Server instance and just added Gitlab auth, you should be able to sign in with your Gitlab credentials at this time.  
 
-### Using Self-signed SSL certifcates with enterprise SCM installations
+### Using self-signed SSL certifcates with enterprise SCM installations
 
-For enterprise SCMs with self-signed SSL certificates, refer [Using Self-signed SSL certifcates](/platform/server/service-addresses/#using-self-signed-ssl-certificates) 
+For enterprise SCMs with self-signed SSL certificates, refer [Using self-signed SSL certifcates](/platform/server/service-addresses/#using-self-signed-ssl-certificates) 
