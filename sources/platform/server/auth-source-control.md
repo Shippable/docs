@@ -24,8 +24,6 @@ The following sections will show how to configure your Shippable Server instance
 
 ## GitHub Enterprise
 
-**Note:** OAuth integration with GitHub Enterprise requires a publicly trusted SSL certificate to be configured on your GitHub Enterprise instance. Self-signed certificates are not currently supported.
-
 The following steps configure GitHub Enterprise as an authorization provider for your Shippable Server instance:
 
 ### Select GitHub Enterprise Auth
@@ -85,8 +83,6 @@ If you came to this page to configure GitHub while installing Shippable server f
 If you already have a working Shippable Server instance and just added GitHub auth, you should be able to sign in with your GitHub credentials at this time.    
 
 ## Bitbucket Server
-
-**Note:** OAuth integration with Atlassian Stash and BitBucket Server requires a publicly trusted SSL certificate to be configured on your Stash or BitBucket Server. Self-signed certificates are not currently supported.
 
 Integration with Atlassian Stash 3.x, and BitBucket Server 4.x up to 5.2.2 is supported with Shippable Server.
 
@@ -168,8 +164,6 @@ If you already have a working Shippable Server instance and just added Bitbucket
 
 ## Gitlab
 
-**Note:** OAuth integration with on-premises Gitlab installations requires a publicly trusted SSL certificate to be configured on your Gitlab instance. Self-signed certificates are not currently supported.
-
 The following steps configure Gitlab as an authorization provider for your Shippable Server instance:
 
 * Check **Gitlab** in the **Authorization** column.
@@ -181,3 +175,7 @@ The following steps configure Gitlab as an authorization provider for your Shipp
 If you came to this page to configure Gitlab while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
 If you already have a working Shippable Server instance and just added Gitlab auth, you should be able to sign in with your Gitlab credentials at this time.  
+
+### Using custom SSL certifcates with enterprise SCM installations
+
+For enterprise SCMs with self signed SSL certificates, refer [Using custom SSL certifcates](/platform/server/service-addresses/#using-custom-ssl-certificates) 

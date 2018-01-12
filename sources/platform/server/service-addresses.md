@@ -11,3 +11,13 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 The **Service addresses** section of the Admiral UI shows you what address various services are available at. You do not need to change anything in this section unless you have a complicated network topology with reverse proxies, nginx, etc.
 
 <img src="/images/platform/server/admiral-service-addresses.png" alt="Service addresses">
+
+## Using custom SSL certificates
+
+To allow Shippable services to work with Custom SSL certificates, tick `Ignore TLS Errors` checkbox during installation.
+For existing installations, you will have to `Save` and `Restart Services` after checking ignore TLS option.
+
+This setting will ignore TLS errors on all Shipppable services. This is an insecure configuration and should only be used in trusted networks. 
+Scenarios for using this setting include enterprise SCM installation in a private network with custom SSL certificate.
+
+<img src="/images/platform/server/admiral-custom-ssl-certs.png" alt="Using custom SSL certificates">
