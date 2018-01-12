@@ -12,12 +12,12 @@ The **Service addresses** section of the Admiral UI shows you what address vario
 
 <img src="/images/platform/server/admiral-service-addresses.png" alt="Service addresses">
 
-## Using custom SSL certificates
+## Using Self-signed SSL certificates
 
-To allow Shippable services to work with Custom SSL certificates, tick `Ignore TLS Errors` checkbox during installation.
+To allow Shippable services to work with self-signed SSL certificates, tick `Ignore TLS Errors` checkbox during installation.
 For existing installations, you will have to `Save` and `Restart Services` after checking ignore TLS option.
 
 This setting will ignore TLS errors on all Shipppable services. This is an insecure configuration and should only be used in trusted networks. 
-Scenarios for using this setting include enterprise SCM installation in a private network with custom SSL certificate.
+Scenarios for using this setting include enterprise SCM installation in a private network with self-signed SSL certificate.
 
-<img src="/images/platform/server/admiral-custom-ssl-certs.png" alt="Using custom SSL certificates">
+<img src="/images/platform/server/admiral-self-signed-ssl-certs.png" alt="Using Self-signed SSL Certificates">
