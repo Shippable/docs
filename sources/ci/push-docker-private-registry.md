@@ -10,7 +10,9 @@ You can push your image to Docker Private Registry in any section [of your yml](
 
 Before you start, you will need to connect your Docker Private Registry with Shippable so we have the credentials to push your image on your behalf.
 
-Please follow the steps outlined [here](/platform/integration/docker-private-registry/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+* Please follow the steps outlined [here](/platform/integration/docker-private-registry/). Once you add an account integration, you can use it for all your projects without needing to add it again.
+* Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
+* Use the subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
 
 ##Basic config
 
@@ -23,7 +25,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-private-integration    #replace with your integration name
+    - integrationName: docker-private-integration    #replace with your subscription integration name
       type: "private docker registry"
 ```
 
@@ -42,7 +44,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-private-integration    #replace with your integration name
+    - integrationName: docker-private-integration    #replace with your subscription integration name
       type: "private docker registry"
       branches:
         only:
@@ -63,13 +65,13 @@ build:
 
 integrations:
   hub:
-    - integrationName: master-docker-pvt    #replace with your integration name
+    - integrationName: master-docker-pvt    #replace with your subscription integration name
       type: "private docker registry"
       branches:
         only:
           - master
 
-    - integrationName: dev-docker-pvt    #replace with your integration name
+    - integrationName: dev-docker-pvt    #replace with your subscription integration name
       type: "private docker registry"
       branches:
         only:
@@ -96,13 +98,13 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-docker-pvt    #replace with your integration name   
+    - integrationName: master-docker-pvt    #replace with your subscription integration name   
       type: "private docker registry"    
       branches:
         only:
           - v1.* # production release tag
 
-    - integrationName: dev-docker-pvt    #replace with your integration name   
+    - integrationName: dev-docker-pvt    #replace with your subscription integration name   
       type: "private docker registry"    
       branches:
         only:
@@ -125,7 +127,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-private-integration    #replace with your integration name
+    - integrationName: docker-private-integration    #replace with your subscription integration name
       type: "private docker registry"
 ```
 
@@ -144,7 +146,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: docker-private-integration    #replace with your integration name
+    - integrationName: docker-private-integration    #replace with your subscription integration name
       type: "private docker registry"
 
 ```

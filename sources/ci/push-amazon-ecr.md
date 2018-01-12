@@ -14,7 +14,9 @@ Before you start, you will need to connect your Amazon account with Shippable so
 - To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
 #### Adding Amazon Keys integration to your Shippable Account
-- Follow the steps [here](/platform/integration/aws-keys).
+- Follow the steps [here](/platform/integration/aws-keys) to create an account integration.
+- Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
+- Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
 
 ##Basic config
 
@@ -29,7 +31,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: aws-keys-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your subscription integration name
       region: us-east-1                   #replace with your AWS region
       type: ecr
 ```
@@ -49,7 +51,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: aws-keys-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your subscription integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
       branches:
@@ -71,14 +73,14 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-aws-keys    #replace with your integration name
+    - integrationName: master-aws-keys    #replace with your subscription integration name
       type: ecr
       region: us-east-1              #replace with your AWS region
       branches:
         only:
           - master
 
-    - integrationName: dev-aws-keys    #replace with your integration name
+    - integrationName: dev-aws-keys    #replace with your subscription integration name
       type: ecr
       region: us-east-1           #replace with your AWS region
       branches:
@@ -106,13 +108,13 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-aws-keys    #replace with your integration name   
+    - integrationName: master-aws-keys    #replace with your subscription integration name   
       type: ecr    
       branches:
         only:
           - v1.* # production release tag
 
-    - integrationName: dev-aws-keys    #replace with your integration name   
+    - integrationName: dev-aws-keys    #replace with your subscription integration name   
       type: ecr    
       branches:
         only:
@@ -135,7 +137,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: aws-keys-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your subscription integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
 ```
@@ -155,7 +157,7 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: aws-keys-integration    #replace with your integration name
+    - integrationName: aws-keys-integration    #replace with your subscription integration name
       type: ecr
       region: us-east-1                   #replace with your AWS region
 ```
@@ -171,7 +173,7 @@ You can solve this in 2 ways:
 ```
 integrations:
   hub:
-    - integrationName: aws-keys-integration  #replace with your integration name
+    - integrationName: aws-keys-integration  #replace with your subscription integration name
       type: ecr
       region: us-east-1                 #replace with your AWS region
       agent_only: true

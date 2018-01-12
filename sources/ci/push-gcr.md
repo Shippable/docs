@@ -22,10 +22,13 @@ Before you start, you will need to connect your  Google cloud account with Shipp
 -  Your new **JSON key** is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 -  For more on JSON keys and Service accounts, read
 <a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
-#### Adding Google cloud Integration to your Shippable Account
+#### Adding Google Cloud Account Integration to your Shippable Account
 -  Please follow the steps mentioned [here](/platform/integration/gcloudKey/).
 
 <img src="/images/platform/integrations/gcloud-integration.png" alt="Add  Google Cloud credentials">
+
+- Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
+- Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
 
 ##Basic config
 
@@ -34,7 +37,7 @@ Before you start, you will need to connect your  Google cloud account with Shipp
 ```
 integrations:
   hub:
-    - integrationName: gcloud-integration    #replace with your integration name
+    - integrationName: gcloud-integration    #replace with your subscription integration name
       type: gcloudKey
 ```
 **Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
@@ -61,7 +64,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: gcloud-integration    #replace with your integration name
+    - integrationName: gcloud-integration    #replace with your subscription integration name
       type: gcloudKey
       branches:
         only:
@@ -85,13 +88,13 @@ build:
 
 integrations:
   hub:
-    - integrationName: master-gcloud    #replace with your integration name
+    - integrationName: master-gcloud    #replace with your subscription integration name
       type: gcloudKey
       branches:
         only:
           - master
 
-    - integrationName: dev-gcloud    #replace with your integration name
+    - integrationName: dev-gcloud    #replace with your subscription integration name
       type: gcloudKey
       branches:
         only:
@@ -120,13 +123,13 @@ build:
 
 integrations:                               
   hub:
-    - integrationName: master-gclpud    #replace with your integration name   
+    - integrationName: master-gclpud    #replace with your subscription integration name   
       type: gcloudKey    
       branches:
         only:
           - v1.* # production release tag
 
-    - integrationName: dev-gcloud    #replace with your integration name   
+    - integrationName: dev-gcloud    #replace with your subscription integration name   
       type: gcloudKey    
       branches:
         only:
@@ -150,7 +153,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: gcloud-integration    #replace with your integration name
+    - integrationName: gcloud-integration    #replace with your subscription integration name
       type: gcloudKey
 ```
 **Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
@@ -170,7 +173,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: gcloud-integration   #replace with your integration name
+    - integrationName: gcloud-integration   #replace with your subscription integration name
       type: gcloudKey
 
 ```
