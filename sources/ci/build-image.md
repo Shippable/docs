@@ -4,45 +4,94 @@ sub_section: Preparing your environment
 
 # Choosing a build image
 
-When a build is triggered on Shippable, we spin up a machine on AWS, start a Docker container on the machine using a Docker image, and run your builds inside that container.
+When a build is triggered on Shippable, we spin up a machine on AWS using the Machine image for your Subscription, start a Docker container on this machine, and run your CI commands inside that container. The workflow is described in the [CI overview](/ci/why-continuous-integration/#ci-workflow).
 
-We have an official list of Docker images that are used to spin up CI containers. New images are released every month with latest language, service, and tool versions.  Images are organized by image tags, so a new tag is released for each image every month.
+The AMI used to spin up the AWS machine is called the **Machine Image**.
 
-If you do not specify a build image for your CI, we will use a default image tag depending on the `language` tag in your `yml` config. In most cases, this is sufficient to run your builds.
+Each Machine Image contains Shippable Official Docker Images for all languages. By default, an Official Docker Images is used for your CI job, depending on the `language` tag in your `shippable.yml`. In most cases, this is sufficient to run your builds. You can view our [complete list of Machine Images](/platform/runtime/machine-image/ami-overview/), and click on any image to view what is installed on the image, including a detailed description of the Shippable Official Docker Image for each language.
 
-##Viewing your current machine image
+To view the current Machine Image for your Subscription or to change it, read the [Manage machine image section](#manage-machine-image) below.
 
-You can view which images are used for your Subscription by following the steps below:
+You have two other options for customizing the build image:
 
-- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+* [Customizing options](#customize-build-container) for the default language image, such as mounting a volume or restricting CPU/memory
+* [Using a custom Docker image](#use-custom-image) for your build
+
+<a name="manage-machine-image"></a>
+## Managing your machine image
+
+Machine images are released every month, and supported for 13 months after they are first released. By default, Machine image for your subscription is usually the latest available image when the first project was enabled for CI.
+
+You should periodically upgrade to the latest image in order to get access to newer versions of languages and services. We recommend upgrading at least once every 3-6 months to stay current, even if you do not specifically need anything in the new image.
+
+
+### Viewing your machine image
+
+You can view which Machine Image is used for your Subscription by following the steps below:
+
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your Subscription name.
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
 
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
+- Click on the **Gear icon** on the Subscription page and then on **Nodes**.
 
 - You will see your current machine image in the **Machine images** section.
 
 <img src="/images/ci/view-machine-image.png" alt="view machine image">
 
-- For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](../platform/tutorial/runtime/ami-overview/)
+- For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](/platform/runtime/machine-image/ami-overview/)
 
-##Changing your default machine image
+### Changing machine image
 
-In most cases, the default images are sufficient to run your builds. You should consider overriding the default for the following reasons:
+You should consider upgrading to a newer machine image for the following reasons:
 
-- You need newer versions of languages, services, or tools that are available in a newer image tag.
-- You have your own custom Docker image that you want to use for your builds. To do this, please read our [custom docker image docs.](custom-docker-image/)
+- You need newer versions of languages, services, or tools that are available in a newer image tag, or
+- Your Machine image is more than 6 months old
 
 To change to a newer image, follow the steps below:
 
-- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List subscriptions">
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
-- Select the image tag you want from the dropdown for **Machine images**:
+- Follow the instructions in the section above to view custom image
+- Select the image version you want from the dropdown for **Machine images**:
 
 <img src="/images/ci/view-machine-image.png" alt="change machine image">
 
-- Once you change the tag, **all builds for all projects in the subscription will use the new default image tags.**
+- Please note that once you change the tag, **all builds for all projects in the subscription will use the new image versions.**
 
+<a name="customize-build-container"></a>
+## Customizing the build container
+
+Shippable uses the `docker run` command to spin up your build container. By default, here is how we start the container:
+
+```
+sudo docker run -d --privileged=true --net=bridge -v /home/shippable/cexec:/home/shippable/cexec -v /opt/docker/docker:/usr/bin/docker -v /home/shippable/cache:/home/shippable/cache -v /tmp/cexec:/tmp/cexec -v /var/run/docker.sock:/var/run/docker.sock -v /build:/build --name=c.exec.basic-node.22.1 --entrypoint=/home/shippable/cexec/build.sh -e RUN_MODE=beta -e SHIPPABLE_API_URL=https://rccon.shippable.com -e SHIPPABLE_API_RETRY_INTERVAL=3 -e SHIPPABLE_CONTAINER_NAME=c.exec.basic-node.22.1 -e SHIPPABLE_IS_OFFICIAL_IMAGE=true -e SHIPPABLE_DOCKER_VERSION=17.06.0-ce -e SHIPPABLE_IS_LEGACY_IMAGE=false -e SHIPPABLE_NODE_ARCHITECTURE=x86_64 drydock/u16pytall:master
+```
+
+You can customize this by specifying the options you want in the `pre_ci_boot` section of your `shippable.yml`. For a complete list of options that can be specified for `docker run`, please consult the [Docker reference document](https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources).
+
+### Mounting a volume
+
+You can mount a folder from the host on your container with the following sample config:
+
+```
+build:
+  pre_ci_boot:
+    options: "-v /tmp/shared:/tmp/shared"
+```
+
+This will get `/tmp/shared` on the host to be mounted in to your CI container. Please note that whatever you mount first needs to be copied to the host, in the `pre_ci` section of your config file, which executes on the host.
+
+### Restricting container resources
+
+For some scenarios, you might want to run a container with restricted memory or CPU. This can also be done by configuring the `pre_ci_boot` section:
+
+```
+build:
+  pre_ci_boot:
+    options: "-m 300M"
+```
+
+The config shown above will restrict memory to 300MB. For a complete list of everything you can restrict, please consult the Docker documentation on [Setting runtime constraints on resources](https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources).
+
+<a name="use-custom-image"></a>
 ##Using a custom Docker image for your build
 
 In most cases, your CI workflow should work fine with our official images. However, you might want to consider using a custom Docker image in the following situations:
