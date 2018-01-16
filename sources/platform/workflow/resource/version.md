@@ -8,6 +8,33 @@ sub_sub_section: Resources
 
 You can create a `version` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:             <string>
+    type:             version
+    versionTemplate: <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `version`
+
+* **`seed`** -- is an object which contains specific properties that applies to this resource.
+
+	        seed:
+	          versionName: "0.0.1"
+
+    `versionName` is a string that represents a semantic version that is used as a starting point when used with a release job. You can also also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

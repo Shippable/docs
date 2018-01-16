@@ -9,6 +9,34 @@ Adding a `trigger` resource to your `shippable.yml` gives you a way to trigger a
 
 You can create a `trigger` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:           <string>
+    type:           trigger
+    versionTemplate:
+      counter:      <number>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `trigger`
+
+* **`versionTemplate`** -- is an object which contains specific properties that apply to this resource
+
+            versionTemplate:
+              counter: 1
+
+    The `counter` should be updated each time you want to trigger the jobs that have this resource as an input.
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

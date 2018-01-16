@@ -8,6 +8,36 @@ sub_sub_section: Resources
 
 You can create a `params` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:             <string>
+    type:             params
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `params`
+
+* **`versionTemplate`** -- is an object that contains specific properties that apply to this resource. A new version is created any time this section of the YML changes.
+
+          versionTemplate:
+            params:
+              KEY1: "value1"                     #requires at least one
+              KEY2: "value2"                     #optional
+              secure: <encrypted value>          #optional
+
+    You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>
@@ -27,7 +57,7 @@ resources:
               KEY2: "value2"                     #optional
               secure: <encrypted value>          #optional
 
-    You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.
+    You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.    
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs
@@ -49,7 +79,6 @@ Whenever `params` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a se
 | `<NAME>`\_TYPE 							| The type of the resource. In this case `params`. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
 | `<NAME>`\_PATH 							| The directory containing files for the resource. |
-| `<NAME>`\_SOURCENAME    					| SourceName defined in the pointer. |
 | `<NAME>`\_VERSIONID    					| The ID of the version of the resource being used. |
 | `<NAME>`\_VERSIONNUMBER 					| The number of the version of the resource being used. |
 | KEY1    									| params section of the version is parsed and values are sourced. From above, e.g., KEY1 will be set to `value1`. |
@@ -60,6 +89,8 @@ Whenever `params` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a se
 
 Since the key/value pairs from params are automatically added to the environment, this makes them a great candidate for use in templated resources.  Any time another resource is defined in the `shippable.yml` using an environment variable where a constant value would normally go, the environment variable will get replaced at runtime with values from the environment. For example:
 
+
+### Latest Syntax
 ```
 resources:
   - name: prod-params
@@ -71,6 +102,30 @@ resources:
   - name: beta-params
     type: params
     version:
+      params:
+        NAMESPACE: beta
+
+  - name: kube-cluster
+    type: cluster
+    integration: my-kube-key
+    pointer:
+      sourceName: "cluster-1"
+      region: "us-central1-f"
+      namespace: "${NAMESPACE}"
+```
+
+### Old Syntax
+```
+resources:
+  - name: prod-params
+    type: params
+    versionTemplate:
+      params:
+        NAMESPACE: production
+
+  - name: beta-params
+    type: params
+    versionTemplate:
       params:
         NAMESPACE: beta
 

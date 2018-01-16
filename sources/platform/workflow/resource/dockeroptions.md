@@ -10,7 +10,478 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 
 ## Configuration reference
 
-You can define `dockerOptions` by adding it to `shippable.yml` as shown below:
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+You can define `dockerOptions` by adding it to `shippable.yml` as shown below. This will create a resource of type `dockerOptions`. You can include any settings shown below that you want as part of your `dockerOptions`. All settings are optional. [Read below](#descriptions) for a description and the format of each setting.
+
+For a table showing the mapping of each setting to a setting in your Container Service, read [mapping dockerOptions to your Container Service](#mappingDockerOptions).
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```yml
+resources:
+  - name: <string>                              #required
+    type: dockerOptions                         #required
+    versionTemplate:
+      memory: <integer>                         #optional, in MiB
+      cpuShares: <number>                       #optional
+      portMappings:                             #optional
+        - "80:80/tcp"                           #hostPort:containerPort/protocol (udp|tcp)
+      links:                                    #optional, containerName:alias
+        - <container name>:<alias>
+        - <container name>:<alias>
+      volumes:                                  #optional
+        - "<source>:<container path>:<options>"
+        - "<source>:<container path>:<options>"
+      logConfig:                                #optional
+        type: <string>                          #optional
+        options:                                #optional
+          <key1>: <value1>
+          <key2>: <value2>
+      entryPoint:                               #optional
+        - <string>
+        - <string>
+      cmd:
+        - <string>
+        - <string>
+      workingDir: <path to working dir>
+      privileged: <boolean>                     # May be true or false
+      labels:
+        <key1>: <value1>
+        <key2>: <value2>
+      volumesFrom:
+        - "<container name>:<options>"
+        - "<container name>:<options>"
+      ulimits:
+        - name: <name of limit>                 # e.g. cpu
+          soft: <number>                        # soft Limit
+          hard: <number>                        # hard Limit
+        - name: <name of limit>                 # e.g. nofile
+          soft: <number>                        # soft Limit, e.g. 50
+          hard: <number>                        # hard Limit, e.g. 100
+      dnsServers:
+        - "<ip address>"
+      dnsSearch:
+        - "<ip address>"
+      user: <string>                            # For GKE, this should be the UID (a number)
+      hostName: <string>
+      domainName: <string>
+      memorySwap: <number>
+      attachStdin: <boolean>                    # May be true or false
+      attachStdout: <boolean>                   # May be true or false
+      attachStderr: <boolean>                   # May be true or false
+      tty: <boolean>                            # May be true or false
+      stdin: <boolean>                          # May be true or false
+      stdinOnce: <boolean>                      # May be true or false
+      networkDisabled: <boolean>                # May be true or false
+      publishAllPorts: <boolean>                # May be true or false
+      readOnlyRootFilesystem: <boolean>         # May be true or false
+      extraHosts:                               # Optional
+        - "host:ip address"
+        - "host:ip address"
+      capAdd:                                   # Optional
+        - <string>
+      capDrop:                                  # Optional
+        - <string>
+      restartPolicy:                            # For GKE and DCL, this should be a string (eg- "Always")
+        - name: <string>
+        - maximumRetryCount: <number>
+      securityOptions:                          # Optional
+        - <string>
+        - <string>
+      cGroupParent: <string>                    # Optional
+      memoryReservation: <number>               # This should be given in MB
+      pid: <string>                             # Optional
+      network: <string>                         # Optional
+      devices:                                  # For DCL
+        - <string>
+      devices:                                  # For DDC
+        - pathOnHost: <string>
+          pathInContainer: <string>
+          cGroupPermissions: <string>
+```
+
+### Provider specific options
+Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
+
+#### Amazon ECS
+
+Container level docker options: These fields map to each object inside `containerDefinitions` of `taskDefinition`.
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      essential: boolean
+```
+
+Top level docker options: There are two top levels for Amazon ECS, i.e., `service` and `taskDefinition`. Please refer the following yml to find the possible options, that can be given under them.
+```
+  resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      service:
+        loadBalancer:
+         - <object>
+        desiredCount: <number>
+        clientToken: <string>
+        role: <string>
+        deploymentConfiguration:
+          maximumPercent: <number>
+          minimumHealthyPercent: <number>
+        placementStrategy:
+         - field: <string>
+           type: <string>
+         - field: <string>
+           type: <string>
+      taskDefinition:
+        family: <string>
+        taskRoleArn: <string>
+        networkMode: <string>
+        volumes:
+          - "<source>:<container path>:<options>"
+          - "<source>:<container path>:<options>"
+```
+
+#### Kubernetes
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+#### Google Container Engine
+Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
+
+
+##### Deploying with a Google Container Engine integration
+Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+##### Deploying with a Google Cloud integration
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+#### Docker Datacenter
+
+Container level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      ExposedPorts: <object>
+      StopSignal: <string>
+      HostConfig:
+        kernelMemory: <number>
+        cpuShares: <number>
+        cpuPeriod: <number>
+        cpuPercent: <number>
+        cpuQuota: <number>
+        cpusetCpus: <string>
+        cpusetMems: <string>
+        IOMaximumBandwidth: <number>
+        IOMaximumIOps: <number>
+        BlkioWeightDevice:
+          - Path: <string>
+          - Weight: weight
+        BlkioDeviceReadBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceReadIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioWeight: <number>
+        MemorySwappiness: <number>
+        OomKillDisable: <boolean>
+        OomScoreAdj: <number>
+        PidsLimit: <number>
+        DnsOptions:
+          - <string>
+          - <string>
+        GroupAdd:
+          - <string>
+          - <string>
+        UsernsMode: <string>
+        Sysctls:
+          - <string>: <string>
+        StorageOpt:
+          - <string>: <string>
+        VolumeDriver: <string>
+        ShmSize: <number>
+```
+
+#### Docker Cloud
+
+Container level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+       autoredeploy: <boolean>
+       autodestroy: <string>
+       nickname: <string>
+       tags:
+         - <string>
+       deployment_strategy: <string>
+       roles:
+         - <string>
+       sequential_deployment: <boolean>
+       target_num_containers: <number>
+```
+
+####Joyent Triton
+
+None at this time
+
+#### AZURE DC/OS
+App level docker options:
+
+Parameters accept all the arbitrary docker options according to the [mesosphere documentation](https://mesosphere.github.io/marathon/docs/native-docker.html#privileged-mode-and-arbitrary-docker-options)
+
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      environment:
+        - <string>: <string>
+      acceptedResourceRoles:
+        - <string>
+      parameters:
+        - <string>: <string>
+```
+
+#### Azure Container Service (AKS)
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    versionTemplate:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
 
 ```yml
 resources:
@@ -95,9 +566,385 @@ resources:
           cGroupPermissions: <string>
 ```
 
-This will create a resource of type `dockerOptions`. You can include any settings shown above that you want as part of your `dockerOptions`. All settings are optional. Read below for a description and the format of each setting.
+### Provider specific options
+Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
 
-For a table showing the mapping of each setting to a setting in your Container Service, read [mapping dockerOptions to your Container Service](#mappingDockerOptions).
+#### Amazon ECS
+
+Container level docker options: These fields map to each object inside `containerDefinitions` of `taskDefinition`.
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      essential: boolean
+```
+
+Top level docker options: There are two top levels for Amazon ECS, i.e., `service` and `taskDefinition`. Please refer the following yml to find the possible options, that can be given under them.
+```
+  resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      service:
+        loadBalancer:
+         - <object>
+        desiredCount: <number>
+        clientToken: <string>
+        role: <string>
+        deploymentConfiguration:
+          maximumPercent: <number>
+          minimumHealthyPercent: <number>
+        placementStrategy:
+         - field: <string>
+           type: <string>
+         - field: <string>
+           type: <string>
+      taskDefinition:
+        family: <string>
+        taskRoleArn: <string>
+        networkMode: <string>
+        volumes:
+          - "<source>:<container path>:<options>"
+          - "<source>:<container path>:<options>"
+```
+
+#### Kubernetes
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+#### Google Container Engine
+Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
+
+
+##### Deploying with a Google Container Engine integration
+Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+##### Deploying with a Google Cloud integration
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+#### Docker Datacenter
+
+Container level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      ExposedPorts: <object>
+      StopSignal: <string>
+      HostConfig:
+        kernelMemory: <number>
+        cpuShares: <number>
+        cpuPeriod: <number>
+        cpuPercent: <number>
+        cpuQuota: <number>
+        cpusetCpus: <string>
+        cpusetMems: <string>
+        IOMaximumBandwidth: <number>
+        IOMaximumIOps: <number>
+        BlkioWeightDevice:
+          - Path: <string>
+          - Weight: weight
+        BlkioDeviceReadBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceReadIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioWeight: <number>
+        MemorySwappiness: <number>
+        OomKillDisable: <boolean>
+        OomScoreAdj: <number>
+        PidsLimit: <number>
+        DnsOptions:
+          - <string>
+          - <string>
+        GroupAdd:
+          - <string>
+          - <string>
+        UsernsMode: <string>
+        Sysctls:
+          - <string>: <string>
+        StorageOpt:
+          - <string>: <string>
+        VolumeDriver: <string>
+        ShmSize: <number>
+```
+
+#### Docker Cloud
+
+Container level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+       autoredeploy: <boolean>
+       autodestroy: <string>
+       nickname: <string>
+       tags:
+         - <string>
+       deployment_strategy: <string>
+       roles:
+         - <string>
+       sequential_deployment: <boolean>
+       target_num_containers: <number>
+```
+
+####Joyent Triton
+
+None at this time
+
+#### AZURE DC/OS
+App level docker options:
+
+Parameters accept all the arbitrary docker options according to the [mesosphere documentation](https://mesosphere.github.io/marathon/docs/native-docker.html#privileged-mode-and-arbitrary-docker-options)
+
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      environment:
+        - <string>: <string>
+      acceptedResourceRoles:
+        - <string>
+      parameters:
+        - <string>: <string>
+```
+
+#### Azure Container Service (AKS)
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
+
+
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        restartPolicy: <string>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        labels:
+          <key1>: <value1>
+          <key2>: <value2>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
+
+
+<a name="descriptions"></a>
+## Common field descriptions
 
 ```
 - name: <string>
@@ -333,381 +1180,6 @@ Here are links to docs for each Container Service:
 * [Azure DC/OS](https://mesosphere.github.io/marathon/docs/native-docker.html)
 * [Azure Container Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
 
-## Provider specific options
-Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
-
-### Amazon ECS
-
-Container level docker options: These fields map to each object inside `containerDefinitions` of `taskDefinition`.
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      essential: boolean
-```
-
-Top level docker options: There are two top levels for Amazon ECS, i.e., `service` and `taskDefinition`. Please refer the following yml to find the possible options, that can be given under them.
-```
-  resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      service:
-        loadBalancer:
-         - <object>
-        desiredCount: <number>
-        clientToken: <string>
-        role: <string>
-        deploymentConfiguration:
-          maximumPercent: <number>
-          minimumHealthyPercent: <number>
-        placementStrategy:
-         - field: <string>
-           type: <string>
-         - field: <string>
-           type: <string>
-      taskDefinition:
-        family: <string>
-        taskRoleArn: <string>
-        networkMode: <string>
-        volumes:
-          - "<source>:<container path>:<options>"
-          - "<source>:<container path>:<options>"
-```
-
-### Kubernetes
-Container Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      envFrom: <array>
-      imagePullPolicy: <string>
-      lifecycle:
-        <object>
-      livenessProbe:
-        <object>
-      readinessProbe:
-        <object>
-      resources:
-        <object>
-      securityContext:
-        <object>
-      terminationMessagePath: <string>
-      terminationMessagePolicy: <string>
-
-```
-
-
-Pod Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      pod:
-        terminationGracePeriodSeconds: <number>
-        activeDeadlineSeconds: <number>
-        restartPolicy: <string>
-        dnsPolicy: <string>
-        nodeSelector:
-          <object>
-        serviceAccountName: <string>
-        serviceAccount: <string>
-        nodeName: <string>
-        hostNetwork: <boolean>
-        hostPID: <boolean>
-        imagePullSecrets:
-          - <string>
-```
-
-Deployment Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      deployment:
-        minReadySeconds: <number>
-        paused: <boolean>
-        progressDeadlineSeconds: <number>
-        replicas: <number>
-        revisionHistoryLimit: <number>
-        labels:
-          <key1>: <value1>
-          <key2>: <value2>
-        rollbackTo:
-          <object>
-        selector:
-          <object>
-        strategy:
-          <object>
-```
-
-### Google Container Engine
-Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
-
-
-#### Deploying with a Google Container Engine integration
-Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      pod:
-        terminationGracePeriodSeconds: <number>
-        activeDeadlineSeconds: <number>
-        dnsPolicy: <string>
-        nodeSelector:
-          <object>
-        serviceAccountName: <string>
-        serviceAccount: <string>
-        nodeName: <string>
-        hostNetwork: <boolean>
-        hostPID: <boolean>
-        imagePullSecrets:
-          - <string>
-```
-
-#### Deploying with a Google Cloud integration
-Container Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      envFrom: <array>
-      imagePullPolicy: <string>
-      lifecycle:
-        <object>
-      livenessProbe:
-        <object>
-      readinessProbe:
-        <object>
-      resources:
-        <object>
-      securityContext:
-        <object>
-      terminationMessagePath: <string>
-      terminationMessagePolicy: <string>
-
-```
-
-
-Pod Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      pod:
-        terminationGracePeriodSeconds: <number>
-        activeDeadlineSeconds: <number>
-        restartPolicy: <string>
-        dnsPolicy: <string>
-        nodeSelector:
-          <object>
-        serviceAccountName: <string>
-        serviceAccount: <string>
-        nodeName: <string>
-        hostNetwork: <boolean>
-        hostPID: <boolean>
-        imagePullSecrets:
-          - <string>
-```
-
-Deployment Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      deployment:
-        minReadySeconds: <number>
-        paused: <boolean>
-        progressDeadlineSeconds: <number>
-        replicas: <number>
-        revisionHistoryLimit: <number>
-        labels:
-          <key1>: <value1>
-          <key2>: <value2>
-        rollbackTo:
-          <object>
-        selector:
-          <object>
-        strategy:
-          <object>
-```
-
-### Docker Datacenter
-
-Container level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      ExposedPorts: <object>
-      StopSignal: <string>
-      HostConfig:
-        kernelMemory: <number>
-        cpuShares: <number>
-        cpuPeriod: <number>
-        cpuPercent: <number>
-        cpuQuota: <number>
-        cpusetCpus: <string>
-        cpusetMems: <string>
-        IOMaximumBandwidth: <number>
-        IOMaximumIOps: <number>
-        BlkioWeightDevice:
-          - Path: <string>
-          - Weight: weight
-        BlkioDeviceReadBps:
-          - Path: <string>
-          - Rate: <number>
-        BlkioDeviceWriteBps:
-          - Path: <string>
-          - Rate: <number>
-        BlkioDeviceReadIOps:
-          - Path: <string>
-          - Rate: <number>
-        BlkioDeviceWriteIOps:
-          - Path: <string>
-          - Rate: <number>
-        BlkioWeight: <number>
-        MemorySwappiness: <number>
-        OomKillDisable: <boolean>
-        OomScoreAdj: <number>
-        PidsLimit: <number>
-        DnsOptions:
-          - <string>
-          - <string>
-        GroupAdd:
-          - <string>
-          - <string>
-        UsernsMode: <string>
-        Sysctls:
-          - <string>: <string>
-        StorageOpt:
-          - <string>: <string>
-        VolumeDriver: <string>
-        ShmSize: <number>
-```
-
-### Docker Cloud
-
-Container level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-       autoredeploy: <boolean>
-       autodestroy: <string>
-       nickname: <string>
-       tags:
-         - <string>
-       deployment_strategy: <string>
-       roles:
-         - <string>
-       sequential_deployment: <boolean>
-       target_num_containers: <number>
-```
-
-###Joyent Triton
-
-None at this time
-
-### AZURE DC/OS
-App level docker options:
-
-Parameters accept all the arbitrary docker options according to the [mesosphere documentation](https://mesosphere.github.io/marathon/docs/native-docker.html#privileged-mode-and-arbitrary-docker-options)
-
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      environment:
-        - <string>: <string>
-      acceptedResourceRoles:
-        - <string>
-      parameters:
-        - <string>: <string>
-```
-
-### Azure Container Service (AKS)
-Container Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      envFrom: <array>
-      imagePullPolicy: <string>
-      lifecycle:
-        <object>
-      livenessProbe:
-        <object>
-      readinessProbe:
-        <object>
-      resources:
-        <object>
-      securityContext:
-        <object>
-      terminationMessagePath: <string>
-      terminationMessagePolicy: <string>
-
-```
-
-
-Pod Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      pod:
-        terminationGracePeriodSeconds: <number>
-        activeDeadlineSeconds: <number>
-        restartPolicy: <string>
-        dnsPolicy: <string>
-        nodeSelector:
-          <object>
-        serviceAccountName: <string>
-        serviceAccount: <string>
-        nodeName: <string>
-        hostNetwork: <boolean>
-        hostPID: <boolean>
-        imagePullSecrets:
-          - <string>
-```
-
-Deployment Spec level docker options:
-```
-resources:
-  - name: <string>
-    type: dockerOptions
-    version:
-      deployment:
-        minReadySeconds: <number>
-        paused: <boolean>
-        progressDeadlineSeconds: <number>
-        replicas: <number>
-        revisionHistoryLimit: <number>
-        labels:
-          <key1>: <value1>
-          <key2>: <value2>
-        rollbackTo:
-          <object>
-        selector:
-          <object>
-        strategy:
-          <object>
-```
 
 ## Overriding dockerOptions
 `dockerOptions` can also be used to override options that are already set in an upstream stage of the pipeline.

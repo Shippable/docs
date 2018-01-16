@@ -8,6 +8,40 @@ sub_sub_section: Resources
 
 You can create a `image` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:             <string>
+    type:             image
+    integration:      <string>
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `image`
+
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are
+	- [AWS Keys](/platform/integration/aws-keys)
+	- [Docker Registries](/platform/integration/dockerRegistryLogin)
+	- [Google Container Registry (GCR)](/platform/integration/gcloudKey)
+	- [Quay.io](/platform/integration/quayLogin)
+
+* **`versionTemplate`** -- is an object that contains different properties and settings for the resource
+
+          versionTemplate:
+            sourceName: <fully qualified image name, can be just repo/image for Docker Hub>
+            versionName: <image tag>
+
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

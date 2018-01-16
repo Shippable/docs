@@ -24,6 +24,26 @@ They are predominantly used for the following reasons:
 
 Resources are defined in `shippable.yml` as shown below:
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+
+```
+resources:
+  - name:               <string>
+    type:               <resource type name>
+    integration:        <string>
+    versionTemplate:    <object>
+```
+For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
+
 ```
 resources:
   - name:               <string>

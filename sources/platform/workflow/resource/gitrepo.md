@@ -8,6 +8,73 @@ sub_sub_section: Resources
 
 You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+```
+resources:
+  - name:             <string>
+    type:             gitRepo
+    integration:      <string>
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `gitRepo`
+
+* **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported integration types are:
+	* [Bitbucket](/platform/integration/bitbucket)
+	* Bitbucket Server (Shippable Server only)
+	* [GitHub](/platform/integration/github)
+	* [GitLab](/platform/integration/gitlab)
+
+* **`versionTemplate`** -- is an object that contains integration specific properties
+
+          versionTemplate:
+            sourceName:             <string>
+            branch:                 <string>
+            branches:
+              except:
+                - <branch name>
+                - <branch name>
+              only:
+                - <branch name>
+                - <branch name>
+            tags:
+              except:
+                - <tag name>
+                - <tag name>
+              only:
+                - <tag name>
+                - <tag name>
+            buildOnCommit:            <Boolean>
+            buildOnPullRequest:       <Boolean>
+            buildOnPullRequestClose:  <Boolean>
+            buildOnRelease:           <Boolean>
+            buildOnTagPush:           <Boolean>
+
+* Detailed explation of the versionTemplate properties:
+	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**
+    * `branch` -- (optional) specifies specific branch name that this resource represents. If not set, all branches trigger a new version. Cannot be set if `branches` property is used
+    * `branches` -- (optional) works like the `branch` but allows to use it for a collection of branches. Cannot be used if `branch` is used. Wildcards can used in names, e.g., feat-*
+    	* `except` -- (optional) Can be used to exclude a collection of branches
+    	* `only` -- (optional) Can be used to include only a collection of specific branches
+    * `tags` -- (optional) used to specify a collection of tags and releases upon which a new version is created
+    	* `except` -- (optional) Can be used to exclude a collection of tags or releases
+    	* `only` -- (optional) Can be used to include only a collection of specific tags or releases
+    * `buildOnCommit` -- (default is true) used to control whether the resource will be updated for commit webhooks
+    * `buildOnPullRequest` -- (default is false) used to control whether the resource will be updated for pull request webhooks
+    * `buildOnPullRequestClose` -- (default is false) used to control whether the resource will be updated for closing a pull request webhook
+    * `buildOnRelease` -- (default is false) used to control whether the resource will be updated for release webhooks    
+    * `buildOnTagPush` -- (default is false) used to control whether the resource will be updated for tag webhooks
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
 ```
 resources:
   - name:           <string>

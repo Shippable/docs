@@ -8,6 +8,33 @@ sub_sub_section: Resources
 
 You can create a `replicas` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
 
+- [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
+- [Old Syntax (forward compatible)](#oldSyntax)
+
+<a name="latestSyntax"></a>
+### Latest Syntax (Shippable v6.1.1 and above)
+
+
+```
+resources:
+  - name:             <string>
+    type:             replicas
+    versionTemplate:  <object>
+```
+
+* **`name`** -- should be an easy to remember text string
+
+* **`type`** -- is set to `replicas`
+
+* **`versionTemplate`** -- is an object that contains specific properties that apply to this resource. Any time this is changed in the YML, a new version of the resource will be created.
+
+	        versionTemplate:
+	          count: 1          #integer value > 0
+
+<a name="oldSyntax"></a>
+### Old Syntax (forward compatible)
+
+
 ```
 resources:
   - name:           <string>
