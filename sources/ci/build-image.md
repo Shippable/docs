@@ -83,7 +83,7 @@ This will mount `/tmp/shared` and `/tmp/myFolder` from the host to your CI conta
 
 ### Restricting container resources
 
-For some scenarios, you might want to run a container with restricted memory, CPU, etc. This can also be done by configuring the `pre_ci_boot` section:
+For some scenarios, you might want to run a container with restricted memory, CPU, etc. This can be done by configuring the `pre_ci_boot` section:
 
 ```
 build:
