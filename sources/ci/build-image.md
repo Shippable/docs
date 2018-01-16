@@ -69,21 +69,21 @@ You can customize this by specifying the options you want in the `pre_ci_boot` s
 
 **Please remember that if you customize options in the `pre_ci_boot` section, we will not set the `--privileged=true --net=bridge` options while calling the docker run command. If you want to run your container in privileged mode or to create a network stack on the default Docker bridge, you will need to specify this in `pre_ci_boot` if you need them.**
 
-### Mounting a volume
+### Mounting volumes
 
-You can mount a folder from the host on your container with the following sample config:
+You can mount any number of folders from the host on your container with the following sample config:
 
 ```
 build:
   pre_ci_boot:
-    options: "-v /tmp/shared:/tmp/shared"
+    options: "-v /tmp/shared:/tmp/shared -v /tmp/myFolder:/tmp/myFolder"
 ```
 
-This will get `/tmp/shared` on the host to be mounted in to your CI container. Please note that whatever you mount first needs to be copied to the host, in the `pre_ci` section of your config file, which executes on the host.
+This will mount `/tmp/shared` and `/tmp/myFolder` from the host to your CI container. Please note that the folder(s) you mount need to be available on the host, so you need to create them or copy them to the host in the `pre_ci` section.
 
 ### Restricting container resources
 
-For some scenarios, you might want to run a container with restricted memory or CPU. This can also be done by configuring the `pre_ci_boot` section:
+For some scenarios, you might want to run a container with restricted memory, CPU, etc. This can also be done by configuring the `pre_ci_boot` section:
 
 ```
 build:
