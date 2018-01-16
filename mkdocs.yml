@@ -160,6 +160,7 @@ pages:
       - Deploying from S3 to a single VM cluster: deploy/vm-basic.md
       - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
       - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
+      - Deploying from a git repository to a single VM cluster: deploy/vm-gitRepo.md
     - Tutorials:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md

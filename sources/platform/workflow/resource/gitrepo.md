@@ -71,6 +71,7 @@ This resource is used as an `IN` for the following jobs:
 
 * [runSh](/platform/workflow/job/runsh)
 * [runCI](/platform/workflow/job/runci)
+* [deploy](/platform/workflow/job/deploy)
 
 ## Default Environment Variables
 Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

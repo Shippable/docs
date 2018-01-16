@@ -27,8 +27,8 @@ jobs:
       - NOTIFY:         <notification resource name>
     steps:
       - IN:             <cluster>                 # required
-      - IN:             <manifest/release/deploy> # required
-      - IN:             <manifest/release/deploy> # optional
+      - IN:             <manifest/release/deploy/gitRepo> # required
+      - IN:             <manifest/release/deploy/gitRepo> # optional
         force:          true
       - IN:             <manifest>                # optional
         deployName:     <custom name>
@@ -97,6 +97,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 
         * [deploy](/platform/workflow/job/deploy) -- You can add zero or more of these. `deploy` jobs can be `IN`s to other deploy jobs.  They contain a list of `manifests` that were deployed.  This same list can be augmented with new `params` or `dockerOptions` and deployed in a new job.
             * `force` -- (default `false`) Optional input. Set to `true` if you need to deploy the `deploy` manifests even if nothing has changed.
+
+        * [gitRepo](/platform/workflow/resource/gitrepo) -- You can add zero or more of these. These will be copied to the cluster nodes when deploying to a node cluster.  A `gitRepo` resource will not be deployed to any other cluster type.
 
         * [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want a `dockerOptions` resource to modify specific entities, use an `applyTo` tag.
 
