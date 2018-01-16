@@ -10,6 +10,9 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 This is a command utility that is available in both [runSh](/platform/workflow/job/runsh) and [runCI](/platform/workflow/job/runci) jobs. This is used to perform common operations like getting the path of where state files are stored; getting the config value of the integration used in a Resource and so on.
 
+## Machine images where shipctl is available
+
+shipctl is available in CI and Assembly lines in machine image versions [v5.8.2](http://docs.shippable.com/platform/runtime/machine-image/ami-v582/) and up. If your subscription is using a version lower than v5.8.2, please switch to the latest version of the machine image. To change the machine image for your subscription, please follow the steps documented [here](http://docs.shippable.com/platform/runtime/machine-image/ami-overview/#changing-the-subscription-machine-image).
 
 ## State Mgmt
 

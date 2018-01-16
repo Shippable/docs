@@ -19,9 +19,11 @@ A complete list of all supported integrations is [available in the integrations 
 
 * Click on your Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/subscriptions.png" alt="Subscription Integration">
 
 * On the Subscription page, click on the **Gears** icon and click on **Integrations**.
+
+<img src="/images/getting-started/subsetting.png" width="400" alt="Subscription Integration Setting">
 
 * You'll be taken to the Integrations page that shows you all integrations that are available for this Subscription.
 
