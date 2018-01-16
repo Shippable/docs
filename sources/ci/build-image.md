@@ -4,11 +4,11 @@ sub_section: Preparing your environment
 
 # Choosing a build image
 
-When a build is triggered on Shippable, we spin up a machine on AWS using the Machine image for your Subscription, start a Docker container on this machine, and run your CI commands inside that container. The workflow is described in the [CI overview](/ci/why-continuous-integration/#ci-workflow).
+When a build is triggered on Shippable, we spin up a machine on AWS using the Machine Image for your Subscription, start a Docker container on this machine, and run your CI commands inside that container. The workflow is described in the [CI overview](/ci/why-continuous-integration/#ci-workflow).
 
 The AMI used to spin up the AWS machine is called the **Machine Image**.
 
-Each Machine Image contains Shippable Official Docker Images for all languages. By default, an Official Docker Images is used for your CI job, depending on the `language` tag in your `shippable.yml`. In most cases, this is sufficient to run your builds. You can view our [complete list of Machine Images](/platform/runtime/machine-image/ami-overview/), and click on any image to view what is installed on the image, including a detailed description of the Shippable Official Docker Image for each language.
+Each Machine Image contains Shippable Official Docker Images for all languages. By default, a Shippable Official Docker Image is used for your CI job, depending on the `language` tag in your `shippable.yml`. In most cases, this is sufficient to run your builds. You can view our [complete list of Machine Images](/platform/runtime/machine-image/ami-overview/), and click on any image to view what is installed on the image, including a detailed description of the Shippable Official Docker Image for each language.
 
 To view the current Machine Image for your Subscription or to change it, read the [Manage machine image section](#manage-machine-image) below.
 
@@ -18,14 +18,14 @@ You have two other options for customizing the build image:
 * [Using a custom Docker image](#use-custom-image) for your build
 
 <a name="manage-machine-image"></a>
-## Managing your machine image
+## Managing your Subscription's Machine Image
 
 Machine images are released every month, and supported for 13 months after they are first released. By default, Machine image for your subscription is usually the latest available image when the first project was enabled for CI.
 
 You should periodically upgrade to the latest image in order to get access to newer versions of languages and services. We recommend upgrading at least once every 3-6 months to stay current, even if you do not specifically need anything in the new image.
 
 
-### Viewing your machine image
+### Viewing your Machine Image
 
 You can view which Machine Image is used for your Subscription by following the steps below:
 
@@ -40,7 +40,7 @@ You can view which Machine Image is used for your Subscription by following the 
 
 - For a detailed list of what is installed on your image, you can consult our reference: [Machine images reference](/platform/runtime/machine-image/ami-overview/)
 
-### Changing machine image
+### Changing Machine Image
 
 You should consider upgrading to a newer machine image for the following reasons:
 
@@ -62,26 +62,28 @@ To change to a newer image, follow the steps below:
 Shippable uses the `docker run` command to spin up your build container. By default, here is how we start the container:
 
 ```
-sudo docker run -d --privileged=true --net=bridge -v /home/shippable/cexec:/home/shippable/cexec -v /opt/docker/docker:/usr/bin/docker -v /home/shippable/cache:/home/shippable/cache -v /tmp/cexec:/tmp/cexec -v /var/run/docker.sock:/var/run/docker.sock -v /build:/build --name=c.exec.basic-node.22.1 --entrypoint=/home/shippable/cexec/build.sh -e RUN_MODE=beta -e SHIPPABLE_API_URL=https://rccon.shippable.com -e SHIPPABLE_API_RETRY_INTERVAL=3 -e SHIPPABLE_CONTAINER_NAME=c.exec.basic-node.22.1 -e SHIPPABLE_IS_OFFICIAL_IMAGE=true -e SHIPPABLE_DOCKER_VERSION=17.06.0-ce -e SHIPPABLE_IS_LEGACY_IMAGE=false -e SHIPPABLE_NODE_ARCHITECTURE=x86_64 drydock/u16pytall:master
+sudo docker run -d --privileged=true --net=bridge -v <volumes> --entrypoint=/home/shippable/cexec/build.sh -e <env variables> imageName:tag
 ```
 
 You can customize this by specifying the options you want in the `pre_ci_boot` section of your `shippable.yml`. For a complete list of options that can be specified for `docker run`, please consult the [Docker reference document](https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources).
 
-### Mounting a volume
+**Please remember that if you customize options in the `pre_ci_boot` section, we will not set the `--privileged=true --net=bridge` options while calling the docker run command. If you want to run your container in privileged mode or to create a network stack on the default Docker bridge, you will need to specify this in `pre_ci_boot` if you need them.**
 
-You can mount a folder from the host on your container with the following sample config:
+### Mounting volumes
+
+You can mount any number of folders from the host on your container with the following sample config:
 
 ```
 build:
   pre_ci_boot:
-    options: "-v /tmp/shared:/tmp/shared"
+    options: "-v /tmp/shared:/tmp/shared -v /tmp/myFolder:/tmp/myFolder"
 ```
 
-This will get `/tmp/shared` on the host to be mounted in to your CI container. Please note that whatever you mount first needs to be copied to the host, in the `pre_ci` section of your config file, which executes on the host.
+This will mount `/tmp/shared` and `/tmp/myFolder` from the host to your CI container. Please note that the folder(s) you mount need to be available on the host, so you need to create them or copy them to the host in the `pre_ci` section.
 
 ### Restricting container resources
 
-For some scenarios, you might want to run a container with restricted memory or CPU. This can also be done by configuring the `pre_ci_boot` section:
+For some scenarios, you might want to run a container with restricted memory, CPU, etc. This can be done by configuring the `pre_ci_boot` section:
 
 ```
 build:
