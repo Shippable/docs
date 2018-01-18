@@ -32,12 +32,12 @@ You need nodes to run your jobs. The configuration for these is under the **Buil
 We support the following types of nodes:
 
 * **System nodes** are available for all subscriptions and projects across your installation and are always ON and waiting to pick up triggered jobs. These nodes can be anywhere, i.e. on any cloud or your own data center.
-* **Custom nodes** are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add custom nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
+* **BYON nodes** are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
 * **Dynamic nodes** are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for dynamic nodes.
 
 You need at least one node type enabled in order to run jobs on Shippable Server. The node type you choose depends on your organization's policy
 
-By default, **System Nodes** and **Custom Nodes** are enabled when you run Admiral for the first time.
+By default, **System Nodes** and **BYON Nodes** are enabled when you run Admiral for the first time.
 
 You can enable or disable node types as needed, but **you always need one node type enabled to run jobs**.
 
@@ -67,23 +67,23 @@ To add system nodes, follow the instructions below:
 
 You can choose to disable system nodes by unchecking the **Enable system nodes (always-running nodes, available to any user)**. When disabled, your system nodes will not be used to run any jobs. You will need to click **Install** after making your choice.
 
-### Custom nodes
+### BYON nodes
 
-Custom nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add custom nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
+BYON nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
 
-By default, custom nodes are enabled for a Shippable Server installation. You will need to add one or more nodes in order to run jobs.
+By default, BYON nodes are enabled for a Shippable Server installation. You will need to add one or more nodes in order to run jobs.
 
-#### **Adding a custom node**
+#### **Adding a BYON node**
 
-Instructions to add custom nodes are explained here: [Adding custom nodes](http://docs.shippable.com/getting-started/byon-manage-node/).
+Instructions to add BYON nodes are explained here: [Adding BYON nodes](http://docs.shippable.com/getting-started/byon-manage-node/).
 
-By default, all super users or Subscription owners can add custom nodes to a Subscription. If you want to restrict addition of Custom Nodes to super users, check the **Restrict custom node creation to admins only** checkbox in the Admiral UI.
+By default, all super users or Subscription owners can add BYON nodes to a Subscription. If you want to restrict addition of BYON Nodes to super users, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
 
-To set up Custom nodes, sign in to Shippable Server and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
+To set up BYON nodes, sign in to Shippable Server and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
 
-#### **Disable custom nodes**
+#### **Disable BYON nodes**
 
-You can choose to disable custom nodes by unchecking the **Enable custom nodes (users can attach always-running nodes to their subscription)**. When disabled, your custom nodes will not be used to run any jobs.
+You can choose to disable BYON nodes by unchecking the **Enable BYON nodes (users can attach always-running nodes to their subscription)**. When disabled, your BYON nodes will not be used to run any jobs.
 
 You will need to click **Install** after making your choice.
 

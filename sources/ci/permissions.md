@@ -309,19 +309,19 @@ Review the table below to view the different actions available for a specific Sh
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Edit custom Node</td>
+      <td>Edit BYON node</td>
       <td></td>
       <td>Yes</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Reset custom Node</td>
+      <td>Reset BYON node</td>
       <td></td>
       <td>Yes</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Delete custom Node</td>
+      <td>Delete BYON node</td>
       <td></td>
       <td>Yes</td>
       <td>Yes</td>

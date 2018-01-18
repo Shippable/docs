@@ -35,10 +35,10 @@ These are managed and dynamically provisioned by Shippable Platform. There is no
 
 [Read more on Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes).
 
-#### [Dedicated Custom Nodes](/platform/runtime/nodes/#custom-nodes)
+#### [Dedicated BYON Nodes](/platform/runtime/nodes/#custom-nodes)
 These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
 
-[Read more on Custom Nodes](/platform/runtime/nodes/#custom-nodes).
+[Read more on BYON Nodes](/platform/runtime/nodes/#custom-nodes).
 
 <a name="machine-image"></a>
 ### Machine image

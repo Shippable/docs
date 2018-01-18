@@ -417,7 +417,7 @@ pages:
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
-        - Custom Nodes: platform/tutorial/runtime/custom-nodes.md
+        - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:

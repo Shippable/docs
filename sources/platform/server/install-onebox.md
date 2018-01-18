@@ -391,7 +391,7 @@ If you want your users to be able to connect to third party services through [in
 
 You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
 
-By default, a Server installation is configured to support **System Nodes** and **Custom Nodes**. You can turn on **Dynamic Nodes** if you want your nodes to be spun up on demand. We support AWS for dynamic nodes.
+By default, a Server installation is configured to support **System Nodes** and **BYON Nodes**. You can turn on **Dynamic Nodes** if you want your nodes to be spun up on demand. We support AWS for dynamic nodes.
 
 <img src="/images/platform/tutorial/server/default-nodes-config.png" alt="Admiral-2-server">
 
@@ -410,13 +410,13 @@ To configure system nodes, follow the instructions below:
 
 * Repeat these steps for the number of system nodes you want to add.
 
-#### Custom nodes
+#### BYON nodes
 
-Custom nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add custom nodes.
+BYON nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes.
 
-To restrict addition of Custom Nodes to Shippable Server Admins, check the **Restrict custom node creation to admins only** checkbox in the Admiral UI.
+To restrict addition of BYON Nodes to Shippable Server Admins, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
 
-To set up Custom nodes, sign in to Shippable Server with your admin credentials and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
+To set up BYON nodes, sign in to Shippable Server with your admin credentials and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
 
 #### Dynamic Nodes
 
