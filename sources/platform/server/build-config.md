@@ -33,7 +33,7 @@ We support the following types of nodes:
 
 * **System nodes** are available for all subscriptions and projects across your installation and are always ON and waiting to pick up triggered jobs. These nodes can be anywhere, i.e. on any cloud or your own data center.
 * **BYON nodes** are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
-* **Dynamic nodes** are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for dynamic nodes.
+* **On-demand nodes** are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for On-demand nodes.
 
 You need at least one node type enabled in order to run jobs on Shippable Server. The node type you choose depends on your organization's policy
 
@@ -87,15 +87,15 @@ You can choose to disable BYON nodes by unchecking the **Enable BYON nodes (user
 
 You will need to click **Install** after making your choice.
 
-### Dynamic Nodes
+### On-demand Nodes
 
-Dynamic nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for dynamic nodes.
+On-demand nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for On-demand nodes.
 
 Please note that nodes on AWS need 2-4 minutes to be spun up, so you will have to live with that overhead for some builds when a fresh node needs to be spun up.
 
-To enable **Dynamic nodes**:
+To enable **On-demand nodes**:
 
-* In the Admiral UI, check the **Enable dynamic nodes** checkbox
+* In the Admiral UI, check the **Enable On-demand nodes** checkbox
 * Enter your AWS Access and Secret keys.
 * Choose the default node size. Our default setting is `c4.large`.
 * You can leave the other settings as-is.

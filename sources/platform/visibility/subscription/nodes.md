@@ -22,5 +22,5 @@ To get here:
 
 ## Further Reading
 
-* [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/)
+* [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/)
 * [Using BYON Nodes](/platform/runtime/nodes/#custom-nodes)
