@@ -121,7 +121,7 @@ In our `runSh` job, `IN: myMazCliConfig` gives the following environment variabl
   - `MYMAZCLICONFIG_INTEGRATION_PASSWORD` - Password given in the Microsoft Azure account integration.
   - `MYMAZCLICONFIG_INTEGRATION_SUBSCRIPTIONID` - Subscription Id given in the Microsoft Azure account integration.
 
-Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores removed.
+Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores and leading numbers removed.
 
 ### Create timed Ansible pipeline job
 To schedule a pipeline job to automatically execute an Ansible playbook on a
