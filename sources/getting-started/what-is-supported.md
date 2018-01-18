@@ -10,9 +10,9 @@ Here are some of the major things we support out of the box. With that being sai
 
 ## Node Types
 
-To run your DevOps activities, you need a Node (virtual machine). Shippable supports the two types of Nodes described below. **By default, all your jobs run on Dynamic nodes.**
+To run your DevOps activities, you need a Node (virtual machine). Shippable supports the two types of Nodes described below. **By default, all your jobs run on On-demand nodes.**
 
-### [Dedicated Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/)
+### [Dedicated On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/)
 
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need.
 	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type

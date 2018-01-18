@@ -466,4 +466,4 @@ While the job is running, you can view the job being run on a particular node by
 
 ---
 ### Builds fail on all my BYON nodes
-We've made key changes to the Shippable agent that runs on BYON nodes (BYON). To implement this change, all BYON nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* BYON nodes that were initialized using a script. [Reset all your BYON nodes](/platform/runtime/nodes/#custom-nodes) for builds to run successfully.
+We've made key changes to the Shippable agent that runs on BYON nodes. To implement this change, all BYON nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* BYON nodes that were initialized using a script. [Reset all your BYON nodes](/platform/runtime/nodes/#custom-nodes) for builds to run successfully.

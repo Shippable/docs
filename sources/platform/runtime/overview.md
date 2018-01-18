@@ -15,7 +15,7 @@ Some of the key benefits of this are:
 	* Having to install multiple different tools/versions like Chef, Puppet, and Terraform as different teams use different tools.
 * Reduce build time by leveraging caching instead of constantly prepping the environment to run your job.
 * Not worrying about repeatability in the process as all the config and settings are not ad hoc, i.e. error prone.
-* Reduce the cost of build infrastructure by leveraging dynamic node creation. Most organizations have less than 5% utilization of their build environment.
+* Reduce the cost of build infrastructure by leveraging On-demand node creation. Most organizations have less than 5% utilization of their build environment.
 * Ability to run your build environment behind a firewall and still leverage the SaaS-based DevOps Assembly Line platform.
 
 ## Components of Job Runtime
@@ -27,13 +27,13 @@ Job Runtime consists of the following components:
 
 To run your DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
 
-#### [Dedicated Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes)
+#### [Dedicated On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes)
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
 	* 2 core, 3.75GB RAM (default) -- this is equivalent to AWS c4.large instance type
 	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
 
-[Read more on Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes).
+[Read more on On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes).
 
 #### [Dedicated BYON Nodes](/platform/runtime/nodes/#custom-nodes)
 These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.

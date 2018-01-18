@@ -31,7 +31,7 @@ To update the projects, flags or jobs in a custom goto that view and click on th
 You can remove any selected projects, flags or jobs from the selected list. You can also add new projects, flags or jobs to the view.
 
 ##Delete a custom view
-To delete a custom goto that view and click on the `edit` icon. Goto the `DELETE VIEW` panel at the bottom of the page. Click on `delete` button to delete the view.
+To delete a custom view, go to that view and click on the `Edit` icon. Goto the `DELETE VIEW` panel at the bottom of the page. Click on `Delete` button to delete the view.
 <img src="/images/platform/visibility/delete-custom-view.png" alt="delete custom view page" style="width:700px;"/>
 
 # Further Reading

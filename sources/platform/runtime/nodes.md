@@ -1,4 +1,4 @@
-page_main_title: Learn more about dynamic and BYON nodes
+page_main_title: Learn more about On-demand and BYON nodes
 main_section: Platform
 sub_section: Runtime
 page_title: Node types
@@ -7,18 +7,18 @@ page_title: Node types
 
 You need a virtual machine, i.e. node, on which your job is executed. The Shippable SaaS platform supports two types of nodes:
 
-* **Dynamic nodes** which are provisioned when a job is triggered and destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
+* **On-demand nodes** which are provisioned when a job is triggered and destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
 * **BYON nodes** which are build nodes provided by you and attached to your Shippable Subscription. These nodes should be running and available when a job is triggered, since the Shippable platform does not dynamically provision them.
 
 Please note that a node can run one job at a time, so the number of nodes in your plan is the number of parallel jobs you can run for your Subscription.
 
-## Dynamic Nodes
+## On-demand Nodes
 
-Dynamic nodes allow you to have a CI/CD platform with zero maintenance from our end as far as the infrastructure is concerned.
+On-demand nodes allow you to have a CI/CD platform with zero maintenance from our end as far as the infrastructure is concerned.
 
 ### Advantages
 
-Advantages of dynamic nodes are:
+Advantages of On-demand nodes are:
 
 * Zero management of CI/CD infrastructure since the platform takes care of provisioning/deprovisioning/cleanup etc.
 * Cost savings since the monthly price per node is ~50-66% cheaper than what you would pay AWS to just run the node for a month
@@ -35,13 +35,13 @@ For paid plans, you can choose between the following sizes:
 
 The biggest reason to choose a larger sized node is faster job execution since they have more cores and RAM. However, if your jobs do not need the extra resources, you should do just fine on the c4.large machines.
 
-### Maximum time allocated to a Dynamic Node
+### Maximum time allocated to an On-demand Node
 
-A dynamic node executes jobs, each of which have their own specific timeout. The platform checks if the Dynamic node is idle for the last 5 minutes at the hourly boundary. If the node is idle, it is immediately de-provisioned.
+An On-demand node executes jobs, each of which have their own specific timeout. The platform checks if the On-demand node is idle for the last 5 minutes at the hourly boundary. If the node is idle, it is immediately de-provisioned.
 
 ### Machine Images
 
-Dynamic Nodes are booted with a Shippable Machine image. Each Machine image is versioned and comes in a Ubuntu 14/16 flavor. [Read More on machine images](/platform/runtime/machine-image/overview).
+On-demand Nodes are booted with a Shippable Machine image. Each Machine image is versioned and comes in a Ubuntu 14/16 flavor. [Read More on machine images](/platform/runtime/machine-image/overview).
 
 ## BYON Nodes
 

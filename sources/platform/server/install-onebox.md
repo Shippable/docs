@@ -391,7 +391,7 @@ If you want your users to be able to connect to third party services through [in
 
 You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
 
-By default, a Server installation is configured to support **System Nodes** and **BYON Nodes**. You can turn on **Dynamic Nodes** if you want your nodes to be spun up on demand. We support AWS for dynamic nodes.
+By default, a Server installation is configured to support **System Nodes** and **BYON Nodes**. You can turn on **On-demand Nodes** if you want your nodes to be spun up on demand. We support AWS for On-demand nodes.
 
 <img src="/images/platform/tutorial/server/default-nodes-config.png" alt="Admiral-2-server">
 
@@ -418,15 +418,15 @@ To restrict addition of BYON Nodes to Shippable Server Admins, check the **Restr
 
 To set up BYON nodes, sign in to Shippable Server with your admin credentials and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
 
-#### Dynamic Nodes
+#### On-demand Nodes
 
-Dynamic nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand.
+On-demand nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand.
 
 However, please note that nodes on AWS need 2-4 minutes to be spun up, so you will have to live with that overhead for some builds when a fresh node needs to be spun up.
 
-To enable **Dynamic nodes**:
+To enable **On-demand nodes**:
 
-* Check the **Enable dynamic nodes** checkbox
+* Check the **Enable On-demand nodes** checkbox
 * Enter your AWS Access and Secret keys.
 * Choose an instance size. Our default is c4.large.
 * You can leave the other settings as-is.
