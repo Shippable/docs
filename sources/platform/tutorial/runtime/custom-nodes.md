@@ -1,14 +1,14 @@
-page_main_title: Custom Nodes Overview
+page_main_title: BYON Nodes Overview
 main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Runtime
-page_title: Custom Nodes Overview
+page_title: BYON Nodes Overview
 
-# Custom Nodes
+# BYON Nodes
 
-To learn the basics of custom nodes, please read [this overview](/platform/runtime/nodes/#custom-nodes).
+To learn the basics of BYON nodes, please read [this overview](/platform/runtime/nodes/#custom-nodes).
 
-This tutorial page shows you how to attach/delete your Custom nodes to Shippable, as well as perform periodic maintenance on them.
+This tutorial page shows you how to attach/delete your BYON nodes to Shippable, as well as perform periodic maintenance on them.
 
 * [Adding a node](#add-node)
 * [Updating node name](#edit-node)
@@ -30,7 +30,7 @@ Follow the steps below to add a build node:
 
 4. Select the architecture for initializing the node.
 
-<img src="/images/getting-started/change-custom-architecture.png" alt="change custom node architecture">
+<img src="/images/getting-started/change-custom-architecture.png" alt="change BYON node architecture">
 
 5. To add a build machine, click on the **+** button in the **NODE LISTS** section. You will be redirected to the Add Node page.
 6. Select the OS of the nodes you want to add.
@@ -75,7 +75,7 @@ will run on your machines. Your nodes can be seen by going to your Subscription 
 <a name="edit-node"></a>
 ## Updating node name
 
-You can edit your node name at any time. No other fields of a custom node are editable.
+You can edit your node name at any time. No other fields of a BYON node are editable.
 
 - From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
 
@@ -88,7 +88,7 @@ You can edit your node name at any time. No other fields of a custom node are ed
 <a name="reset-node"></a>
 ## Re-initializing a node
 
-You might want to re-initialize a Custom node for the following reasons:
+You might want to re-initialize a BYON node for the following reasons:
 
 * The node shows a **New version available** message:
 

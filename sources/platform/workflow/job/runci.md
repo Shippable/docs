@@ -10,7 +10,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 `runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
 
-`runCI` jobs execute on Shippable provided [Dynamic Nodes or Custom Nodes](/platform/runtime/overview#nodes)
+`runCI` jobs execute on Shippable provided [Dynamic Nodes or BYON Nodes](/platform/runtime/overview#nodes)
 
 ## How do you create a runCI Job?
 When you [enable your repo for CI](/ci/enable-project/), an internal representation of `runCI` job is automatically created along with [ciRepo](/platform/workflow/resource/cirepo/) as an `IN`.

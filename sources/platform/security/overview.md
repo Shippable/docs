@@ -52,9 +52,9 @@ Results of a build like logs, reports etc. are stored in our DB or S3 bucket. S3
 
 All build artifacts are deleted permanently when a repo is disabled or a build is deleted.
 
-### Custom Nodes and Shippable Server
+### BYON Nodes and Shippable Server
 
 For customers who cannot use a SaaS service for compliance reasons or personal preference, we offer two alternatives:
 
-- [Custom Nodes](/platform/runtime/nodes/#custom-nodes), where all the build orchestration happens through SaaS but the actual build nodes can be on-premises behind your firewall with no incoming traffic initiated from our SaaS service, and,
+- [BYON Nodes](/platform/runtime/nodes/#custom-nodes), where all the build orchestration happens through SaaS but the actual build nodes can be on-premises behind your firewall with no incoming traffic initiated from our SaaS service, and,
 - [Shippable Server](/platform/tutorial/server/install/), our Enterprise solution that you can install and manage behind your firewall

@@ -74,4 +74,4 @@ be able to specify DNS options in Admiral UI itself.
 
 * ssh into the Admiral machine.
 * Edit /etc/default/docker, remove the two `--dns` options, specify your dns settings, then restart docker, restart Admiral, and then restart services within Admiral.
-* ssh into the system or custom node machines and repeat the same steps.
+* ssh into the system or BYON node machines and repeat the same steps.

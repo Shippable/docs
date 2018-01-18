@@ -465,5 +465,5 @@ There are two ways to identify the node on which the job ran:
 While the job is running, you can view the job being run on a particular node by going into your Subscription Settings>Nodes section
 
 ---
-### Builds fail on all my custom nodes
-We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](/platform/runtime/nodes/#custom-nodes) for builds to run successfully.
+### Builds fail on all my BYON nodes
+We've made key changes to the Shippable agent that runs on BYON nodes (BYON). To implement this change, all BYON nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* BYON nodes that were initialized using a script. [Reset all your BYON nodes](/platform/runtime/nodes/#custom-nodes) for builds to run successfully.

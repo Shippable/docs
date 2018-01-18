@@ -43,13 +43,13 @@ We have optimized the platform for DevOps with a bunch of [pre-defined Jobs](pla
 
 Shippable is available as a Hosted SaaS offering as well as a Server.
 
-There is also a third hybrid option through Custom Nodes, where build orchestration happens through the SaaS service, but your jobs run on your own nodes.
+There is also a third hybrid option through BYON Nodes, where build orchestration happens through the SaaS service, but your jobs run on your own nodes.
 
 ### Using Shippable SaaS
 
 You do not need to explicitly create an account on the Hosted version of Shippable to start using it. You can [sign in](https://app.shippable.com/) using your GitHub or Bitbucket credentials. We use OAuth authentication so you will need to authorize Shippable the first time you sign in. We sync all organizations/repos from your source control based on the access granted. You can then click into any organization to [enable projects](/ci/enable-project/).
 
-If you want the benefits of using a SaaS platform, but still want to run your jobs on your own nodes, you can attach custom nodes to your Shippable subscription. More on Custom nodes is [described here](/platform/runtime/nodes/#custom-nodes).
+If you want the benefits of using a SaaS platform, but still want to run your jobs on your own nodes, you can attach BYON nodes to your Shippable subscription. More on BYON nodes is [described here](/platform/runtime/nodes/#custom-nodes).
 
 
 ### Using Shippable Server

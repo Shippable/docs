@@ -26,13 +26,13 @@ You can view all the currently active nodes in your Subscription by following th
 
 <img src="/images/platform/management/subscription-nodes-system.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-Please note that if you're using Shippable [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/), you will only see active nodes, if any. For Custom nodes, they will always be shown here since they are always on and available.
+Please note that if you're using Shippable [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/), you will only see active nodes, if any. For BYON nodes, they will always be shown here since they are always on and available.
 
-If your subscription is using System nodes, you will see active nodes only if system nodes are enabled on admin panel. You can still switch to [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/) or Custom Nodes for your subscription. But you cannot move your subscription to System Nodes by your self.
+If your subscription is using System nodes, you will see active nodes only if system nodes are enabled on admin panel. You can still switch to [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/) or BYON Nodes for your subscription. But you cannot move your subscription to System Nodes by your self.
 
 
 ## Managing nodes
 
 You do not need to manage Shippable provided [Dynamic Nodes](/platform/runtime/nodes/#dynamic-nodes/), since the platform does everything for you automatically. However, you can choose a specific Machine Image to make sure the node has the versions you need for languages/services/CLIs/etc. To learn more about this, read our [Machine image document](/platform/runtime/ami/ami-overview)
 
-To manage Custom nodes, please read the [Using Custom Nodes document](/platform/tutorial/runtime/custom-nodes/)
+To manage BYON nodes, please read the [Using BYON Nodes document](/platform/tutorial/runtime/custom-nodes/)

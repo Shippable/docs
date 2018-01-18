@@ -504,10 +504,10 @@ To enable caching, navigate to the `Build configuration` section in the `Configu
 <img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
 ###9. Setup System or BYON node.
-* After step 7, login to Shippable Server as super user account.
-* If you choose the default option of `Enable system nodes` and `Enabled custom nodes`, you will need to
-setup the system or custom nodes to run your CI and runSh jobs.
-* System nodes are system wide and can be used by any subscription for CI jobs. Custom nodes are added for a particular subscription and can only be used for builds in that subscription.
-* To setup Custom nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
+* After step 7, login to Shippable Server with your super user account.
+* If you choose the default option of `Enable system nodes` and `Enable BYON nodes`, you will need to
+setup the system or BYON nodes to run your CI and runSh jobs.
+* System nodes are system wide and can be used by any subscription for CI jobs. BYON nodes are added for a particular subscription and can only be used for builds in that subscription.
+* To setup BYON nodes, go [here](http://docs.shippable.com/getting-started/byon-manage-node/).
 * To setup System nodes, click on Admin -> Nodes -> System and click on '+' button. Follow the instructions
 on that screen.

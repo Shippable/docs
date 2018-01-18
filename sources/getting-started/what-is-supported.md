@@ -19,11 +19,11 @@ These are managed and dynamically provisioned by Shippable Platform. There is no
 	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
 	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
 
-### [Dedicated Custom Nodes](/platform/runtime/nodes/#custom-nodes)
+### [Dedicated BYON Nodes](/platform/runtime/nodes/#custom-nodes)
 
-You can also attach your own nodes to your Shippable subscription and all your jobs are routed to those machines. This is great for organizations with specific security requirements that do not allow them to run builds on hosted infrastructure. There are additional advantages to Custom nodes, including Docker caching and faster builds due to no spin up time. There is some management required for Custom Nodes, but in most cases, it is as simple as hitting the **Reset Node** button. With Custom nodes, your code never leaves your infrastructure and your jobs can access internal resources that are inaccessible from the internet.
+You can also attach your own nodes to your Shippable subscription and all your jobs are routed to those machines. This is great for organizations with specific security requirements that do not allow them to run builds on hosted infrastructure. There are additional advantages to BYON nodes, including Docker caching and faster builds due to no spin up time. There is some management required for BYON Nodes, but in most cases, it is as simple as hitting the **Reset Node** button. With BYON nodes, your code never leaves your infrastructure and your jobs can access internal resources that are inaccessible from the internet.
 
-For more information, check out our [Custom nodes tutorial](/platform/runtime/nodes/#custom-nodes).
+For more information, check out our [BYON nodes tutorial](/platform/runtime/nodes/#custom-nodes).
 
 ## Operating System
 The platform is designed to work on any Linux distro. We natively support the following versions:
