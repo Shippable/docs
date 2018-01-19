@@ -90,7 +90,7 @@ jobs:
         image_id: "ubuntu-16-04-x64"
 ```
 
-In our `runSh` job, `IN: myDOCliConfig` gives an environment variable named `MYDOCLICONFIG_INTEGRATION_APITOKEN` that will have the API token specified in the Digital Ocean integration. Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores removed.
+In our `runSh` job, `IN: myDOCliConfig` gives an environment variable named `MYDOCLICONFIG_INTEGRATION_APITOKEN` that will have the API token specified in the Digital Ocean integration. Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores and leading numbers removed.
 
 ### Create timed Ansible pipeline job
 To schedule a pipeline job to automatically execute an Ansible playbook on a
