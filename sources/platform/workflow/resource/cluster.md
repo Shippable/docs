@@ -51,7 +51,7 @@ resources:
 
 	* For Azure DC/OS integrations - N/A
 	* For Azure Container Service (AKS) integrations:
-	    If you are using a bastion host, include the `bastionHost` information in the pointer section
+	    If you are using a bastion host, include the `bastionHost` information in the versionTemplate section
 
               versionTemplate:
                   bastionHost:
@@ -93,8 +93,17 @@ resources:
                  user:           <bastionHost user>
                  keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 
-	* For Node Cluster integrations - N/A
-	* For Joyent Triton integrations,
+    * For Node Cluster integrations:
+
+        If you are using a bastion host, include the `bastionHost` information in the versionTemplate section
+
+            versionTemplate:
+                bastionHost:
+                    address:        <public address of your bastion host>
+                    user:           <bastionHost user>
+                    keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource>
+
+	* For Joyent Triton integrations:
 
 	        versionTemplate:
 	          region: <region eg., us-east-1, us-east-2, eu-ams-1, etc.>
