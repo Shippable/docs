@@ -20,6 +20,7 @@ This section of the documentation describes how you can manage settings and othe
 
 - **Subscription**
     - [Manage your plan](/platform/management/subscription/billing)
+    - [Manage node pools](/platform/management/subscription/node-pools)
     - [Manage nodes](/platform/management/subscription/nodes)
     - [Manage settings](/platform/management/subscription/settings)
     - [Set up Integrations](/platform/management/subscription/integrations)
