@@ -30,39 +30,61 @@ To view your current plan:
 
 <img src="/images/platform/management/settings-billing-menu.png" alt="Show billing page">
 
-* You'll be taken to the **Billing** page where you can view your current plan an invoices(if any).
+* You'll be taken to the **Billing** page where you can view your current plan and invoices(if any).
 
-<img src="/images/platform/visibility/subscription-billing-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-billing-view-v2.png" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ##Upgrade or Downgrade your plan
 
 ###Upgrade
 
-<img src="/images/platform/management/upgrade-plan.png" alt="Show billing page">
+* Click on the **Edit plan** icon to start editing your plan
 
-* To buy more parallel capacity, adjust the number in the **Paid minions** field to the capacity you need.
+    <img src="/images/platform/management/edit-plan.png" alt="Edit plan">
 
-* To buy bigger machines, choose a larger **Minion size**.
+* If you only want to enable unlimited builds on private repositories, you can simply check the checkbox against **Enable unlimited private repo builds** and click on **Upgrade**. This will upgrade your existing free node to paid and remove all restrictions on the number of builds you can run against private repositories in this subscription.
 
-* Enter a coupon code if you have one
+    <img src="/images/platform/management/enable-unlimited-private-repo-builds.png" alt="Enable unlimited private repo builds">
+
+* To buy different types or sizes of machines, click on **Add new SKU**.
+
+* In the new row, select "BYON" (Bring Your Own Node) to run builds on your own infrastructure, or "On Demand" to run your builds on Shippable's infrastructure. You can also pick an instance size for on-demand nodes. Also select the appropriate architecture and Operating System for your nodes.
+
+    <img src="/images/platform/management/new-sku-row.png" alt="Configure new SKU">
+
+* To buy more parallel capacity, adjust the number in the **Quantity** column to the capacity you need for each SKU.
+
+* Enter a coupon code if you have one.
 
 * Enter a billing contact. This is required so that we know who to reach out to in case there is a problem with your billing.
 
-* Enter your credit card information card and click on **Upgrade** or **Buy**.
+* Enter your credit card information card and click on **Upgrade**.
 
 We will charge your credit card immediately and send you an invoice. You can also view past invoices on this page.
 
 ###Downgrade
 
-You can downgrade your plan by reducing the **Paid Minions** count on the **Billing** page. Alternatively, you can also choose a smaller machine in the **Minion Size** field.
+* Visit the **Billing** page and click on the **Edit plan** icon to start editing your plan
 
-Please note that any minion count changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle.
+* You can now modify the **Quantity** against each purchased SKU.
+
+* To move to a different type of node, or a different instance size, click on the **Add new SKU** button and configure the SKU of your choosing. You can then remove rows for the node types that you do not wish to keep.
+
+* Click on the **Downgrade** button to confirm your changes.
+
+* To cancel your subscription and move back to a free plan, use the **Downgrade to free** button at the bottom of the billing page.
+
+    <img src="/images/platform/management/downgrade-to-free.png" alt="Downgrade to free">
+
+Please note that any changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle.
 
 Your new price will be reflected in your next invoice.
 
 ##Changing payment method
 
-You can change the credit card being used for a Subscription at any time. Just go to the Subscription **Billing** page and click on the **Card** dropdown to choose another card or add a new one.
+You can change the credit card being used for a Subscription at any time. Just go to the Subscription **Billing** page, click on **Edit plan** and click on the **Change payment method** icon to choose another card or add a new one.
+
+<img src="/images/platform/management/change-payment-method.png" alt="Change payment method">
 
 ## Managing credit cards
 
