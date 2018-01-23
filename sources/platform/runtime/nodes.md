@@ -76,16 +76,16 @@ The minimum requirements for a build machine that can be attached to Shippable a
 
 |Architecture|OS|Docker Version|
 |---|---|---|
+|x86_64|CentOS 7|17.06|
+|x86_64|macOS 10.12|17.06|
 |x86_64|Ubuntu 14.04|1.9|
 |x86_64|Ubuntu 14.04|1.11|
 |x86_64|Ubuntu 14.04|1.13|
 |x86_64|Ubuntu 14.04|17.06|
 |x86_64|Ubuntu 16.04|1.13|
 |x86_64|Ubuntu 16.04|17.06|
-|x86_64|CentOS 7|17.06|
-|x86_64|Windows Server 2016|17.06|
-|x86_64|macOS 10.12|17.06|
 |aarch64|Ubuntu 16.04|17.06|
+|x86_64|Windows Server 2016|17.06|
 
 **Please note that you will need to attach one build machine per parallel build.**
 
