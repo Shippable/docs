@@ -20,7 +20,7 @@ You can view all the currently active nodes in your Subscription by following th
 
 <img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
 
-* On the Subscription page, click on the **Gears** icon and click on **Nodes**. In the **NOSE LISTS** section, you can view the list of currently active nodes.
+* On the Subscription page, click on the **Gears** icon and click on **Nodes**. In the **NODE LISTS** section, you can view the list of currently active nodes.
 
 <img src="/images/platform/visibility/subscription-nodes-view.jpg" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 

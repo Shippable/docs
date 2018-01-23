@@ -363,6 +363,7 @@ pages:
         - Delete account: platform/management/account/delete.md
       - Subscription:
         - Manage your plan: platform/management/subscription/billing.md
+        - Manage node pools: platform/management/subscription/node-pools.md
         - Manage nodes: platform/management/subscription/nodes.md
         - Manage settings: platform/management/subscription/settings.md
         - Set up Integrations: platform/management/subscription/integrations.md

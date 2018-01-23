@@ -25,6 +25,10 @@ jobs:
     triggerMode:      <parallel/serial>
     dependencyMode:   <chrono/strict/immediate>   # optional
     allowPublicAccess: <true/false> # optional
+    runtime:                        # optional
+      - nodePool: <node pool name>
+      - container: <true/false>     # optional
+    timeoutMinutes: 30              # optional
     on_start:
       - NOTIFY:       <notification resource name>
     steps:
@@ -34,29 +38,63 @@ jobs:
       - IN:           <resource>
         versionName:  <name of the version you want to pin>
       - IN:           <resource>
-        versionNumber:    <number of the version you want to pin>        
+        versionNumber:    <number of the version you want to pin>
       - IN:           <gitRepo resource>
-        showBuildStatus:  true       
+        showBuildStatus:  true
       - IN:           <cliConfig with scope support>
         scopes:
           - scope     <scope that you want configured>
       - TASK:
-        - script:     <any shell command>
-        - script:     <any shell command>
+          name: <task name>
+          script:
+            - <any shell command>
+            - <any shell command>
+      - TASK:
+          name: <task name>
+          runtime:                  # optional
+            options:
+              image_name: <name of the image to boot>
+              image_tag: <tag of the image to boot>
+              pull: <true/false>    # optional
+              options: <docker options arguments> # optional
+              env:                  # optional
+                - <env key>:<env value>
+                - <env key>:<env value>
+          script:
+            - <any shell command>
+            - <any shell command>
+      - TASK:
+          name: <task name>
+          runtime:                  # optional
+            container: <true/false>
+            options:
+              env:                  # optional
+                - <env key>:<env value>
+                - <env key>:<env value>
+          script:
+            - <any shell command>
+            - <any shell command>
       - OUT:          <resource>
       - OUT:          <resource>
         replicate:    <IN resource>
       - OUT:          <resource>
         overwrite:    true
     on_success:
-      - script:       echo "SUCCESS"
+      script:
+        - echo "SUCCESS"
+        - <any shell command>
+      NOTIFY:       <notification resource name>
     on_failure:
-      - script:       echo "FAILED"
-      - NOTIFY:       <notification resource name>
+      script:
+        - echo "FAILED"
+        - <any shell command>
+      NOTIFY:       <notification resource name>
+    always:
+      script:
+        - pwd
+        - <any shell command>
     on_cancel:
       - script:       echo "CANCEL"
-    always:
-      - script:       pwd
 ```
 
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
@@ -71,13 +109,34 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`allowPublicAccess`** -- Optional, defaults to false. When set to `true`, this job becomes visible to everyone. A good usecase for allowing public visibility if a runSh job has a `gitRepo` input which points to a public repository. If this job is building this repository or running tests on this repository and publishing commit/pr/release status on the public repository, then it would be beneficial to enable public access to the console of this job.
 
+* **`runtime`** -- Optional. This is an object which can be used to configure
+  the behavior of the job
+    * `nodePool` -  The node pool on which the job should run. For detailed
+      explanation, read about [node pools](/platform/management/subscription/node-pools/)
+    * `timeoutMinutes` -- Optional. This sets the maximum time, in minutes,
+    * `container` -- Optional. Boolean field to decide whether the job should
+      run inside a container or on the host. `true` by default
+  after which the job will be automatically stopped
+
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
 * **`steps `** -- is an object which contains specific instructions to run this job
     * `IN` -- Optional, any resource or job can be used here, with as many `IN` resources and jobs as you need. The `switch`, `versionNumber`, `versionName` and `showBuildStatus` options are supported, too. However, `applyTo` is not supported.
 
     * `TASK` -- Required, at least one script line needs to be present
-        * `- script:` -- a line of bash script to be executed
+        * `script:` -- should contain one or more lines of bash script to be
+          executed
+        * `runtime:` -- task level runtime options.
+            * `image_name`: Only applicable when job is running inside
+              a container. This defines the image to be used to run the job
+            * `image_tag`: Only applicable when job is running inside
+              a container. This defines the image tag to apply to `image_name`
+              to run the job
+            * `pull`: Only applicable when job is running inside a container. Setting this to `true` will force pull the job image on each run
+            * `options`: Only applicable when job is running inside
+              a container. This can be used to set docker options for
+              container like `--hostname`, `--cpus` etc
+            * `env:` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job
     * `OUT` -- Optional, any resource can be used here and as many as you need
         * `replicate` -- Optional, any `IN` resource of same type can be used
         * `overwrite` -- Optional, default is `false`
@@ -134,6 +193,8 @@ In addition, the job itself comes with its own default set of variables. This is
 | JOB_STATE                   | The location of the `state` directory for this job|
 | JOB_PREVIOUS_STATE            | The location of the directory containing the `state` information from when the job last ran. |
 | JOB_TRIGGERED_BY_NAME  | The name of the resource that caused this job to execute. |
+| SHARED_DIR | Location of the directory that will be shared across all TASK's of
+a job |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
