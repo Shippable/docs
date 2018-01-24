@@ -409,6 +409,7 @@ pages:
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
         - Sending status to Source Control: platform/tutorial/workflow/sending-status-to-scm.md
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
+        - runSh Usecases: platform/tutorial/workflow/using-runSh.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
