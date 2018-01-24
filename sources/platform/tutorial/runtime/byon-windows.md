@@ -53,7 +53,8 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
 * The **Docker version** dropdown allows you to pick the version of Docker that will be installed on your node. Windows nodes are currently only supported on Docker 17.06 EE.
 
 * Enter a name for the node and its IP address.
-<img src="/images/getting-started/byon-name-ip.png" alt="Enter name and IP">
+
+<img src="/images/platform/management/subscription-nodes-add-byon-manual-windows.png" alt="Add new Windows node" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * Windows nodes require manual initialization. To generate and run the initialization scripts,
     * Click on **Generate initialization scripts** to generate the script.
@@ -67,8 +68,6 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
     * Update Windows Firewall rules to enable incoming TCP connections on port 2375. This is to allow the build runner to communicate with the Docker daemon running on the host.
     * Run the initialization script that you copied to this machine earlier
     * After the script runs to completion, check the **I have run this script on my node successfully** and then click on the **Save** button.
-    
-<img src="/images/platform/management/subscription-nodes-add-byon-manual-windows.png" alt="Add new Windows node" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Once you add your first build node, all subsequent builds for that subscription
 will run on your machines. Your nodes can be seen by going to your Subscription Settings and clicking on **Nodes** in the left sidebar menu.
