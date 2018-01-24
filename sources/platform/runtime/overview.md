@@ -40,6 +40,13 @@ These are nodes that you manage yourself and hook to Shippable Assembly Lines to
 
 [Read more on BYON Nodes](/platform/runtime/nodes/#custom-nodes).
 
+### Node Pools
+
+[Node Pools](/platform/management/subscription/node-pools) provide a convenient
+way to logically group the Nodes. This enables you to have scenarios like ability to run jobs on [On-demand nodes](/platform/runtime/nodes/#dynamic-nodes) and [BYON nodes](/platform/runtime/nodes/#custom-nodes) simultaneously for a subscription, having nodes of different architecture and operating system(e.g. aarch64-Ubuntu 16.04, x86_64-Windows Server 2016 etc) for a subscription, ability to pin jobs to run on specific node types and a lot more.
+
+[Read more on Node Pools](/platform/management/subscription/node-pools).
+
 <a name="machine-image"></a>
 ### Machine image
 
