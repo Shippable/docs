@@ -29,3 +29,8 @@ list of platforms that are currently supported.
 
 * For instructions on how to initialize different versions of Ubuntu nodes,
   refer to [Ubuntu BYON Nodes tutorial](/platform/tutorial/runtime/byon-ubuntu)
+
+## macOS BYON Nodes
+
+* For instructions on how to initialize different versions of macOS nodes,
+  refer to [macOS BYON Nodes tutorial](/platform/tutorial/runtime/byon-macos)
