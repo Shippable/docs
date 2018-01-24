@@ -420,6 +420,7 @@ pages:
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - Ubuntu BYON Nodes: platform/tutorial/runtime/byon-ubuntu.md
+        - Windows BYON Nodes: platform/tutorial/runtime/byon-windows.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:
