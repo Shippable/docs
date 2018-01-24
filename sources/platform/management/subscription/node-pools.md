@@ -45,6 +45,8 @@ You can view all the currently active node pools in your Subscription by followi
 <img src="/images/platform/management/subscription-node-pools-header.png" alt="Subscription Node Pools view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ## Managing node pools
+
+### Creating node pools
 You can edit any node pool by clicking on the `Edit` button the node pool
 header. This will take you to the `Edit Node Pool` page.
 
@@ -65,3 +67,18 @@ header. This will take you to the `Edit Node Pool` page.
   upper limit is set by the number of licenses that are available at the
   subscription level for the type of selected node pool.
 
+### Adding nodes
+* [On-demand nodes](platform/runtime/nodes/#on-demand-nodes) automatically get
+added to the node pool when they're provisioned. For creating node pools
+containing On-demand nodes, no additional steps are required.
+
+* [BYON nodes](platform/runtime/nodes/#byon-nodes) need to be explicitly added
+  to the node pools when creating them.
+
+### Removing nodes
+* To remove [On-demand nodes](platform/runtime/nodes/#on-demand-nodes), simply
+  edit the node pool and reduce the `Node Count`. The node pool will then have
+  only the new node count as the maximum limit for the nodes it can provision.
+
+* To remove [BYON nodes](platform/runtime/nodes/#byon-nodes) from node pools,
+  delete individual nodes from the node details page.
