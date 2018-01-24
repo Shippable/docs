@@ -15,7 +15,7 @@ You can also add [cliConfig](/platform/workflow/resource/cliconfig) resources as
 
 A new version is created every time this job is executed.
 
-You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml` and it executes on Shippable provided [On-demand Nodes](/platform/runtime/overview#nodes) or [BYON Nodes](/platform/runtime/overview#nodes).
+You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml` and it executes on Shippable provided [On-demand Nodes](/platform/runtime/overview#nodes) or [BYON Nodes](/platform/runtime/overview#nodes). `runSh` examples can be found [here](/platform/tutorial/workflow/using-runSh).
 
 ## YML Definition
 ```
@@ -202,5 +202,6 @@ To make it easy to use these environment variables, the platform provides a comm
 How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
+* [runSh tutorial with many examples](/platform/tutorial/workflow/using-runSh)
 * [jobs](/platform/workflow/job/overview)
 * [resources](/platform/workflow/resource/overview)
