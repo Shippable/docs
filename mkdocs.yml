@@ -419,6 +419,7 @@ pages:
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
+        - Ubuntu BYON Nodes: platform/tutorial/runtime/byon-ubuntu.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:

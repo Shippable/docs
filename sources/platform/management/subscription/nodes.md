@@ -30,7 +30,6 @@ Please note that if you're using Shippable [On-demand Nodes](/platform/runtime/n
 
 You can add a new node by clicking the `+` icon on the top right corner of **NODE LIST** panel.
 
-
 * Since every node should be part of a [Node Pool](/platform/management/subscription/node-pools), you need to select which node pool will the new node be a part of.
 
     * for On-demand Nodes, the only configuration needed is the node pool name
