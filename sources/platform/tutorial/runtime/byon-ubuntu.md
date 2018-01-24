@@ -86,7 +86,6 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
     * Your node status will automatically show green at this point. We have no way F
     of verifying that the node was in fact successfully initialized so you will
     need to make sure this was the case.
-<img src="/images/platform/management/subscription-nodes-add-byon-manual.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Once you add your first build node, all subsequent builds for that subscription
 will run on your machines. Your nodes can be seen by going to your Subscription Settings and clicking on **Nodes** in the left sidebar menu.
