@@ -40,3 +40,8 @@ list of platforms that are currently supported.
 * For instructions on how to initialize different versions of Windows Server nodes,
   refer to [Windows BYON Nodes
   tutorial](/platform/tutorial/runtime/byon-windows)
+
+## CentOS BYON Nodes
+
+* For instructions on how to initialize different versions of CentOS nodes,
+  refer to [CentOS BYON Nodes tutorial](/platform/tutorial/runtime/byon-centos)
