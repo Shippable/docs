@@ -13,7 +13,7 @@ The minimum requirements for the node are documented [here](/platform/tutorial/r
 * Only runSh jobs are supported for iOS/Mac at this time.
 
 ##2. Purchase the Mac SKU
-
+* Opt-in to the latest version of the Shippable platform using the steps documented [here](/platform/tutorial/runtime/moving-to-node-pools).
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
