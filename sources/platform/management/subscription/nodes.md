@@ -22,17 +22,26 @@ You can view all the currently active nodes in your Subscription by following th
 
 * On the Subscription page, click on the **Gears** icon and click on **Nodes**. In the **NODE LISTS** section, you can view the list of currently active nodes.
 
-<img src="/images/platform/visibility/subscription-nodes-view.jpg" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-<img src="/images/platform/management/subscription-nodes-system.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/management/subscription-nodes-list.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Please note that if you're using Shippable [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/), you will only see active nodes, if any. For BYON nodes, they will always be shown here since they are always on and available.
 
-If your subscription is using System nodes, you will see active nodes only if system nodes are enabled on admin panel. You can still switch to [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/) or BYON Nodes for your subscription. But you cannot move your subscription to System Nodes by your self.
+## Adding new nodes
+
+You can add a new node by clicking the `+` icon on the top right corner of **NODE LIST** panel.
+
+
+* Since every node should be part of a [Node Pool](/platform/management/subscription/node-pools), you need to select which node pool will the new node be a part of.
+
+    * for On-demand Nodes, the only configuration needed is the node pool name
+<img src="/images/platform/management/subscription-nodes-add-on-demand.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+    * for BYON Nodes, you need to select, the Docker version, name, IP address
+      and a few other options
+<img src="/images/platform/management/subscription-nodes-add-byon.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 
 ## Managing nodes
 
-You do not need to manage Shippable provided [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/), since the platform does everything for you automatically. However, you can choose a specific Machine Image to make sure the node has the versions you need for languages/services/CLIs/etc. To learn more about this, read our [Machine image document](/platform/runtime/ami/ami-overview)
-
+You do not need to manage Shippable provided [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/), since the platform does everything for you automatically.
 To manage BYON nodes, please read the [Using BYON Nodes document](/platform/tutorial/runtime/custom-nodes/)

@@ -60,8 +60,8 @@ header. This will take you to the `Edit Node Pool` page.
   edited for a node pool. A new node pool should be created with different values
   for these fields if required.
 
-* Runtime Version defines the default version of Shippable build images that will be
-  used to run the jobs.
+* Runtime Version defines the default version of Shippable Machine Images that will be used to run the jobs. You can choose a specific Machine Image to make sure the build nodes have the versions you need for languages/services/CLIs/etc. To learn more about this, read our [Machine image document](/platform/runtime/ami/ami-overview)
+
 
 * Node Count is the number of nodes that can be added to the node pool. The
   upper limit is set by the number of licenses that are available at the
@@ -72,8 +72,8 @@ header. This will take you to the `Edit Node Pool` page.
 added to the node pool when they're provisioned. For creating node pools
 containing On-demand nodes, no additional steps are required.
 
-* [BYON nodes](platform/runtime/nodes/#byon-nodes) need to be explicitly added
-  to the node pools when creating them.
+* [BYON nodes](platform/runtime/nodes/#byon-nodes) need to be manually added
+  to the node pools when creating them. Refer to the documentation on [BYON nodes](platform/runtime/nodes/#byon-nodes) for steps to add new nodes.
 
 ### Removing nodes
 * To remove [On-demand nodes](platform/runtime/nodes/#on-demand-nodes), simply
@@ -81,4 +81,4 @@ containing On-demand nodes, no additional steps are required.
   only the new node count as the maximum limit for the nodes it can provision.
 
 * To remove [BYON nodes](platform/runtime/nodes/#byon-nodes) from node pools,
-  delete individual nodes from the node details page.
+  delete individual nodes from the node details page. Refer to the documentation on [BYON nodes](platform/runtime/nodes/#byon-nodes) for steps to delete nodes.
