@@ -423,6 +423,10 @@ pages:
         - macOS BYON Nodes: platform/tutorial/runtime/byon-macos.md
         - Ubuntu BYON Nodes: platform/tutorial/runtime/byon-ubuntu.md
         - Windows BYON Nodes: platform/tutorial/runtime/byon-windows.md
+      - CI:
+         - Windows CI Setup: platform/tutorial/ci/ci-windows.md
+         - iOS/MacOS CI Setup: platform/tutorial/ci/ci-macos.md
+         - CentOS CI Setup: platform/tutorial/ci/ci-centos.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:
