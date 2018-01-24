@@ -15,11 +15,11 @@ The minimum requirements for the node are documented [here](/platform/tutorial/r
 
 ##2. Purchase the Windows SKU
 
-* Go to your billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
+* Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
 * Click the dropdown under **Architecture** and select **x86_64**.
-* Click the dropdown under **Operating System** and select **WindowsServer 2016**.
+* Click the dropdown under **Operating System** and select **WindowsServer_2016**.
 * Adjust the number in the Quantity column to the capacity you need.
 * Enter the billing contact and credit card information and click on **Upgrade**
 
@@ -29,7 +29,12 @@ The minimum requirements for the node are documented [here](/platform/tutorial/r
 * You can however create more Node pools if you want and change the allocation of nodes amongst your node pools. Thereafter
 you can assign your runSh jobs to a specific Node pool.
 
-##4. Define CI jobs and resources.
+##4. Initialize your BYON node
+
+* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#viewing-your-nodes).
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#adding-new-nodes).   
+
+##5. Define CI jobs and resources.
 
 * Your CI jobs and resources are defined in a [shippable.yml](/platform/tutorial/workflow/shippable-yml/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
 * Create the shippable.yml in any of your configured SCM integration repository.
