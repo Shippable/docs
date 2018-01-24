@@ -24,24 +24,23 @@ list of platforms that are currently supported.
 |aarch64|Ubuntu 16.04|17.06|
 |x86_64|Windows Server 2016|17.06|
 
+## CentOS BYON Nodes
 
-## Ubuntu BYON Nodes
-
-* For instructions on how to initialize different versions of Ubuntu nodes,
-  refer to [Ubuntu BYON Nodes tutorial](/platform/tutorial/runtime/byon-ubuntu)
+* For instructions on how to initialize different versions of CentOS nodes,
+  refer to [CentOS BYON Nodes tutorial](/platform/tutorial/runtime/byon-centos)
 
 ## macOS BYON Nodes
 
 * For instructions on how to initialize different versions of macOS nodes,
   refer to [macOS BYON Nodes tutorial](/platform/tutorial/runtime/byon-macos)
 
+## Ubuntu BYON Nodes
+
+* For instructions on how to initialize different versions of Ubuntu nodes,
+  refer to [Ubuntu BYON Nodes tutorial](/platform/tutorial/runtime/byon-ubuntu)
+
 ## Windows Server BYON Nodes
 
 * For instructions on how to initialize different versions of Windows Server nodes,
   refer to [Windows BYON Nodes
   tutorial](/platform/tutorial/runtime/byon-windows)
-
-## CentOS BYON Nodes
-
-* For instructions on how to initialize different versions of CentOS nodes,
-  refer to [CentOS BYON Nodes tutorial](/platform/tutorial/runtime/byon-centos)
