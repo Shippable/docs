@@ -135,7 +135,7 @@ This posts multiple key-value pairs to the state folder of the Resource. This ac
 **Usage**
 
 ```
-shipctl post_resource_state_multi <resource name> <key> <value> <key> <value>
+shipctl post_resource_state_multi <resource name> "<key1>=<value1> <key2>=<value2>"
 ```
 
 - `resource name` is the resource in which you want to store the key-value information.
