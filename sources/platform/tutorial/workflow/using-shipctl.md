@@ -691,6 +691,13 @@ MY_UPPERCASE="$(shipctl to_uppercase "foo!@#")"
 
 Output of the above statement would be `FOO!@#`
 
+## Deprecated commands
+
+Following commands are deprecated and have alternate implementations introduced as of Shippable v5.11.1
+
+- get_resource_path - Use [get_resource_state](#get_resource_state) instead.
+- copy_resource_file_from_state - Use [copy_file_from_resource_state](#copy_file_from_resource_state) instead.
+- refresh_file_to_out_path - Use  [copy_file_to_resource_state](#copy_file_to_resource_state) instead.
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
