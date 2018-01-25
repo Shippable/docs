@@ -136,7 +136,7 @@ jobs:
 ```
 jobs:
  ## Job description:
- ## - single task
+ ## - single task running on Host
  - name: host_single_task
    type: runSh
    steps:
@@ -154,7 +154,7 @@ jobs:
 ```
 jobs:
  ## Job description:
- ## - single task
+ ## - single task running on Host
  - name: host_single_task
    type: runSh
    runtime:
@@ -209,9 +209,8 @@ jobs:
 ```
 
 ## Sending notifications
-
-Here we define scripts that send notifications in the `on_success`, `on_failure` and `always` tags.
-You can also use the `NOTIFY` tag instead of a script tag and specify a [notification resource](/platform/workflow/resource/notification/) to send email/IRC/Slack/HipChat notifications.
+You might have a requirement to run a script when the runSh job succeeds, fails or in both cases. All these scenarios can be
+addressed by specifying your scripts in the `on_success`, `on_failure` or `always` tags.
 
 ```
 jobs:
@@ -232,6 +231,34 @@ jobs:
     always:
       script:
         - echo "This should always be executed, regardless of job status"
+```
+
+Another common usecase is to send email/IRC/Slack/HipChat notifications notifications when a job succeeds or fails or in both cases. The [notification resource](/platform/workflow/resource/notification/) allows you to
+precisely accomplish that. It can be used in the `on_success`, `on_failure` or `always` tags.
+
+Here is an example of sending slack notifications when a runSh job fails. To configure others providers, please
+read the [notification resource doc](/platform/workflow/resource/notification/).
+
+```
+resources:
+  - name:             slacknotify
+    type:             notification
+    integration:      slack
+    versionTemplate:
+      recipients:
+        - "#shippablejobs"
+
+jobs:
+  - name: container_multiple_tasks
+    type: runSh
+    steps:
+      - TASK:
+          name: check_images
+          script:
+            - echo "Checking available docker images"
+            - sudo docker images
+    on_failure:
+      NOTIFY: slacknotify
 ```
 
 ## Running on a specific node pool
