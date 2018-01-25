@@ -496,7 +496,7 @@ shipctl get_integration_resource_field <resource name> <field name>
 ```
 
 - `resource name` is the name of the `IN` resource
-- `field name` is the name of field for which you want to get the value. To specify the field name, convert all letters to lowercase and remove spaces. For example, specify `jsonkey` if you want the value for **JSON key** field.
+- `field name` is the name of field for which you want to get the value. This could be obtained for any given `IN` resource by using `get_integration_resource_keys` command.
 
 **Example**
 
