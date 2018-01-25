@@ -13,9 +13,14 @@ Shippable does not allow you to dynamically provision Windows node and we will b
 The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
 * Only runSh jobs are supported for Windows at this time.
 
-##2. Purchase the Windows SKU
-* Opt-in to the latest version of the Shippable platform using the steps documented [here](/platform/tutorial/runtime/moving-to-node-pools).
+##2. Purchase the Windows Server 2016 SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
+* You can purchase the Windows Server 2016 SKU only if your subscription has been upgraded to the [latest release](http://blog.shippable.com/). If you subscription has been upgraded, the billing plan page will look like this.
+
+<img src="/images/platform/tutorial/workflow/billing.png" alt="Billing plan">
+
+* If you do not see the above billing page, please email `support@shippable.com` to get your subscription upgraded expeditely.
+Subscriptions are being upgraded in a phased manner over the next 3 weeks. Our estimate for completing all upgrades is **February 15, 2018**.
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
 * Click the dropdown under **Architecture** and select **x86_64**.

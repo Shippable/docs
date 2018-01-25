@@ -12,9 +12,14 @@ page_title: Running jobs on Mac OS
 The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-macos/#minimum-requirements).
 * Only runSh jobs are supported for iOS/Mac at this time.
 
-##2. Purchase the Mac SKU
-* Opt-in to the latest version of the Shippable platform using the steps documented [here](/platform/tutorial/runtime/moving-to-node-pools).
+##2. Purchase the Mac OS SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
+* You can purchase the Mac OS SKU only if your subscription has been upgraded to the [latest release](http://blog.shippable.com/). If you subscription has been upgraded, the billing plan page will look like this.
+
+<img src="/images/platform/tutorial/workflow/billing.png" alt="Billing plan">
+
+* If you do not see the above billing page, please email `support@shippable.com` to get your subscription upgraded expeditely.
+Subscriptions are being upgraded in a phased manner over the next 3 weeks. Our estimate for completing all upgrades is **February 15, 2018**.
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
 * Click the dropdown under **Architecture** and select **x86_64**.
