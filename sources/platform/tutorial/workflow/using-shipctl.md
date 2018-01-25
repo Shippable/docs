@@ -438,6 +438,49 @@ jobs:
         - script: MY_INT="$(shipctl get_integration_resource "vpc_settings")"
 ```
 
+### get_integration_resource_keys
+
+**Description**
+
+Gets all the possible keys from an integration used in an `IN` resource.
+
+The key values could be used with `get_integration_resource_field` command to get the value stored in the integration.
+
+**Usage**
+
+```
+shipctl get_integration_resource_keys <resource name>
+```
+
+- `resource name` is the name of the `IN` resource
+
+**Example**
+
+
+Say you have a [cluster](/platform/workflow/resource/cluster) resource **myAWSCluster** which uses the integration **myAWSCreds**:
+
+```
+resources:
+  - name: myAWSCluster
+    type: cluster
+    integration: myAWSCreds
+    pointer:
+      region: us-west-2
+      sourceName: demoAppCluster
+```
+
+You can find all the keys present in the **myAWSCreds** integration with the following:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    steps:
+      - IN: myAWSCluster
+      - TASK:
+        - script: shipctl get_integration_resource_keys "myAWSCluster"
+```
+
 ### get_integration_resource_field
 
 **Description**
