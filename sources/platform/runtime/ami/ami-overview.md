@@ -26,6 +26,7 @@ what is pre-installed on that image:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
+| [v6.1.4](ami-v614/)        | Jan 25, 2017    |
 | [v5.8.2](ami-v582/)        | Aug 10, 2017    |
 | [v5.7.3](ami-v573/)        | Jul 20, 2017    |
 | [v5.6.1](ami-v561/)        | Jun 05, 2017    |
