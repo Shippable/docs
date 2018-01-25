@@ -21,6 +21,7 @@ When you run a `runCI` job on Shippable, the following popular services are alre
 * [Riak](/ci/riak/)
 * [Selenium](ci/selenium/)
 * [SqlLite](/ci/sqllite/)
+* [Cassandra](/ci/cassandra)
 
 This page describes the versions available for each Service and the Machine Image(s) where you can find them. These services can be started automatically in a [runCI job](/platform/workflow/job/runci).
 
@@ -36,6 +37,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  | Machine Images       
 |----------|---------
+|6.1.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 |5.5.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |5.5.0  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |5.1.2  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
@@ -44,6 +46,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  | Machine Images         
 |----------|---------
+|1.5.4   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 |1.5.0     | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |1.4.39    | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |1.4.34    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
@@ -52,6 +55,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  | Machine Images      
 |----------|---------
+| 3.6.2   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 3.4.7    | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 3.4.6    | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 | 3.4.4    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) (Ubuntu 16.04)
@@ -64,6 +68,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Machine Images | OS          
 |----------|---------| ------
+| 5.7.20   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 5.7.19  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)  | Ubuntu 16.04 |
 | 5.7.18  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/) | Ubuntu 16.04 |
 | 5.7.17  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | Ubuntu 16.04 |
@@ -73,6 +78,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Machine Images          
 |----------|---------
+| 3.3.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 |3.2.3  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |3.2.2  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |3.1.1  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier  
@@ -81,6 +87,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |   Machine Images          
 |----------|---------
+| 10.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 9.6.3    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
 | 9.6.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier  
 
@@ -88,6 +95,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  | Machine Images              
 |----------|---------
+| 3.6.14   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 3.6.10   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
 | 3.6.6    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier  
 
@@ -95,6 +103,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Machine Images             
 |----------|---------
+| 4.0.6   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 4.0.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 3.2.9  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 | 3.2.8  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
@@ -117,6 +126,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Tags   
 |----------|---------
+| 3.8.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 3.4.0    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
 | 3.0.1    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier  
 
@@ -124,6 +134,25 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Tags   
 |----------|---------
+| 3.21.0   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 3.19.3   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
 | 3.11.0   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier (Ubuntu 16.04)
 | 3.8.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)
+
+for ubuntu14 OS, AMI v6.1.4 onwards, sqlite-tools like sqlite-analyser are not installed. To run this you need to install
+32 bit C libraries using:
+```
+dpkg --add-architecture i386
+apt-get update
+apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+```
+
+##Cassandra
+
+| Version  |  Tags   
+|----------|---------
+| 3.11   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
+
+Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release. 
+To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
+of Cassandra is available.
