@@ -5,20 +5,13 @@ sub_sub_section: Workflow
 page_title: runSh usecases
 page_description: Usecases for runSh job
 
-# runSh Usecases
+# runSh tutorials
 
-The [runSh](/platform/workflow/job/runsh/) job is one of the most versatile jobs in the Shippable platform. This document
-provides examples of all the key features. To use these features, you will need to opt-in to the latest version of the
-Shippable platform using the steps documented [here](/platform/tutorial/runtime/moving-to-node-pools).
+The [runSh](/platform/workflow/job/runsh/) job is one of the most versatile jobs in the Shippable platform since it lets you run any custom scripts as part of your end-to-end workflow. This document
+provides examples of all the key features.
 
-By default, the runSh job executes in a container using the default Shippable provided image. This behavior can be overridden
-and is demonstrated below.
 
-## Usecases
-
-### Running a single Task
-
-#### **Running a single task**
+## Running a single Task
 
 ```
 jobs:
@@ -34,37 +27,7 @@ jobs:
             - uname -a
 ```
 
-#### **Running a single task with notifications**
-
-Here we define scripts that send notifications in the `on_success`, `on_failure` and `always` tags.
-You can also use the `NOTIFY` tag instead of a script tag and specify a [notification resource](/platform/workflow/resource/notification/) to send email/IRC/Slack/HipChat notifications.
-
-```
-jobs:
-  ## Job description:
-  ## - multiple tasks
-  - name: container_multiple_tasks
-    type: runSh
-    steps:
-      - TASK:
-          name: check_images
-          script:
-            - echo "Checking available docker images"
-            - sudo docker images
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-```
-
-### Running multiple Tasks
-
-#### **Running multiple tasks**
+## Running multiple Tasks
 
 Here we define multiple `TASK` elements in a single job. They are executed in order of definition.
 
@@ -87,7 +50,7 @@ jobs:
             - uptime
 ```
 
-#### **Running multiple tasks that share state**
+### Sharing state
 
 State is shared using a shared task directory that is set in the $SHARED_DIR environment variable.
 
@@ -118,9 +81,7 @@ jobs:
             - cat $SHARED_DIR/sharedFile.txt
 ```
 
-### Custom docker image, options and environment variables
-
-#### **Using a custom docker image and docker options**
+## Using a custom docker image
 
 Docker image and options are specified in the `runtime:options:` tag.
 
@@ -144,7 +105,7 @@ jobs:
             - sudo docker info
 ```
 
-#### **Using static environment variables**
+## Using static environment variables
 
 Static environment variables are specified in the `runtime:options:env:` tag.
 
@@ -168,9 +129,7 @@ jobs:
             - env
 ```
 
-### Running a Task on the Host
-
-#### **Running a task on the Host directly**
+## Running a Task on the Host
 
 `runtime:container: false` is set at the task level to run the task on the host directly.
 
@@ -208,44 +167,93 @@ jobs:
            - uname -a
 ```
 
-#### **Running tasks on host and container and sharing state**
+### Sharing state across host and container
 
 `container: false` is set at the job level to run all tasks by default on the host. To execute a specific
 task in a container, we set `container: true` at the TASK level. State is shared using a shared task directory that is set in the $SHARED_DIR environment variable.
 
 ```
-## Job description:
- ## - multiple tasks on both container and host, sharing state
- - name: hybrid_share_task_state
-   type: runSh
-   runtime:
-     container: false
-   steps:
-     - TASK:
-         name: container_write_file
-         runtime:
-           container: true
-         script:
-           - echo "write to shared file from a container"
-           - uname -a
-           - cat /etc/*release
-           - echo "Writing data to a file in shared directory"
-           - echo "CUSTOM_VALUE" > $SHARED_DIR/sharedFile.txt
-     - TASK:
-         name: host_override_file
-         script:
-           - echo "Checking OS of the host"
-           - uname -a
-           - cat /etc/*release
-           - echo "Reading data from file in shared directory"
-           - cat $SHARED_DIR/sharedFile.txt
-           - echo "Overriding file data"
-           - echo "OVERRIDEN_VALUE" > $SHARED_DIR/sharedFile.txt
-     - TASK:
-         name: container_check_contents
-         runtime:
-           container: true
-         script:
-           - echo "Checking shared file contents"
-           - cat $SHARED_DIR/sharedFile.txt
+jobs:
+  - name: hybrid_share_task_state
+     type: runSh
+     runtime:
+       container: false
+     steps:
+       - TASK:
+           name: container_write_file
+           runtime:
+            container: true
+           script:
+             - echo "write to shared file from a container"
+             - uname -a
+             - cat /etc/*release
+             - echo "Writing data to a file in shared directory"
+             - echo "CUSTOM_VALUE" > $SHARED_DIR/sharedFile.txt
+       - TASK:
+           name: host_override_file
+           script:
+             - echo "Checking OS of the host"
+             - uname -a
+             - cat /etc/*release
+             - echo "Reading data from file in shared directory"
+            - cat $SHARED_DIR/sharedFile.txt
+             - echo "Overriding file data"
+             - echo "OVERRIDEN_VALUE" > $SHARED_DIR/sharedFile.txt
+       - TASK:
+           name: container_check_contents
+           runtime:
+             container: true
+           script:
+             - echo "Checking shared file contents"
+             - cat $SHARED_DIR/sharedFile.txt
 ```
+
+## Sending notifications
+
+Here we define scripts that send notifications in the `on_success`, `on_failure` and `always` tags.
+You can also use the `NOTIFY` tag instead of a script tag and specify a [notification resource](/platform/workflow/resource/notification/) to send email/IRC/Slack/HipChat notifications.
+
+```
+jobs:
+  - name: container_multiple_tasks
+    type: runSh
+    steps:
+      - TASK:
+          name: check_images
+          script:
+            - echo "Checking available docker images"
+            - sudo docker images
+    on_success:
+      script:
+        - echo "Task successfully completed"
+    on_failure:
+      script:
+        - echo "This should be executed if any step in TASK fails"
+    always:
+      script:
+        - echo "This should always be executed, regardless of job status"
+```
+
+## Running on a specific node pool
+
+By default, all jobs run on your [default node poo](/platform/management/subscription/node-pools/). You can specify a node pool on which you want to execute your `runSh` job. The common reasons for this are:
+
+* Your runSh job is resource intensive, so you want to use a specific node pool which has bigger machines
+* You want to run the job on Mac OS, Windows, or CentOS and hence want to select a specific node pool
+
+Your `shippable.yml` can be configured as shown below:
+
+```
+jobs:
+
+  - name: container_multiple_tasks
+    type: runSh
+    runtime:                 
+      - nodePool: myNodePool
+    steps:
+      - TASK:
+          script:
+            - echo "Hello world"
+```
+
+The value for `nodePool` above has to exactly match the pool name in your [Subscription Settings](/platform/management/subscription/node-pools/).

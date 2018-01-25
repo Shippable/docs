@@ -428,7 +428,6 @@ pages:
         - macOS BYON Nodes: platform/tutorial/runtime/byon-macos.md
         - Ubuntu BYON Nodes: platform/tutorial/runtime/byon-ubuntu.md
         - Windows BYON Nodes: platform/tutorial/runtime/byon-windows.md
-        - Moving to Node Pools: platform/tutorial/runtime/moving-to-node-pools.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:
