@@ -309,6 +309,24 @@ shipctl get_resource_operation <resource name>
 MY_RES_OPER="$(shipctl get_resource_operation "vpc_settings")"
 ```
 
+### get_resource_pointer_key
+
+**Description**
+
+Gets value for the given key present in the pointer of a `IN` resource.
+
+**Usage**
+
+```
+shipctl get_resource_pointer_key <resource name> <key name>
+```
+
+**Example**
+
+```
+MY_RES_POINTER="$(shipctl get_resource_pointer_key "myAWSCluster" "region")"
+```
+
 ### get_resource_state
 
 **Description**
