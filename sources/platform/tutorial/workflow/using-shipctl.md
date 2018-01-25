@@ -273,6 +273,24 @@ shipctl get_resource_meta <resource name>
 MY_RESOURCE_META="$(shipctl get_resource_meta "vpc_settings")"
 ```
 
+### get_resource_name
+
+**Description**
+
+Gets the sanitized name for a given resource or job. This command uses `sanitize_shippable_string` command internally.
+
+**Usage**
+
+```
+shipctl get_resource_name <resource name>
+```
+
+**Example**
+
+```
+MY_RES_NAME="$(shipctl get_resource_name "vpc_settings")"
+```
+
 ### get_resource_operation
 
 **Description**
