@@ -28,8 +28,8 @@ For more information, check out our [BYON nodes tutorial](/platform/runtime/node
 ## Operating System
 The platform is designed to work across multiple operating systems. We natively support the following operating systems:
 
-* [Ubuntu 14.04 LTS](/platform/tutorial/runtime/byon-ubuntu)
-* [Ubuntu 16.04 LTS](/platform/tutorial/runtime/byon-ubuntu)
+* [Ubuntu 14.04 LTS](/platform/runtime/machine-image/os-versions/)
+* [Ubuntu 16.04 LTS](/platform/runtime/machine-image/os-versions/)
 * [Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
 * [Mac OS](/platform/tutorial/workflow/jobs-macos)
 * [CentOS](/platform/tutorial/workflow/jobs-centos)
