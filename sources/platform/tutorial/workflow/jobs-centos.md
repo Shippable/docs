@@ -15,7 +15,7 @@ The minimum requirements for the node are documented [here](/platform/tutorial/r
 
 ##2. Purchase the CentOS SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
-* You can purchase the CentOS SKU only if your subscription has been upgraded to the [latest release](http://blog.shippable.com/). If you subscription has been upgraded, the billing plan page will look like this.
+* You can purchase the CentOS SKU only if your subscription has been upgraded to the [latest release](http://blog.shippable.com/windows-mac-centos-builds-announcements). If you subscription has been upgraded, the billing plan page will look like this.
 
 <img src="/images/platform/tutorial/workflow/billing.png" alt="Billing plan">
 
