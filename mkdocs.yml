@@ -257,6 +257,7 @@ pages:
         - rSync: platform/workflow/job/rsync.md
       - State:
         - Overview: platform/workflow/state/overview.md
+      - Tutorials: platform/workflow/workflow-tutorials.md  
     - Integrations:
       - Overview: platform/integration/overview.md
       - AWS IAM: platform/integration/aws-iam.md
@@ -396,9 +397,9 @@ pages:
     - Tutorials:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md
-        - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
-        - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
-        - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
+        - Running jobs on Windows Server 2016: platform/tutorial/workflow/jobs-windows.md
+        - Running jobs on Mac OS: platform/tutorial/workflow/jobs-macos.md
+        - Running jobs on CentOS: platform/tutorial/workflow/jobs-centos.md
         - Working with Resources: platform/tutorial/workflow/crud-resource.md
         - Working with Triggers: platform/tutorial/workflow/crud-trigger.md
         - Working with Jobs: platform/tutorial/workflow/crud-job.md
@@ -409,6 +410,10 @@ pages:
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
         - Sending status to Source Control: platform/tutorial/workflow/sending-status-to-scm.md
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
+        - runSh Usecases: platform/tutorial/workflow/using-runSh.md
+        - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
+        - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
+        - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
       - Integrations:
         - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
         - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
