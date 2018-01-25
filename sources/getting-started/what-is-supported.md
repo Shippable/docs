@@ -26,12 +26,15 @@ You can also attach your own nodes to your Shippable subscription and all your j
 For more information, check out our [BYON nodes tutorial](/platform/runtime/nodes/#custom-nodes).
 
 ## Operating System
-The platform is designed to work on any Linux distro. We natively support the following versions:
+The platform is designed to work across multiple operating systems. We natively support the following operating systems:
 
-* [Ubuntu 14.04 LTS](/platform/runtime/os/ubuntu14/)
-* [Ubuntu 16.04 LTS](/platform/runtime/os/ubuntu16/)
+* [Ubuntu 14.04 LTS](/platform/runtime/machine-image/os-versions/)
+* [Ubuntu 16.04 LTS](/platform/runtime/machine-image/os-versions/)
+* [Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
+* [Mac OS](/platform/tutorial/workflow/jobs-macos)
+* [CentOS](/platform/tutorial/workflow/jobs-centos)
 
-As mentioned before, we are a Docker-based platform. Hence any custom image based on a Linux distro can be used in Job Runtime.
+As mentioned before, we are a Docker-based platform. Hence any custom docker image for the above operating systems can be used in Job Runtime.
 
 ## Language
 

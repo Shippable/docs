@@ -16,20 +16,10 @@ and is demonstrated below.
 
 ## Usecases
 
-* [runSh job running a single task](/platform/tutorial/workflow/using-runSh/#1-runsh-job-running-a-single-task)
-* [runSh job running multiple tasks](/platform/tutorial/workflow/using-runSh/#2-runsh-job-running-multiple-tasks)
-* [runSh job running multiple tasks that share a task directory](/platform/tutorial/workflow/using-runSh/#3-runsh-job-running-multiple-tasks-that-share-a-task-directory)
-* [runSh job using a custom docker image and custom docker options](/platform/tutorial/workflow/using-runSh/#4-runsh-job-using-a-custom-docker-image-and-custom-docker-options)
-* [runSh job using static environment variables](/platform/tutorial/workflow/using-runSh/#5-runsh-job-using-static-environment-variables)
-* [runSh job running a single task on the host directly](/platform/tutorial/workflow/using-runSh/#6-runsh-job-running-a-single-task-on-the-host-directly)
-* [runSh job running multiple tasks on the host directly](/platform/tutorial/workflow/using-runSh/#7-runsh-job-running-multiple-tasks-on-the-host-directly)
-* [runSh job running multiple tasks that share a task directory on the host directly](/platform/tutorial/workflow/using-runSh/#8-runsh-job-running-multiple-tasks-that-share-a-task-directory-on-the-host-directly)
-* [runSh job using a custom docker image and custom docker options and running on the host directly](/platform/tutorial/workflow/using-runSh/#9-runsh-job-using-a-custom-docker-image-and-custom-docker-options-and-running-on-the-host-directly)
-* [runSh job running hybrid tasks that run on host and container, container being default](/platform/tutorial/workflow/using-runSh/#10-runsh-job-running-hybrid-tasks-that-run-on-host-and-container-container-being-default)
-* [runSh job running hybrid tasks that run on host and container, host being default](/platform/tutorial/workflow/using-runSh/#11-runsh-job-running-hybrid-tasks-that-run-on-host-and-container-host-being-default)
-* [runSh job running hybrid tasks that run on host and container sharing state](/platform/tutorial/workflow/using-runSh/#12-runsh-job-running-hybrid-tasks-that-run-on-host-and-container-sharing-state)
+### Running a single Task
 
-###1. runSh job running a single task
+#### **Running a single task**
+
 ```
 jobs:
 
@@ -39,10 +29,28 @@ jobs:
     type: runSh
     steps:
       - TASK:
-          name: check_container_OS
+          name: task
           script:
-            - echo "Checking OS of the container"
             - uname -a
+```
+
+#### **Running a single task with notifications**
+
+Here we define scripts that send notifications in the `on_success`, `on_failure` and `always` tags.
+You can also use the `NOTIFY` tag instead of a script tag and specify a [notification resource](/platform/workflow/resource/notification/) to send email/IRC/Slack/HipChat notifications.
+
+```
+jobs:
+  ## Job description:
+  ## - multiple tasks
+  - name: container_multiple_tasks
+    type: runSh
+    steps:
+      - TASK:
+          name: check_images
+          script:
+            - echo "Checking available docker images"
+            - sudo docker images
     on_success:
       script:
         - echo "Task successfully completed"
@@ -54,7 +62,11 @@ jobs:
         - echo "This should always be executed, regardless of job status"
 ```
 
-###2. runSh job running multiple tasks
+### Running multiple Tasks
+
+#### **Running multiple tasks**
+
+Here we define multiple `TASK` elements in a single job. They are executed in order of definition.
 
 ```
 jobs:
@@ -63,11 +75,6 @@ jobs:
   - name: container_multiple_tasks
     type: runSh
     steps:
-      - TASK:
-          name: check_container_OS
-          script:
-            - echo "Checking OS of the container"
-            - uname -a
       - TASK:
           name: check_images
           script:
@@ -78,19 +85,11 @@ jobs:
           script:
             - echo "Checking container uptime"
             - uptime
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
 ```
 
-###3. runSh job running multiple tasks that share a task directory
-The path of the shared task directory is set in the $SHARED_DIR environment variable.
+#### **Running multiple tasks that share state**
+
+State is shared using a shared task directory that is set in the $SHARED_DIR environment variable.
 
 ```
 jobs:
@@ -117,19 +116,12 @@ jobs:
           script:
             - echo "Checking shared file contents"
             - cat $SHARED_DIR/sharedFile.txt
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-
 ```
 
-###4. runSh job using a custom docker image and custom docker options
+### Custom docker image, options and environment variables
+
+#### **Using a custom docker image and docker options**
+
 Docker image and options are specified in the `runtime:options:` tag.
 
 ```
@@ -146,21 +138,14 @@ jobs:
             options:
               imageName: drydock/u14pytall
               imageTag: master
+              options: --dns=4.4.4.4 --dns=8.8.8.8
           script:
             - echo "Checking runtime values"
             - sudo docker info
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
 ```
 
-###5. runSh job using static environment variables
+#### **Using static environment variables**
+
 Static environment variables are specified in the `runtime:options:env:` tag.
 
 ```
@@ -181,19 +166,31 @@ jobs:
           script:
             - echo "Checking environment variables"
             - env
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
 ```
 
-###6. runSh job running a single task on the host directly
-`container: false` is set to run the task on the host directly.
+### Running a Task on the Host
+
+#### **Running a task on the Host directly**
+
+`runtime:container: false` is set at the task level to run the task on the host directly.
+
+```
+jobs:
+ ## Job description:
+ ## - single task
+ - name: host_single_task
+   type: runSh
+   steps:
+     - TASK:
+         name: check_host_OS
+         runtime:
+           container: false
+         script:
+           - echo "Checking OS of the host"
+           - uname -a
+```
+
+`runtime:container: false` can also be set at the job level, which then applies to all tasks.
 
 ```
 jobs:
@@ -209,207 +206,12 @@ jobs:
          script:
            - echo "Checking OS of the host"
            - uname -a
-           - cat /etc/*release
-   on_success:
-     script:
-       - echo "Task successfully completed"
-   on_failure:
-     script:
-       - echo "This should be executed if any step in TASK fails"
-   always:
-     script:
-       - echo "This should always be executed, regardless of job status"
 ```
 
-###7. runSh job running multiple tasks on the host directly
-`container: false` is set to run all the tasks on the host directly.
+#### **Running tasks on host and container and sharing state**
 
-```
-## Job description:
-  ## - multiple tasks
-  - name: host_multiple_tasks
-    type: runSh
-    runtime:
-      container: false
-    steps:
-      - TASK:
-          name: check_host_OS
-          script:
-            - echo "Checking OS of the host"
-            - uname -a
-            - cat /etc/*release
-      - TASK:
-          name: check_images
-          script:
-            - echo "Checking available docker images"
-            - sudo docker images
-      - TASK:
-          name: check_host_uptime
-          script:
-            - echo "Checking host uptime"
-            - uptime
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-```
-
-###8. runSh job running multiple tasks that share a task directory on the host directly
-`container: false` is set to run all the tasks on the host directly. The path of the shared task
-directory is set in the $SHARED_DIR environment variable.
-
-```
-## Job description:
-  ## - multiple tasks
-  ## - shared task directory
-  - name: host_share_task_state
-    type: runSh
-    runtime:
-      container: false
-    steps:
-      - TASK:
-          name: write_to_file
-          script:
-            - echo "Writing data to a file in shared directory"
-            - echo "CUSTOM_VALUE" > $SHARED_DIR/sharedFile.txt
-      - TASK:
-          name: override_file
-          script:
-            - echo "Reading data from file in shared directory"
-            - echo $SHARED_DIR/sharedFile.txt
-            - echo "Overriding file data"
-            - echo "OVERRIDEN_VALUE" > $SHARED_DIR/sharedFile.txt
-      - TASK:
-          name: check_contents
-          script:
-            - echo "Checking shared file contents"
-            - cat $SHARED_DIR/sharedFile.txt
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-```
-
-###9. runSh job using a custom docker image and custom docker options and running on the host directly
-`container: false` is set at the job level to run all the tasks on the host directly. Docker image and options
-are specified in the `runtime:options:` tag.
-
-```
-## Job description:
- ## - single task
- ## - custom image to run the job
- - name: host_custom_envs
-   type: runSh
-   runtime:
-     container: false
-   steps:
-     - TASK:
-         name: host_custom_envs
-         runtime:
-           options:
-             env:
-               - HOST_ENV_1: foo
-               - HOST_ENV_2: bar
-         script:
-           - echo "Checking runtime values"
-           - env | grep HOST
-   on_success:
-     script:
-       - echo "Task successfully completed"
-   on_failure:
-     script:
-       - echo "This should be executed if any step in TASK fails"
-   always:
-     script:
-       - echo "This should always be executed, regardless of job status"
-```
-
-###10. runSh job running hybrid tasks that run on host and container, container being default
-`container: false` is set at the task level for tasks that need to execute on the host directly. The tasks that
-do not specify the `container` tag run on the container.
-
-```
-## Job description:
-  ## - single task on both container and host, container being default
-  - name: hybrid_default_container
-    type: runSh
-    steps:
-      - TASK:
-          name: check_container_OS
-          script:
-            - echo "Checking OS of the container"
-            - uname -a
-            - cat /etc/*release
-      - TASK:
-          name: check_host_OS
-          runtime:
-            container: false
-          script:
-            - echo "Checking OS of the host"
-            - uname -a
-            - cat /etc/*release
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-```
-
-###11. runSh job running hybrid tasks that run on host and container, host being default
 `container: false` is set at the job level to run all tasks by default on the host. To execute a specific
-task in a container, we set `container: true` at the TASK level.
-
-```
-## Job description:
-  ## - single task on both container and host, host being default
-  - name: hybrid_default_host
-    type: runSh
-    runtime:
-      container: false
-    steps:
-      - TASK:
-          name: check_container_OS
-          runtime:
-            container: true
-          script:
-            - echo "Checking OS of the container"
-            - uname -a
-            - cat /etc/*release
-      - TASK:
-          name: check_host_OS
-          script:
-            - echo "Checking OS of the host"
-            - uname -a
-            - cat /etc/*release
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
-```
-
-###12. runSh job running hybrid tasks that run on host and container sharing state
-`container: false` is set at the job level to run all tasks by default on the host. To execute a specific
-task in a container, we set `container: true` at the TASK level. The path of the shared task directory is set
-in the $SHARED_DIR environment variable.
+task in a container, we set `container: true` at the TASK level. State is shared using a shared task directory that is set in the $SHARED_DIR environment variable.
 
 ```
 ## Job description:
@@ -446,13 +248,4 @@ in the $SHARED_DIR environment variable.
          script:
            - echo "Checking shared file contents"
            - cat $SHARED_DIR/sharedFile.txt
-   on_success:
-     script:
-       - echo "Task successfully completed"
-   on_failure:
-     script:
-       - echo "This should be executed if any step in TASK fails"
-   always:
-     script:
-       - echo "This should always be executed, regardless of job status"
 ```

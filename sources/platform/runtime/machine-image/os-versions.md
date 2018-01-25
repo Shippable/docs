@@ -10,10 +10,16 @@ We support the following Operating systems for your `runCI` jobs:
 
 * Ubuntu 14.04
 * Ubuntu 16.04
-* Ubuntu 16.04 - aarch64 (ARM architecture)
+* Ubuntu 16.04 - aarch64 ARM architecture ([BYON](/platform/runtime/nodes/#byon-nodes)
+* CentOS 7 ([BYON](/platform/runtime/nodes/#byon-nodes)
 
-For your `runSh` jobs, we only support Ubuntu 14.04 as of now since it runs inside the Shippable Agent, as explained in the [Machine image overview](/platform/runtime/machine-image/ami-overview/).
-
+We support the following Operating systems for your `runSH` jobs:
+* Ubuntu 14.04
+* Ubuntu 16.04 ([BYON](/platform/runtime/nodes/#byon-nodes)
+* Ubuntu 16.04 - aarch64 ARM architecture ([BYON](/platform/runtime/nodes/#byon-nodes)
+* Windows Server 2016 ([BYON](/platform/runtime/nodes/#byon-nodes)
+* Mac OS 10.2 ([BYON](/platform/runtime/nodes/#byon-nodes))
+* CentOS 7 ([BYON](/platform/runtime/nodes/#byon-nodes))
 
 ## Ubuntu
 
