@@ -500,6 +500,47 @@ jobs:
         - script: MY_INT_FIELD="$(shipctl get_integration_resource_field "myGkeCluster" "jsonkey")"
 ```
 
+### get_params_resource
+
+**Description**
+
+Gets the value for the given key present in an `IN` resource of type `params`.
+
+**Usage**
+
+```
+shipctl get_params_resource <resource name> <key name>
+```
+
+- `resource name` is the name of the `IN` resource
+- `key name` is the key defined in the params resource.
+
+**Example**
+
+Say you have [params](/platform/workflow/resource/params) resource **myParams**
+
+```
+resources:
+  - name: myParams
+    type: params
+    version:
+      params:
+        key1: "value1"
+        key2: "value2"
+```
+
+You can get the value of the key in **myParams** with the following:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    steps:
+      - IN: myParams
+      - TASK:
+        - script: MY_KEY1_VALUE="$(shipctl get_params_resource "myParams" "key1")"
+```
+
 ## Additional utilities
 
 ### decrypt
