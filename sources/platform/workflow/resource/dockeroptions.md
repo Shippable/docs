@@ -118,14 +118,21 @@ resources:
 ```
 
 Top level docker options: There are two top levels for Amazon ECS, i.e., `service` and `taskDefinition`. Please refer the following yml to find the possible options, that can be given under them.
+
 ```
   resources:
   - name: <string>
     type: dockerOptions
     versionTemplate:
       service:
-        loadBalancer:
-         - <object>
+        loadBalancers: [
+          {
+              "targetGroupArn": "",
+              "loadBalancerName": "",
+              "containerName": "",
+              "containerPort": 0
+          }
+        ]
         desiredCount: <number>
         clientToken: <string>
         role: <string>
@@ -145,6 +152,8 @@ Top level docker options: There are two top levels for Amazon ECS, i.e., `servic
           - "<source>:<container path>:<options>"
           - "<source>:<container path>:<options>"
 ```
+
+All ECS Service definition parameters documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_definition_parameters.html) can be specified under `service` since these are passthrough. The same applies for `taskDefinition` documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html).
 
 #### Kubernetes
 Container Spec level docker options:
@@ -170,6 +179,8 @@ resources:
 
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
 
 Pod Spec level docker options:
 ```
@@ -193,6 +204,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the  Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -208,13 +221,15 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
         strategy:
           <object>
 ```
+
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Google Container Engine
 Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
@@ -266,6 +281,8 @@ resources:
 
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
 
 Pod Spec level docker options:
 ```
@@ -289,6 +306,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -304,13 +323,15 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
         strategy:
           <object>
 ```
+
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Docker Datacenter
 
@@ -433,6 +454,8 @@ resources:
 
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
 
 Pod Spec level docker options:
 ```
@@ -456,6 +479,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -471,7 +496,7 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
@@ -479,6 +504,7 @@ resources:
           <object>
 ```
 
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
@@ -587,8 +613,14 @@ Top level docker options: There are two top levels for Amazon ECS, i.e., `servic
     type: dockerOptions
     version:
       service:
-        loadBalancer:
-         - <object>
+        loadBalancers: [
+          {
+              "targetGroupArn": "",
+              "loadBalancerName": "",
+              "containerName": "",
+              "containerPort": <number that matches a port in your task definition>
+          }
+        ]    
         desiredCount: <number>
         clientToken: <string>
         role: <string>
@@ -633,6 +665,9 @@ resources:
 
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
+
 
 Pod Spec level docker options:
 ```
@@ -656,6 +691,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -671,13 +708,15 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
         strategy:
           <object>
 ```
+
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Google Container Engine
 Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
@@ -705,6 +744,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core).
+
 ##### Deploying with a Google Cloud integration
 Container Spec level docker options:
 ```
@@ -726,9 +767,10 @@ resources:
         <object>
       terminationMessagePath: <string>
       terminationMessagePolicy: <string>
-
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
 
 Pod Spec level docker options:
 ```
@@ -752,6 +794,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -767,13 +811,15 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
         strategy:
           <object>
 ```
+
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Docker Datacenter
 
@@ -896,6 +942,8 @@ resources:
 
 ```
 
+`lifecycle`, `livenessProbe`, `readinessProbe`, `resources` and `securityContext` are passthrough objects. These
+are defined in the Kubernetes Container v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#container-v1-core). Any other fields in prior or later versions of the Container spec can also be specified, since these are passthrough.
 
 Pod Spec level docker options:
 ```
@@ -919,6 +967,8 @@ resources:
           - <string>
 ```
 
+`nodeSelector` is a  passthrough object which is defined in the Kubernetes Podspec v1 core API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#pod-v1-core). Any other fields in prior or later versions of the Podspec can also be specified, since these are passthrough.
+
 Deployment Spec level docker options:
 ```
 resources:
@@ -934,7 +984,7 @@ resources:
         labels:
           <key1>: <value1>
           <key2>: <value2>
-        rollbackTo:
+        template:
           <object>
         selector:
           <object>
@@ -942,6 +992,7 @@ resources:
           <object>
 ```
 
+`template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 <a name="descriptions"></a>
 ## Common field descriptions
