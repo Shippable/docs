@@ -93,6 +93,9 @@ build:
     - dir1
     - dir2
   advancedReporting: <boolean>
+  ## commands in push run outside the build container
+  push:
+    - #command1
 
 integrations:
   notifications:

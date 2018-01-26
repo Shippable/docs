@@ -34,6 +34,7 @@ jobs:
   - name: job_2
     type: runSh
     steps:
+      - IN: job_1
       - TASK:
         - script: |
           shipctl copy_resource_file_from_state job_1 myFile.txt .
@@ -41,7 +42,7 @@ jobs:
 
 ```
 
-The two methods from the [shipctl utility](/platform/tutorial/workflow/using-shipctl/) are:
+The two methods we have used from the [shipctl utility](/platform/tutorial/workflow/using-shipctl/) are:
 
 ```
 shipctl copy_file_to_state <file name>
@@ -50,6 +51,38 @@ where file should be in the same folder you call shipctl from,
 
 ```
 shipctl copy_resource_file_from_state <IN job name> <file name> <to path>
+```
+
+### key-value pairs
+
+In this scenario, `job_1` writes multiple key-value pairs to its state. The successive job `job_2` reads the key-value pairs
+from `job_1` state.
+
+```
+jobs:
+  - name: job_1
+    type: runSh
+    steps:
+      - TASK:
+        - script: shipctl post_resource_state_multi $JOB_NAME "HERO=SUPERMAN FOO=bar"
+
+  - name: job_2
+    type: runSh
+    steps:
+      - IN: job_1
+      - TASK:
+        - script: HERO="$(shipctl get_resource_version_key job_1 HERO)"
+        - script: FOO="$(shipctl get_resource_version_key job_1 FOO)"
+```
+
+The two methods we have used from the [shipctl utility](/platform/tutorial/workflow/using-shipctl/) are:
+
+```
+shipctl post_resource_state_multi <resource name> "<key1>=<value1> <key2>=<value2>"
+```
+
+```
+shipctl get_resource_version_key <resource name> <key>
 ```
 
 ## Sharing state between successive runs
