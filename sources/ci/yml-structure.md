@@ -51,6 +51,7 @@ build:
   cache_dir_list:
     - #dir1
   push:
+    - #command1
 
 integrations:
  notifications:

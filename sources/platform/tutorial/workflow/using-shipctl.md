@@ -14,6 +14,28 @@ This is a command utility that is available in both [runSh](/platform/workflow/j
 
 shipctl is available in CI and Assembly lines in machine image versions [v5.8.2](http://docs.shippable.com/platform/runtime/machine-image/ami-v582/) and up. If your subscription is using a version lower than v5.8.2, please switch to the latest version of the machine image. To change the machine image for your subscription, please follow the steps documented [here](http://docs.shippable.com/platform/runtime/machine-image/ami-overview/#changing-the-subscription-machine-image).
 
+## Using shipctl in CI with custom images
+
+shipctl commands will work in the [`push`](/ci/yml-structure/#anatomy-of-shippableyml) section, since these commands run
+outside the build container.
+
+As an example:
+
+```
+language: none
+
+build:
+  pre_ci_boot:
+    image_name: library/node
+    image_tag: latest
+    pull: true
+  ci:
+    - echo "In CI"
+  push:
+    # $JOB_NAME is an env variable that refers to the CI job itself
+    - shipctl post_resource_state $JOB_NAME key1 value1
+```     
+
 ## State Mgmt
 
 ### copy_file_from_prev_state

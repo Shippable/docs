@@ -102,6 +102,7 @@ pages:
       - Build badges: ci/build-badges.md
       - Scheduled builds: ci/scheduled-builds.md
       - Webhook in CI: ci/webhook.md
+      - Running builds as non-root user: ci/non-root.md
     - Language guide:
       - Overview: ci/supported-languages.md
       - Node.js: ci/nodejs-continuous-integration.md
