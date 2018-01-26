@@ -77,7 +77,11 @@ resources:
 
 	<img src="/images/platform/tutorial/workflow/soft-delete-syncRepo.jpg" alt="soft delete syncRepo">
 
-* Once you delete it, all objects that were defined in this `syncRepo` along with `rSync` job will be soft-deleted.
+* When removing a `syncRepo`, you will be prompted with a confirmation dialog.  If your `syncRepo` has any children that are `deploy` type jobs, the default behavior is for Shippable to delete any active deployments from the associated provider.  In some cases, you might want your deployments to remain active.  In that case, you can uncheck the box in the confirmation to tell Shippable to leave the providers alone. The Shippable `deploy` job itself will still be removed, since it's a child of the `syncRepo`.
+
+  <img src="/images/platform/tutorial/workflow/syncRepo-delete-confirmation.png" alt="delete confirmation">
+
+* Once you confirm the delete, all objects that were defined in this `syncRepo` along with `rSync` job will be soft-deleted.
 
 * Make sure you have **Deleted objects** turned on in your view. Find the `syncRepo` you deleted and then hard delete it. Now all the Resources and Jobs that were defined in this repo are all permanently deleted. You cannot recover any data after this operation.
 
