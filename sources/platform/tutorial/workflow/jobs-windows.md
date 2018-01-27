@@ -11,7 +11,8 @@ page_title: Running jobs on Windows Server 2016
 * To run Windows builds, you will first need to provision a Windows 2016 machine in a private or public cloud. At this time,
 Shippable does not allow you to dynamically provision Windows node and we will be soon launching this functionality.
 The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
-* Only runSh jobs are supported for Windows at this time.
+* You can only build **public repositories**. Private repositories will be supported in a few weeks.
+* Only [runSh](/platform/workflow/job/runsh) jobs are supported.
 
 ##2. Purchase the Windows Server 2016 SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
