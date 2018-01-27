@@ -22,9 +22,7 @@ You can customize the build timeout setting for any enabled project. This settin
 To customize the timeouts for a project:
 
 -  Go to the **Settings** tab of your project
--  Click the **Runs Config** section in the sidebar menu
--  Scroll down to the **Custom Timeouts** section
--  Click the **Edit** button
+-  Scroll down to the **Project Actions** section
 -  Enter a value between 1 and 60 (for free plans) or 120 (for paid plans)
 -  Click the **Save** button.
 
