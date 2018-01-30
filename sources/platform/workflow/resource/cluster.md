@@ -51,13 +51,20 @@ resources:
 
 	* For Azure DC/OS integrations - N/A
 	* For Azure Container Service (AKS) integrations:
+
+             versionTemplate:
+               groupName:  <Azure resource group name>
+               sourceName: <AKS cluster name>
+
 	    If you are using a bastion host, include the `bastionHost` information in the versionTemplate section
 
               versionTemplate:
-                  bastionHost:
-                    address:        <public address of your bastion host>
-                    user:           <bastionHost user>
-                    keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
+                groupName:  <Azure resource group name>
+                sourceName: <AKS cluster name>
+                bastionHost:
+                  address:        <public address of your bastion host>
+                  user:           <bastionHost user>
+                  keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 
 	* For Kubernetes integrations:
 
@@ -145,13 +152,20 @@ resources:
 
 	* For Azure DC/OS integrations - N/A
 	* For Azure Container Service (AKS) integrations:
+
+              pointer:
+                groupName:  <Azure resource group name>
+                sourceName: <AKS cluster name>
+
 	    If you are using a bastion host, include the `bastionHost` information in the pointer section
 
               pointer:
-                  bastionHost:
-                    address:        <public address of your bastion host>
-                    user:           <bastionHost user>
-                    keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
+                groupName:  <Azure resource group name>
+                sourceName: <AKS cluster name>
+                bastionHost:
+                  address:        <public address of your bastion host>
+                  user:           <bastionHost user>
+                  keyIntegration: <key_integration_resource> # Can be an sshKey or pemKey integration resource
 
 	* For Kubernetes integrations:
 
