@@ -522,7 +522,7 @@ jobs:
 
 **Description**
 
-Gets the value for the given key present in an `IN` resource of type `params`.
+Gets the value for the given key present in an `IN` resource of type `params`. All the key-value pairs in `params` resource are available as environment variables and could be conveniently accessed from there.
 
 **Usage**
 
@@ -543,8 +543,8 @@ resources:
     type: params
     version:
       params:
-        key1: "value1"
-        key2: "value2"
+        KEY1: "value1"
+        KEY2: "value2"
 ```
 
 You can get the value of the key in **myParams** with the following:
@@ -556,7 +556,8 @@ jobs:
     steps:
       - IN: myParams
       - TASK:
-        - script: MY_KEY1_VALUE="$(shipctl get_params_resource "myParams" "key1")"
+        - script: MY_KEY1_VALUE="$(shipctl get_params_resource "myParams" "KEY1")"
+        - script: echo "$KEY1"  # Key-value pair accessed via environment variable directly
 ```
 
 ## Additional utilities
