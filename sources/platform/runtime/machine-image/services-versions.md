@@ -103,7 +103,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Machine Images             
 |----------|---------
-| 4.0.6   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
+| 4.0.7   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 4.0.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 3.2.9  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 | 3.2.8  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
@@ -134,7 +134,7 @@ This page describes the versions available for each Service and the Machine Imag
 
 | Version  |  Tags   
 |----------|---------
-| 3.21.0   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
+| 3.22.0   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 3.19.3   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
 | 3.11.0   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier (Ubuntu 16.04)
 | 3.8.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)
