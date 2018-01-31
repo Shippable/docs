@@ -36,6 +36,7 @@ The minimum requirements for a macOS BYON type node that can be attached to Ship
 
     * [jq](https://stedolan.github.io/jq/download/) (latest)
     * [ntp](http://www.ntp.org/) (Install this if the build logs in Shippable UI don't appear in the correct order.)
+    * [bash](https://apple.stackexchange.com/a/193413)(latest) Running with default bash will result in build failing if the `script` section in `on_success`/`always` contains an incorrect command.
 
 <a name="view-nodes"></a>
 ## Viewing your nodes

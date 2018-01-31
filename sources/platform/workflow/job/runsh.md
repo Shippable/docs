@@ -201,6 +201,54 @@ To make it easy to use these environment variables, the platform provides a comm
 
 How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
+## Shippable script section gotchas
+- `script: exit 1` in `on_success`/`always` section of a build where the `TASK` section has succeeded, will fail the build
+```
+jobs:
+  - name: <string>
+    type: runSh
+    steps:
+    - TASK:
+        script: ls
+    on_success:
+    - script: exit 1
+```
+The above yml will fail the build.
+
+- Resetting ERR trap in a multi-line `script` section in TASK will result in the error from an incorrect command, if any, getting ignored.
+```
+jobs:
+  - name: <string>
+    type: runSh
+    steps:
+    - TASK:
+        script: |
+            echo foo
+            trap "" ERR
+            sl
+            echo bar
+```
+will output
+```
+foo
+sl: command not found
+bar
+```
+The TASK section in the above snippet will be considered as a success/failure, based on the exit code of the last command.
+
+- Resetting EXIT trap in a multi-line `script` section in TASK and running `exit 0` will result in build failure.
+```
+jobs:
+  - name: <string>
+    type: runSh
+    steps:
+    - TASK:
+        script: |
+            trap "" EXIT
+            exit 0
+```
+will result in the build getting failed.
+
 ## Further Reading
 * [runSh tutorial with many examples](/platform/tutorial/workflow/using-runSh)
 * [jobs](/platform/workflow/job/overview)
