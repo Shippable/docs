@@ -295,6 +295,24 @@ shipctl get_resource_meta <resource name>
 MY_RESOURCE_META="$(shipctl get_resource_meta "vpc_settings")"
 ```
 
+### get_resource_name
+
+**Description**
+
+Gets the sanitized name for a given resource or job. This command uses `sanitize_shippable_string` command internally.
+
+**Usage**
+
+```
+shipctl get_resource_name <resource name>
+```
+
+**Example**
+
+```
+MY_RES_NAME="$(shipctl get_resource_name "vpc_settings")"
+```
+
 ### get_resource_operation
 
 **Description**
@@ -311,6 +329,24 @@ shipctl get_resource_operation <resource name>
 
 ```
 MY_RES_OPER="$(shipctl get_resource_operation "vpc_settings")"
+```
+
+### get_resource_pointer_key
+
+**Description**
+
+Gets value for the given key present in the pointer of a `IN` resource.
+
+**Usage**
+
+```
+shipctl get_resource_pointer_key <resource name> <key name>
+```
+
+**Example**
+
+```
+MY_RES_POINTER="$(shipctl get_resource_pointer_key "myAWSCluster" "region")"
 ```
 
 ### get_resource_state
@@ -547,6 +583,48 @@ jobs:
         - script: MY_INT_FIELD="$(shipctl get_integration_resource_field "myGkeCluster" "jsonkey")"
 ```
 
+### get_params_resource
+
+**Description**
+
+Gets the value for the given key present in an `IN` resource of type `params`. All the key-value pairs in `params` resource are available as environment variables and could be conveniently accessed from there.
+
+**Usage**
+
+```
+shipctl get_params_resource <resource name> <key name>
+```
+
+- `resource name` is the name of the `IN` resource
+- `key name` is the key defined in the params resource.
+
+**Example**
+
+Say you have [params](/platform/workflow/resource/params) resource **myParams**
+
+```
+resources:
+  - name: myParams
+    type: params
+    version:
+      params:
+        KEY1: "value1"
+        KEY2: "value2"
+```
+
+You can get the value of the key in **myParams** with the following:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    steps:
+      - IN: myParams
+      - TASK:
+        - script: MY_KEY1_VALUE="$(shipctl get_params_resource "myParams" "KEY1")"
+        - script: echo "$KEY1"  # Key-value pair accessed via environment variable directly
+```
+
 ## Additional utilities
 
 ### decrypt
@@ -679,6 +757,13 @@ MY_UPPERCASE="$(shipctl to_uppercase "foo!@#")"
 
 Output of the above statement would be `FOO!@#`
 
+## Deprecated commands
+
+Following commands are deprecated and have alternate implementations introduced as of Shippable v5.11.1
+
+- get_resource_path - Use [get_resource_state](#get_resource_state) instead.
+- copy_resource_file_from_state - Use [copy_file_from_resource_state](#copy_file_from_resource_state) instead.
+- refresh_file_to_out_path - Use  [copy_file_to_resource_state](#copy_file_to_resource_state) instead.
 
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
