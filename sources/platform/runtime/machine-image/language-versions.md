@@ -120,8 +120,8 @@ The following versions are supported in each Machine Image:
 
 | Node JS Version  |  Language Image Tags | Machine Image
 |------------------|---------|-----------
-|9.4.0             |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|8.9.4             |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|9.4.0  (npm 5.6.0)|  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|8.9.4  (npm 5.6.0)|  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |8.2.1             |  v5.10.4   |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 |8.2.1             |  v5.8.2   |  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |8.1.4             |  v5.7.3 and later |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
@@ -130,7 +130,7 @@ The following versions are supported in each Machine Image:
 |7.3.0             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |7.2.1             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |7.0.0             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-|6.11.5            |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|6.11.5 (npm 5.6.0)|  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |6.11.2            |  v5.10.4 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 |6.11.2            |  v5.8.2 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |6.11.1            |  v5.7.3 |  [v5.7.3](/platform/runtime/machine-image/ami-v573/)
@@ -138,7 +138,7 @@ The following versions are supported in each Machine Image:
 |6.8.0             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |6.7.0             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |5.12.0            |  v5.3.2 and later |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later
-|4.8.7             |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|4.8.7  (npm 5.6.0)|  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |4.8.4             |  v5.7.3 and later |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
 |4.6.0             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |4.2.3             |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
@@ -147,6 +147,9 @@ The following versions are supported in each Machine Image:
 |iojs 1.0          |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |iojs 2.0          |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |iojs 3.3.1        |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+
+Note: For CI, we support npm 5.6.0 for nodejs LTS releases - v4.8.7, v6.11.5, v8.9.4. For other node versions,
+we use default npm that comes bundled with nodejs installation.
 
 ## PHP
 
