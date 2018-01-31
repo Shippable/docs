@@ -19,6 +19,7 @@ You can create a `deploy` job by [adding](/platform/tutorial/workflow/crud-job#a
 jobs:
   - name:               <string>                  # required
     type:               deploy                    # required
+    maxWaitTime:        <0-3600 seconds>          # optional
     stabilityDuration:  <0-300 seconds>           # optional, blueGreen only
     method:             <deploy strategies>       # optional
     workflow:           <workflow options>        # optional
@@ -71,6 +72,9 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `deploy`
+
+* **`maxWaitTime`** -- Optional. The maximum amount of time, in seconds, to wait for a deployment to become stable before considering the deployment to have failed.  Stable means that the desired number of replicas matches the number that are actually running in the cluster. The default wait time is ten minutes and the maximum is one hour.
+
 * **`stabilityDuration`** -- Optional. The amount of time in seconds (0-300) that a new service created in a blueGreen deployment should be stable before marking the deployment as successful.  Stable means that the desired number of replicas matches the number that are actually running in the cluster. This setting is ignored if deployment method is not blueGreen.
 
 * **`method`** -- Optional. This is used to control the strategy used to deploy the service. The following are accepted values:
