@@ -4,9 +4,9 @@ sub_section: Overview
 
 #Triggering your CI
 
-To run your CI build, you will first need to [enable your repository for CI](enable-project/). Once enabled, CI is triggered for your project in one of four ways.
+To run your CI build, you will first need to [enable your repository for CI](enable-project/). Once enabled, CI is triggered for your project in one of five ways.
 
--  A change is committed to your repository in your source control.
+-  A change is committed to your repository in your source control. Commits will trigger the branch updated.
 
 -  A pull request is opened for a branch.
 
@@ -14,7 +14,7 @@ To run your CI build, you will first need to [enable your repository for CI](ena
 
 -  You trigger a manual build through the Shippable UI.
 
--  You have set up your builds to be triggered on a schedule.
+-  You have set up your builds to be triggered on a schedule using a [time](/platform/workflow/resource/time/) resource. Scheduled builds trigger the default branch configured in the SCM.
 
 In the first two scenarios, builds are triggered automatically and the workflow configured in your `shippable.yml` is executed. For more information on pull requests builds, [read the docs on that topic](pull-request-builds/).
 
@@ -26,7 +26,7 @@ You can trigger a build for your project by going to the Subscription or Project
 
 ##Scheduled builds
 
-Scheduled builds means running an automated build for a project on a specific schedule. For example, many teams choose to run nightly builds.
+Scheduled builds means running an automated build for a project on a specific schedule. For example, many teams choose to run nightly builds. Scheduled builds are triggered on the default branch of the repository, configured in the SCM. For example, in GitHub you would click on the repository `Settings->Branches->Default branch` to set the default branch of your repository, which defaults to `master`.
 
 We have written a detailed blog post on how to run scheduled CI builds with the help of a `time` resource. Please read the blog post to learn [how to set up automated scheduled builds](http://blog.shippable.com/setup-nightly-builds-on-shippable).
 
