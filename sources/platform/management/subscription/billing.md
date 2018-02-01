@@ -96,3 +96,9 @@ You can change the credit card being used for a Subscription at any time. Just g
 ## Managing credit cards
 
 Credit cards are managed at an Account level and can be used to pay for any Subscription for which you are an Administrator. To learn how to add/remove cards from your account, read the [Managing credit cards page](/platform/management/account/manage-payment-methods)
+
+## Billing Contacts
+
+By default, receipts are sent on a monthly basis to any email address listed in the "Billing Contact(s)" box.  This can be a single address, or a semicolon-separated list of valid email addresses.
+
+  <img src="/images/platform/management/multiple-billing-emails.png" alt="semicolon separated emails">
