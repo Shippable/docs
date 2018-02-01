@@ -37,8 +37,8 @@ you can assign your runSh jobs to a specific Node pool.
 
 ##4. Initialize your BYON node
 
-* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#viewing-your-nodes).
-* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#adding-new-nodes).   
+* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#viewing-your-nodes).
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#adding-new-nodes).   
 
 ##5. Define CI jobs and resources.
 
