@@ -14,7 +14,7 @@ language: node_js
 
 You can set this tag to the following values depending on the language you need for your build: `clojure`, `go`, `java`, `node_js`, `php`, `python`, `ruby`, `scala`, `c`.
 
-Specifying ```language: none``` in your yml skips any default language specific processing and will require you to specify a custom image for your build. Details are in the [building unsupported languages](unsupported-languages/) section of our docs.
+Specifying ```language: none``` in your yml skips any default language specific processing. You can use this configuration to run builds on the language of your choice using a custom Docker image. Details are in the [building unsupported languages](unsupported-languages/) section of our docs. If you do not specify a build image in the `pre_ci_boot` section of your yml, the `drydock/u16pytall` image will be used by default.
 
 ## runtime
 
