@@ -83,7 +83,7 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
     run them.
     * Check the **I have run this script on my node successfully** and then click
     on the **Save** button.
-    * Your node status will automatically show green at this point. We have no way F
+    * Your node status will automatically show green at this point. We have no way 
     of verifying that the node was in fact successfully initialized so you will
     need to make sure this was the case.
 
