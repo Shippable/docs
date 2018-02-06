@@ -65,12 +65,33 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
     run them.
     * Check the **I have run this script on my node successfully** and then click
     on the **Save** button.
-    * Your node status will automatically show green at this point. We have no way F
+    * Your node status will automatically show green at this point. We have no way 
     of verifying that the node was in fact successfully initialized so you will
     need to make sure this was the case.
 
 * Once the node has been added, any builds that are queued for the node pool
   which this node is a part of, will be picked up by this node
+
+<a name="reset-node"></a>
+## Re-initializing a node
+
+You might want to re-initialize a BYON node for the following reasons:
+
+* The node shows a **New version available** message:
+
+<img src="/images/platform/tutorial/runtime/node-update-available.png" alt="List nodes">
+
+* You made some changes to the node manually and it is no longer picking up jobs
+* The node isn't picking up jobs and seems 'frozen' for some reason
+
+To re-initialize a node:
+
+- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
+- Click on the **Gears icon** on the Subscription page and then on **Nodes**.
+- Click on the node in the **NODE LISTS** section.
+- Click on the node you want to reinitialize.
+- You can reset a node by clicking on the **Re-initialize** button, followed by downloading and running the new initialization script
+on your node manually. This action will initialize/install all build components from scratch.
 
 <a name="delete-node"></a>
 ##Deleting a build node
