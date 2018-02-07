@@ -68,32 +68,54 @@ resources:
       buildOnTagPush:           false
 ```
 * We now define a [runSh job](/platform/workflow/job/runsh/#runsh) in shippable.yml.  This job lets you run any
-build script in your gitRepo or a windows shell command. You can also specify a custom docker image to the runsh
-job which has your build tool chain already preinstalled. Using shell commands in the runSh job, you can also install any tools or utilities you need during run time.
+build script in your gitRepo or a powershell command. You can run your scripts or powershell commands directly on
+the host or in a windows container of your choice.
+
+To run powershell commands or scripts in your repository in a container, you will need to specify the docker image, which ideally has your build tool chain already preinstalled, in `runtime:options` section in `TASK`. If you have created multiple Node pools and the Windows node pool
+is not the default Node pool, specify the Node pool in `runtime:nodePool` section.
 
 
 ```
   ## Job description:
   - name: ci_job
     type: runSh
+    runtime:
+      nodePool: custom__x86_64__WindowsServer_2016
     steps:
       - IN: myGitRepo
       - TASK:
           name: buildApp
+          runtime:
+            options:
+              imageName: "microsoft/windowsservercore"
+              imageTag: "10.0.14393.1884"
           script:
             # cd to the gitRepo directory
-            - cd $(shipctl get_resource_state "myGitRepo")
-            # run the build script
+            - pushd $env:MYGITREPO_STATE
+            # run a build script in the git repo
             - ./runbuild.ps1
-    on_success:
-      script:
-        - echo "Task successfully completed"
-    on_failure:
-      script:
-        - echo "This should be executed if any step in TASK fails"
-    always:
-      script:
-        - echo "This should always be executed, regardless of job status"
+```
+
+To run powershell commands or scripts in your repository on the host, specify `container:false` under `TASK:runtime` section. If you want to run docker commands,
+you will need to run them on the host directly.
+
+```
+  ## Job description:
+  - name: ci_job
+    type: runSh
+    runtime:
+      nodePool: custom__x86_64__WindowsServer_2016
+    steps:
+      - IN: myGitRepo
+      - TASK:
+          name: buildApp
+          runtime:
+            container: false
+          script:
+            # cd to the gitRepo directory
+            - pushd $env:MYGITREPO_STATE
+            # run a docker build
+            - docker build -t mynodeapp:latest .
 ```
 
 * Commit the file and create a syncRepo.
