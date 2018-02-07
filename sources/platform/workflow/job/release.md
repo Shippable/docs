@@ -51,7 +51,7 @@ jobs:
 
 * **`name`** -- should be an easy to remember text string
 
-* **`type`** -- is set to `manifest`
+* **`type`** -- is set to `release`
 
 * **`bump`** -- This is used to control the strategy used to bump your seed version. Subsequent executions of this job will increment the last bumped value if it is semantically greater than the `seed`. If you want to reset, then just change the seed and it will start from the new seed again. Below is a list of accepted strategies and how they behave if a seed version of `v1.0.0` was used.
     * `major` -- increments the major bit. So, first pass it will be `v2.0.0` and next one will be `v3.0.0`.
@@ -79,6 +79,9 @@ jobs:
 The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
 **Notes:**
+
+- Either a version resource, a manifest or deploy job with a version or another release job is required as an input to the
+release job.
 
 - Since `release` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag.
 
