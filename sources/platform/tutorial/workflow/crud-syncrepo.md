@@ -30,13 +30,12 @@ The name of the `syncRepo` is the name of the repository with the name of the br
 <img width="30%" height="30%" src="/images/platform/resources/syncRepo/list-subscriptions.png" alt="List of subscriptions">
 
 * On the top-right corner, click on the `+` icon(`Enable Projects or Add syncRepo`).
-* On the enable page, goto the last panel with heading `ADD A SYNC REPOSITORY`.
+* On the enable page, click on `+` button in last column of the project that you want to add sync repo. It will open a modal window with a form where syncRepo can be created.
 
 <img src="/images/platform/tutorial/workflow/add-syncRepo.png" alt="Add a syncRepo">
 
 * Complete the form:
 	* `Subscription Integration` dropdown shows the integration you created in the first step. If not, you will need to go through the flow of adding the integration.
-	* `Repo` dropdown shows all repositories in the source control you just connected with the integration. Choose your sync repository.
 	* `Branch` dropdown shows all the branches for the above selected repository. Select the branch that contains your pipeline configuration files.
 	* Name your sync repository with an easy to remember name.
 	* `Default Flag` checkbox is checked by default. When this is checked a default flag, the rSync job's name, is added to all the resources and jobs in this `syncRepo`.
