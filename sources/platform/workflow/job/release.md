@@ -35,7 +35,7 @@ jobs:
     on_start:                                       # optional
       - NOTIFY:         <notification resource name>
     steps:
-      - IN:             <version>                   # required
+      - IN:             <version>                   # optional
       - IN:             <manifest/release/deploy>   # optional
       - IN:             <manifest/release>          # optional
       - IN:             <any job or resource>       # optional
@@ -79,6 +79,9 @@ jobs:
 The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 
 **Notes:**
+
+- Either a version resource, a manifest or deploy job with a version or another release job is required as an input to the
+release job.
 
 - Since `release` jobs are managed jobs, free-form scripting is not allowed. `on_start`, `on_success`, `on_failure`, `on_cancel` and `always` only support `NOTIFY` tag.
 
