@@ -48,7 +48,10 @@ resources:
 	          method:       application
 	          role:         <AWS IAM role used to update the Load Balancer>
 
-	    Note: `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, Shippable will search for one that has the right level of trust automatically. If none is found, the job where this resource is used will fail.
+	    Note:
+
+          1. `role` is and optional setting and if set, the role should have trust relationship allowing "ecs.amazonaws.com", if this is left blank, Shippable will search for one that has the right level of trust automatically. If none is found, the job where this resource is used will fail.
+          2. Make sure `sourceName` is the ARN of the target group and not the ARN of the load balancer itself.
 
 	* For [Google Cloud Load Balancers](https://kubernetes.io/docs/user-guide/services/) or [Kubernetes Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
