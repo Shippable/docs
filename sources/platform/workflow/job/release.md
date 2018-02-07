@@ -35,7 +35,7 @@ jobs:
     on_start:                                       # optional
       - NOTIFY:         <notification resource name>
     steps:
-      - IN:             <version>                   # optional
+      - IN:             <version>                   # required
       - IN:             <manifest/release/deploy>   # optional
       - IN:             <manifest/release>          # optional
       - IN:             <any job or resource>       # optional
@@ -51,7 +51,7 @@ jobs:
 
 * **`name`** -- should be an easy to remember text string
 
-* **`type`** -- is set to `manifest`
+* **`type`** -- is set to `release`
 
 * **`bump`** -- This is used to control the strategy used to bump your seed version. Subsequent executions of this job will increment the last bumped value if it is semantically greater than the `seed`. If you want to reset, then just change the seed and it will start from the new seed again. Below is a list of accepted strategies and how they behave if a seed version of `v1.0.0` was used.
     * `major` -- increments the major bit. So, first pass it will be `v2.0.0` and next one will be `v3.0.0`.

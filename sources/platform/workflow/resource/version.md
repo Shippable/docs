@@ -25,9 +25,9 @@ resources:
 
 * **`type`** -- is set to `version`
 
-* **`seed`** -- is an object which contains specific properties that applies to this resource.
+* **`versionTemplate`** -- is an object which contains specific properties that applies to this resource.
 
-	        seed:
+	        versionTemplate:
 	          versionName: "0.0.1"
 
     `versionName` is a string that represents a semantic version that is used as a starting point when used with a release job. You can also also use `0.0.0-alpha`, `0.0.0-beta` & `0.0.0-rc` formats.
