@@ -9,7 +9,7 @@ page_keywords: email, Continuous Integration, Continuous Deployment, CI/CD, test
 
 By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
 
-We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/set-email/)
+We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/account/set-email/)
 
 To customize email notifications, you'll need to configure options in the `shippable.yml` file.
 

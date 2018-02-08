@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Working with Triggers
 
-[Triggers](/platform/workflow/trigger/overview/) are used to manually start a job. They are the only resources that will start dependent jobs when updated in the YML.
+[Triggers](/platform/workflow/resource/trigger/) are used to manually start a job. They are the only resources that will start dependent jobs when updated in the YML.
 
 Triggers are added in the same way as all other resources.  See [Working with Resources](/platform/tutorial/workflow/crud-resource) for more information.
 

@@ -37,7 +37,7 @@ You can create a new deployment key for your Subscription by clicking on **Reset
 
 These sections let you encrypt sensitive information like passwords, keys, tokens, etc so you can use it in your yaml configurations. More information on how to encrypt is [here](/platform/tutorial/security/encrypt-vars).
 
-Please note that we recommend using the [key-value pair integration](/platform/integration/key-value) to store sensitive information instead of secure variables. Advantages of using integrations are [listed here](/platform/integrtion/overview).
+Please note that we recommend using the [key-value pair integration](/platform/integration/key-value) to store sensitive information instead of secure variables. Advantages of using integrations are [listed here](/platform/integration/overview).
 
 ## View deployment key
 

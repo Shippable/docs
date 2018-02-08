@@ -103,7 +103,7 @@ are always executed at the end of the job, regardless of whether the `TASK`
 section failed or succeeded.  Scripts will not run if the job is canceled,
 but notifications will be sent.
 
-  - [replicate](jobs-unmanaged#replicating-an-input): Adding `replicate` to
+  - [replicate](runcli.md#replicate): Adding `replicate` to
 an `OUT` resource will copy an `IN` resource for the new version of the `OUT`
 resource.
 
@@ -130,11 +130,11 @@ integration. Here is a list of the tools configured for each integration type:
 
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCLI` job.
 
-A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/platform/jobs-unmanaged/), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
+A complete list of these variables is available in the [Environment variables for unmanaged jobs docs](/platform/workflow/job/runsh/#default-environment-variables), along with simple tutorials showing how you can work with `IN` and `OUT` resources in your scripts.  
 
 ## Status notifications for Pull Requests
 
-If you have a [`gitRepo`](/platform/resource-gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
+If you have a [`gitRepo`](/platform/workflow/resource/gitrepo/) as IN to your `runCLI` job, you can see the job status for Pull Requests to your git repository .
 
 You can turn this ON or OFF using the `showBuildStatus` tag in the `gitRepo` resource.
 

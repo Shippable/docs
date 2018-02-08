@@ -59,7 +59,6 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 - [HipChat](/platform/integration/hipchatKey)
 - [Slack](/platform/integration/slackKey)
-- [IRC](/integration/irc/)
 
 ## Supported Miscellaneous Integrations
 

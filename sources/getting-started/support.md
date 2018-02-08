@@ -41,7 +41,7 @@ Each minion has 2 cores and 4GB RAM, unless you upgrade your subscription to a h
 
 ---
 ## Do I need to create an Account on Shippable?
-You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [Git identities section](/platform/management/git-identities/) for more details.
+You do not need to explicitly create an account on Shippable to start using it. However, since we allow you to connect multiple source control providers and clouds to Shippable, the term 'account' is used to encompass all of these identities. So for example, 'sync' at an account level means syncing your information across all source control providers and connected third party services. Read the [Git identities section](/platform/management/account/git-identities/#git-identities) for more details.
 
 ---
 ## Can you explain what a Subscription on Shippable means?
@@ -148,4 +148,4 @@ Shippable [supports](/ci/services-overview/) lots of different services, tools a
 ---
 ## Why are some of the standard environment variables like `SHIPPABLE_POSTGRES_VERSION` not available in my CI environment?
 
-1. [Machine Images](/platform/tutorial/runtime/ami-overview/) from versions v5.4.1 to v5.6.1 do not have some of the [standard environment variables](/ci/env-vars/#stdEnv) related to [shippable services](/ci/services-overview/) because of a bug. This is fixed in machine image version v5.7.1 onwards. Please [upgrade](/platform/tutorial/runtime/ami-overview/#changing-the-subscription-machine-image) your machine image to v5.7.1 to use the shippable services related environment variables.
+1. [Machine Images](/platform/runtime/machine-image/ami-overview/) from versions v5.4.1 to v5.6.1 do not have some of the [standard environment variables](/ci/env-vars/#stdEnv) related to [shippable services](/ci/services-overview/) because of a bug. This is fixed in machine image version v5.7.1 onwards. Please [upgrade](/platform/tutorial/runtime/ami-overview/#changing-the-subscription-machine-image) your machine image to v5.7.1 to use the shippable services related environment variables.

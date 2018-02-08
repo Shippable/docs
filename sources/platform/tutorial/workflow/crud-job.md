@@ -19,7 +19,7 @@ Jobs are defined in a yml-based configuration file, `shippable.yml`, that is com
 ## Adding Jobs
 Jobs are defined in a configuration file, `shippable.yml`, and this file is added to a source control repository, which we call your [sync repository](/platform/workflow/resource/syncrepo).. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to jobs defined in the repo.
 
-Once `shippable.yml` is committed to a repository, you will have to add it to Shippable through the UI. Detailed step by step instructions are [here ](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
+Once `shippable.yml` is committed to a repository, you will have to add it to Shippable through the UI. Detailed step by step instructions are [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 
 Once your sync repository is added, the platform watches for changes (job additions, edits or deletions) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 
@@ -114,7 +114,7 @@ Here are the steps to migrate -
 
 Here are the steps to migrate -
 
-1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform//tutorial/workflow/crud-job#pausing-jobs).
+1. Goto the SPOG page and pause the rSync job for the source repository from where you want to migrate resources, jobs or triggers. Steps for pausing the rSync jobs can be found [here](/platform/tutorial/workflow/crud-job#pausing-jobs).
 
 2. Add the jobs you want to migrate to the destination repository's yml files.
 

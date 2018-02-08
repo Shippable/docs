@@ -97,7 +97,7 @@ The build will complete when status transitions from Waiting->Starting->Working-
 
 ## Connecting the runSh job to your deploy job in the pipeline
 
-If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in[ECS deploy](/deploy/continuous-delivery-single-container-docker-application//) using an OUT directive.
+If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in [ECS deploy](/deploy/continuous-delivery-single-container-docker-application/) using an OUT directive.
 
 ```
   - name: deploy-ecs-basic-deploy

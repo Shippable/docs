@@ -22,4 +22,4 @@ To get here:
 
 * Click on the **Spanner** icon
 
-* You can [pin your Job](/platform/tutorial/crud-job/) to use specific versions of the `IN`s that the job takes in as inputs. This is typically used to control which version gets deployed etc. or even rollback if you need to
+* You can [pin your Job](/platform/tutorial/workflow/crud-job/) to use specific versions of the `IN`s that the job takes in as inputs. This is typically used to control which version gets deployed etc. or even rollback if you need to

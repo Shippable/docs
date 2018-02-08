@@ -11,7 +11,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ###CI
 
 * [Building a Docker image](/ci/build-docker-images/)
-* [Pushing a Docker image to Amazon ECR](/ci/push-ecr/)
+* [Pushing a Docker image to Amazon ECR](/ci/push-amazon-ecr/)
 
 ###Deploy
 

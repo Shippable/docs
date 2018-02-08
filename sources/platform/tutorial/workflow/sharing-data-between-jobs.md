@@ -8,7 +8,7 @@ page_title: Share data between Jobs
 
 You can share key-value pairs and files with a downstream job in an Assembly line by writing to the `state` of your job.
 
-Jobs can also share information through resources, which is explained in the [Workflow state overview](/platform/state/overview/) and is outside the scope of this document.
+Jobs can also share information through resources, which is explained in the [Workflow state overview](/platform/workflow/state/overview/) and is outside the scope of this document.
 
 
 ## Sharing state between successive jobs

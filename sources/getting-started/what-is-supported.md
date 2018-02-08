@@ -65,13 +65,13 @@ Following are the service that are pre-installed:
 * [MongoDB](/ci/mongodb/)
 * [MySQL](/ci/mysql/)
 * [Neo4j](/ci/neo4j/)
-* [Postgres](/ci/postgres/)
+* [Postgres](/ci/postgresql/)
 * [RabbitMQ](/ci/rabbitmq/)
 * [Redis](/ci/redis/)
 * [RethinkDB](/ci/rethinkdb/)
 * [Riak](/ci/riak/)
-* [Selenium](ci/selenium/)
-* [SqlLite](/ci/sqllite/)
+* [Selenium](/ci/selenium/)
+* [SqlLite](/ci/sqlite/)
 
 For more information, read our [working with services](/ci/services-overview/) section.
 

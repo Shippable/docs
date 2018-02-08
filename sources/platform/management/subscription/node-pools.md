@@ -64,7 +64,7 @@ of the Node Pools page. This will open the **ADD NODE POOL** page.
   selected **Architecture**. For a list of supported OS and architecture
   combinations, refer to the documentation on [Nodes](/platform/runtime/nodes/)
 
-* **Runtime Version** defines the default version of Shippable Machine Images that will be used to run the jobs. You can choose a specific Machine Image to make sure the build nodes have the versions you need for languages/services/CLIs/etc. To learn more about this, read our [Machine image document](/platform/runtime/ami/ami-overview)
+* **Runtime Version** defines the default version of Shippable Machine Images that will be used to run the jobs. You can choose a specific Machine Image to make sure the build nodes have the versions you need for languages/services/CLIs/etc. To learn more about this, read our [Machine image document](/platform/runtime/machine-image/ami-overview/)
 
 * **Node Count** is the number of nodes that can be added to the node pool. The
   upper limit is set by the number of licenses that are available at the

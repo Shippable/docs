@@ -56,7 +56,7 @@ By default, you will already have an account integration with whichever SCM prov
 
 If your CLI repository is on another SCM account, create an integration for it by using one of the following supported SCM docs:
 
-- [GitHub]([instructions here](/platform/integration/github/))
+- [GitHub](/platform/integration/github/)
 - [Bitbucket](/platform/integration/bitbucket/)
 - [GitLab](/platform/integration/gitlab/)
 - [GitHub Enterprise](/platform/integration/github-enterprise/)

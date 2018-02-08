@@ -211,7 +211,7 @@ resources:
 This resource is used as an `IN` for the following jobs:
 
 * [deploy](/platform/workflow/job/deploy)
-* [runSh](/platform/workflow/job/runSh)
+* [runSh](/platform/workflow/job/runsh)
 
 ## Default Environment Variables
 Whenever `cluster` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
