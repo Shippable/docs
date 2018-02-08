@@ -30,6 +30,15 @@ The Microsoft Azure integration can be used in the following [resources](/platfo
 * [cluster](/platform/workflow/resource/cluster/)
 * [loadBalancer](/platform/workflow/resource/loadbalancer/)
 
+### Roles
+There are two main ways to use Azure Keys on Shippable:
+1. automated, managed Kubernetes deployments (and load balancing) via `deploy` or `provision` jobs
+2. Azure CLI configuration via `cliConfig` resources
+
+For managed Kubernetes deployments via [deploy jobs](/platform/workflow/job/deploy), Shippable assumes that the service principal given has the equivalent of a "Contributor" role on the application that contains the AKS cluster.  Shippable will use the Azure CLI to perform a `get-credentials` call, after which all deployment management will happen via `kubectl` commands.
+
+For `cliConfig` resources, you should make sure that your service principal has adequate permission to perform whatever actions you plan to take in your custom script.  This could mean ACR reader role to pull images, AKS contributor to create deployments, etc.  If your `cliConfig` is using the `aks` scope, then Shippable will automatically perform an `aks get-credentials` call, so your active directory role needs provide adequate permission (such as "Contributor").
+
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
