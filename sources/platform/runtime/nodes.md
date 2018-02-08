@@ -99,4 +99,4 @@ If you choose to run your BYON Node on an unsupported OS like Alpine, please ens
 
 ### Tutorials
 
-Please read our [BYON Node tutorials](/platform/tutorial/runtime/custom-nodes) to learn how to add a BYON node, re-initialize it, and delete it.
+Please read our [BYON Node tutorials](/platform/tutorial/runtime/custom-nodes/) to learn how to add a BYON node, re-initialize it, and delete it.

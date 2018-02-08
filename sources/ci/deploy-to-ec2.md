@@ -147,7 +147,7 @@ branch name.
 Next, the files that are to be deployed need to be packaged (as a
 tarball or ZIP archive) along with the `appspec.yml` file and put into
 the S3 bucket. In our case, we use `aws deploy push` command to automate
-this step. Its options are documented in [AWS CLI reference](http://docs.aws.amazon.com/cli/latest/platform/deploy/push.html), but are pretty self-explanatory. By default, the tool will package all the files from the current directory and upload it to the location specified in `s3://<bucket name>/<key>` format.
+this step. Its options are documented in [AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/deploy/push.html), but are pretty self-explanatory. By default, the tool will package all the files from the current directory and upload it to the location specified in `s3://<bucket name>/<key>` format.
 
 In the example below, we've extracted bucket and key to environment
 variables called `CD_BUCKET` and `CD_KEY`. The
