@@ -31,6 +31,17 @@ Resources are the building blocks of assembly lines and some types of resources 
 * [integration](/platform/workflow/resource/integration)
 * [loadbalancer](/platform/workflow/resource/loadbalancer)
 
+### Service Account Permissions
+There are three ways to use a Google Cloud integration in Shippable Assembly Lines:
+
+1. automated, managed Kubernetes deployments via managed `deploy` jobs
+2. provisioning services in managed `provision` jobs
+3. gcloud CLI configuration via `cliConfig` resources in a `runSh` job
+
+For managed [deploy](/platform/workflow/job/deploy) and [provision](/platform/workflow/job/provision) jobs, the key should belong to a service account with a role that has `container.clusters.get` and `container.clusters.getCredentials` permissions. This will allow Shippable to connect to the Kubernetes cluster.
+
+For `cliConfig` resources, you should make sure that your policy allows you to perform whatever actions you plan to take in your custom script.  This could mean permissions to pull images, create clusters, etc.
+
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
