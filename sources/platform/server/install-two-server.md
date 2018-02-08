@@ -318,7 +318,7 @@ You can run `sudo ./admiral.sh info` at any time to retrieve your Login token an
 
 <img src="/images/platform/admiral/Admiral-2server-2.png" alt="Admiral-2-server">
 
-If anything shows **failed** status, read the [**Troubleshooting**](#troubleshooting) section at the bottom of this page for tips. If you still run into issues, please contact us [over email](mailto:support@shippable.com) or through a [github issue](https://www.github.com/Shippable/issues).
+If anything shows **failed** status, read the [**Troubleshooting**](#troubleshooting) section at the bottom of this page for tips. If you still run into issues, please contact us [over email](mailto:support@shippable.com) or through a [github issue](https://github.com/Shippable/support/issues).
 
 ###4. Configure Source Control Provider(s)
 

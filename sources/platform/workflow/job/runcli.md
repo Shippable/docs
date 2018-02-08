@@ -117,13 +117,13 @@ integration. Here is a list of the tools configured for each integration type:
 | Integration Type                    | Configured Tools           |
 | ------------------------------------|-------------|
 | AWS                                 | [AWS CLI](https://aws.amazon.com/cli/); [EB (Elastic Beanstalk) CLI](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) |
-| Amazon EC2 Container Registry (ECR) | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
-| Docker Registry             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
+| Amazon EC2 Container Registry (ECR) | [Docker Engine](https://docs.docker.com/engine/reference/commandline/cli/) |
+| Docker Registry             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/cli/) |
 | Google Container Engine             | [gcloud](https://cloud.google.com/sdk/gcloud/); [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
-| Google Container Registry (GCR)     | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
+| Google Container Registry (GCR)     | [Docker Engine](https://docs.docker.com/engine/reference/commandline/cli/) |
 | JFrog Artifactory                   | [JFrog CLI](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory) |
 | Kubernetes                          | [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
-| Quay.io                             | [Docker Engine](https://docs.docker.com/engine/platform/commandline/docker/) |
+| Quay.io                             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/cli/) |
 
 
 ##Environment variables
