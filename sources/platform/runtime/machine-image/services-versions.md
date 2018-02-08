@@ -14,12 +14,12 @@ When you run a `runCI` job on Shippable, the following popular services are alre
 * [MongoDB](/ci/mongodb/)
 * [MySQL](/ci/mysql/)
 * [Neo4j](/ci/neo4j/)
-* [Postgres](/ci/postgres/)
+* [Postgres](/ci/postgresql/)
 * [RabbitMQ](/ci/rabbitmq/)
 * [Redis](/ci/redis/)
 * [RethinkDB](/ci/rethinkdb/)
 * [Riak](/ci/riak/)
-* [Selenium](ci/selenium/)
+* [Selenium](/ci/selenium/)
 * [SqlLite](/ci/sqllite/)
 * [Cassandra](/ci/cassandra)
 
@@ -153,6 +153,6 @@ apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
 |----------|---------
 | 3.11   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 
-Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release. 
+Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
 To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
 of Cassandra is available.

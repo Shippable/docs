@@ -17,7 +17,3 @@ Since this integration has been deprecated, you cannot create new account integr
 ## Usage in Assembly Lines
 
 The Jenkins integration can no longer be used in your Assembly Lines Setup.
-
-##Further Reading
-
-* [jenkinsJob](/platform/workflow/job/jenkinsjob/)

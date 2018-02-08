@@ -31,7 +31,7 @@ Please make sure you make the necessary adjustments to your Assembly Line, i.e. 
 
 ###2. Commit the file
 
-Once the file is committed, the [rSync](platform/workflow/job/rsync/#rsync) job will run and Shippable will detect that the deploy job was deleted. **Please note that this will delete your service on your orchestration platform.**
+Once the file is committed, the [rSync](/platform/workflow/job/rsync) job will run and Shippable will detect that the deploy job was deleted. **Please note that this will delete your service on your orchestration platform.**
 
 This step soft-deletes the deploy job, so it still shows in the **Deleted Resources list** in your SPOG view.
 

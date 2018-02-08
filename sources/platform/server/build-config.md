@@ -75,11 +75,11 @@ By default, BYON nodes are enabled for a Shippable Server installation. You will
 
 #### **Adding a BYON node**
 
-Instructions to add BYON nodes are explained here: [Adding BYON nodes](http://docs.shippable.com/getting-started/byon-manage-node/).
+Instructions to add BYON nodes are explained here: [Adding BYON nodes](/platform/tutorial/runtime/custom-nodes/).
 
 By default, all super users or Subscription owners can add BYON nodes to a Subscription. If you want to restrict addition of BYON Nodes to super users, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
 
-To set up BYON nodes, sign in to Shippable Server and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
+To set up BYON nodes, sign in to Shippable Server and [follow instructions here](/platform/tutorial/runtime/custom-nodes/).
 
 #### **Disable BYON nodes**
 

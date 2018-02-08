@@ -160,7 +160,7 @@ Here is a list of the tools configured for each integration type:
 
 | Integration Type                    | Configured Tools|
 | ------------------------------------|-------------|
-| [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/machine-image/cli-versions/#aws) & [Elastic Beanstalk](platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
+| [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/machine-image/cli-versions/#aws) & [Elastic Beanstalk](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
 | [Azure with AKS scope](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) & [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |

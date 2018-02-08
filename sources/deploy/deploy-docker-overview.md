@@ -36,11 +36,11 @@ The deploy job allows you to deploy a complex application to any supported orche
 To get started, check out our tutorials:
 
 - [Continuous Delivery of a single-container Docker app to an orchestration platform](/deploy/continuous-delivery-single-container-docker-application/)
-- [Continuous Delivery of a multi-container Docker app to an orchestration platform](/deploy/cd_of_multi_container_applications_to_orchestration_platforms)
+- [Continuous Delivery of a multi-container Docker app to an orchestration platform](/deploy/continuous-delivery-multi-container-docker-application/)
 
 <a name="custom-deploy"></a>
 ## Custom deployments with Cloud-Native CLIs
 
 You can also use cloud-native CLIs to configure your deployments yourself. The advantage is that you have full control over your deployments. However, this does not give you cross-cloud compatibility since moving to a different orchestration platform will require you to rewrite your deployment job.
 
-For deployments using the appropriate cloud-native CLI, please visit our [Deploy with Cloud-Native CLI docs](/deploy/overview_cloud_native/).
+For deployments using the appropriate cloud-native CLI, please visit our [Deploy with Cloud-Native CLI docs](/deploy/deploy-cloud-native-overview/).
