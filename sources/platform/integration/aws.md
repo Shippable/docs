@@ -32,6 +32,66 @@ Resources are the building blocks of assembly lines and some types of resources 
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
 
+### IAM Policies
+There are two ways to use an AWS integration in Shippable Assembly Lines:
+
+1. automated, managed Amazon ECS deployments via managed `deploy` jobs
+2. AWS CLI configuration via `cliConfig` resources in a `runSh` job
+
+For managed deployments via [deploy jobs](/platform/workflow/job/deploy), the keys need to belong to a user with a policy attached that will allow Shippable to create, delete, and update services and register task definitions. Here is an example policy:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:DeregisterTaskDefinition",
+                "ecs:UpdateService",
+                "ecs:CreateService",
+                "ecs:RegisterTaskDefinition",
+                "ecs:DeleteService",
+                "ecs:DescribeServices",
+                "ecs:ListTaskDefinitions"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+If your managed deployment includes a [loadBalancer](/platform/workflow/resource/loadbalancer), the policy will also need permission to assume a role for the load balancer:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:DeregisterTaskDefinition",
+                "ecs:UpdateService",
+                "ecs:CreateService",
+                "ecs:RegisterTaskDefinition",
+                "ecs:DeleteService",
+                "ecs:DescribeServices",
+                "ecs:ListTaskDefinitions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole",
+                "iam:ListRoles"
+            ],
+            "Resource": "arn:aws:iam::*:*"
+        }
+    ]
+}
+```
+
+For `cliConfig` resources, you should make sure that your policy allows you to perform whatever actions you plan to take in your custom script.  This could mean ECR actions to pull images, ECS actions to create deployments, EC2 actions to run instances, etc.
+
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
