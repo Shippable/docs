@@ -4,7 +4,7 @@ sub_section: Working with services
 
 #Continuous Integration with Cassandra
 
-Cassandra is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Cassandra.
+Cassandra is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Cassandra. Cassandra versions 3.6-3.11 are broken for oracle java due to a recent release. To use Cassandra, you should run it with openjdk8 for it to work correctly. This will be patched as soon as newer version of Cassandra is available.
 
 ##Starting Cassandra
 
