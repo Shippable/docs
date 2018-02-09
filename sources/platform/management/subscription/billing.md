@@ -52,7 +52,7 @@ To view your current plan:
 
     <img src="/images/platform/management/new-sku-row.png" alt="Configure new SKU">
 
-    On-demand nodes are available for `x86_64` **Ubuntu 14.04** and **Ubuntu 16.04**.
+    On-demand nodes are available for `x86_64` **Ubuntu 14.04**.
 
     BYON nodes are available for `x86_64` architecture **CentOS**, **MacOS**, **Ubuntu 14.04**, **Ubuntu 16.04**, and **Windows Server 2016**. `aarch64` architecture is supported on **Ubuntu 16.04**.
 
