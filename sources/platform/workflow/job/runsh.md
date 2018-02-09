@@ -53,8 +53,8 @@ jobs:
           name: <task name>
           runtime:                  # optional
             options:
-              image_name: <name of the image to boot>
-              image_tag: <tag of the image to boot>
+              imageName: <name of the image to boot>
+              imageTag: <tag of the image to boot>
               pull: <true/false>    # optional
               options: <docker options arguments> # optional
               env:                  # optional
@@ -99,24 +99,24 @@ jobs:
 
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
-* **`name`** -- Required, should be an easy to remember text string
+* **`name`** -- Required, should be an easy to remember text string.
 
-* **`type`** -- Required, is set to `runSh`
+* **`type`** -- Required, is set to `runSh`.
 
-* **`triggerMode`** -- Optional, can be `parallel` or `serial` and  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/)
+* **`triggerMode`** -- Optional, can be `parallel` or `serial` and  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/).
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes).
 
 * **`allowPublicAccess`** -- Optional, defaults to false. When set to `true`, this job becomes visible to everyone. A good usecase for allowing public visibility if a runSh job has a `gitRepo` input which points to a public repository. If this job is building this repository or running tests on this repository and publishing commit/pr/release status on the public repository, then it would be beneficial to enable public access to the console of this job.
 
 * **`runtime`** -- Optional. This is an object which can be used to configure
-  the behavior of the job
-    * `nodePool` -  The node pool on which the job should run. For detailed
-      explanation, read about [node pools](/platform/management/subscription/node-pools/)
+  the behavior of the job.
+    * `nodePool` --  The node pool on which the job should run. For detailed
+      explanation, read about [node pools](/platform/management/subscription/node-pools/).
     * `timeoutMinutes` -- Optional. This sets the maximum time, in minutes,
     * `container` -- Optional. Boolean field to decide whether the job should
       run inside a container or on the host. `true` by default
-  after which the job will be automatically stopped
+  after which the job will be automatically stopped.
 
 * **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
 
@@ -124,34 +124,36 @@ A description of the job YML structure and the tags available is in the [jobs se
     * `IN` -- Optional, any resource or job can be used here, with as many `IN` resources and jobs as you need. The `switch`, `versionNumber`, `versionName` and `showBuildStatus` options are supported, too. However, `applyTo` is not supported.
 
     * `TASK` -- Required, at least one script line needs to be present
-        * `script:` -- should contain one or more lines of bash script to be
-          executed
-        * `runtime:` -- task level runtime options.
-            * `image_name`: Only applicable when job is running inside
-              a container. This defines the image to be used to run the job
-            * `image_tag`: Only applicable when job is running inside
-              a container. This defines the image tag to apply to `image_name`
-              to run the job
-            * `pull`: Only applicable when job is running inside a container. Setting this to `true` will force pull the job image on each run
-            * `options`: Only applicable when job is running inside
-              a container. This can be used to set docker options for
-              container like `--hostname`, `--cpus` etc
-            * `env:` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job
+        * `script` -- should contain one or more lines of bash script to be
+          executed.
+        * `runtime` -- task level runtime options.
+            * `container` -- Optional and defaults to true. If false, the task will be run directly on the host machine.
+            * `options` -- Required.
+                * `imageName` -- Only applicable when job is running inside
+                  a container. This defines the image to be used to run the job.
+                * `imageTag` -- Only applicable when job is running inside
+                  a container. This defines the image tag to apply to `image_name`
+                  to run the job.
+                * `pull` -- Only applicable when job is running inside a container. Setting this to `true` will force pull the job image on each run.
+                * `options` -- Only applicable when job is running inside
+                  a container. This can be used to set docker options for
+                  container like `--hostname`, `--cpus` etc.
+                * `env` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job.
     * `OUT` -- Optional, any resource can be used here and as many as you need
-        * `replicate` -- Optional, any `IN` resource of same type can be used
-        * `overwrite` -- Optional, default is `false`
+        * `replicate` -- Optional, any `IN` resource of same type can be used.
+        * `overwrite` -- Optional, default is `false`.
 
     * `showBuildStatus` -- Optional, defaults to false. If set to true, build status will be set on the gitRepo depending on how the gitRepo
     resource is configured. For example if `buildOnCommit:false` and `buildOnPullRequest:true`, then status will be updated
     on the gitRepo for pull requests only.
 
-* **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used
+* **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
-* **`on_failure `** -- Optional, and both `script` and `NOTIFY` types can be used
+* **`on_failure `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
-* **`on_cancel `** -- Optional, and both `script` and `NOTIFY` types can be used
+* **`on_cancel `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
-* **`always `** -- Optional, and both `script` and `NOTIFY` types can be used
+* **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
 ## cliConfig special handling
 If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
