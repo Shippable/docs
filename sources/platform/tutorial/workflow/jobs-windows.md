@@ -43,7 +43,8 @@ you can assign your runSh jobs to a specific Node pool.
 ##5. Define CI jobs and resources.
 
 * Your CI jobs and resources are defined in a [shippable.yml](/platform/tutorial/workflow/shippable-yml/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
-* Create the shippable.yml in any of your configured SCM integration repository.
+* Create the shippable.yml in any of your configured SCM integration repository, **except the source code repository that you are building itself**. This approach offers several benefits such as controlling execute permissions on the jobs
+defined in the yml since only users who have write permissions on the repository can execute the jobs defined in it as well as commits to the yml file not triggering the build job itself. You can for experimentation purposes create the shippable.yml file in the source code repository itself, but this will create the undesired side-effect of running the build job whenever the shippable.yml file is committed, since the build job needs the repository as an input in order for it to checkout the repository. We are in the meantime actively working on a feature that will solve this job triggering issue.
 * We now define a [gitRepo resource](/platform/workflow/resource/gitrepo/#gitrepo) in shippable.yml  that points to the repository that you want to build. This resource
 creates the necessary webhooks on your repository so that the job is automatically triggered on commits/prs/release tags.
 You can configure which webhooks you want to create, documented [here](/platform/workflow/resource/gitrepo/#gitrepo).
@@ -96,8 +97,7 @@ is not the default Node pool, specify the Node pool in `runtime:nodePool` sectio
             - ./runbuild.ps1
 ```
 
-To run powershell commands or scripts in your repository on the host, specify `container:false` under `TASK:runtime` section. If you want to run docker commands,
-you will need to run them on the host directly.
+To run powershell commands or scripts in your repository on the host, specify `container:false` under `TASK:runtime` section. If you want to run docker commands in a `TASK`, the simplest approach is to run them on the host directly.
 
 ```
   ## Job description:
@@ -117,6 +117,31 @@ you will need to run them on the host directly.
             # run a docker build
             - docker build -t mynodeapp:latest .
 ```
+
+To run docker commands in a container, you will need to do the following:
+
+* Package the docker binary in the container image itself (preferred) OR install the docker client in the container using powershell commands in the `TASK` section. The docker binary path should also be set in the `PATH` machine environment variable.
+
+Here is an example of a powershell script that you can use either in your Dockerfile or the `TASK` section.
+
+```
+# Docker client binary
+RUN Invoke-WebRequest https://download.docker.com/win/static/stable/x86_64/docker-17.06.2-ce.zip -OutFile docker-17.06.2-ce.zip; \
+    mkdir c:\docker; \
+    Expand-Archive  .\docker-17.06.2-ce.zip -DestinationPath $env:TEMP/docker/ -Force; \
+    Move-Item $env:TEMP\docker\docker\docker.exe c:\docker\docker.exe; \
+    $env:PATH = '{0};c:\docker' -f $env:PATH ; \
+    [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine); \
+    Remove-Item .\docker-17.06.2-ce.zip; \
+    Remove-Item -recur -force $env:TEMP\docker;
+```     
+* Set the DOCKER_HOST environment variable to connect to the docker daemon running on the host.
+
+```
+$env:DOCKER_HOST=tcp://localhost:2375
+```
+
+After Windows Server 1709 is officially supported, you can also use named pipes as described [here](https://docs.docker.com/docker-for-windows/faqs/#how-do-i-connect-to-the-remote-docker-engine-api).
 
 * Commit the file and create a syncRepo.
 
