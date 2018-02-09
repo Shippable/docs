@@ -111,7 +111,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`runtime`** -- Optional. This is an object which can be used to configure
   the behavior of the job.
-    * `nodePool` -  The node pool on which the job should run. For detailed
+    * `nodePool` --  The node pool on which the job should run. For detailed
       explanation, read about [node pools](/platform/management/subscription/node-pools/).
     * `timeoutMinutes` -- Optional. This sets the maximum time, in minutes,
     * `container` -- Optional. Boolean field to decide whether the job should
@@ -124,20 +124,21 @@ A description of the job YML structure and the tags available is in the [jobs se
     * `IN` -- Optional, any resource or job can be used here, with as many `IN` resources and jobs as you need. The `switch`, `versionNumber`, `versionName` and `showBuildStatus` options are supported, too. However, `applyTo` is not supported.
 
     * `TASK` -- Required, at least one script line needs to be present
-        * `script:` -- should contain one or more lines of bash script to be
+        * `script` -- should contain one or more lines of bash script to be
           executed.
-        * `runtime:` -- task level runtime options.
-            * `options:` -- Required.
-                * `imageName`: Only applicable when job is running inside
+        * `runtime` -- task level runtime options.
+            * `container` -- Optional and defaults to true. If false, the task will be run directly on the host machine.
+            * `options` -- Required.
+                * `imageName` -- Only applicable when job is running inside
                   a container. This defines the image to be used to run the job.
-                * `imageTag`: Only applicable when job is running inside
+                * `imageTag` -- Only applicable when job is running inside
                   a container. This defines the image tag to apply to `image_name`
                   to run the job.
-                * `pull`: Only applicable when job is running inside a container. Setting this to `true` will force pull the job image on each run.
-                * `options`: Only applicable when job is running inside
+                * `pull` -- Only applicable when job is running inside a container. Setting this to `true` will force pull the job image on each run.
+                * `options` -- Only applicable when job is running inside
                   a container. This can be used to set docker options for
                   container like `--hostname`, `--cpus` etc.
-                * `env:` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job.
+                * `env` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job.
     * `OUT` -- Optional, any resource can be used here and as many as you need
         * `replicate` -- Optional, any `IN` resource of same type can be used.
         * `overwrite` -- Optional, default is `false`.
