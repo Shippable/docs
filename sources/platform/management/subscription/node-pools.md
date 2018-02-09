@@ -104,4 +104,4 @@ containing On-demand nodes, no additional steps are required.
   only the new node count as the maximum limit for the nodes it can provision.
 
 * To remove [BYON nodes](/platform/runtime/nodes/#byon-nodes) from node pools,
-  delete individual nodes from the node details page. Refer to the documentation on [BYON nodes](/platform/runtime/nodes/#byon-nodes) for steps to delete nodes.
+  delete individual nodes from their respective node pools. Refer to the documentation on [BYON nodes](/platform/runtime/nodes/#byon-nodes) for steps to delete nodes.

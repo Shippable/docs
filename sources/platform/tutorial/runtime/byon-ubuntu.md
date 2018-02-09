@@ -39,20 +39,24 @@ The minimum requirements for a Ubuntu BYON type node that can be attached to Shi
 
 You can view all the currently active nodes in your Subscription by following the steps below:
 
-* Click on the Subscription in the left navbar.
+* From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List nodes">
 
-* On the Subscription page, click on the **Gears** icon and click on **Nodes**. In the **NODE LISTS** section, you can view the list of currently active nodes.
+* On the Subscription page, click on the **Gears** icon and click on **Node Pools**.
+
+<img width="30%" height="30%" src="/images/platform/management/node_pool_option.png" alt="Node pools option"/>
+
+* Right below the `LICENSES` panel, you can see all your `On Demand` and `BYON` nodes in their respective **Node Pools**.
 
 <img src="/images/platform/management/subscription-nodes-list.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-Please note that if you're using Shippable [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/), you will only see active nodes, if any. For BYON nodes, they will always be shown here since they are always on and available.
 
 <a name="add-node"></a>
 ## Adding new nodes
 
-You can add a new node by clicking the `+` icon on the top right corner of **NODE LIST** panel.
+You can add a new node by clicking the `Add node` button on the top right corner of your Node Pool panel.
+
+<img src="/images/platform/management/subscription-nodes-list.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * Since every node should be part of a [Node Pool](/platform/management/subscription/node-pools), you need to select which node pool will the new node be a part of. Read [Node Pool](/platform/management/subscription/node-pools) documentation to learn how to create node pools
 
@@ -83,7 +87,7 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
     run them.
     * Check the **I have run this script on my node successfully** and then click
     on the **Save** button.
-    * Your node status will automatically show green at this point. We have no way 
+    * Your node status will automatically show green at this point. We have no way
     of verifying that the node was in fact successfully initialized so you will
     need to make sure this was the case.
 
@@ -95,10 +99,7 @@ will run on your machines. Your nodes can be seen by going to your Subscription 
 
 You might want to re-initialize a BYON node for the following reasons:
 
-* The node shows a **New version available** message:
-
-<img src="/images/platform/tutorial/runtime/node-update-available.png" alt="List nodes">
-
+* An updated version is available for the build agent. This is indicated by a red exclamation icon in the `Build Agent Version` column of the Node.
 * You made some changes to the node manually and it is no longer picking up jobs
 * The node isn't picking up jobs and seems 'frozen' for some reason
 
@@ -119,8 +120,8 @@ If your nodes were not initialized automatically by Shippable, you will need to 
 
 <img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="List nodes">
 
-- Click on the **gear icon** on the Subscription page and then on **Nodes**.
-- Click on the node in the **NODE LISTS** section.
+- Click on the **gear icon** on the Subscription page and then on **Node Pools**. All your nodes can be seen right below the `LICENSES` panel in their respective Node pool.
+- Click on the node you want to delete.
 - Scroll to the bottom of the screen and click on **Delete** to delete your build node. This action is final and cannot be undone.
 
 ## Initialization scripts
