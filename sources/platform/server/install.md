@@ -179,3 +179,20 @@ The `master` folder may contain a `data` folder. It's not used at this time.
 
 ### workers
 The `workers` folder contains a `data` folder. It's not used at this time.
+
+## Pre-requisites for installing Admiral on Rancher
+Admiral can be installed on racher v1.2.0. Update rancher to v1.2.0 version using the command
+```
+sudo ros os upgrade -i rancher/os:v1.2.0
+```
+Use the ubuntu console
+```
+sudo ros console switch ubuntu
+```
+Now, pull & extract admiral tarball from s3 using
+```
+- sudo apt-get install wget
+- wget https://s3.amazonaws.com/shippable-artifacts/admiral/{RELEASE}/admiral-{RELEASE}.tar.gz
+- tar -xzf admiral-{RELEASE}.tar.gz
+```
+This will extract `admiral` folder. Now, admiral commands can be used inside the extracted admiral folder.
