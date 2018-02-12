@@ -105,6 +105,6 @@ By default, receipts are sent on a monthly basis to any email address listed in 
 
 ## Extra Billing Information
 
-You can enter some custom informations that you would like to have on your payment receipts.
+You can enter some custom information (like tax information and billing addresses) to be included on your payment receipts.
 
   <img src="/images/platform/management/extra-billing-information.png" alt="extra billing information">
