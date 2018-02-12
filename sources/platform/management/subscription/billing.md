@@ -102,3 +102,9 @@ Credit cards are managed at an Account level and can be used to pay for any Subs
 By default, receipts are sent on a monthly basis to any email address listed in the "Billing Contact(s)" box.  This can be a single address, or a semicolon-separated list of valid email addresses.
 
   <img src="/images/platform/management/multiple-billing-emails.png" alt="semicolon separated emails">
+
+## Extra Billing Information
+
+You can enter some custom information (like tax information and billing addresses) to be included on your payment receipts.
+
+  <img src="/images/platform/management/extra-billing-information.png" alt="extra billing information">
