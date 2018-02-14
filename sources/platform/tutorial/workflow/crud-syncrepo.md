@@ -53,7 +53,9 @@ Once added, you can edit the name, subscription interation used and flags of syn
 
 To change the syncRepo name and subscription integration used:
 
-* Click on the created `syncRepo` resource in subscription enable page. This will open syncRepo info modal, click on `Edit` button.
+* Click on the `+` button in your subscription dashboard and thereafter on the syncRepo you want to edit. You can either search for the syncRepo or use the pagination controls to find it.
+
+* Click on the syncRepo and on `Edit` in the rendered popup.
 
 <img src="/images/platform/tutorial/workflow/syncRepo-info.png" alt="Info of syncRepo">
 
