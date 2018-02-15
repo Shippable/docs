@@ -47,11 +47,27 @@ At this point, Shippable will create `syncRepo` resource and `rSync` job. After 
 
 ## Editing a syncRepo
 
-Once added, you can only edit the syncRepo flags. The default flag may be changed in the UI and additional flags added in your `shippable.yml`. Adding a flag will include that syncRepo, and all of its resources and jobs, in the SPOG view when you filter on that flag.
+Once added, you can edit the name, subscription interation used and flags of syncRepo.
+
+<img src="/images/platform/tutorial/workflow/list-syncRepo.png" alt="List of syncRepo's">
+
+To change the syncRepo name and subscription integration used:
+
+* Click on the `+` button in your subscription dashboard and thereafter on the syncRepo you want to edit. You can either search for the syncRepo or use the pagination controls to find it.
+
+* Click on the syncRepo and on `Edit` in the rendered popup.
+
+<img src="/images/platform/tutorial/workflow/syncRepo-info.png" alt="Info of syncRepo">
+
+* You can now add/change the subscription integration used by the syncRepo.
+
+<img src="/images/platform/tutorial/workflow/edit-syncRepo.png" alt="Edit syncRepo">
+
+The default flag may be changed in the UI and additional flags added in your `shippable.yml`. Adding a flag will include that syncRepo, and all of its resources and jobs, in the SPOG view when you filter on that flag.
 
 To change the default flag:
 
-* Click on the `syncRepo` resource. This will take you the history page:
+* Click on the `syncRepo` resource from subscription dashboard. This will take you the history page:
 
 	<img src="/images/platform/tutorial/workflow/edit-syncRepo-flag.png" alt="edit syncRepo flag">
 
