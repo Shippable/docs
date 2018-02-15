@@ -87,10 +87,15 @@ You might want to re-initialize a BYON node for the following reasons:
 
 To re-initialize a node:
 
-- From your Dashboard, click on Subscriptions in the left sidebar menu and click on your subscription.
-- Click on the **Gears icon** on the Subscription page and then on **Node Pools**.
-- Click on the node you want to reinitialize. All your nodes can be seen right below the `LICENSES` panel in their respective
-Node pool.
+- On the Subscription page, click on the **Gears** icon and click on **Node Pools**.
+
+<img width="30%" height="30%" src="/images/platform/management/node_pool_option.png" alt="Node pools option"/>
+
+- Right below the `LICENSES` panel, you can see all your `On Demand` and `BYON` nodes in their respective **Node Pools**.
+
+<img src="/images/platform/management/subscription-nodes-list.png" alt="Subscription Nodes view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+- Click on the node you want to reinitialize.
 - You can reset a node by clicking on the **Re-initialize** button, followed by downloading and running the new initialization script
 on your node manually. This action will initialize/install all build components from scratch.
 
