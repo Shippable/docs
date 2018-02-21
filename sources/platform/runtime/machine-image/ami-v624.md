@@ -49,7 +49,7 @@ We have the following base images, one for each supported OS version.
 ---
 
 
-<a name="pyt-614"></a>
+<a name="pyt-624"></a>
 ### Python
 
  | OS           | Image                    | Link                                                                                                      | Language versions                                       | Additional packages                                                                 |
