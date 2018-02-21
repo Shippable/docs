@@ -251,7 +251,7 @@ The following images are available when you configure `language: ruby` in your [
   |jruby 9.1.12   |  v5.7.3, v5.10.4 | [v5.7.3](/platform/runtime/machine-image/ami-v573/), [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
   |jruby 9.1.5    |  v5.6.1 and earlier | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
   |jruby 9.1.2    |  v5.6.1 and earlier | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-  |jruby 9.0.0    |  v5.3.2 and later | [v5.3.2](/platform/runtime/machine-image/ami-v532/) till ami v5.10.4
+  |jruby 9.0.0    |  v5.3.2 and later | [v5.3.2](/platform/runtime/machine-image/ami-v532/) through ami v5.10.4
   |jruby 1.7.27   |  v5.7.3 and later | [v5.7.3](/platform/runtime/machine-image/ami-v573/), v5.10.4
   |jruby 1.7.19   |  v5.6.1 and earlier | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
   |ree 1.8.7      |  v5.6.1 and earlier | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
@@ -268,15 +268,15 @@ The following images are available when you configure `language: scala` in your 
 	* [Github](https://github.com/dry-dock/u16scaall)
 
 | Scala Version  | Language Image Tags  | Machine Image | Supported OS
-|----------------|---------------------|-----------
-|2.12.4          | v6.1.4	             | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All
-|2.12.3          | v5.8.2              | [v5.8.2](/platform/runtime/machine-image/ami-v582/) | All
-|2.12.2          | v5.7.3              | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
-|2.12.1          | v5.6.1 and earlier  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|2.12.0          | v5.5.1 and earlier  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
-|2.11.12         | v6.1.4	             | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All
-|2.11.11         | v5.7.3 and later    | [v5.7.3](/platform/runtime/machine-image/ami-v573/) till v5.10.4  | All
-|2.11.8          | v5.6.1 and earlier  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|2.10.7          | v6.1.4	             | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All
-|2.10.6          | v5.3.2 and later    | [v5.3.2](/platform/runtime/machine-image/ami-v532/) till v5.10.4  | All
-|2.9.3           | v5.3.2 and later    | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and till v5.10.4  | All
+|----------------|----------------------|-----------
+|2.12.4          | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
+|2.12.3          | v5.8.2               | [v5.8.2](/platform/runtime/machine-image/ami-v582/) | All
+|2.12.2          | v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
+|2.12.1          | v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
+|2.12.0          | v5.5.1 and earlier   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
+|2.11.12         | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
+|2.11.11         | v5.7.3 through v5.10.4 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) through v5.10.4  | All
+|2.11.8          | v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
+|2.10.7          | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
+|2.10.6          | v5.3.2 through v5.10.4 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) through v5.10.4  | All
+|2.9.3           | v5.3.2 through v5.10.4 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) through v5.10.4  | All
