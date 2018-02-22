@@ -7,8 +7,7 @@ page_description: Usecases for runSh job
 
 # runSh tutorials
 
-The [runSh](/platform/workflow/job/runsh/) job is one of the most versatile jobs in the Shippable platform since it lets you run any custom scripts as part of your end-to-end workflow. This document
-provides examples of all the key features.
+The [runSh](/platform/workflow/job/runsh/) job is one of the most versatile jobs in the Shippable platform since it lets you run any custom scripts as part of your end-to-end workflow. This document provides examples of all the key features.
 
 
 ## Running a single Task
@@ -84,6 +83,10 @@ jobs:
 ## Using a custom docker image
 
 Docker image and options are specified in the `runtime:options:` tag.
+
+* When using a Shippable language image as a custom image, specify a tag that is the same version as the AMI in your subscription. The image then shouldn't have to be pulled, since all of the build images are on the Subscription AMI already.
+* If you use a different tag or a non-Shippable image, we will have to pull that image. If your runSh job is running on a custom node, the pulled image will get cached.
+* You might want to also explore creating lightweight custom images that have exactly what you need.
 
 ```
 jobs:
