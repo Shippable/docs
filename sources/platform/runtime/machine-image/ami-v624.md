@@ -31,6 +31,7 @@ If you would like to use your own CI images in place of the official images, ins
 These are the official language images in this version:
 
 * [Common components](#common-624)
+* [Nodejs](#nod-624)
 * [Clojure](#clojure-624)
 * [Go](#gol-624)
 * [Java](#jav-624)
@@ -51,6 +52,15 @@ We have the following base images, one for each supported OS version.
  | Ubuntu 14.04 | drydock/u14all:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14all/),<br>- [GitHub](https://github.com/dry-dock/u14all) | <br>- build-essential<br>- curl<br>- gcc<br>- gettext<br>- git<br>- htop<br>- jq<br>- libxml2-dev<br>- libxslt-dev<br>- make<br>- nano<br>- openssh-client<br>- openssl<br>- psmisc<br>- python-dev<br>- python-pip<br>- python-software-properties<br>- software-properties-common<br>- sudo<br>- texinfo<br>- unzip<br>- virtualenv<br>- wget | - awscli 1.11.164<br>- awsebcli 3.11.0<br>- gcloud 173.0.0<br>- jfrog-cli 1.10.1<br>- kubectl 1.8.0<br>- packer 1.1.0<br>- terraform 0.10.0<br>- azure 2.0.25 | - cassandra 3.11.2<br>- couchdb 2.1.1<br>- elasticsearch 6.1.1<br>- neo4j 3.3.1<br>- memcached 1.5.4<br>- mongodb 3.6.2<br>- mysql 5.7.20<br>- postgres 10.1<br>- rabbitmq 3.6.14<br>- redis 4.0.7<br>- rethinkdb 2.3.6<br>- riak 2.2.3<br>- selenium 3.8.1<br>- sqllite 3.22.0 |
  | Ubuntu 16.04 | drydockaarch64/u16:master | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16/),<br>- [GitHub](https://github.com/dry-dock-aarch64/u16) | - build-essential<br>- curl<br>- gcc<br>- gettext<br>- git<br>- htop<br>- jq<br>- libxml2-dev<br>- libxslt-dev<br>- make<br>- nano<br>- openssh-client<br>- openssl<br>- psmisc<br>- python-dev<br>- python-pip<br>- python-software-properties<br>- software-properties-common<br>- sudo<br>- texinfo<br>- unzip<br>- virtualenv<br>- wget | - awscli 1.11.91<br>- awsebcli 3.9.0<br>- gcloud 160.0.0<br>- kubectl 1.5.1<br>- packer 1.2.0<br>- azure 2.0.0rc5 | |
  | CentOs 7 | drydock/c7:master | - [Docker Hub](https://hub.docker.com/r/drydock/c7/),<br>- [GitHub](https://github.com/dry-dock/c7) | - epel-release<br>- gcc<br>- gcc-c++<br>- kernel-devel<br>- make<br>- curl<br>- openssl<br>- wget<br>- nano<br>- unzip<br>- nano<br>- openssh-clients<br>- libxslt1-dev<br>- libxml2-dev<br>- htop<br>- rsync<br>- vim<br>- glibc.i686<br>- libgcc_s.so.1<br>- python35u<br>- python35u-libs<br>- python35u-devel<br>- python35u-pip<br>- virtualenv<br>- jq<br>- git<br>- git-lfs | - awscli 1.14.41<br>- gcloud 189.0.0<br>- kubectl 1.8.8<br>- doctl 1.7.0<br>- jfrog-cli 1.7.0<br>- ansible 2.3.0<br>- boto 2.46.1<br>- apache libcloud 2.0.0<br>- terraform 0.11.3<br>- packer 1.2.0<br>- azure 2.0.27 | |
+
+---
+
+<a name="nod-624"></a>
+### Node.js
+
+ | OS           | Image                    | Link                                                                                                          | Language versions                                                 | Additional packages                                                                |
+ |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------|
+ | Ubuntu 14.04 | drydock/u14nodall:v6.2.4 | [Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)<br>[Github](https://github.com/dry-dock/u14nodall)  | - 4.8.7 <br />- 5.12.0 <br />- 6.11.5 <br />- 7.10.1 <br />- 8.9.4 <br />- 9.5.0 | [Common components](#common-624)<br>nvm<br>Java 1.8.0<br>Ruby 2.3.3<br>Yarn 1.2.1 |
 
 ---
 
