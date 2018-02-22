@@ -25,7 +25,7 @@ The following versions are supported in each Machine Image:
 
 | Clojure Version  | Language Image Tags | Machine Image |Supported OS |
 |------------------|---------------------|-----------|-----------|
-|1.9.0             |   v6.1.4            | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|1.9.0             |   v6.1.4 and later  | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All |
 |1.8.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
 |1.7.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
 |1.6.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
