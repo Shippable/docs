@@ -127,6 +127,7 @@ We have the following base images, one for each supported OS version.
 
  | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
+ | Ubuntu 16.04 | drydock/u16cppall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/),<br>- [Github](https://github.com/dry-dock/u16cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 7.10.0<br>- Ruby 2.3.3 |
  | Ubuntu 14.04 | drydock/u14cppall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [Github](https://github.com/dry-dock/u14cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 4.8.7<br>- Ruby 2.3.3  |
 
 ---
