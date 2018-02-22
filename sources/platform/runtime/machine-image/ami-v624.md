@@ -80,6 +80,7 @@ We have the following base images, one for each supported OS version.
  | OS   | Image  | Link   | Language versions  | Additional packages   |
  |------|--------|--------|--------------------|-----------------------|
  | Ubuntu 14.04 | drydock/u14golall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14golall/)<br>- [Github](https://github.com/dry-dock/u14golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.2    | - [Common components](#common-624)<br>- gvm 1.0.22<br>- Java 1.8.10<br>- Node 4.8.7<br>- Ruby 2.3.3 |
+ | Ubuntu 16.04 | drydock/u16golall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16golall/)<br>- [Github](https://github.com/dry-dock/u16golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.2    | - [Common components](#common-624)<br>- gvm 1.0.22<br>- Java 1.8.10<br>- Node 7.10.1<br>- Ruby 2.3.5 | 
 
 ---
 
