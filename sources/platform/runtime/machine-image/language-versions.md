@@ -69,9 +69,9 @@ The following images are available when you configure `language: go` in your [sh
 
 | Go Version | Language Image Tags | Machine Image |Supported OS
 |------------|---------------------|-----------|-----------
-|1.9.2       | v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|1.9.2       | v6.1.4 and later    | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |1.9       	 | v5.10.4  					 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
-|1.8.5       | v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
+|1.8.5       | v6.1.4 and later    | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |1.8.3       |  v5.7.3, v5.10.4   |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
 |1.7.6       |  v5.7.3 and later   |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later | All
 |1.7.5       |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
