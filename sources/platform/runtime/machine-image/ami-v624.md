@@ -38,6 +38,7 @@ These are the official language images in this version:
 * [Ruby](#rub-624)
 * [Python](#pyt-624)
 * [Scala](#sca-624)
+* [C/C++](#cpp-624)
 
 <a name="common-624"></a>
 ### Common components
@@ -117,5 +118,15 @@ We have the following base images, one for each supported OS version.
  | OS           | Image                    | Link                                                                                                          | Language versions                | Additional packages                                                          |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------|------------------------------------------------------------------------------|
  | Ubuntu 14.04 | drydock/u14scaall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.9.3<br>- 2.10.7<br>- 2.11.12<br>- 2.12.4 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 4.8.7<br>- Ruby 2.3.3  |
+
+---
+
+
+<a name="cpp-624"></a>
+### C/C++
+
+ | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
+ |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
+ | Ubuntu 14.04 | drydock/u14cppall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [Github](https://github.com/dry-dock/u14cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 4.8.7<br>- Ruby 2.3.3  |
 
 ---
