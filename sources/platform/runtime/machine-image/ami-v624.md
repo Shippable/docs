@@ -107,6 +107,7 @@ We have the following base images, one for each supported OS version.
 
  | OS           | Image                    | Link                                                                                                      | Language versions                                       | Additional packages                                                                 |
  |--------------|--------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------|
+ | Ubuntu 16.04 | drydock/u16pytall:v6.2.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16pytall/)<br> [Github](https://github.com/dry-dock/u16pytall) |- 2.7.12<br>- 3.4.8<br>- 3.5.2<br>- 3.6.4<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-614)<br>- virtualenv<br>- Java 1.8.0<br>- Node 7.10.0<br>- Ruby 2.3.3 |
  | Ubuntu 14.04 | drydock/u14pytall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)<br>- [Github](https://github.com/dry-dock/u14pytall)  | - 2.7.12<br>- 3.4.3<br>- 3.5.5<br>- 3.6.4<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 4.8.7<br>- Ruby 2.3.3  |
 
 ---
