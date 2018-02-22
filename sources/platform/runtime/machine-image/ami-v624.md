@@ -92,6 +92,15 @@ We have the following base images, one for each supported OS version.
 
 ---
 
+
+<a name="rub-624"></a>
+### Ruby
+
+ | OS           | Image                    | Link                                                                                                          | Language versions                                              | Additional packages                                                    |
+ |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------|
+ | Ubuntu 14.04 | drydock/u14ruball:v6.2.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [Github](https://github.com/dry-dock/u14ruball) |- 2.2.8<br>- 2.3.6<br>- 2.4.3<br>- jruby-1.7.27<br>- jruby-9.1.15 | - [Common components](#common-614)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 4.8.7 |
+
+
 <a name="pyt-624"></a>
 ### Python
 
