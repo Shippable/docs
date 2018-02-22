@@ -66,11 +66,19 @@ You can add a new node by clicking the `Add node` button on the top right corner
     * Install tar and gzip on the node
         * Download and install [GNU tar](http://gnuwin32.sourceforge.net/downlinks/tar-bin.php)
         * Download and install [GNU gzip](http://gnuwin32.sourceforge.net/downlinks/gzip.php)
-        * By default, they are installed to "C:\Program Files (x86)\GnuWin32\bin", so add "C:\Program Files (x86)\GnuWin32\bin" to the machine's PATH
-    * Enable Windows Containers by running `Install-WindowsFeature containers` in PowerShell
-    * Restart the node
+        * By default, they are installed to "C:\Program Files (x86)\GnuWin32\bin", so add "C:\Program Files (x86)\GnuWin32\bin"  to the machine's PATH environment variable using these instructions.
+            * In the Search box, type sysdm.cpl and hit enter.
+            * Click on Advanced -> Environment variables.
+            * Click on Path in Sytem variables and click edit.
+            * Click on New.
+            * Enter C:\Program Files (x86)\GnuWin32\bin.
+            * Click `OK` and close all the other open dialogs.
+            * Wait for a minute since Windows takes time to propagate environment variables and then open an elevated cmd prompt.
+            * Run tar or gzip in the command prompt and ensure they work (to verify the path is set).  
+    * Enable Windows Containers by running `Install-WindowsFeature containers` in PowerShell.
+    * Restart the node.
     * Update Windows Firewall rules to enable incoming TCP connections on port 2375. This is to allow the build runner to communicate with the Docker daemon running on the host.
-    * Run the initialization script that you copied to this machine earlier
+    * Run the initialization script that you copied to this machine earlier.
     * After the script runs to completion, check the **I have run this script on my node successfully** and then click on the **Save** button.
 
 Once you add your first build node, all subsequent builds for that subscription

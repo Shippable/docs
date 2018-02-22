@@ -12,7 +12,7 @@ page_title: Running jobs on Windows Server 2016
 Shippable does not allow you to dynamically provision Windows node and we will be soon launching this functionality.
 The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
 * You can only build **public repositories**. Private repositories will be supported in a few weeks.
-* Only [runSh](/platform/workflow/job/runsh) jobs are supported.
+* **Only [runSh](/platform/workflow/job/runsh)** jobs are supported. This means that you should not enable your repository for CI and your shippable.yml cannot have any of the CI sections defined [here](/ci/yml-structure). 
 
 ##2. Purchase the Windows Server 2016 SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
