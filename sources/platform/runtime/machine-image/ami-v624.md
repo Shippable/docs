@@ -35,6 +35,7 @@ These are the official language images in this version:
 * [Clojure](#clojure-624)
 * [Go](#gol-624)
 * [Java](#jav-624)
+* [Ruby](#rub-624)
 * [Python](#pyt-624)
 * [Scala](#sca-624)
 
