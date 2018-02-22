@@ -31,6 +31,7 @@ If you would like to use your own CI images in place of the official images, ins
 These are the official language images in this version:
 
 * [Common components](#common-624)
+* [Clojure](#clojure-624)
 * [Go](#gol-624)
 * [Java](#jav-624)
 * [Python](#pyt-624)
@@ -53,6 +54,15 @@ We have the following base images, one for each supported OS version.
 
 ---
 
+<a name="clo-624"></a>
+### Clojure
+
+| OS           | Image                    | Link                                                                                                          | Language versions                          | Additional packages                                                           |
+|--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------|-------------------------------------------------------------------------------|
+| Ubuntu 14.04 | drydock/u14cloall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/),<br>- [GitHub](https://github.com/dry-dock/u14cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-614)<br>- leiningen<br>- Java 1.8<br>- Node 7.x<br>- Ruby 2.3.3 |
+
+---
+
 <a name="gol-624"></a>
 ### Go
 
@@ -71,8 +81,6 @@ We have the following base images, one for each supported OS version.
  | Ubuntu 14.04 | drydock/u14javall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)<br>- [Github](https://github.com/dry-dock/u14javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk9           | - [Common components](#common-624)<br>- Node 4.8.7<br>- Ruby 2.3.3 <br>- Gradle 4.2.1 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
 
 ---
-
-
 
 <a name="pyt-624"></a>
 ### Python
