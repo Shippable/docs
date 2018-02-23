@@ -95,7 +95,7 @@ We have the following base images, one for each supported OS version.
 
  | OS           | Image                    | Link                                                                                                          | Language versions                                      | Additional packages                                         |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------|
- | Ubuntu 16.04 | drydock/u16javall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16javall/),<br>- [Github](https://github.com/dry-dock/u16javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk9 | - [Common components](#common-614)<br>- Node 7.10.1<br>- Ruby 2.3.5 <br>- Gradle 4.2.1 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)| 
+ | Ubuntu 16.04 | drydock/u16javall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16javall/),<br>- [Github](https://github.com/dry-dock/u16javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk9 | - [Common components](#common-614)<br>- Node 7.10.1<br>- Ruby 2.3.5 <br>- Gradle 4.2.1 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)|
  | Ubuntu 14.04 | drydock/u14javall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)<br>- [GitHub](https://github.com/dry-dock/u14javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk9           | - [Common components](#common-624)<br>- Node 4.8.7<br>- Ruby 2.3.3 <br>- Gradle 4.2.1 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
 
 ---
@@ -125,6 +125,7 @@ We have the following base images, one for each supported OS version.
 
  | OS           | Image                    | Link                                                                                                          | Language versions                | Additional packages                                                          |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------|------------------------------------------------------------------------------|
+ | Ubuntu 16.04 | drydock/u16scaall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/),<br>- [Github](https://github.com/dry-dock/u16scaall) | - 2.10.7<br>- 2.11.12<br>- 2.12.4 | - [Common components](#common-614)<br>- sbt<br>- Java 1.8.0<br>- Node 7.10.1<br>- Ruby 2.3.5 |
  | Ubuntu 14.04 | drydock/u14scaall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.9.3<br>- 2.10.7<br>- 2.11.12<br>- 2.12.4 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 4.8.7<br>- Ruby 2.3.3  |
 
 ---
