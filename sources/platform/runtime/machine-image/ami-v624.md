@@ -34,6 +34,7 @@ These are the official language images in this version:
 * [Nodejs](#nod-624)
 * [Clojure](#clojure-624)
 * [Go](#gol-624)
+* [PHP](#php-624)
 * [Java](#jav-624)
 * [Ruby](#rub-624)
 * [Python](#pyt-624)
@@ -89,6 +90,14 @@ We have the following base images, one for each supported OS version.
 
 ---
 
+<a name="php-624"></a>
+### PHP
+
+ | OS           | Image                    | Link                                                                                                          | Language versions       | Additional packages                                                                              |
+ |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------|
+ | Ubuntu 16.04 | drydock/u16phpall:v6.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16phpall/),<br>- [Github](https://github.com/dry-dock/u16phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-624)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 7.10.0<br>- Ruby 2.3.3 |
+
+---
 
 <a name="jav-624"></a>
 ### Java
