@@ -58,6 +58,8 @@ To configure this:
 - Enter the IP address of your RabbitMQ instance.  This should be an Ubuntu 14.04 machine with ports 443, 5671, 5672, 15671, and 15672 accessible to the other Shippable components and services.
 - Choose the protocol that should be used to connect to RabbitMQ.
 
+If you face issues connecting to existing RabbitMQ instance, refer [rabbitMQ install script](https://github.com/Shippable/admiral/blob/master/common/scripts/installMsg.sh#L64) to verify if its configured correctly.
+
 You will need to click the **Initialize** button after completing other sections. Installation progress will be shown on the right side of the Initialize panel.
 
 ## Viewing configuration
