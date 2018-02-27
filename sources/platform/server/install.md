@@ -54,11 +54,7 @@ Confirm that the required values have been entered correctly. If you have decide
 Admiral will then install dependencies, pull Docker images, and install the database. This may take several minutes. When it is complete, the location of the Admiral UI and the login token are printed. Navigate to the UI location in a web browser and enter the given access key to access the installer UI. The rest of the services will be started from there.
 
 ### upgrade
-This command will upgrade the Shippable installation. To list the available
-versions, run `git tag` command inside `admiral` directory. To install the
-Shippable version corresponding to any tag, run `git checkout <tag>` and then
-run `./admiral.sh upgrade`.
-All Shippable services will be upgraded to the new tag.
+This command will upgrade the Shippable installation. For more detailed instructions, please go [here](/platform/server/upgrade).
 
 ### restart
 This is a helper command to recover from unexpected machine shutdown or

@@ -383,6 +383,8 @@ pages:
         - Enterprise installations: platform/server/enterprise.md
         - Troubleshooting: platform/server/troubleshooting.md
         - Installer reference: platform/server/install.md
+      - Upgrade instructions:
+        - Upgrading Shippable Server: platform/server/upgrade.md   
       - Configuration:
         - Database: platform/server/install-db.md
         - Secrets: platform/server/install-vault.md
