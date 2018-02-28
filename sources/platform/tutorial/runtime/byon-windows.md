@@ -64,7 +64,7 @@ You can add a new node by clicking the `Add node` button on the top right corner
     * Click on **Generate initialization scripts** to generate the script.
     * Click on **Download scripts** to download. Copy it to your build machine.
     * Enable Windows Containers by running `Install-WindowsFeature containers` in PowerShell.
-    * Restart the node.
+    * Restart the node, if the previous step prompted you to do so.
     * Run the initialization script that you copied to this machine earlier.
     * After the script runs to completion, check the **I have run this script on my node successfully** and then click on the **Save** button.
 
