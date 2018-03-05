@@ -13,17 +13,15 @@ Shippable server can be easily upgraded using the Admiral CLI to any released ve
 Shippable server during downtime as the upgrade updates and restarts core services. During upgrade, all your builds
 jobs will get queued and will be processed after the upgrade completes.
 
-##1. Checkout `admiral` repository.
+##1. Clone `admiral` repository.
 
-You will need to checkout the public `admiral` repository on the machine where you installed Server and provided the license
-information. SSH into the server machine and run the following commands:
+SSH into the server machine and cd into the `admiral` directory from where you had previously cloned the admiral repository.
+If you do not have the admiral repository cloned, you will need to clone the public `admiral` repository using the following commands:
 
 ```
 $ git clone https://github.com/Shippable/admiral.git
 $ cd admiral
 ```
-
-If you already have the `admiral` repository checked out, cd to the admiral directory.
 
 ##2. Checkout the release you want to upgrade to.
 

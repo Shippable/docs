@@ -381,10 +381,9 @@ pages:
       - Installation instructions:
         - Small to mid-sized teams:  platform/server/install-two-server.md
         - Enterprise installations: platform/server/enterprise.md
+        - Upgrading Shippable Server: platform/server/upgrade.md
         - Troubleshooting: platform/server/troubleshooting.md
         - Installer reference: platform/server/install.md
-      - Upgrade instructions:
-        - Upgrading Shippable Server: platform/server/upgrade.md
       - Configuration:
         - Database: platform/server/install-db.md
         - Secrets: platform/server/install-vault.md
