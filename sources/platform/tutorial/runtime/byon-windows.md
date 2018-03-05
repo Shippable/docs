@@ -63,21 +63,8 @@ You can add a new node by clicking the `Add node` button on the top right corner
 * Windows nodes require manual initialization. To generate and run the initialization scripts,
     * Click on **Generate initialization scripts** to generate the script.
     * Click on **Download scripts** to download. Copy it to your build machine.
-    * Install tar and gzip on the node
-        * Download and install [GNU tar](http://gnuwin32.sourceforge.net/downlinks/tar-bin.php)
-        * Download and install [GNU gzip](http://gnuwin32.sourceforge.net/downlinks/gzip.php)
-        * By default, they are installed to "C:\Program Files (x86)\GnuWin32\bin", so add "C:\Program Files (x86)\GnuWin32\bin"  to the machine's PATH environment variable using these instructions.
-            * In the Search box, type sysdm.cpl and hit enter.
-            * Click on Advanced -> Environment variables.
-            * Click on Path in Sytem variables and click edit.
-            * Click on New.
-            * Enter C:\Program Files (x86)\GnuWin32\bin.
-            * Click `OK` and close all the other open dialogs.
-            * Wait for a minute since Windows takes time to propagate environment variables and then open an elevated cmd prompt.
-            * Run tar or gzip in the command prompt and ensure they work (to verify the path is set).  
     * Enable Windows Containers by running `Install-WindowsFeature containers` in PowerShell.
-    * Restart the node.
-    * Update Windows Firewall rules to enable incoming TCP connections on port 2375. This is to allow the build runner to communicate with the Docker daemon running on the host.
+    * Restart the node, if the previous step prompted you to do so.
     * Run the initialization script that you copied to this machine earlier.
     * After the script runs to completion, check the **I have run this script on my node successfully** and then click on the **Save** button.
 
