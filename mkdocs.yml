@@ -61,7 +61,7 @@ pages:
       - Configuring CI commands: ci/build-and-test.md
       - Running tests in parallel: ci/parallelize-tests.md
       - Building Docker images: ci/build-docker-images.md
-      #- Status code: ci/build_status.md
+      - Status code: ci/build_status.md
     - Configuring test/code coverage:
       - Basic config: ci/test-code-coverage-reports.md
       - JaCoCo reports: ci/jacoco-reports.md
@@ -384,7 +384,7 @@ pages:
         - Troubleshooting: platform/server/troubleshooting.md
         - Installer reference: platform/server/install.md
       - Upgrade instructions:
-        - Upgrading Shippable Server: platform/server/upgrade.md   
+        - Upgrading Shippable Server: platform/server/upgrade.md
       - Configuration:
         - Database: platform/server/install-db.md
         - Secrets: platform/server/install-vault.md
