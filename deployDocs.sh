@@ -22,8 +22,10 @@ sync_docs() {
   echo "Building docs"
   mkdocs build
 
-  echo "copying sitemap.xml"
-  cp sitemap.xml ./site/.
+  if [ "$RUN_MODE" = "production" ]; then
+    echo "copying sitemap.xml"
+    cp sitemap.xml ./site/.
+  fi  
 
   if [ -f $REDIRECT_MAPPINGS_FILE ]; then
     echo "Setting up redirects"
