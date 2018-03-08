@@ -1,0 +1,1767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://docs.shippable.com/</loc>
+  <lastmod>2018-03-06T06:43:36+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/overview/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/why-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/why-deploy/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/devops-validate/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/devops-release-management/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/why-infrastructure-provisioning/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/overview/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/runsh/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/enable-project/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/nodes/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/server/install/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/server/install-aws-marketplace/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/what-is-supported/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/ci-sample/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/cd-sample/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/.</loc>
+  <lastmod>2018-03-06T06:43:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/billing-overview/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/kubernetes-tutorials/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/amazon-ecs-tutorials/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/gke-tutorials/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/getting-started/support/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/overview/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/overview/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/overview/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/overview/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/overview/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-yml/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/crud-syncrepo/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/config/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/overview/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/cirepo/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/cliconfig/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/cluster/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/dockeroptions/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/file/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/gitrepo/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/image/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/integration/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/loadbalancer/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/notification/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/params/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/replicas/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/state/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/syncrepo/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/time/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/trigger/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/resource/version/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/deploy/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/manifest/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/provision/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/release/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/runci/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/runcli/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/job/rsync/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/state/overview/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/workflow/workflow-tutorials/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/aws-iam/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/aws-keys/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/azure-keys/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/azureDcosKey/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/bitbucket/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/do/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/dclKey/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/ddcKey/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/dockerRegistryLogin/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/webhook/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/git-credential/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/github/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/github-enterprise/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/gitlab/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/gcloudKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/hipchatKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/jfrog-artifactoryKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/joyentTritonKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/key-value/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/kubernetes-config/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/nodeCluster/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/pemKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/quayLogin/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/slackKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/sshKey/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/aws-ecr/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/aws/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/aws-ecs/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/azure/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/docker-cloud/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/docker-hub/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/docker-trusted-registry/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/azure-dcos/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/email/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/hipchat/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/gce/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/gcr/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/gke/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/irc/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/jenkins/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/kubernetes/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/jfrog-artifactory/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/key-pem/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/docker-private-registry/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/quay/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/slack/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/event-trigger/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/key-ssh/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/node-cluster/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/docker-datacenter/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/integration/tripub/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-overview/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/os-versions/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/language-versions/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/cli-versions/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/services-versions/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v614/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v5104/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v582/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v573/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v561/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v551/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v541/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-v532/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/machine-image/ami-stable/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/runtime/caching/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/single-pane-of-glass-spog/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/account/default-view/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/account/custom-view/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/subscription/dashboard/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/project/dashboard/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/project/badges/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/project/console/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/resource/dashboard/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/job/dashboard/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/job/settings/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/visibility/job/console/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/security/overview/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/security/ci-cd-permissions/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/security/credential-mgmt/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/set-email/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/sync/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/git-identities/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/integrations/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/manage-payment-methods/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/api-tokens/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/account/delete/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/subscription/billing/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/subscription/node-pools/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/subscription/nodes/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/subscription/settings/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/subscription/integrations/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/management/project/settings/</loc>
+  <lastmod>2018-03-06T06:43:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/api/api-overview/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/api/api-tokens/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/overview/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-two-server/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/enterprise/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/upgrade/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/troubleshooting/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-db/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-vault/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-rabbitmq/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-gitlab/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-redis/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/install-swarm-workers/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/service-addresses/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/auth-source-control/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/build-config/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/system-settings/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/services/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/integrations/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/server/superuser/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/crud-resource/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/crud-trigger/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/crud-job/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/access-resource-data/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/writing-keyvalues-to-output-resource/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/using-central-state/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/sharing-data-between-jobs/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/sending-status-to-scm/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/using-shipctl/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/using-runSh/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-resources-yml/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-triggers-yml/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-jobs-yml/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/jobs-windows/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/jobs-macos/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/workflow/jobs-centos/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-create-kubeconfig/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-install-kubectl/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-create-AWS-IAM-access/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-use-key-value-in-runci/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-use-key-value-in-runSh/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/integration/howto-use-docker-private-registry-in-runci/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/custom-nodes/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-centos/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-macos/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-ubuntu/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-windows/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/security/encrypt-vars/</loc>
+  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/platform/tutorial/glossary/</loc>
+  <lastmod>2018-03-06T06:43:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/yml-structure/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/trigger-job/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/trigger-pipeline-jobs/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/permissions/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/troubleshooting/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/set-language/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/build-image/</loc>
+  <lastmod>2018-03-06T06:43:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/specify-branches/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/env-vars/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/services-overview/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/cassandra/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/couchdb/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/elasticsearch/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/memcached/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/mongodb/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/mysql/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/neo4j/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/postgresql/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/rabbitmq/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/redis/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/riak/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/rethinkdb/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/selenium/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/sqlite/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/build-and-test/</loc>
+  <lastmod>2018-03-06T06:43:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/parallelize-tests/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/build-docker-images/</loc>
+  <lastmod>2018-03-06T06:43:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/build_status/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/test-code-coverage-reports/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/jacoco-reports/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/send-notifications/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/slack-notifications/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/email-notifications/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/hipchat-notifications/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/irc-notifications/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-artifacts/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-to-s3/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-to-artifactory/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-docker-hub/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-amazon-ecr/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-gcr/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-quay/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/push-docker-registry/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deployment-overview/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deploy-to-heroku/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deploy-to-ec2/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deploy-to-aws-opsworks/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deploy-to-aws-beanstalk/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/deploy-to-digital-ocean/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/caching/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/custom-docker-image/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/docker-compose/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/matrix-builds/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/pull-request-builds/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/skip-builds/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/git-submodules/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/retry-command/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/ssh-keys/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/cancel-builds/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/custom-timeouts/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/console-logs/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/build-badges/</loc>
+  <lastmod>2018-03-06T06:43:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/scheduled-builds/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/webhook/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/non-root/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/supported-languages/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/nodejs-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/python-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/java-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/ruby-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/go-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/scala-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/php-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/clojure-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/cpp-continuous-integration/</loc>
+  <lastmod>2018-03-06T06:43:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/unsupported-languages/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/ci/ssh-access/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/vm-basic/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/amazon-ecs/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/kubernetes/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/gke/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/continuous-delivery-single-container-docker-application/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/docker-cloud/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/aws-elastic-beanstalk/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/configuration/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/single-pane-of-glass-spog/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/trigger-job/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/send-notifications/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/trace-pipeline/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deploy-docker-overview/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/continuous-delivery-multi-container-docker-application/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-methods-overview/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-method-blue-green/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-method-upgrade/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-method-replace/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-method-parallel/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/lb-overview/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/lb-amazon-ecs-classic/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/lb-amazon-ecs-app/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/lb-kubernetes/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/lb-gke/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/multi-stage-deployments/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/gated-deployments/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deploying-specific-version/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/rollback/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deployment-notifications/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/customize-service-names/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/pause-deployments/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deleting-a-service/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deploy-cloud-native-overview/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/deploy-amazon-ecs-cloud-native-cli/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/aws-elastic-beanstalk-multiple-containers/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/aws-elastic-beanstalk-multiple-environments/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/vm-multiple-environments/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/vm-jfrog/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/vm-gitRepo/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/amazon-ecs-multiple-containers/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/amazon-ecs-deploy-reset/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/kubernetes-multiple-containers/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/kube-multi-stage-deployments/</loc>
+  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/docker-datacenter/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/azure-dcos/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/nouvola/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/sauce-labs/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/configuration/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/single-pane-of-glass-spog/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/trigger-job/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/validate/send-notifications/</loc>
+  <lastmod>2018-03-06T06:43:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/configuration/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/single-pane-of-glass-spog/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/trigger-job/</loc>
+  <lastmod>2018-03-06T06:43:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/send-notifications/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/single-component/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/mutiple-components/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/upstream-releases/</loc>
+  <lastmod>2018-03-06T06:43:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/set-version-number/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/release/increment-version-number/</loc>
+  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/aws-with-terraform/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/aws-with-ansible/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/configuration/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/single-pane-of-glass-spog/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/trigger-job/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/send-notifications/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/google-cloud-with-ansible/</loc>
+  <lastmod>2018-03-06T06:43:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/kubernetes-with-gkecli/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/microsoft-azure-with-ansible/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/provision/digital-ocean-with-ansible/</loc>
+  <lastmod>2018-03-06T06:43:42+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/support/</loc>
+  <lastmod>2018-03-06T06:43:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/deploy/amazon-ecs-elb-alb/</loc>
+  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://docs.shippable.com/pipelines/jobs/release/</loc>
+  <lastmod>2018-03-06T06:43:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
