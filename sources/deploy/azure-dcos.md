@@ -2,6 +2,8 @@ page_main_title: Azure DC/OS Basic scenario
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Azure DC/OS
+page_title: Deploying to Azure DC/OS
+page_description: How to deploy to Azure DC/OS in Shippable
 
 # Deploying to Azure DC/OS
 

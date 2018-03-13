@@ -2,6 +2,8 @@ page_main_title: Attaching a load balancer to an ECS cluster
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Using load balancers
+page_title: Attaching an Application Load Balancer to an ECS cluster
+page_description: How to attach an Application Load Balancer to an ECS cluster in Shippable
 
 # Attaching an Application Load Balancer to an ECS cluster
 

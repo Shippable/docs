@@ -1,6 +1,8 @@
 page_main_title: Single pane of glass
 main_section: Deploy
 sub_section: Before you start
+page_title: Single Pane of Glass (SPOG) View
+page_description: Single Pane of Glass (SPOG) View in Shippable
 
 # Single Pane of Glass (SPOG) View
 

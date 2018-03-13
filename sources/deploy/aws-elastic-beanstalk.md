@@ -2,6 +2,8 @@ page_main_title: Deploying single-container environments
 main_section: Deploy
 sub_section: Deploy using Cloud Native CLI
 sub_sub_section: AWS Elastic Beanstalk
+page_title: Deploy a single container to a single AWS EB environment
+page_description: How to deploy a single container to a single AWS EB environment in Shippable
 
 # Deploy single container to a single AWS EB environment.
 

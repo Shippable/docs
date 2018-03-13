@@ -1,6 +1,8 @@
 page_main_title: Configuration
 main_section: Validate
 sub_section: Before you start
+page_title: Configuration of Shippable Assembly lines
+page_description: How to configure Assembly lines in Shippable
 
 #Configuration
 

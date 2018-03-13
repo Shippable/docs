@@ -1,6 +1,8 @@
 page_main_title: Using Cloud native CLI to deploy.
 main_section: Deploy
 sub_section: Deploy using Cloud Native CLI
+page_title: Deploying to Amazon ECS using cloud-native CLI
+page_description: How to deploy to Amazon ECS using cloud-native CLI in Shippable
 
 # Deploying to Amazon ECS using cloud-native CLI
 

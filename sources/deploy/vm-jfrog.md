@@ -1,6 +1,8 @@
 page_main_title: Deploying from a JFrog Artifactory repository
 main_section: Deploy
 sub_section: Deploy to VMs
+page_title: Deploying an application to a VM Cluster from a JFrog Artifactory repository
+page_description: How to deploy an application to a VM Cluster from a JFrog Artifactory repository in Shippable
 
 # Deploying an application to a VM Cluster from a JFrog Artifactory repository
 

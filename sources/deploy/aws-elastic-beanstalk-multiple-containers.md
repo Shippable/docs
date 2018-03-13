@@ -2,6 +2,8 @@ page_main_title: Deploying multi-container environments
 main_section: Deploy
 sub_section: Deploy using Cloud Native CLI
 sub_sub_section: AWS Elastic Beanstalk
+page_title: Deploy multiple containers to a single EB environment
+page_description: How to deploy multiple containers to a single EB environment in Shippable
 
 # Deploy multiple containers to a single EB environment.
 

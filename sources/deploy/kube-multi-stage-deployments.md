@@ -2,6 +2,8 @@ page_main_title: Multi-stage deployments to Test and Prod Environments
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Kubernetes
+page_title: Multi-stage deployments to Kubernetes clusters through Test and Prod Environments
+page_description: How to do Multi-stage deployments to Kubernetes clusters through Test and Prod Environments in Shippable
 
 # Multi-stage deployments to Kubernetes clusters through Test and Prod Environments
 

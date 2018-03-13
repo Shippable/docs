@@ -1,6 +1,8 @@
 page_main_title: What is provisioning
 main_section: Provision
 sub_section: Before you start
+page_title: Overview of Infrastructure provisioning
+page_description: How to automate infrastructure provisioning in Shippable
 
 # Infrastructure provisioning
 

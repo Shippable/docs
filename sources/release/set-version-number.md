@@ -1,6 +1,8 @@
 page_main_title: Setting version number
 main_section: Release
 sub_section: Managing release versions
+page_title: Setting the version number for a Release
+page_description: How to set the version number for a Release in Shippable
 
 # Setting the version number for a Release
 

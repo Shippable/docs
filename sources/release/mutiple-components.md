@@ -1,6 +1,8 @@
 page_main_title: From Multiple Services/Components
 main_section: Release
 sub_section: Creating a release
+page_title: Creating a release for a multiple services or components
+page_description: How to create a release for a multiple services or components in Shippable
 
 # Creating a release for a multiple services / components
 

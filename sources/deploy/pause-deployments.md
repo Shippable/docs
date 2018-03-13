@@ -2,6 +2,8 @@ page_main_title: Pausing deployments
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Advanced topics
+page_title: Pausing deployments
+page_description: How to pause deployments in Shippable
 
 # Pausing deployments
 After your application has been setup for continuous deployment to a container orchestration service, you might want to be

@@ -2,6 +2,8 @@ page_main_title: Amazon ECS Deploying multi-container services
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Amazon ECS
+page_title:  Deploying Multiple Containers to Amazon ECS
+page_description: How to deploy Multiple Containers to Amazon ECS in Shippable
 
 # Deploying Multiple Containers to Amazon ECS
 

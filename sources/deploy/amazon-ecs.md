@@ -2,6 +2,8 @@ page_main_title: Amazon ECS- Deploying a Docker application
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Amazon ECS
+page_title: Deploying to Amazon ECS
+page_description: How to deploy to Amazon ECS in Shippable
 
 # Deploying to Amazon ECS
 

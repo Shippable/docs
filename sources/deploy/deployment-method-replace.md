@@ -2,6 +2,8 @@ page_main_title: Replace deployment strategy
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
+page_title: Replace deployments
+page_description: How to do replace deployments in Shippable
 
 # Replace deployments
 

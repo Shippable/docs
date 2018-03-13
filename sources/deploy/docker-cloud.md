@@ -2,6 +2,8 @@ page_main_title: Docker Cloud: Deploy a single container application
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Docker Cloud
+page_title: Deploying to Docker Cloud
+page_description: How to deploy to Docker Cloud in Shippable
 
 # Deploying to Docker Cloud
 

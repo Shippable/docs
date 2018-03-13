@@ -2,6 +2,8 @@ page_main_title: Gated deployments
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Advanced topics
+page_title: Gated deployments
+page_description: How to do Gated deployments in Shippable
 
 # Gated deployments
 
