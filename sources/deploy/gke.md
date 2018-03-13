@@ -2,6 +2,8 @@ page_main_title: GKE- Deploying a single container Docker application
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: GKE
+page_title: Deploying to Google Container Engine (GKE)
+page_description: How to deploy to Google Container Engine (GKE) in Shippable
 
 # Deploying to Google Container Engine (GKE)
 

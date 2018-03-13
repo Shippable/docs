@@ -1,6 +1,8 @@
 page_main_title: Configuration
 main_section: Deploy
 sub_section: Before you start
+page_title: Shippable Assembly line configuration
+page_description: How to define Assembly line configuration in Shippable
 
 #Configuration
 

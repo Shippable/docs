@@ -2,6 +2,8 @@ page_main_title: Blue-green deployment strategy
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
+page_title: Blue-green deployment strategy
+page_description: Blue-green deployment strategy in Shippable
 
 # Blue-green deployment strategy
 This is default strategy that the [deploy](/platform/workflow/job/deploy) job uses, unless otherwise specified. No changes to the yml are needed to use this strategy.

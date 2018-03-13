@@ -2,6 +2,8 @@ page_main_title: Multi-stage deployments through Dev/Test/Prod Environments
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Advanced topics
+page_title: Multi-stage deployments through Dev/Test/Prod Environments
+page_description: How to do Multi-stage deployments through Dev/Test/Prod Environments in Shippable
 
 # Multi-stage deployments through Dev/Test/Prod Environments
 

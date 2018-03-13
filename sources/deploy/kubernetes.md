@@ -2,6 +2,8 @@ page_main_title: Kubernetes- Deploying a Docker application
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Kubernetes
+page_title: Deploying to Kubernetes
+page_description: How to deploy to Kubernetes in Shippable
 
 # Deploying to Kubernetes
 

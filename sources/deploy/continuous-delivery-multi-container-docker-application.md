@@ -1,6 +1,8 @@
 page_main_title: Deploying a multi container Docker application atomically to a single node of an Orchestration Platform
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
+page_title: Continuous Delivery of a multi-container Docker application
+page_description: How to continuously deliver a multi-container Docker application in Shippable
 
 # Continuous Delivery of a multi-container Docker application
 

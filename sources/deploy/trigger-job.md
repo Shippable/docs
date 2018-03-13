@@ -1,6 +1,8 @@
 page_main_title: Triggering deploy jobs
 main_section: Deploy
 sub_section: Before you start
+page_title: Triggering jobs
+page_description: How to trigger jobs in multiple ways, including both automated and manual triggers in Shippable.
 
 # Triggering jobs
 

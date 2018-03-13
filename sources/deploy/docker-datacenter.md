@@ -2,8 +2,10 @@ page_main_title: Docker Datacenter: Deploy a Docker application to Docker Enterp
 main_section: Deploy
 sub_section: Tutorials
 sub_sub_section: Docker Datacenter
+page_title: Deploying to Docker Datacenter Enterprise Edition
+page_description: How to deploy to Docker Datacenter Enterprise Edition in Shippable
 
-# Deploying to Docker Datacenter (Enterprise Edition)
+# Deploying to Docker Datacenter Enterprise Edition
 There are many strategies that can be used to deploy containers to [Docker Datacenter](https://www.docker.com/enterprise-edition) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Docker Datacenter.
 
 For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for Docker Datacenter as well.

@@ -2,6 +2,8 @@ page_main_title: Attaching a load balancer to a GKE cluster
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Using load balancers
+page_title: Attaching a load balancer to a GKE cluster
+page_description: How to attach a load balancer to a GKE cluster
 
 # Attaching a load balancer to a GKE cluster
 

@@ -1,6 +1,8 @@
 page_main_title: Overview of deploying apps using Cloud Native CLI
 main_section: Deploy
 sub_section: Deploy using Cloud Native CLI
+page_title: Overview of deployments using cloud-native CLI
+page_description: Overview of deployments using cloud-native CLI in Shippable
 
 # Deployments using cloud-native CLI
 

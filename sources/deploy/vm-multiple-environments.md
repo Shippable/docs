@@ -1,6 +1,8 @@
 page_main_title: Deploying an application to multiple VM clusters
 main_section: Deploy
 sub_section: Deploy to VMs
+page_title: Deploying an application to multiple VM Clusters from AWS S3
+page_description: How to deploy an application to multiple VM Clusters from AWS S3 in Shippable
 
 # Deploying an application to multiple VM Clusters from AWS S3
 

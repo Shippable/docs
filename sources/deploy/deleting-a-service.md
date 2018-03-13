@@ -2,6 +2,8 @@ page_main_title: Deleting a deployed service.
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Advanced topics
+page_title: Deleting a deployed service
+page_description: How to delete a deployed service in Shippable
 
 # Deleting a deployed service.
 

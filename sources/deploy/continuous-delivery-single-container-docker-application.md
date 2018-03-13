@@ -1,8 +1,10 @@
-page_main_title: Continuous Delivery of a single container Docker application to an Orchestration Platform.
+page_main_title: Continuous Deployment of a single container Docker application to an Orchestration Platform.
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
+page_title: Continuous Deployment for a single container Docker application
+page_description: How to continuously deploy a single container Docker application
 
-# Continuous Delivery for a single container Docker application
+# Continuous Deployment for a single container Docker application
 
 A single container application could be a web application, API endpoint, a microservice, or any application component that is packaged as a single Docker image. This document describes how you can use the [Shippable Assembly Lines platform](/platform/overview/) to deploy such a single container application to a Container Orchestration Service like Amazon ECS, Kubernetes, GKE, or Azure.
 

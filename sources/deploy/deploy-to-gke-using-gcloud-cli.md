@@ -1,6 +1,8 @@
 page_main_title: GKE Basic scenario
 main_section: Deploy
 sub_section: GKE
+page_title: Deploying to Google Container Engine (GKE) using gcloud CLI
+page_description: How to deploy to Google Container Engine (GKE) using gcloud CLI in Shippable
 
 # Deploying to Google Container Engine (GKE) using gcloud CLI
 

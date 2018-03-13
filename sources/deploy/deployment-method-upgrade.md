@@ -2,6 +2,8 @@ page_main_title: Upgrade deployment strategy
 main_section: Deploy
 sub_section: Deploy to Container Orchestration Platforms
 sub_sub_section: Deployment methods
+page_title: Upgrade deployments
+page_description: How to do Upgrade deployments in Shippable
 
 # Upgrade deployments
 
