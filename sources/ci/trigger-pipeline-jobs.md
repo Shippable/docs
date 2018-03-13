@@ -1,6 +1,8 @@
 page_main_title: Triggering other jobs after CI
 main_section: CI
 sub_section: Overview
+page_title: Triggering other jobs after CI
+page_description: How to trigger other jobs after the CI job completes
 
 # Triggering other jobs after CI
 

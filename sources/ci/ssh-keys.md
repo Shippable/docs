@@ -1,6 +1,8 @@
 page_main_title: Using SSH keys
 main_section: CI
 sub_section: Advanced config
+page_title: Using SSH keys
+page_description: How to use SSH keys to clone your project
 
 
 # SSH keys

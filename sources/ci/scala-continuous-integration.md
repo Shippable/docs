@@ -1,6 +1,9 @@
 page_main_title: Scala
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Scala
+page_description: How to do Continuous Integration with Scala in Shippable
+
 # Continuous Integration with Scala
 
 This page explains yml configuration that is specific to Scala projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

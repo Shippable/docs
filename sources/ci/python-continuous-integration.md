@@ -1,6 +1,8 @@
 page_main_title: Python
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Python
+page_description: How to do Continuous Integration with Python in Shippable
 
 # Continuous Integration with Python
 This page explains yml configuration that is specific to Python projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

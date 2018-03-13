@@ -1,6 +1,8 @@
 page_main_title: RethinkDB
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with RethinkDB
+page_description: How to do Continuous Integration with RethinkDB in Shippable
 
 #Continuous Integration with RethinkDB
 

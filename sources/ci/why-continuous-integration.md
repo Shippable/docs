@@ -1,6 +1,9 @@
 page_main_title: Why CI?
 main_section: CI
 sub_section: Overview
+page_title: Getting started with CI
+page_description: How to get started with your CI project in Shippable
+
 # Getting started with CI
 
 Shippable's DevOps Automation platform gives you an easy way to set up Continuous Integration (CI) for your projects and automate unit testing, packaging, and deployment for any change in your source control repository.

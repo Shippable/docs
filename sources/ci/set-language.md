@@ -1,6 +1,8 @@
 page_main_title: Setting language and runtime
 main_section: CI
 sub_section: Preparing your environment
+page_title: Setting language and runtime
+page_description: How to set language and runtime to continuously build your project in Shippable
 
 # Setting language and runtime
 

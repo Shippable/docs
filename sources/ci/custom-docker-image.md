@@ -1,6 +1,8 @@
 page_main_title: Using a custom Docker image
 main_section: CI
 sub_section: Advanced config
+page_title: Using a custom Docker image
+page_description: How to use a custom docker image to continuously build your project in Shippable.
 
 #Using a custom Docker image
 

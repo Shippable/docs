@@ -1,6 +1,8 @@
 page_main_title: Push Docker image to Quay
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing a Docker image to Quay.io
+page_description: How to push Docker image to Quay.io in Shippable
 
 #Pushing a Docker image to Quay.io
 

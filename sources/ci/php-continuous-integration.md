@@ -1,6 +1,8 @@
 page_main_title: PHP
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with PHP
+page_description: How to do Continuous Integration with PHP in Shippable
 
 # Continuous Integration with PHP
 This page explains yml configuration that is specific to PHP projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

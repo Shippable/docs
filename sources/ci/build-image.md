@@ -1,6 +1,8 @@
 page_main_title: Choosing a build image
 main_section: CI
 sub_section: Preparing your environment
+page_title: Choosing a build image
+page_description: How to choose a build image to continuously build your project in Shippable
 
 # Choosing a build image
 

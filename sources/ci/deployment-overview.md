@@ -1,8 +1,10 @@
 page_main_title: Overview
 main_section: CI
 sub_section: Deployments
+page_title: Deploying to an IaaS/PaaS
+page_description: Overview of deploying to IaaS/PaaS at the end of your Shippable CI workflow  
 
-##Deploying to an IaaS/PaaS
+##Deploying to IaaS/PaaS
 
 At the end of your CI workflow, you might want to push your application package to an IaaS or PaaS to run it.
 

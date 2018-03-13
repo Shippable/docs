@@ -1,6 +1,8 @@
 page_main_title: CouchDB
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with CouchDB
+page_description: How to do Continuous Integration with CouchDB in Shippable
 
 #Continuous Integration with CouchDB
 

@@ -1,6 +1,8 @@
 page_main_title: Overview
 main_section: CI
 sub_section: Working with services
+page_title: Services overview
+page_description: How to use popular services like PostgreSQL, MongoDB, MySQL, RabbitMQ, Redis, CouchDB, Elasticsearch, Memcached, Neo4j, Riak, RethinkDB and SQLite in Shippable.
 
 #Services overview
 

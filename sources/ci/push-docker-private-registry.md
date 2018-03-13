@@ -1,6 +1,8 @@
 page_main_title: Push Docker image to Docker Private/Trusted registry
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing a Docker image to Private Registry
+page_description: How to push a Docker image to Private Registry in Shippable
 
 #Pushing a Docker image to Private Registry
 

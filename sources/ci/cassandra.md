@@ -1,6 +1,8 @@
 page_main_title: Cassandra
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with Cassandra
+page_description: How to do Continuous Integration with Cassandra in Shippable
 
 #Continuous Integration with Cassandra
 

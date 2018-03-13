@@ -1,6 +1,8 @@
 page_main_title: Push to JFrog Artifactory
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing Artifacts to JFrog
+page_description: How to push artifacts to JFrog in Shippable
 
 #Pushing Artifacts to JFrog
 

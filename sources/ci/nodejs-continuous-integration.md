@@ -1,6 +1,9 @@
 page_main_title: Node.js
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Node.js
+page_description: How to do Continuous Integration with Node.js in Shippable
+
 # Continuous Integration with Node.js
 
 Node.js is the number one language used to build projects on Shippable. This page explains yml configuration that is specific to node.js projects. For a complete yml reference, please read the [YML structure section](yml-structure/)

@@ -1,7 +1,8 @@
 page_main_title: RabbitMQ
 main_section: CI
 sub_section: Working with services
-
+page_title: Continuous Integration with Rabbitmq
+page_description: How to do Continuous Integration with Rabbitmq in Shippable
 
 #Continuous Integration with Rabbitmq
 

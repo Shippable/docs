@@ -1,6 +1,8 @@
 page_main_title: Push Docker image to GCR
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing a Docker image to GCR
+page_description: How to push a Docker image to GCR in Shippable
 
 #Pushing a Docker image to GCR
 

@@ -1,6 +1,8 @@
 page_main_title: Redis
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with Redis
+page_description: How to do Continuous Integration with Redis in Shippable
 
 #Continuous Integration with Redis
 

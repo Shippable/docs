@@ -1,6 +1,8 @@
 page_main_title: Neo4j
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with Neo4j
+page_description: How to do Continuous Integration with Neo4j in Shippable
 
 #Continuous Integration with Neo4j
 

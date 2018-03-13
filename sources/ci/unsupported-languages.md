@@ -1,6 +1,9 @@
 page_main_title: Unsupported languages
 main_section: CI
 sub_section: Language guide
+page_title: Building unsupported languages
+page_description: How to build unsupported languages in Shippable
+
 #Building unsupported languages
 
 We support many popular languages with official build images for each one as listed on the [Supported languages](/getting-started/what-is-supported/#language) page.

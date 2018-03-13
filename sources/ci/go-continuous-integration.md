@@ -1,7 +1,8 @@
 page_main_title: Go
 main_section: CI
 sub_section: Language guide
-page_title: Continuous integration with Go
+page_title: Continuous Integration with Go
+page_description: How to do Continuous Integration with Go in Shippable
 
 # Continuous Integration with Go
 This page explains yml configuration that is specific to Go projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

@@ -1,7 +1,8 @@
 page_main_title: Selenium
 main_section: CI
 sub_section: Working with services
-
+page_title: Continuous Integration with Selenium
+page_description: How to do Continuous Integration with Selenium in Shippable
 
 #Continuous Integration with Selenium
 
@@ -51,9 +52,9 @@ A sample project using Node.js is provided to help you see how to configure Sele
 [Sample project with Node, Selenium, and Chrome](https://github.com/shippableSamples/sample_node_selenium/tree/chrome)
 
 ### Headless Chrome Support
-To run Chrome in headless mode, we recommend using tools like [nightwatch](http://nightwatchjs.org/), [puppeteer](https://github.com/GoogleChrome/puppeteer) or [webdriverIO](http://webdriver.io/) to manage 
+To run Chrome in headless mode, we recommend using tools like [nightwatch](http://nightwatchjs.org/), [puppeteer](https://github.com/GoogleChrome/puppeteer) or [webdriverIO](http://webdriver.io/) to manage
 Chrome and Selenium.
-The [documentation](https://developers.google.com/web/updates/2017/04/headless-chrome#drivers) on developers.google.com is a great place to start. 
+The [documentation](https://developers.google.com/web/updates/2017/04/headless-chrome#drivers) on developers.google.com is a great place to start.
 
 Troubleshooting
 

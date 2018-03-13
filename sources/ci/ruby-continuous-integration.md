@@ -1,6 +1,8 @@
 page_main_title: Ruby
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Ruby
+page_description: How to do Continuous Integration with Ruby in Shippable
 
 # Continuous Integration with Ruby
 
