@@ -1,6 +1,8 @@
 page_main_title: What is release management?
 main_section: Release
 sub_section: Before you start
+page_title: Automating release management in Shippable
+page_description: How to automate release management in Shippable
 
 # Managing releases
 

@@ -1,6 +1,8 @@
 page_main_title: Triggering release jobs
 main_section: Release
 sub_section: Before you start
+page_title: Triggering your release jobs
+page_description: How to trigger your release jobs in Shippable
 
 # Triggering your release jobs
 

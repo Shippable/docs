@@ -1,6 +1,8 @@
 page_main_title: Nouvola
 main_section: Validate
 sub_section: Running performance tests
+page_title: Running Performance tests using Nouvola
+page_description: How to run Performance tests using Nouvola in Shippable
 
 # Running Performance tests using Nouvola
 

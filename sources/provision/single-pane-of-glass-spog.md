@@ -1,6 +1,8 @@
 page_main_title: Single pane of glass
 main_section: Provision
 sub_section: Before you start
+page_title: Single Pane of Glass (SPOG) View
+page_description: Features of Single Pane of Glass (SPOG) View
 
 # Single Pane of Glass (SPOG) View
 

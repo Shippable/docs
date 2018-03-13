@@ -1,6 +1,8 @@
 page_main_title: Sauce Labs
 main_section: Validate
 sub_section: Running integration tests
+page_title: Running integration tests with Sauce Labs
+page_description: How to run integration tests with Sauce Labs in Shippable
 
 # Running integration tests with Sauce Labs
 

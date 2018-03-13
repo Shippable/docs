@@ -1,6 +1,9 @@
 page_main_title: From upstream releases
 main_section: Release
 sub_section: Creating a release
+page_title: Creating a release from upstream release jobs
+page_description: Tutorial on how to version every stage of deployment, as your code moves across different environments,
+in a staged manner in Shippable.
 
 # Creating a release from upstream release jobs
 

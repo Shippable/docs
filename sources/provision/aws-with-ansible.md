@@ -1,6 +1,8 @@
 page_main_title: Provisioning AWS infrastructure with Ansible
 main_section: Provision
 sub_section: AWS infrastructure
+page_title: Provisioning AWS infrastructure with Ansible
+page_description: How to provision AWS infrastructure with Ansible in Shippable
 
 # Provisioning AWS infrastructure with Ansible
 

@@ -1,6 +1,8 @@
 page_main_title: Provisioning Microsoft Azure with Ansible
 main_section: Provision
 sub_section: Microsoft Azure infrastructure
+page_title: Provisioning Microsoft Azure infrastructure with Ansible
+page_description: How to provision Microsoft Azure infrastructure with Ansible in Shippable
 
 # Provisioning Microsoft Azure infrastructure with Ansible
 

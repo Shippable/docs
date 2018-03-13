@@ -1,7 +1,8 @@
 page_main_title: Incrementing version numbers
 main_section: Release
 sub_section: Managing release versions
-
+page_title: Incrementing the version number for a Release
+page_description: How to increment the version number for a Release in Shippable
 
 # Incrementing the version number for a Release
 
