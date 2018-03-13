@@ -1,6 +1,8 @@
 page_main_title: Memcached
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with Memcached
+page_description: How to do Continuous Integration with Memcached
 
 #Continuous Integration with Memcached
 

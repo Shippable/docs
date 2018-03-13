@@ -1,6 +1,8 @@
 page_main_title: Scheduled builds
 main_section: CI
 sub_section: Advanced config
+page_title: Scheduled builds
+page_description: How to run an automated build for a project on a specific schedule in Shippable
 
 #Scheduled builds
 

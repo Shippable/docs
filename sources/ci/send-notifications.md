@@ -1,6 +1,8 @@
 page_main_title: Overview
 main_section: CI
 sub_section: Sending build notifications
+page_title: Notifications overview
+page_description: How to send email, Slack, HipChat and IRC notifications in Shippable
 
 #Notifications overview
 

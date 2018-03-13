@@ -1,6 +1,8 @@
 page_main_title: MongoDB
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with MongoDB
+page_description: How to do Continuous Integration with MongoDB in Shippable
 
 #Continuous Integration with MongoDB
 

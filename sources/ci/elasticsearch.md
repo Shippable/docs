@@ -1,6 +1,8 @@
 page_main_title: Elasticsearch
 main_section: CI
 sub_section: Working with services
+page_title: Continuous Integration with ElasticSearch
+page_description: How to do Continuous Integration with ElasticSearch in Shippable
 
 #Continuous Integration with ElasticSearch
 

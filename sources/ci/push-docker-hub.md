@@ -1,6 +1,8 @@
 page_main_title: Push Docker image to Docker Hub
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing a Docker image to Docker Hub
+page_description: How to push your image to Docker Hub in Shippable
 
 #Pushing a Docker image to Docker Hub
 

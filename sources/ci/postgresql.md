@@ -1,7 +1,8 @@
 page_main_title: PostgreSQL
 main_section: CI
 sub_section: Working with services
-
+page_title: Continuous Integration with Postgres
+page_description: How to do Continuous Integration with Postgres in Shippable
 
 #Continuous Integration with Postgres
 

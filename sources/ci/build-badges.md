@@ -1,6 +1,8 @@
 page_main_title: Build badges
 main_section: CI
 sub_section: Advanced config
+page_title: Shippable Build badges
+page_description: How to get embeddable build status and code coverage badges for your project
 
 # Build badges
 

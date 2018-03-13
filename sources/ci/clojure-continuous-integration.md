@@ -1,6 +1,8 @@
 page_main_title: Clojure
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Clojure
+page_description: How to do Continuous Integration with Cassandra in Shippable
 
 # Continuous Integration with Clojure
 This page explains yml configuration that is specific to Clojure projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

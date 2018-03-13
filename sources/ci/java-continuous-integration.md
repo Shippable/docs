@@ -1,6 +1,8 @@
 page_main_title: Java
 main_section: CI
 sub_section: Language guide
+page_title: Continuous Integration with Java
+page_description: How to do Continuous Integration with Java in Shippable
 
 # Continuous Integration with Java
 This page explains yml configuration that is specific to Java projects. For a complete yml reference, please read the [YML structure page](yml-structure/)

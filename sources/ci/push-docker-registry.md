@@ -1,6 +1,8 @@
 page_main_title: Push Docker image to Docker registry
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing a Docker image to Docker Registry
+page_description: How to push a Docker image to Docker Registry in Shippable
 
 #Pushing a Docker image to Registry
 

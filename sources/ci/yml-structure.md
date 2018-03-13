@@ -1,6 +1,9 @@
 page_main_title: Yml structure
 main_section: CI
 sub_section: Overview
+page_title: Anatomy of shippable.yml
+page_description: The structure of a basic shippable.yml
+
 # Configure your build
 
 All configuration for CI happens through shippable.yml which should be present at the root of the repository you want to build using Shippable. The following sections describe the overall structure of the shippable.yml file, as well as detailed descriptions of every section in it.

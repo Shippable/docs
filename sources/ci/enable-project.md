@@ -1,6 +1,8 @@
 page_main_title: Enabling a project
 main_section: CI
 sub_section: Overview
+page_title: Steps for building your project with Shippable
+page_description: Steps for building your project with Shippable
 
 #Enabling a project
 

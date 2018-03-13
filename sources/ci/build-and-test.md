@@ -1,6 +1,8 @@
 page_main_title: Configuring your CI
 main_section: CI
 sub_section: Building and testing your project
+page_title: Configuring your CI
+page_description: How to configure CI for your project in shippable.yml
 
 # Configuring your CI
 

@@ -1,6 +1,8 @@
 page_main_title: Using Docker Compose in CI
 main_section: CI
 sub_section: Advanced config
+page_title: Using Docker Compose in CI
+page_description: How to use Docker Compose in Shippable to setup your integration testing environments.
 
 #Using Docker Compose in CI
 

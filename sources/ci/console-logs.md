@@ -1,6 +1,8 @@
 page_main_title: Console logs
 main_section: CI
 sub_section: Advanced config
+page_title: Console logs
+page_description: Console logs for Shippable CI builds
 
 # Console logs
 

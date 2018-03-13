@@ -1,6 +1,8 @@
 page_main_title: SSH Access to Build Machine
 main_section: CI
 sub_section: Debugging
+page_title: SSH Access to Build Machine
+page_description: How to get SSH Access to Build Machine
 
 # SSH Access to Build Machine
 SSH access to build machine allows you to debug problems that arise due to differences in your local and Shippable environment. It also gives you a chance to play around with different commands to get to the best `shippable.yml` possible. Here is a list of FAQs to get you started:

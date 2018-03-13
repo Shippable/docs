@@ -1,8 +1,10 @@
 page_main_title: Triggering your CI job
 main_section: CI
 sub_section: Overview
+page_title: Triggering your CI job
+page_description: How to trigger a Shippable CI job 
 
-#Triggering your CI
+#Triggering your CI job
 
 To run your CI build, you will first need to [enable your repository for CI](enable-project/). Once enabled, CI is triggered for your project in one of five ways.
 

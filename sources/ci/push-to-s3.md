@@ -1,6 +1,8 @@
 page_main_title: Push artifacts to S3
 main_section: CI
 sub_section: Pushing artifacts
+page_title: Pushing Artifacts to S3
+page_description: How to push artifacts to S3 in Shippable
 
 #Pushing Artifacts to S3
 
