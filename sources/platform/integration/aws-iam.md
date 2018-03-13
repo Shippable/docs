@@ -2,6 +2,7 @@ page_main_title: AWS IAM integration for your deployment pipelines
 main_section: Platform
 sub_section: Integrations
 page_title: AWS IAM Integration
+page_description: How to create and use an AWS IAM Integration in Shippable
 
 # AWS IAM Integration
 

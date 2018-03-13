@@ -2,6 +2,7 @@ page_main_title: Node Cluster
 main_section: Platform
 sub_section: Integrations
 page_title: Node cluster integration
+page_description: How to create and use a Node Cluster Integration that is used to connect Shippable DevOps Assembly Lines platform to a cluster of VMs and deploy apps to the entire cluster
 
 # Node Cluster Integration
 

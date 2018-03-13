@@ -1,7 +1,8 @@
 page_main_title: API Tokens
 main_section: Platform
 sub_section: API
-page_description: Overview of Shippable's Account Settings API section UI
+page_title: API Tokens
+page_description: How to create s and delete API tokens in Shippable
 
 #API Tokens
 This is where you generate, view and manage access tokens to use our [API](/platform/api/api-overview).

@@ -2,6 +2,7 @@ page_main_title: Quay.io
 main_section: Platform
 sub_section: Integrations
 page_title: Quay integration
+page_description: How to create and use a CoreOs Quay Docker Registry Integration in Shippable
 
 # Quay Integration
 

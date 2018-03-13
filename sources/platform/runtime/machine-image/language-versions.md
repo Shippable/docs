@@ -2,7 +2,8 @@ page_main_title: Language versions on each image
 main_section: Platform
 sub_section: Runtime
 sub_sub_section: Machine image
-page_title: Popular language versions and the machine image where they are installed
+page_title: Popular language versions and the machine images where they are installed
+page_description: Popular language versions and the machine images where they are installed in Shippable
 
 # Languages
 

@@ -4,7 +4,7 @@ sub_section: Integrations
 sub_sub_section: Deprecated
 page_title: Amazon ECS integration
 
-# AWS IAM Integration
+# AWS IAM Integration (Deprecated)
 
 The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with its cloud services like ECR, ECS, EC2, S3, and so on.
 

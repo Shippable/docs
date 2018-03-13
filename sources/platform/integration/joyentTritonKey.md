@@ -2,6 +2,7 @@ page_main_title: Joyent Triton
 main_section: Platform
 sub_section: Integrations
 page_title: Joyent Triton integration
+page_description: How to create and use a Joyent Triton Integration in Shippable
 
 # Joyent Triton Integration
 

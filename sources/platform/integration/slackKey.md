@@ -2,6 +2,7 @@ page_main_title: Slack
 main_section: Platform
 sub_section: Integrations
 page_title: Slack integration
+page_description: How to create and use a Slack Integration in Shippable to send notifications to channels or rooms for CI and Assembly Line events.
 
 # Slack Key integration
 

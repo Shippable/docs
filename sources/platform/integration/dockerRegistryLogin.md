@@ -2,6 +2,7 @@ page_main_title: Docker Registry
 main_section: Platform
 sub_section: Integrations
 page_title: Docker Registry integration
+page_description: How to create and use a Docker Registry Integration in Shippable
 
 # Docker Registry Integration
 

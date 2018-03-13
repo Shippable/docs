@@ -2,6 +2,7 @@ page_main_title: Key-value
 main_section: Platform
 sub_section: Integrations
 page_title: Key-value integration
+page_description: How to create and use a Key-Value Pair Integration in Shippable
 
 # Key-Value Pair Integration
 

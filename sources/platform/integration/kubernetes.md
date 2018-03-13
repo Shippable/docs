@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Integrations
 sub_sub_section: Deprecated
 page_title: Kubernetes integration
+page_description: How to create and use a Kubernetes Integration in Shippable
 
 # Kubernetes Integration
 

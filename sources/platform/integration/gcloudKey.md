@@ -2,6 +2,7 @@ page_main_title: Google CLoud
 main_section: Platform
 sub_section: Integrations
 page_title: Google Cloud integration
+page_description: How to create and use a Google Cloud Integration in Shippable
 
 # Google Cloud Integration
 

@@ -2,6 +2,7 @@ page_main_title: JFrog Artifactory
 main_section: Platform
 sub_section: Integrations
 page_title: JFrog Artifactory integration
+page_description: How to create and use a JFrog Artifactory Integration in Shippable
 
 # JFrog Artifactory Integration
 

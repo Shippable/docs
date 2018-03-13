@@ -2,6 +2,8 @@ page_main_title: API tokens
 main_section: Platform
 sub_section: Management
 sub_sub_section: Account
+page_title: API Tokens
+page_description: How to create and delete API token in Shippable
 
 # API Tokens
 

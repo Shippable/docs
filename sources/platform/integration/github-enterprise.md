@@ -2,6 +2,7 @@ page_main_title: GitHub Enterprise
 main_section: Platform
 sub_section: Integrations
 page_title: GitHub Enterprise integration
+page_description: How to create and use a GitHub Enterprise Server Integration in Shippable
 
 # GitHub Enterprise Integration
 

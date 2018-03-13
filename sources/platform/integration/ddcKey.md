@@ -2,6 +2,7 @@ page_main_title: Docker Datacenter
 main_section: Platform
 sub_section: Integrations
 page_title: Docker Datacenter integration
+page_description: How to create and use a Docker Datacenter Integration in Shippable
 
 # Docker Datacenter Integration
 

@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Integrations
 sub_sub_section: Deprecated
 page_title: Azure DC/OS integration (Deprecated)
+page_description: How to create and use an AWS IAM Integration in Shippable
 
 # Azure DC/OS Integration (Deprecated)
 

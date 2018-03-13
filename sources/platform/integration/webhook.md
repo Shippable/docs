@@ -2,10 +2,11 @@ page_main_title: Webhook
 main_section: Platform
 sub_section: Integrations
 page_title: Webhook integration
+page_description: How to create and use a Webhook Integration in Shippable so that you can send a webhook to an external service with custom payloads
 
 # Webhook Integration
 
-**Webhook** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send a webhook to an external service with custom payloads
+**Webhook** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send a webhook to an external service with custom payloads.
 
 ## Adding the account integration
 

@@ -2,6 +2,7 @@ page_main_title: Azure DC/OS
 main_section: Platform
 sub_section: Integrations
 page_title: Azure DC/OS integration
+page_description: How to create and use an Azure DC/OS Integration in Shippable
 
 # Azure DC/OS Integration
 

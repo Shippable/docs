@@ -2,6 +2,7 @@ page_main_title: Git Credential
 main_section: Platform
 sub_section: Integrations
 page_title: Git credential integration
+page_description: How to create and use a Git Credential Integration to connect Shippable DevOps Assembly Lines platform to Source Control Systems over HTTP protocol.
 
 # Git Credential Integration
 

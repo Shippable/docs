@@ -2,10 +2,11 @@ page_main_title: Learn more about On-demand and BYON nodes
 main_section: Platform
 sub_section: Runtime
 page_title: Node types
+page_description: Different types of Nodes which execute jobs supported by the Shippable DevOps Assembly Lines platform
 
 # Node types
 
-You need a virtual machine, i.e. node, on which your job is executed. The Shippable SaaS platform supports two types of nodes:
+You need a virtual machine, i.e. node, on which your job is executed. The Shippable DevOps Assembly Lines platform supports two types of nodes:
 
 * **On-demand nodes** which are provisioned when a job is triggered and destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
 * **BYON nodes** which are build nodes provided by you and attached to your Shippable Subscription. These nodes should be running and available when a job is triggered, since the Shippable platform does not dynamically provision them.

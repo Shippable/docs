@@ -2,6 +2,7 @@ page_main_title: AWS Keys
 main_section: Platform
 sub_section: Integrations
 page_title: AWS Keys Integration
+page_description: How to create and use an AWS Keys Integration in Shippable
 
 # AWS Keys Integration
 

@@ -2,6 +2,7 @@ page_main_title: SSH Keys
 main_section: Platform
 sub_section: Integrations
 page_title: SSH keys integration
+page_description: How to create and use a SSH Keys Integration to connect Shippable DevOps Assembly Lines platform to VMs that allow SSH based auth and to clone Git repositories.
 
 # SSH Keys Integration
 

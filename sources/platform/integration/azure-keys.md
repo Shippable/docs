@@ -2,6 +2,7 @@ page_main_title: Microsoft Azure
 main_section: Platform
 sub_section: Integrations
 page_title: Microsoft Azure integration
+page_description: How to create and use a Microsoft Azure Integration in Shippable
 
 # Microsoft Azure Integration
 

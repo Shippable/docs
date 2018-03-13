@@ -2,6 +2,7 @@ page_main_title: GitHub
 main_section: Platform
 sub_section: Integrations
 page_title: GitHub integration
+page_description: How to create and use a GitHub Integration in Shippable
 
 # GitHub Integration
 
