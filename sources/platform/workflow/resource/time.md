@@ -2,7 +2,8 @@ page_main_title: time
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
-
+page_title: time resource reference
+page_description: time resource reference
 
 # time
 `time` resource provides cron-like functionality. It is used to to trigger a job in a cron-like manner. This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/). The timezone used for triggering jobs is UTC.

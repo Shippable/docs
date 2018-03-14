@@ -2,6 +2,8 @@ page_main_title: notification
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: notification resource reference
+page_description: notification resource reference
 
 # notification
 `notification` resource is used to connect DevOps Assembly Lines to notification providers of your choice. These are providers we currently support:

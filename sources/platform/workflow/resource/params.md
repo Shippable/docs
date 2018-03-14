@@ -2,6 +2,8 @@ page_main_title: params
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: params resource reference
+page_description: params resource reference
 
 # params
 `params` resource stores user defined key-value pairs. This can be then be injected into a job runtime environment where your DevOps activity runs or can set environment variables of your deploy target (VMs or containers).

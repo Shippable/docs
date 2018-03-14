@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Using central state to share information between jobs
+page_description: How to use central state to share information between jobs in Shippable
 
 # Using central state to share information between jobs
 

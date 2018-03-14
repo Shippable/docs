@@ -2,6 +2,8 @@ page_main_title: integration
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: integration resource reference
+page_description: integration resource reference
 
 # integration
 `integration` resource is used to represent credentials that have been encrypted using Shippable Integrations.

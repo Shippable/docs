@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: Windows BYON Nodes
+page_description: How to add, remove and view Windows nodes in your Node pool in Shippable
 
 # Windows BYON nodes
 

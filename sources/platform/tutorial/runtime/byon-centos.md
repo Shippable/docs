@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: CentOS BYON nodes overview
+page_description: How to add, remove and view CentOS nodes in your Node pool in Shippable
 
 # CentOS BYON Nodes
 

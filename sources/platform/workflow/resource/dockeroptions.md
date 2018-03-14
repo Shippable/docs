@@ -2,6 +2,8 @@ page_main_title: dockerOptions
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: dockerOptions resource reference
+page_description: dockerOptions resource reference
 
 # dockerOptions
 This resource type is used to add a list of docker options that can be appended to a docker image. This resource on its own does not mean anything unless used in conjunction with an [image resource](/platform/workflow/resource/image/) or a [manifest job](/platform/workflow/job/manifest/). A `dockerOptions` resource can be an `IN` resource for a [manifest job](/platform/workflow/job/manifest/), or for a [deploy job](/platform/workflow/job/deploy/).

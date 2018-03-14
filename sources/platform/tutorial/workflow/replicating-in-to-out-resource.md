@@ -2,7 +2,8 @@ page_main_title: Share data between Jobs
 main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
-page_title: Share data between Jobs
+page_title: Share data between jobs
+page_description: How to replicate an IN resource to an OUT in Shippable
 
 #Replicating an IN resource to an OUT
 

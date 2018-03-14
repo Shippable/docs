@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Share data between Jobs
+page_description: How to write to an OUT resource in Shippable
 
 # Writing to an OUT resource
 

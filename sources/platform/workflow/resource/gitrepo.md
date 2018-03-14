@@ -2,6 +2,8 @@ page_main_title: gitRepo
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: gitRepo resource reference
+page_description: gitRepo resource reference
 
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with the webhook payload.
