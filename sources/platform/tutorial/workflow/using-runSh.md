@@ -279,7 +279,7 @@ jobs:
   - name: container_multiple_tasks
     type: runSh
     runtime:                 
-      - nodePool: myNodePool
+      nodePool: myNodePool
     steps:
       - TASK:
           script:

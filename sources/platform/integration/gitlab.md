@@ -2,6 +2,7 @@ page_main_title: Gitlab
 main_section: Platform
 sub_section: Integrations
 page_title: Gitlab integration
+page_description: How to create and use a GitLab Integration in Shippable
 
 # GitLab Integration
 

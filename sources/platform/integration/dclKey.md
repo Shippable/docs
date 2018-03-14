@@ -2,6 +2,7 @@ page_main_title: Docker Cloud
 main_section: Platform
 sub_section: Integrations
 page_title: Docker cloud integration
+page_description: How to create and use a Docker Cloud Integration in Shippable
 
 # Docker Cloud integration
 

@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Runtime
 page_title: BYON Nodes Overview
+page_description: Different types of BYON Nodes based on architectures, operating systems and Docker versions in Shippable
 
 # BYON Nodes
 

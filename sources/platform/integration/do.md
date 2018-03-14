@@ -2,6 +2,7 @@ page_main_title: Amazon ECR
 main_section: Platform
 sub_section: Integrations
 page_title: Amazon ECR integration
+page_description: How to create and use a Digital Ocean Integration in Shippable
 
 # Digital Ocean Integration
 

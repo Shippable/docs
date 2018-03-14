@@ -2,6 +2,8 @@ page_main_title: Job Runtime Overview
 main_section: Platform
 sub_section: Runtime
 page_title: Job Runtime Overview
+page_title: Runtime
+page_description: Overview of Job Runtime that prepares the environment for your job to execute in Shippable
 
 # Runtime
 

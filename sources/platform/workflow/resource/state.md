@@ -2,6 +2,8 @@ page_main_title: state
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: state resource reference
+page_description: state resource reference
 
 # state
 

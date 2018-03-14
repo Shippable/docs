@@ -1,11 +1,12 @@
-page_main_title: Security and permissions features of the Shippable platform
+page_main_title: Security and permissions features of the Shippable DevOps Assembly Lines Platform
 main_section: Platform
 sub_section: Security
-page_title: Security Overview
+page_title: Security & Permissions Overview
+page_description: Security and permissions features of the Shippable DevOps Assembly Lines Platform
 
 # Security & Permissions
 
-The Shippable CI/CD and DevOps platform is built keeping in mind that any security lapses are unforgivable and damaging to all organizations. This includes our own organization, since our customers trust us with their intellectual property.
+The Shippable DevOps Assembly Lines Platform is built keeping in mind that any security lapses are unforgivable and damaging to all organizations. This includes our own organization, since our customers trust us with their intellectual property.
 
 Please read our blog on [Security best practices at Shippable](http://blog.shippable.com/security-best-practices-shippable-ci-cd-devops) for an overview of how we handle security at Shippable.
 

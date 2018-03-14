@@ -2,6 +2,8 @@ page_main_title: version
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: version resource reference
+page_description: version resource reference
 
 # version
 `version` resource is used to store <a href="http://www.semver.org/">semantic version</a> numbers.

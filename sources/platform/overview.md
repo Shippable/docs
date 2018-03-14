@@ -2,6 +2,7 @@ page_main_title: Platform Overview
 main_section: Platform
 sub_section: Overview
 page_title: Platform Overview
+page_description: Overview of Shippable's DevOps Assembly Lines Platform and supported Usecases
 
 # Platform Overview
 There are a plethora of DevOps tools for infrastructure provisioning, configuration management, continuous integration, deployments and so on. Today, a majority of DevOps activities are being automated in functional silos, making the software delivery process disjointed. Valuable resources and time are spent trying to connect "Islands of Automation" with ad-hoc homegrown scripts. These scripts are brittle and cumbersome to create, maintain, and reuse. More importantly, they add friction to your Continuous Delivery initiative.

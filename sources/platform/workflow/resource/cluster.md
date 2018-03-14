@@ -2,8 +2,8 @@ page_main_title: cluster
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
-page_title: Unified Pipeline Resources - cluster
-page_description: List of supported resources
+ppage_title: cluster resource reference
+page_description: cluster resource reference
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # cluster

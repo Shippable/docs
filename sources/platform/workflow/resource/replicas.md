@@ -2,6 +2,8 @@ page_main_title: replicas
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: replicas resource reference
+page_description: replicas resource reference
 
 # replicas
 `replicas` is a resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers

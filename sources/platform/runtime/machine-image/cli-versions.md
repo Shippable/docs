@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Runtime
 sub_sub_section: Machine image
 page_title: Popular CLIs and the machine images where they are installed
+page_description: Popular CLIs and the machine images where they are installed in Shippable
 
 # CLIs
 

@@ -2,6 +2,8 @@ page_main_title: ciRepo
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: ciRepo resource reference
+page_description: ciRepo resource reference
 
 # ciRepo
 This resource is simply a representation of a project that is enabled for Shippable CI.  This resource is automatically created when a project is enabled.  This resource acts as an input to the [runCI job](/platform/workflow/job/runci/).

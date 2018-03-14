@@ -2,6 +2,8 @@ page_main_title: cliConfig
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: cliConfig resource reference
+page_description: cliConfig resource reference
 
 # cliConfig
 `cliConfig` is a resource used to store configuration information needed to setup a Command Line Interface.

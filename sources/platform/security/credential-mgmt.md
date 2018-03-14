@@ -1,7 +1,8 @@
-page_main_title: Security and permissions features of the Shippable platform
+page_main_title: Managing secrets in Shippable using Integrations
 main_section: Platform
 sub_section: Security
-page_title: Secrets
+page_title: Managing secrets in Shippable using Integrations
+page_description: How to manage secrets in Shippable using Integrations
 
 # Secrets
 

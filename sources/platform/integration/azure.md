@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Integrations
 sub_sub_section: Deprecated
 page_title: Microsoft Azure integration (Deprecated)
+page_description: How to create and use a Microsoft Azure Integration in Shippable
 
 # Microsoft Azure Integration
 

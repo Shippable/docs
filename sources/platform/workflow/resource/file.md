@@ -2,6 +2,8 @@ page_main_title: file
 main_section: Platform
 sub_section: Workflow
 sub_sub_section: Resources
+page_title: file resource reference
+page_description: file resource reference
 
 # file
 

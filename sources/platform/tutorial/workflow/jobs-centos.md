@@ -76,6 +76,9 @@ job which has your build tool chain already preinstalled. Using shell commands i
   ## Job description:
   - name: ci_job
     type: runSh
+    runtime:
+      # replace custom__x86_64__centOS with your node pool name
+      nodePool: custom__x86_64__centOS
     steps:
       - IN: myGitRepo
       - TASK:

@@ -1,6 +1,7 @@
 page_main_title: Single Pane of Glass
 main_section: Platform
 sub_section: Visibility
+page_title: How to use Single Pane of Glass (SPOG) View
 
 # Single Pane of Glass (SPOG) View
 

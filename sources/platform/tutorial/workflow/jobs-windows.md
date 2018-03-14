@@ -3,6 +3,7 @@ main_section: Platform
 sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: Running jobs on Windows Server 2016
+page_description: How to run jobs on Windows Server 2016
 
 # Running jobs on Windows Server 2016
 
@@ -12,7 +13,7 @@ page_title: Running jobs on Windows Server 2016
 Shippable does not allow you to dynamically provision Windows node and we will be soon launching this functionality.
 The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
 * You can only build **public repositories**. Private repositories will be supported in a few weeks.
-* **Only [runSh](/platform/workflow/job/runsh)** jobs are supported. This means that you should not enable your repository for CI and your shippable.yml cannot have any of the CI sections defined [here](/ci/yml-structure). 
+* **Only [runSh](/platform/workflow/job/runsh)** jobs are supported. This means that you should not enable your repository for CI and your shippable.yml cannot have any of the CI sections defined [here](/ci/yml-structure).
 
 ##2. Purchase the Windows Server 2016 SKU
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
@@ -81,6 +82,7 @@ is not the default Node pool, specify the Node pool in `runtime:nodePool` sectio
   - name: ci_job
     type: runSh
     runtime:
+      # replace custom__x86_64__WindowsServer_2016 with your node pool name
       nodePool: custom__x86_64__WindowsServer_2016
     steps:
       - IN: myGitRepo

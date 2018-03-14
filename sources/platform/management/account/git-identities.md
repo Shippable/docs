@@ -2,6 +2,8 @@ page_main_title: Git identities
 main_section: Platform
 sub_section: Management
 sub_sub_section: Account
+page_title: Git identities
+page_description: How to connect several source control providers to your Shippable account.
 
 # Git identities
 

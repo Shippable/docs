@@ -2,10 +2,12 @@ page_main_title: Setting account email
 main_section: Platform
 sub_section: Management
 sub_sub_section: Account
+page_title: Set account email
+page_description: How to receive notifications at a different address that the primary email address of the source control provider account you used to sign in to Shippable as the default email for sending notifications
 
 # Set account email
 
-When you sign up, we set to the primary email address of the source control provider account you use to sign in to Shippable as the default email for sending notifications.
+When you sign up, we set to the primary email address of the source control provider account you used to sign in to Shippable as the default email for sending notifications.
 
 If you want to receive notifications at a different address by default, follow these steps:
 

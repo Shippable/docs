@@ -2,6 +2,7 @@ page_main_title: PEM Keys
 main_section: Platform
 sub_section: Integrations
 page_title: PEM integration
+page_description: How to create and use an PEM Key Integration that is used to connect Shippable DevOps Assembly Lines platform to VMs that allow PEM based auth
 
 # PEM Key Integration
 

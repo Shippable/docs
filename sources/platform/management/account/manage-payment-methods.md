@@ -2,6 +2,8 @@ page_main_title: Managing payment methods
 main_section: Platform
 sub_section: Management
 sub_sub_section: Account
+page_title: Managing payment methods
+page_description: How to add, view and remove credit cards from your Shippable account
 
 # Managing payment methods
 

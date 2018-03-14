@@ -2,6 +2,7 @@ page_main_title: Bitbucket
 main_section: Platform
 sub_section: Integrations
 page_title: Bitbucket integration
+page_description: How to create and use a Bitbucket Integration in Shippable
 
 # Bitbucket Integration
 

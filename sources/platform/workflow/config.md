@@ -1,7 +1,8 @@
 page_main_title: Workflow Configuration
 main_section: Platform
 sub_section: Workflow
-page_title: DevOps Platform Configuration
+page_title: Workflow Configuration
+page_description: Overview of workflow configuration in Shippable
 
 # Configuration
 

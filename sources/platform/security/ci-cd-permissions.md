@@ -1,7 +1,8 @@
-page_main_title: Security and permissions features of the Shippable platform
+page_main_title: Security and permissions features of the Shippable DevOps Assembly Lines Platform
 main_section: Platform
 sub_section: Security
 page_title: Managing Permissions
+page_description: Security and permissions features of the Shippable DevOps Assembly Lines Platform
 
 # Managing permissions with RBAC
 
