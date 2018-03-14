@@ -82,6 +82,7 @@ is not the default Node pool, specify the Node pool in `runtime:nodePool` sectio
   - name: ci_job
     type: runSh
     runtime:
+      # replace custom__x86_64__WindowsServer_2016 with your node pool name
       nodePool: custom__x86_64__WindowsServer_2016
     steps:
       - IN: myGitRepo

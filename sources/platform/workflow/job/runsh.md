@@ -26,8 +26,8 @@ jobs:
     dependencyMode:   <chrono/strict/immediate>   # optional
     allowPublicAccess: <true/false> # optional
     runtime:                        # optional
-      - nodePool: <node pool name>
-      - container: <true/false>     # optional
+      nodePool: <node pool name>
+      container: <true/false>     # optional
     timeoutMinutes: 30              # optional
     on_start:
       - NOTIFY:       <notification resource name>
