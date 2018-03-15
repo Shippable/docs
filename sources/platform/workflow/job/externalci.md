@@ -17,16 +17,11 @@ You can create a `externalCI` job by [adding](/platform/tutorial/workflow/crud-j
 jobs:
   - name: 				<string>			# required
     type: 				externalCI			# required
-    steps:
-      - IN:             <any job>
-      - IN:             <any resource>
 ```
 
 * **`name`** -- should be an easy to remember text string
 
 * **`type`** -- is set to `externalCI`
-
-* **`steps`** -- is an object which contains specific instructions to run this job. Currently, when these IN jobs/resources get updated externalCI will not run. This is work in progress.
 
 # Updating status of externalCI jobs
 
@@ -51,7 +46,7 @@ Body:
 }
 ```
 
-* **`jobName`** -- is name of the externalCI job that you added in then `shippable.yml` file. If this job is not added in `shippable.yml` then we create it. You can add it later if you want IN steps to it.
+* **`jobName`** -- is name of the externalCI job that you added in then `shippable.yml` file. If this job is not added in `shippable.yml` then we create it.
 
 * **`statusCode`** -- is the status of the build you want to set. Status can only be `processing`(4001), `success`(4002) or `failure`(4003.
 
