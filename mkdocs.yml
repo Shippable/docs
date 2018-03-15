@@ -281,7 +281,7 @@ pages:
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
       - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
-      - Kubernetes: platform/integration/kubernetes-config.md
+      - Kubernetes: platform/integration/kubernetes.md
       - Node Cluster: platform/integration/nodeCluster.md
       - PEM Keys: platform/integration/pemKey.md
       - Quay.io: platform/integration/quayLogin.md
