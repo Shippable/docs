@@ -247,6 +247,7 @@ pages:
         - time: platform/workflow/resource/time.md
         - trigger: platform/workflow/resource/trigger.md
         - version: platform/workflow/resource/version.md
+        - externalCIServer: platform/workflow/resource/externalciserver.md
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
@@ -257,6 +258,7 @@ pages:
         - runSh: platform/workflow/job/runsh.md
         - runCLI: platform/workflow/job/runcli.md
         - rSync: platform/workflow/job/rsync.md
+        - externalCI: platform/workflow/job/externalci.md
       - State:
         - Overview: platform/workflow/state/overview.md
       - Tutorials: platform/workflow/workflow-tutorials.md
