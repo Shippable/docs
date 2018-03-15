@@ -132,14 +132,14 @@ resources:
 
 * **Required:** Yes.
 
-* **Integrations needed:** [Amazon ECR](/platform/integration/aws-keys).
+* **Integrations needed:** [AWS Keys](/platform/integration/aws-keys).
 
     The integration defines the AWS key/secret pair that Shippable platform will use to communicate with EB on our behalf. Make sure that the key has appropriate permissions for the different actions required for EB deployments.
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for Amazon ECR.
-    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
+1. Create an account integration using your Shippable account for AWS Keys.
+    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
 
 2. Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
@@ -147,7 +147,7 @@ resources:
 resources:
   - name: deploy-eb-basic-config
     type: cliConfig
-    integration: dr-aws           # The integration created above
+    integration: aws_keys_int     # The integration created above
     pointer:
       region: us-east-1           # region where you want to deploy
 ```

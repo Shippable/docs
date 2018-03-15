@@ -64,16 +64,16 @@ This file should be committed to your source control. Step 5 of the workflow bel
 
 * **Description:** `app_image_1` and `app_image_2` are [image](/platform/workflow/resource/image/) resources that represent the Docker images of your application. In our example, we're using a Node.js image and an nginx image, hosted on Docker hub.
 * **Required:** Yes.
-* **Integrations needed:** Amazon ECR, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in ECR.
+* **Integrations needed:** AWS Keys, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in ECR.
 
 **Steps**  
 
-1. Create an account integration for Amazon ECR in your Shippable UI. Instructions to create an integration are here:
+1. Create an account integration for AWS Keys in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
-    * [Amazon ECR integration](/platform/integration/aws-keys/)
+    * [AWS Keys integration](/platform/integration/aws-keys/)
 
-    Copy the friendly name of the integration, in our case we named it **app_ecr**.
+    Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
 
 2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
@@ -81,7 +81,7 @@ This file should be committed to your source control. Step 5 of the workflow bel
 resources:
   - name: app_image_1     # resource friendly name
     type: image
-    integration: app_ecr    # friendly name of integration created in step 1           
+    integration: aws_keys_int    # friendly name of integration created in step 1           
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/app-service-1"    #replace with your image name
     seed:
@@ -89,7 +89,7 @@ resources:
 
   - name: app_image_2     # resource friendly name
     type: image
-    integration: app_ecr    # friendly name of integration created in step 1            
+    integration: aws_keys_int    # friendly name of integration created in step 1            
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/app-service-1"    #replace with your image name
     seed:
@@ -125,21 +125,14 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 
 **Steps**
 
-1. Create an account integration for Amazon ECS in your Shippable UI. Instructions to create an integration are here:
-
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
-    * [Amazon ECS integration](/platform/integration/aws-iam/)
-
-    Copy the friendly name of the integration, in our case we named it **op_int**.
-
-2. Add the following yml block in the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+1. Add the following yml block in the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
 
 ```
 resources:
 
   - name: op_cluster    # resource friendly name
     type: cluster
-    integration: op_int            
+    integration: aws_keys_int            
     pointer:
       sourceName: "deploy-ecs-cluster"    # name of the actual cluster
       region: "us-east-1"     # region where cluster is located. This attribute is optional
