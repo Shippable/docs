@@ -24,3 +24,4 @@ resources:
 ## Further Reading
 * [Jobs](/platform/workflow/job/overview)
 * [Resource](/platform/workflow/resource/overview)
+* [externalCI](/platform/workflow/job/externalci)
