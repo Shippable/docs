@@ -404,7 +404,7 @@ For more on different node types and detailed instructions on choosing and confi
 This is the default time(in milliseconds) after which you want your CI and runSh jobs to timeout. This timeout is used when your [CI project](/platform/management/project/settings/), [runSh job](/platform/workflow/job/runsh/), the [Node Pool](/platform/management/subscription/node-pools/) on which the CI or runSh job is running and [Subscription](/platform/management/subscription/settings/) do not have any timeout specified.
 Timeout values are given preference in the order `Job(CI or runSH) level timeout > Node Pool level timeout > Subscription level timeout > Default timeout`.
 
-**NOTE:** Please note that the actual default timeout value applied to your jobs is **twice** of the value you specified in setting above.
+**NOTE:** Please note that the actual default timeout value applied to your jobs is **twice** of the value you specified in the setting above.
 
 ## Advanced options
 
