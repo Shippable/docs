@@ -70,7 +70,7 @@ of the Node Pools page. This will open the **ADD NODE POOL** page.
   upper limit is set by the number of licenses that are available at the
   subscription level for the type of selected node pool
 
-* **Timeout** is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) do not have any timeout specified. If this is also not provided then timeout set at Subscription level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
+* **Timeout** is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) do not have any timeout specified. If this is also not provided then timeout set at [Subscription](/platform/management/subscription/settings/) level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
 
 ### Updating node pools
 You can edit any node pool by clicking on the `Edit` button the node pool
@@ -92,7 +92,7 @@ header. This will take you to the **Edit Node Pool** page.
   upper limit is set by the number of licenses that are available at the
   subscription level for the type of selected node pool
 
-* **Timeout** is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) do not have any timeout specified. If this is also not provided then timeout set at Subscription level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
+* **Timeout** is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) do not have any timeout specified. If this is also not provided then timeout set at [Subscription](/platform/management/subscription/settings/) level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
 
 ### Adding nodes to node pools
 * [On-demand nodes](/platform/runtime/nodes/#on-demand-nodes) automatically get

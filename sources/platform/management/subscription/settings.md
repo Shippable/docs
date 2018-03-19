@@ -29,6 +29,12 @@ While this is optional, we **highly recommend** you set a technical contact for 
 
 In the **Technical Contact** section, enter the email address and click on **Save**.
 
+## Set timeout
+
+This is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) and the [Node Pool](/platform/management/subscription/node-pools/) on which the CI or runSh job is running do not have any timeout specified. If this is also not provided then default value will be set. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
+
+In the **Timeout(optional)** section, enter the timeout value and click on **Save**.
+
 ## Reset deployment key
 
 You can create a new deployment key for your Subscription by clicking on **Reset all keys**. Please note that you will need to re-encrypt any secure variables you created through Subscription Settings if you reset your keys.
