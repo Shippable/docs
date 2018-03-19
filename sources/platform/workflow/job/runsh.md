@@ -113,7 +113,7 @@ A description of the job YML structure and the tags available is in the [jobs se
   the behavior of the job.
     * `nodePool` --  The node pool on which the job should run. For detailed
       explanation, read about [node pools](/platform/management/subscription/node-pools/).
-    * `timeoutMinutes` -- Optional. This sets the maximum time(in minutes) after which you want your runSh job to timeout. If this is not provided then timeout set at Node Pool, Subscription or System level will be used, given preference in the same order. Default value for timeout at System level is 60 minutes for free users and 120 minutes for paid users.
+    * `timeoutMinutes` -- Optional. This sets the maximum time(in minutes) after which you want your runSh job to timeout. If this is not provided then timeout set at Node Pool level, Subscription level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
     * `container` -- Optional. Boolean field to decide whether the job should
       run inside a container or on the host. `true` by default
   after which the job will be automatically stopped.
