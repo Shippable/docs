@@ -28,7 +28,7 @@ jobs:
     runtime:                        # optional
       nodePool: <node pool name>
       container: <true/false>     # optional
-    timeoutMinutes: 30              # optional
+      timeoutMinutes: 30              # optional
     on_start:
       - NOTIFY:       <notification resource name>
     steps:
@@ -113,7 +113,7 @@ A description of the job YML structure and the tags available is in the [jobs se
   the behavior of the job.
     * `nodePool` --  The node pool on which the job should run. For detailed
       explanation, read about [node pools](/platform/management/subscription/node-pools/).
-    * `timeoutMinutes` -- Optional. This sets the maximum time, in minutes,
+    * `timeoutMinutes` -- Optional. This sets the maximum time(in minutes) after which you want your runSh job to timeout. If this is not provided then timeout set at nodePool, subscription or system level will be used, given preference in the same order.
     * `container` -- Optional. Boolean field to decide whether the job should
       run inside a container or on the host. `true` by default
   after which the job will be automatically stopped.
