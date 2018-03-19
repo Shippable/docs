@@ -67,7 +67,7 @@ This is used to create a custom URL to clone a project. This can be used to clon
 
 * **Sync**: Synchronize your project with source control system. Usually used to fetch new branches in your source control that are not yet reflected in Shippable
 
-* **Timeout**: Minutes before you want to timeout your CI run. Max 60 minutes for your free account or 120 for paid.
+* **Timeout**: This sets the maximum time(in minutes) after which you want your CI job to timeout. If this is not provided then timeout set at Node Pool level, Subscription level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
 
 * **Reset Project**: This will reset all the keys, passwords that Shippable internally creates. If you are using any of these externally, you will need to update those systems as well. You will also need to re-encrypt any secure variables you encrypted on this Project Settings page.
 
