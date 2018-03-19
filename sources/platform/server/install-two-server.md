@@ -391,11 +391,20 @@ If you want your users to be able to connect to third party services through [in
 
 <img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
 
-###9. Configure nodes.
+###9. Configure nodes
 
 You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
 
 For more on different node types and detailed instructions on choosing and configuring a type, please read our docs on [Choosing and configuring a node type](/platform/server/build-config/#choosing-node-types)
+
+###10. Set default timeout
+
+ <img src="/images/platform/server/shippable-server-timeout.png" alt="Admiral-2-server">
+
+This is the default time(in milliseconds) after which you want your CI and runSh jobs to timeout. This timeout is used when your [CI project](/platform/management/project/settings/), [runSh job](/platform/workflow/job/runsh/), the [Node Pool](/platform/management/subscription/node-pools/) on which the CI or runSh job is running and [Subscription](/platform/management/subscription/settings/) do not have any timeout specified.
+Timeout values are given preference in the order `Job(CI or runSH) level timeout > Node Pool level timeout > Subscription level timeout > Default timeout`.
+
+**NOTE:** Please note that the actual default timeout value applied to your jobs is **twice** of the value you specified in setting above.
 
 ## Advanced options
 
