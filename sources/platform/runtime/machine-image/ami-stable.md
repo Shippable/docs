@@ -21,7 +21,8 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Execution Driver: native-0.2
 * Logging Driver: json-file
 * Kernel Version: 3.19.0-51-generic
-* Operating System: Ubuntu 16.04.3 LTS
+* Host Operating System: Ubuntu 14.04 LTS
+* Build Container Operating System: Ubuntu 14.04 LTS
 
 The Shippable Official Docker images are the default images used to spin up your CI build containers. In the following sections, you can find what is available on each official CI image, depending on the `language` specified in your yml.
 
