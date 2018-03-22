@@ -109,6 +109,7 @@ Please refer to the [Packer CLI page](https://www.packer.io/docs/commands/index.
 
 | Version  |   Machine Images              
 |----------|---------
+|0.8.7  | [v5.10.4](/platform/runtime/machine-image/ami-v582/) and later
 |0.10.0  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |0.8.7  | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
 

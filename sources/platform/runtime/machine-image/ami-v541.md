@@ -12,7 +12,8 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 **What is installed**
 
--  Operating System: Ubuntu 16.04.3 LTS
+- Host Operating System: Ubuntu 14.04 LTS
+- Build Container Operating System: Ubuntu 16.04.3 LTS
 -  Kernel Version: 3.19.0-51-generic
 -  **Docker Server Version: 1.13.0**
 -  Storage Driver: aufs
