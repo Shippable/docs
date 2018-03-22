@@ -234,6 +234,7 @@ pages:
         - cliConfig: platform/workflow/resource/cliconfig.md
         - cluster: platform/workflow/resource/cluster.md
         - dockerOptions: platform/workflow/resource/dockeroptions.md
+        - externalCIServer: platform/workflow/resource/externalciserver.md
         - file: platform/workflow/resource/file.md
         - gitRepo: platform/workflow/resource/gitrepo.md
         - image: platform/workflow/resource/image.md
@@ -250,6 +251,7 @@ pages:
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
+        - externalCI: platform/workflow/job/externalci.md        
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
         - release: platform/workflow/job/release.md
