@@ -30,6 +30,7 @@ jobs:
   - name: <name of the runCI>
     type: runCI
     dependencyMode: <chrono/strict/immediate>   # optional
+    priority:       <10>                        # optional
     steps:
       - IN: <resource>
         switch: off
@@ -49,6 +50,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`type`** -- Required, is set to `runCI`
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+
+* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive. Jobs with higher priority will be queued before the ones with lower priority. Default priority for all the jobs is 9999.
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.
