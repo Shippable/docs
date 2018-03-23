@@ -70,6 +70,8 @@ of the Node Pools page. This will open the **ADD NODE POOL** page.
   upper limit is set by the number of licenses that are available at the
   subscription level for the type of selected node pool
 
+* **Max Disk Usage Percentage** is the maximum disk usage after which the build nodes will be marked as failed. This setting is available only for BYON node pools. For BYON node pools if the max disk usage percentage is empty, system defined value is used (default 90%).  For dynamic node pools, system level maximum disk usage percentage is always used.
+
 * **Timeout** is the maximum time(in minutes) after which you want your CI or runSh jobs to  timeout. This timeout is used when your [CI project](/platform/management/project/settings/) or [runSh job](/platform/workflow/job/runsh/) do not have any timeout specified. If this is also not provided then timeout set at [Subscription](/platform/management/subscription/settings/) level or default will be used, in that order. Default value for timeout is 60 minutes for free users and 120 minutes for paid users.
 
 ### Updating node pools
