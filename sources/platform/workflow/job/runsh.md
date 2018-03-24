@@ -108,7 +108,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes).
 
-* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Jobs with higher priority will be queued before the jobs with lower priority. Default priority for all the jobs is 9999.
+* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Jobs with higher priority will run before the jobs with lower priority. Default priority for all the jobs is 9999.
 
 * **`allowPublicAccess`** -- Optional, defaults to false. When set to `true`, this job becomes visible to everyone. A good usecase for allowing public visibility if a runSh job has a `gitRepo` input which points to a public repository. If this job is building this repository or running tests on this repository and publishing commit/pr/release status on the public repository, then it would be beneficial to enable public access to the console of this job.
 
