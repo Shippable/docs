@@ -24,6 +24,7 @@ jobs:
     type:             runSh
     triggerMode:      <parallel/serial>
     dependencyMode:   <chrono/strict/immediate>   # optional
+    priority:         <[0-10000]>                 # optional
     allowPublicAccess: <true/false> # optional
     runtime:                        # optional
       nodePool: <node pool name>
@@ -106,6 +107,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`triggerMode`** -- Optional, can be `parallel` or `serial` and  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/sharing-data-between-jobs/).
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes).
+
+* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Queued jobs with higher priority will run before the queued jobs with lower priority. Default priority for all the jobs is 9999. This will not stop any processing jobs and will prioritize only queued jobs in your pipeline.
 
 * **`allowPublicAccess`** -- Optional, defaults to false. When set to `true`, this job becomes visible to everyone. A good usecase for allowing public visibility if a runSh job has a `gitRepo` input which points to a public repository. If this job is building this repository or running tests on this repository and publishing commit/pr/release status on the public repository, then it would be beneficial to enable public access to the console of this job.
 
