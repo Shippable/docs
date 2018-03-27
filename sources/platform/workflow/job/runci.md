@@ -30,7 +30,7 @@ jobs:
   - name: <name of the runCI>
     type: runCI
     dependencyMode: <chrono/strict/immediate>   # optional
-    priority:       <10>                        # optional
+    priority:       <[0-10000]>                 # optional
     steps:
       - IN: <resource>
         switch: off

@@ -24,7 +24,7 @@ jobs:
     type:             runSh
     triggerMode:      <parallel/serial>
     dependencyMode:   <chrono/strict/immediate>   # optional
-    priority:         <10>                        # optional
+    priority:         <[0-10000]>                 # optional
     allowPublicAccess: <true/false> # optional
     runtime:                        # optional
       nodePool: <node pool name>
