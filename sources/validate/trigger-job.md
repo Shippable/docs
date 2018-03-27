@@ -35,6 +35,8 @@ jobs:
 
 As shown above, the `switch: off` tag can be defined for IN resources or jobs in order to turn off automatic triggering of a job when the inputs change. Note that these switches are specific to the input and should be set accordingly for each input.
 
+When `switch: off` is applied to an input, the job will be displayed with a dark gray border when an update to the input would have otherwise triggered the job. Triggering the job will reset the border.
+
 ##Pausing jobs
 
 You can pause any jobs in your pipeline by right-clicking on the job, and clicking **Pause Jobs**. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume automatic triggers.
