@@ -51,7 +51,8 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
 
-* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Jobs with higher priority will run before the jobs with lower priority. Default priority for all the jobs is 9999.
+* **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Queued jobs with higher priority will run before the queued jobs with lower priority. Default priority for all the jobs is 9999. This will not stop any processing jobs and will
+prioritize only queued jobs in your pipeline.
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.
