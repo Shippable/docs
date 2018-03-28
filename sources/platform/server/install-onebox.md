@@ -215,9 +215,11 @@ Please note down the `Login Token` and the IP address/port of the admin panel. Y
 
 <img src="/images/platform/tutorial/server/controlpane-4.png">
 
-* Once initialization is complete, you should see `Initialized` status for these sections.
+* Once initialization is complete, you should see `Initialized` status for these sections (after collapsing those section panes).
 
 <img src="/images/platform/tutorial/server/controlpane-5.png">
+
+If anything shows **failed** status, read the [**Troubleshooting**](#troubleshooting) section at the bottom of this page for tips. If you still run into issues, please contact us [over email](mailto:support@shippable.com) or through a [github issue](https://github.com/Shippable/support/issues).
 
 * Expand the **Authorization and Source Control Management (SCM) Providers** section. You will need to configure one
 authorization provider.
@@ -255,11 +257,22 @@ authorization provider.
 
 <img src="/images/platform/tutorial/server/buildplane-1.png">
 
-* By default, system and custom nodes are enabled and this is what most customers end up using. If you want to use dynamic nodes, please contact `support@shippable.com` for further instructions.
+* You need nodes to run your jobs. For more on different node types and detailed instructions on choosing and configuring a type, please read our docs on [Choosing and configuring a node type](/platform/server/build-config/#choosing-node-types)
 
-Choose the appropriate `Default cluster type`, which is the operating system and version of your build nodes. For example, if you want to build your repositories on a Ubuntu 16.04 build machine, you would choose `custom__x86_64_Ubuntu_16.04`. Do not choose any type starting with `dynamic`.
+By default, system and custom nodes are enabled and this is what most customers end up using. If you want to use dynamic nodes, please contact `support@shippable.com` for further instructions.
+
+* Choose the appropriate `Default cluster type`, which is the operating system and version of your build nodes. For example, if you want to build your repositories on a Ubuntu 16.04 build machine, you would choose `custom__x86_64_Ubuntu_16.04`. Do not choose any type starting with `dynamic`.
 
 <img src="/images/platform/tutorial/server/buildplane-cluster.png">
+
+* Scroll down and set `default build timeout` in the `Settings` panel.
+
+ <img src="/images/platform/server/shippable-server-timeout.png" alt="Admiral-2-server">
+
+This is the default time(in milliseconds) after which you want your CI and runSh jobs to timeout. This timeout is used when your [CI project](/platform/management/project/settings/), [runSh job](/platform/workflow/job/runsh/), the [Node Pool](/platform/management/subscription/node-pools/) on which the CI or runSh job is running and [Subscription](/platform/management/subscription/settings/) do not have any timeout specified.
+Timeout values are given preference in the order `Job(CI or runSH) level timeout > Node Pool level timeout > Subscription level timeout > Default timeout`.
+
+**NOTE:** Please note that the actual default timeout value applied to your jobs is **twice** of the value you specified in the setting above.
 
 * Click on `Save and Restart services` in the left navigation bar.
 
@@ -318,79 +331,11 @@ To learn more about the benefits of caching, go [here](/platform/runtime/caching
 
 <img src="/images/platform/tutorial/server/systemsettings-2.png" alt="Admiral-github">
 
-###6. Configure nodes.
+## Advanced options
 
-You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
-
-By default, a Server installation is configured to support **System Nodes** and **BYON Nodes**. You can turn on **On-demand Nodes** if you want your nodes to be spun up on demand. We support AWS for On-demand nodes.
-
-<img src="/images/platform/tutorial/server/default-nodes-config.png" alt="Admiral-2-server">
-
-#### System nodes
-
-System nodes are available for all subscriptions and projects across your installation and are always ON and waiting to pick up triggered jobs.
-
-To configure system nodes, follow the instructions below:
-
-* From the Shippable Server UI, click on **Admin** in the left navbar and click on **Nodes** and then on **System**.
-* Click on **+** at the top right
-
-<img src="/images/platform/tutorial/server/system-nodes.png" alt="Admiral-2-server">
-
-* Follow instructions to add a node. You can follow guidelines [described at Step 6 onwards on the Add a node page](/platform/tutorial/runtime/custom-nodes/#adding-a-build-node)
-
-* Repeat these steps for the number of system nodes you want to add.
-
-#### BYON nodes
-
-BYON nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes.
-
-To restrict addition of BYON Nodes to Shippable Server Admins, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
-
-To set up BYON nodes, sign in to Shippable Server with your admin credentials and [follow instructions here](http://docs.shippable.com/getting-started/byon-manage-node/).
-
-#### On-demand Nodes
-
-On-demand nodes are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand.
-
-However, please note that nodes on AWS need 2-4 minutes to be spun up, so you will have to live with that overhead for some builds when a fresh node needs to be spun up.
-
-To enable **On-demand nodes**:
-
-* Check the **Enable On-demand nodes** checkbox
-* Enter your AWS Access and Secret keys.
-* Choose an instance size. Our default is c4.large.
-* You can leave the other settings as-is.
-* Click on **Save** for the **Configure and Install** section.
-
-## Troubleshooting
-
-###RabbitMQ initialization fails
-
-* Check your kernel version by running the following command on **Server 1**:
-
-```
-$ uname -a
-```
-
-<img src="/images/platform/tutorial/server/kernel-version.png" alt="Admiral-github">
-
-* If your kernel version is less than **3.19**, you need to run the following commands:
-
-```
-$ sudo apt-get update
-$ sudo apt-get install linux-generic-lts-vivid
-$ sudo reboot #restart is required after kernel upgrade
-```
-
-* After the reboot, you will need to restart Admiral:
-
-```
-$ sudo ./admiral.sh restart
-```
-
-* Re-open the admiral UI and click on **Initialize** in the **Initialize Infrastructure** section.
-
-### Missing subscriptions
-
-If you sign in to Shippable Server and are missing some subscriptions (organizations or teams) from your SCM, click on **Profile** in your left navbar and then click on **Sync**. Recheck if the missing organizations are now visible under **Subscriptions**.
+- [Database (Postgres) config](/platform/server/install-db)
+- [Secrets (Vault) config](/platform/server/install-vault)
+- [Redis config](/platform/server/install-redis)
+- [RabbitMQ config](/platform/server/install-rabbitmq)
+- [Swarm config](/platform/server/install-swarm-workers)
+- [Managing node types](/platform/server/build-config/#choosing-node-types)
