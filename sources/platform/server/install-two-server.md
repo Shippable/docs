@@ -9,14 +9,19 @@ page_keywords: ci, continuous integration, devops, docker, on-premises
 
 # Shippable Server installation guide
 
+<img src="/images/platform/tutorial/server/admiral-network.png" alt="Admiral-github">
+
 Shippable Server comprises of the following -
 
-* Stateless micro services
-* Stateful Components - PostgreSQL, Vault (Secret Store) and State store (GitLab server)
-* Transient State Components - Redis and RabbitMQ
-* Admiral, which is the Shippable Server Installer and Webapp
+* Control plane
+    * Stateless micro services  
+    * Stateful Components - PostgreSQL, Secret Store and GitLab server.
+    * Transient State Components - Redis and RabbitMQ
+    * Shippable Server Installer and webapp (Admiral)
+* Build plane
+    * Node pools
 
-This document describes the steps to install Shippable Server EE onto two servers.
+This document describes the steps to install Shippable Server onto two servers.
 
 <img src="/images/platform/tutorial/server/shippable-server-requirements.png" alt="Admiral-github">
 
@@ -24,8 +29,12 @@ This document describes the steps to install Shippable Server EE onto two server
 
 ### OS versions
 
-- Ubuntu 14.04 is required on Server 1 and Server 2.
-- Both Ubuntu 14.04 and 16.04 are supported for Build hosts.
+We support the following Operating systems:
+
+- Ubuntu 16.04 LTS
+- CentOS 7
+- RHEL 7
+- Ubuntu 14.04 LTS
 
 ### Open ports
 
@@ -33,18 +42,15 @@ Before we start, you need to open the following ports so that various Shippable 
 
 #### Server 1
 - 22: ssh into the machine
-- 5672: amqp
-- 15672: amqp admin
-- 6379: redis
-- 50000: Shippable api
-- 50001: Shippable post-login ui
-- 50002: Shippable pre-login ui
-- 50003: Shippable admin panel
-- 443, 5671 and 15671: required to access the message queue admin panel and for build nodes to connect if they belong to a different VPC than the one in which the message queue is provisioned.
+- 50000: Shippable API
+- 50001: Shippable UI
+- 50003: Shippable installer webapp
 
 #### Server 2
 
 - 22: ssh into the machine
+- 5672: messaging
+- 6379: redis
 - 80: internal gitlab server api endpoint
 - 443: internal gitlab server secure api endpoint
 - 2222: internal gitlab server ssh port
@@ -56,16 +62,7 @@ Before we start, you need to open the following ports so that various Shippable 
 You need to install Git and SSH on **Server 1** before downloading and running Admiral, the Shippable Server installer.  Install these by running the following on **Server 1**:
 
 ```
-$ sudo apt-get update
-$ sudo apt-get install git-core ssh
-```
-
-If you are installing on an Ubuntu 14.04 machine and your kernel version is older than 3.19, you will need to update the kernel by running the following commands:
-
-```
-$ sudo apt-get update
-$ sudo apt-get install linux-generic-lts-vivid
-$ sudo reboot #restart is required after kernel upgrade
+$ sudo apt-get update && sudo apt-get install git-core ssh
 ```
 
 ## Install Shippable Server
@@ -78,33 +75,31 @@ Please have the following information handy before you start the installation:
 
 **If you do not have an access key and secret ket, please contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact).**
 
-###1. Install Admiral
+###1. Install Admiral CLI
 
 SSH into **Server 1** and run the following commands:
 
 ```
 $ git clone https://github.com/Shippable/admiral.git
 $ cd admiral
-$ git checkout v5.11.3
+$ git checkout v6.3.4
 ```
 
 You will see the following output:
 
-```
-ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
+`ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
 Cloning into 'admiral'...
-remote: Counting objects: 6100, done.
-remote: Compressing objects: 100% (82/82), done.
-remote: Total 6100 (delta 48), reused 73 (delta 23), pack-reused 5994
-Receiving objects: 100% (6100/6100), 3.57 MiB | 0 bytes/s, done.
-Resolving deltas: 100% (3997/3997), done.
-Checking connectivity... done.
+remote: Counting objects: 15276, done.
+remote: Compressing objects: 100% (97/97), done.
+remote: Total 15276 (delta 85), reused 105 (delta 58), pack-reused 15121
+Receiving objects: 100% (15276/15276), 13.10 MiB | 12.15 MiB/s, done.
+Resolving deltas: 100% (9106/9106), done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
-ubuntu@ip-172-31-4-17:~/admiral$ git checkout v5.11.3
-HEAD is now at 9018791... updating version.txt to v5.11.3
-```
+ubuntu@ip-172-31-4-17:~/admiral$ git checkout v6.3.4
+HEAD is now at 9018791... updating version.txt to v6.3.4
+`
 
-We have checked out tag v5.11.3, which is the latest tag available as of December 2017. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that 5.11.3 will be available January 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
+We have checked out tag v6.3.4, which is the latest tag available as of March 2018. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that v6.3.4, will be available April 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
 
 ###2. Run Admiral CLI
 
@@ -114,65 +109,106 @@ a specific script on **Server 2** during this step to authorize ssh access for *
 
 Run the following command on **Server 1**:
 
-```
-$ sudo ./admiral.sh install
-```
-
 Follow the steps below:
 
 ```
-ubuntu@ip-172-31-29-44:~/admiral$ sudo ./admiral.sh install
-|___ Loading ADMIRAL_ENV from /etc/shippable/admiral.env
-|___ SSH keys already present, skipping
+root@802727a5be4e:/admiral# sudo ./admiral.sh install --installer-access-key XXXXXXXXXXXXXXXX --installer-secret-key XXXXXXXXXXXXXXXX
+|___ ADMIRAL_ENV does not exist, creating
+'/admiral/common/scripts/configs/admiral.env.template' -> '/etc/shippable/admiral.env'
+|___ Successfully created admiral env
+|___ SSH keys not available, generating
+|___ SSH keys successfully generated
 
-# 21:48:29 #######################################
+# 01:31:02 #######################################
 # Shippable Server Software License Agreement
 ##################################################
 |___ BY INSTALLING OR USING THE SOFTWARE, YOU ARE CONFIRMING THAT YOU UNDERSTAND THE SHIPPABLE SERVER SOFTWARE LICENSE AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS.
-|___ This agreement is available for you to read here: /home/ubuntu/admiral/SHIPPABLE_SERVER_LICENSE_AGREEMENT
+|___ This agreement is available for you to read here: /admiral/SHIPPABLE_SERVER_LICENSE_AGREEMENT
 |___ Do you wish to continue? (Y to confirm)
 ```
-Type **Y** to proceed.
+
+Choose `Y`. The installation will continue.
 
 ```
+Y
 |___ Thank you for accepting the Shippable Server Software License Agreement. Continuing with installation.
 
-# 21:48:31 #######################################
+# 01:31:03 #######################################
 # Validating runtime
 ##################################################
 |___ Using release: master
 |___ Updating RELEASE in ADMIRAL_ENV file
-|___ LOGIN_TOKEN already generated, skipping
-|___ Services: /home/ubuntu/admiral/common/scripts/configs/services.json
+|___ LOGIN_TOKEN not defined, generating
+|___ Generating login token
+|___ Successfully generated login token
+|___ Updating LOGIN_TOKEN in ADMIRAL_ENV file
+|___ LOGIN_TOKEN updated in ADMIRAL_ENV file
+|___ Services: /admiral/common/scripts/configs/services.json
 
-# 21:48:31 #######################################
+# 01:31:03 #######################################
 # Collecting required information
 ##################################################
-|___ ACCESS_KEY is not set
-|___ If you don't have an access key, you can obtain one by contacting us at www.shippable.com/contact.html
-|___ Setting installer access key
-|___ Please enter the provided installer access key.
-```
-
-Enter your access key
-
-```
-|___ SECRET_KEY is not set
-|___ If you don't have a secret key, you can obtain one by contacting us at www.shippable.com/contact.html
-|___ Setting installer secret key
-|___ Please enter the provided installer secret key.
-```
-
-Enter your secret key
-
-```
+|___ ACCESS_KEY already set, skipping
+|___ SECRET_KEY already set, skipping
+|___ Do you want to install all the stateful services(rabbitmq, redis, gitlab, vault) on this machine? This will be a onebox install. (Y/n)
+n
 |___ ADMIRAL_IP not set
 |___ Setting value of admiral IP address
-|___ Please enter your current IP address. This will be the address at which you access the installer webpage. Type D to set default (127.0.0.1) value.
+|___ List of your machine IP addresses including default:
+|___ 1 IP addresses available for the host
+|___ 1 - (127.0.0.1)
+|___ 2 - (172.17.0.2)
+|___ Please pick one of the IP addresses from the above list by selecting the index (1, 2, etc) or enter a custom IP```
 ```
-Enter the IP address of **Server 1** if you want to access the installer web page at that address. This can be the private IP address, or the public IP address if you've set up your network to grant access to incoming ports through the public IP.
 
-Typing **D** will set the IP address to the default value of `127.0.0.1`.
+Enter or select the IP address of **Server 1**.
+
+```
+2
+|___ 172.17.0.2 was selected as admiral IP
+|___ Admiral IP is set to 172.17.0.2
+|___ Setting value of database IP address
+|___ Do you want to install the database on this machine? (Y/n)
+```
+
+Choose `n`.
+
+```
+n
+|___ Please enter the IP address of the database
+```
+
+
+54.210.100.250
+|___ Enter I to install a new database or E to use an existing one.
+|___ Existing databases must be Postgres 9.5 and have a user named apiuser with full permissions on a database named shipdb.
+E
+|___ An existing database will be used for this installation
+|___ DB_PORT is not set
+|___ Setting value of database port
+|___ Please enter the database port or D to set the default (5432).
+D
+|___ DB_PASSWORD is not set
+|___ Setting database password
+|___ Please enter the password for your database. This password will also be used for gitlab & rabbitmq, by default. This can be changed from the Admiral UI, if required.
+database1234
+|___ PUBLIC_IMAGE_REGISTRY already set, skipping
+|___ These values are easy to set now, but hard to change later! Please confirm that they are correct:
+Admin Panel Address:      172.17.0.2
+Database Address:         54.210.100.250
+Database Type:            Existing
+Database Port:            5432
+Database Password:        ************
+Onebox mode:               false
+|___ Enter Y to confirm or N to re-enter these values.
+Y
+
+
+
+
+
+
+Enter a password that is easy to remember.
 
 ```
 |___ Setting value of database IP address
