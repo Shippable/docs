@@ -260,7 +260,7 @@ Please note down the `Login Token` and the IP address/port of the admin panel. Y
 
 ###3. Initialize Control pane
 
-*  First, you need to connect to the Admiral web app in your browser by entering IP address and port, for example `http://35.172.229.57:50003`. It might be a good idea to bookmark this Admiral URL.
+*  First, you need to connect to the Admiral web app in your browser by entering IP address and port, for example `http://54.172.2.206:50003`. It might be a good idea to bookmark this Admiral URL.
 
 * Enter the admin token.
 
@@ -278,7 +278,7 @@ Please note down the `Login Token` and the IP address/port of the admin panel. Y
 
 * For the **Messaging** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**.
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-3.png" alt="Admiral-2-server">
+<img src="/images/platform/tutorial/server/controlpane-two-server-3.png">
 
 *  For the **State** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**..
 

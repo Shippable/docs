@@ -38,11 +38,11 @@ You can choose to install Vault on a separate server from the one where Admiral 
 
 <img src="/images/platform/server/vault-new-node.png" alt="Installing Vault on the current node">
 
-- Select **New Node** for **Secrets** in the **Initialize infrastructure** panel.
-- Enter the IP address where you would like to install Vault.  This should be an Ubuntu 14.04 machine with port 8200 accessible to the other Shippable components and services.
-- Run the command displayed to allow Admiral SSH access to the machine on the machine chosen and check the box to confirm that this step was completed.  SSH access is required to run the installation scripts.
+- Select **New Node** for **Secrets** in the **Control plane** panel.
+- Enter the IP address where you would like to install Vault.  This should be a supported OS machine with port 8200 accessible to the other Shippable components and services.
+- Run the command displayed to allow Admiral SSH access to the machine on the machine chosen and check the box to confirm that this step was completed. SSH access is required to run the installation scripts.
 
-You will need to click the **Initialize** button after completing other sections. Installation progress will be shown on the right side of the Initialize panel.
+You will need to click the **Apply** button after completing other sections. Installation progress will be shown on the right side of the Control plane panel.
 
 ### Connecting to an existing instance
 
@@ -52,10 +52,10 @@ To configure this:
 
 <img src="/images/platform/server/vault-existing.png" alt="Reusing an existing Vault instance">
 
-- Select **Existing** for **Secrets** in the **Initialize infrastructure** panel.
-- Enter the IP address of your Vault instance.  This should be an Ubuntu 14.04 machine with ports 8200 accessible to the other Shippable components and services.
+- Select **Existing** for **Secrets** in the **Control plane** panel.
+- Enter the IP address of your Vault instance.  This should be a supported OS machine with ports 8200 accessible to the other Shippable components and services.
 
-You will need to click the **Initialize** button after completing other sections. Installation progress will be shown on the right side of the Initialize panel.
+You will need to click the **Apply** button after completing other sections. Installation progress will be shown on the right side of the Control plane panel.
 
 ## Viewing configuration
 
@@ -72,36 +72,6 @@ The **Logs** button for **Secrets** will show the logs from installation and ini
 ## Unsealing Vault
 
 If the server reboots or vault goes in a [**sealed**](https://www.vaultproject.io/docs/concepts/seal.html) state, it needs to be **unsealed** manually (for now). The following steps unseal the vault server, depending on whether Vault is running as a Docker container, or on the host machine.
-
-TODO: what do we do?? give one set of instructions.
-
-### Vault running as a Docker container
-- `ssh` into the machine that is running vault container.
-
-- Print vault keys on the console using `cat /etc/shippable/admiral.env`
-
-- Run the following commands. Since three keys are required to
-  unseal vault, the command to unseal has to be run three times with different
-  keys.
-
-```bash
-$ docker exec -it secrets /bin/sh #this should open a shell inside vault
-container
-
-$ export VAULT_ADDR='http://127.0.0.1:8200'
-
-$ vault status # this should show `Sealed true`
-
-$ vault unseal # this will prompt for an unseal key. copy and enter UNSEAL_KEY1 from /etc/shippable/admiral.env
-
-$ vault unseal # copy and enter UNSEAL_KEY2 from /etc/shippable/admiral.env
-
-$ vault unseal # copy and enter UNSEAL_KEY3 from /etc/shippable/admiral.env
-
-$ vault status # this should now show `Sealed false`
-
-$ exit # return to host
-```
 
 ### Vault running on the host machine
 
