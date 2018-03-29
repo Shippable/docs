@@ -395,7 +395,7 @@ pages:
         - State Storage: platform/server/install-gitlab.md
         - Redis: platform/server/install-redis.md
         - Swarm: platform/server/install-swarm-workers.md
-        - Service addresses: platform/server/service-addresses.md
+        - Self-signed SSL certificates: platform/server/selfsigned-certificates.md
         - Auth and source control: platform/server/auth-source-control.md
         - Build config: platform/server/build-config.md
         - System settings: platform/server/system-settings.md
