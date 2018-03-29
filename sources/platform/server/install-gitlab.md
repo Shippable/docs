@@ -16,20 +16,23 @@ You have a few choices of where you want to run your Gitlab server:
 * Fresh installation on a different machine from the Installer (**Recommended**)
 * Use an existing Gitlab server, either from a previous Shippable installation, or your own instance
 
-Our recommended approach is to do a fresh installation on a machine separate from the installer for space and performance reasons. GitLab can easily be installed on a separate Ubuntu 14.04 machine with the Admiral installer by configuring the **Secrets** section.
+Our recommended approach is to do a fresh installation on a machine separate from the installer for space and performance reasons. GitLab can easily be installed on a separate supported OS machine with the Admiral installer by configuring the **STATE** section.
 
-<img src="/images/platform/server/admiral-gitlab.png" alt="Configuring Gitlab for state store">
+<img src="/images/platform/server/admiral-gitlab-config.png" alt="Configuring Gitlab for state store">
 
 
-## Installing Gitlab
+## Installing State
+
+When you first log in to the [Admiral UI](/platform/server/install/#the-admiral-ui), GitLab will not yet be installed or initialized. Follow the instructions below, depending on where you want to install GitLab.
+
 
 ### Fresh instance on the same machine
 
-To install Gitlab on the same machine as the one where Admiral is installed, select the **This Node** radio button.
+To install Gitlab on the same machine as the one where Admiral is installed, select  **This Node** from the dropdown under `Install State on` in the **Secrets** section of the **Control plane** panel in the Admiral UI.
 
 <img src="/images/platform/server/gitlab-this-node.png" alt="Installing Gitlab on the current node">
 
-You will need to click the **Initialize** button after completing other sections.
+You will need to click the **Apply** button after completing other sections.
 
 ### Fresh instance on a new machine
 
@@ -37,12 +40,12 @@ You can choose to install Gitlab on a separate server from the one where Admiral
 
 <img src="/images/platform/server/gitlab-new-node.png" alt="Installing Gitlab on the current node">
 
-- Select **New Node** for **State** in the **Initialize infrastructure** panel.
+- Select **New Node** from the dropdown under `Install State on` for **Secrets** in the **Control plane** panel..
 - Enter a password for the root GitLab user.
-- Enter the IP address where you would like to install GitLab.  This should be an Ubuntu 14.04 machine with ports 80, 443, and 22 accessible to the other Shippable components and services.
+- Enter the IP address where you would like to install GitLab.  This should be a supported OS machine with ports 80, 443, and 22 accessible to the other Shippable components and services.
 - Run the command displayed to allow Admiral SSH access to the machine on the machine chosen and check the box to confirm that this step was completed.  SSH access is required to run the installation scripts.
 
-You will need to click the **Initialize** button after completing other sections. Installation progress will be shown on the right side of the Initialize panel.
+You will need to click the **Apply** button after completing other sections. Installation progress will be shown on the right side of the Control plane panel.
 
 ### Connecting to an existing instance
 
@@ -52,15 +55,15 @@ To configure this:
 
 <img src="/images/platform/server/gitlab-existing.png" alt="Installing Gitlab on the current node">
 
-- Select **Existing** for **State** in the **Initialize infrastructure** panel.
+- Select **Existing** for **State** in the **Control plane** panel.
 - Enter a password for the root GitLab user.
 - Enter the IP address of your GitLab instance.  This should be an Ubuntu 14.04 machine with ports 80, 443, and 22 accessible to the other Shippable components and services.
 
-You will need to click the **Initialize** button after completing other sections. Installation progress (initializing or initialized) will be shown on the right side of the Initialize panel.
+You will need to click the **Apply** button after completing other sections. Installation progress (initializing or initialized) will be shown on the right side of the Initialize panel.
 
 ## Viewing configuration
 
-Once GitLab is initializing, you'll be able to view the configuration and logs. The **Config** button for **State** will show some information about the GitLab location and configuration:
+Once GitLab is initializing, you'll be able to view the configuration and logs.
 
 <img src="/images/platform/admiral/admiral-gitlab-config.png" alt="GitLab config">
 
