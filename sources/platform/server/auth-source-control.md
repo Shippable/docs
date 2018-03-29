@@ -54,7 +54,7 @@ The following steps configure GitHub Enterprise as an authorization provider for
 * Switch back to Admiral UI in your browser and enter the **Client ID** and **Client Secret**
 * Note that the **URL** field must contain the full path to your GitHub Enterprise server's API end point. This will typically end with `/api/v3`. Example: `https://github.example.com/api/v3`.
 
-<img src="/images/platform/tutorial/server/ss-ghe.png">
+<img src="/images/platform/server/ss-ghe.png">
 
 * Please note that you will need to click on **Apply** for your changes to be effective.
 
@@ -71,7 +71,7 @@ The following steps configure GitHub as an authorization provider for your Shipp
 * Enter an easy to remember **Application name**. You need to enter something for **Homepage URL**, but this value isn't relevant to our scenario.
 * Copy the **Callback URL** from your Admiral UI:
 
-<img src="/images/platform/tutorial/server/ss-github.png" alt="Admiral-2-server">
+<img src="/images/platform/server/ss-github.png" alt="Admiral-2-server">
 
 * Paste the Callback URL into the **Authorization callback URL** field in the GitHub UI and click on **Register Application**
 * Copy the **Client ID** and **Client Secret** for your new application.
@@ -147,7 +147,7 @@ Please use the table below to find the appropriate add-on for your BitBucket Ser
 * Enter the private key (contents of `id_rsa` file from the **Generate SSH keys** step) in **Client Secret**.
 * Please note that you will need to click on **Apply** for your changes to be effective.
 
-<img src="/images/platform/tutorial/server/ss-bbs.png" alt="Admiral-2-server">
+<img src="/images/platform/server/ss-bbs.png" alt="Admiral-2-server">
 
 If you came to this page to configure Bitbucket Server while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
