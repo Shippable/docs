@@ -97,12 +97,9 @@ The above YML does the following things
 
 * Language is set to Python
 * We will automatically build when a commit is made to `master` branch
-* The integration created in Step 1 is referenced here to auto login to Docker Hub
-* Two global environment variables are set to hold the information about the Docker image
-* The build section setups the commands to execute to build and push the image
-* Optional configrations needed only if you would like to use the image in CD processes
-* Output image tag into an `image` resource
-* Defines an image resource used to store all the tags
+* The integration created in first step is referenced here to auto login to Docker Hub
+* Two global environment variables hold the information about the Docker image
+* The build section defines the scripts to build and push the image
 
 The optional section does the following things
 
