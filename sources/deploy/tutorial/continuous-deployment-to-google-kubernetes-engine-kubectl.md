@@ -173,25 +173,25 @@ The above YML block does a few interesting things.
 
 * The `TASK` section defines the scripts that are going to be executed. `get_resource_state` utility get the path where the resource content is stored, in this case the clone of `config_repo` as we need the kube config files. We change the path to `specs` which is were the config files are present. These configs have wildcards in them so that we can reuse them for other deployments too. Hence we need to set those variables which is what next 3 commands are to set `$BE_LABEL`, `$BE_IMG` and `$BE_TAG`. The image information is in resource `app_be_img` and we are using Shippable utility functions `get_resource_version_key` and `get_resource_version_name` to get image name and image tag values. We then use `replace` utility to replace the wildcards in the configs. for e.g. in `beDeploy.yml`, `${BE_LABEL}` is replaced with `kctl-be-app`, `${BE_IMG}` and `${BE_TAG}` are replaced with the whatever `app_be_img` resource had in the latest version.
 
-	```
-	apiVersion: apps/v1beta1
-	kind: Deployment
-	metadata:
-	  namespace: default
-	  name: ${BE_LABEL}
-	spec:
-	  replicas: 1
-	  template:
-	    metadata:
-	      labels:
-	        app: ${BE_LABEL}
-	    spec:
-	      containers:
-	      - name: ${BE_LABEL}
-	        image: ${BE_IMG}:${BE_TAG}
-	        ports:
-	        - containerPort: 6379
-	```
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  name: ${BE_LABEL}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ${BE_LABEL}
+    spec:
+      containers:
+      - name: ${BE_LABEL}
+        image: ${BE_IMG}:${BE_TAG}
+        ports:
+        - containerPort: 6379
+```
 
 * Now the files are prepped with the right tag info, it is time to deploy. Since we added `gcp_cli` as an IN to the job, the platform has already authenticated the shell to gcloud and set the default region to `us-west1-a`. Now using the utility function `get_resource_version_key` we get the cluster info from `gke_cluster` and we authenticate to kube cluster. 
 
