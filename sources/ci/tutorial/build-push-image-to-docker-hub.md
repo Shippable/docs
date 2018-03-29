@@ -13,16 +13,16 @@ This tutorial explains how to continuously build and push an image to Docker Hub
 
 Here is why you should be using Shippable. 
 
+## Pre-requisites
+To jump into this tutorial, you will need to familiarize yourself with the platform as well some of the pre-requisite usecases
 
-## Building Blocks
-
-### Shippable Components
-* [Docker Registry integration](/platform/integration/docker-registry)
+### Platform Features
+* [Docker Registry integration](/platform/integration/dockerRegistryLogin)
 * [Github integration](/platform/integration/github)
 * [image resource](/platform/workflow/resource/image)
 * [runCI job](/platform/workflow/job/runci)
 
-## Shippable Concepts
+### Usecases
 * Defining Jobs and Resources using `shippable.yml`
 * Output information from a Job to a Resource
 * Using specific version of build image
@@ -31,17 +31,22 @@ Here is why you should be using Shippable.
 * [Working with Integrations](platform/tutorial/howto-crud-integration)
 
 ## Step by Step Instructions
+The following sections explain the process of setting up a workflow to build and package a Docker image. 
 
-###1. Add Docker Registry Account Integration
-To be able to push and pull images from Docker Hub we need to add an integration named `drship_dockerhub`. Set permissions to allow the Org that contains your `Dockerfile` repo to be able to use it. Alternatively, you could just permit the repo to have access rather than the whole Org. 
 
-<img src="/images/tutorial/build-push-docker-image-fig1.png" alt="Add Account Integration">
+**Source code is available at [devops-recipes/app_be](https://github.com/devops-recipes/app_be)**
 
-[Working with Integrations](platform/tutorial/howto-crud-integration) tutorial has more details.
+**Complete YML is at [devops-recipes/app_be/shippable.yml](https://raw.githubusercontent.com/devops-recipes/app_be/master/shippable.yml)**
 
-###2. Add `shippable.yml` and configure CI
-`shippable.yml` is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to 
-the repo that contains the `Dockerfile` and in for this e.g. it is `https://github.com/devops-recipes/app_be`.
+###1. Add [Docker Registry]((/platform/integration/dockerRegistryLogin)) Integration
+To be able to push and pull images from Docker Hub, we need to add an integration named `drship_dockerhub`. Set permissions to allow the Org that contains your `Dockerfile` repo to be able to use it. Alternatively, you could just permit the repo to have access rather than the whole Org. 
+
+<img src="/images/tutorial/build-push-docker-image-fig1.png" alt="Add Integration">
+
+[Working with Integrations](platform/tutorial/howto-crud-integration) explain this in more detail.
+
+###2. Add CI Config
+`shippable.yml` is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to the repo that contains the `Dockerfile`. For this e.g. it is `https://github.com/devops-recipes/app_be`.
 
 Configure CI steps by adding the following code snipped to the YML file
 
@@ -104,7 +109,7 @@ The above YML does the following things
 The optional section does the following things
 
 * If the ci section runs without any error, then using in-built utility function `put_resource_state` we copy the image tag into the `versionName` field of image `app_be_img` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
-* `resources` section is used to define resources that are used by the assembly line. Here we are creating an image named `app_be_img` that can be access using integration `drship_dockerhub`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pull or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
+* `resources` section is used to define resources that are used by the assembly line. Here we are creating an image named `app_be_img` that can be access using integration `drship_dockerhub`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
 * `jobs` section is used to define a jobs that run as part of the Assembly Line. When a CI project is enable a job is automatically created with the name of the repo appended by `_runCI`. We are extending this automatically created CI job to also have an image output. In additon we are also adding a flag. We are allowing these jobs to run in parallel if multiple webhooks come in and also we making sure it only triggers when all dependencies are in consistent state, hence `strict`
 
 ###3. Enable the repo for CI
@@ -120,7 +125,7 @@ At this stage, you can either manually trigger your CI project or commit a chang
 
 The rest of the steps are **Optional** and are needed only if you want to add Continuous Deployment capabilities by adding assembly lines. To deploy the right tag of the image, we need to store the tags as versions of the image resource. The rest of the steps are instructions on how to do it
 
-###5. Add Github Account Integration
+###5. Add [Github](/platform/integration/github) Integration
 To add assembly lines, Shippable needs source control credentials. We do not automatically use the users token as in the case of CI. Hence this needs to added to the account. Add and integration named `drship_github` add permissions to the Org that containes the repo with the yml file.
 
 [Working with Integrations](platform/tutorial/howto-crud-integration) tutorial has more details.
