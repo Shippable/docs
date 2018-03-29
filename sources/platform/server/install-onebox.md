@@ -259,8 +259,6 @@ authorization provider.
 
 * You need nodes to run your jobs. For more on different node types and detailed instructions on choosing and configuring a type, please read our docs on [Choosing and configuring a node type](/platform/server/build-config/#choosing-node-types)
 
-By default, system and custom nodes are enabled and this is what most customers end up using. If you want to use dynamic nodes, please contact `support@shippable.com` for further instructions.
-
 * Choose the appropriate `Default cluster type`, which is the operating system and version of your build nodes. For example, if you want to build your repositories on a Ubuntu 16.04 build machine, you would choose `custom__x86_64_Ubuntu_16.04`. Do not choose any type starting with `dynamic`.
 
 <img src="/images/platform/tutorial/server/buildplane-cluster.png">
