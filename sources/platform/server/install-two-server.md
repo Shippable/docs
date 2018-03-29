@@ -9,8 +9,6 @@ page_keywords: ci, continuous integration, devops, docker, on-premises
 
 # Shippable Server installation guide
 
-<img src="/images/platform/tutorial/server/admiral-network.png" alt="Admiral-github">
-
 Shippable Server comprises of the following -
 
 * Control plane
