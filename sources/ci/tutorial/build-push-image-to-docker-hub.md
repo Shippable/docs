@@ -123,7 +123,7 @@ For automated builds, we need to enable the project for CI. Once enabled the pla
 At this stage, you can either manually trigger your CI project or commit a change to the git repo which should automatically build your project.
 
 
-The rest of the steps are **Optional** and are needed only if you want to add Continuous Deployment capabilities by adding assembly lines. To deploy the right tag of the image, we need to store the tags as versions of the image resource. The rest of the steps are instructions on how to do it
+> The rest of the steps are **Optional** and are needed only if you want to add Continuous Deployment capabilities by adding assembly lines. To deploy the right tag of the image, we need to store the tags as versions of the image resource. The rest of the steps are instructions on how to do it
 
 ###5. Add [Github](/platform/integration/github) Integration
 To add assembly lines, Shippable needs source control credentials. We do not automatically use the users token as in the case of CI. Hence this needs to added to the account. Add and integration named `drship_github` add permissions to the Org that containes the repo with the yml file.
