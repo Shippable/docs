@@ -404,7 +404,7 @@ To learn more about the benefits of caching, go [here](/platform/runtime/caching
 
 * Switch back to Admiral UI and click on **System Settings->Manage System SuperUsers (+ icon)** section.
 
-<img src="/images/platform/tutorial/server/systemsettings-1.png" alt="Admiral-github">
+<img src="/images/platform/server/admiral-system-settings.png" alt="admiral-system-settings">
 
 * Paste the Account id and click **Add**.
 
