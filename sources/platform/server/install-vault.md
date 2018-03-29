@@ -26,7 +26,7 @@ When you first log in to the [Admiral UI](/platform/server/install/#the-admiral-
 
 ### Fresh instance on the same machine
 
-To install Vault on the same machine as the one where Admiral is installed, select  **This Node** from the dropdown under `Install secrets on` in the **Secrets** section of the **Control plane** panel in the Admiral UI.
+To install Vault on the same machine as the one where Admiral is installed, select  **This Node** from the dropdown under `Install Secrets on` in the **SECRETS** section of the **Control plane** panel in the Admiral UI.
 
 <img src="/images/platform/server/vault-this-node.png" alt="Installing Vault on the current node">
 
@@ -38,7 +38,7 @@ You can choose to install Vault on a separate server from the one where Admiral 
 
 <img src="/images/platform/server/vault-new-node.png" alt="Installing Vault on the current node">
 
-- Select **New Node** from the dropdown under `Install secrets on` for **Secrets** in the **Control plane** panel.
+- Select **New Node** from the dropdown under `Install Secrets on` for **SECRETS** in the **Control plane** panel.
 - Enter the IP address where you would like to install Vault.  This should be a supported OS machine with port 8200 accessible to the other Shippable components and services.
 - Run the command displayed to allow Admiral SSH access to the machine on the machine chosen and check the box to confirm that this step was completed. SSH access is required to run the installation scripts.
 
@@ -52,7 +52,7 @@ To configure this:
 
 <img src="/images/platform/server/vault-existing.png" alt="Reusing an existing Vault instance">
 
-- Select **Existing** for **Secrets** in the **Control plane** panel.
+- Select **Existing** rom the dropdown under `Install Secrets on` for **SECRETS** in the **Control plane** panel.
 - Enter the IP address of your Vault instance.  This should be a supported OS machine with ports 8200 accessible to the other Shippable components and services.
 
 You will need to click the **Apply** button after completing other sections. Installation progress will be shown on the right side of the Control plane panel.
@@ -65,7 +65,7 @@ Once Vault is initializing, you'll be able to view the configuration and logs.
 
 ## Viewing logs
 
-The **logs** button (paper clip icon) for **Secrets** will show the logs from installation and initialization.
+The **logs** button (paper clip icon) for **SECRETS** will show the logs from installation and initialization.
 
 <img src="/images/platform/admiral/admiral-vault-logs.png" alt="vault logs">
 

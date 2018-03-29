@@ -28,7 +28,7 @@ When you first log in to the [Admiral UI](/platform/server/install/#the-admiral-
 
 ### Fresh instance on the same machine
 
-To install Gitlab on the same machine as the one where Admiral is installed, select  **This Node** from the dropdown under `Install State on` in the **Secrets** section of the **Control plane** panel in the Admiral UI.
+To install Gitlab on the same machine as the one where Admiral is installed, select  **This Node** from the dropdown under `Install State on` in the **STATE** section of the **Control plane** panel in the Admiral UI.
 
 <img src="/images/platform/server/gitlab-this-node.png" alt="Installing Gitlab on the current node">
 
@@ -40,7 +40,7 @@ You can choose to install Gitlab on a separate server from the one where Admiral
 
 <img src="/images/platform/server/gitlab-new-node.png" alt="Installing Gitlab on the current node">
 
-- Select **New Node** from the dropdown under `Install State on` for **Secrets** in the **Control plane** panel..
+- Select **New Node** from the dropdown under `Install State on` for **STATE** in the **Control plane** panel..
 - Enter a password for the root GitLab user.
 - Enter the IP address where you would like to install GitLab.  This should be a supported OS machine with ports 80, 443, and 22 accessible to the other Shippable components and services.
 - Run the command displayed to allow Admiral SSH access to the machine on the machine chosen and check the box to confirm that this step was completed.  SSH access is required to run the installation scripts.
@@ -55,11 +55,11 @@ To configure this:
 
 <img src="/images/platform/server/gitlab-existing.png" alt="Installing Gitlab on the current node">
 
-- Select **Existing** for **State** in the **Control plane** panel.
+- Select **Existing** from the dropdown under `Install State on` for **STATE** in the **Control plane** panel.
 - Enter a password for the root GitLab user.
 - Enter the IP address of your GitLab instance.  This should be an Ubuntu 14.04 machine with ports 80, 443, and 22 accessible to the other Shippable components and services.
 
-You will need to click the **Apply** button after completing other sections. Installation progress (initializing or initialized) will be shown on the right side of the Initialize panel.
+You will need to click the **Apply** button after completing other sections. Installation progress (initializing or initialized) will be shown on the right side of the Control plane panel.
 
 ## Viewing configuration
 
@@ -69,6 +69,6 @@ Once GitLab is initializing, you'll be able to view the configuration and logs.
 
 ## Viewing logs
 
-The **Logs** button for **State** will show the logs from installation and initialization.
+The **Logs** button (paper clip icon) for **STATE** will show the logs from installation and initialization.
 
 <img src="/images/platform/admiral/admiral-gitlab-logs.png" alt="GitLab logs">
