@@ -63,10 +63,10 @@ You will need to click the **Apply** button after completing other sections. Ins
 
 Once Redis is initializing, you'll be able to view the configuration and logs.
 
-<img src="/images/platform/admiral/admiral-redis-config.png" alt="GitLab config">
+<img src="/images/platform/admiral/admiral-redis-config.png" alt="Redis config">
 
 ## Viewing logs
 
 TThe **logs** button (paper clip icon) for **REDIS** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-redis-logs.png" alt="GitLab logs">
+<img src="/images/platform/admiral/admiral-redis-logs.png" alt="Redis logs">
