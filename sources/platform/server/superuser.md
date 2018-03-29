@@ -14,16 +14,16 @@ You should restrict admin access to those who absolutely need it.
 
 ## Adding an admin
 
-In your Admiral UI, scroll to the bottom and view the section on **Manage super users**.
+In your Admiral UI, click on `System Settings` and scroll to the bottom and view the section on **MANAGE SYSTEM SUPERUSERS**.
 
 Enter the account ID of the user you want to upgrade to admin status. You can find the account ID by clicking
 on  **Profile** in the left sidebar and note down the `Account Id` at the bottom of the screen.
 
-<img src="/images/platform/server/find-account-id.png" alt="Admiral-github">
+<img src="/images/platform/server/find-account-id.png" alt="Admiral-findaccount">
 
 * Paste the account id and click **Add**.
 
-<img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-github">
+<img src="/images/platform/admiral/Admiral-superuser.png" alt="Admiral-superuser">
 
 ## Removing an admin
 
