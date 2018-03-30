@@ -161,13 +161,13 @@ integrations:
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and then pushes
 the image to Docker Hub.
 
-**Source code:**  [devops-recipes/ci-push-docker-hub](https://github.com/devops-recipes/ci-push-docker-hub).
+**Source code:**  [devops-recipes/node_app](https://github.com/devops-recipes/node_app).
 
-**Build link:** <a href="https://app.shippable.com/github/devops-recipes/ci-push-docker-hub/runs/1/1/console" target="_blank"> CI build on Shippable</a>
+**Build link:** <a href="https://app.shippable.com/github/devops-recipes/node_app/runs/1/1/console" target="_blank"> CI build on Shippable</a>
 
-**Docker Hub image pushed:** [devopsrecipes/push-docker-hub](https://hub.docker.com/r/devopsrecipes/push-docker-hub/)
+**Docker Hub image pushed:** [devopsrecipes/node_app](https://hub.docker.com/r/devopsrecipes/node_app/)
 
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/58f002c7c585000700aef8ca/badge?branch=master)](https://app.shippable.com/github/devops-recipes/ci-push-docker-hub)
+**Build status badge:** [![Run Status](https://api.shippable.com/projects/5abe655e2003d10700c3cf95/badge?branch=master)](https://app.shippable.com/github/devops-recipes/node_app)
 
 ## Improve this page
 
