@@ -82,7 +82,7 @@ This forked repository is called a [sync repo resource](/platform/workflow/resou
 - Add your syncRepo resource following the instructions [here](/platform/workflow/resource/syncrepo/#adding-a-syncrepo-from-the-ui). The project should
 be your forked repository.
 
-- You should not be able to see all your pipeline jobs and resources in the single pane of glass (SPOG) view.
+- You should now be able to see all your pipeline jobs and resources in the single pane of glass (SPOG) view.
 ![SPOG view](https://raw.githubusercontent.com/devops-recipes/deploy-ecs-basic/master/public/resources/images/pipeline-view.png)
 
 - Right click on the deploy-ecs-basic-manifest box and click `Run job`. This will run the Manifest job.
