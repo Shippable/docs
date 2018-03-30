@@ -42,7 +42,19 @@ An On-demand node executes jobs, each of which have their own specific timeout. 
 
 ### Machine Images
 
-On-demand Nodes are booted with a Shippable Machine image. Each Machine image is versioned and comes in a Ubuntu 14/16 flavor. [Read More on machine images](/platform/runtime/machine-image/ami-overview/).
+On-demand Nodes are booted with a Shippable Machine image. Each Machine image is versioned. [Read More on machine images](/platform/runtime/machine-image/ami-overview/).
+
+Machine images exist for the following architectures and operating systems:
+
+|Architecture|OS|Docker Version|
+|---|---|---|
+|x86_64|CentOS 7|17.06|
+|x86_64|Ubuntu 14.04|1.9|
+|x86_64|Ubuntu 14.04|1.11|s
+|x86_64|Ubuntu 14.04|1.13|
+|x86_64|Ubuntu 14.04|17.06|
+|x86_64|Ubuntu 16.04|17.06|
+|x86_64|Windows Server 2016|17.06|
 
 ## BYON Nodes
 
