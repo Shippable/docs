@@ -122,12 +122,12 @@ The optional section does the following things
 ###3. Enable the repo for CI
 For automated builds, we need to enable the project for CI. Once enabled the platform will automatically create the webhooks required to continuosly build the project. 
 
-[Enabling a repo for CI](ci/enable-project/) has more detailed instructions
+Detailed steps on enabling a repo is [here](/ci/enable-project/).
 
 ###4. Run your CI Project
 At this stage, you can either manually trigger your CI project or commit a change to the git repo which should automatically build your project.
 
-
+### Optional
 > The rest of the steps are **Optional** and are needed only if you want to add Continuous Deployment capabilities by adding assembly lines. To deploy the right tag of the image, we need to store the tags as versions of the image resource. The rest of the steps are instructions on how to do it
 
 ###5. Add Github Integration
@@ -138,7 +138,7 @@ Detailed steps on how to add a Github Integration is [here](/platform/integratio
 ###6. Add Assembly Line Config
 Now hook your Assembly Line to read configurations from repo `node_app`. Now jobs and resources section from `shippable.yml` are parsed to create the workflow. 
 
-Detailed steps to add an Assembly Line are [here](deploy/configuration/).
+Detailed steps to add an Assembly Line is [here](deploy/configuration/).
 
 ###7. End to End Build and Push Assembly Line
 If you change the view of your subscriptions page to show in SPOG view, you should see something like this
