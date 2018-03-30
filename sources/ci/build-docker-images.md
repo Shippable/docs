@@ -118,7 +118,7 @@ integrations:
 
 Here are some links to a working sample of this scenario. This is a simple Node.js application that runs some tests and builds a Docker image.
 
-**Source code:**  [devops-recipes/ci-push-docker-hub](https://github.com/devops-recipes/ci-push-docker-hub).
+**Source code:**  [devops-recipes/node_app](https://github.com/devops-recipes/node_app).
 
 
 ## Improve this page

@@ -440,3 +440,6 @@ pages:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:
         - Complete list of terms: platform/tutorial/glossary.md
+  - howTo:
+    - Build and Push image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
+    - CD to GKE: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl.md
