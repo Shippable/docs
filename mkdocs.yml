@@ -251,7 +251,7 @@ pages:
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
-        - externalCI: platform/workflow/job/externalci.md        
+        - externalCI: platform/workflow/job/externalci.md
         - manifest: platform/workflow/job/manifest.md
         - provision: platform/workflow/job/provision.md
         - release: platform/workflow/job/release.md
@@ -325,7 +325,8 @@ pages:
         - Language versions: platform/runtime/machine-image/language-versions.md
         - CLI versions: platform/runtime/machine-image/cli-versions.md
         - Services versions: platform/runtime/machine-image/services-versions.md
-        - AMI v6.2.4 (latest): platform/runtime/machine-image/ami-v624.md
+        - AMI v6.3.4 (latest): platform/runtime/machine-image/ami-v634.md
+        - AMI v6.2.4: platform/runtime/machine-image/ami-v624.md
         - AMI v6.1.4: platform/runtime/machine-image/ami-v614.md
         - AMI v5.10.4: platform/runtime/machine-image/ami-v5104.md
         - AMI v5.8.2: platform/runtime/machine-image/ami-v582.md
