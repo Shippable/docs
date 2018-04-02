@@ -118,26 +118,26 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 > Note: If you have already implemented optional steps from [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub), then skip this step as you already have the image resource defined.
 
 ####b. `gitRepo` resource named `config_repo`
-Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. Add this yml to `resources` section of `shippable.yml`. For this e.g. configs are present in `https://github.com/devops-recipes/cd_gke_kubectl`
+Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. Add this yml to resources section of `shippable.yml`. For this e.g. configs are present in `https://github.com/devops-recipes/cd_gke_kubectl`
 
 Kubernetes config files for this app are [here](https://github.com/devops-recipes/cd_gke_kubectl/tree/master/specs)
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
 ####c. `cliConfig` resource named `gcp_cli`
-To be able to interact with Google Cloud Platform, you need to authenticate your `gcloud` cli. Shippable does this for you automatically when a `cliConfig` resource is present in a job. Create a `gcp_cli` resource by adding the following to the `resources` section of `shippable.yml`.
+To be able to interact with Google Cloud Platform, you need to authenticate your gcloud cli. Shippable does this for you automatically when a `cliConfig` resource is present in a job. Create a `gcp_cli` resource by adding the following to the resources section of `shippable.yml`.
 
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
 
 ####d. `cluster` resource named `gke_cluster`
-This will contain the location of the Kube cluster. Create `gke_cluster` resource to provide that info by adding to the `resources` section of `shippable.yml`.
+This will contain the location of the Kube cluster. Create `gke_cluster` resource to provide that info by adding to the resources section of `shippable.yml`.
 
 `sourceName` is the name of the GKE cluster and `region` is where the cluster is present
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
 ###6. Define the `jobs` section of the `shippable.yml`
-A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the `jobs` section of `shippable.yml`.
+A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of `shippable.yml`.
 
 In this job, we are going to do three things
 
