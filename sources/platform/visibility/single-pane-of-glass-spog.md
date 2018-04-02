@@ -30,6 +30,7 @@ To view the SPOG, do the following:
 You can interact with the SPOG view in the following ways:
 
 - [Zoom in](#zoom) and out to see additional details for any part of the pipeline
+- [Search](#search) bar can be used to find any object in the pipeline.
 - [Run or pause the job](#manual-build)
 - [View console output](#console) and additional meta-data for each version of the job.
 - [Trace upstream meta-data](#trace)
@@ -45,6 +46,22 @@ The SPOG view is meant to give you one dashboard where you can have a macro view
 You can zoom in or out of any part of the pipeline with your mouse scrollbar or with pinch-to-zoom on your mouse keypad. A zoomed representation of the pipeline is shown below:
 
 <img src="/images/getting-started/spog-zoom.png" alt="SPOG: Single pane of glass">
+
+<a name="search"></a>
+##Search
+
+The search bar can opened by either clicking on the search icon on the top-right corner of the view or by using the keyboard shortcut `ctrl` + `space`
+
+<img src="/images/getting-started/search-bar.png" alt="search-bar">
+
+The search bar will show the list of objects matching the search text and display them as a drop-down, an item can be selected either by clicking on it or using the keyboard shortcuts to navigate to an item (up and down arrows) and using `enter` to select the item after which the item will be brought to the centre and highlighted with a yellow border. In case there are multiple instances of that object in the SPOG view then you can cycle through them by using the arrow icons on the search bar or use the keyboard shortcuts `enter` (to iterate forward) and `shift` + `enter` (to iterate backward) and each instance will be centred and highlighted.
+
+
+<img src="/images/getting-started/search-bar-item-centered.png" alt="search-bar-item-centered">
+
+The search bar can be closed by clicking on the `x` icon on the search bar or by using the keyboard shortcut `esc` when the search input is focus.
+
+Optionally only objects connected to the selection can be shown by clicking on the flag icon to the right edge in the list-item, this selection can be cancelled by closing the search bar.
 
 <a name="manual-build"></a>
 ##Run/pause job
