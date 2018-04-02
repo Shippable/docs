@@ -27,8 +27,8 @@ To jump into this tutorial, you will need to familiarize yourself with the platf
 ### Usecases
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in `shippable.yml`](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in `shippable.yml`](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
+* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
 * [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
 * Using specific version of Google CLI
 * Creating parametrized Jobs
@@ -73,8 +73,8 @@ Next, add the configuration to your Shippable subscription. Jobs and resources s
 
 Detailed steps to add an Assembly Line are [here](/deploy/configuration).
 
-###5. Define the `resources` section of the `shippable.yml`
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. `shippable.yml` has 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
+###5. Define the `resources` section of the shippable.yml
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. shippable.yml has 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
 
 ```
 resources:
@@ -108,7 +108,7 @@ resources:
 ```
 
 ####a. `image` resource named `node_app_img_dh`
-The image that you want to deploy to GKE should be available as a resource to the assembly line. Add the following yml to your `shippable.yml`.
+The image that you want to deploy to GKE should be available as a resource to the assembly line. Add the following yml to your shippable.yml.
 
 `sourceName` contains the location of the image and the `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not.
 
@@ -117,26 +117,26 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 > Note: If you have already implemented optional steps from [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub), then skip this step as you already have the image resource defined.
 
 ####b. `gitRepo` resource named `config_repo`
-Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. Add this yml to resources section of `shippable.yml`. For this e.g. configs are present in `https://github.com/devops-recipes/cd_gke_kubectl`
+Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. Add this yml to resources section of shippable.yml. For this e.g. configs are present in `https://github.com/devops-recipes/cd_gke_kubectl`
 
 Kubernetes config files for this app are [here](https://github.com/devops-recipes/cd_gke_kubectl/tree/master/specs)
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
 ####c. `cliConfig` resource named `gcp_cli`
-To be able to interact with Google Cloud Platform, you need to authenticate your gcloud cli. Shippable does this for you automatically when a `cliConfig` resource is present in a job. Create a `gcp_cli` resource by adding the following to the resources section of `shippable.yml`.
+To be able to interact with Google Cloud Platform, you need to authenticate your gcloud cli. Shippable does this for you automatically when a `cliConfig` resource is present in a job. Create a `gcp_cli` resource by adding the following to the resources section of shippable.yml.
 
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
 
 ####d. `cluster` resource named `gke_cluster`
-This will contain the location of the Kube cluster. Create `gke_cluster` resource to provide that info by adding to the resources section of `shippable.yml`.
+This will contain the location of the Kube cluster. Create `gke_cluster` resource to provide that info by adding to the resources section of shippable.yml.
 
 `sourceName` is the name of the GKE cluster and `region` is where the cluster is present
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
 ###6. Define the `jobs` section of the `shippable.yml`
-A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of `shippable.yml`.
+A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of shippable.yml.
 
 In this job, we are going to do three things
 
@@ -251,8 +251,8 @@ Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 
 Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
 
-###7. Push changes to `shippable.yml`
-Commit and push all the above changes to `shippable.yml`. This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this. 
+###7. Push changes to shippable.yml
+Commit and push all the above changes to shippable.yml. This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this. 
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
 
