@@ -8,7 +8,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 # Machine image v6.3.4 (Docker TAG v6.3.4)
 
-**Release Date: **
+**Release Date: Apr 2nd, 2018**
 
 **What is installed on the machine image?**
 
@@ -43,23 +43,17 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Build Container Operating System: CentOS 7
 * Kernel Version: 3.10.0-514.10.2.el7.x86_64
 * **Docker Server Version: 17.06.0-ce**
-* Storage Driver: aufs
-* Root Dir: /data/aufs
-* Backing Filesystem: extfs
-* Dirperm1 Supported: false
+* Storage Driver: overlay
+* Root Dir: /data
+* Backing Filesystem: xfs
 * Cgroup Driver: cgroupfs
 * Shippable Official c7 Docker Images with TAG: `v6.3.4`
 
 ## w16 sku
-* Host Operating System: Windows Server 2016
-* Build Container Operating System: Windows Sever 2016
-* **Docker Server Version: 17.06.0-ce**
-* Storage Driver: aufs
-* Root Dir: /data/aufs
-* Backing Filesystem: extfs
-* Dirperm1 Supported: false
-* Cgroup Driver: cgroupfs
-* Shippable Official w16 Docker Images with TAG: `v6.3.4`
+* Host Operating System: Windows Server 2016 Datacenter Edition (Version 1607)
+* Build Container Operating System: Windows Server Core 2016 v10.0.14393.1884
+* Docker Server Version: 17.06.2-ee
+* Shippable Official w16 Docker Images with TAG: v6.3.4
 
 ## Shippable Official Docker Images
 
