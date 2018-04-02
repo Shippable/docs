@@ -135,7 +135,7 @@ This will contain the location of the Kube cluster. Create `gke_cluster` resourc
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
-###6. Define the `jobs` section of the `shippable.yml`
+###6. Define the `jobs` section of the shippable.yml
 A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of shippable.yml.
 
 In this job, we are going to do three things
