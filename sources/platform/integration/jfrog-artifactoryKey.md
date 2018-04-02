@@ -8,7 +8,7 @@ page_description: How to create and use a JFrog Artifactory Integration in Shipp
 
 [JFrog Artifactory](https://www.jfrog.com/artifactory/) Integration is used to connect Shippable DevOps Assembly Lines platform to JFrog Artifactory so that you can pull and push artifacts, including Docker images.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

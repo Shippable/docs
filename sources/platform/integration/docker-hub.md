@@ -15,7 +15,7 @@ If you have any existing Docker Hub account integrations, you can continue to us
 
 The [Docker Hub](https://hub.docker.com/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Hub so that you can pull and push Docker images.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Hub integrations. You can use the new [Docker Registry](/platform/integration/dockerRegistryLogin) instead.
 

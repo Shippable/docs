@@ -8,7 +8,7 @@ page_description: How to create and use a GitHub Enterprise Server Integration i
 
 The [GitHub Enterprise](https://enterprise.github.com) Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of GitHub Enterprise Server.
 
-## Adding account integration manually
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

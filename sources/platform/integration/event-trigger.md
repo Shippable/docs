@@ -18,7 +18,7 @@ If you have any existing Event Trigger account integrations of type notification
 * Create a daisy chain of projects, so that you can trigger one from another
 * Send a webhook to an external service with custom payloads
 
-## Adding the account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting Event Trigger integrations. You can use the [Webhook](/platform/integration/webhook) integration instead which will work exactly the same way as the typed `Generic Webhook` of deprecated Event Trigger integration.
 

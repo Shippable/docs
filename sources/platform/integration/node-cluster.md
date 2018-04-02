@@ -15,7 +15,7 @@ If you have any existing Node Cluster account integrations of type deploy, you c
 
 The **Node Cluster** Integration is used to connect Shippable DevOps Assembly Lines platform to a cluster of VMs and deploy apps to the entire cluster.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting Node Cluster integrations. You can use the [nodeCluster](/platform/integration/nodeCluster) integration of type generic instead which will work exactly the same way as the deprecated Node Cluster integration of type deploy.
 

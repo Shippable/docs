@@ -17,7 +17,7 @@ Available under the Integration Family: **generic**
 
 `Google Cloud` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Cloud and manage entities and services provided by Google Cloud.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCL integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 

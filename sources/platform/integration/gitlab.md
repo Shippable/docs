@@ -8,7 +8,7 @@ page_description: How to create and use a GitLab Integration in Shippable
 
 The **GitLab** Integration is used to connect Shippable DevOps Assembly Lines platform to your instance of GitLab so that you can run builds for your repositories hosted there.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

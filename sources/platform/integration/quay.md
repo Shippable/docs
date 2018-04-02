@@ -15,7 +15,7 @@ If you have any existing Quay account integrations of type hub, you can continue
 
 The [CoreOs Quay](https://quay.io/) Integration is used to connect Shippable DevOps Assembly Lines platform to Quay Docker Registry so that you can pull and push Docker images.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Quay.io integrations. You can use the new [Quay.io quayLogin](/platform/integration/quayLogin) instead.
 

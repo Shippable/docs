@@ -11,7 +11,7 @@ page_description: How to create and use a Hipchat Integration in Shippable
 The **Hipchat Key** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 Refer [Hipchat Integration](/platform/integration/hipchat) if you are using older hipchat integration.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

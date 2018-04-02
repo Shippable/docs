@@ -8,7 +8,7 @@ page_description: How to create and use a Slack Integration in Shippable to send
 
 A Slack Key integration is required to send notifications to channels or rooms for CI and Assembly Line events. Refer [Slack Integration](/platform/integration/slack.md) if you are using older slack integration.
 
-## Adding the account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

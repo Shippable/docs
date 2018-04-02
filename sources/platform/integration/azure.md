@@ -9,7 +9,7 @@ page_description: How to create and use a Microsoft Azure Integration in Shippab
 
 The [Microsoft Azure](https://azure.microsoft.com/en-us/) Integration is used to connect Shippable DevOps Assembly Lines platform to Microsoft Azure to manage cloud services and entities.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting JFrog artifactory integrations. You can use the [Azure Keys](/platform/integration/azure-keys) instead.
 

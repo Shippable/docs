@@ -15,7 +15,7 @@ If you have any existing Docker Private Registry account integrations, you can c
 
 The [Docker Private Registry](https://docs.docker.com/registry/deploying/) Integration is used to connect Shippable DevOps Assembly Lines platform to a privately hosted Docker Hub so that you can pull and push Docker images.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Private Registry integrations. You can use the new [Docker Registry](/platform/integration/dockerRegistryLogin) instead.
 

@@ -8,7 +8,7 @@ page_description: How to create and use an Azure DC/OS Integration in Shippable
 
 The [Azure DC/OS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mesosphere.dcos) integration is used to connect Shippable DevOps Assembly Lines platform to Azure DC/OS to deploy Docker based applications.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

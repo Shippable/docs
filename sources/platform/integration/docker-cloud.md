@@ -13,7 +13,7 @@ This integration has been deprecated. A new generic integration called [Docker C
 
 If you have any existing deprecated Docker Cloud integrations, you can continue to use them in your Assembly lines.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Cloud integrations. You can use the new generic [Docker Cloud](/platform/integration/dclKey) instead.
 

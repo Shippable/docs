@@ -19,7 +19,7 @@ Here is the information you need to create this integration:
 * **Username** -- Username to login to Mesos master VM
 * **Validity Period** -- Certificate validity in number of days
 
-## Usage in Assembly Lines
+## Creating an Account Integration
 
 The Joyent Triton integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
