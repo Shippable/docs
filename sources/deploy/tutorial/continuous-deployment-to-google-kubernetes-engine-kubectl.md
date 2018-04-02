@@ -139,7 +139,8 @@ Detailed info about `cluster` resource is [here](/platform/workflow/resource/clu
 ###6. Define the `jobs` section of the `shippable.yml`
 A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the `jobs` section of `shippable.yml`.
 
-In this job, we are going to do the following things
+In this job, we are going to do three things
+
 * First, we are going to prep the templatized kube files (wildcards APP_LABEL, APP_IMG & APP_TAG) with actual values from input resouces 
 * Second, we are going initialize a connection to the cluster using gcloud
 * Lastly, we are going to deploy to the cluster using kubectl
