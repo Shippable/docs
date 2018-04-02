@@ -70,7 +70,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 ###4. Add Assembly Line to Org
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.
 
-Detailed steps to add an Assembly Line are [here](deploy/configuration/).
+Detailed steps to add an Assembly Line are [here](/deploy/configuration/).
 
 ###5. Define the `resources` section of the `shippable.yml`
 `resources` section holds the config info that is necessary to deploy to a Kubernetes cluster.
