@@ -74,8 +74,7 @@ Next, add the configuration to your Shippable subscription. Jobs and resources s
 Detailed steps to add an Assembly Line are [here](/deploy/configuration).
 
 ###5. Define the `resources` section of the `shippable.yml`
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster.
-`shippable.yml` has 4 `resources` defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. `shippable.yml` has 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
 
 ```
 resources:
