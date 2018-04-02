@@ -71,7 +71,6 @@ pages:
       - Sending messages to Email: ci/email-notifications.md
       - Sending messages to Hipchat: ci/hipchat-notifications.md
       - Sending messages to IRC: ci/irc-notifications.md
-      - Creating issues on Jira: ci/jira-issues.md
     - Pushing artifacts:
       - Overview: ci/push-artifacts.md
       - Push artifacts to S3: ci/push-to-s3.md
@@ -431,6 +430,7 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - How to create Jira issues from Shippable: platform/tutorial/integration/howto-create-jira-issues.md
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md

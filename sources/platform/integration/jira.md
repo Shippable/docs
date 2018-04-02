@@ -22,11 +22,11 @@ Here is the information you need to create this integration:
 
 ## Usage in CI
 
-* [Creating Jira issues](/ci/jira-issues/)
+* [Creating Jira issues](/platform/tutorial/integration/howto-create-jira-issues.md)
 
 ## Usage in Assembly Lines
 
-* [Creating Jira issues](/ci/jira-issues/)
+* [Creating Jira issues](/platform/tutorial/integration/howto-create-jira-issues.md)
 
 ### Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
