@@ -49,21 +49,21 @@ The following sections explain the process of setting up a workflow to continuou
 ###1. Add `Google Cloud Platform` Integration
 To be able to interact with GCP, we need an integration. Add `drship_gcp `integration.
 
-Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#adding-account-integration).
+Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey//#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
 ###2. Add `Docker Registry` Integration
 To be able to push and pull images from Docker Hub, we need an integration. Add `drship_dockerhub`integration.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#adding-account-integration).
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin//#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
 ###3. Add `Github` Integration
 In order to read your Assembly Line configuration from Github, we need an integration. Add `drship_github` integration.
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#adding-account-integration).
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github//#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
