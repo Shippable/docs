@@ -8,7 +8,7 @@ page_title: Amazon ECS integration
 
 The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with its cloud services like ECR, ECS, EC2, S3, and so on.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Amazon Web Services (IAM) integrations. You can use the [AWS IAM](/platform/integration/aws-iam) instead.
 

@@ -17,7 +17,7 @@ Available under the Integration Family: **deploy**
 
 `Google Container Engine` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Engine that runs Kubernetes behind the scenes so that you can deploy Docker-based applications.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GKE integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 

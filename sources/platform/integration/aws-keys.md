@@ -14,7 +14,7 @@ AWS Keys integration is used to connect Shippable to AWS services, such as:
 * [S3](https://aws.amazon.com/s3/)
 * Any other service that needs AWS Access and Secret keys to connect
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

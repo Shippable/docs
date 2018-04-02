@@ -16,7 +16,7 @@ If you have any existing Azure DC/OS account integrations of type deploy, you ca
 
 The [Azure DC/OS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mesosphere.dcos) integration is used to connect Shippable DevOps Assembly Lines platform to Azure DC/OS to deploy Docker based applications.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting AZURE_DCOS integrations. You can use the [azureDcosKey](/platform/integration/azureDcosKey) integration instead which will work exactly the same way as the deprecated AZURE DC/OS integration.
 

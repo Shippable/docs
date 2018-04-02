@@ -15,7 +15,7 @@ If you have any existing Email integrations you _can_ continue to use them. New 
 
 The **Email** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to an email address.
 
-## Adding account integration
+## Creating an Account Integration
 
 You do not need to add an email account integration if you're just configuring `shippable.yml` for CI workflows.
 

@@ -41,7 +41,7 @@ The following sections explain the process of setting up a workflow to build and
 ###1. Add Docker Registry Integration
 To be able to push and pull images from Docker Hub, we need an integration. Add `drship_dockerhub`integration.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#adding-account-integration).
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
 
 ###2. Add CI Config
 `shippable.yml` is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to the repo that contains the `Dockerfile`. For this e.g. it is `https://github.com/devops-recipes/node_app`.
@@ -156,7 +156,7 @@ This section does the following things:
 ###2. Add Github Integration
 In order to read your Assembly Line configuration from Github, we need an integration. Add `drship_github` integration.
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#adding-account-integration).
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
 
 ###3. Add Assembly Line to Shippable
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.

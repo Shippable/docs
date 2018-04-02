@@ -8,7 +8,7 @@ page_description: How to create and use a Key-Value Pair Integration in Shippabl
 
 `Key-Value Pair` Integration is used to inject configurations into Shippable DevOps Assembly Lines activities.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

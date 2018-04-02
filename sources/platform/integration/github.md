@@ -12,7 +12,7 @@ The [GitHub](https://github.com) Integration is used to connect Shippable DevOps
 * Second, you can manually add this to your [account integrations](/platform/tutorial/integration/howto-crud-integration/). This takes in `Token` value as input and gives you whatever level of access as the token has.
 * Third, if you used another method of signing into Shippable, then from your **Account Profile** you can connect your GitHub account to have multi-provider login to your account.
 
-## Adding account integration manually
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

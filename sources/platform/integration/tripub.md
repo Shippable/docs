@@ -15,7 +15,7 @@ If you have any existing Joyent Triton account integrations of type deploy, you 
 
 The [Joyent Triton](https://www.joyent.com/triton/compute) Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Joyent Triton integrations. You can use the new [Joyent Triton](/platform/integration/joyentTritonKey) of type generic instead.
 

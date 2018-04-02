@@ -15,7 +15,7 @@ If you have any existing JFrog Artifactory account integrations, you can continu
 
 [JFrog Artifactory](https://www.jfrog.com/artifactory/) Integration is used to connect Shippable DevOps Assembly Lines platform to JFrog Artifactory so that you can pull and push artifacts, including Docker images.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting JFrog artifactory integrations. You can use the [JFrog artifactoryKey](/platform/integration/jfrog-artifactoryKey) instead.
 

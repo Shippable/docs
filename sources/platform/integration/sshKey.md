@@ -8,7 +8,7 @@ page_description: How to create and use a SSH Keys Integration to connect Shippa
 
 **SSH Key** Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow SSH based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform and Ansible use this to execute scripts on a machine.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

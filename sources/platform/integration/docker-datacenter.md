@@ -15,7 +15,7 @@ If you have any existing Docker Datacenter account integrations of type deploy, 
 
 The **Docker Datacenter** Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Datacenter so that you can deploy Docker based applications.
 
-## Adding account integration
+## Creating an Account Integration
 
 Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Docker Datacenter integrations. You can use the new [Docker Datacenter](/platform/integration/ddcKey) of type generic instead.
 

@@ -8,7 +8,7 @@ page_description: How to create and use a Docker Cloud Integration in Shippable
 
 The [Docker Cloud](https://cloud.docker.com/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Cloud so that you can deploy Docker based apps to Docker Cloud.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 

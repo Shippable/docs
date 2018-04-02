@@ -8,7 +8,7 @@ page_description: How to create and use an AWS IAM Integration in Shippable
 
 The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with its cloud services like ECR, ECS, EC2, S3, and so on.
 
-## Adding account integration
+## Creating an Account Integration
 
 You will need to add an IAM user to your AWS account to create this integration. Instructions are in the [AWS docs](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 

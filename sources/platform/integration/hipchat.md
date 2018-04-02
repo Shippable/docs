@@ -13,7 +13,7 @@ This integration has been marked deprecated. Existing integrations will continue
 
 The **Hipchat** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 
-## Adding account integration
+## Creating an Account Integration
 
 You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
 
