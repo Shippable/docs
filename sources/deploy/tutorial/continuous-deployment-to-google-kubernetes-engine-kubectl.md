@@ -47,33 +47,38 @@ The following sections explain the process of setting up a workflow to continuou
 
 **Complete YML is at [devops-recipes/cd_gke_kubectl/shippable.yml](https://raw.githubusercontent.com/devops-recipes/cd_gke_kubectl/master/shippable.yml)**
 
-###1. Add `Google Cloud Platform` Integration
+###1. Add the account integrations 
+Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/)
+
+The following are the integrations that we will use in this sample
+
+####a. Add `Google Cloud Platform` Integration
 To be able to interact with GCP, we need an integration. Add `drship_gcp `integration.
 
 Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
-###2. Add `Docker Registry` Integration
+####b. Add `Docker Registry` Integration
 To be able to push and pull images from Docker Hub, we need an integration. Add `drship_dockerhub`integration.
 
 Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
-###3. Add `Github` Integration
+####c. Add `Github` Integration
 In order to read your Assembly Line configuration from Github, we need an integration. Add `drship_github` integration.
 
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
-###4. Add Assembly Line to Org
+####d. Add Assembly Line to Org
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.
 
 Detailed steps to add an Assembly Line are [here](/deploy/configuration).
 
-###5. Define the `resources` section of the shippable.yml
+###2. Define the `resources` section of the shippable.yml
 `resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. shippable.yml has 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
 
 ```
@@ -135,7 +140,7 @@ This will contain the location of the Kube cluster. Create `gke_cluster` resourc
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
-###6. Define the `jobs` section of the shippable.yml
+###3. Define the `jobs` section of the shippable.yml
 A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of shippable.yml.
 
 In this job, we are going to do three things
@@ -251,7 +256,7 @@ Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 
 Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
 
-###7. Push changes to shippable.yml
+###4. Push changes to shippable.yml
 Commit and push all the above changes to shippable.yml. This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this. 
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
@@ -259,7 +264,7 @@ Commit and push all the above changes to shippable.yml. This should automaticall
 > Note: This assembly line is incorporating [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) to dynamically build `app_be_img`, if you are using static image tag, then you will not see the CI section to the left of the image
 
 
-###8. Run the deploy job `deploy_app_kctl_gke`
+###5. Run the deploy job `deploy_app_kctl_gke`
 You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to GKE. 
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig4.png" alt="Deploy console output">
