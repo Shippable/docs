@@ -166,15 +166,17 @@ If you came to this page to configure Bitbucket while installing Shippable serve
 
 If you already have a working Shippable Server instance and just added Bitbucket auth, you should be able to sign in with your Bitbucket credentials at this time.  
 
-## Gitlab
+## Gitlab (GitLab.com, CE)
 
 The following steps configure Gitlab as an authorization provider for your Shippable Server instance:
 
 * Select **GITLAB**.
-* Follow instructions to [register a new application within your Gitlab instance](https://docs.gitlab.com/ee/integration/github.html). You should use the **Callback URL** from the Admiral UI for the **Authorization callback URL** field.
-* Copy the **Client ID** and **Client secret** and paste them in the Admiral UI.
+* Follow instructions for [GitLab as OAuth2 authentication service provider](https://docs.gitlab.com/ee/integration/oauth_provider.html).
+    * Specify `Shippable` in the `Name` field.
+    * Copy the **Callback URL** from the Admiral UI into the **Redirect URI** field.
+    * Select `api` and `read_user` for `Scopes`.
+* Copy the **Application Id** and **Secret** and paste them in the Admiral UI.
 * For on-premises Gitlab installations, you need to update the **URL** field in the Admiral UI. The URL should be in the format `https://(GitLab URL)/api/(api version)`. For example, if your Gitlab URL is `my.gitlab.com`, you should enter `https://my.gitlab.com/api/v4`. Please note that if you're using Gitlab version 9.0 or later, you should use `v4` for api version. If you're using Gitlab version 8.17 or earlier, you should use `v3` for api version. API v3 is unsupported from Gitlab 9.5 according to this [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html).
-* Please note that you will need to click on **Apply** for your changes to be effective.
 
 <img src="/images/platform/server/ss-gitlab.png" alt="Configuring Bitbucket for Shippable Server auth">
 

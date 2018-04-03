@@ -383,7 +383,7 @@ pages:
     - Shippable Server:
       - Overview: platform/server/overview.md
       - Installation instructions:
-        - Onebox:  platform/server/install-onebox.md
+        - Onebox pilot: platform/server/install-onebox.md
         - Small to mid-sized teams:  platform/server/install-two-server.md
         - Enterprise installations: platform/server/enterprise.md
         - Upgrading Shippable Server: platform/server/upgrade.md
