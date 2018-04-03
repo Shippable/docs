@@ -41,7 +41,7 @@ You will need a machine/VM with:
 - 8 GB memory
 - 100 GB disk space
 
-The minimum requirements for a VM on AWS for example is a [C4.XLarge](https://aws.amazon.com/ec2/instance-types/) machine.
+The minimum requirements for a VM on AWS for example is a [C4.xLarge](https://aws.amazon.com/ec2/instance-types/) machine.
 
 ### Ports to open
 

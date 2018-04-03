@@ -50,7 +50,7 @@ Machine images exist for the following architectures and operating systems:
 |---|---|---|
 |x86_64|CentOS 7|17.06|
 |x86_64|Ubuntu 14.04|1.9|
-|x86_64|Ubuntu 14.04|1.11|s
+|x86_64|Ubuntu 14.04|1.11|
 |x86_64|Ubuntu 14.04|1.13|
 |x86_64|Ubuntu 14.04|17.06|
 |x86_64|Ubuntu 16.04|17.06|

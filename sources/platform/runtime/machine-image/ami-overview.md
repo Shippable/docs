@@ -47,22 +47,22 @@ In most cases, the default Machine image set for your Subscription will be suffi
 
 <a name="view-machine-image"></a>
 
-## Viewing Subscription Machine Images
+## Viewing a Node Pool Machine Image
 
-When a subscription is imported in your Shippable account for the very first time, a [Node pool](/platform/management/subscription/node-pools/) is automatically created for you. The default Node pool has a single Ubuntu 16.04 on-demand node, with the latest released Ubuntu 16.04 machine image. A subscription can also have multiple Node pools that you can create from the billing page. Each node pool specifies the machine image in its `Runtime Version` setting.
+When a subscription is imported in your Shippable account for the very first time, a [Node pool](/platform/management/subscription/node-pools/) is automatically created for you. The default Node pool has a single Ubuntu 14.04 on-demand node, with the latest released Ubuntu 14.04 machine image. A subscription can have multiple Node pools that you can [create](/platform/management/subscription/node-pools/#creating-a-node-pool). Each Node Pool specifies the machine image in its `Runtime Version` setting.
 
-Here are the steps to view the `Runtime Version` setting:
+Here are the steps to view the `Runtime Version` setting for a Node pool:
 
-* View your subscription Node pool using steps documented [here](/platform/management/subscription/node-pools/#viewing-subscription-node-pools)
-* Click on `Edit` on your Node pool to view the `Runtime Version`.
+* View your Node pool using steps documented [here](/platform/management/subscription/node-pools/#viewing-subscription-node-pools)
+* Click on `Edit` on your Node pool.
+* This will bring up a popup window where you can view the `Runtime Version` setting.
 
 <img src="/images/platform/management/subscription-node-pools-edit.png" alt="Subscription Node Pools view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-## Changing the Subscription Machine image
+## Changing the Node Pool Machine image
 
-* Follow instructions in the [Viewing Subscription Machine Image](#view-machine-image) section above to view the Node pool for your subscription.
-
+* Follow instructions in the [Viewing Node Pool Machine Images](#view-machine-image) section above to view the `Runtime Version` setting for the Node pool in your subscription.
 * Click on the **Runtime Version** dropdown to select a different image version. Please note that this setting will
-affect all projects and builds that use this Node pool.
+affect all jobs that are running on the node pool. A runCI/runSh job can be forced to run on a specific node pool by specifying the `runtime` setting in its yml.
 
 <img src="/images/platform/management/subscription-node-pools-edit-runtime-version.png" alt="Subscription Node Pools add for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

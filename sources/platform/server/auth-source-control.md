@@ -142,7 +142,7 @@ Please use the table below to find the appropriate add-on for your BitBucket Ser
 
 ### Finish Admiral config
 
-* Switch back to Admiral and click on **Configure & Install**.
+* Switch back to Admiral and expand the **Control plane->AUTHORIZATION AND SOURCE CONTROL MANAGEMENT (SCM) PROVIDERS->Bitbucket Server** panel.
 * Enter the password/secret specified in Step 4 in **Client ID**.
 * Enter the private key (contents of `id_rsa` file from the **Generate SSH keys** step) in **Client Secret**.
 * Please note that you will need to click on **Apply** for your changes to be effective.

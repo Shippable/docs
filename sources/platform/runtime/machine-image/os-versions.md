@@ -11,14 +11,14 @@ We support the following Operating systems for your `runCI` jobs:
 
 * Ubuntu 14.04
 * Ubuntu 16.04
-* Ubuntu 16.04 - aarch64 ARM architecture ([BYON only](/platform/runtime/nodes/#byon-nodes))
+* Ubuntu 16.04 - aarch64 ARM architecture ([BYON](/platform/runtime/nodes/#byon-nodes) only)
 * CentOS 7
 
 We support the following Operating systems for your `runSH` jobs:
 
 * Ubuntu 14.04
 * Ubuntu 16.04
-* Ubuntu 16.04 - aarch64 ARM architecture ([BYON only](/platform/runtime/nodes/#byon-nodes))
+* Ubuntu 16.04 - aarch64 ARM architecture ([BYON](/platform/runtime/nodes/#byon-nodes) only)
 * Windows Server 2016
-* Mac OS 10.2 ([BYON only](/platform/runtime/nodes/#byon-nodes))
+* Mac OS 10.2 ([BYON](/platform/runtime/nodes/#byon-nodes) only)
 * CentOS 7
