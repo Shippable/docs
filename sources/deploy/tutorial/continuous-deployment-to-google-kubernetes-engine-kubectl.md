@@ -43,7 +43,7 @@ To jump into this tutorial, you will need to familiarize yourself with the platf
 ## Step by Step Instructions
 The following sections explain the process of setting up a workflow to continuously deploy an image to Google Kubernetes Engine using `kubectl`.
 
-**Source code is available at [devops-recipes/app_be](https://github.com/devops-recipes/cd_gke_kubectl)**
+**Source code is available at [devops-recipes/cd_gke_kubectl](https://github.com/devops-recipes/cd_gke_kubectl)**
 
 **Complete YML is at [devops-recipes/cd_gke_kubectl/shippable.yml](https://raw.githubusercontent.com/devops-recipes/cd_gke_kubectl/master/shippable.yml)**
 
