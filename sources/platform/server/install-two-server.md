@@ -305,21 +305,11 @@ If anything shows **failed** status, read the [**Troubleshooting**](#troubleshoo
 * Expand the **Authorization and Source Control Management (SCM) Providers** section. You will need to configure one
 authorization provider.
 
-* For **GitHub**, you will need a **Client ID** and **Client Secret**. You can get these by [adding Shippable Server as an OAuth application in GitHub](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/).
-    * Check **GitHub** in the **Authorization** column.
-    * In your Github account, go to your [Settings->Developer settings->OAuth Apps](https://github.com/settings/developers) and click on **New OAuth App**.
-    * Enter an easy to remember **Application name**. You need to enter something for **Homepage URL**, but this value isn't relevant to our scenario.
-    * Copy the **Callback URL** from your Admiral UI:
+* For **GitHub**, follow instructions on the [GitHub configuration page](/platform/server/auth-source-control/#github)
 
-    <img src="/images/platform/tutorial/server/callback-url-for-github.png" alt="Admiral-2-server">
+* For **GitHub Enterprise**, follow instructions on the [GitHub Enterprise configuration page](/platform/server/auth-source-control/#github-enterprise)
 
-    * Paste the Callback URL into the **Authorization callback URL** field in the GitHub UI and click on **Register Application**
-    * Copy the **Client ID** and **Client Secret** for your new application.
-    * Paste the values into the Admiral UI.
-
-* For **GitHub Enterprise**, follow instructions on the [GitHub Enterprise configuration page](/platform/tutorial/server/install-ghe)
-
-* For **Bitbucket Server (Stash)**, follow instructions on the [Bitbucket Server config page](/platform/tutorial/server/install-bbs)
+* For **Bitbucket Server**, follow instructions on the [Bitbucket Server configuration page](/platform/server/auth-source-control/#bitbucket-server)
 
 * For **Bitbucket Cloud**, follow instructions on the [Bitbucket Cloud configuration page](/platform/server/auth-source-control/#bitbucket-cloud).
 
