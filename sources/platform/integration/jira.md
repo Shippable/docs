@@ -1,12 +1,12 @@
 page_main_title: Jira
 main_section: Platform
 sub_section: Integrations
-page_title: jira integration
-page_description: How to create and use a Jira Integration in Shippable to create issues on jira server.
+page_title: Jira integration
+page_description: How to create and use a Jira Integration in Shippable to create issues on Jira server.
 
 # Jira integration
 
-A Jira integration is required to create issues on jira server from Shippable jobs and builds page.
+A Jira integration is required to create issues on Jira server from Shippable jobs and builds page.
 
 ## Adding the account integration
 
@@ -16,9 +16,9 @@ Here is the information you need to create this integration:
 
 * **Integration type** -- **Jira**
 * **Name** -- choose a friendly name for the integration
-* **Url** -- your jira API endpoint
-* **Username** -- login to your jira server
-* **Token** -- your token token with the permissions needed to access jira rest apis
+* **Url** -- your Jira API endpoint
+* **Username** --  account username/email used for login
+* **Token** -- account token with permissions on the Jira rest apis
 
 ## Usage in CI
 
@@ -27,11 +27,6 @@ Here is the information you need to create this integration:
 ## Usage in Assembly Lines
 
 * [Creating Jira issues](/platform/tutorial/integration/howto-create-jira-issues.md)
-
-### Shippable Utility Functions
-To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
-
-How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
