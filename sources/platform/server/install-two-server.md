@@ -305,28 +305,15 @@ If anything shows **failed** status, read the [**Troubleshooting**](#troubleshoo
 * Expand the **Authorization and Source Control Management (SCM) Providers** section. You will need to configure one
 authorization provider.
 
-* For **GitHub**, you will need a **Client ID** and **Client Secret**. You can get these by [adding Shippable Server as an OAuth application in GitHub](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/).
-    * Check **GitHub** in the **Authorization** column.
-    * In your Github account, go to your [Settings->Developer settings->OAuth Apps](https://github.com/settings/developers) and click on **New OAuth App**.
-    * Enter an easy to remember **Application name**. You need to enter something for **Homepage URL**, but this value isn't relevant to our scenario.
-    * Copy the **Callback URL** from your Admiral UI:
+* For **GitHub**, follow instructions on the [GitHub configuration page](/platform/server/auth-source-control/#github)
 
-    <img src="/images/platform/tutorial/server/callback-url-for-github.png" alt="Admiral-2-server">
+* For **GitHub Enterprise**, follow instructions on the [GitHub Enterprise configuration page](/platform/server/auth-source-control/#github-enterprise)
 
-    * Paste the Callback URL into the **Authorization callback URL** field in the GitHub UI and click on **Register Application**
-    * Copy the **Client ID** and **Client Secret** for your new application.
-    * Paste the values into the Admiral UI.
+* For **Bitbucket Server**, follow instructions on the [Bitbucket Server configuration page](/platform/server/auth-source-control/#bitbucket-server)
 
-* For **GitHub Enterprise**, follow instructions on the [GitHub Enterprise configuration page](/platform/tutorial/server/install-ghe)
+* For **Bitbucket Cloud**, follow instructions on the [Bitbucket Cloud configuration page](/platform/server/auth-source-control/#bitbucket-cloud).
 
-* For **Bitbucket Server (Stash)**, follow instructions on the [Bitbucket Server config page](/platform/tutorial/server/install-bbs)
-
-* For **Bitbucket Cloud**, [follow instructions to add an OAuth app](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html) and note down the client ID and secret which you will need to enter in the Admiral UI.
-
-* For **Gitlab**:
-    * Follow instructions to [register a new application within your Gitlab instance](https://docs.gitlab.com/ee/integration/github.html). You should use the **Callback URL** from the Admiral UI for the **Authorization callback URL** field.
-    * Copy the **Client ID** and **Client secret** and paste them in the Admiral UI.
-    * For on-premises Gitlab installations, you need to update the **URL** field in the Admiral UI. The URL should be in the format `https://(GitLab URL)/api/(api version)`. For example, if your Gitlab URL is `my.gitlab.com`, you should enter `https://my.gitlab.com/api/v4`. Please note that if you're using Gitlab version 9.0 or later, you should use `v4` for api version. If you're using Gitlab version 8.17 or earlier, you should use `v3` for api version. API v3 is unsupported from Gitlab 9.5 according to this [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html)
+* For **Gitlab (Cloud, CE, EE)**, follow instructions on the [GitLab configuration page](/platform/server/auth-source-control/#gitlab-cloud-ce-eeb).
 
 * Click **Apply**.
 
@@ -409,6 +396,26 @@ To learn more about the benefits of caching, go [here](/platform/runtime/caching
 * Paste the Account id and click **Add**.
 
 <img src="/images/platform/tutorial/server/systemsettings-2.png" alt="Admiral-github">
+
+###6. Create a Shared Node pool to run builds
+
+* Switch back to the Shippable Server UI in your browser and click refresh. You will now see an `Admin` dropdown at the bottom of the left navigation bar.
+
+<img src="/images/platform/server/admin-dropdown.png" height="512px" alt="Admiral-github">
+
+* Expand `Admin->Nodes` and click on `Shared Node pools`.
+
+<img src="/images/platform/server/shared-node-pool-option.png" height="512px" alt="Admiral-github">
+
+* Click on the `+` button on the top right corner of the screen.
+
+<img src="/images/platform/server/shared-node-pool.png" alt="Admiral-github">
+
+* Create a Node pool using instructions found [here](/platform/management/subscription/node-pools/#creating-a-node-pool).
+
+* Click on the `Add node` button to add a build node using instructions found [here](http://docs.shippable.com/platform/management/subscription/node-pools/#creating-a-node-pool).
+
+* Now you can [run a sample CI project](/getting-started/ci-sample/), [setup Continuous Delivery](/getting-started/cd-sample/) or [enable your first CI project for your repository](/ci/enable-project/).
 
 ## Advanced options
 
