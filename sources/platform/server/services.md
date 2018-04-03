@@ -8,7 +8,7 @@ page_keywords: install, microservices, Continuous Integration, Continuous Deploy
 
 # Services
 
-The **Services** section of the Admiral UI offers a way to scale specific microservices if the load on specific parts of the system increases.
+The **Control plane->SERVICES** section of the Admiral UI offers a way to scale specific microservices if the load on specific parts of the system increases.
 
 <img src="/images/platform/server/admiral-services.png" alt="Scale services if needed">
 

@@ -16,4 +16,4 @@ By default, all integrations are disabled, i.e. they will not be available to yo
 
 <img src="/images/platform/server/available-addons.png" alt="List of integrations available to Shippable Server end users">
 
-Simply checking or unchecking the box for a specific integration and clicking on **Install addons** will enable or disable it.
+Simply checking or unchecking the box for a specific integration and clicking on **Install Add-ons** will enable or disable it.

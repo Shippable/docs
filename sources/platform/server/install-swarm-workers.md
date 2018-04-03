@@ -12,17 +12,17 @@ Shippable uses Docker Swarm to manage all microservices, which are Docker contai
 
 ## Adding Swarm Workers
 
-Swarm workers are added in the [UI interface](/platform/tutorial/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be Ubuntu 14.04 nodes and Docker 1.13 will be installed during initialization.
+Swarm workers are added in the [UI interface](/platform/tutorial/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be on Supported OS nodes and Docker 17.06 will be installed during initialization.
 
-To add another machine as a worker, do the following before clicking **Initialize**:
+To add another machine as a worker, do the following before clicking **Apply**:
 
-- Select **New Node(s)** on the **Swarm** line in the **Initialize infrastructure** panel.
-- Enter a name for the worker and the IP address and click **Add**  If you would like to add more than one worker, repeat this step to add the other workers.  Each machine added must be running Ubuntu 14.04.
+- Select **Add a new swarm worker** on the **SWARM** section in the **Control plane** panel.
+- Enter a name for the worker and the IP address and click **Save**  If you would like to add more than one worker, repeat this step to add the other workers.  Each machine added must be running on a supported OS.
 - Run the command displayed on each new worker to allow Admiral SSH access to the machines and check the box to confirm that this step was completed.  SSH access is required to run the setup scripts.
 
 <img src="/images/platform/server/admiral-swarm.png" alt="Swarm worker UI setup">
 
-Configure all of the other infrastructure components how you would like them installed and click **Initialize**.  Progress installing and initializing components will be shown on the right side of the initialize panel.
+Configure all of the other infrastructure components how you would like them installed and click **Apply**.  Progress installing and initializing components will be shown on the right side of the Control plane panel.
 
 ## Viewing logs
 
