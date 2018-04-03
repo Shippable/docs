@@ -281,6 +281,7 @@ pages:
       - Google Cloud: platform/integration/gcloudKey.md
       - HipChat: platform/integration/hipchatKey.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
+      - Jira: platform/integration/jira.md
       - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
@@ -430,6 +431,7 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - How to create Jira issues from Shippable: platform/tutorial/integration/howto-create-jira-issues.md
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md
