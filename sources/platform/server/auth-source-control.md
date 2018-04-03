@@ -18,9 +18,9 @@ Shippable Server supports the following source control providers:
 - Bitbucket Cloud
 - Gitlab .com, CE, and EE
 
-The following sections will show how to configure your Shippable Server instance to connect to supported source control providers for user authorization. All configuration is available in Admiral, the Shippable Server Installer, under **Configure and Install -> Authorization and Source control**
+The following sections will show how to configure your Shippable Server instance to connect to supported source control providers for user authorization. All configuration is available in Admiral, the Shippable Server Installer, under **Control plane -> AUTHORIZATION AND SOURCE CONTROL MANAGEMENT (SCM) PROVIDERS** panel.
 
-<img src="/images/platform/server/admiral-auth.png" alt="Configuring authorization for Shippable Server Redis">
+<img src="/images/platform/server/admiral-auth.png" alt="Configuring authorization for Shippable Server">
 
 ## GitHub Enterprise
 
@@ -28,7 +28,7 @@ The following steps configure GitHub Enterprise as an authorization provider for
 
 ### Select GitHub Enterprise Auth
 
-* Check **GitHub Enterprise** in the Authorization column of your Admiral UI
+* Select **GITHUB ENTERPRISE**.
 * Note down the **Callback URL** and the **Shippable UI URL** that is just above the **Authorization and Source Control Management (SCM) Providers** section
 * Keep this tab open in your browser as we will come back here at a later step
 
@@ -54,9 +54,9 @@ The following steps configure GitHub Enterprise as an authorization provider for
 * Switch back to Admiral UI in your browser and enter the **Client ID** and **Client Secret**
 * Note that the **URL** field must contain the full path to your GitHub Enterprise server's API end point. This will typically end with `/api/v3`. Example: `https://github.example.com/api/v3`.
 
-<img src="/images/platform/tutorial/admiral/ss-ghe.png">
+<img src="/images/platform/server/ss-ghe.png">
 
-* Please note that you will need to click on **Save** and **Restart Services** for your changes to be effective
+* Please note that you will need to click on **Apply** for your changes to be effective.
 
 If you came to this page to configure GitHub Enterprise while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
@@ -66,17 +66,17 @@ If you already have a working Shippable Server instance and just added GitHub En
 
 The following steps configure GitHub as an authorization provider for your Shippable Server instance. You will need a **Client ID** and **Client Secret**. You can get these by [adding Shippable Server as an OAuth application in GitHub](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/).
 
-* Check **GitHub** in the **Authorization** column.
+* Select **GITHUB**.
 * In your Github account, go to your [Settings->Developer settings->OAuth Apps](https://github.com/settings/developers) and click on **New OAuth App**.
 * Enter an easy to remember **Application name**. You need to enter something for **Homepage URL**, but this value isn't relevant to our scenario.
 * Copy the **Callback URL** from your Admiral UI:
 
-<img src="/images/platform/tutorial/server/callback-url-for-github.png" alt="Admiral-2-server">
+<img src="/images/platform/server/ss-github.png" alt="Admiral-2-server">
 
 * Paste the Callback URL into the **Authorization callback URL** field in the GitHub UI and click on **Register Application**
 * Copy the **Client ID** and **Client Secret** for your new application.
 * Paste the values into the Admiral UI.
-* Please note that you will need to click on **Save** and **Restart Services** for your changes to be effective
+* Please note that you will need to click on **Apply** for your changes to be effective.
 
 If you came to this page to configure GitHub while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
@@ -84,13 +84,14 @@ If you already have a working Shippable Server instance and just added GitHub au
 
 ## Bitbucket Server
 
-Integration with Atlassian Stash 3.x, and BitBucket Server 4.x up to 5.2.2 is supported with Shippable Server.
+Integration with BitBucket Server from 4.x up to 5.x is supported with Shippable Server.
 
 The following steps configure Bitbucket Server as an authorization provider for your Shippable Server instance.
 
 ### Select Bitbucket Server Auth
 
-* In your admiral UI, check **Bitbucket Server** in the **Authorization** column. Write down the values for **WWW URL** and **Callback URL**.
+* Check **Bitbucket Server**.
+* Note down the values for **WWW URL** and **Callback URL**.
 
 ### Generate SSH keys
 
@@ -141,10 +142,12 @@ Please use the table below to find the appropriate add-on for your BitBucket Ser
 
 ### Finish Admiral config
 
-* Switch back to Admiral and click on **Configure & Install**
-* Enter the password/secret specified in Step 4 in **Client ID**
-* Enter the private key (contents of `id_rsa` file from the **Generate SSH keys** step) in **Client Secret**
-* Please note that you will need to click on **Save** and **Restart Services** for your changes to be effective
+* Switch back to Admiral and expand the **Control plane->AUTHORIZATION AND SOURCE CONTROL MANAGEMENT (SCM) PROVIDERS->Bitbucket Server** panel.
+* Enter the password/secret specified in Step 4 in **Client ID**.
+* Enter the private key (contents of `id_rsa` file from the **Generate SSH keys** step) in **Client Secret**.
+* Please note that you will need to click on **Apply** for your changes to be effective.
+
+<img src="/images/platform/server/ss-bbs.png" alt="Admiral-2-server">
 
 If you came to this page to configure Bitbucket Server while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
@@ -153,10 +156,11 @@ If you already have a working Shippable Server instance and just added Bitbucket
 ## Bitbucket Cloud
 
 * [Follow instructions to add an OAuth app to your Bitbucket account](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html) and write down the client ID and secret which you will need to enter in the Admiral UI.
-* In the Admiral UI, check **Bitbucket** in the **Authorization** column.
+* Select **BITBUCKET**.
 * Enter **Client ID** and **Client Secret** values.
+* Please note that you will need to click on **Apply** for your changes to be effective.
 
-<img src="/images/platform/server/configure-bitbucket.png" alt="Configuring Bitbucket for Shippable Server auth">
+<img src="/images/platform/server/ss-bb.png" alt="Configuring Bitbucket for Shippable Server auth">
 
 If you came to this page to configure Bitbucket while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
@@ -166,11 +170,13 @@ If you already have a working Shippable Server instance and just added Bitbucket
 
 The following steps configure Gitlab as an authorization provider for your Shippable Server instance:
 
-* Check **Gitlab** in the **Authorization** column.
+* Select **GITLAB**.
 * Follow instructions to [register a new application within your Gitlab instance](https://docs.gitlab.com/ee/integration/github.html). You should use the **Callback URL** from the Admiral UI for the **Authorization callback URL** field.
 * Copy the **Client ID** and **Client secret** and paste them in the Admiral UI.
-* For on-premises Gitlab installations, you need to update the **URL** field in the Admiral UI. The URL should be in the format `https://(GitLab URL)/api/(api version)`. For example, if your Gitlab URL is `my.gitlab.com`, you should enter `https://my.gitlab.com/api/v4`. Please note that if you're using Gitlab version 9.0 or later, you should use `v4` for api version. If you're using Gitlab version 8.17 or earlier, you should use `v3` for api version. API v3 is unsupported from Gitlab 9.5 according to this [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html)
-* Please note that you will need to click on **Save** and **Restart Services** for your changes to be effective
+* For on-premises Gitlab installations, you need to update the **URL** field in the Admiral UI. The URL should be in the format `https://(GitLab URL)/api/(api version)`. For example, if your Gitlab URL is `my.gitlab.com`, you should enter `https://my.gitlab.com/api/v4`. Please note that if you're using Gitlab version 9.0 or later, you should use `v4` for api version. If you're using Gitlab version 8.17 or earlier, you should use `v3` for api version. API v3 is unsupported from Gitlab 9.5 according to this [Gitlab notice](https://docs.gitlab.com/ce/api/v3_to_v4.html).
+* Please note that you will need to click on **Apply** for your changes to be effective.
+
+<img src="/images/platform/server/ss-gitlab.png" alt="Configuring Bitbucket for Shippable Server auth">
 
 If you came to this page to configure Gitlab while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
@@ -178,4 +184,4 @@ If you already have a working Shippable Server instance and just added Gitlab au
 
 ### Using self-signed SSL certifcates with enterprise SCM installations
 
-For enterprise SCMs with self-signed SSL certificates, refer [Using self-signed SSL certifcates](/platform/server/service-addresses/#using-self-signed-ssl-certificates) 
+For enterprise SCMs with self-signed SSL certificates, refer [Using self-signed SSL certifcates](/platform/server/selfsigned-certificates)

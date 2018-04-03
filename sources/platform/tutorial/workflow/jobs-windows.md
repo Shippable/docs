@@ -7,22 +7,32 @@ page_description: How to run jobs on Windows Server 2016
 
 # Running jobs on Windows Server 2016
 
-##1. Provision a Windows 2016 node.
+**Only [runSh](/platform/workflow/job/runsh)** jobs are supported on Windows. This means that you should not enable your repository for CI and your shippable.yml cannot have any of the CI sections defined [here](/ci/yml-structure).
 
-* To run Windows builds, you will first need to provision a Windows 2016 machine in a private or public cloud. At this time,
-Shippable does not allow you to dynamically provision Windows node and we will be soon launching this functionality.
-The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
-* You can only build **public repositories**. Private repositories will be supported in a few weeks.
-* **Only [runSh](/platform/workflow/job/runsh)** jobs are supported. This means that you should not enable your repository for CI and your shippable.yml cannot have any of the CI sections defined [here](/ci/yml-structure).
+You can use a Shippable provided on-demand node or bring your own node (BYON).
 
-##2. Purchase the Windows Server 2016 SKU
+## Setting up On-demand Nodes
+
+###1. Purchase the on-demand WindowsServer 2016 SKU
+
 * Go to your subscription billing plan by following the instructions documented [here](/platform/management/subscription/billing/#viewing-your-current-plan).
-* You can purchase the Windows Server 2016 SKU only if your subscription has been upgraded to the [latest release](http://blog.shippable.com/windows-mac-centos-builds-announcements). If you subscription has been upgraded, the billing plan page will look like this.
+* Click **Edit plan**,  **Add new SKU**.
+* Click the dropdown under **Type** and select **On Demand**.
+* Click the dropdown under **Architecture** and select **x86_64**.
+* Click the dropdown under **Operating System** and select **WindowsServer_2016**.
+* Click the dropdown under **Size** and select the node size.
+* Adjust the number in the Quantity column to the capacity you need.
+* Enter the billing contact and credit card information and click on **Upgrade**
 
-<img src="/images/platform/tutorial/workflow/billing.png" alt="Billing plan">
+###2. Configure Node pools
 
-* If you do not see the above billing page, please email `support@shippable.com` to get your subscription upgraded expeditely.
-Subscriptions are being upgraded in a phased manner over the next 3 weeks. Our estimate for completing all upgrades is **February 15, 2018**.
+* After you purchase the Windows SKU, a [Node Pool](/platform/management/subscription/node-pools/) is created and all the purchased nodes are assigned to the default Node Pool.
+* You can make this Node pool your default Node pool so that all jobs run on it by default. If the Node pool is not set to be the default Node pool, jobs will need to be explicitly assigned to it.
+
+## Setting up BYON Nodes
+
+###1. Purchase the BYON WindowsServer 2016 SKU
+
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
 * Click the dropdown under **Architecture** and select **x86_64**.
@@ -30,18 +40,18 @@ Subscriptions are being upgraded in a phased manner over the next 3 weeks. Our e
 * Adjust the number in the Quantity column to the capacity you need.
 * Enter the billing contact and credit card information and click on **Upgrade**
 
-##3. Configure Node pools
+##2. Configure Node pools
 
-* After you create the Windows SKU, a default [Node Pool](/platform/management/subscription/node-pools/) is created and all the purchased nodes are assigned to the default Node Pool.
-* You can however create more Node pools if you want and change the allocation of nodes amongst your node pools. Thereafter
-you can assign your runSh jobs to a specific Node pool.
+* After you purchase the Windows SKU, a default [Node Pool](/platform/management/subscription/node-pools/) is created and all the purchased nodes are assigned to the default Node Pool.
+* You can make this Node pool your default Node pool so that all jobs run on it by default. If the Node pool is not set to be the default Node pool, jobs will need to be explicitly assigned to it.
+* You can create more Node pools if you want and change the allocation of nodes amongst your node pools.
 
-##4. Initialize your BYON node
+##3. Initialize your BYON node
 
 * Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#viewing-your-nodes).
 * Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#adding-new-nodes).   
 
-##5. Define CI jobs and resources.
+## Define CI jobs and resources.
 
 * Your CI jobs and resources are defined in a [shippable.yml](/platform/tutorial/workflow/shippable-yml/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
 * Create the shippable.yml in any of your configured SCM integration repository, **except the source code repository that you are building itself**. This approach offers several benefits such as controlling execute permissions on the jobs

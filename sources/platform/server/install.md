@@ -43,8 +43,9 @@ This command will install dependencies, pull any updated images, install the dat
 
 Install will first generate SSH keys for internal use (if they don't already exist), determine which version was selected from the checked-out tag, generate a login token for use with the UI, and prompt for any information it needs to set up. These are the things it will prompt for:
 
-- Installer Access Key: This is the key you were provided by Shippable with your server license. If you don't have one, <a href="https://www.shippable.com/contact.html">contact us</a>.
-- Installer Secret Key: The secret key you received with the installer access key.
+- Installer Access Key: This is the key you were provided by Shippable with your server license. If you don't have one, <a href="https://www.shippable.com/contact.html">contact us</a>. You can also specify this key using the `--installer-access-key` argument.
+- Installer Secret Key: The secret key you received with the installer access key. You can also specify this key using the `--installer-access-key` argument.
+- If you want to install all the stateful services(rabbitmq, redis, gitlab, vault) also on this machine. You can also specify onebox installation using the ` --onebox` argument.
 - Current IP Address: This should be an accessible address for the current machine. It will be the address at which you will access the installer UI and is used for any other services you decide to install on this machine. In most cases, this will be the external IP address.
 - Database IP Address: Enter "D" to run the database on this instance as a container. If you would like it installed somewhere else, enter that address. If you select another location, you will also be asked if it is a new or existing database. Enter "I" to install a new database at that location.
 - Database password: This will be the password for the database user `apiuser`. Enter a secure password to be set in the database installation.

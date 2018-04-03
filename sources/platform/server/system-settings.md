@@ -10,7 +10,7 @@ page_keywords: docker, microservices, Continuous Integration, Continuous Deploym
 
 The System Settings section of the Admiral UI lets you set some system wide parameters.
 
-<img src="/images/platform/server/admiral-system-settings.png" alt="Admiral-github">
+<img src="/images/platform/server/admiral-system-settings.png" alt="admiral-system-settings">
 
 The **Run mode** controls the level of logging and other configuration that is very internal to how Shippable Server is implemented. The default mode is `production`. You should **not** change this without guidance from the Shippable team.
 

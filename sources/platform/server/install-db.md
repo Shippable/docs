@@ -213,12 +213,12 @@ shipdb=> \dt
 
 ## Viewing configuration
 
-You can view database configuration by clicking on the **Config** button for **Database** in the Admiral UI:
+You can view database configuration by clicking on the **Control plane** in the left navigation bar and scrolling down to the **DATABASE** section in the Admiral UI:
 
-<img src="/images/platform/admiral/admiral-gitlab-config.png" alt="GitLab config">
+<img src="/images/platform/admiral/admiral-database-config.png" alt="Database config">
 
 ## Viewing logs
 
-The **Logs** button for **Database** will show the logs from installation and initialization.
+The **logs** button (paper clip icon) for **DATABASE** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-gitlab-logs.png" alt="GitLab logs">
+<img src="/images/platform/admiral/admiral-database-logs.png" alt="Database logs">

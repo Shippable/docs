@@ -19,29 +19,32 @@ To learn more about the benefits of caching, go [here](/platform/runtime/caching
 
 You can turn on caching by following the steps below:
 
-* Navigate to the **Build configuration** section in the **Configure and Install** panel.
-* Check the **Upload artifacts to AWS** option and enter your AWS Access and Secret Keys.
-* Click on **Save** and **Restart Services**.
+* Click on the **Add-ons** panel.
+* Expand the `OTHERS` panel.
+* Toggle on the `Enable build artifact caching using AWS S3`.
+* Enter your AWS Access and Secret Keys.
 
-To turn caching off, uncheck the **Upload artifacts to AWS** option. When caching is turned off, all yml configuration under the `cache` section is ignored.
+<img src="/images/platform/tutorial/server/addons-caching.png">
+
+To turn caching off, toggle off the **Enable build artifact caching using AWS S3** option. When caching is turned off, all yml configuration under the `cache` section is ignored.
 
 ## Choosing node type(s)
 
-You need nodes to run your jobs. The configuration for these is under the **Build configuration->Nodes** section under **Configure and Install**.
+You need nodes to run your jobs. The configuration for these is under the **BUILD CONFIGURATION->Nodes** section under **Build Plane**.
 
 We support the following types of nodes:
 
 * **System nodes** are available for all subscriptions and projects across your installation and are always ON and waiting to pick up triggered jobs. These nodes can be anywhere, i.e. on any cloud or your own data center.
-* **BYON nodes** are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
+* **Custom nodes** are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add Custom(a.k.a BYON) nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
 * **On-demand nodes** are spun up when a job is triggered and spun down if no new job is triggered after some idle time. These are the most cost-effective in terms of infrastructure costs since they are not always ON, but are spun up on-demand. We currently support only AWS EC2 for On-demand nodes.
 
 You need at least one node type enabled in order to run jobs on Shippable Server. The node type you choose depends on your organization's policy
 
-By default, **System Nodes** and **BYON Nodes** are enabled when you run Admiral for the first time.
+By default, **System Nodes** and **Custom Nodes** are enabled when you run Admiral for the first time.
 
 You can enable or disable node types as needed, but **you always need one node type enabled to run jobs**.
 
-<img src="/images/platform/tutorial/server/default-nodes-config.png" alt="Admiral-2-server">
+<img src="/images/platform/tutorial/server/buildplane-1.png">
 
 ### System nodes
 
@@ -67,25 +70,25 @@ To add system nodes, follow the instructions below:
 
 You can choose to disable system nodes by unchecking the **Enable system nodes (always-running nodes, available to any user)**. When disabled, your system nodes will not be used to run any jobs. You will need to click **Install** after making your choice.
 
-### BYON nodes
+### Custom nodes
 
-BYON nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
+Custom nodes are added at a subscription level and are always ON and waiting to pick up triggered jobs. By default, any admin of a Subscription can add BYON nodes. These nodes can be anywhere, i.e. on any cloud or your own data center.
 
-By default, BYON nodes are enabled for a Shippable Server installation. You will need to add one or more nodes in order to run jobs.
+By default, Custom nodes are enabled for a Shippable Server installation. You will need to add one or more nodes in order to run jobs.
 
-#### **Adding a BYON node**
+#### **Adding a Custom node**
 
 Instructions to add BYON nodes are explained here: [Adding BYON nodes](/platform/tutorial/runtime/custom-nodes/).
 
 By default, all super users or Subscription owners can add BYON nodes to a Subscription. If you want to restrict addition of BYON Nodes to super users, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
 
-To set up BYON nodes, sign in to Shippable Server and [follow instructions here](/platform/tutorial/runtime/custom-nodes/).
+To set up Custom nodes, sign in to Shippable Server and [follow instructions here](/platform/tutorial/runtime/custom-nodes/).
 
-#### **Disable BYON nodes**
+#### **Disable Custom nodes**
 
-You can choose to disable BYON nodes by unchecking the **Enable BYON nodes (users can attach always-running nodes to their subscription)**. When disabled, your BYON nodes will not be used to run any jobs.
+You can choose to disable Custom nodes by unchecking the **Enable custom nodes (users can attach always-running nodes to their subscription)**. When disabled, your Custom nodes will not be used to run any jobs.
 
-You will need to click **Install** after making your choice.
+You will need to click **Save & Restart Services** after making your choice.
 
 ### On-demand Nodes
 
@@ -95,11 +98,11 @@ Please note that nodes on AWS need 2-4 minutes to be spun up, so you will have t
 
 To enable **On-demand nodes**:
 
-* In the Admiral UI, check the **Enable On-demand nodes** checkbox
+* In the Admiral UI, click on `Build plane` in the left navbar, expand `BUILD CONFIGURATION` panel and check the **Enable dynamic nodes** checkbox
 * Enter your AWS Access and Secret keys.
 * Choose the default node size. Our default setting is `c4.large`.
 * You can leave the other settings as-is.
-* Your settings are effective after clicking on **Install** for the **Configure and Install** section.
+* Your settings are effective after clicking on **Save & Restart Services** for the **Build plane** section.
 
 ## Settings
 
@@ -109,7 +112,7 @@ You can configure some settings for your Shippable Server installation through t
 
 The **Default build timeout** input lets you set the default timeout value for your jobs in milliseconds. The default for this is 3600000ms = 1 hour.
 
-### Default number of minions
+### Default number of minions per subscription
 
 This setting sets the number of nodes every Subscription will have by default. It is set to 1 by default.
 
@@ -127,7 +130,7 @@ There are two settings for job console: **Job console batch size** and **Job con
 
 The job console batch size sets the number of lines which are output to the console as a batch. The Job console buffer time interval is the amount of time in ms that we wait to receive a batch of console output. If we do not receive the batch size at the end of the buffer time interval, we will output whatever we have to the console.
 
-### Auto-select token for builds
+### Auto-select the token used to run webhook builds
 
 When a job is triggered, we need a token to clone your repository to the build machine, get the commit SHA, etc. This setting determines whether we can auto-select a suitable token from any user in your organization in order to perform these tasks.
 
@@ -136,6 +139,6 @@ You can select a specific user whose token will be used through the [**Webhook c
 
 When **unchecked**, the only users who can trigger your jobs are people who have access to the source control repository and have signed in to Shippable Server. If a user's token is invalid, their build will fail.
 
-### Limit private project builds
+### Limit number of builds allowed for private repos
 
 This setting limits the number of jobs that can be triggered for private repositories within a Subscription every month. You do not need to set this for your Server installation.  
