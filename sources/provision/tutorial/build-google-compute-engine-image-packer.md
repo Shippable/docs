@@ -44,9 +44,9 @@ To jump into this tutorial, you will need to familiarize yourself with the platf
 ## Step by Step Instructions
 The following sections explain the process of setting up a workflow to continuously build an GCE VM image using Packer.
 
-**Source code is available at [devops-recipes/app_be](https://github.com/devops-recipes/cd_gke_kubectl)**
+**Source code is available at [devops-recipes/gcp_image_with_packer](https://github.com/devops-recipes/gcp_image_with_packer)**
 
-**Complete YML is at [devops-recipes/cd_gke_kubectl/shippable.yml](https://raw.githubusercontent.com/devops-recipes/cd_gke_kubectl/master/shippable.yml)**
+**Complete YML is at [devops-recipes/gcp_image_with_packer/shippable.yml](https://raw.githubusercontent.com/devops-recipes/gcp_image_with_packer/master/shippable.yml)**
 
 ###1. Add the account integrations 
 Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/)
