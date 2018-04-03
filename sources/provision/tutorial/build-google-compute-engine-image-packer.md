@@ -105,7 +105,7 @@ To be able to interact with Google Cloud Platform, you need to authenticate your
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
 
 ###4. Define the `jobs` section of the shippable.yml
-A job is the actual execution unit of the assembly line. Here we are adding `deployBEAppKctl_GKE` by adding this to the jobs section of shippable.yml.
+A job is the actual execution unit of the assembly line.
 
 In this job, we are going to do three things
 
