@@ -232,7 +232,7 @@ authorization provider.
 
 * For **Bitbucket Cloud**, follow instructions on the [Bitbucket Cloud configuration page](/platform/server/auth-source-control/#bitbucket-cloud).
 
-* For **Gitlab (Cloud, CE, EE)**, follow instructions on the [GitLab configuration page](/platform/server/auth-source-control/#gitlab).
+* For **Gitlab (Cloud, CE, EE)**, follow instructions on the [GitLab configuration page](/platform/server/auth-source-control/#gitlab-cloud-ce-ee).
 
 * Click **Apply**.
 
