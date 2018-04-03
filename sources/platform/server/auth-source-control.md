@@ -166,7 +166,7 @@ If you came to this page to configure Bitbucket while installing Shippable serve
 
 If you already have a working Shippable Server instance and just added Bitbucket auth, you should be able to sign in with your Bitbucket credentials at this time.  
 
-## Gitlab (GitLab.com, CE)
+## Gitlab (Cloud, CE, EE)
 
 The following steps configure Gitlab as an authorization provider for your Shippable Server instance:
 
