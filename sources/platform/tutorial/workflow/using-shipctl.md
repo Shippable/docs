@@ -177,7 +177,7 @@ This puts, i.e appends, the new key-value pairs in the stage of the Resource. Th
 **Usage**
 
 ```
-shipctl put_resource_state_multi <resource name> "<key>= <value> <key>=<value>"
+shipctl put_resource_state_multi <resource name> "<key>=<value> <key>=<value>"
 ```
 
 - `resource name` is the resource in which you want to store the key-value information.
