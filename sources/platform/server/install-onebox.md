@@ -85,7 +85,10 @@ The minimum requirements for a VM on AWS for example is a [T2.medium](https://aw
 
 * Ensure that you have two machines which meet the minimum hardware and OS requirements.
 * Ensure that you have Shippable Server Installer access and secret key. **If you do not have an access key and secret ket, please contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact).**
-* You will need to engage your SCM Admin to configure your SCM server for OAuth. The steps for each supported SCM are documented [here](http://docs.shippable.com/platform/server/auth-source-control/). We suggest that OAuth configuration be completed before you start server installation.
+* SCM OAuth configuration
+    * You can use your own SCM account to complete the OAuth configuration. Please contact your SCM Admin if you do not have permissions to create an OAuth application.
+    * If other users use the Shippable pilot, they will see your account name during the OAuth process while requesting for permissions, if you use your account for the above.
+    * The steps for each supported SCM are documented [here](http://docs.shippable.com/platform/server/auth-source-control/). We suggest that OAuth configuration be completed before you start server installation.
 * Ensure that you install Shippable server on the the Control plane server on a private IP.
 * Ensure that the ports mentioned above are open on the Control plane and Build plane server.
 * Communication between the Control plane server and SCM server
