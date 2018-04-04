@@ -111,7 +111,6 @@ Please use the table below to find the appropriate add-on for your BitBucket Ser
 |  Bitbucket Server Version | Shippable CI/CD for Bitbucket Server   |      Shippable OAuth for Bitbucket Server       |
 |:----------:|:-------------:|:------:|
 | 5.x, 4.x | 1.1.7-RELEASE | 1.0.3-RELEASE |
-| Stash 3.x | 1.1.6-STASH-RELEASE |    1.0.3-RELEASE   |
 
 
 ### Configure OAuth in Bitbucket Server
