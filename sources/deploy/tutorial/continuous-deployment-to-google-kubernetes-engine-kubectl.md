@@ -20,7 +20,7 @@ This section covers step by step instructions to manually deploy your image to G
 * Create a project on Google Cloud Platform and note down the `Project ID`. [GCP Info](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 * Install the version of `gcloud` CLI based on the OS of the machine from which you plan to deploy your application. [GCP Info](https://cloud.google.com/sdk/gcloud/)
 * Create a Kubernetes Cluster on GCP and node down the `Name` and `Region`. [GCP Info](https://cloud.google.com/kubernetes-engine/)
-* Build and Push the Docker image of the application that you want to deploy to a registry of your choice. You could use our sample Node.js app in case you dont have one. [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/) [How to Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
+* Build and Push the Docker image of the application that you want to deploy to a registry of your choice. You could use our sample Node.js app in case you dont have one. [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/) & [How to Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
 * Create Kubernetes Deployment Spec to deploy your app. Your spec will look something like this,
 
 **Kubernetes Deployment Spec** 
@@ -77,7 +77,7 @@ spec:
 
 * If you don't have one you can use our sample [appDeploy.yml](https://github.com/devops-recipes/cd_gke_kubectl/blob/master/specs/appSvc.yml). Make sure you replace the wildcards `${APP_LABEL}` in the file with information that applies to your scenario. Make sure that you use the same label as above, otherwise the service will not bind to your app as your can see from the `selector` setting. If you change it, make sure the right values are set.
 * Authenticate the newly installed gcloud to GCP. You do this with the following command `gcloud auth login`. [GCP Info](https://cloud.google.com/sdk/gcloud/reference/auth/login)
-* Now connect to the Kubernetes cluster by running this `gcloud container clusters get-credentials $CLUST --zone $CLUST_REG`. Here `$CLUST` & `$CLUST_REG` represents the name and region of the cluster your created above.
+* Now connect to the Kubernetes cluster by executing this command `gcloud container clusters get-credentials $CLUST --zone $CLUST_REG`. Here `$CLUST` & `$CLUST_REG` represents the name and region of the cluster your created above.
 * `cd` to the location of your kube spec files are run the following commands.
   * `kubectl delete  -f ./appDeploy.yml` to delete the app if it already exists.
   * `kubectl delete -f ./appSvc.yml` to delete the service if it already exists.
@@ -104,7 +104,8 @@ We are going to address the challenges above in a systematic way by using Assemb
 To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
 
 ### Concepts
-* [Integrations] (/platform/integration/overview/)
+
+* [Integrations](/platform/integration/overview/)
   * [Google Cloud](/platform/integration/gcloudKey)
   * [Docker Registry](/platform/integration/dockerRegistryLogin)
   * [Github](/platform/integration/github)
@@ -117,9 +118,6 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
   * [runSh](/platform/workflow/job/runsh)
 
 This example extends the work done in [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to GKE
-
-
-
 
 ### Step by step instructions
 The following sections explain the process of setting up an AL to continuously deploy an image to Google Kubernetes Engine using `kubectl`.
@@ -138,21 +136,24 @@ If you have already done the manual steps, you might not need these, except for 
 ####2. Add necessary Account Integrations 
 Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). The following are the integrations that we will use in this sample
 
-#####a. Add `Google Cloud Platform` Integration
+**2a. Add `Google Cloud Platform` Integration**
+
 To be able to interact with GCP, we add `drship_gcp `integration.
 
 Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
-#####b. Add `Docker Registry` Integration
+**2b. Add `Docker Registry` Integration**
+
 To be able to push and pull images from Docker Hub, we add `drship_dockerhub` integration.
 
 Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
-#####c. Add `Github` Integration
+**2c. Add `Github` Integration**
+
 In order to read your AL configuration from Github, we add `drship_github` integration. This is the repo where you are going to store your AL config file (`shippable.yml`) and Kubernetes config files. 
 
 In this case this we are using repo [`devops-recipes/cd_gke_kubectl`](https://github.com/devops-recipes/cd_gke_kubectl).
@@ -166,10 +167,12 @@ The platform is built with "Everything as Code" philosophy and it uses YAML base
 
 Detailed AL configuration info is [here](/deploy/configuration).
 
-#####a. Add empty shippable.yml to your repo
+**3a. Add empty shippable.yml to your repo**
+
 Add an empty config file to the the root of your repo. 
 
-#####b. Add `resources` section of the config
+**3b. Add `resources` section of the config**
+
 `resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
 
 ```
@@ -232,7 +235,8 @@ This will contain the location of the Kube cluster.
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
-#####c. Add `jobs` section of the config
+**3c. Add `jobs` section of the config**
+
 A job is the actual execution unit of the assembly line. In this job, we are going to do three things
 
 * First, we are going to prep the templatized kube files (wildcards APP_LABEL, APP_IMG & APP_TAG) with actual values from input resouces
@@ -343,7 +347,8 @@ Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 
 Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
 
-#####d. Push changes to shippable.yml
+**3d. Push changes to shippable.yml**
+
 Commit and push all the above changes to shippable.yml. 
 
 ####4. Attach the AL to your Repo's Subscription 
