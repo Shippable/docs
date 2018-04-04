@@ -6,7 +6,7 @@ page_title: Continuous Deployment to Google Kubernetes Engine using kubectl
 page_description: Automated deployments to Google Kubernetes Engine using kubectl commands
 page_keywords: Deploy docker containers, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, Google Kubernetes Engine, GKE
 
-# Continuous Deployment to Google Kubernetes Engine using `kubectl`
+# Continuous Deployment to Google Kubernetes Engine using kubectl
 This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using native `kubectl` commands. It also assumes that you have working knowledge of Docker and Kubernetes and undestand the following concepts.
 
 * [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
@@ -23,7 +23,7 @@ This section covers step by step instructions to manually deploy your image to G
 * Build and Push the Docker image of the application that you want to deploy to a registry of your choice. You could use our sample Node.js app in case you dont have one. [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/) & [How to Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
 * Create Kubernetes Deployment Spec to deploy your app. Your spec will look something like this,
 
-**Kubernetes Deployment Spec** 
+**Kubernetes Deployment Spec**
 
 ```
 apiVersion: apps/v1beta1
@@ -83,17 +83,17 @@ spec:
   * `kubectl delete -f ./appSvc.yml` to delete the service if it already exists.
   * `kubectl create -o json -f ./appDeploy.yml` to deploy a new version of the app.
   * `kubectl create -o json -f ./appSvc.yml` to provision a new service to the app.
-* Now execute `kubectl get svc ${APP_LABEL}` with your service label, to get the IP address of your endpoint. 
+* Now execute `kubectl get svc ${APP_LABEL}` with your service label, to get the IP address of your endpoint.
 
 ## Challenges with manual deployments
 There are a few challenges with manual deployment
 
 * Kube Spec files are templatized and you need some programmatic way to supply those values. Creating static files will reduce re-usability and even with Helm, the variables file needs to be created. Helm just moves the wildcards into a single file, doesn't really solve the problem of how to supply it.
-* Automating the build, test and deploy into a streamlined workflow when multiple components need to be tested before deployment is going to be very challenging to achieve. Continuous Delivery is not just about deploying one repo to Kube, it is about deploying multiple components that make up an app together. 
+* Automating the build, test and deploy into a streamlined workflow when multiple components need to be tested before deployment is going to be very challenging to achieve. Continuous Delivery is not just about deploying one repo to Kube, it is about deploying multiple components that make up an app together.
 * RBAC is going to be a huge problem. The machine used to deploy is authenticated to a project (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
 * The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines
 
-## Automating your Kubernetes deployments with Assembly Lines
+## Automating Kubernetes deployments
 We are going to address the challenges above in a systematic way by using Assembly Lines (AL) that Shippable provides. AL offers a variety of benefits, the prominent being
 
 * Capability to create an event driven workflow that automates the entire software delivery lifecycle
@@ -133,7 +133,7 @@ If you have already done the manual steps, you might not need these, except for 
 * Create a service account for your project, download and store the `JSON` security key in a secure place. [GCP Info](https://cloud.google.com/compute/docs/access/service-accounts)
 * Create a Kubernetes cluster and note down the name and region. Make sure the service account has write access to this cluster
 
-####2. Add necessary Account Integrations 
+####2. Add necessary Account Integrations
 Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). The following are the integrations that we will use in this sample
 
 **2a. Add `Google Cloud Platform` Integration**
@@ -154,7 +154,7 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 
 **2c. Add `Github` Integration**
 
-In order to read your AL configuration from Github, we add `drship_github` integration. This is the repo where you are going to store your AL config file (`shippable.yml`) and Kubernetes config files. 
+In order to read your AL configuration from Github, we add `drship_github` integration. This is the repo where you are going to store your AL config file (`shippable.yml`) and Kubernetes config files.
 
 In this case this we are using repo [`devops-recipes/cd_gke_kubectl`](https://github.com/devops-recipes/cd_gke_kubectl).
 
@@ -169,11 +169,11 @@ Detailed AL configuration info is [here](/deploy/configuration).
 
 **3a. Add empty shippable.yml to your repo**
 
-Add an empty config file to the the root of your repo. 
+Add an empty config file to the the root of your repo.
 
 **3b. Add `resources` section of the config**
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`. 
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`.
 
 ```
 resources:
@@ -184,20 +184,20 @@ resources:
       sourceName: "devopsrecipes/node_app" # replace with your Hub URL
       isPull: false
       versionName: latest
-  
+
   - name: config_repo
     type: gitRepo
     integration: "dr_github"
     versionTemplate:
       sourceName: "devops-recipes/cd_gke_kubectl"
       branch: master
-      
+
   - name: gcp_cli
     type: cliConfig
     integration: "dr_gcp"
     versionTemplate:
       region: "us-west1-a"
-      
+
   - name: gke_cluster
     type: cluster
     integration: "dr_gcp"
@@ -286,13 +286,13 @@ jobs:
   * Credentials to connect to Google Cloud is in `gcp_cli`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
   * Kubernetes cluster location is supplied by `gke_cluster` which is also switched off.
   * Kubernetes config files `appDeploy.yml` & `appSvc.yml` are version controlled in a repo represented by `config_repo`
-* The `TASK` section is the actual code that is executed when the job runs. 
+* The `TASK` section is the actual code that is executed when the job runs.
   *  Name of the task is `deploy_app`
-  *  It sets up an environment variable `APP_LABEL` before executing any code. 
+  *  It sets up an environment variable `APP_LABEL` before executing any code.
   *  `script` section has the list of commands to execute. The commands are preforming 3 core things
     *  First is the "Config file prep section". Here we are using utility function `get_resource_state` on `config_repo` to get the folder where kube files are stored. We then set the `APP_IMG` & `APP_TAG` values by fetching them from resource `node_app_img_dh` using `get_resource_version_key`. We then run `replace` command on `appDeploy.yml` & `appSvc.yml` files (shown below) to replace the wildcards with actual values.
     *  Second is the "Cluster login section". Since we added `gcp_cli` as an `IN`, the platform has already authenticated the shell to gcloud and set the default region to `us-west1-a`. Now we use utility `get_resource_version_key` on resource `gke_cluster` to get the location of the cluster and we use gcloud to authenticate to the kube cluster.
-    *  Last step is the "App deployment section". Now that we have an active connection to the kube cluster, we delete the app and service if it already exists and deploy the newer version. 
+    *  Last step is the "App deployment section". Now that we have an active connection to the kube cluster, we delete the app and service if it already exists and deploy the newer version.
 
 **Kubernetes Deployment template stored in config_repo - appDeploy.yml**
 
@@ -349,12 +349,12 @@ Detailed info about Shippable Utility functions are [here](/platform/tutorial/wo
 
 **3d. Push changes to shippable.yml**
 
-Commit and push all the above changes to shippable.yml. 
+Commit and push all the above changes to shippable.yml.
 
-####4. Attach the AL to your Repo's Subscription 
+####4. Attach the AL to your Repo's Subscription
 In Shippable's world, an Org or a Group depending on the SCM system you are using equate to a Subscription. We will hook the YML so that the platform can render the AL.
 
-This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this. 
+This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
 
@@ -378,4 +378,3 @@ You can manually run the job by right clicking on the job or by triggering the C
 * Creating parametrized Jobs
 * Using templates inside your Job
 * Logging into your deployment cluster using CLI
-
