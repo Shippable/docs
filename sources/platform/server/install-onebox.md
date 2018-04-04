@@ -8,21 +8,26 @@ page_keywords: install, onebox, microservices, Continuous Integration, Continuou
 
 # Onebox pilot installation guide
 
-Shippable Server comprises of the following -
+This document describes the steps to install Shippable Server for a Onebox pilot. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
 
-* Control plane
-    * Stateless micro services  
-    * Stateful Components - PostgreSQL, Secret Store and GitLab server.
-    * Transient State Components - Redis and RabbitMQ
-    * Shippable Server Installer and webapp (Admiral)
-* Build plane
-    * Node pools
+## Shippable Server architecture
 
-This document describes the steps to install Shippable Server on a single server. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
+**Shippable Server comprises of the following -**
 
-<img src="/images/platform/tutorial/server/admiral-onebox.png" alt="Admiral-github" height="512px">
+* **Control Plane** which consists of:
+    * Core services - these are the administration, app (UI), login and core backend runtime services of Admiral.  
+    * State services - these are open source components that store transient and persistent state.
+* **Build Plane** consisting of build servers - these run the execution agents that spin up CI and CD jobs.
+* **Source Control Management(SCM) Plane** - this is your on-premise or cloud based SCM such as GitHub, GitHub Enterprise, BitBucket, Bitbucket Server, or GitLab., which needs to be able to communicate with the Control Plane.
 
-## Pre-requisites
+**To install Shippable Server as a Onebox pilot, you will need to provision -**
+
+* One Control Plane Server
+* One Build Plane Server
+
+<img src="/images/platform/tutorial/server/admiral-onebox.jpg" alt="Admiral-github" height=512px>
+
+## Control Plane Server requirements
 
 ### OS versions
 
@@ -51,23 +56,57 @@ The minimum requirements for a VM on AWS for example is a [C4.xLarge](https://aw
 - 50001: Shippable post-login ui
 - 50003: Shippable installer webapp
 
-### Pre-install packages
+## Build Plane Server requirements
 
-You need to install Git and SSH  before downloading and running Admiral, the Shippable Server installer.  Install these by running the following:
+### OS versions
 
-```
-$ sudo apt-get update && sudo apt-get install git-core ssh
-```
+We support the following Operating systems:
+
+- Ubuntu 16.04 LTS
+- Ubuntu 14.04 LTS
+- CentOS 7
+- RHEL 7
+
+### Machine Requirements
+
+You will need a machine/VM with:
+
+- 2 cores
+- 4 GB memory
+- 30 GB disk space
+
+The minimum requirements for a VM on AWS for example is a [T2.medium](https://aws.amazon.com/ec2/instance-types/) machine.
+
+### Ports to open
+
+- 22: ssh into the machine
+
+## Checklist prior to starting installation
+
+* Ensure that you have two machines which meet the minimum hardware and OS requirements.
+* Ensure that you have Shippable Server Installer access and secret key. **If you do not have an access key and secret ket, please contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact).**
+* You will need to engage your SCM Admin to configure your SCM server for OAuth. The steps for each supported SCM are documented [here](http://docs.shippable.com/platform/server/auth-source-control/). We suggest that OAuth configuration be completed before you start server installation.
+* Ensure that you install Shippable server on the the Control plane server on a private IP.
+* Ensure that the ports mentioned above are open on the Control plane and Build plane server.
+* Communication between the Control plane server and SCM server
+The important question to answer here is whether the Control plane server will run in the same subnet as the SCM server.
+If the subnet is the same, then traffic between the two servers is already secured by default. For different subnets, it is important to secure the communication between the core services and the SCM.
+
+To do so, it is important to -
+    * Run the SCM on a secure port
+    * Install a publicly trusted certificate on the SCM
+    * Verify that the SCM server is accessible from the Control plane server by running curl or telnet commands.
+        * GitHub connectivity test: `curl https://api.github.com`
+        * GitHub enterprise connectivity test: `curl https://my.github.com/api/v3.`
+        * BitBucket Cloud connectivity test: `curl https://api.bitbucket.org`
+        * BitBucket Server connectivity test: `curl https://api.bitbucket.org`
+        * GitLab 9.0 and above connectivity test: `curl https://my.gitlab.com/api/v4`
+        * GitLab 8.17 or earlier and above connectivity test: `curl https://my.gitlab.com/api/v3`
+
+* The Build plane server sends traffic to ports 50000 and 5672 on the Control plane server. Verify that the Control plane server is accessible from the Build plane server using ping or ssh.
+
 
 ## Install Shippable Server
-
-Please have the following information handy before you start the installation:
-
-* IP address for Server.
-* Shippable Server Installer access key
-* Shippable Server Installer secret key
-
-**If you do not have an access key and secret ket, please contact us [via email](mailto:support@shippable.com) or through the [Server contact form](https://www.shippable.com/enterprise.html#shippable-server-contact).**
 
 ###1. Install Admiral CLI
 SSH into the machine where you are installing Admiral and run the following commands.
