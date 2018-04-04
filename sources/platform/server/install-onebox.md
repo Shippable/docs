@@ -91,15 +91,13 @@ The minimum requirements for a VM on AWS for example is a [T2.medium](https://aw
 * Communication between the Control plane server and SCM server
 The important question to answer here is whether the Control plane server will run in the same subnet as the SCM server.
 If the subnet is the same, then traffic between the two servers is already secured by default. For different subnets, it is important to secure the communication between the core services and the SCM.
-
-To do so, it is important to -
     * Run the SCM on a secure port
     * Install a publicly trusted certificate on the SCM
     * Verify that the SCM server is accessible from the Control plane server by running curl or telnet commands.
         * GitHub connectivity test: `curl https://api.github.com`
         * GitHub enterprise connectivity test: `curl https://my.github.com/api/v3.`
         * BitBucket Cloud connectivity test: `curl https://api.bitbucket.org`
-        * BitBucket Server connectivity test: `curl https://api.bitbucket.org`
+        * BitBucket Server connectivity test: `curl https://my.bitbucket.com/`
         * GitLab 9.0 and above connectivity test: `curl https://my.gitlab.com/api/v4`
         * GitLab 8.17 or earlier and above connectivity test: `curl https://my.gitlab.com/api/v3`
 
