@@ -307,6 +307,7 @@ pages:
         - Jenkins: platform/integration/jenkins.md
         - Kubernetes: platform/integration/kubernetes.md
         - JFrog Artifactory: platform/integration/jfrog-artifactory.md
+        - Jira: platform/integration/jira.md
         - PEM Keys: platform/integration/key-pem.md
         - Private Registries: platform/integration/docker-private-registry.md
         - Quay.io: platform/integration/quay.md
@@ -325,7 +326,8 @@ pages:
         - Language versions: platform/runtime/machine-image/language-versions.md
         - CLI versions: platform/runtime/machine-image/cli-versions.md
         - Services versions: platform/runtime/machine-image/services-versions.md
-        - AMI v6.2.4 (latest): platform/runtime/machine-image/ami-v624.md
+        - AMI v6.3.4 (latest): platform/runtime/machine-image/ami-v634.md
+        - AMI v6.2.4: platform/runtime/machine-image/ami-v624.md
         - AMI v6.1.4: platform/runtime/machine-image/ami-v614.md
         - AMI v5.10.4: platform/runtime/machine-image/ami-v5104.md
         - AMI v5.8.2: platform/runtime/machine-image/ami-v582.md
@@ -382,6 +384,7 @@ pages:
     - Shippable Server:
       - Overview: platform/server/overview.md
       - Installation instructions:
+        - Onebox pilot: platform/server/install-onebox.md
         - Small to mid-sized teams:  platform/server/install-two-server.md
         - Enterprise installations: platform/server/enterprise.md
         - Upgrading Shippable Server: platform/server/upgrade.md
@@ -394,7 +397,7 @@ pages:
         - State Storage: platform/server/install-gitlab.md
         - Redis: platform/server/install-redis.md
         - Swarm: platform/server/install-swarm-workers.md
-        - Service addresses: platform/server/selfsigned-certificates.md
+        - Self-signed SSL certificates: platform/server/selfsigned-certificates.md
         - Auth and source control: platform/server/auth-source-control.md
         - Build config: platform/server/build-config.md
         - System settings: platform/server/system-settings.md
@@ -429,6 +432,7 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
+        - How to create Jira issues from Shippable: platform/tutorial/integration/howto-create-jira-issues.md
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md
@@ -442,5 +446,6 @@ pages:
   - howTo:
     - Build and Push image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
     - CD to GKE: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl.md
+    - Build Google Compute Engine Image with Packer: provision/tutorial/build-google-compute-engine-image-packer.md
   - Typography:
     - Typography page: ci/typography.md
