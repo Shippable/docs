@@ -206,7 +206,7 @@ resources:
       region: "us-west1-a"            
 ```
 
-######i.`image` resource named `node_app_img_dh`
+#####i.`image` resource named `node_app_img_dh`
 
 The image that you want to deploy to GKE should be available as a resource to the assembly line.
 
@@ -216,19 +216,19 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 
 > Note: If you have already implemented optional steps from [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub), then skip this step as you already have the image resource defined.
 
-######ii. `gitRepo` resource named `config_repo`
+#####ii. `gitRepo` resource named `config_repo`
 Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. For this e.g. configs are present in `https://github.com/devops-recipes/cd_gke_kubectl`
 
 Kubernetes config files for this app are [here](https://github.com/devops-recipes/cd_gke_kubectl/tree/master/specs)
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
-######iii. `cliConfig` resource named `gcp_cli`
+#####iii. `cliConfig` resource named `gcp_cli`
 To be able to interact with Google Cloud Platform, you need to authenticate your gcloud cli. Shippable does this for you automatically when a `cliConfig` resource is present in a job.
 
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
 
-######iv. `cluster` resource named `gke_cluster`
+#####iv. `cluster` resource named `gke_cluster`
 This will contain the location of the Kube cluster.
 
 `sourceName` is the name of the GKE cluster and `region` is where the cluster is present
@@ -294,6 +294,10 @@ jobs:
     *  Second is the "Cluster login section". Since we added `gcp_cli` as an `IN`, the platform has already authenticated the shell to gcloud and set the default region to `us-west1-a`. Now we use utility `get_resource_version_key` on resource `gke_cluster` to get the location of the cluster and we use gcloud to authenticate to the kube cluster.
     *  Last step is the "App deployment section". Now that we have an active connection to the kube cluster, we delete the app and service if it already exists and deploy the newer version.
 
+Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
+
+Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
+
 **Kubernetes Deployment template stored in config_repo - appDeploy.yml**
 
 ```
@@ -342,10 +346,6 @@ spec:
     app: ${APP_LABEL}
 
 ```
-
-Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
-
-Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
 
 **3d. Push changes to shippable.yml**
 
