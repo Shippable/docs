@@ -11,7 +11,7 @@ The [Kubernetes](https://kubernetes.io) Integration is used to connect Shippable
 
 ## Creating an Account Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Kubernetes integrations. You can use the new [Kubernetes](/platform/integration/kubernetes-config) instead.  
+Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Kubernetes integrations. You can use the new [Kubernetes](/platform/integration/kubernetes) instead.  
 
 ## Creating a kubeconfig file
 
