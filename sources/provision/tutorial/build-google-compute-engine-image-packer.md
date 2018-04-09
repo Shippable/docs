@@ -70,8 +70,17 @@ This section covers step by step instructions to manually build the VM image sta
 
 * If you don't have one you can use our sample [packer.json](https://github.com/devops-recipes/gcp_image_with_packer/blob/master/u16img/packer.json). You can replace all the variables with values or supply it during runtime. 
 * Authenticate the newly installed gcloud to GCP. You do this with the following command `gcloud auth login`. [GCP Info](https://cloud.google.com/sdk/gcloud/reference/auth/login)
-* Execute the following command `packer validate -var region="us-west1" -var source_image_family="ubuntu-1604-lts" -var machine_type="n1-standard-1" -var zone="us-west1-b" -var project_id=$PROJECT_ID packer.json` to validate the template. Replace the project_id with your project
-* Execute the following command `packer build -var region="us-west1" -var source_image_family="ubuntu-1604-lts" -var machine_type="n1-standard-1" -var zone="us-west1-b" -var project_id=$PROJECT_ID packer.json` to build the image. Replace the project_id with your project
+* Execute the following command to validate the template. Be sure to replace the project_id with your project
+
+```
+packer validate -var region="us-west1" -var source_image_family="ubuntu-1604-lts" -var machine_type="n1-standard-1" -var zone="us-west1-b" -var project_id=$PROJECT_ID packer.json` 
+```
+
+* Execute the following command to build the image. Be sure to replace the project_id with your project
+
+```
+packer build -var region="us-west1" -var source_image_family="ubuntu-1604-lts" -var machine_type="n1-standard-1" -var zone="us-west1-b" -var project_id=$PROJECT_ID packer.json` 
+```
 
 ## Challenges with manual deployments
 There are a few challenges with manual deployment
