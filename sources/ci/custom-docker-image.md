@@ -28,8 +28,11 @@ If your image does not have `apt-get` and you do not want it on your image for s
 * ssh-agent or openssh
 * sudo
 * Python 2.7
+* jq 1.5
 
 In addition, it is recommended that you install any dependencies, test tools, language versions, etc, in your custom image. This will make your builds faster since installing them in your build scripts will add the installation time to each build.
+
+
 
 <a name="pull-image"></a>
 ##Pulling your custom image and using it for CI

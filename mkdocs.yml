@@ -290,33 +290,32 @@ pages:
       - Slack: platform/integration/slackKey.md
       - SSH Keys: platform/integration/sshKey.md
       - Deprecated:
-        - Amazon ECR: platform/integration/aws-ecr.md
-        - Amazon Web Services: platform/integration/aws.md
-        - Amazon ECS: platform/integration/aws-ecs.md
-        - Azure: platform/integration/azure.md
-        - Docker Cloud: platform/integration/docker-cloud.md
-        - Docker Hub: platform/integration/docker-hub.md
-        - Docker Trusted Registry: platform/integration/docker-trusted-registry.md
-        - Azure DC/OS: platform/integration/azure-dcos.md
-        - Email: platform/integration/email.md
-        - HipChat: platform/integration/hipchat.md
-        - Google Cloud: platform/integration/gce.md
-        - Google Container Registry: platform/integration/gcr.md
-        - Google Container Engine: platform/integration/gke.md
-        - IRC: platform/integration/irc.md
-        - Jenkins: platform/integration/jenkins.md
-        - Kubernetes: platform/integration/kubernetes.md
-        - JFrog Artifactory: platform/integration/jfrog-artifactory.md
-        - Jira: platform/integration/jira.md
-        - PEM Keys: platform/integration/key-pem.md
-        - Private Registries: platform/integration/docker-private-registry.md
-        - Quay.io: platform/integration/quay.md
-        - Slack(old): platform/integration/slack.md
-        - Event Trigger: platform/integration/event-trigger.md
-        - SSH Keys: platform/integration/key-ssh.md
-        - Node Cluster: platform/integration/node-cluster.md
-        - Docker Datacenter: platform/integration/docker-datacenter.md
-        - Joyent Triton: platform/integration/tripub.md
+        - Amazon ECR: platform/integration/deprecated/aws-ecr.md
+        - Amazon ECS: platform/integration/deprecated/aws-ecs.md
+        - Amazon Web Services: platform/integration/deprecated/aws.md
+        - Azure DC/OS: platform/integration/deprecated/azure-dcos.md
+        - Azure: platform/integration/deprecated/azure.md
+        - Docker Cloud: platform/integration/deprecated/docker-cloud.md
+        - Docker Datacenter : platform/integration/deprecated/docker-datacenter.md
+        - Docker Hub: platform/integration/deprecated/docker-hub.md
+        - Docker Trusted Registry: platform/integration/deprecated/docker-trusted-registry.md
+        - Docker Private Registry: platform/integration/deprecated/docker-private-registry.md
+        - Email: platform/integration/deprecated/email.md
+        - Event Trigger: platform/integration/deprecated/event-trigger.md
+        - Google Cloud: platform/integration/deprecated/gce.md
+        - Google Container Registry: platform/integration/deprecated/gcr.md
+        - Google Container Engine: platform/integration/deprecated/gke.md
+        - HipChat: platform/integration/deprecated/hipchat.md
+        - IRC: platform/integration/deprecated/irc.md
+        - Jenkins: platform/integration/deprecated/jenkins.md
+        - JFrog Artifactory: platform/integration/deprecated/jfrog-artifactory.md
+        - PEM Keys: platform/integration/deprecated/key-pem.md
+        - SSH Keys:  platform/integration/deprecated/key-ssh.md
+        - Kubernetes: platform/integration/deprecated/kubernetes.md
+        - Node Cluster: platform/integration/deprecated/node-cluster.md
+        - Quay.io: platform/integration/deprecated/quay.md
+        - Slack: platform/integration/deprecated/slack.md
+        - Joyent Triton: platform/integration/deprecated/tripub.md
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Nodes: platform/runtime/nodes.md
