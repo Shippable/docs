@@ -19,8 +19,8 @@ This section covers step by step instructions to manually deploy your image to G
 
 * Use your existing Kubernetes cluster or create a Kubernetes cluster on a cloud platform of your choice.
 * Create or use your existing `kubeconfig` file for your Kubernetes cluster. By default, kubectl looks for a file named `config` in the `$HOME/.kube` directory. A complete step-by-step guide for creating a kubeconfig file using a service account can be found [here](http://docs.shippable.com/platform/integration/kubernetes/#creating-a-kubeconfig-file).
-* Build and Push the Docker image of the application that you want to deploy to a registry of your choice. You could use our sample Node.js app in case you don't have one. [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/) & [Build and Push Docker image to Docker registry](/ci/push-docker-registry/)
-* If your registry is a private registry, create a Kubernetex Secret called `imagePullSecrets` to pull private images from a Docker registry. The steps are documented [here](/deploy/tutorial/pull_private_image_kubernetes).
+* Build and Push the Docker image of the application that you want to deploy to a registry of your choice. You could use our sample Node.js app in case you don't have one. [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/) & [Build and Push a Docker Image to Jfrog](/ci/tutorial/build-push-image-to-jfrog)
+* If your registry is a private registry, create a Kubernetex Secret of type `imagePullSecrets` called `private-registry-key` to pull private images from a Docker registry. The steps are documented [here](/deploy/tutorial/pull_private_image_kubernetes).
 * Create Kubernetes Deployment Spec to deploy your app, which also references the secret. Your spec will look something like this,
 
 **Kubernetes Deployment Spec**
@@ -106,15 +106,16 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 ### Concepts
 
 * [Integrations](/platform/integration/overview/)
-  * [Kubernetes](/platform/integration/kubernetes/)
-  * [Docker Registry](/platform/integration/dockerRegistryLogin)
-  * [Github](/platform/integration/github)
+    * [Kubernetes](/platform/integration/kubernetes/)
+    * [Docker Registry](/platform/integration/dockerRegistryLogin)
+    * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-  * [image](/platform/workflow/resource/image)
-  * [gitRepo](/platform/workflow/resource/gitrepo)
-  * [cliConfig](/platform/workflow/resource/cliconfig)
+    * [image](/platform/workflow/resource/image)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
+    * [cliConfig](/platform/workflow/resource/cliconfig)
+    * [integration](/platform/workflow/resource/integration)
 * [Jobs](/platform/workflow/job/overview/)
-  * [runSh](/platform/workflow/job/runsh)
+    * [runSh](/platform/workflow/job/runsh)
 
 This example extends the work done in [Build and Push Docker image to Docker registry](/ci/push-docker-registry/)) by adding an Assembly Line that deploys the application to your existing Kubernetes cluster.
 
@@ -168,13 +169,13 @@ Add an empty config file to the the root of your repo.
 
 **3b. Add `resources` section of the config**
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`.
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `integration`.
 
 ```
 resources:
   - name: node_app_jfrog_img_jfrog
     type: image
-    integration: drship_dockerregistry # replace with your integration name
+    integration: drship_artifactory_docker # replace with your integration name
     versionTemplate:
       sourceName: "ambarc-node-app-jfrog.jfrog.io/node_app_jfrog" # replace with your Hub URL
       isPull: false
@@ -197,7 +198,7 @@ resources:
   - name: node_app_jfrog_dr
     type: integration
     # replace drship_dockerregistry with your Docker registry integration name
-    integration: drship_dockerregistry
+    integration: drship_artifactory_docker
 
 ```
 
@@ -209,7 +210,7 @@ The image that you want to deploy to a Kubernetes pod should be available as a r
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
-> Note: If you have already implemented optional steps from [Build and Push Docker image to Docker registry](/ci/push-docker-registry/), then skip this step as you already have the image resource defined.
+> Note: If you have already implemented optional steps from [Build and Push a Docker Image to Jfrog](/ci/tutorial/build-push-image-to-jfrog), then skip this step as you already have the image resource defined.
 
 #####ii. `gitRepo` resource named `node_app_jfrog_config_repo`
 Your Kubernetes config files will be placed in a repo and the assembly line needs to know where to find them. For this e.g. configs are present in `https://github.com/devops-recipes/cd_k8s_kubectl`
@@ -222,6 +223,11 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 To be able to interact with your Kubernetes cluster using kubectl, you need to a kubeconfig file. Shippable does this for you automatically when a `cliConfig` resource is present in a job.
 
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
+
+#####iv. `integration` resource named `node_app_jfrog_dr`
+The integration resource represents the credentials of the Docker registry, that have been encrypted using Shippable Integrations.
+
+Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
 **3c. Add `jobs` section of the config**
 
@@ -365,16 +371,21 @@ In Shippable's world, an Org or a Group depending on the SCM system you are usin
 
 This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
 
-<img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
+<img src="/images/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl-fig1.png" alt="Assembly Line view">
 
-> Note: This assembly line is incorporating [Build and Push Docker image to Docker registry](/ci/push-docker-registry/) to dynamically build `node_app_jfrog_img_jfrog`, if you are using static image tag, then you will not see the CI section to the left of the image
+> Note: This assembly line is incorporating [How to Build and Push a Docker Image to Jfrog](/ci/tutorial/build-push-image-to-jfrog) to dynamically build `node_app_jfrog_img_jfrog`, if you are using static image tag, then you will not see the CI section to the left of the image
 
 Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
 
-####5. Run the deploy job `deploy_app_kctl_kube`
-You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to GKE. You should see your app & service deployed to the Kubernetes cluster.
+####5. Run the secret creation job `create_image_pull_secret_jfrog`
+Manually run the job only once by right clicking on the job. You should see the secret created on the Kubernetes cluster.
 
-<img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig4.png" alt="Deploy console output">
+<img src="/images/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl-fig2.png" alt="Deploy console output">
+
+####6. Run the deploy job `deploy_app_kctl_kube`
+You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to the Kubernetes cluster. You should see your app & service deployed to the Kubernetes cluster.
+
+<img src="/images/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl-fig3.png" alt="Deploy console output">
 
 
 ## Further Reading
