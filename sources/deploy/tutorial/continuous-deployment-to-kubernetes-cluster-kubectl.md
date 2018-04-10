@@ -227,49 +227,70 @@ Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/c
 
 A job is the actual execution unit of the assembly line. In this job, we are going to do three things
 
+#####i. `job` named create_image_pull_secret_jfrog.
+
+In this job, we are going to delete and create the secret needed for pulling private images on the Pod.
+
+```
+jobs:
+  - name: create_image_pull_secret_jfrog
+    type: runSh
+    steps:
+      - IN: node_app_jfrog_kube_cli
+        switch: off
+      - IN: node_app_jfrog_dr
+      - TASK:
+          name: secret_jfrog_app
+          script:
+            # Delete and create the secret
+            - kubectl delete secret private-registry-key 2>/dev/null || echo "secret does not exist"
+            - kubectl create secret docker-registry private-registry-key --docker-username="$NODE_APP_JFROG_DR_INTEGRATION_USERNAME" --docker-password="$NODE_APP_JFROG_DR_INTEGRATION_PASSWORD" --docker-email="$NODE_APP_JFROG_DR_INTEGRATION_EMAIL" --docker-server="$NODE_APP_JFROG_DR_INTEGRATION_URL"/
+```
+
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `create_image_pull_secret_jfrog`.
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * Docker registry integration resource is represented by `node_app_jfrog_dr`. This resource creates environment variables for the private registry credentials, email and URL which we need to create the secret.
+  * Credentials to connect to the Kuberneter cluster is in `node_app_jfrog_kube_cli`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
+* The `TASK` section is the actual code that is executed when the job runs.
+  *  Name of the task is `secret_jfrog_app`
+  *  It uses environment variables created by `node_app_jfrog_dr` to create the image pull secret.
+
+
+#####ii. `job` named deploy_app_kctl_kube.
+
 * First, we are going to prep the templatized kube files (wildcards APP_LABEL, APP_IMG & APP_TAG) with actual values from input resouces
 * Second, we are going initialize a connection to the cluster using gcloud
 * Lastly, we are going to deploy to the cluster using kubectl
 
-```
-- name: create_image_pull_secret_jfrog
-  type: runSh
-  steps:
-    - IN: node_app_jfrog_kube_cli
-    - IN: node_app_jfrog_dr
-    - TASK:
-        script:
-          # Delete and create the secret
-          - kubectl delete secret private-registry-key 2>/dev/null || echo "secret does not exist"
-          - kubectl create secret docker-registry private-registry-key --docker-username="$NODE_APP_JFROG_DR_INTEGRATION_USERNAME" --docker-password="$NODE_APP_JFROG_DR_INTEGRATION_PASSWORD" --docker-email="$NODE_APP_JFROG_DR_INTEGRATION_EMAIL" --docker-server="$NODE_APP_JFROG_DR_INTEGRATION_URL"/
 
-- name: deploy_app_kctl_kube
-  type: runSh
-  dependencyMode: strict
-  steps:
-    - IN: node_app_jfrog_img_jfrog # defined here https://github.com/devops-recipes/node_app/blob/master/shippable.yml
-    - IN: node_app_jfrog_kube_cli
-      switch: off
-    - IN: node_app_jfrog_config_repo
-      switch: off
-    - TASK:
-        name: deploy_jfrog_app
-        runtime:
-          options:
-            env:
-              - APP_LABEL: "kctl-jfrog-app"
-        script:
-          - pushd $(shipctl get_resource_state "node_app_jfrog_config_repo")
-          - cd specs
-          - export APP_IMG=$(shipctl get_resource_version_key node_app_jfrog_img_jfrog sourceName)
-          - export APP_TAG=$(shipctl get_resource_version_name node_app_jfrog_img_jfrog)
-          - shipctl replace appDeploy.yml appSvc.yml
-          - kubectl delete  -f ./appDeploy.yml 2>/dev/null || echo ""
-          - kubectl delete -f ./appSvc.yml  2>/dev/null || echo ""
-          - kubectl create -o json -f ./appDeploy.yml >> kube_output.json
-          - kubectl create -o json -f ./appSvc.yml >> kube_output.json
-          - cat kube_output.json
-          - popd
+```
+  - name: deploy_app_kctl_kube
+    type: runSh
+    dependencyMode: strict
+    steps:
+      - IN: node_app_jfrog_img_jfrog # defined here https://github.com/devops-recipes/node_app/blob/master/shippable.yml
+      - IN: node_app_jfrog_kube_cli
+        switch: off
+      - IN: node_app_jfrog_config_repo
+        switch: off
+      - TASK:
+          name: deploy_jfrog_app
+          runtime:
+            options:
+              env:
+                - APP_LABEL: "kctl-jfrog-app"
+          script:
+            - pushd $(shipctl get_resource_state "node_app_jfrog_config_repo")
+            - cd specs
+            - export APP_IMG=$(shipctl get_resource_version_key node_app_jfrog_img_jfrog sourceName)
+            - export APP_TAG=$(shipctl get_resource_version_name node_app_jfrog_img_jfrog)
+            - shipctl replace appDeploy.yml appSvc.yml
+            - kubectl delete  -f ./appDeploy.yml 2>/dev/null || echo ""
+            - kubectl delete -f ./appSvc.yml  2>/dev/null || echo ""
+            - kubectl create -o json -f ./appDeploy.yml >> kube_output.json
+            - kubectl create -o json -f ./appSvc.yml >> kube_output.json
+            - cat kube_output.json
+            - popd
 ```
 * Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deploy_app_kctl_kube`.
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
@@ -277,10 +298,10 @@ A job is the actual execution unit of the assembly line. In this job, we are goi
   * Credentials to connect to the Kuberneter cluster is in `node_app_jfrog_kube_cli`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
   * Kubernetes config files `appDeploy.yml` & `appSvc.yml` are version controlled in a repo represented by `node_app_jfrog_config_repo`
 * The `TASK` section is the actual code that is executed when the job runs.
-  *  Name of the task is `deploy_app`
+  *  Name of the task is `deploy_jfrog_app`
   *  It sets up an environment variable `APP_LABEL` before executing any code.
   *  `script` section has the list of commands to execute. The commands are preforming 3 core things
-    *  First is the "Config file prep section". Here we are using utility function `get_resource_state` on `config_repo` to get the folder where kube files are stored. We then set the `APP_IMG` & `APP_TAG` values by fetching them from resource `node_app_img_dh` using `get_resource_version_key`. We then run `replace` command on `appDeploy.yml` & `appSvc.yml` files (shown below) to replace the wildcards with actual values.
+    *  First is the "Config file prep section". Here we are using utility function `get_resource_state` on `node_app_jfrog_config_repo` to get the folder where kube files are stored. We then set the `APP_IMG` & `APP_TAG` values by fetching them from resource `node_app_jfrog_img_jfrog` using `get_resource_version_key`. We then run `replace` command on `appDeploy.yml` & `appSvc.yml` files (shown below) to replace the wildcards with actual values.
     *  Last step is the "App deployment section". Now that we have an active connection to the kube cluster, we delete the app and service if it already exists and deploy the newer version.
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
@@ -346,12 +367,12 @@ This should automatically trigger the sync process to add all the changes to the
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
 
-> Note: This assembly line is incorporating [Build and Push Docker image to Docker registry](/ci/push-docker-registry/) to dynamically build `app_be_img`, if you are using static image tag, then you will not see the CI section to the left of the image
+> Note: This assembly line is incorporating [Build and Push Docker image to Docker registry](/ci/push-docker-registry/) to dynamically build `node_app_jfrog_img_jfrog`, if you are using static image tag, then you will not see the CI section to the left of the image
 
 Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
 
-####5. Run the deploy job `deploy_app_kctl_gke`
-You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to GKE. You should see your app & service deployed to the Kubernetes cluster you created on GCP
+####5. Run the deploy job `deploy_app_kctl_kube`
+You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to GKE. You should see your app & service deployed to the Kubernetes cluster.
 
 <img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig4.png" alt="Deploy console output">
 
