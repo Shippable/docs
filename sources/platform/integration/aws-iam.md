@@ -90,6 +90,42 @@ If your managed deployment includes a [loadBalancer](/platform/workflow/resource
 }
 ```
 
+And if you are adding scaling policies or AWS CloudWatch metric alarms, you will need additional permissions for that as well.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "application-autoscaling:RegisterScalableTarget",
+                "application-autoscaling:DeregisterScalableTarget",
+                "application-autoscaling:PutScalingPolicy",
+                "application-autoscaling:DeleteScalingPolicy",
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:DeleteAlarms",
+                "ecs:DeregisterTaskDefinition",
+                "ecs:UpdateService",
+                "ecs:CreateService",
+                "ecs:RegisterTaskDefinition",
+                "ecs:DeleteService",
+                "ecs:DescribeServices",
+                "ecs:ListTaskDefinitions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole",
+                "iam:ListRoles"
+            ],
+            "Resource": "arn:aws:iam::*:*"
+        }
+    ]
+}
+```
+
 For `cliConfig` resources, you should make sure that your policy allows you to perform whatever actions you plan to take in your custom script.  This could mean ECR actions to pull images, ECS actions to create deployments, EC2 actions to run instances, etc.
 
 ### Default Environment Variables

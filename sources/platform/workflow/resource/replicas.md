@@ -33,6 +33,29 @@ resources:
 	        versionTemplate:
 	          count: 1          #integer value > 0
 
+  * For [AWS Application Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html#service-auto-scaling-api),
+
+          versionTemplate:
+            count:               <number>
+            minReplicas:         <number>
+            maxReplicas:         <number>
+            autoScalingRole:     <string>
+            autoScalingPolicies: <array>
+            metricAlarms:        <array>
+
+
+      **`count`** -- Required. The number of containers to run.
+
+      **`minReplicas`** -- Optional. The minimum number of replicas in the scalable target.  If this is defined, `maxReplicas` is required.
+
+      **`maxReplicas`** -- Optional. The maximum number of replicas in the scalable target.  If this is defined, `minReplicas` is required.
+
+      **`autoScalingRole`** -- Optional. This will be used in the scalable target and should be a valid ARN of an IAM role.
+
+      **`autoScalingPolicies`** -- Optional. An array consisting of scaling policies with the fields described [here](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ApplicationAutoScaling.html#putScalingPolicy-property). `ResourceId`, `ScalableDimension`, and `ServiceNamespace` will be filled in for the current manifest if not specified in the YML.
+
+      **`metricAlarms`** -- Optional. An array consisting of alarms with the fields described [here](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html#putMetricAlarm-property). A `PolicyName` for a scaling policy in the same deploy job can be listed in `AlarmActions` and will be replaced with the corresponding ARN when the alarm is created or updated.
+
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
 

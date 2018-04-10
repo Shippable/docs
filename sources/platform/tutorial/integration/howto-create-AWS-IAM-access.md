@@ -46,6 +46,12 @@ The following policy document is required for Shippable to manage your deploymen
         {
             "Effect": "Allow",
             "Action": [
+                "application-autoscaling:RegisterScalableTarget",
+                "application-autoscaling:DeregisterScalableTarget",
+                "application-autoscaling:PutScalingPolicy",
+                "application-autoscaling:DeleteScalingPolicy",
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:DeleteAlarms",
                 "elasticloadbalancing:ConfigureHealthCheck",
                 "elasticloadbalancing:DescribeLoadBalancers",
                 "iam:ListRoles",
