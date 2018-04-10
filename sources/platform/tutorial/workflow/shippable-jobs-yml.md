@@ -39,7 +39,7 @@ jobs:
       - IN: 				<loadBalancer resource>
         applyTo:
           - manifest: 		<manifest>
-            image: 			<image>              
+            image: 			<image>
             port: 			<number>
       - IN: 				<gitRepo resource with buildOnPullRequest: true>
         showBuildStatus: 	true
@@ -60,6 +60,9 @@ jobs:
       - script: 			echo "CANCEL"
 	 always:
       - script: 			pwd
+     flags:
+      - <flag 1>
+      - <flag 2>
 
 ```
 
@@ -101,6 +104,9 @@ Any special `YML` tags that are job specific is defined in respective job pages.
   * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
   * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
   * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+  * **`flags`** -- this section defines a list of flags that can be added to the
+      job. The flags are helpful in grouping jobs logically and
+      filtering them in SPOG view.
 
 
 ## Further Reading

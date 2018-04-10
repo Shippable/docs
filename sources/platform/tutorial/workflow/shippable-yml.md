@@ -62,7 +62,7 @@ matrix:
       <language version>: <version>
   exclude:
     - ENVG2: "doo"
-      <language version>: <version2>      
+      <language version>: <version2>
   allow_failures:
 	- <language version>: <version2>
 
@@ -153,6 +153,7 @@ resources:
     pointer:        <object>
     seed:           <object>
     version:        <object>
+    flags:          <array>
 
 #### END RESOURCES CONFIG
 
@@ -199,6 +200,9 @@ jobs:
       - script:     echo "CANCEL"
     always:
       - script:     pwd
+    flags:
+      - <flag 1>
+      - <flag 2>
 
 #### END JOBS CONFIG
 
@@ -334,6 +338,10 @@ Please remember that everything under the `jobs` and `resources` sections is glo
 
     * **`version`** -- section contains information is not expected to change dynamically during a job run. Any time information changes in this section, a new version of the resource is created.
 
+    * **`flags`** -- section defines a list of flags that can be added to the
+      resource. The flags are helpful in grouping resources logically and
+      filtering them in SPOG view.
+
 ## Jobs config
 
 This section defines [jobs for your Assembly Lines](/platform/workflow/job/overview).
@@ -378,6 +386,9 @@ Please remember that everything under the `jobs` and `resources` sections is glo
     * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
     * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
     * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+    * **`flags`** -- section defines a list of flags that can be added to the
+      job. The flags are helpful in grouping jobs logically and
+      filtering them in SPOG view.
 
 
 ## Further Reading
