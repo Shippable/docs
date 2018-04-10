@@ -140,6 +140,10 @@ current-context: shippable-context
 - Copy the value of `token` in the `token` field.
 - Copy the value of `certificate-authority-data` in the `certificate-authority-data` field.
 - Finally, take this `config` file that you created and copy it to `$HOME/.kube directory`.
+- For a Kubernetes cluser on Google Kubernetes Engine only, follow these additional steps:
+    - Click on the cluster after logging into google cloud console.
+    - Click on the pencil icon to edit the cluster settings.
+    - Ensure `Legacy Authorization` is set to `Enabled`.
 
 ## Usage in Assembly Lines
 
