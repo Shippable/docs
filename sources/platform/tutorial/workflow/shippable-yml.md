@@ -190,6 +190,7 @@ jobs:
       - OUT:        <resource>
       - OUT:        <resource>
         replicate:  <IN resource>
+        replicateOnPullRequest:      <true/false>
     on_success:
       - script:     echo "SUCCESS"
     on_failure:
@@ -369,6 +370,7 @@ Please remember that everything under the `jobs` and `resources` sections is glo
 
       * `OUT` -- only resources can be `OUT`s. This is used when the current job is altering the state of the resource that is defined in the `OUT`. Any resource can be used for storing key-value pairs output by a job. The [state](/platform/workflow/resource/state/) resource can be used to store both key-value pairs and files. Only `state` resources can be both IN and OUT for the same job to avoid circular dependencies, which will cause a loop in your DevOps Assembly Lines.
         * `replicate` -- an optional setting that allows you to copy the current version of an `IN` resource in the context of the job to the desired `OUT` resource. This is useful if you need some pre-processing, for example, to validate the commit message of a git commit before you execute the actual job. A word of caution: this, if used improperly, can lead to unexpected behavior in your workflow
+        * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
         * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
 
     * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
