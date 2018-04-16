@@ -152,5 +152,18 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | `<NAME>`\_INTEGRATION\_ACCESSKEY       | Access key supplied in the integration |
 | `<NAME>`\_INTEGRATION\_SECRETKEY   | Secret key supplied in the integration |
 
-## Shippable Utility Functions
-To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values. Usage of the tool is documented [here](/platform/tutorial/workflow/using-shipctl).
+When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
+
+### Shippable Utility Functions
+The platform also provides a command line utility called [`shipctl`](/platform/tutorial/workflow/using-shipctl/) that can be used to retrieve the values of these environment variables.
+
+The specific function that can be used in the jobs yml is: `shipctl get_integration_resource_field <resource name> <field name>`.
+
+Here is a table that provides the mapping from the environment variable to the field name.
+
+| Environment variable						| Field Name        |
+| ------			 							|----------------- |
+| `<NAME>`\_INTEGRATION\_ACCESSKEY			| accessKey |
+| `<NAME>`\_INTEGRATION\_SECRETKEY   			| secretKey |
+
+More information on other utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).

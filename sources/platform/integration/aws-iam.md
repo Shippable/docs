@@ -135,13 +135,23 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 
 | Environment variable						         | Description        |
 | ------			 							         |----------------- |
-| `<NAME>`\_INTEGRATION\_NAME       		| Name supplied in the integration |
+| `<NAME>`\_INTEGRATION\_AWSACCOUNTID       		| AWS account ID |
 | `<NAME>`\_INTEGRATION\_ASSUMEROLEARN 	| ARN Role supplied in the integration |
 
-### Shippable Utility Functions
-To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
+### Shippable Utility Functions
+The platform also provides a command line utility called [`shipctl`](/platform/tutorial/workflow/using-shipctl/) that can be used to retrieve the values of these environment variables.
+
+The specific function that can be used in the jobs yml is: `shipctl get_integration_resource_field <resource name> <field name>`.
+
+Here is a table that provides the mapping from the environment variable to the field name.
+
+| Environment variable						| Field Name        |
+| ------			 							|----------------- |
+| `<NAME>`\_INTEGRATION\_AWSACCOUNTID			| awsAccountId |
+| `<NAME>`\_INTEGRATION\_ASSUMEROLEARN   			| assumeRoleARN |
+
+More information on other utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

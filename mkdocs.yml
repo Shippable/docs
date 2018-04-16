@@ -444,7 +444,10 @@ pages:
         - Complete list of terms: platform/tutorial/glossary.md
   - howTo:
     - Build and Push image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
+    - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
     - CD to GKE: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl.md
+    - CD to Kubernetes: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl.md
+    - Pulling an image from a private Docker Registry on a Kubernetes pod: deploy/tutorial/pull-private-image-kubernetes.md
     - Build Google Compute Engine Image with Packer: provision/tutorial/build-google-compute-engine-image-packer.md
   - Typography:
     - Typography page: ci/typography.md

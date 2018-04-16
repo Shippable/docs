@@ -43,9 +43,18 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 | MY_KEY_N											| Name of the Nth Key defined and will have value set |
 
 ### Shippable Utility Functions
-To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
+The platform also provides a command line utility called [`shipctl`](/platform/tutorial/workflow/using-shipctl/) that can be used to retrieve the values of these environment variables.
 
-How to use these utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
+The specific function that can be used in the jobs yml is: `shipctl get_integration_resource_field <resource name> <field name>`.
+
+Here is a table that provides the mapping from the environment variable to the field name.
+
+| Environment variable						| Field Name        |
+| ------			 							|----------------- |
+| MY_KEY_1											| keyValue_key_1 |
+| MY_KEY_N											| keyValue_key_N |
+
+More information on other utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
