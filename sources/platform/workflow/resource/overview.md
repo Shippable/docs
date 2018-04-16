@@ -37,6 +37,7 @@ resources:
     type:               <resource type name>
     integration:        <string>
     versionTemplate:    <object>
+    flags:              <array>
 ```
 For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
 

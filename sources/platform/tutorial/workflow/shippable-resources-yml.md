@@ -20,10 +20,11 @@ The anatomy of the resources configuration in `shippable.resources.yml` generall
 resources:
   - name: 			<string>
     type: 			<resource type name>
-    integration: 	<string>				
+    integration: 	<string>
     pointer:		<object>
     seed:			<object>
     version:		<object>
+    flags:          <array>
 ```
 
 * **`name`** -- an **alphanumeric** string (underscores are permitted) that makes it easy to infer what the resource represents, e.g., `aws_creds` to represent AWS keys. This name is used to define the IN or OUT entities to jobs.
@@ -38,6 +39,10 @@ resources:
 * **`seed`** -- section is used to specify a starting value for a resource. This is relevant for resources like [image](/platform/workflow/resource/image/) since this tells Shippable what value to use for this resource when running the connected job for the first time. After the first run, the seed values are ignored. However, you can still use `seed` to reset the resource to start with a new value by changing it and committing the yml. This will create a new resource version as a new starting point.
 
 * **`version`** -- section contains information is not expected to change dynamically during a job run. For example, [dockerOptions](/platform/workflow/resource/dockeroptions/) and [params](/platform/workflow/resource/params/) have several tags under the version section. Any time information changes in this section, a new version of the resource is created.
+
+* **`flags`** -- section defines a list of flags that can be added to the
+      resource. The flags are helpful in grouping resources logically and
+      filtering them in SPOG view.
 
 ## Further Reading
 * [Integrations](/platform/integration/overview/)

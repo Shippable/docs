@@ -47,6 +47,9 @@ jobs:
       - TASK:
         - script: 			<any shell command>
         - script: 			<any shell command>
+    flags:
+        - <flag 1>
+        - <flag 2>
 ```
 
 For more information, read the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
