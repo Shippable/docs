@@ -166,7 +166,10 @@ Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/c
 
 **2c. Add `jobs` section of the config**
 
-A job is the actual execution unit of the assembly line. In this job, we are going to do three things
+A job is the actual execution unit of the assembly line. In this job, we are going to do 2 things
+
+* build the image
+* push the image
 
 #####i. `job` named build_custom_img.
 
