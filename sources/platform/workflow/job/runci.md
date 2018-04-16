@@ -42,6 +42,7 @@ jobs:
       - OUT: <resource>
       - OUT: <resource>
         replicate: <resource>
+        replicateOnPullRequest: <true/false>
 ```
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
 
@@ -59,6 +60,7 @@ prioritize only queued jobs in your pipeline.
     * `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
     * `OUT` -- Optional, any Resource can be used here and as many as you need.
         * `replicate` -- Optional, any `IN` Resource of same type can be used.
+        * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
 
 The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
 

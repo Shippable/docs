@@ -78,6 +78,7 @@ jobs:
       - OUT:          <resource>
       - OUT:          <resource>
         replicate:    <IN resource>
+        replicateOnPullRequest:    <true/false>
       - OUT:          <resource>
         overwrite:    true
     on_success:
@@ -144,6 +145,7 @@ A description of the job YML structure and the tags available is in the [jobs se
                 * `env` -- if the job is running in a container, this will to set environment variables for that container. If the job is running on the host, this will set environment variables in the shell before executing the job.
     * `OUT` -- Optional, any resource can be used here and as many as you need
         * `replicate` -- Optional, any `IN` resource of same type can be used.
+        * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
         * `overwrite` -- Optional, default is `false`.
 
     * `showBuildStatus` -- Optional, defaults to false. If set to true, build status will be set on the gitRepo depending on how the gitRepo
