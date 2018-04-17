@@ -46,9 +46,15 @@ h4 {
   margin-bottom: 5px;
 }
 
-h5, h6 {
+h5 {
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 0px;
+}
+
+h6 {
+  font-size: 15px;
+  font-weight: 500;
   margin-bottom: 0px;
 }
 

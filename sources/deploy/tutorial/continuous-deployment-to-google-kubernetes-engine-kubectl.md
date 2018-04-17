@@ -1,10 +1,10 @@
-page_main_title: CD to GKE using kubectl
+page_main_title: Deploy to GKE using kubectl
 main_section: Tutorial
 sub_section: GKE
 sub_sub_section: kubectl
 page_title: Continuous Deployment to Google Kubernetes Engine using kubectl
 page_description: Automated deployments to Google Kubernetes Engine using kubectl commands
-page_keywords: Deploy docker containers, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, Google Kubernetes Engine, GKE
+page_keywords: Deploy docker containers, Kubernetes, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, Google Kubernetes Engine, GKE
 
 # Continuous Deployment to Google Kubernetes Engine using kubectl
 
@@ -157,7 +157,7 @@ If you have already followed the manual steps, you might not need these except f
 
 Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for GCP, Docker registry, and Github for this sample.
 
-**2a. Add `Google Cloud Platform` Integration**
+#####2a. Add `Google Cloud Platform` Integration
 
 To be able to interact with GCP, we need to add the `drship_gcp `integration.
 
@@ -165,7 +165,7 @@ Detailed steps on how to add a Google Cloud Platform Integration are [here](/pla
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
-**2b. Add `Docker Registry` Integration**
+#####2b. Add `Docker Registry` Integration
 
 To be able to push and pull images from Docker Hub, we need to add the `drship_dockerhub` integration.
 
@@ -173,7 +173,7 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
-**2c. Add `Github` Integration**
+#####2c. Add `Github` Integration
 
 In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and Kubernetes config files.
 
