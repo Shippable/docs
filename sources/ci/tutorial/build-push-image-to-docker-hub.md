@@ -94,9 +94,9 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
 ####2. Author CI configuration
-The platform is built with "Everything as Code" philosophy and it uses YAML based configuration file called `shippable.yml`. Jobs and Resources section from your `shippable.yml` are parsed to create the AL.
+The platform is built with "Everything as Code" philosophy and it uses YAML based configuration file called `shippable.yml`.
 
-Detailed AL configuration info is [here](/deploy/configuration).
+Detailed CI configuration info is [here](/ci/yml-structure/).
 
 **2a. Add empty shippable.yml to your repo**
 
@@ -216,7 +216,7 @@ resources:
       isPull: false
       versionName: latest
 ```
-#####i.`image` resource named `node_app_img_dh `
+#####i. image resource named `node_app_img_dh`
 The image that you want to use in CD workflows should be available as a resource to the AL. 
 
 Here we are creating an image named `node_app_img_dh` that can be access using integration `drship_dockerhub`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
@@ -227,7 +227,7 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 
 A job is the actual execution unit of the assembly line. In this job, we are defining the relationship with the image and the CI job above
 
-#####i. `job` named node_app_runCI.
+#####i. job named `node_app_runCI`.
 
 ```
 jobs:
