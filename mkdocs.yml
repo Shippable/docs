@@ -448,6 +448,7 @@ pages:
     - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
     - Build and Push Java War to Nexus: ci/tutorial/build-push-java-war-nexus-maven.md
     - Provision AWS VPC using Ansible: provision/tutorial/provision-aws-vpc-ansible.md
+    - Provision AWS EC2 machine using Ansible: provision/tutorial/provision-aws-ec2-ansible.md
     - CD to GKE: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl.md
     - CD to Kubernetes: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl.md
     - Pulling an image from a private Docker Registry on a Kubernetes pod: deploy/tutorial/pull-private-image-kubernetes.md

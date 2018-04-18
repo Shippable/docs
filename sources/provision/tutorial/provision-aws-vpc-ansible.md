@@ -237,11 +237,12 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Concepts
 * [Integrations](/platform/integration/overview/)
-  * [Google Cloud](/platform/integration/gcloudKey)
+  * [AWS](/platform/integration/aws-keys)
   * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
   * [gitRepo](/platform/workflow/resource/gitrepo)
   * [cliConfig](/platform/workflow/resource/cliconfig)
+  * [params](/platform/workflow/resource/params)
 * [Jobs](/platform/workflow/job/overview/)
   * [runSh](/platform/workflow/job/runsh)
 
@@ -265,9 +266,9 @@ Detailed steps on how to add a AWS Keys Integration are [here](/platform/integra
 
 **1b. Add `Github` Integration**
 
-In order to read your AL configuration from Github, we add `drship_github` integration. This is the repo where you are going to store your AL config file (`shippable.yml`) and Kubernetes config files.
+In order to read your AL configuration from Github, we add `drship_github` integration. This is the repo where you are going to store your AL config file (`shippable.yml`) and Ansible script files.
 
-In this case this we are using repo [`devops-recipes/gcp_image_with_packer `](https://github.com/devops-recipes/prov_aws_vpc_ansible).
+In this case this we are using repo [`devops-recipes/prov_aws_vpc_ansible`](https://github.com/devops-recipes/prov_aws_vpc_ansible).
 
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
 
@@ -284,7 +285,7 @@ Add an empty config file to the the root of your repo.
 
 **2b. Add `resources` section of the config**
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `cliConfig` and `gitRepo`.
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 3 resources defined of type `cliConfig`, `gitRepo` and `params`.
 
 ```
 resources:
