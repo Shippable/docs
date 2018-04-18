@@ -198,7 +198,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
   * [runSh](/platform/workflow/job/runsh)
 
 ### Step by Step Instructions
-The following sections explain the process of setting up a workflow to automate the provisioning of AWS Ec2 using Ansible.
+The following sections explain the process of setting up a workflow to automate the provisioning of AWS EC2 using Ansible.
 
 **Source code is available at [devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible)**
 
@@ -395,6 +395,98 @@ Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo
 You can manually run the job by right clicking on the job or by triggering the job to provision AWS EC2.
 
 <img src="/images/tutorial/provision-aws-ec2-ansible-fig2" alt="Build console output">
+
+## OPTIONAL: Automating the termination of AWS EC2 with Ansible
+You might also want to automatically terminate EC2 instances that match a certain criteria when certain events occur e.g. On-demand test environments, App is no longer needed. The following steps explains how to implement this workflow
+
+### Step by Step Instructions
+The following sections explain the process of setting up a workflow to automate termination of AWS EC2 instances. We use the same resouces that were defined in the provisioning section. So we just need to add a job.
+
+####1. Author Assembly Line configuration
+Add a new job to the `shippable.yml` from above to extend the functionality to also add termination job.
+
+**2c. Add `jobs` section of the config**
+
+A job is the actual execution unit of the assembly line. In this job, we are going to do two things
+
+* First, we define the variables that are needed by ansible.
+* Second, we are going run the ansible playbook to terminate the instance that matches the criteria
+
+```
+jobs:
+# Provision AWS EC2 with Ansible
+...
+...
+...
+
+# Terminate AWS EC2 with Ansible
+  - name: term_aws_ec2_ans
+    type: runSh
+    steps:
+      - IN: aws_ec2_repo
+      - IN: aws_cli_ec2
+        switch: off
+      - IN: aws_ec2_pem
+        switch: off
+      - IN: aws_ec2_info
+        switch: off
+      - TASK:
+          name: term_ec2
+          script:
+            - pushd $(shipctl get_resource_state "aws_ec2_repo")/ansible
+            - export ec2_region="us-east-1"
+            - shipctl replace variables.yml
+            - ansible-playbook -v ec2_term_playbook.yml
+
+```
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `term_aws_ec2_ans`.
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_ec2_repo`.
+  * Credentials to connect to AWS is in `aws_cli_ec2`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically.
+  * PEM key that can be used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.
+  * EC2 provisioning scripts require 2 variables, `security_group_id` & `public_subnet_id`. These can be hardcoded, but we want to build Assembly Lines. So we get this from an upstream VPC provisioning job that output a params resource that has this information. The advantage of doing it this way is that we have built a dependency tree between VPC and the machines that exist in it. `aws_vpc_info` has that information and hence we are adding that as an input. This tutorial has [step by step information of provisioning AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible) and it generates the values stored in the param.
+* The `TASK` section is the actual code that is executed when the job runs. 
+  *  Name of the task is `term_ec2`
+  *  `script` section has the list of commands to execute. The commands are preforming 2 things
+    *  First is the "We define variables". Here we are using utility function `get_resource_state` on `aws_ec2_repo` to get the folder where ansible files are stored. Then we replace the `variables.yml` with current values using the utility function `shipctl replace`
+    *  Second, we "run the playbook". We supply all the variables needed by the playbook and execute it. The `main.yml` of the role `ec2_terminate` is matching all instances that match the instance that have the specific tags Type and Role to decide which instances to terminate. 
+
+**Excerpt from roles/ec2_terminate/tasks/main.yml** 
+
+```
+# actual file - https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/roles/ec2_terminate/tasks/main.yml
+
+- name: Get EC2 instance IDs
+  run_once: true
+  ec2_remote_facts:
+    filters:
+      "tag:Type": "{{ ec2_tag_Type }}"
+      "tag:Role": "{{ ec2_tag_Role }}"
+    region: "{{ ec2_region }}"
+  register: instances
+
+...and more
+
+```
+
+Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
+
+Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
+
+**2d. Push changes to shippable.yml**
+
+Commit and push all the above changes to shippable.yml.
+
+This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
+
+<img src="/images/tutorial/provision-aws-ec2-ansible-fig3.png" alt="Assembly Line view">
+
+Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
+
+###3. Run the build job `term_aws_ec2_ans`
+You can manually run the job by right clicking on the job or by triggering the job to terminate AWS EC2 instances.
+
+<img src="/images/tutorial/provision-aws-ec2-ansible-fig4" alt="Build console output">
 
 ## Further Reading
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
