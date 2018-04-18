@@ -261,9 +261,9 @@ Manually run the job only once by right clicking on the job. You can look at the
 
 ####5. Use the image for your CI job
 
-If you want to use this image for your CI job, you'll need to provide the image as an `IN` for the CI job and use the image information in the `pre_ci_boot` section.
+If you want to use this image to run CI for your application, you'll need to provide the image as an `IN` for the CI job and use the image information in the `pre_ci_boot` section.
 
-An example of this is in our [**java_web_app**](https://github.com/devops-recipes/java_web_app/blob/master/shippable.yml) repository. The relevant configuration is as follows:
+An example of this is in our [**java_web_app**](https://github.com/devops-recipes/java_web_app/blob/master/shippable.yml) repository. The relevant `shippable.yml` configuration for your application is as follows:
 
 ```
 language: java
@@ -296,9 +296,20 @@ jobs:
 
 ```
 
-Please note that you will need to [enable your repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
+* In the `pre_ci` section, which runs on the build host before the CI container is spun up, we extract the image name and tag from the resource `build_custom_ci_img_dh`.
+* The `pre_ci_boot` section allows you to specify a custom image for your CI workflow. We use the image name and tag here, so that your custom image is used for the build.
+* The `ci` section contains commands that execute your CI workflow. Since this is just a simple example, we're just printing a string here.
+* The `jobs` section simply wraps your CI config into an Assembly Line `runCI` job and provides the image resource `build_custom_ci_img_dh` as an `IN` so that we can extract the custom image information in the `pre_ci` section.
+
+Commit these `shippable.yml` changes to your application repository.
+
+**Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)**
 
 You're now done! Each time your custom Docker image source code is updated, a new image will be built and pushed to Docker registry, which will trigger your CI workflow.
+
+Your Assembly Line will look like this:
+
+<img src="/images/tutorial/build-custom-ci-image-fig3.png" alt="Deploy console output">
 
 ## Further Reading
 * [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
