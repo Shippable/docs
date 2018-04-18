@@ -197,6 +197,8 @@ Add an empty config file to the the root of your repo.
 
 `resources` section holds the information that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`.
 
+Add the following to your `shippable.yml`:
+
 ```
 resources:
   - name: node_app_img_dh
@@ -267,6 +269,8 @@ A job is an execution unit of the Assembly Line. Our job has to perform three ta
     * [Service spec](https://github.com/devops-recipes/cd_gke_kubectl/blob/master/specs/appSvc.yml)
 * Initialize a connection to the cluster using `gcloud`
 * Deploy to the cluster using `kubectl`
+
+Add the following to your `shippable.yml`:
 
 ```
 jobs:
