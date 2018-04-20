@@ -4,7 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>{% if meta %}{{ meta.page_main_title|join('') }} - {% elif page_main_title %}{{ page_main_title }} - {% endif %}{{ site_name }}</title>
+  <!-- <title>{% if meta %}{{ meta.page_main_title|join('') }} - {% elif page_main_title %}{{ page_main_title }} - {% endif %}{{ site_name }}</title>
+  <description>{% if meta %}{{ meta.page_description|join('') }} - {% elif page_description %}{{ page_description }} - {% endif %}{{ site_name }}</description> -->
+  <meta name="description" content={{page.meta.page_description}}>
+  <title>{{page.title}}</title>
   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="/static/images/favicon.png">
@@ -43,7 +46,7 @@
       ga('send', 'pageview');
   </script>
   <!--Google Analytics Tracking code end-->
-  
+
   <!-- Google Code for Remarketing Tag -->
   <!--------------------------------------------------
   Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup

@@ -1,10 +1,7 @@
-page_main_title: Provision AWS EC2 with Ansible
+page_description: Using Ansible to provision an AWS EC2 virtual machine
 main_section: Tutorial
 sub_section: AWS
 sub_sub_section: EC2
-page_title: Provision AWS EC2 with Ansible
-page_description: Automated Provisioning of AWS Elastic Compute virtual machine with Ansible
-page_keywords: Provision EC2, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, AWS, Ansible
 
 # Provision AWS EC2 virtual machine with Ansible
 
@@ -19,14 +16,14 @@ This document assumes you're familiar with the following concepts:
 
 You can run your ansible scripts manually on your local machine to provision a VM. This is the best way to get started, and once you know how it works, you can automate it.
 
-* Have your security credentials handy to authenticate to your AWS Account. [AWS Creds](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
+* Have your security credentials handy to authenticate to your AWS Account. [Refer to the AWS Credentials documentation](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
 
-* Install Ansible based on the OS of the machine from which you plan to execute the script. [Ansible Install](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+* Install Ansible based on the OS of the machine from which you plan to execute the script. [Refer to the Ansible Installation guide](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
-* Ansible uses a convention of folder structure that looks something like below
+* Ansible uses a folder structure that looks like this:
     * **ansible.cfg** holds configuration info
     * **inventory** has the inventory of artifacts
-    * **variables.yml** has the vars that you need for your scripts to make it more reusable
+    * **variables.yml** has the variables that are used to replace wildcards in your playbooks to make them more reusable
     * **ec2_prov_playbook.yml** is the playbook which has a list of tasks to provision an EC2 instance
     * **ec2_term_playbook.yml** is the playbook which has a list of tasks to terminate an EC2 instance
 
@@ -45,9 +42,9 @@ You can run your ansible scripts manually on your local machine to provision a V
 * If you do not have your own ansible playbooks, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible)
 
 * In our scenario, the important files are:
-    * [ec2_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/vpc_prov_playbook.yml), which is the playbook that provisions an EC2 instance
-    * [variables.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
-    * [ec2_term_playbook.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/vpc_prov_playbook.yml), which is the playbook that terminates the EC2 instance
+    * [ec2_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/ec2_prov_playbook.yml), which is the playbook that provisions an EC2 instance
+    * [variables.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
+    * [ec2_term_playbook.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/ec2_term_playbook.yml), which is the playbook that terminates the EC2 instance
 
 * It is important to note the following:
     * **ec2_prov_playbook.yml** and **ec2_term_playbook.yml** scripts have some wildcards, which ansible replaces with values from **variables.yml**.
@@ -56,11 +53,11 @@ You can run your ansible scripts manually on your local machine to provision a V
 * Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
 
 ```
-export AWS_ACCESS_KEY_ID=<replace your key>
-export AWS_SECRET_ACCESS_KEY=<replace your secret>
+export AWS_ACCESS_KEY_ID=<enter your access key>
+export AWS_SECRET_ACCESS_KEY=<enter your secret key>
 ```
 
-* In **ansible.cfg**, Replace `${AWS_EC2_PEM_KEYPATH}` with the path to the PEM key that is going to be used to provision this machine.
+* In **ansible.cfg**, Replace `${AWS_EC2_PEM_KEYPATH}` with the path to the PEM key that should be used to provision the machine.
 
 * In **variables.yml**, replace these wildcards with your desired values: `${ec2_region} ${ec2_tag_Type} ${ec2_image} ${ec2_keypair} ${ec2_volume_size} ${ec2_count} ${security_group_id} ${public_subnet_id} ${ec2_tag_Type} ${ec2_tag_Role}`.
 
@@ -107,19 +104,20 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
     * [PEM Key](/platform/integration/pemKey)
 * [Resources](/platform/workflow/resource/overview/)
     * [gitRepo](/platform/workflow/resource/gitrepo)
-    * [cliConfig](/platform/workflow/resource/cliconfig)
     * [integration](/platform/workflow/resource/integration)
     * [params](/platform/workflow/resource/params)
 * [Jobs](/platform/workflow/job/overview/)
     * [runSh](/platform/workflow/job/runsh)
 
+This example extends the work done in our tutorial to [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible) by adding an Assembly Line that provisioning an EC2 instance in the VPC. However, you can also use it as a standalone tutorial by hardcoding values for subnet and security group IDs.
+
 ### Step by Step Instructions
 
-The following sections explain the process of automating a workflow to provision AWS EC2 machine using Ansible. We will demonstrate this with our sample application.
+The following sections explain the process of automating a workflow to provision an AWS EC2 machine using Ansible. We will demonstrate this with our sample application.
 
 **Source code is available at [devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible)**
 
-**Complete YML is at [devops-recipes/prov_aws_ec2_ansible/shippable.yml](https://raw.githubusercontent.com/devops-recipes/prov_ec2_vpc_ansible/master/shippable.yml)**
+**Complete YML is at [devops-recipes/prov_aws_ec2_ansible/shippable.yml](https://raw.githubusercontent.com/devops-recipes/prov_aws_ec2_ansible/master/shippable.yml)**
 
 ####1. Add necessary Account Integrations
 
@@ -135,9 +133,9 @@ Detailed steps on how to add an AWS Keys Integration are [here](/platform/integr
 
 #####1b. Add Github Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and ansible playbook files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and ansible playbook files.
 
-In our case, we're using the repository [devops-recipes/prov_aws_vpc_ansible](https://github.com/devops-recipes/prov_aws_vpc_ansible).
+In our case, we're using the repository [devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible).
 
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
@@ -153,19 +151,19 @@ Detailed steps on how to add a PEM Key Integration are [here](/platform/integrat
 
 ####2. Author Assembly Line configuration
 
-The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called `shippable.yml`, which is parsed to create your Assembly Line workflow.
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on `shippable.yml` is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
 
-If you're using our sample code, `shippable.yml` already exists and you can use it with a few modifications.
+If you're using our sample code, **shippable.yml** already exists and you can use it with a few modifications.
 
 #####2a. Add empty shippable.yml to your repo
 
-Add an empty `shippable.yml` file to the the root of repository.
+Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have four resources defined of type `integration`, `gitRepo` and `params`.
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have four resources defined, two of type `integration`, and one each of `gitRepo` and `params`.
 
 ```
 resources:
@@ -185,7 +183,7 @@ resources:
 # AWS PEM Key
   - name: aws_ec2_pem
     type: integration
-    integration: "drship_aws_pem"
+    integration: "drship_aws_pem"    
 
 # Output of EC2 provisioning
   - name: aws_ec2_info
@@ -194,15 +192,16 @@ resources:
       params:
         SEED: "initial_version"
 ```
+
 ######i. gitRepo resource named `aws_ec2_repo`
 
-This resource points to the repository that contains your Ansible playbook files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository [https://github.com/devops-recipes/prov_aws_vpc_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible), namely, [here](https://github.com/devops-recipes/prov_aws_ec2_ansible/tree/master/ansible).
+This resource points to the repository that contains your Ansible playbook files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository [https://github.com/devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible), namely, [here](https://github.com/devops-recipes/prov_aws_ec2_ansible/tree/master/ansible).
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
 ######ii. integration resource named `aws_ec2_creds`
 
-To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can extract them in your job and call `aws configure` with that information.
+To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can export the access and secret keys to the environment to configure the aws cli.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
@@ -220,10 +219,11 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 
 #####2c. Add `jobs` section of the config
 
-A job is an execution unit of the Assembly Line. Our job has to perform three tasks:
+A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
-* Replace the wildcards needed by the ansible playbook
-* Run the playbook
+* Replace wildcards needed by the ansible playbook
+* Configure AWS CLI
+* Run playbook
 * Output `instance_id` and `instance_ip` into the `params` resource to make it available for downstream jobs
 
 
@@ -239,7 +239,9 @@ jobs:
         switch: off
       - IN: aws_ec2_pem
         switch: off
-      - IN: aws_vpc_info
+      # This resource is defined in the AWS VPC provisioning tutorial: http://docs.shippable.com/provision/tutorial/provision-aws-vpc-ansible
+      # If you have not followed that tutorial, please delete this resource
+      - IN: aws_vpc_info  
         switch: off
       - TASK:
           name: prov_ec2
@@ -254,11 +256,17 @@ jobs:
                 - ec2_tag_Role: "demo_machines"
                 - ec2_volume_size: 30
                 - ec2_count: 1
+                # - security_group_id: <hardcoded value> # Uncomment if you deleted the aws_vpc_info resource
+                # - public_subnet_id: <hardcoded value>  # Uncomment if you deleted the aws_vpc_info resource            
           script:
+            # Change directory to the folder containing ansible scripts
             - pushd $(shipctl get_resource_state "aws_ec2_repo")/ansible
+            # Configure AWS CLI by extracting access and secret keys from the aws_ec2_creds integration
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_creds "accessKey")
             - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_ec2_creds "secretKey")
+            # Replace wildcards
             - shipctl replace variables.yml
+            # Run playbook
             - ansible-playbook -v ec2_prov_playbook.yml
       - OUT: aws_ec2_info
         overwrite: true
@@ -269,24 +277,26 @@ jobs:
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
     * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_ec2_repo`.
     * Credentials to connect to AWS are in `aws_ec2_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
+    * PEM key that can be used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.  
+    * The `aws_vpc_info` is a **params** resource comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-ansible) and contains the `security_group_id` and `public_subnet_id`, which are required to provision your instance. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK** section.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ec2` which does the following:
     * First, we define environment variables required by the ansible playbook-
         * `STATE_RES_NAME` is where we are going to store the outputs
         * `ec2_region` is the aws region where the EC2 is going to be provisioned
-        * `ec2_tag_Type` is the type of instance and we also store that as a tag
-        * `ec2_image` is AMI used to provision this instance
+        * `ec2_tag_Type` is the type of instance
+        * `ec2_image` is the AMI used to provision this instance
         * `ec2_keypair` is name of the AWS Key pair used to provision this instance
         * `ec2_tag_Role` is the role this instance plays and it is set as a tag
         * `ec2_volume_size` is size of the volume attached in GB
         * `ec2_count` is number of instances to provision
-        * `security_group_id` get set implicity from `aws_vpc_info`
-        * `public_subnet_id` get set implicity from `aws_vpc_info`
+        * `security_group_id` is implicitly set from `aws_vpc_info`. If you deleted that resource, hardcode this here
+        * `public_subnet_id` is implicity set from `aws_vpc_info`. If you deleted that resource, hardcode this here
     *  `script` section has a list of commands which will be executed sequentially.
         * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook is stored
         * Next, we extract the AWS credentials from the `aws_ec2_creds`resource, again using shipctl functions
         * Next, we replace all wildcards in the playbook
-        * Last, we execute the playbook. This step also updates the `aws_ec2_info` resource with `instance_id` and `instance_id` generated during playbook execution. To see where this magic happens, look at the last lines in the playbook `ec2_prov_playbook.yml`.
+        * Last, we execute the playbook. This step also updates the `aws_ec2_info` resource with `instance_id`, `instance_id`, `ec2_tag_Type`, `ec2_tag_Role`, and `ec2_region` generated during playbook execution. To see where this magic happens, look at the last lines in the playbook `ec2_prov_playbook.yml`.
 
 ```
 # update shippable resource state
@@ -304,13 +314,13 @@ Detailed info about Shippable Utility functions are [here](/platform/tutorial/wo
 
 #####2d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable organization
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
@@ -318,11 +328,11 @@ Your view will look something like this:
 
 ####4. Run the build job `prov_aws_ec2_ans`
 
-You can manually run the job by right clicking on the job and clicking on `Build job`, or by committing a change to your repository containing ansible config.
+You can manually run the job by right clicking on the job and clicking on **Build job**, or by committing a change to your repository containing ansible config.
 
 <img src="/images/tutorial/provision-aws-ec2-ansible-fig2.png" alt="Build console output">
 
-Confirm that the desired EC2 instance was created in AWS.
+Confirm that the required EC2 instance was created in AWS.
 
 ## OPTIONAL: Automating the termination of AWS EC2 with Ansible
 
@@ -336,14 +346,14 @@ For this workflow, we start with the resources and jobs that were created in the
 
 ####1. Author Assembly Line configuration
 
-In this step, we will add a new job to your `shippable.yml` that terminates an EC2 instance using Ansible.
+In this step, we will add a new job to your **shippable.yml** that terminates an EC2 instance using Ansible.
 
 #####1a. Add `jobs` section of the config**
 
 Our job will do the following:
 
 * Read information from `IN` resources, including `aws_ec2_info` which contains `instance_id` and `instance_ip`.
-* Replace wildcards in the Ansible playbook.
+* Replace wildcards in Ansible playbook.
 * Run the ansible playbook to terminate the instance
 
 ```
@@ -379,7 +389,7 @@ jobs:
     * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_ec2_repo`.
     * Credentials to connect to AWS are in `aws_ec2_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
     * PEM key that can be used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.  
-    * EC2 provisioning scripts require two variables, `security_group_id` & `public_subnet_id`. These can be hardcoded, or they can be obtained from a `params` resource `aws_vpc_info`, which is updated by a job which provisions the VPC. To see how you can create a job to provision the VPC and output this information, read our tutorial on [Provisioning AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible)
+    * The EC2 provisioning job outputs the instance information to a resource `aws_ec2_info`. This job will take that resource as an IN to determine which instance(s) to terminate.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `term_ec2` which does the following:
     *  `script` section has a list of commands that are executed sequentially.
@@ -388,7 +398,7 @@ jobs:
         * Next, we replace all wildcards in the playbook
         * Last, we execute the playbook. This finds all instances that match the specific tag Type and Role and terminates them.
 
-    **Excerpt from ec2_term_playbook.yml**
+**Excerpt from ec2_term_playbook.yml**
 
 ```
 # actual file - https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/ec2_term_playbook.yml
@@ -412,7 +422,7 @@ Detailed info about Shippable Utility functions is [here](/platform/tutorial/wor
 
 ####2. Push changes to shippable.yml
 
-Commit and push all the above changes to shippable.yml.
+Commit and push all the above changes to **shippable.yml**.
 
 This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
 
