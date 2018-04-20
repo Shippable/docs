@@ -1,10 +1,7 @@
-page_main_title: Provision AWS VPC with Ansible
+page_description: Using Ansible to provision an AWS VPC
 main_section: Tutorial
 sub_section: AWS
 sub_sub_section: VPC
-page_title: Provision AWS Virtual Private Cloud with Ansible
-page_description: Automated Provisioning of AWS VPC with Ansible
-page_keywords: Provision VPC, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, AWS, Ansible
 
 # Provision AWS VPC with Ansible
 
