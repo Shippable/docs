@@ -484,6 +484,6 @@ pages:
     - Deploying to Amazon EKS using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-amazon-eks-shippable.md
     - Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-aks-shippable.md
     - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable.md
-
+    - Deploying Java WAR from Nexus to EC2 VM using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
   - Typography:
     - Typography page: ci/typography.md

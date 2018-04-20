@@ -1,0 +1,323 @@
+page_main_title: Deploy a WAR from Nexus to AWS EC2 using Ansible
+main_section: Tutorial
+sub_section: Deploy
+sub_sub_section: AWS
+page_title: Deploy Java app from Nexus to EC2 using Ansible
+page_description: Continuously deploy a Java application from Nexus Repository manager to AWS EC2 virtual machine using Ansible playbooks
+page_keywords: Deploy Java WAR, EC2, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, AWS, Ansible, Nexus Repository Manager
+
+# Deploying a Jav WAR from Nexus to EC2 using Ansible
+
+This tutorial explains how to continuously deploy a Java based WAR stored on Nexus Repository Manager to a virtual machine running on AWS EC2 using Ansible playbooks. It assumes that you have working knowledge of AWS EC2, Nexus and Ansible and understand the following concepts:
+
+* [Nexus Repository Quick Start](https://help.sonatype.com/learning/repository-manager-3/proxying-maven-and-npm-quick-start-guide)
+* [AWS EC2](https://aws.amazon.com/documentation/ec2/)
+* [Ansible Playbooks](https://docs.ansible.com/ansible/2.3/playbooks.html)
+* [Ansible maven_artifact module](https://docs.ansible.com/ansible/2.3/maven_artifact_module.html)
+* [Ansible shell module](https://docs.ansible.com/ansible/2.3/shell_module.html)
+* [Ansible copy module](https://docs.ansible.com/ansible/2.3/copy_module.html)
+
+## Manual Steps to Deploy
+
+First, we will walk through a step-by-step guide on how to manually deploy a Docker image to Google Kubernetes Engine.
+
+* Have your security credentials handy to authenticate to your AWS Account. [AWS Creds](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
+
+* Install Ansible based on the OS of the machine from which you plan to execute the script. [Ansible Install](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+* Ansible uses a convention of folder structure that looks something like below
+    * **ansible.cfg** holds configuration info
+    * **inventory** has the inventory of artifacts
+    * **variables.yml** has the vars that you need for your scripts to make it more reusable
+    * **war_deploy_playbook.yml** is the playbook which has a list of tasks to deploy
+
+```
+├── ansible.cfg
+├── inventory
+│   ├── base
+│   ├── ec2.ini
+│   ├── ec2.py
+│   ├── static_hosts
+├── variables.yml
+├── war_deploy_playbook.yml
+```
+
+* If you do not have your own ansible playbooks, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible)
+
+* In our scenario, the important files are:
+    * [war_deploy_playbook.yml](https://github.com/devops-recipes/cd_war_vm_ansible/blob/master/ansible/war_deploy_playbook.yml), which is the playbook that provisions an EC2 instance
+    * [variables.yml](https://github.com/devops-recipes/cd_war_vm_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
+
+* It is important to note the following:
+    * **war_deploy_playbook.yml** scripts have some wildcards, which ansible replaces with values from **variables.yml**.
+    * Since we want to create a reusable playbook, we have not hardcoded values in **variables.yml** but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
+
+* Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
+
+```
+export AWS_ACCESS_KEY_ID=<replace your key>
+export AWS_SECRET_ACCESS_KEY=<replace your secret>
+```
+
+* In **ansible.cfg**, Replace `${PEM_CD_WAR_VM_KEYPATH}` with the path to the PEM key that has access to SSH into your EC2 machine.
+
+* In **variables.yml**, replace these wildcards with your desired values: `${AWS_REGION} ${repository_url} ${group_id} ${artifact_id} ${artifact_version} ${artifact_extension} ${artifact_filename} ${artifact_dest}`.
+
+* Execute the following command to run the ansible playbook from the directory that contains the playbook.
+
+```
+ansible-playbook -v war_deploy_playbook.yml
+```
+
+* Verify on the EC2 machine that the correct WAR file was copied to the `${artifact_dest}`.
+
+* You can also run shell scripts after you copy by changing the last task in `war_deploy_playbook.yml` or adding a new shell task.
+
+```
+    - name: Test copy action
+      shell: "ls {{ artifact_dest }}"
+```
+
+## Challenges with manual deployments
+
+There are a few challenges with manual execution of Ansible playbooks:
+
+* Ansible playbook templates can be reused since they have wildcards. However, you need a programmatic way to replace wildcards at runtime. Creating static variables files is an option, but reduces reusability.
+* Automating provisioning for different environments and creating a dependency tree of all applications that are deployed into that environment is tedious to achieve with manual steps. You need an automated workflow to effectively transfer information like subnet_id, security_group_id to downstream activities. for e.g. EC2 provisioners.
+* Security with RBAC is a problem. The machine used to provision is authenticated to an AWS account (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
+* The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines for each team.
+
+In a nutshell, if you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
+
+
+## Automating the deployment of WAR from Nexus to an EC2 machine
+
+Next, we will demonstrate how you can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
+
+* Creating an event-driven, automated workflow
+* Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running the ansible playbook
+* Dynamically injecting wildcard values in template playbooks, depending on the state of the workflow
+* Visualizing your workflow and it's current status in a graphical view
+
+To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
+
+### Concepts
+
+* [Workflow overview](/platform/workflow/overview/)
+* [Integrations](/platform/integration/overview/)
+    * [AWS](/platform/integration/aws-keys)
+    * [Github](/platform/integration/github)
+    * [PEM Key](/platform/integration/pemKey)
+* [Resources](/platform/workflow/resource/overview/)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
+    * [integration](/platform/workflow/resource/integration)
+    * [params](/platform/workflow/resource/params)
+* [Jobs](/platform/workflow/job/overview/)
+    * [runSh](/platform/workflow/job/runsh)
+
+This example extends the work done in our CI tutorial to [Build and Push Java War to Nexus](/ci/tutorial/build-push-java-war-nexus-maven) by adding an Assembly Line that deploys the application to GKE.
+
+It also uses the work done in our EC2 provisioning tutorial [Provision AWS EC2 machine using Ansible](/provision/tutorial/provision-aws-ec2-ansible) and deploys the WAR built in the above example to the EC2 instance provisioned in this example
+
+### Step by Step Instructions
+
+The following sections explain the process of automating a workflow to provision AWS EC2 machine using Ansible. We will demonstrate this with our sample application.
+
+**Source code is available at [devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible)**
+
+**Complete YML is at [devops-recipes/cd_war_vm_ansible/shippable.yml](https://raw.githubusercontent.com/devops-recipes/cd_war_vm_ansible/master/shippable.yml)**
+
+####1. Add necessary Account Integrations
+
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for AWS Keys and Github for this sample.
+
+#####1a. Add AWS Keys Integration
+
+To be able to interact with AWS, we need to add the `drship_aws `integration.
+
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+
+> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+
+#####1b. Add Github Integration
+
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and ansible playbook files.
+
+In our case, we're using the repository [devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible).
+
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+
+> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+
+#####1c. Add PEM Key Integration
+
+In order to SSH into an EC2 machine, we need a PEM key that is used to provision the machine (you could also do this with custom SSH key, in this case we are using the PEM key). We add `drship_aws_pem` integration to store it.
+
+Detailed steps on how to add a PEM Key Integration are [here](/platform/integration/pemKey/#creating-an-account-integration).
+
+> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+
+####2. Author Assembly Line configuration
+
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called `shippable.yml`, which is parsed to create your Assembly Line workflow.
+
+Detailed documentation on `shippable.yml` is [here](/deploy/configuration).
+
+If you're using our sample code, `shippable.yml` already exists and you can use it with a few modifications.
+
+#####2a. Add empty shippable.yml to your repo
+
+Add an empty `shippable.yml` file to the the root of repository.
+
+#####2b. Add `resources` section of the config
+
+`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have four resources defined of type `integration`, `gitRepo` and `params`.
+
+```
+resources:
+# Automation scripts repo
+  - name: repo_cd_war_vm
+    type: gitRepo
+    integration: "drship_github"
+    versionTemplate:
+      sourceName: "devops-recipes/cd_war_vm_ansible"
+      branch: master
+
+# AWS PEM Key
+  - name: pem_cd_war_vm
+    type: integration
+    integration: "drship_aws_pem"
+
+# AWS Integration config
+  - name: aws_cli_cd_war_vm
+    type: integration
+    integration: "drship_aws"
+```
+######i. gitRepo resource named `repo_cd_war_vm `
+
+This resource points to the repository that contains your Ansible playbook files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository [https://github.com/devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible), namely, [here](https://github.com/devops-recipes/cd_war_vm_ansible/tree/master/ansible).
+
+Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
+
+######ii. integration resource named `aws_ec2_creds`
+
+To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can extract them in your job and call `aws configure` with that information.
+
+Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
+
+######ii. integration resource named `pem_cd_war_vm`
+
+To be able to SSH into the EC2 machine, you need the PEM key that was used to provision it.
+
+Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
+
+######ii. integration resource named `aws_cli_cd_war_vm`
+
+To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration.
+
+Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
+
+#####2c. Add `jobs` section of the config
+
+A job is an execution unit of the Assembly Line. Our job has to perform two tasks:
+
+* Replace the wildcards needed by the ansible playbook
+* Run the playbook
+
+```
+jobs:
+# Deploy WAR to VM
+  - name: deploy_war_vm_ans
+    type: runSh
+    steps:
+      - IN: war_loc
+      - IN: repo_cd_war_vm
+        switch: off
+      - IN: aws_cli_cd_war_vm
+        switch: off
+      - IN: aws_ec2_info
+        switch: off
+      - IN: pem_cd_war_vm
+        switch: off
+      - TASK:
+          name: deploy_war
+          runtime:
+            options:
+              imageName: "devopsrecipes/build_custom_ci"
+              imageTag: "582227"
+              pull: true
+              env:
+                - AWS_REGION:         "us-east-1"
+                - artifact_dest:      "/tmp/jar"
+          script:
+            - pushd $(shipctl get_resource_state "repo_cd_war_vm")/ansible
+            - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_cli_cd_war_vm "accessKey")
+            - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_cli_cd_war_vm "secretKey")
+            - export artifact_filename=$artifact_id"-"$artifact_version"."$artifact_extension
+            - shipctl replace variables.yml
+            - ansible-playbook -v war_deploy_playbook.yml
+            - popd
+```
+
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deploy_war_vm_ans`.
+
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * The information of where the WAR file is located is loaded from `war_loc`. This was generated as an output of the CI job which is explained in this [tutorial](/ci/tutorial/build-push-java-war-nexus-maven).  
+  * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `repo_cd_war_vm`.
+  * Credentials to connect to AWS are in `aws_cli_cd_war_vm`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
+  * The information of which EC2 machine to deploy to is loaded from `aws_ec2_info`. This was generated as an output of the Provisioning job which is explained in this [tutorial](/provision/tutorial/provision-aws-ec2-ansible). 
+  * PEM key used to SSH into EC2 is in `pem_cd_war_vm`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
+
+* The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `deploy_war` which does the following:
+  * First, we setup our runtime environment. In this case, we are using a custom built lightweight Docker image as our runtime for this job (You can skip this and Shippable will automatically pick an image for you). 
+    * We are using `devopsrecipes/build_custom_ci` image on DockerHub. If you want to learn how to build custom images and use them on Shippable, it is explained in this [tutorial](/ci/tutorial/build-custom-ci-image).
+    * We are using `582227` as the tag for the image.
+  * Next, we define environment variables required by the ansible playbook-
+    * `AWS_REGION` is the aws region where the EC2 is provisioned
+    * `artifact_dest` is the path on EC2 where the WAR will be deployed to
+    * `repository_url` get set implicity from `war_loc`
+    * `group_id` get set implicity from `war_loc`
+    * `artifact_id` get set implicity from `war_loc`
+    * `artifact_version` get set implicity from `war_loc`
+    * `artifact_extension` get set implicity from `war_loc`
+    * `artifact_filename` get set implicity from `war_loc`
+    *  `script` section has a list of commands which will be executed sequentially.
+      * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook is stored
+      * Next, we extract the AWS credentials from the `aws_cli_cd_war_vm`resource, again using shipctl functions
+      * Next, we replace all wildcards in the playbook
+      * Last, we execute the playbook
+
+> There is some beautiful ansible magic happening here. If you look carefully, no where in the script we talked about which EC2 machine or it's IP address are we SSH-ing into. This magic is happening in the inventory section. Ansible automatically uses `ec2.py` to gather all the facts about your artifacts in the the specified region. We then store this information into `static_hosts` file. For this e.g. we only care about hosts that are grouped under `tag_Role_demo_machines`, and these are children of hosts called `staging`. In our playbook, the `copy` is running on host `staging` and hence will be copied to all machines under `tag_Role_demo_machines`. In the example that talks about [provisioning EC2]((/provision/tutorial/provision-aws-ec2-ansible)) we actually set the role to `demo_machines`. So literally, you could have 100s of machines with role `demo_machines` and this simple script, will copy the WAR file to all the 100 machines 1 by 1.... beautiful!
+
+Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
+
+Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
+
+#####2d. Push changes to shippable.yml
+
+Commit and push all the above changes to `shippable.yml`.
+
+####3. Add the Assembly Line to your Shippable organization
+
+In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
+
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+
+Your view will look something like this:
+
+<img src="/images/tutorial/deploy-war-nexus-ec2-ansible-fig1.png" alt="Assembly Line view">
+
+####4. Run the build job `deploy_war_vm_ans`
+
+You can manually run the job by right clicking on the job and clicking on `Build job`, or by committing a change to your repository containing ansible config.
+
+<img src="/images/tutorial/deploy-war-nexus-ec2-ansible-fig2.png" alt="Build console output">
+
+Confirm that the required WAD was deployed to the EC2 machine.
+
+## Further Reading
+* [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
+* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
+* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)

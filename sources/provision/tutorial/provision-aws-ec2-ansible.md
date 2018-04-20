@@ -322,7 +322,7 @@ You can manually run the job by right clicking on the job and clicking on `Build
 
 <img src="/images/tutorial/provision-aws-ec2-ansible-fig2.png" alt="Build console output">
 
-Confirm that the required VPC was created in AWS.
+Confirm that the desired EC2 instance was created in AWS.
 
 ## OPTIONAL: Automating the termination of AWS EC2 with Ansible
 
