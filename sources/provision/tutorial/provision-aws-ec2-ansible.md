@@ -201,7 +201,9 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `aws_ec2_creds`
 
-To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can export the access and secret keys to the environment to configure the aws cli.
+Your AWS credentials are securely stored in this integration
+
+To let ansible interact with AWS, you need to export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
@@ -222,7 +224,7 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
 * Replace wildcards needed by the ansible playbook
-* Configure AWS CLI
+* Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
 * Run playbook
 * Output `instance_id` and `instance_ip` into the `params` resource to make it available for downstream jobs
 
@@ -261,7 +263,7 @@ jobs:
           script:
             # Change directory to the folder containing ansible scripts
             - pushd $(shipctl get_resource_state "aws_ec2_repo")/ansible
-            # Configure AWS CLI by extracting access and secret keys from the aws_ec2_creds integration
+            # Export access and secret keys from the aws_ec2_creds integration
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_creds "accessKey")
             - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_ec2_creds "secretKey")
             # Replace wildcards
@@ -393,7 +395,7 @@ jobs:
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `term_ec2` which does the following:
     *  `script` section has a list of commands that are executed sequentially.
-        * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook **ec2_term_playbook,yml** is stored
+        * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook **ec2_term_playbook.yml** is stored
         * Next, we extract the AWS credentials from the `aws_ec2_creds`resource, again using shipctl functions
         * Next, we replace all wildcards in the playbook
         * Last, we execute the playbook. This finds all instances that match the specific tag Type and Role and terminates them.
