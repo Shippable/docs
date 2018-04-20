@@ -17,17 +17,17 @@ This document assumes you're familiar with the following concepts:
 
 ## Manual Steps to Deploy
 
-You can choose to run your ansible scripts manually on your local machine to provision a VPC. This is the best way to get started with this task.
+You can run your ansible scripts manually on your local machine to provision a VPC. This is the best way to get started with this task.
 
 * Have your security credentials handy to authenticate to your AWS Account. [AWS Creds](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
 
 * Install Ansible based on the OS of the machine from which you plan to execute the scripts. [Ansible Install](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 * Ansible uses a convention for folder structure that looks something like this:
-    * `ansible.cfg` holds configuration info
-    * `inventory` has the inventory of artifacts
-    * `variables.yml` has the vars that you need for your scripts to make it more reusable
-    * `vpc_prov_playbook.yml` is the playbook which has a list of roles to execute, and where
+    * **ansible.cfg** holds configuration info
+    * **inventory** has the inventory of artifacts
+    * **variables.yml** has the vars that you need for your scripts to make it more reusable
+    * **vpc_prov_playbook.yml** is the playbook which has a list of tasks to execute
 
 ```
 ├── ansible.cfg
@@ -38,12 +38,12 @@ You can choose to run your ansible scripts manually on your local machine to pro
 * If you do not have your own ansible playbook, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/prov_aws_vpc_ansible](https://github.com/devops-recipes/prov_aws_vpc_ansible)
 
 * In our scenario, the important files are:
-    * [vpc_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/vpc_prov_playbook.yml), which is the playbook config containing tasks should be run as part of this playbook. In this case, we only need one called `vpc_provision`.
+    * [vpc_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/vpc_prov_playbook.yml), which is the playbook config containing tasks should be run as part of this playbook.
     * [variables.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
 
 * It is important to note the following:
-    * `vpc_prov_playbook.yml` scripts have some wildcards, which ansible replaces by reading values from `variables.yml`.
-    * Since we want to create a reusable playbook, we have not hardcoded values in `variables.yml` but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
+    * **vpc_prov_playbook.yml** scripts have some wildcards, which ansible replaces by reading values from **variables.yml**.
+    * Since we want to create a reusable playbook, we have not hardcoded values in **variables.yml** but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
 
 * Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
 
@@ -53,7 +53,7 @@ $ export AWS_SECRET_ACCESS_KEY=<replace your secret>
 
 ```
 
-* Replace the wildcards in `variables.yml` with your desired values:  `${vpc_region} ${vpc_name} ${vpc_cidr_block} ${vpc_access_from_ip_range} ${vpc_public_subnet_1_cidr}`
+* Replace the wildcards in **variables.yml** with your desired values:  `${vpc_region} ${vpc_name} ${vpc_cidr_block} ${vpc_access_from_ip_range} ${vpc_public_subnet_1_cidr}`
 
 * Execute the following command to run the ansible playbook from the directory that contains the playbook.
 
@@ -111,7 +111,7 @@ The following sections explain the process of automating a workflow to provision
 
 Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for AWS Keys and Github for this sample.
 
-#####1a. Add `AWS Keys` Integration
+#####1a. Add **AWS Keys** Integration
 
 To be able to interact with AWS, we need to add the `drship_aws `integration.
 
@@ -181,7 +181,7 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can extract them in your job and call `aws configure` with that information.
 
-Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliconfig).
+Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
 ######iii. params resource named `aws_vpc_info`
 
@@ -237,22 +237,22 @@ jobs:
 * Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `prov_aws_vpc_ans`.
 
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
-  * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_vpc_repo`.
-  * Credentials to connect to AWS are in `aws_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
+    * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_vpc_repo`.
+    * Credentials to connect to AWS are in `aws_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
 
-* The `TASK` section contains the actual code that is executed when the job runs. We have just one task names `prov_vpc` which does the following:
-  * First, we define environment variables required by the ansible playbook-
-    * `STATE_RES_NAME` is where we are going to store the outputs
-    * `vpc_region` is the aws region where the VPC is going to be created
-    * `vpc_name` is the name of the VPC
-    * `vpc_cidr_block` is the address space of the VPC
-    * `vpc_access_from_ip_range` is the IP range that you want to limit access to resources in this VPC. Here we are opening this up to WWW
-    * `vpc_public_subnet_1_cidr` is the address range of the public subnet we are creating
-  *  `script` section has a list of commands to execute sequentially.
-    * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook is stored
-    * Next, we extract the AWS credentials from the `aws_creds`resource, again using shipctl functions
-    * Next, we replace all wildcards in the playbook
-    * Last, we execute the playbook. This step also updates the `params` resource with `vpc_id` and `subnet_id` generated during playbook execution. To see where this magic happens, look at the last lines in the playbook `vpc_prov_playbook.yml`.
+* The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_vpc` which does the following:
+    * First, we define environment variables required by the ansible playbook-
+        * `STATE_RES_NAME` is where we are going to store the outputs
+        * `vpc_region` is the aws region where the VPC is going to be created
+        * `vpc_name` is the name of the VPC
+        * `vpc_cidr_block` is the address space of the VPC
+        * `vpc_access_from_ip_range` is the IP range that you want to limit access to resources in this VPC. Here we are opening this up to WWW
+        * `vpc_public_subnet_1_cidr` is the address range of the public subnet we are creating
+    *  `script` section has a list of commands to execute sequentially.
+        * First, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook is stored
+        * Next, we extract the AWS credentials from the `aws_creds`resource, again using shipctl functions
+        * Next, we replace all wildcards in the playbook
+        * Last, we execute the playbook. This step also updates the `params` resource with `vpc_id` and `subnet_id` generated during playbook execution. To see where this magic happens, look at the last lines in the playbook `vpc_prov_playbook.yml`.
 
 ```
 - name: run cmd
