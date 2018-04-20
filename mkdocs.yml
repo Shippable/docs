@@ -11,8 +11,6 @@ strict: true
 
 #Google Analytics
 google_analytics: ['UA-50610279-1', 'auto']
-#markdown_extensions:
-#  - meta
 
 # Pages
 pages:
