@@ -215,7 +215,7 @@ pages:
       - Sending notifications: provision/send-notifications.md
     - AWS infrastructure:
       - Provision with Terraform: provision/aws-with-terraform.md
-      - Provision with Ansible: provision/aws-with-ansible.md
+      - Provision EC2 VM using Ansible: provision/tutorial/provision-aws-ec2-ansible.md
     - Google Cloud infrastructure:
       - Provision with Ansible: provision/google-cloud-with-ansible.md
       - Provision Kubernetes cluster with Google Cloud SDK: provision/kubernetes-with-gkecli.md
