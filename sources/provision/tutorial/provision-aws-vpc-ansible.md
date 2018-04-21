@@ -12,65 +12,11 @@ This document assumes you're familiar with the following concepts:
 * [AWS VPC](https://aws.amazon.com/documentation/vpc/)
 * [Ansible aws_vpc module](https://docs.ansible.com/ansible/2.3/ec2_vpc_module.html)
 
-## Manual Steps to Deploy
+If you're unfamiliar with Ansible, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision AWS VPC Virtual Machine with Ansible](http://blog.shippable.com/provision-ec2-vpc-ansible).
 
-You can run your ansible scripts manually on your local machine to provision a VPC. This is the best way to get started with this task.
+There are many challenges with manually running ansible playbooks. In short, you will struggle with making playbooks reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
-* Have your security credentials handy to authenticate to your AWS Account. [AWS Creds](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
-
-* Install Ansible based on the OS of the machine from which you plan to execute the scripts. [Ansible Install](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-
-* Ansible uses a convention for folder structure that looks something like this:
-    * **ansible.cfg** holds configuration info
-    * **inventory** has the inventory of artifacts
-    * **variables.yml** has the vars that you need for your scripts to make it more reusable
-    * **vpc_prov_playbook.yml** is the playbook which has a list of tasks to execute
-
-```
-├── ansible.cfg
-├── inventory
-├── variables.yml
-├── vpc_prov_playbook.yml
-```
-* If you do not have your own ansible playbook, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/prov_aws_vpc_ansible](https://github.com/devops-recipes/prov_aws_vpc_ansible)
-
-* In our scenario, the important files are:
-    * [vpc_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/vpc_prov_playbook.yml), which is the playbook config containing tasks should be run as part of this playbook.
-    * [variables.yml](https://github.com/devops-recipes/prov_aws_vpc_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
-
-* It is important to note the following:
-    * **vpc_prov_playbook.yml** scripts have some wildcards, which ansible replaces by reading values from **variables.yml**.
-    * Since we want to create a reusable playbook, we have not hardcoded values in **variables.yml** but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
-
-* Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
-
-```
-$ export AWS_ACCESS_KEY_ID=<replace your key>
-$ export AWS_SECRET_ACCESS_KEY=<replace your secret>
-
-```
-
-* Replace the wildcards in **variables.yml** with your desired values:  `${vpc_region} ${vpc_name} ${vpc_cidr_block} ${vpc_access_from_ip_range} ${vpc_public_subnet_1_cidr}`
-
-* Execute the following command to run the ansible playbook from the directory that contains the playbook.
-
-```
-$ ansible-playbook -v vpc_prov_playbook.yml
-
-```
-
-* Verify on AWS that the VPC was created successfully.
-
-## Challenges with running Ansible playbooks manually
-
-There are a few challenges with manual execution of Ansible playbooks:
-
-* Ansible playbook templates can be reused since they have wildcards. However, you need a programmatic way to replace wildcards at runtime. Creating static variables files is an option, but reduces reusability.
-* Automating provisioning for different environments and creating a dependency tree of all applications that are deployed into that environment is tedious to achieve with manual steps. You need an automated workflow to effectively transfer information like subnet_id, security_group_id to downstream activities. for e.g. EC2 provisioners.
-* Security with RBAC is a problem. The machine used to provision is authenticated to an AWS account (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
-* The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines for each team.
-
-In a nutshell, if you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
+If you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
 
 
 ## Automating the provisioning of AWS VPC with Ansible
