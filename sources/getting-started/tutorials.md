@@ -69,3 +69,4 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 * [Deploying to Amazon EKS using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-amazon-eks-shippable)
 * [Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-aks-shippable)
 * [Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable)
+* [Deploying a WAR from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)

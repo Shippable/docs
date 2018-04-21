@@ -1,7 +1,6 @@
 page_description: Using Ansible to provision an AWS EC2 virtual machine
-main_section: Tutorial
-sub_section: AWS
-sub_sub_section: EC2
+main_section: Provision
+sub_section: AWS infrastructure
 
 # Provision AWS EC2 virtual machine with Ansible
 
@@ -12,83 +11,15 @@ This document assumes you're familiar with the following concepts:
 * [AWS EC2](https://aws.amazon.com/documentation/ec2/)
 * [Ansible aws_ec2 module](https://docs.ansible.com/ansible/2.3/ec2_module.html)
 
-## Manual Steps to provision an EC2 instance
+If you're unfamiliar with Ansible, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision AWS EC2 Virtual Machine with Ansible](http://blog.shippable.com/provision-ec2-vm-ansible).
 
-You can run your ansible scripts manually on your local machine to provision a VM. This is the best way to get started, and once you know how it works, you can automate it.
+There are many challenges with manually running ansible playbooks. In short, you will struggle with making playbooks reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
-* Have your security credentials handy to authenticate to your AWS Account. [Refer to the AWS Credentials documentation](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
+If you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
 
-* Install Ansible based on the OS of the machine from which you plan to execute the script. [Refer to the Ansible Installation guide](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+## Automated workflow to provision an AWS EC2 instance with Ansible
 
-* Ansible uses a folder structure that looks like this:
-    * **ansible.cfg** holds configuration info
-    * **inventory** has the inventory of artifacts
-    * **variables.yml** has the variables that are used to replace wildcards in your playbooks to make them more reusable
-    * **ec2_prov_playbook.yml** is the playbook which has a list of tasks to provision an EC2 instance
-    * **ec2_term_playbook.yml** is the playbook which has a list of tasks to terminate an EC2 instance
-
-```
-├── ansible.cfg
-├── inventory
-│   ├── base
-│   ├── ec2.ini
-│   ├── ec2.py
-│   ├── static_hosts
-├── variables.yml
-├── ec2_prov_playbook.yml
-├── ec2_term_playbook.yml
-```
-
-* If you do not have your own ansible playbooks, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible)
-
-* In our scenario, the important files are:
-    * [ec2_prov_playbook.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/ec2_prov_playbook.yml), which is the playbook that provisions an EC2 instance
-    * [variables.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
-    * [ec2_term_playbook.yml](https://github.com/devops-recipes/prov_aws_ec2_ansible/blob/master/ansible/ec2_term_playbook.yml), which is the playbook that terminates the EC2 instance
-
-* It is important to note the following:
-    * **ec2_prov_playbook.yml** and **ec2_term_playbook.yml** scripts have some wildcards, which ansible replaces with values from **variables.yml**.
-    * Since we want to create a reusable playbook, we have not hardcoded values in **variables.yml** but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
-
-* Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
-
-```
-export AWS_ACCESS_KEY_ID=<enter your access key>
-export AWS_SECRET_ACCESS_KEY=<enter your secret key>
-```
-
-* In **ansible.cfg**, Replace `${AWS_EC2_PEM_KEYPATH}` with the path to the PEM key that should be used to provision the machine.
-
-* In **variables.yml**, replace these wildcards with your desired values: `${ec2_region} ${ec2_tag_Type} ${ec2_image} ${ec2_keypair} ${ec2_volume_size} ${ec2_count} ${security_group_id} ${public_subnet_id} ${ec2_tag_Type} ${ec2_tag_Role}`.
-
-* Execute the following command to run the ansible playbook from the directory that contains the playbook.
-
-```
-ansible-playbook -v ec2_prov_playbook.yml
-```
-
-* Verify on AWS if the EC2 machine was provisioned.
-
-* You can terminate the instance by running the command below:
-
-```
-ansible-playbook -v ec2_term_playbook.yml
-```
-
-## Challenges with manually provisioning an EC2 instance with Ansible
-
-There are a few challenges with manual execution of Ansible playbooks:
-
-* Ansible playbook templates can be reused since they have wildcards. However, you need a programmatic way to replace wildcards at runtime. Creating static variables files is an option, but reduces reusability.
-* Automating provisioning for different environments and creating a dependency tree of all applications that are deployed into that environment is tedious to achieve with manual steps. You need an automated workflow to effectively transfer information like subnet_id, security_group_id to downstream activities. for e.g. EC2 provisioners.
-* Security with RBAC is a problem. The machine used to provision is authenticated to an AWS account (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
-* The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines for each team.
-
-In a nutshell, if you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
-
-## Automating the provisioning of AWS EC2 with Ansible
-
-Next, we will demonstrate how you can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
+You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
 * Creating an event-driven, automated workflow
 * Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running the ansible playbook
@@ -118,6 +49,10 @@ The following sections explain the process of automating a workflow to provision
 **Source code is available at [devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible)**
 
 **Complete YML is at [devops-recipes/prov_aws_ec2_ansible/shippable.yml](https://raw.githubusercontent.com/devops-recipes/prov_aws_ec2_ansible/master/shippable.yml)**
+
+Your workflow will look like this, where the green box is the job that runs your ansible playbook, while the grey boxes are input resources that are required for your playbook:
+
+<img src="/images/tutorial/provision-aws-ec2-ansible-fig1.png" alt="Assembly Line view">
 
 ####1. Add necessary Account Integrations
 
@@ -201,9 +136,9 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `aws_ec2_creds`
 
-Your AWS credentials are securely stored in this integration
+Your AWS credentials are securely stored in this integration.
 
-To let ansible interact with AWS, you need to export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables.
+To let ansible interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
@@ -279,8 +214,8 @@ jobs:
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
     * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_ec2_repo`.
     * Credentials to connect to AWS are in `aws_ec2_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
-    * PEM key that can be used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.  
-    * The `aws_vpc_info` is a **params** resource comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-ansible) and contains the `security_group_id` and `public_subnet_id`, which are required to provision your instance. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK** section.
+    * PEM key is used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.  
+    * `aws_vpc_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-ansible) and contains the `security_group_id` and `public_subnet_id`, which are required to provision your instance. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK** section.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ec2` which does the following:
     * First, we define environment variables required by the ansible playbook-
