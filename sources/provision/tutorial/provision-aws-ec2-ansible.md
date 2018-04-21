@@ -57,7 +57,7 @@ export AWS_ACCESS_KEY_ID=<enter your access key>
 export AWS_SECRET_ACCESS_KEY=<enter your secret key>
 ```
 
-* In **ansible.cfg**, Replace `${AWS_EC2_PEM_KEYPATH}` with the path to the PEM key that should be used to provision the machine.
+* In **ansible.cfg**, replace `${AWS_EC2_PEM_KEYPATH}` with the path to the PEM key that should be used to provision the machine.
 
 * In **variables.yml**, replace these wildcards with your desired values: `${ec2_region} ${ec2_tag_Type} ${ec2_image} ${ec2_keypair} ${ec2_volume_size} ${ec2_count} ${security_group_id} ${public_subnet_id} ${ec2_tag_Type} ${ec2_tag_Role}`.
 
@@ -201,9 +201,9 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `aws_ec2_creds`
 
-Your AWS credentials are securely stored in this integration
+Your AWS credentials are securely stored in this integration.
 
-To let ansible interact with AWS, you need to export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables.
+To let ansible interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
