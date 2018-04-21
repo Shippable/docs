@@ -1,4 +1,4 @@
-page_description: Using Ansible to provision an AWS EC2 virtual machine
+page_description: Using Ansible playbooks to provision an AWS EC2 virtual machine
 main_section: Provision
 sub_section: AWS infrastructure
 
