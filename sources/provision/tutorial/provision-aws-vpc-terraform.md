@@ -13,51 +13,7 @@ This document assumes you're familiar with the following concepts:
 
 If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually. Refer to our blog for a step-by-step tutorial: [Provision AWS VPC and EC2 with Terraform](http://blog.shippable.com/provision-ec2-vpc-terraform).
 
-
-## Manual steps
-
-Step 1: Prep your machine
-Have your security credentials handy to authenticate to your AWS Account. Refer to the AWS Credentials documentation.
-
-Install Terraform based on the OS of the machine from which you plan to execute the script. Refer to the Terraform Installation guide.
-
-Step 2: Prepare Terraform scripts
-Terraform scans for all files with extensions `*.tf` in the current folder and its subfolders recursively. It combines them all into a single file before executing it. In our example, we are using a the following files: 
-
-* terraform.tfvars supplies the values for all the dynamic variables needed
-* variables.tf is the representation of those variables in Terraform format
-* vpc.tf is the actual script that provisions VPC
-
-```
-├── terraform.tfvars
-├── variables.tf
-├── vpc.tf
-
-```
-
-If you do not have your own Terraform scripts, please feel free to clone our sample playbook here: https://github.com/devops-recipes/prov_aws_ec2_terraform
-
-In our scenario, you will need to provide the values in the tfvars file and you should be good to go
-
-In terraform.tfvars, replace these wildcards with your desired values: `${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${vpc_region} ${vpc_name} ${vpc_cidr_block} ${vpc_public_subnet_1_cidr} ${vpc_access_from_ip_range}`. 
-
- 
-Step 3: Apply your Terraform scripts
-Execute the following command to run your Terraform scripts from the directory that contains the .tf file.
-
-`terraform apply -var-file=terraform.tfvars`
-
-Verify on AWS if the VPC was provisioned.
-
- 
-There are many challenges with manually running Terraform files. In short, you will struggle with making Terraform files reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-The biggest one being, where to keep the state file. Pushing it into SCM system is an option, but then again how to maintain multiple Terraform state files. Single repo or multiple repos? You will have to clone this into your machine everytime and remember to push it back. If you lose this file, it is a huge mess.
-
-If you want to achieve frictionless execution of Terraform scripts with modular, reusable workflows, you need to templatize your scripts and automate the workflow used to execute them.
-
-
-## Automating the provisioning of AWS VPC with Terraform
+## Automated provisioning of AWS VPC with Terraform
 
 Next, we will demonstrate how you can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
@@ -170,7 +126,7 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 ######iii. state resource named `aws_vpc_tf_state`
 
-Every apply of TF scripts generates a terraform.tfstate file. This is a very important file as it holds the state of your provisioning. TF looks for this file when you apply and if it is not present, it will recreate all you resources resulting in duplicate objects. We use the state resource to store this and make it available everytime we need to run the apply command. 
+Every apply of TF scripts generates a terraform.tfstate file. This is a very important file as it holds the state of your provisioning. TF looks for this file when you apply and if it is not present, it will recreate all you resources resulting in duplicate objects. We use the state resource to store this and make it available everytime we need to run the apply command.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
@@ -250,7 +206,7 @@ jobs:
     * Next, we extract the AWS credentials from the `aws_vpc_tf_creds`resource, again using shipctl functions
     * Next, we fetch the `terraform.tfstate` file and copy it into the current folder using shipctl function on `aws_vpc_tf_state`
     * Next, we replace all wildcards in the `terraform.tfvars` file
-    * Last, we apply TF scripts which should provision the VPC 
+    * Last, we apply TF scripts which should provision the VPC
   * `on_success` section is executed if the TASK succeeded. This step updates the `params` resource with `vpc_id`, `vpc_public_sg_id` and `vpc_public_sn_id` generated during the execution
   * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_vpc_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since TF does not rollback changes of a failed apply command
 

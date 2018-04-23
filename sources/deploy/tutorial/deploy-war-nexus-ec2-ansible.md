@@ -1,9 +1,8 @@
-main_section: Tutorial
-sub_section: Deploy
-sub_sub_section: AWS
-page_description: Deploying a Java application from Nexus Repository manager to an AWS EC2 virtual machine using Ansible playbooks
+main_section: Deploy
+sub_section: Deploy to VMs
+page_description: Deploying a Java WAR application from Nexus Repository manager to an AWS EC2 virtual machine using Ansible playbooks
 
-# Deploying a Jav WAR package from Nexus to AWS EC2 using Ansible
+# Deploying a Java WAR package from Nexus to AWS EC2 using Ansible
 
 This tutorial explains how to automate deployment of a Java-based WAR package stored on Nexus Repository Manager to a virtual machine running on AWS EC2 using Ansible playbooks.
 

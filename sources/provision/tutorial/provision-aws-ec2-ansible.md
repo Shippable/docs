@@ -62,7 +62,7 @@ Integrations are used to connect your Shippable workflow with external providers
 
 To be able to interact with AWS, we need to add the `drship_aws `integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration//aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -98,7 +98,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have four resources defined, two of type `integration`, and one each of `gitRepo` and `params`.
+`resources` section holds the config info that is necessary to provision your EC2 instance. In this case we have four resources defined, two of type `integration`, and one each of `gitRepo` and `params`.
 
 ```
 resources:
