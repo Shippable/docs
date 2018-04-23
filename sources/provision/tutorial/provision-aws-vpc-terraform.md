@@ -9,7 +9,12 @@ This tutorial explains how to automate the provisioning of AWS Virtual Private C
 This document assumes you're familiar with the following concepts:
 
 * [AWS VPC](https://aws.amazon.com/documentation/vpc/)
-* [Terraform aws_instance](https://www.terraform.io/docs/providers/aws/r/instance.html)
+* [Terraform aws_vpc](https://www.terraform.io/docs/providers/aws/d/vpc.html)
+* [Terraform aws_internet_gateway](https://www.terraform.io/docs/providers/aws/d/internet_gateway.html)
+* [Terraform aws_subnet](https://www.terraform.io/docs/providers/aws/d/subnet.html)
+* [Terraform aws_route_table](https://www.terraform.io/docs/providers/aws/d/route_table.html)
+* [Terraform aws_route_table_association](https://www.terraform.io/docs/providers/aws/r/route_table_association.html) 
+* [Terraform aws_security_group](https://www.terraform.io/docs/providers/aws/d/security_group.html) 
 
 If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually. Refer to our blog for a step-by-step tutorial: [Provision AWS VPC and EC2 with Terraform](http://blog.shippable.com/provision-ec2-vpc-terraform).
 
@@ -35,7 +40,7 @@ Terraform scans for all files with extensions `*.tf` in the current folder and i
 
 ```
 
-If you do not have your own Terraform scripts, please feel free to clone our sample playbook here: https://github.com/devops-recipes/prov_aws_ec2_terraform
+If you do not have your own Terraform scripts, please feel free to clone our sample playbook here: https://github.com/devops-recipes/prov_aws_vpc_terraform
 
 In our scenario, you will need to provide the values in the tfvars file and you should be good to go
 
@@ -49,7 +54,6 @@ Execute the following command to run your Terraform scripts from the directory t
 
 Verify on AWS if the VPC was provisioned.
 
- 
 There are many challenges with manually running Terraform files. In short, you will struggle with making Terraform files reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
 The biggest one being, where to keep the state file. Pushing it into SCM system is an option, but then again how to maintain multiple Terraform state files. Single repo or multiple repos? You will have to clone this into your machine everytime and remember to push it back. If you lose this file, it is a huge mess.
@@ -172,7 +176,7 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 Every apply of TF scripts generates a terraform.tfstate file. This is a very important file as it holds the state of your provisioning. TF looks for this file when you apply and if it is not present, it will recreate all you resources resulting in duplicate objects. We use the state resource to store this and make it available everytime we need to run the apply command. 
 
-Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
+Detailed info about `state` resource is [here](/platform/workflow/resource/state).
 
 ######iv. params resource named `aws_vpc_tf_info`
 
