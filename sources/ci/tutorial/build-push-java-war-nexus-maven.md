@@ -301,7 +301,7 @@ Your SPOG view should look something like this:
 
 <img src="/images/tutorial/build-push-java-war-nexus-maven-fig1.png" alt="E2E Pipeline View">
 
-###4. Test your Assembly Line
+####4. Test your Assembly Line
 
 Add a commit to your repo and you should see the CI process kick off, which builds a WAR file and then pushes it to your Nexus Repository. The location info is then pushed into `war_loc` as a new version.
 

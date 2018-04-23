@@ -163,7 +163,7 @@ pages:
       - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
       - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
       - Deploying from a git repository to a single VM cluster: deploy/vm-gitRepo.md
-      - Deploying from Nexus to EC2 using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
+      #- Deploying from Nexus to EC2 using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
     - Tutorials:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md
