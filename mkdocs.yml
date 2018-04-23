@@ -163,6 +163,7 @@ pages:
       - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
       - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
       - Deploying from a git repository to a single VM cluster: deploy/vm-gitRepo.md
+      - Deploying from Nexus to EC2 using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
     - Tutorials:
       - Amazon ECS:
         - Single-container app: deploy/amazon-ecs.md
@@ -214,9 +215,11 @@ pages:
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
     - AWS infrastructure:
-      - Provision with Terraform: provision/aws-with-terraform.md
-      - Provision EC2 VM using Ansible: provision/tutorial/provision-aws-ec2-ansible.md
-      - Provision VPC using Ansible: provision/tutorial/provision-aws-vpc-ansible.md
+      - Ansible:
+        - EC2: provision/tutorial/provision-aws-ec2-ansible.md
+        - VPC: provision/tutorial/provision-aws-vpc-ansible.md
+      - Terraform:
+        - Provision infrastructure: provision/aws-with-terraform.md
     - Google Cloud infrastructure:
       - Provision with Ansible: provision/google-cloud-with-ansible.md
       - Provision Kubernetes cluster with Google Cloud SDK: provision/kubernetes-with-gkecli.md

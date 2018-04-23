@@ -60,9 +60,9 @@ Integrations are used to connect your Shippable workflow with external providers
 
 #####1a. Add AWS Keys Integration
 
-To be able to interact with AWS, we need to add the `drship_aws `integration.
+To be able to interact with AWS, we need to add the `drship_aws `integration. Your AWS credentials are securely stored in this integration, and you can extract them in your job when needed.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration//aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -98,7 +98,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have four resources defined, two of type `integration`, and one each of `gitRepo` and `params`.
+`resources` section holds the config info that is necessary to provision your EC2 instance. In this case we have four resources defined, two of type `integration`, and one each of `gitRepo` and `params`.
 
 ```
 resources:
@@ -217,7 +217,7 @@ jobs:
     * PEM key is used to SSH into the EC2 machine is in `aws_ec2_pem`. This input creates an ENV var called `$AWS_EC2_PEM_KEYPATH` which has path to the key file on the machine on which the job executes. We use this in `ansible.cfg`.  
     * `aws_vpc_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-ansible) and contains the `security_group_id` and `public_subnet_id`, which are required to provision your instance. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK** section.
 
-* The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ec2` which does the following:
+* The `TASK` section contains actual code that is executed when the job runs. We have just one task named `prov_ec2` which does the following:
     * First, we define environment variables required by the ansible playbook-
         * `STATE_RES_NAME` is where we are going to store the outputs
         * `ec2_region` is the aws region where the EC2 is going to be provisioned

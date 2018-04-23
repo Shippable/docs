@@ -8,9 +8,9 @@ page_keywords: Java builds, Continuous Integration, Continuous Deployment, CI/CD
 
 # Build and Push Java WAR file to Nexus Repository with Maven
 
-This tutorial explains how to continuously build and push a Java based web application to a Nexus Repository using Maven.. We are using a Java demo application that has basic CI tests.
+This tutorial explains how to continuously build and push a Java based web application to a Nexus Repository using Maven. We are using a Java sample application that has basic CI tests.
 
-These are the following concepts you need to be familiar with to proceed further
+This document assumes you're familiar with the following concepts:
 
 * [Maven in 5 mins](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 * [Install Maven](https://maven.apache.org/install.html)
@@ -18,193 +18,16 @@ These are the following concepts you need to be familiar with to proceed further
 * [pom.xml](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 * [Nexus Repository Quick Start](https://help.sonatype.com/learning/repository-manager-3/proxying-maven-and-npm-quick-start-guide)
 
-## Manual Steps to Build
-This section covers step by step instructions to manually do this on your machine.
+If you're unfamiliar with Maven and/or Nexus, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Java CI: Build and Push a WAR application to Nexus](http://blog.shippable.com/java-ci-nexus-maven?hs_preview=FhPmvnAC-5721716280).
 
-* Create a GitHub repo that will hold the code to build the image. For this e.g. full source code is available [here](https://github.com/devops-recipes/java_web_app)
-* Either install Nexus Repository or have credentials to an exisiting installation. You will need the following information
- * Nexus Repo URL
- * Username
- * Password
- * Repo Name 
-* Install Java Oracle 8 SDK on your local machine and make sure $JAVA_HOME is set. You can follow this on [Digital Ocean blog](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04) or here is [our version](https://github.com/devops-recipes/build_custom_ci_image/blob/master/java/install.sh) 
-* Install Maven on to your local machine [code to install - line 69 onwards](https://github.com/devops-recipes/build_custom_ci_image/blob/master/install.sh)
-* Create settings.xml in this location `~/.m2/settings.xml`
+There are many challenges with manually executing this CI workflow. First, you should execute it for every commit against the latest codebase, which is difficult to enforce manually. Second, if you want to trigger a dependent multi-stage workflow which deploys this application to Test, Staging environments and runs test suites, you will have to manually handle all that as well. This leads to overdependence on people and isn't efficient.
 
-**[settings.xml](https://raw.githubusercontent.com/devops-recipes/java_web_app/master/temp/settings.xml)** 
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
-
-    <servers>
-        <server>
-            <id>nexus-snapshots</id>
-            <username>${nexus_username}</username>
-            <password>${nexus_password}</password>
-        </server>
-        <server>
-            <id>nexus-releases</id>
-            <username>${nexus_username}</username>
-            <password>${nexus_password}</password>
-        </server>
-    </servers>
-
-    <mirrors>
-        <mirror>
-            <id>central</id>
-            <name>central</name>
-            <url>${nexus_url}/repository/maven-public/</url>
-            <mirrorOf>*</mirrorOf>
-        </mirror>
-    </mirrors>
-
-</settings>
-```
-replace `${nexus_url}`, `${nexus_username}` & `${nexus_password}` with your values. This file sets the global setting for Maven. We are defining 2 nexus endpoints, one for snapshots and one for releases. We also have a central mirror to download all your dependencies.
-
-* update your `pom.xml` for the app
+If you want to achieve frictionless development, you should automate your CI workflow.
 
 
+## Automating Build and Push to Nexus
 
-**[pom.xml](https://raw.githubusercontent.com/devops-recipes/java_web_app/master/pom.xml)** 
-
-```
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>${group_id}</groupId>
-	<artifactId>${artifact_id}</artifactId>
-	<packaging>${artifact_extension}</packaging>
-	<version>${artifact_version}</version>
-	<name>HelloWorld Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-
-	<properties>
-		<spring.version>4.3.2.RELEASE</spring.version>
-	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
-
-		<!-- Spring dependencies -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-test</artifactId>
-		    <version>4.0.5.RELEASE</version>
-		</dependency>
-		<dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-				<version>1.4.0.RELEASE</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-				<version>1.4.0.RELEASE</version>
-    </dependency>
-
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-tomcat</artifactId>
-				<version>1.4.0.RELEASE</version>
-		    <scope>provided</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<finalName>HelloWorld</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
-			<!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.2</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>2.5.2</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.2</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-		    	<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<configuration>
-			    	<redirectTestOutputToFile>true</redirectTestOutputToFile>
-			    	<reportsDirectory>${ship_test_res_loc}</reportsDirectory>
-			  	</configuration>
-		    	<dependencies>
-		      		<dependency>
-		        		<groupId>org.apache.maven.surefire</groupId>
-		        		<artifactId>surefire-junit47</artifactId>
-		        		<version>2.19.1</version>
-		      		</dependency>
-		    	</dependencies>
-		  	</plugin>
-		</plugins>
-	</build>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>${repository_url}</url>
-        </snapshotRepository>
-    </distributionManagement>
-</project>
-```
-Replace `${repository_url}` with the full URL of your repository to where you want to push the WAR. `${group_id}` is the group id, `${artifact_id}` is the name of your artifact, `${artifact_extension}` is war in this case, `${artifact_version}` is the version number.
-
-* Execute this command to test and then push the WAR file to your repo `mvn -q -B clean install deploy`.
-* You should see a new version uploaded to your Nexus repo. 
-
-
-## Challenges with manual build
-There are a few challenges with manual builds
-
-* You have prepare your local environment with all the software, tools and packages. This could interfere with other projects you might be working on.
-* Your machine is under load during the build process.
-* Builds don't trigger automatically if your souce code changes.
-* You have to manually manage the credentials and be careful about which creds are you using and what is currently set. Very easy to make mistakes. 
-* You cannot trigger further steps of your pipeline when you update a new version, automatically.
-
-## Automating Maven Build and Push
-Now lets try and automate this so that you do not need to do all the manual steps. 
+This tutorial will show you how to automate your workflow using Shippable's native CI feature.
 
 To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
 
@@ -212,21 +35,23 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 * [Integrations](/platform/integration/overview/)
  * [Key Value](/platform/integration/key-value/)
-* [Jobs](/platform/workflow/job/overview/)
- * [runCI](/platform/workflow/job/runci)
+* [How CI works on Shippable](/ci/why-continuous-integration/)
 
-### Step by step instructions
-The following sections explain the process of setting up an AL to continuously test, build and push a Java WAR file to Nexus Repository. The build process uses Maven to build, test and push the WAR file.
+### Step-by-step instructions
+
+The following sections explain the process of configuring a CI workflow to continuously test, build and push a Java WAR file to Nexus Repository. The build process uses Maven to build, test and push the WAR file.
 
 **Source code is available at [devops-recipes/java_web_app](https://github.com/devops-recipes/java_web_app	)**
 
 **Complete YML is at [devops-recipes/java_web_app/shippable.yml](https://github.com/devops-recipes/java_web_app/blob/master/shippable.yml)**
 
 ####1. Add necessary Account Integrations
+
 Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). The following are the integrations that we will use in this sample
 
-**1a. Add `Key Value` Integration**
-We want to store Nexus secrets into a Key Value integration named `drship_nexus`. This allows us to inject these at run time without having to store them in scripts.
+#####1a. Add `Key Value` Integration
+
+Your Nexus secrets will be securely stored in a Key Value integration named `drship_nexus`. This allows us to inject these at runtime without having to include actual values in your config.
 
 Add the following keys and their values to the integration
 
@@ -234,24 +59,23 @@ Add the following keys and their values to the integration
 * `nexus_username`
 * `nexus_password`
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/key-value/#creating-an-account-integration).
+Detailed steps on how to add a Key value Integration are [here](/platform/integration/key-value/#creating-an-account-integration).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
 ####2. Author CI configuration
-The platform is built with "Everything as Code" philosophy and it uses YAML based configuration file called `shippable.yml`.
+
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your CI workflow.
 
 Detailed CI configuration info is [here](/ci/yml-structure/).
 
-**2a. Add empty shippable.yml to your repo**
+#####2a. Add empty shippable.yml to your repo
 
-Add an empty config file to the the root of your repo.
+Add an empty **shippable.yml** to the the root of your repo.
 
-**2b. Add `ci` section of the config**
+#####2b. Add `ci` section of the config
 
-`shippable.yml` is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to the repo that contains the `Dockerfile`. For this e.g. it is `https://github.com/devops-recipes/java_web_app`.
-
-Configure CI steps by adding the following code snipped to the YML file
+Configure CI by adding the following code to **shippable.yml**:
 
 ```
 language: java
@@ -265,6 +89,7 @@ integrations:
 
 env:
   global:
+    # WAR information. Replace with your application's settings
     - group_id="com.demo"
     - artifact_id="helloworld"
     - artifact_version="0.0.1-SNAPSHOT"
@@ -289,66 +114,128 @@ The above YML does the following things:
 
 * Language is set to Java
 * Version of Java is set to oraclejdk8
-* The integration is referenced here to automatically inject Nexus Creds
-* A few global environment variables hold the information about the WAR artifact. Please replace these values as per your application settings.
-* The build section defines the scripts to build and push the WAR file. We have a template of `settings.xml` which is replaced with the the integration values. We also replace the `pom.xml` with the values provided at run time and then put the files in the required paths.
-* We then do a mvn build and deploy, and that should deploy you new WAR file as a new version to your Nexus Repository
+* The integration is referenced here to automatically inject Nexus credentials
+* Global environment variables hold information about the WAR artifact. Please replace these values as per your application settings.
+* The `build` section contains scripts to build and push your WAR file. The wildcards in `settings.xml` are replaced with values from `drship_nexus` using Shippable utility shipctl. We also replace wildcards in `pom.xml` with values we set in the `env` section.
+* Next, we put the files in the required paths.
+* Last, we do an `mvn` build and deploy. This deploys you new WAR file as a new version to your Nexus Repository
 
 ####3. Enable the repo for CI
-For automated builds, we need to enable the project for CI. Once enabled, the platform will automatically create the webhooks required to continuously build the project.
+
+For automated builds, we need to enable the project for CI, which will automatically create the webhooks required to continuously build the project.
 
 Detailed steps on enabling a repo are [here](/ci/enable-project/).
 
 ####4. Run your CI Project
-At this stage, you can either manually trigger your CI project or commit a change to the application git repository which should automatically build your project.
 
-## Using a lightweight Custom CI Image and adding CD capabilities
-There are situations where instead of using our default all in one images, you want to use a lighweight CI image. This section talks about how to achieve that for the same example
+You can either manually trigger your CI project or commit a change to the application git repository which should automatically build your project.
 
-Build and pushing the lightweight image is outside the scope of this example. A full tutorial to do that is present [here](/ci/tutorial/build-custom-ci-image). This sample puts the tag of the image that it builds into an image resource called `build_custom_ci_img_dh` which is what we use here to make the tags dynamic and our job will use the latest tag when it runs.
+Verify that your repository was created on Nexus!
+
+## Using a lightweight Custom CI Image
+
+Your CI workflow is executed inside a Docker container that is spun up on your build node. By default, Shippable chooses an image from its standard library, depending on your `language` setting.  
+
+However, there are situations where you might want to use a lightweight Docker image to spin up your container. This is especially true for customers using BYON or Shippable Server.
+
+This section shows you how to use your custom image to spin up the CI container.
+
+If you want to implement really hardcore automation, you can also build and push this lightweight image using Shippable. That is out of scope for this tutorial but is available in a separate document [here](/ci/tutorial/build-custom-ci-image). That tutorial puts the tag of the image that it builds into an image resource called `build_custom_ci_img_dh`. You can either use this resource as an `IN` and extract the tag, or you can hardcode it if you just want to use a static tag.
 
 ### Concepts
-Here are the additional concepts you need to know before you start:
 
+* [Workflow overview](/platform/workflow/overview/)
 * [Resources](/platform/workflow/resource/overview/)
  * [image](/platform/workflow/resource/image)
 * [Jobs](/platform/workflow/job/overview/)
  * [runCI](/platform/workflow/job/runci)
 
+## Instructions
 
-####1. Extend the CI Config
-Add the following YAML config after the CI config from the prior step. This enables the CI process to output the tags to image resource which will be defined next
+####1. Specify an IN resource pointing to custom image
+
+Please SKIP this section if you're using a static image tag.
+
+In order to treat your CI workflow like an Assembly Line job, i.e. be able to define `IN` and `OUT` resources, you need to define a `runCI` job with the name of your repository appended by `_runCI`.
+
+Add the following at the very end of your **shippable.yml**:
 
 ```
-# OPTIONAL: if you want to use custom Docker Build Image and also store information in a params
-# resource to be used in downstream Assembly Lines
+jobs:
+  - name: java_web_app_runCI    # This should be <your repo name>_runCI
+    type: runCI
+    dependencyMode: strict
+    triggerMode: parallel
+    steps:
+      - IN: build_custom_ci_img_dh    # image resource from the tutorial on building custom image
+
+```
+
+####2. Extend the CI Config
+
+Add the following config to your **shippable.yml** under the `build` section:
+
+```
+build:
   pre_ci:
+    # Skip this if you want to use a static image tag
     - export IMG_TAG=$(shipctl get_resource_version_key build_custom_ci_img_dh "versionName")
 
   pre_ci_boot:
     image_name: devopsrecipes/build_custom_ci
     image_tag: $IMG_TAG
     pull: true
-
-  on_success:
-    - shipctl put_resource_state_multi war_loc "versionName=$artifact_version" "artifact_version=$artifact_version" "group_id=$group_id" "artifact_id=$artifact_id"
-    - shipctl put_resource_state_multi war_loc "artifact_extension=$artifact_extension" "repository_url=$repository_url" "build_nbr=$BUILD_NUMBER"
-
 ```
 
-* `pre_ci` section runs before the `ci` section. In this case we are extracting the `IMG_TAG` from the image resource `build_custom_ci_img_dh` that was created as part of [this](/ci/tutorial/build-custom-ci-image).
-* `pre_ci_boot` we are instructing the build system to boot this docker image in which CI steps will execute
+* `pre_ci` section runs before the `ci` section. In this case we are extracting the `IMG_TAG` from the image resource `build_custom_ci_img_dh` that was created as part of [this](/ci/tutorial/build-custom-ci-image). You can skip this if you already have an image and want to use a static image tag.
+* In the `pre_ci_boot` section, we set the image we want to use to boot up the CI container. If you're using a static tag, replace `$IMG_TAG` with your tag.
+* If the `ci` section runs without any error, then we use the utility function `put_resource_state` we copy a bunch of key values into a params resource `war_loc` (defined in the next step). Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
 
-* If the ci section runs without any error, then using in-built utility function `put_resource_state` we copy a bunch of key values into a param resource `war_loc`. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
+####2. Push changes to shippable.yml
 
-####2. Author Assembly Line configuration
-In addition to CI, Shippable also provides CD capabilities through AL config
+Commit and push all the above changes to **shippable.yml**.
 
-Detailed AL configuration info is [here](/deploy/configuration).
+####3. Add the Assembly Line to your Shippable Subscription
 
-**2a. Add `resources` section of the config**
+Please SKIP this if you did not follow step 1, i.e. you're using a static image tag.
 
-`resources` section defines the params resource which will hold information about the WAR and its location
+In order to tell Shippable to read your `jobs` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+
+Your view should look something like this:
+
+<img src="/images/tutorial/build-push-java-war-nexus-maven-fig1.png" alt="E2E Pipeline View">
+
+####3. Run your CI Project
+
+Manually trigger your CI project or commit a change to the application git repository. This will trigger a build. Ensure that your custom image was used by looking at the `pull_job_image` and `boot_container` sections of your logs:
+
+<img src="/images/tutorial/pull-custom-ci-image.png" alt="Pull custom image for CI">
+
+## Adding CD capability
+
+CI is a developer focused activity that produces a deployable unit of your application, a WAR file in this instance. If you want to add a Continuous Delivery workflow which deploys your application into successive environments like Test, Staging, Production and runs test suites, the downstream jobs performing these activities will need to know where to find your WAR file.
+
+This section shows how you can output your WAR information into a `params` resource which can be used by downstream jobs.
+
+### Concepts
+
+Here are the additional concepts you need to know before you start:
+
+* [Workflow overview](/platform/workflow/overview/)
+* [Resources](/platform/workflow/resource/overview/)
+ * [image](/platform/workflow/resource/image)
+* [Jobs](/platform/workflow/job/overview/)
+ * [runCI](/platform/workflow/job/runci)
+
+### Instructions
+
+####1. Author Assembly Line configuration
+
+Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed AL configuration info is [here](/deploy/configuration).
+
+#####1a. Add `resources` section of the config
+
+`resources` section defines the params resource which will hold information about the WAR and its location.
 
 ```
 resources:
@@ -358,14 +245,21 @@ resources:
       params:
         seed: true
 ```
+
 #####i. params resource named `war_loc`
-A params resource which holds key values about the WAR and its location. We are defining a placeholder `seed` value here. The rest of the information is populated when `on_success` of CI job executes.
+A params resource contains key-value pairs with information about WAR file. We are defining a placeholder `seed` value here. The rest of the information is populated when `on_success` of CI job executes.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
-**2b. Add `jobs` section of the config**
+#####1b. Add `jobs` section of the config**
 
-A job is the actual execution unit of the assembly line. In this job, we are defining the relationship with the image and the CI job above
+A job is an execution unit of the assembly line.
+
+In order to treat your CI workflow like an Assembly Line job, i.e. be able to define `IN` and `OUT` resources, you need to define a `runCI` job with the name of your repository appended by `_runCI`.
+
+In this section, we will define the `runCI` job that will specify the `war_loc` as an `OUT`, meaning your CI workflow will update this resource.
+
+Add the following at the very end of your **shippable.yml**. If you already have this job in your yml, just add the `OUT` resource `war_loc`:
 
 #####i. job named `java_web_app_runCI`.
 
@@ -378,30 +272,40 @@ jobs:
     steps:
       - IN: build_custom_ci_img_dh
       - OUT: war_loc
-    flags:
-      - war
+
 ```
 
-When a CI project is enabled a job is automatically created with the name of the repo appended by `_runCI`. We are extending this automatically created CI job to also have a params resource as output. In additon we are also adding a flag. We also add `build_custom_ci_img_dh` as an input to this job.
+#####1c. Update war_loc in CI config
 
-**2c. Push changes to shippable.yml**
+To update the `war_loc` resource with artifact information, such as `artifact_version`, `group_id`, `artifact_extension`, etc, add the following to the `build` section:
 
-Commit and push all the above changes to shippable.yml.
+```
+build:
+  on_success:
+    - shipctl put_resource_state_multi war_loc "versionName=$artifact_version" "artifact_version=$artifact_version" "group_id=$group_id" "artifact_id=$artifact_id"
+    - shipctl put_resource_state_multi war_loc "artifact_extension=$artifact_extension" "repository_url=$repository_url" "build_nbr=$BUILD_NUMBER"
+```
 
-####3. Attach the AL to your Repo's Subscription
-In Shippable's world, an Org or a Group depending on the SCM system you are using equate to a Subscription. We will hook the YML so that the platform can render the AL.
+####2. Push changes to shippable.yml
 
-This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
+Commit and push all the above changes to **shippable.yml**.
+
+
+####3. Add the Assembly Line to your Shippable Subscription
+
+In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+
+Please skip this section if you have already added this as a sync repository.
+
+Your SPOG view should look something like this:
 
 <img src="/images/tutorial/build-push-java-war-nexus-maven-fig1.png" alt="E2E Pipeline View">
 
-Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
-
-
 ###4. Test your Assembly Line
-Add a commit to your repo and you should see the CI process kick off, which builds a WAR file and then pushes it to Nexus Repository. The location info is then pushed into a params resource as a new version.
 
-If your params resource is an IN to another job in your workflow that pull the WAR file, that job will be triggered every time the `war_loc` version is updated.
+Add a commit to your repo and you should see the CI process kick off, which builds a WAR file and then pushes it to your Nexus Repository. The location info is then pushed into `war_loc` as a new version.
+
+If `war_loc` is an `IN` to another job in your workflow that pulls the WAR file, that job will be triggered every time the `war_loc` version is updated.
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
@@ -409,8 +313,3 @@ If your params resource is an IN to another job in your workflow that pull the W
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
 * [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
-* Using specific version of Google CLI
-* Creating parametrized Jobs
-* Using templates inside your Job
-* Logging into your deployment cluster using CLI
-
