@@ -55,9 +55,9 @@ Integrations are used to connect your Shippable workflow with external providers
 
 #####1a. Add **AWS Keys** Integration
 
-To be able to interact with AWS, we need to add the `drship_aws `integration.
+To be able to interact with AWS, we need to add the `drship_aws` integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration//aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -85,7 +85,7 @@ Add an empty `shippable.yml` file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to deploy to a Kubernetes cluster. In this case we have 3 resources defined of type `integration`, `gitRepo` and `params`.
+`resources` section holds the config info that is necessary to provision an AWS VPC. In this case we have 3 resources defined of type `integration`, `gitRepo` and `params`.
 
 Add the following to your `shippable.yml`:
 
@@ -121,7 +121,7 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `aws_creds`
 
-To be able to interact with AWS, you need to configure your aws CLI. Your AWS credentials are securely stored in this integration, and you can extract them in your job and call `aws configure` with that information.
+To be able to interact with AWS, you need creds. Your AWS credentials are securely stored in this integration, and you can extract them in your job when needed.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
