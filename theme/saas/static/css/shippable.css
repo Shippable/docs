@@ -628,3 +628,19 @@ div.swagger-ui-wrap div.container {
   font-size: 16px;
   padding: 15px 15px;
 }
+
+code {
+  padding: 1px 2px;
+  color: #333;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+}
+
+pre code {
+  border: none;
+  background-color: #f8f8f8;
+}
+
+pre {
+  background-color: #f8f8f8;
+}

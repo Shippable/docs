@@ -55,7 +55,7 @@ Integrations are used to connect your Shippable workflow with external providers
 
 #####1a. Add **AWS Keys** Integration
 
-To be able to interact with AWS, we need to add the `drship_aws` integration.
+To be able to interact with AWS, we need to add the `drship_aws` integration. Your AWS credentials are securely stored in this integration, and you can extract them in your job when needed.
 
 Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration//aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
@@ -63,7 +63,7 @@ Detailed steps on how to add an AWS Keys Integration are [here](/platform/integr
 
 #####1b. Add `Github` Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and ansible playbook files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and ansible playbook files.
 
 In our case, we're using the repository [devops-recipes/prov_aws_vpc_ansible](https://github.com/devops-recipes/prov_aws_vpc_ansible).
 
@@ -73,21 +73,21 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 ####2. Author Assembly Line configuration
 
-The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called `shippable.yml`, which is parsed to create your Assembly Line workflow.
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on `shippable.yml` is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
 
-If you're using our sample code, `shippable.yml` already exists and you can use it with a few modifications.
+If you're using our sample code, **shippable.yml** already exists and you can use it with a few modifications.
 
 #####2a. Add empty shippable.yml to your repo
 
-Add an empty `shippable.yml` file to the the root of repository.
+Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
 `resources` section holds the config info that is necessary to provision an AWS VPC. In this case we have 3 resources defined of type `integration`, `gitRepo` and `params`.
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 resources:
@@ -127,7 +127,7 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 ######iii. params resource named `aws_vpc_info`
 
-We store information like **vpc_id** and **subnet_id**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate jobs that provisions machines will need to know the VPC and Subnet IDs.
+We store information like **vpc_id** and **subnet_id**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that provisions machines will need to know the VPC and Subnet IDs.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
@@ -139,7 +139,7 @@ A job is an execution unit of the Assembly Line. Our job has to perform three ta
 * Run the playbook
 * Output `vpc_id` and `subnet_id` into the `params` resource to make it available for downstream jobs
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 jobs:
@@ -164,7 +164,7 @@ jobs:
                 - vpc_public_subnet_1_cidr: "10.10.10.0/24"
           script:
             - pushd $(shipctl get_resource_state "aws_vpc_repo")/ansible
-            # Configure AWS CLI by extracting access and secret keys from the aws_creds integration
+            # Export access and secret keys from the aws_creds integration
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_creds "accessKey")
             - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_creds "secretKey")
             # Replace wildcards
@@ -182,7 +182,7 @@ jobs:
     * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_vpc_repo`.
     * Credentials to connect to AWS are in `aws_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
 
-* The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_vpc` which does the following:
+* The `TASK` section contains actual code that is executed when the job runs. We have just one task named `prov_vpc` which does the following:
     * First, we define environment variables required by the ansible playbook-
         * `STATE_RES_NAME` is where we are going to store the outputs
         * `vpc_region` is the aws region where the VPC is going to be created
@@ -209,13 +209,13 @@ Detailed info about Shippable Utility functions is [here](/platform/tutorial/wor
 
 #####2d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable organization
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
