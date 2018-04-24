@@ -86,10 +86,23 @@ integrations:
       sendCoverageReports: true
 ```
 
+###4. Including failing commands in email notifications.
+You can set sendFailingSnippet: true in your email notification configuration in shippable.yml to include failing commands and the last hundred lines of output for those commands in build emails.
 
-###4. Customizing notification triggers
+```yaml
+integrations:
+  notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - exampleone@org.com
+      sendFailingSnippet: true
+```
 
-By default, Slack notifications are sent for the following events:
+
+###5. Customizing notification triggers
+
+By default, email notifications are sent for the following events:
 
 - <i class="ion-ios-minus-empty"></i> A build fails
 - <i class="ion-ios-minus-empty"></i> Build status for a project changes from failed to passed
@@ -124,7 +137,7 @@ You can set the following options for the `on_success`, `on_failure`, `on_cancel
 
 If you do not specify any of these tags, the defaults are: `on_success` is set to `change`, `on_failure` is set to `always`, `on_cancel` is set to `on_failure`, `on_start` is set to `never` and `on_pull_request` is set to `always`.
 
-###5. Turn off email notifications
+###6. Turn off email notifications
 If you do not want to get notified for any reason, you can turn off email notifications with the following in your `shippable.yml`:
 
 ```
