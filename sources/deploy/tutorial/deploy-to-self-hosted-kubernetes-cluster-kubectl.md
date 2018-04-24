@@ -5,11 +5,10 @@ sub_section: Kubernetes
 # Deploy to self-hosted Kubernetes cluster using kubectl
 This tutorial explains how to continuously deploy a Docker container to a self-hosted Kubernetes Cluster using native `kubectl` commands. It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
-* [kubeconfig files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
-* [Kubernetes Deployment Spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#deployment-v1-apps)
-* [Kubernetes Services Spec](https://kubernetes.io/docs/concepts/services-networking/service/)
+* [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
+* [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
 * [kubectl command](https://kubernetes.io/docs/reference/kubectl/overview/)
-* [kubectl with multiple clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
+* [kubeconfig files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 
 You can self-host Kubenetes on any cloud using KOPS. For this e.g. we use GKE on Google Cloud and even though it is a hosted service, we use raw kubeconfig files to authenticate to it. Tutorial on how to provision a Kubernetes cluster is for another day.
 

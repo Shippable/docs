@@ -1,16 +1,14 @@
-page_main_title: Deploy to GKE using kubectl
-main_section: Tutorial
-sub_section: GKE
-sub_sub_section: kubectl
-page_title: Continuous Deployment to Google Kubernetes Engine using kubectl
-page_description: Automated deployments to Google Kubernetes Engine using kubectl commands
-page_keywords: Deploy docker containers, Kubernetes, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, Google Kubernetes Engine, GKE
+page_description: Continuously deploying to GKE with kubectl
+main_section: Deploy
+sub_section: Kubernetes
 
-# Continuous Deployment to Google Kubernetes Engine using kubectl
+# Deploy to Google Kubernetes Engine using kubectl
 
 This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using native `kubectl` commands. It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
 * [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
+* [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
+* [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
 * [Kubernetes Deployment Spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#deployment-v1-apps)
 * [Kubernetes Services Spec](https://kubernetes.io/docs/concepts/services-networking/service/)
 * [kubectl command](https://kubernetes.io/docs/reference/kubectl/overview/)
@@ -336,7 +334,7 @@ To add your Assembly Line to Shippable, you need to add the repository containin
 
 Your view will look something like this:
 
-<img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig3.png" alt="Assembly Line view">
+<img src="/images/tutorial/deploy-to-google-kubernetes-engine-kubectl-fig1.png" alt="Assembly Line view">
 
 > Note: This assembly line is incorporating [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) to dynamically build `app_be_img`, if you are using static image tag, then you will not see the CI section to the left of the image
 
@@ -344,8 +342,7 @@ Your view will look something like this:
 
 You can manually run the job by right clicking on the job or by triggering the CI process to generate a new image tag and deploy that new image to GKE. You should see your app & service deployed to the Kubernetes cluster you created on GCP.
 
-<img src="/images/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl-fig4.png" alt="Deploy console output">
-
+<img src="/images/tutorial/deploy-to-google-kubernetes-engine-kubectl-fig2.png" alt="Deploy console output">
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
