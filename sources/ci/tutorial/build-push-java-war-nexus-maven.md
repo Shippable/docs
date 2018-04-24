@@ -1,10 +1,6 @@
-page_main_title: Build and Push a Java WAR file to Nexus Repo with Maven
-main_section: Tutorial
-sub_section: Build and Push Images
-sub_sub_section: Nexus
-page_title: Build and Push a Java WAR file to Nexus Repo with Maven
-page_description: Continuously build and push a Java app to Nexus Repo with Maven
-page_keywords: Java builds, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, Maven, Nexus Repository
+page_description: Build and Push a Java WAR file to Nexus using Maven
+main_section: CI
+sub_section: Tutorials
 
 # Build and Push Java WAR file to Nexus Repository with Maven
 

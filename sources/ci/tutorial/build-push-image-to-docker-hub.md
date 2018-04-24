@@ -1,12 +1,8 @@
-page_main_title: Build and Push image to Docker Hub
-main_section: Tutorial
-sub_section: Build and Push Images
-sub_sub_section: Docker Hub
-page_title: Build and Push Docker image to Docker Hub
-page_description: Build and Push a Docker image to Docker Hub automatically
-page_keywords: Build docker containers, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines,
+page_description: Build and Push image to Docker Hub
+main_section: CI
+sub_section: Tutorials
 
-# Build and Push Docker Image to Docker Hub
+# Build and Push Docker image to Docker Hub
 
 This tutorial explains how to continuously build and push an image to Docker Hub. We are using a simple Node.js application that has basic CI tests as well as code coverage reports. The Dockerfile is a part of the application repository on Github.
 
@@ -21,7 +17,7 @@ These are the following concepts you need to be familiar with to proceed further
 This section covers step by step instructions to manually build your Docker image
 
 * Create a GitHub repo that will hold the code to build the image. For this e.g. full source code is available [here](https://github.com/devops-recipes/node_app)
-* Create an account on [Docker Hub](https://hub.docker.com). 
+* Create an account on [Docker Hub](https://hub.docker.com).
 * Install Docker on your local machine. More information is in [Getting Started Guide](https://docs.docker.com/get-started/)
 * Login to docker `docker login` with your credentials
 * Your Dockerfile will look something like below
@@ -92,7 +88,7 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
 ####2. Author CI configuration
-The platform is built with "Everything as Code" philosophy and it uses YAML based configuration file called `shippable.yml`.
+The platform is built with "Everything as Code" philosophy and it uses YAML based configuration file called **shippable.yml**.
 
 Detailed CI configuration info is [here](/ci/yml-structure/).
 
@@ -102,7 +98,7 @@ Add an empty config file to the the root of your repo.
 
 **2b. Add `ci` section of the config**
 
-`shippable.yml` is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to the repo that contains the `Dockerfile`. For this e.g. it is `https://github.com/devops-recipes/node_app`.
+**shippable.yml** is a declarative way to configure your Continuous Integration steps on Shippable. Add this file to the repo that contains the `Dockerfile`. For this e.g. it is `https://github.com/devops-recipes/node_app`.
 
 Configure CI steps by adding the following code snipped to the YML file
 
@@ -202,7 +198,7 @@ Detailed AL configuration info is [here](/deploy/configuration).
 
 **2a. Add `resources` section of the config**
 
-`resources` section holds the config info for the image. 
+`resources` section holds the config info for the image.
 
 ```
 resources:
@@ -215,7 +211,7 @@ resources:
       versionName: latest
 ```
 #####i. image resource named `node_app_img_dh`
-The image that you want to use in CD workflows should be available as a resource to the AL. 
+The image that you want to use in CD workflows should be available as a resource to the AL.
 
 Here we are creating an image named `node_app_img_dh` that can be access using integration `drship_dockerhub`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
 
@@ -263,5 +259,3 @@ If your image resource is an IN to another job in your workflow that deploys the
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
 * [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
-
-
