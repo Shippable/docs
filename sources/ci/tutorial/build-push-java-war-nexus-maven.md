@@ -290,7 +290,6 @@ build:
 
 Commit and push all the above changes to **shippable.yml**.
 
-
 ####3. Add the Assembly Line to your Shippable Subscription
 
 In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
