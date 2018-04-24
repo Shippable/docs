@@ -462,6 +462,8 @@ pages:
       - Deploying to Google Kubernetes Engine (GKE) using kubectl: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-kubectl.md
       - Deploying Java WAR from Nexus to EC2 VM using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
       - Build AWS EC2 AMI using Packer: provision/tutorial/build-aws-ec2-ami-packer.md
+      - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl.md
+      - Creating a kubeconfig file for a self-hosted Kubernetes cluster: deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster.md
     - Templates:
       - Provision GCP VPC with Ansible: provision/tutorial/provision-gcp-vpc-ansible.md
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
@@ -481,7 +483,6 @@ pages:
       - Deploying to Amazon EKS using kubectl: deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl.md
       - Deploying to Azure Kubernetes Service (AKS) using kubectl: deploy/tutorial/continuous-deployment-to-aks-kubectl.md
       - Pulling an image from a private Docker Registry on a Kubernetes pod: deploy/tutorial/pull-private-image-kubernetes.md
-      - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-kubectl.md
       - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-helm.md
       - Deploying to Amazon EKS using Helm: deploy/tutorial/continuous-deployment-to-amazon-eks-helm.md
       - Deploying to Azure Kubernetes Service (AKS) using Helm: deploy/tutorial/continuous-deployment-to-aks-helm.md
