@@ -9,6 +9,44 @@ This tutorial explains how to continuously build and push a Node.js based web ap
 This document assumes you're familiar with the following concepts:
 
 * [Docker Registry on JFrog Artifactory](https://www.jfrog.com/confluence/display/RTF/Docker+Registry)
+* [Docker build](https://docs.docker.com/engine/reference/commandline/build/)
+* [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
+* [Docker login](https://docs.docker.com/engine/reference/commandline/login/)
+* [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+
+## Manual Steps to Build
+This section covers step by step instructions to manually build your Docker image
+
+* Create a GitHub repo that will hold the code to build the image. For this e.g. full source code is available [here](https://github.com/devops-recipes/node_app_jfrog)
+* Have the URL, UserName and Password to your Docker Registry on JFrog Artifactory
+* Install Docker on your local machine. More information is in [Getting Started Guide](https://docs.docker.com/get-started/)
+* Install JFrog CLI on your local machine. More information is in [JFrog CLI site](https://jfrog.com/getcli/)
+* Login to docker `docker login` with your credentials and the URL to your repo. It looks something like this `docker login devopsrecipes-dr.jfrog.io` and follow the prompt
+* Your Dockerfile will look something like below
+
+**Dockerfile**
+```
+FROM readytalk/nodejs
+
+# Add our configuration files and scripts
+WORKDIR /app
+ADD . /app
+RUN npm install
+EXPOSE 80
+
+ENTRYPOINT ["/nodejs/bin/npm", "start"]
+```
+* Build your image by executing this command. `$DOCKER_REG` is the name of your account `$DOCKER_IMG` is your image name and `$BUILD_NUMBER` is your tag
+
+```
+docker build -t $DOCKER_REG/$DOCKER_REPO:$BUILD_NUMBER .
+```
+
+* Now you can push this image to your hub by executing this command.
+
+```
+sudo docker push $DOCKER_REG/$DOCKER_REPO:$BUILD_NUMBER
+```
 
 If you're unfamiliar with Docker Registry hosted on JFrog Artifactory, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Node.js CI: Build and Push a Node application to Docker Registry on JFrog Artifactory](http://blog.shippable.com/node-ci-jfrog-artifactory).
 

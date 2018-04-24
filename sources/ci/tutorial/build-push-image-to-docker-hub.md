@@ -50,14 +50,12 @@ docker build -t $DOCKER_ACC/$DOCKER_REPO:$BUILD_NUMBER .
 sudo docker push $DOCKER_ACC/$DOCKER_REPO:$BUILD_NUMBER
 ```
 
-## Challenges with manual build
-There are a few challenges with manual builds
+If you're unfamiliar with Docker Registry and the build process, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Node.js CI: Build and Push a Node application to Docker Registry](http://blog.shippable.com/node-ci-docker).
 
-* You have to install Docker on your local machine and manage credentials across multiple repos.
-* You will be dependent on network latency as you are pulling all the components to your local machine.
-* Your machine is under load during the build process.
-* Builds don't trigger automatically if your souce code changes.
-* `npm` might make changes globally to your machine that might mess up you local system.
+There are many challenges with manually executing this CI workflow. First, you should execute it for every commit against the latest codebase, which is difficult to enforce manually. Second, if you want to trigger a dependent multi-stage workflow which deploys this application to Test, Staging environments and runs test suites, you will have to manually handle all that as well. This leads to overdependence on people and isn't efficient. `npm` might make changes globally to your machine that might mess up you local system.
+
+If you want to achieve frictionless development, you should automate your CI workflow.
+
 
 ## Automating CI and Docker Build
 Of course there are many build services for Docker, you can even use Docker's own build system. In this case we are using Shippable to automate this process.
@@ -265,8 +263,5 @@ If your image resource is an IN to another job in your workflow that deploys the
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
 * [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
-* Using specific version of Google CLI
-* Creating parametrized Jobs
-* Using templates inside your Job
-* Logging into your deployment cluster using CLI
+
 
