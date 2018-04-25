@@ -20,6 +20,8 @@ There are two available options to spin up your CI container with a custom image
 
 ##Minimum requirements
 
+The Shippable platform officially supports custom images built on Ubuntu 14.04, Ubuntu 16.04, CentOS7, RHEL 7, and Windows Server 2016. However, many customers have successfully used custom images that are built on officially unsupported platforms, as long as they satisfy minimum requirements mentioned below.
+
 If your custom Docker image has `apt-get` pre-installed, we will install any additional packages required at runtime.
 
 If your image does not have `apt-get` and you do not want it on your image for some reason, you should install the following packages:
@@ -30,9 +32,9 @@ If your image does not have `apt-get` and you do not want it on your image for s
 * Python 2.7
 * jq 1.5
 
-In addition, it is recommended that you install any dependencies, test tools, language versions, etc, in your custom image. This will make your builds faster since installing them in your build scripts will add the installation time to each build.
+In addition, it is recommended that you install any dependencies, test tools, language versions, CLIs, etc, in your custom image to avoid having to install these during each build. This will make your builds faster since installing them in your build scripts will add the installation time to each build.
 
-
+We want to do our best to support your custom image, so please [open a support issue](https://github.com/Shippable/support/issues/new) if you're seeing errors while using your image with Shippable.
 
 <a name="pull-image"></a>
 ##Pulling your custom image and using it for CI

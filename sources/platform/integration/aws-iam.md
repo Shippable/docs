@@ -33,12 +33,12 @@ The main scenarios for using this integration are:
 * [Deploy a multiple container Docker application to Amazon ECS](/deploy/amazon-ecs-multiple-containers/)
 
 ### IAM Policies
-There are two ways to use an AWS IAM integration in Shippable Assembly Lines:
 
-1. automated, managed Amazon ECS deployments via managed `deploy` jobs
-2. AWS CLI configuration via `cliConfig` resources in a `runSh` job
+You can use this integration to create a workflow for automated, managed Amazon ECS deployments via managed `deploy` jobs
+
 
 For managed deployments via [deploy jobs](/platform/workflow/job/deploy), the role needs to have a policy attached that will allow Shippable to create, delete, and update services and register task definitions. Here is an example policy:
+
 ```
 {
     "Version": "2012-10-17",
@@ -61,6 +61,7 @@ For managed deployments via [deploy jobs](/platform/workflow/job/deploy), the ro
 ```
 
 If your managed deployment includes a [loadBalancer](/platform/workflow/resource/loadbalancer), the policy will also need permission to assume a role for the load balancer:
+
 ```
 {
     "Version": "2012-10-17",
@@ -91,6 +92,7 @@ If your managed deployment includes a [loadBalancer](/platform/workflow/resource
 ```
 
 And if you are adding scaling policies or AWS CloudWatch metric alarms, you will need additional permissions for that as well.
+
 ```
 {
     "Version": "2012-10-17",
@@ -125,8 +127,6 @@ And if you are adding scaling policies or AWS CloudWatch metric alarms, you will
     ]
 }
 ```
-
-For `cliConfig` resources, you should make sure that your policy allows you to perform whatever actions you plan to take in your custom script.  This could mean ECR actions to pull images, ECS actions to create deployments, EC2 actions to run instances, etc.
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
