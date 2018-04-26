@@ -20,7 +20,7 @@ There are two available options to spin up your CI container with a custom image
 
 ##Minimum requirements
 
-The Shippable platform officially supports custom images built on Ubuntu 14.04, Ubuntu 16.04, CentOS7, RHEL 7, and Windows Server 2016. However, many customers have successfully used custom images that are built on officially unsupported platforms, as long as they satisfy minimum requirements mentioned below.
+The Shippable platform officially supports custom images built on Ubuntu 14.04, Ubuntu 16.04, CentOS7, RHEL 7, and Windows Server 2016. However, many customers have successfully used custom images that are built on  unsupported platforms, as long as they satisfy minimum requirements mentioned below.
 
 If your custom Docker image has `apt-get` pre-installed, we will install any additional packages required at runtime.
 
