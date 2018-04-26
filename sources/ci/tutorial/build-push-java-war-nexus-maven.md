@@ -14,7 +14,7 @@ This document assumes you're familiar with the following concepts:
 * [pom.xml](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 * [Nexus Repository Quick Start](https://help.sonatype.com/learning/repository-manager-3/proxying-maven-and-npm-quick-start-guide)
 
-If you're unfamiliar with Maven and/or Nexus, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Java CI: Build and Push a WAR application to Nexus](http://blog.shippable.com/java-ci-nexus-maven?hs_preview=FhPmvnAC-5721716280).
+If you're unfamiliar with Maven and/or Nexus, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Java CI: Build and Push a WAR application to Nexus](http://blog.shippable.com/java-ci-nexus-maven).
 
 There are many challenges with manually executing this CI workflow. First, you should execute it for every commit against the latest codebase, which is difficult to enforce manually. Second, if you want to trigger a dependent multi-stage workflow which deploys this application to Test, Staging environments and runs test suites, you will have to manually handle all that as well. This leads to overdependence on people and isn't efficient.
 
@@ -253,7 +253,7 @@ A job is an execution unit of the assembly line.
 
 In order to treat your CI workflow like an Assembly Line job, i.e. be able to define `IN` and `OUT` resources, you need to define a `runCI` job with the name of your repository appended by `_runCI`.
 
-In this section, we will define the `runCI` job that will specify the `war_loc` as an `OUT`, meaning your CI workflow will update this resource.
+In this section, we will define the `runCI` job that will specify `war_loc` as an `OUT`, meaning your CI workflow will update this resource.
 
 Add the following at the very end of your **shippable.yml**. If you already have this job in your yml, just add the `OUT` resource `war_loc`:
 
