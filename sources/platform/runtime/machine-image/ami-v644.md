@@ -62,18 +62,20 @@ If you would like to use your own CI images in place of the official images, ins
 
 These are the official language images in this version:
 
-* [Common components](#common-634)
-* [Nodejs](#nod-634)
-* [Clojure](#clojure-634)
-* [Go](#gol-634)
-* [PHP](#php-634)
-* [Java](#jav-634)
-* [Ruby](#rub-634)
-* [Python](#pyt-634)
-* [Scala](#sca-634)
-* [C/C++](#cpp-634)
+* [Common components](#common-644)
+* [Nodejs](#nod-644)
+* [Clojure](#clojure-644)
+* [Go](#gol-644)
+* [PHP](#php-644)
+* [Java](#jav-644)
+* [Ruby](#rub-644)
+* [Python](#pyt-644)
+* [Scala](#sca-644)
+* [C/C++](#cpp-644)
+* [Dotnet](#dotnet-644)
+* [ASP.Net](#aspnet-644)
 
-<a name="common-634"></a>
+<a name="common-644"></a>
 ### Common components
 
 All language images are built `FROM` a base image that corresponds to the OS version. For example, the language image for Node,js `u16nodall` is built using `u16all` as the base image, and hence has all the packages, CLIs and services installed in the base image.
@@ -89,123 +91,126 @@ We have the following base images, one for each supported OS version.
  | CentOS 7 | drydock/c7all:v6.4.4| - [Docker Hub](https://hub.docker.com/r/drydock/c7/),<br>- [GitHub](https://github.com/dry-dock/c7) | - epel-release<br>- gcc<br>- gcc-c++<br>- kernel-devel<br>- make<br>- curl<br>- openssl<br>- wget<br>- unzip<br>- zip<br>- nano<br>- openssh-clients<br>-  htop<br>- rsync<br>- vim<br>- glibc.i686<br>- libgcc_s.so.1<br>- python36u<br>- python36u-libs<br>- python36u-devel<br>- python36u-pip<br>- virtualenv<br>- jq<br>- git<br>- git-lfs | - awscli 1.15.3<br>- gcloud 196.0.0<br>- kubectl 1.8.11<br>- doctl 1.8.0<br>- jfrog-cli 1.14.0<br>- ansible 2.4.4<br>- boto 2.48.0<br>- apache libcloud 2.3.0<br>- terraform 0.11.5<br>- packer 1.2.2<br>- azure-cli 2.0.30 | - Cassandra 3.11.2<br>- MemCached 1.5.7<br>- LibMemCached 1.0.18<br>- Mongodb 3.6.3<br>- Neo4j 3.3.4<br>- RabbitMQ 3.6.15<br>- Redis-server 4.0.9<br>- ElasticSearch 6.2.3<br>- Riak 2.2.3<br>- Selenium 3.8.1<br>- Sqlite 3.22.0 |
  | Windows 16 | drydock/w16:v6.4.4| - [Docker Hub](https://hub.docker.com/r/drydock/w16/),<br>- [GitHub](https://github.com/dry-dock/w16) |  |- git-lfs 2.4.0<br>- gcloud 196.0.0<br>- awscli 1.15.2<br>- Azurecli 2.0.30<br>- kubectl 1.10.0<br>- jfrog-cli 1.11.2<br>-  terraform 0.11.6<br>- packer 1.2.1<br>- jq 1.5.0 | |
 
- <a name="nod-624"></a>
+ <a name="nod-644"></a>
 
 ### Node.js
 
  | OS           | Image                    | Link                                                                                                          | Language versions                                                 | Additional packages                                                                |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------|
- | Ubuntu 16.04 | drydock/u16nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16nodall/)<br> [GitHub](https://github.com/dry-dock/u16nodall) | - 4.8.7<br>- 5.12.0<br>- 6.11.5<br>- 7.10.1<br>- 8.1.4<br>- 8.6.0 <br>- 9.9.0 | [Common components](#common-624)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.0<br>Yarn 1.5.1 |
- | Ubuntu 16.04 (aarch64) | drydockaarch64/u16nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16nodall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16nodall) | - 4.8.7<br>- 5.12.0<br>- 6.11.5<br>- 7.10.1<br>- 8.1.4<br>- 8.6.0 <br>- 9.11.1 | [Common components](#common-624)<br>nvm<br>Java OpenJDK 1.8.0<br>Ruby 2.5.1<br>Yarn 1.5.1 |
- | Ubuntu 14.04 | drydock/u14nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)<br>[GitHub](https://github.com/dry-dock/u14nodall)  | - 4.8.7 <br />- 5.12.0 <br />- 6.11.5 <br />- 7.10.1 <br />- 8.9.4 <br />- 9.11.1 | [Common components](#common-624)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.0<br>Yarn 1.5.1 |
- | CentOS 7 | drydock/c7nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/c7nodall/)<br>[GitHub](https://github.com/dry-dock/c7nodall)  | - 4.9.1 <br />- 5.12.0 <br />- 6.14.1 <br />- 7.10.1 <br />- 8.11.1 <br />- 9.11.1 | [Common components](#common-624)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.1<br>Yarn 1.5.1 |
+ | Ubuntu 16.04 | drydock/u16nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16nodall/)<br> [GitHub](https://github.com/dry-dock/u16nodall) | - 4.8.7<br>- 5.12.0<br>- 6.11.5<br>- 7.10.1<br>- 8.1.4<br>- 8.6.0 <br>- 9.9.0 | [Common components](#common-644)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.0<br>Yarn 1.5.1 |
+ | Ubuntu 16.04 (aarch64) | drydockaarch64/u16nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16nodall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16nodall) | - 4.8.7<br>- 5.12.0<br>- 6.11.5<br>- 7.10.1<br>- 8.1.4<br>- 8.6.0 <br>- 9.11.1 | [Common components](#common-644)<br>nvm<br>Java OpenJDK 1.8.0<br>Ruby 2.5.1<br>Yarn 1.5.1 |
+ | Ubuntu 14.04 | drydock/u14nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u14nodall/)<br>[GitHub](https://github.com/dry-dock/u14nodall)  | - 4.8.7 <br />- 5.12.0 <br />- 6.11.5 <br />- 7.10.1 <br />- 8.9.4 <br />- 9.11.1 | [Common components](#common-644)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.0<br>Yarn 1.5.1 |
+ | CentOS 7 | drydock/c7nodall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/c7nodall/)<br>[GitHub](https://github.com/dry-dock/c7nodall)  | - 4.9.1 <br />- 5.12.0 <br />- 6.14.1 <br />- 7.10.1 <br />- 8.11.1 <br />- 9.11.1 | [Common components](#common-644)<br>nvm<br>Java 1.8.0<br>Ruby 2.5.1<br>Yarn 1.5.1 |
 
  ---
 
- <a name="clo-624"></a>
+ <a name="clo-644"></a>
 
 ### Clojure
 
  | OS           | Image                    | Link                                                                                                          | Language versions                          | Additional packages                                                           |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------|-------------------------------------------------------------------------------|
- | Ubuntu 16.04 | drydock/u16cloall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cloall/),<br>- [GitHub](https://github.com/dry-dock/u16cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-624)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
- | Ubuntu 14.04 | drydock/u14cloall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/),<br>- [GitHub](https://github.com/dry-dock/u14cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-624)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
+ | Ubuntu 16.04 | drydock/u16cloall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cloall/),<br>- [GitHub](https://github.com/dry-dock/u16cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-644)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
+ | Ubuntu 14.04 | drydock/u14cloall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/),<br>- [GitHub](https://github.com/dry-dock/u14cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-644)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
 
  ---
 
- <a name="gol-624"></a>
+ <a name="gol-644"></a>
 
 ### Go
 
   | OS   | Image  | Link   | Language versions  | Additional packages   |
   |------|--------|--------|--------------------|-----------------------|
-  | Ubuntu 16.04 | drydock/u16golall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16golall/)<br>- [GitHub](https://github.com/dry-dock/u16golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.2<br>- 1.10.1    | - [Common components](#common-624)<br>- gvm 1.10.1<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14golall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14golall/)<br>- [GitHub](https://github.com/dry-dock/u14golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.5<br>- 1.10.1    | - [Common components](#common-624)<br>- gvm 1.4<br>- Java 1.8<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 16.04 | drydock/u16golall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16golall/)<br>- [GitHub](https://github.com/dry-dock/u16golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.2<br>- 1.10.1    | - [Common components](#common-644)<br>- gvm 1.10.1<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 14.04 | drydock/u14golall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14golall/)<br>- [GitHub](https://github.com/dry-dock/u14golall) | - 1.7.6<br>- 1.8.5<br>- 1.9.5<br>- 1.10.1    | - [Common components](#common-644)<br>- gvm 1.4<br>- Java 1.8<br>- Node 8.11.1<br>- Ruby 2.5.0 |
 
 
  ---
 
- <a name="php-624"></a>
+ <a name="php-644"></a>
 
 ### PHP
 
   | OS           | Image                    | Link                                                                                                          | Language versions       | Additional packages                                                                              |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16phpall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16phpall/),<br>- [Github](https://github.com/dry-dock/u16phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-624)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14phpall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/),<br>- [Github](https://github.com/dry-dock/u14phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-624)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
+  | Ubuntu 16.04 | drydock/u16phpall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16phpall/),<br>- [Github](https://github.com/dry-dock/u16phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 14.04 | drydock/u14phpall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/),<br>- [Github](https://github.com/dry-dock/u14phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
 
  ---
 
- <a name="jav-624"></a>
+ <a name="jav-644"></a>
 
 ### Java
 
   | OS           | Image                    | Link                                                                                                          | Language versions                                      | Additional packages                                         |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16javall/),<br>- [GitHub](https://github.com/dry-dock/u16javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10 | - [Common components](#common-624)<br>- Node 8.11.1<br>- Ruby 2.5.0 <br>- Gradle 4.2.1 <br>- Maven 3.5.2 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)|
-  | Ubuntu 16.04 (aarch64) | drydockaarch64/u16javall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16javall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16javall) | - openjdk7<br>- openjdk8<br>- oraclejdk8 | [Common components](#common-624)<br>- Node 8.11.1<br>- Ruby 2.5.1 <br>- Gradle 4.6 <br>- Maven 3.5.3 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)|
-  | Ubuntu 14.04 | drydock/u14javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)<br>- [GitHub](https://github.com/dry-dock/u14javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10           | - [Common components](#common-624)<br>- Node 8.11.1<br>- Ruby 2.5.0 <br>- Gradle 4.2.1 <br>- Maven 3.5.2 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
-  | CentOS 7 | drydock/c7javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7javall/)<br>- [GitHub](https://github.com/dry-dock/c7javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10           | - [Common components](#common-624)<br>- Node 9.11.1 <br>- Ruby 2.5.1 <br>- Gradle 4.6 <br>- Maven 3.5.3 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
+  | Ubuntu 16.04 | drydock/u16javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16javall/),<br>- [GitHub](https://github.com/dry-dock/u16javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10 | - [Common components](#common-644)<br>- Node 8.11.1<br>- Ruby 2.5.0 <br>- Gradle 4.2.1 <br>- Maven 3.5.2 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)|
+  | Ubuntu 16.04 (aarch64) | drydockaarch64/u16javall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16javall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16javall) | - openjdk7<br>- openjdk8<br>- oraclejdk8 | [Common components](#common-644)<br>- Node 8.11.1<br>- Ruby 2.5.1 <br>- Gradle 4.6 <br>- Maven 3.5.3 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8)|
+  | Ubuntu 14.04 | drydock/u14javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)<br>- [GitHub](https://github.com/dry-dock/u14javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10           | - [Common components](#common-644)<br>- Node 8.11.1<br>- Ruby 2.5.0 <br>- Gradle 4.2.1 <br>- Maven 3.5.2 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
+  | CentOS 7 | drydock/c7javall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7javall/)<br>- [GitHub](https://github.com/dry-dock/c7javall) | - openjdk7<br>- openjdk8<br>- openjdk9<br>- oraclejdk8<br>- oraclejdk10           | - [Common components](#common-644)<br>- Node 9.11.1 <br>- Ruby 2.5.1 <br>- Gradle 4.6 <br>- Maven 3.5.3 <br>- Android-sdk 26.0.1 (to be used with openjdk8/oraclejdk8) |
 
  ---
 
 
- <a name="rub-624"></a>
+ <a name="rub-644"></a>
 
 ### Ruby
 
   | OS           | Image                    | Link                                                                                                          | Language versions                                              | Additional packages                                                    |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16ruball:v6.4.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/),<br>- [GitHub](https://github.com/dry-dock/u16ruball) |- 2.2.9<br>- 2.3.6<br>- 2.4.3<br>- 2.5.1<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-624)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
-  | Ubuntu 14.04 | drydock/u14ruball:v6.4.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.2.8<br>- 2.3.6<br>- 2.4.3<br>- 2.5.0<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-624)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
+  | Ubuntu 16.04 | drydock/u16ruball:v6.4.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/),<br>- [GitHub](https://github.com/dry-dock/u16ruball) |- 2.2.9<br>- 2.3.6<br>- 2.4.3<br>- 2.5.1<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-644)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
+  | Ubuntu 14.04 | drydock/u14ruball:v6.4.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.2.8<br>- 2.3.6<br>- 2.4.3<br>- 2.5.0<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-644)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
 
 
- <a name="pyt-624"></a>
+ <a name="pyt-644"></a>
 
 ### Python
 
   | OS           | Image                    | Link                                                                                                      | Language versions                                       | Additional packages                                                                 |
   |--------------|--------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16pytall/)<br> [GitHub](https://github.com/dry-dock/u16pytall) |- 2.7.12<br>- 3.4.8<br>- 3.5.2<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 16.04 (aarch64) | drydockaarch64/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16pytall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16pytall) | - 2.7<br>- 3.5 | [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1 |
-  | Ubuntu 14.04 | drydock/u14pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)<br>- [GitHub](https://github.com/dry-dock/u14pytall)  | - 2.7.12<br>- 3.4.3<br>- 3.5.5<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
-  | CentOS 7 | drydock/c7pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7pytall/)<br>- [GitHub](https://github.com/dry-dock/c7pytall)  | - 2.7.5 <br>- 3.6.5 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 9.11.1 <br>- Ruby 2.5.1  |
+  | Ubuntu 16.04 | drydock/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16pytall/)<br> [GitHub](https://github.com/dry-dock/u16pytall) |- 2.7.12<br>- 3.4.8<br>- 3.5.2<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-644)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 16.04 (aarch64) | drydockaarch64/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16pytall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16pytall) | - 2.7<br>- 3.5 | [Common components](#common-644)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1 |
+  | Ubuntu 14.04 | drydock/u14pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)<br>- [GitHub](https://github.com/dry-dock/u14pytall)  | - 2.7.12<br>- 3.4.3<br>- 3.5.5<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-644)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
+  | CentOS 7 | drydock/c7pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7pytall/)<br>- [GitHub](https://github.com/dry-dock/c7pytall)  | - 2.7.5 <br>- 3.6.5 | - [Common components](#common-644)<br>- virtualenv<br>- Java 1.8.0<br>- Node 9.11.1 <br>- Ruby 2.5.1  |
 
  ---
 
- <a name="sca-624"></a>
+ <a name="sca-644"></a>
 
 ### Scala
 
   | OS           | Image                    | Link                                                                                                          | Language versions                | Additional packages                                                          |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------|------------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/),<br>- [GitHub](https://github.com/dry-dock/u16scaall) |<br>- 2.11.12<br>- 2.12.5 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.11.12<br>- 2.12.5 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
+  | Ubuntu 16.04 | drydock/u16scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/),<br>- [GitHub](https://github.com/dry-dock/u16scaall) |<br>- 2.11.12<br>- 2.12.5 | - [Common components](#common-644)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 14.04 | drydock/u14scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.11.12<br>- 2.12.5 | - [Common components](#common-644)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
 
 
 
- <a name="cpp-624"></a>
+ <a name="cpp-644"></a>
 
 ### C/C++
 
   | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/u16cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [GitHub](https://github.com/dry-dock/u14cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
-  | Ubuntu 16.04 | drydockaarch64/u16cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock-aarch64/u16cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1  |
-  | CentOS 7 | drydock/c7cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.3.5   |
+  | Ubuntu 16.04 | drydock/u16cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/u16cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
+  | Ubuntu 14.04 | drydock/u14cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [GitHub](https://github.com/dry-dock/u14cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
+  | Ubuntu 16.04 | drydockaarch64/u16cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock-aarch64/u16cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1  |
+  | CentOS 7 | drydock/c7cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.3.5   |
+
+<a name="dotnet-644"></a>
 
 ### Dotnet
 
 | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
 |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
-| Windows 16 | dry-dock/w16dotnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16dotnetcore) | - .NET Core SDK 2.1.104 | - [Common components](#common-624)<br> |
+| Windows 16 | dry-dock/w16dotnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16dotnetcore) | - .NET Core SDK 2.1.104 | - [Common components](#common-644)<br> |
 
+<a name="aspnet-644"></a>
 
 ### ASP.Net
 
 | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
 |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
-| Windows 16 | dry-dock/w16aspnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16aspnetcore) | - ASP.NET Core 2.0.6 |- [Common components](#common-624)<br>  |
+| Windows 16 | dry-dock/w16aspnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16aspnetcore) | - ASP.NET Core 2.0.6 |- [Common components](#common-644)<br>  |
 
  ---
