@@ -183,7 +183,6 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 16.04 | drydock/u16scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/),<br>- [GitHub](https://github.com/dry-dock/u16scaall) |<br>- 2.11.12<br>- 2.12.5 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
   | Ubuntu 14.04 | drydock/u14scaall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.11.12<br>- 2.12.5 | - [Common components](#common-624)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
 
- ---
 
 
  <a name="cpp-624"></a>
@@ -196,5 +195,18 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 14.04 | drydock/u14cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [GitHub](https://github.com/dry-dock/u14cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
   | Ubuntu 16.04 | drydockaarch64/u16cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock-aarch64/u16cppall) | - gcc 7.3<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1  |
   | CentOS 7 | drydock/c7cppall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.2<br>- clang 5.0.1 | - [Common components](#common-624)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.3.5   |
+
+### Dotnet
+
+| OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
+|--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
+| Windows 16 | dry-dock/w16dotnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16dotnetcore) | - .NET Core SDK 2.1.104 | - [Common components](#common-624)<br> |
+
+
+### ASP.Net
+
+| OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
+|--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
+| Windows 16 | dry-dock/w16aspnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16aspnetcore) | - ASP.NET Core 2.0.6 |- [Common components](#common-624)<br>  |
 
  ---
