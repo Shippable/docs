@@ -209,6 +209,6 @@ We have the following base images, one for each supported OS version.
 
 | OS           | Image                    | Link                                                                                                          | Language versions      | Additional packages                                                     |
 |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
-| Windows 16 | dry-dock/w16aspnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16aspnetcore) | - ASPNETCORE 2.0.6 |- [Common components](#common-624)<br>  |
+| Windows 16 | dry-dock/w16aspnetcore:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16aspnetcore) | - ASP.NET Core 2.0.6 |- [Common components](#common-624)<br>  |
 
  ---
