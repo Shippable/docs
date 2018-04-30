@@ -170,7 +170,7 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 16.04 | drydock/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydock/u16pytall/)<br> [GitHub](https://github.com/dry-dock/u16pytall) |- 2.7.12<br>- 3.4.8<br>- 3.5.2<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
   | Ubuntu 16.04 (aarch64) | drydockaarch64/u16pytall:v6.4.4 | [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16pytall/)<br> [GitHub](https://github.com/dry-dock-aarch64/u16pytall) | - 2.7<br>- 3.5 | [Common components](#common-624)<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.1 |
   | Ubuntu 14.04 | drydock/u14pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14pytall/)<br>- [GitHub](https://github.com/dry-dock/u14pytall)  | - 2.7.12<br>- 3.4.3<br>- 3.5.5<br>- 3.6.5<br>- pypy2 5.10.0<br>- pypy3 5.10.1 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
-  | CentOS 7 | drydock/c7pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7pytall/)<br>- [GitHub](https://github.com/dry-dock/c7pytall)  | - 2.7 (2.7.5) <br>- 3.6 (3.6.5) | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 9.11.1 <br>- Ruby 2.5.1  |
+  | CentOS 7 | drydock/c7pytall:v6.4.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7pytall/)<br>- [GitHub](https://github.com/dry-dock/c7pytall)  | - 2.7.5 <br>- 3.6.5 | - [Common components](#common-624)<br>- virtualenv<br>- Java 1.8.0<br>- Node 9.11.1 <br>- Ruby 2.5.1  |
 
  ---
 
