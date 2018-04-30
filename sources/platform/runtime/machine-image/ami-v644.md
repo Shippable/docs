@@ -64,7 +64,7 @@ These are the official language images in this version:
 
 * [Common components](#common-644)
 * [Nodejs](#nod-644)
-* [Clojure](#clojure-644)
+* [Clojure](#clo-644)
 * [Go](#gol-644)
 * [PHP](#php-644)
 * [Java](#jav-644)
