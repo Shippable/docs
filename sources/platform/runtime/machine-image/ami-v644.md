@@ -25,7 +25,6 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Shippable Official u14 and u16 Docker Images with TAG: `v6.4.4`
 
 ## u16 sku
-**What is installed on the machine image?**
 
 * Host Operating System: Ubuntu 16.04 LTS
 * Build Container Operating System: Ubuntu 16.04.3 LTS
@@ -53,7 +52,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 * Host Operating System: Windows Server 2016 Datacenter Edition (Version 1607)
 * Build Container Operating System: Windows Server Core 2016 v10.0.14393.1884
 * Docker Server Version: 17.06.2-ee
-* Shippable Official w16 Docker Images with TAG: v6.4.4
+* Shippable Official w16 Docker Images with TAG: `v6.4.4`
 
 ## Shippable Official Docker Images
 
