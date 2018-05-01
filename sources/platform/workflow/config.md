@@ -124,9 +124,10 @@ integrations:
       on_cancel: always | change | never
       on_start: always | never
       on_pull_request: always | never
-	   #### special tags for email type ####
+      #### special tags for email type ####
       sendConsoleLogs: <boolean>
       sendCoverageReports: <boolean>
+      sendFailingSnippet: <boolean>
       #### special tags for email type ####
 
   hub:
@@ -242,6 +243,7 @@ integrations:
 		* `on_pull_request` -- control the behaviour when the CI run is for a pull request
 		* `sendConsoleLogs` -- send consoles logs as attachment (email type only)
 		* `sendCoverageReports ` -- send coverage reports as attachment (email type only)
+		* `sendFailingSnippet ` -- send failing console logs in the email (email type only)
 
 	* `hub` -- used to connect to artifact/Docker registries to pull/push images/artifacts. [Read more](/ci/push-artifacts/)
 		* `integrationName` -- name of the subscription integration to use (refer to type guides)
@@ -337,6 +339,7 @@ jobs:
     on_failure:
       - script:     echo "FAILED"
       - NOTIFY:     <notification resource name>
+        sendFailingSnippet: true
     on_cancel:
       - script:     echo "CANCEL"
     always:
@@ -403,6 +406,7 @@ Jobs are the executable units of your Assembly Line.  A list of all supported jo
     * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
     	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
     	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
+    	  * `sendFailingSnippet` -- this option will include logs from sections that failed in email notifications. No logs will be sent for other notification methods.
     * **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
     * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
     * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
