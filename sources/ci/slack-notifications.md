@@ -1,6 +1,7 @@
 page_main_title: Sending messages to Slack
 main_section: CI
-sub_section: Sending notifications
+sub_section: Configuration
+sub_sub_section: Sending notifications
 page_title: Sending slack notifications
 page_description: Configure Slack to send notifications for Continuous Integration and Delivery actions
 page_keywords: slack, Continuous Integration, Continuous Deployment, CI/CD, testing, automation

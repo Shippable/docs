@@ -1,6 +1,7 @@
 page_main_title: Sending messages to IRC
 main_section: CI
-sub_section: Sending notifications
+sub_section: Configuration
+sub_sub_section: Sending notifications
 page_title: Sending IRC notifications
 page_description: Configure IRC to send notifications for Continuous Integration and Delivery actions
 page_keywords: irc, Continuous Integration, Continuous Deployment, CI/CD, testing, automation

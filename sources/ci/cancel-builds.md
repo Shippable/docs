@@ -1,6 +1,7 @@
 page_main_title: Canceling builds
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Configuring runs
 page_description: Learn how to cancel commit/PR builds when updated
 

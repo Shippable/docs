@@ -12,15 +12,15 @@ The **Hipchat Key** Integration is used to connect Shippable DevOps Assembly Lin
 
 ## Creating an Account Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+* Sign in to your HipChat account using [this link to generate a token](https://www.hipchat.com/account/api).
+    * Provide credentials to your HipChat account, if prompted.
+* Create a token with `Send Message` and `Send Notification` scopes. Copy the token.
+* To add your account integration, follow steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page. Here is the information you need to create this integration:
+    * **Integration type** -- **Hipchat**
+    * **Name** -- choose a friendly name for the integration
+    * **Token** -- HipChat account token
 
-Here is the information you need to create this integration:
-
-* **Integration type** -- **Hipchat**
-* **Name** -- choose a friendly name for the integration
-* **Token** -- HipChat account token
-
-Here is how you can get your [Hipchat account token](https://developer.atlassian.com/hipchat/guide/hipchat-rest-api/api-access-tokens).
+More about Hipchat tokens is explained in [Hipchat documentation](https://developer.atlassian.com/hipchat/guide/hipchat-rest-api/api-access-tokens).
 
 ## Usage
 

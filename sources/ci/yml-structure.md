@@ -1,6 +1,6 @@
 page_main_title: Yml structure
 main_section: CI
-sub_section: Overview
+sub_section: Configuration
 page_title: Anatomy of shippable.yml
 page_description: The structure of a basic shippable.yml
 

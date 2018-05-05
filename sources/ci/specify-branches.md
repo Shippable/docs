@@ -1,6 +1,7 @@
 page_main_title: Specifying branches to build
 main_section: CI
-sub_section: Preparing your environment
+sub_section: Configuration
+sub_sub_section: Preparing your environment
 page_title: Including or Excluding branches for Continuous Integration
 page_description: How to include or exclude branches in your CI/CD config
 page_keywords: shippable, branches, config, yml, master, branch, GitHub, Bitbucket, GitLab

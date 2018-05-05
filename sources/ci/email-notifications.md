@@ -1,6 +1,7 @@
 page_main_title: Sending messages to Email
 main_section: CI
-sub_section: Sending notifications
+sub_section: Configuration
+sub_sub_section: Sending notifications
 page_title: Sending email notifications
 page_description: Configure Email to send notifications for Continuous Integration and Delivery actions
 page_keywords: email, Continuous Integration, Continuous Deployment, CI/CD, testing, automation

@@ -1,6 +1,7 @@
 page_main_title: Skipping a build
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Skipping a build
 page_description: How to skip a build in Shippable
 

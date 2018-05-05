@@ -1,6 +1,7 @@
 page_main_title: SQLite
 main_section: CI
-sub_section: Working with services
+sub_section: Configuration
+sub_sub_section: Working with services
 page_title: Continuous Integration with SQLite
 page_description: Continuous Integration with SQLite
 

@@ -1,6 +1,7 @@
 page_main_title: JaCoCo reports
 main_section: CI
-sub_section: Configuring test and code coverage
+sub_section: Configuration
+sub_sub_section: Configuring test/code coverage
 page_title: Advanced Reporting with JaCoCo
 page_description: View your JaCoCo reports with rich visualizations in your continuous integration build
 page_keywords: java, jacoco, continuous integration, CI/CD, code coverage

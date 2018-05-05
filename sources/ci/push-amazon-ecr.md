@@ -1,6 +1,7 @@
 page_main_title: Push Docker image to Amazon ECR
 main_section: CI
-sub_section: Pushing artifacts
+sub_section: Configuration
+sub_sub_section: Pushing artifacts
 page_title: Pushing a Docker image to Amazon ECR
 page_description: How to push a Docker image to Amazon ECR in Shippable
 

@@ -1,6 +1,7 @@
 page_main_title: Python
 main_section: CI
-sub_section: Language guide
+sub_section: Configuration
+sub_sub_section: Language guide
 page_title: Continuous Integration with Python
 page_description: How to do Continuous Integration with Python in Shippable
 

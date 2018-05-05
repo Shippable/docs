@@ -1,6 +1,7 @@
 page_main_title: Running CI as a non-root user
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Running CI as a non-root user
 page_description: How to run CI as a non-root user
 page_keywords: non root user

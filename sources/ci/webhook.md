@@ -1,6 +1,7 @@
 page_main_title: Using Webhook Integration
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Sending Webhook notifications
 page_keywords: webhook, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 

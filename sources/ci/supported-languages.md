@@ -1,6 +1,7 @@
 page_main_title: Overview
 main_section: CI
-sub_section: Language guide
+sub_section: Configuration
+sub_sub_section: Language guide
 page_title: Language specific guides
 page_description: Overview of Language specific guides
 

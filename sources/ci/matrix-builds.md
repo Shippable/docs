@@ -1,6 +1,7 @@
 page_main_title: Triggering parallel jobs
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Running matrix builds
 page_description: How to use matrix builds in your Build Configuration
 page_keywords: getting started, questions, documentation, shippable, config, yml, multiple languages, versions
@@ -26,7 +27,7 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
- 
+
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
   - gemfiles/Gemfile.rails-3.0.x
@@ -62,7 +63,7 @@ gemfile:
   - gemfiles/Gemfile.rails-3.0.x
 
 ```
-This results in a `3x2` build matrix. 
+This results in a `3x2` build matrix.
 
 You can exclude a specific job from a matrix by configuring your yml with an `exclude` tag:
 

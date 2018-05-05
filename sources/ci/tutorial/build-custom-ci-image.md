@@ -1,10 +1,6 @@
-page_main_title: Building a custom Docker image to use for CI
-main_section: Tutorial
-sub_section: CI
-sub_sub_section: build
-page_title: Building a custom Docker image to use for CI
-page_description: Building a custom Docker image to use with Shippable CI
-page_keywords: Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines
+page_description: Building a custom Docker image to use for CI
+main_section: CI
+sub_section: Tutorials
 
 # Building a custom Docker image to use for CI
 
@@ -19,7 +15,7 @@ However, there are cases where you might want to build your own Docker image and
 * You are using a combination of languages and tools not supported together in any official images.
 * You want to run CI in your own Docker image to better simulate your production environment.
 
-There are a few minimum requirements necessary for a custom image to be used on Shippable, which are documented [here](/ci/custom-docker-image/#using-a-custom-docker-image)
+The minimum requirements necessary for a custom image to be used on Shippable are documented [here](/ci/custom-docker-image/#using-a-custom-docker-image)
 
 This document assumes you're familiar with the following concepts:
 
@@ -28,59 +24,20 @@ This document assumes you're familiar with the following concepts:
 * [Docker build](https://docs.docker.com/engine/reference/commandline/build/)
 * [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
 
-## Manual steps to build a Docker image for CI
 
-You can choose to build your image manually and push it to a Docker registry, and then use the tutorial on [Pulling a Docker image to use for CI](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci).
+## Manual vs automated builds
 
-This section covers step-by-step instructions to manually build your Docker image.
+You can choose to build and push your custom image to a Docker registry manually, by [following instructions on our blog](http://blog.shippable.com/build-a-docker-image-and-push-it-to-docker-hub). You can then pull the image and use it to spin up your CI container by including the configuration shown here: [Pulling a Docker image to use for CI](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci).
 
-* Create a GitHub repo that will hold the code to build the image and clone it on your local machine. If you do not yet have your own repository, you can clone our sample [here](https://github.com/devops-recipes/build_custom_ci_image).
+However, we recommend automating the image building process for the following reasons:
 
-* Create an account on [Docker Hub](https://hub.docker.com) or any [supported Docker registry](/getting-started/what-is-supported/#artifact-repositories).
+* Every time your custom image changes, your CI workflow can be automatically triggered
+* Your custom image can be versioned with a build number, which helps keep track of changes and rollback easily
+* Your build nodes already have necessary packages and tools pre-installed, such as Docker.
+* Docker registry credentials are managed by the build platform which encrypts everything and just injects values at runtime.
+* Your machine is free while the image is building, which can be a resource intensive process.
 
-* Install Docker on your local machine. More information is in [Getting Started Guide](https://docs.docker.com/get-started/)
-
-* Login to docker `docker login` with your credentials. [Here is the reference for docker login command](https://docs.docker.com/engine/reference/commandline/login/).
-
-* In order to build a Docker image, you need a Dockerfile, which will look something like this:
-
-**Dockerfile**
-
-```
-FROM ubuntu:16.04
-
-ADD . /u16
-
-RUN /u16/install.sh && rm -rf /tmp && mkdir /tmp
-
-ENV BASH_ENV "/etc/drydock/.env"
-```
-
-* Build your image by executing this command. `$IMG_NAME` is your image name and `$IMG_TAG` is your tag
-
-```
-sudo docker build -t=$IMG_NAME:$IMG_TAG .
-```
-
-* Now you can push this image to your hub by executing this command.
-
-```
-sudo docker push $IMG_NAME:$IMG_TAG
-```
-
-* Now that your image is available on Docker registry, you can follow the tutorial on [Pulling a Docker image to use for CI](/ci/custom-docker-image/#pulling-your-custom-image-and-using-it-for-ci).
-
-## Challenges with manual build
-
-There are a few challenges with using the manual method to build your custom images:
-
-* Your CI workflow will not trigger automatically when the custom image source code changes, since it is not connected to your CI job.
-* You will need to come up with a versioning logic for your Docker image to keep track of changes.
-* You have to install Docker on your local machine and manage credentials across multiple repos.
-* You will be dependent on network latency as you are pulling all components to your local machine.
-* Your machine is under load during the build process.
-
-## Automating Docker Build
+## Automating Docker Builds
 
 There are many build services for Docker, but they will not automatically trigger your CI workflow each time your Docker image is rebuilt. To configure a workflow where your CI is triggered every time the base image changes, you need to configure the following on Shippable:
 

@@ -1,6 +1,7 @@
 page_main_title: Building a Docker image
 main_section: CI
-sub_section: Building and testing your project
+sub_section: Configuration
+sub_sub_section: Building and testing your project
 page_title: Building a Docker image
 page_description: How to build a docker image in Shippable
 

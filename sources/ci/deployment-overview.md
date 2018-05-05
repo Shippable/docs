@@ -1,6 +1,7 @@
 page_main_title: Overview
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: Deploying to an IaaS/PaaS
 page_description: Overview of deploying to IaaS/PaaS at the end of your Shippable CI workflow  
 

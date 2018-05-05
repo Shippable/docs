@@ -1,6 +1,7 @@
 page_main_title: Retrying a command
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Retrying a command during CI
 page_description: How do get around network glitches by retrying commands during CI
 page_keywords: retry, shippable docs, config, yml, network, latency, performance

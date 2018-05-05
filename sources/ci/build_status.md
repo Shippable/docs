@@ -1,6 +1,7 @@
 page_main_title: Build status
 main_section: CI
-sub_section: Building and testing your project
+sub_section: Configuration
+sub_sub_section: Building and testing your project
 page_title: Status codes for Shippable API
 page_description: Status codes for Shippable API
 
