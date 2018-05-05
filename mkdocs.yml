@@ -288,6 +288,7 @@ pages:
       - Google Cloud: platform/integration/gcloudKey.md
       - HipChat: platform/integration/hipchatKey.md
       - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
+      - Jira: platform/integration/jira.md
       - Joyent Triton: platform/integration/joyentTritonKey.md
       - Key-value: platform/integration/key-value.md
       - Kubernetes: platform/integration/kubernetes.md
@@ -332,7 +333,8 @@ pages:
         - Language versions: platform/runtime/machine-image/language-versions.md
         - CLI versions: platform/runtime/machine-image/cli-versions.md
         - Services versions: platform/runtime/machine-image/services-versions.md
-        - AMI v6.3.4 (latest): platform/runtime/machine-image/ami-v634.md
+        - AMI v6.4.4 (latest): platform/runtime/machine-image/ami-v644.md
+        - AMI v6.3.4 : platform/runtime/machine-image/ami-v634.md
         - AMI v6.2.4: platform/runtime/machine-image/ami-v624.md
         - AMI v6.1.4: platform/runtime/machine-image/ami-v614.md
         - AMI v5.10.4: platform/runtime/machine-image/ami-v5104.md
