@@ -26,13 +26,13 @@ The following versions are supported in each Machine Image:
 
 | Version  | OS | Machine Image |
 |------------------|-----------|-----------|
-|1.9.0  | [All](/platform/runtime/machine-image/os-versions) | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
-|1.8.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
-|1.7.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
-|1.6.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
-|1.5.1  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
-|1.4.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
-|1.3.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.9.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+|1.8.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.7.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.6.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.5.1  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.4.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.3.0  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
 
 ## C/C++
 This section explains how Shippable DevOps Assembly Lines Platform behaves when you set `language: c` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci).
