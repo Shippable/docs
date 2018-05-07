@@ -25,9 +25,12 @@ This page describes the versions available for each CLI and the Machine Image(s)
 
 ## Ansible
 
-| Version  |  Machine Images  
-|----------|---------
-| 2.3.0.0  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
+### 
+
+| Version  |  OS  | Machine Images | 
+|----------|--------|--------|
+| 2.4.4 | - Ubuntu 14.04<br> - Ubuntu 16.04 <br> - Centos 7 <br> - Ubuntu 16.04 (aarch32)<br> - Ubuntu 16.04 (aarch64)| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 2.3.0.0 | - Ubuntu 14.04 <br> - Ubuntu 16.04 <br> - Centos 7 <br> |- [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  <br> - [v5.10.4](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> - [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) | 
 
 Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/command_line_tools.html) for help with CLI commands.
 
