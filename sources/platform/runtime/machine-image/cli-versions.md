@@ -104,7 +104,7 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 |----------|---------|---|
 | 1.11.2   | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.10.1  | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 1.7.0   |  -  Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier  <br> [v6.2.4](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+| 1.7.0   | -  Ubuntu 14.04, Ubuntu 16.04 <br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier  <br> [v6.2.4](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 
 
 
