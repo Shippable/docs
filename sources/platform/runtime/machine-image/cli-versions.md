@@ -36,8 +36,8 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 
 | Version  |  OS | Machine Images
 |----------|---------|-------|
-| 1.15.2    | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.15.3    | - Ubuntu 16.04 (aarch64) <br> - CentOS 7 <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 1.15.2    | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/) 
 | 1.14.41   | - CentOS 7 <br> | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
@@ -83,23 +83,31 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 
 ## Google Cloud Platform
 
-| Version  |  Machine Images
-|----------|---------
-| 165.0.0  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 160.0.0  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-| 157.0.0  | [v5.6.1](/platform/runtime/machine-image/ami-v561/)
-| 151.0.0  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) (Ubuntu 14.04)
-| 148.0.0  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) (Ubuntu 16.04)
-| 148.0.0  | [v5.4.1](/platform/runtime/machine-image/ami-v541/)
-| 145.0.0  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) (Ubuntu 16.04)
-| 144.0.0  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) (Ubuntu 14.04)
+| Version  | OS | Machine Images
+|----------|---------|------|
+| 196.0.0  |  - Ubuntu 16.04 (aarch64), CentOS 7, Windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 194.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 189.0.0  |  - CentOS 7 <br>| [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 173.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) TO [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 160.0.0  |  - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 165.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 160.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+| 157.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/)
+| 151.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) 
+| 148.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) 
+| 148.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.4.1](/platform/runtime/machine-image/ami-v541/)
+| 145.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) 
+| 144.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) 
 
 ## JFrog
 
-| Version  |   Machine Images
-|----------|---------
-|1.10.1  |[v5.8.2](/platform/runtime/machine-image/ami-v582/)
-|1.7.0  | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
+| Version  | OS |  Machine Images
+|----------|---------|---|
+| 1.11.2   | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 1.10.1  | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 1.7.0   |  -  Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier  <br> [v6.2.4](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+
+
 
 Please refer to the [JFrog CLI User Guide](https://www.jfrog.com/confluence/display/CLI/JFrog+CLI) for help with CLI commands.
 
