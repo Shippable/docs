@@ -36,7 +36,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 
 | Version  |  OS | Machine Images
 |----------|---------|-------|
-| 1.15.3    | - Ubuntu 16.04 (aarch64) <br> - CentOS 7 <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 1.15.3    | - Ubuntu 16.04 (aarch64), CentOS 7 <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.15.2    | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/) 
@@ -63,7 +63,7 @@ Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elas
 
 | Version  | OS   | Machine Images
 |----------|---------|-----|
-| 3.0.0     | - Ubuntu 16.04 (aarch32  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+| 3.0.0     | - Ubuntu 16.04 (aarch32)  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.27    | - CentOS 7 |  [v6.3.4](/platform/runtime/machine-image/ami-v644/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.10.19   | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.10.2](/platform/runtime/machine-image/ami-v5102/)
@@ -94,8 +94,7 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 | 160.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 | 157.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/)
 | 151.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) 
-| 148.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) 
-| 148.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.4.1](/platform/runtime/machine-image/ami-v541/)
+| 148.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) to [v5.4.1](/platform/runtime/machine-image/ami-v541/)
 | 145.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) 
 | 144.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) 
 
