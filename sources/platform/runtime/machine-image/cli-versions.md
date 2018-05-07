@@ -41,10 +41,9 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/) 
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.41   | - CentOS 7 <br> | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
-| 1.11.91   | - Ubuntu 16.04 (aarch64) <br> | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 1.11.91   | - Ubuntu 16.04 (aarch64)  <br> - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br /> [v5.8.2](/platform/runtime/machine-image/ami-v582/) <br /> [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 1.11.164  | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
-| 1.11.91   | - Ubuntu 14.04 <br>- Ubantu16.04 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 1.11.44   | - Ubuntu 14.04 <br>- Ubantu16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
+| 1.11.44   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
 
 Please refer to the [AWS CLI page](https://aws.amazon.com/cli/) for help with CLI commands.
 
