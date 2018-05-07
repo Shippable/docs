@@ -68,23 +68,25 @@ The following images are available when you configure `language: go` in your [sh
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16golall/)
 	* [Github](https://github.com/dry-dock/u16golall)
 
-| Go Version | Language Image Tags | Machine Image |Supported OS
-|------------|---------------------|-----------|-----------
-|1.9.2       | v6.1.4 and later    | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|1.9       	 | v5.10.4  					 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
-|1.8.5       | v6.1.4 and later    | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|1.8.3       |  v5.7.3, v5.10.4   |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
-|1.7.6       |  v5.7.3 and later   |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later | All
-|1.7.5       |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|1.7         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.6.4       |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.6         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.5.4       |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.5         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.4         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.3         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.2         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
-|1.1         |  v5.6.1 and earlier |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |All
+	| Go Version  | OS|  Machine Image
+	|------------|---------------------|-----------
+	|1.10.1      |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|1.9.5       |  - Ubuntu 14.04                   | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|1.9.2       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+	|1.9       	 |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later  |
+	|1.8.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+	|1.8.3       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
+	|1.7.6       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later   |
+	|1.7.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.7         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.6.4       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.6         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.5.4       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.5         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.4         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.3         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.2         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|1.1         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
 ## Java
 
