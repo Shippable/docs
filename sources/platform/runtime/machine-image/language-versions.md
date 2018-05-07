@@ -24,15 +24,15 @@ The following images are available when you configure `language: clojure` in you
 
 The following versions are supported in each Machine Image:
 
-| Clojure Version  | Language Image Tags | Machine Image |Supported OS |
-|------------------|---------------------|-----------|-----------|
-|1.9.0             |   v6.1.4 and later  | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All |
-|1.8.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
-|1.7.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
-|1.6.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
-|1.5.1             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
-|1.4.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
-|1.3.0             |   v5.3.2 and later  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All |
+| Version  | OS | Machine Image |
+|------------------|-----------|-----------|
+|1.9.0  | [All](/platform/runtime/machine-image/os-versions) | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+|1.8.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.7.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.6.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.5.1  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.4.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
+|1.3.0  | [All](/platform/runtime/machine-image/os-versions) |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later |
 
 ## C/C++
 This section explains how Shippable DevOps Assembly Lines Platform behaves when you set `language: c` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci).
@@ -194,24 +194,24 @@ The following images are available when you configure `language: python` in your
 | Python Version |   Language Image Tags  | Machine Image | Supported OS
 |----------------|------------------------|-----------|--------------
 |3.6.4           |   v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|3.6.2           |   v5.8.2               | [v5.8.2](/platform/runtime/machine-image/ami-v582/), v5.10.4 | All         
-|3.6.1           |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All          
-|3.6.0           |   v5.5.1 and earlier   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All          
+|3.6.2           |   v5.8.2               | [v5.8.2](/platform/runtime/machine-image/ami-v582/), v5.10.4 | All
+|3.6.1           |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
+|3.6.0           |   v5.5.1 and earlier   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
 |3.5.2           |   v5.8.2 and earlier   | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier | 16.04 only
 |3.5.3           |   v5.8.2 and earlier   | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier | 14.04 only
 |3.5.2           |   v5.5.1 and earlier   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
 |3.4.5           |   v5.8.2 and earlier   | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier | 16.04 only
 |3.4.3           |   v5.8.2 and earlier   | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier | 14.04 only
-|3.3.6           |   v5.7.3 and earlier   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier | All        
-|3.2.6           |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All        
-|2.7.12          |   v5.7.3, v5.8.2       | [v5.7.3](/platform/runtime/machine-image/ami-v573/), [v5.8.2](/platform/runtime/machine-image/ami-v582/)| All        
+|3.3.6           |   v5.7.3 and earlier   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier | All
+|3.2.6           |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
+|2.7.12          |   v5.7.3, v5.8.2       | [v5.7.3](/platform/runtime/machine-image/ami-v573/), [v5.8.2](/platform/runtime/machine-image/ami-v582/)| All
 |2.7.6           |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | 14.04 only
-|2.6.9           |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All        
+|2.6.9           |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
 |pypy2-v5.10.0    |   v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
 |pypy3-v5.10.1    |   v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|pypy2-v5.8.0    |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All        
-|pypy3-v5.8.0    |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All        
-|pypy2-v4.0.1    |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All        
+|pypy2-v5.8.0    |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
+|pypy3-v5.8.0    |   v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
+|pypy2-v4.0.1    |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
 |pypy3-v2.4.0    |   v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
 
 ## Ruby
@@ -225,7 +225,7 @@ The following images are available when you configure `language: ruby` in your [
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/)
 	* [Github](https://github.com/dry-dock/u16ruball)
 
-  | Ruby Version  |  Language Image Tags  | Machine Image   
+  | Ruby Version  |  Language Image Tags  | Machine Image
   |---------------|---------|-----------
   |2.5.0          |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
   |2.4.3          |  v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
