@@ -91,6 +91,8 @@ We have the following base images, one for each supported OS version.
  | CentOS 7 | drydock/c7all:v6.4.4| - [Docker Hub](https://hub.docker.com/r/drydock/c7/),<br>- [GitHub](https://github.com/dry-dock/c7) | - epel-release<br>- gcc<br>- gcc-c++<br>- kernel-devel<br>- make<br>- curl<br>- openssl<br>- wget<br>- nano<br>- unzip<br>- nano<br>- openssh-clients<br>- libxslt1-dev<br>- libxml2-dev<br>- htop<br>- rsync<br>- vim<br>- glibc.i686<br>- libgcc_s.so.1<br>- python35u<br>- python35u-libs<br>- python35u-devel<br>- python35u-pip<br>- virtualenv<br>- jq<br>- git<br>- git-lfs | - awscli 1.14.41<br>- gcloud 189.0.0<br>- kubectl 1.8.8<br>- doctl 1.7.0<br>- jfrog-cli 1.7.0<br> - boto 2.46.1<br>- apache libcloud 2.0.0<br>- terraform 0.11.3<br>- packer 1.2.0<br>- ansible 2.4.4.0<br>- azure 2.0.27 | - Cassandra 3.11.2<br>- MemCached 1.5.4<br>- LibMemCached 1.0.18<br>- Mongodb 3.6.2<br>- Neo4j 3.3.1<br>- RabbitMQ 19.0.4<br>- Redis-server 4.0.8<br>- ElasticSearch 6.1.1<br>- Riak 2.2.3<br>- Selenium 3.8.1<br>- Sqlite 3.22.0 |
  | Windows 16 | drydock/w16:v6.4.4| - [Docker Hub](https://hub.docker.com/r/drydock/w16/),<br>- [GitHub](https://github.com/dry-dock/w16) |  |- git-lfs 2.4.0<br>- gcloud 196.0.0<br>- awscli 1.15.2<br>- Azurecli 2.0.30<br>- kubectl 1.10.0<br>- jfrog-cli 1.11.2<br>-  terraform 0.11.6<br>- packer 1.2.1<br>- jq 1.5.0 | |
 
+ ---
+
  <a name="nod-644"></a>
 
 ### Node.js
