@@ -38,12 +38,15 @@ This page describes the versions available for each Service and the Machine Imag
 
 ## ElasticSearch
 
-| Version  | Machine Images       
-|----------|---------
-|6.1.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-|5.5.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-|5.5.0  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-|5.1.2  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+| Version|              OS            | Machine Images       
+|-------|----------------------------|---------------------
+|6.2.3  |  - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7| [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+|6.1.1  |  - Ubuntu 16.04(aarch64)                       | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later               
+|6.1.1  |  - CentOS 7                                    | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4]
+|6.1.1  |  - Ubuntu 14.04<br>- Ubuntu 16.04              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4]
+|5.5.1  |  - Ubuntu 14.04<br>- Ubuntu 16.04              | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and [v5.10.4]
+|5.5.0  |  - Ubuntu 14.04<br>- Ubuntu 16.04              | [v5.7.3](/platform/runtime/machine-image/ami-v573/)  
+|5.1.2  |  - Ubuntu 14.04<br>- Ubuntu 16.04              | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Memcached
 
