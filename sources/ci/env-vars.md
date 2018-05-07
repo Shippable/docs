@@ -80,6 +80,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |REPOSITORY_URL 		 |URL of your GitHub or Bitbucket repository. |
 |SERVICE_SKIP 		 |false |
 |SHIPPABLE		 | true|
+|SHIPPABLE_AMI_VERSION 		 | The [machine image](/platform/runtime/machine-image/ami-overview/) version of the node.  For example, `v6.4.4`. |
 |SHIPPABLE_ARCHIVE 		 | true|
 |SHIPPABLE_BUILD_DIR | Directory where the repository is cloned. |
 |SHIPPABLE_BUILD_ID 		 |ID of build in Shippable. |
