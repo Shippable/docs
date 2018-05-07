@@ -36,8 +36,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 
 | Version  |  Machine Images
 |----------|---------|-------|
-| 1.15.3    | - CentOS 7 <br> | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 1.15.3    | - Ubuntu 16.04 (aarch64) <br> | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+| 1.15.3    | - CentOS 7 <br> - Ubuntu 16.04 (aarch64) <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/) 
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.41   | - CentOS 7 <br> | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
