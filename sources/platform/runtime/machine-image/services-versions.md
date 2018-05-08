@@ -109,11 +109,13 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## RabbitMQ
 
-| Version  | Machine Images
-|----------|---------
-| 3.6.14   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.6.10   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
-| 3.6.6    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+| Version  |    OS    | Machine Images
+|----------|---------|----------
+|3.6.15 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.6.14   |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|3.6.12    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)   
+| 3.6.10   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.6.6    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Redis
 
