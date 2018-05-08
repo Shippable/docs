@@ -42,7 +42,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/) 
 | 1.14.41   | - CentOS 7 <br> | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 1.11.164  | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
-| 1.11.91   | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64)  | [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br /> [v5.8.2](/platform/runtime/machine-image/ami-v582/) <br /> [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 1.11.91   | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64)  | [v5.8.2](/platform/runtime/machine-image/ami-v582/) <br> [v5.8.2](/platform/runtime/machine-image/ami-v582/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br />  
 | 1.11.44   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
 
 Please refer to the [AWS CLI page](https://aws.amazon.com/cli/) for help with CLI commands.
@@ -54,7 +54,7 @@ Please refer to the [AWS CLI page](https://aws.amazon.com/cli/) for help with CL
 | 3.12.4 | - Ubuntu 16.04 (aarch64)  | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 3.11.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5102/) to [v6.4.4](/platform/runtime/machine-image/ami-v5104/)
 | 3.10.3 | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.9.0  | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br> | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br /> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.3.4](/platform/runtime/machine-image/ami-v634/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.9.0  | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br> | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br /> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.3.4](/platform/runtime/machine-image/ami-v634/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
 
 Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) for help with CLI commands.
