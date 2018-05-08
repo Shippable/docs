@@ -130,10 +130,10 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## RethinkDB
 
-| Version  |   Machine Images
-|----------|---------
-|2.3.6 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-|2.3.5 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
+| Version  |    OS    | Machine Images
+|----------|---------|---------
+|2.3.6 |- Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+|2.3.5 | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
 
 ## Riak
 
