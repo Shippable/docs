@@ -154,12 +154,13 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ##SQLite
 
-| Version  |  Tags
-|----------|---------
-| 3.22.0   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.19.3   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
-| 3.11.0   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier (Ubuntu 16.04)
-| 3.8.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)
+| Version  |  OS    | Machine Images
+|----------|---------|-------
+| 3.22.0   |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)  
+|3.20.1  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)                   
+| 3.19.3   | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/) 
+| 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.8.2    |- Ubuntu 14.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier 
 
 for ubuntu14 OS, AMI v6.1.4 onwards, sqlite-tools like sqlite-analyser are not installed. To run this you need to install
 32 bit C libraries using:
@@ -171,9 +172,10 @@ apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 ##Cassandra
 
-| Version  |  Tags
-|----------|---------
-| 3.11   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
+| Version  |    OS    | Machine Images
+|----------|---------|-------
+|3.11.2|- Ubuntu 14.04<br>- CentOS 7 |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
 Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
 To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
