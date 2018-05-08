@@ -306,3 +306,16 @@ The following images are available when you configure `language: DotNet` in your
 |----------------|----------------|-----------
 |2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 |2.1.4           |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
+
+## ASP.Net
+
+The following images are available when you configure `language: ASP.Net` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
+
+* Windows server 2016: w16aspnetcore
+	* [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/)
+	* [Github](https://github.com/dry-dock/w16aspnetcore)
+	
+| ASP.Net version |   OS  |  Machine Image |
+|----------------|----------------|-----------
+|2.0.6         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+|2.0.5         |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
