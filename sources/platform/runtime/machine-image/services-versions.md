@@ -73,13 +73,16 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## MySQL
 
-| Version  |  Machine Images | OS
+| Version  |  OS  | Machine Images
 |----------|---------| ------
-| 5.7.20   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 5.7.19  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)  | Ubuntu 16.04 |
-| 5.7.18  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/) | Ubuntu 16.04 |
-| 5.7.17  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | Ubuntu 16.04 |
-| 5.6.33  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later  | Ubuntu 14.04 |
+|5.7.22| -CentOS 7| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|5.7.21|-CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|5.7.20 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+|5.7.19 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.10.4](/platform/runtime/machine-image/ami-v5104/) 
+|5.7.18|- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/) 
+| 5.7 |- Ubuntu 16.04   |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.6.1](/platform/runtime/machine-image/ami-v561/)
+| 5.6 |- Ubuntu 14.04   |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+
 
 ## Neo4j
 
