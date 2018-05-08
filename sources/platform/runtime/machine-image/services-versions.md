@@ -160,7 +160,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.20.1  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)                   
 | 3.19.3   | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/) 
 | 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 3.8.2    |- Ubuntu 14.04 [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier 
+| 3.8.2    |- Ubuntu 14.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier 
 
 for ubuntu14 OS, AMI v6.1.4 onwards, sqlite-tools like sqlite-analyser are not installed. To run this you need to install
 32 bit C libraries using:
