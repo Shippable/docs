@@ -292,4 +292,4 @@ The following images are available when you configure `language: scala` in your 
 |2.11.8          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 |2.10.7          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) [v6.3.4](/platform/runtime/machine-image/ami-v634) |
 |2.10.6          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/)  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)  |
-|2.9.3           | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.1.4](/platform/runtime/machine-image/ami-v614/) <br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.3.4](/platform/runtime/machine-image/ami-v634)  |
+|2.9.3           | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.3.4](/platform/runtime/machine-image/ami-v634)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.1.4](/platform/runtime/machine-image/ami-v614/)   |
