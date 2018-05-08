@@ -305,3 +305,4 @@ The following images are available when you configure `language: DotNet` in your
 | DotNet version |   OS  |  Machine Image |
 |----------------|----------------|-----------
 |2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+|2.1.4           |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
