@@ -138,15 +138,22 @@ The following images are available when you configure `language: java` in your [
 * Ubuntu 16.04: u16javall
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16javall/)
 	* [Github](https://github.com/dry-dock/u16javall)
+* Ubuntu 16.04(aarch64): u16javall
+	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16javall/)
+	* [Github](https://github.com/dry-dock/aarch64_u16javall)
+* CentOs 7: c7javall
+	* [Docker Hub](https://hub.docker.com/r/drydock/c7javall/)
+	* [Github](https://github.com/dry-dock/c7javall)
 
-| Java JDK  |  Language Image Tags  | Machine Image |Supported OS
-|-----------|-----------------------|-----------|-----------
-|openjdk9   |   v5.7.3 and later    |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later | All
-|openjdk8   |   v5.3.2 and later    |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All
-|openjdk7   |   v5.3.2 and later    |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All
-|oraclejdk9 |   v5.7.3 and later    |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later | All
-|oraclejdk8 |   v5.3.2 and later    |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later | All
-|oraclejdk7 |   v5.5.1 and earlier  |  [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
+	| Java JDK    | OS    |    Machine Image |
+	|-----------|-----------|-----------
+	|openjdk9   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5.10.4/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|openjdk8   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|openjdk7   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+	|oraclejdk10 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 |  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|oraclejdk9 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
+	|oraclejdk8 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/)to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/)to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+	|oraclejdk7 | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier |
 
 ## Node.js
 
