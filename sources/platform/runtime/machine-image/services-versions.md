@@ -144,11 +144,13 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## Selenium
 
-| Version  |  Tags
-|----------|---------
-| 3.8.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.4.0    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
-| 3.0.1    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+| Version  |  OS    | Machine Images
+|----------|---------|-------
+|3.11.1| - Ubuntu 16.04(aarch 64)|[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.8.1   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7  | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/)to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|3.5.3  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
+| 3.4.0    |  - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.0.1    |  - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 ##SQLite
 
