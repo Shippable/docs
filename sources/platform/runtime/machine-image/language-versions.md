@@ -279,16 +279,17 @@ The following images are available when you configure `language: scala` in your 
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/)
 	* [Github](https://github.com/dry-dock/u16scaall)
 
-| Scala Version  | Language Image Tags  | Machine Image | Supported OS
-|----------------|----------------------|-----------
-|2.12.4          | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
-|2.12.3          | v5.8.2               | [v5.8.2](/platform/runtime/machine-image/ami-v582/) | All
-|2.12.2          | v5.7.3               | [v5.7.3](/platform/runtime/machine-image/ami-v573/) | All
-|2.12.1          | v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|2.12.0          | v5.5.1 and earlier   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | All
-|2.11.12         | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
-|2.11.11         | v5.7.3 through v5.10.4 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) through v5.10.4  | All
-|2.11.8          | v5.6.1 and earlier   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|2.10.7          | v6.1.4 and later     | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later | All
-|2.10.6          | v5.3.2 through v5.10.4 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) through v5.10.4  | All
-|2.9.3           | v5.3.2 through v5.10.4 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) through v5.10.4  | All
+| Scala Version  |  OS    |  Machine Image |
+|----------------|-----------|-------------
+|2.12.5          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644) |
+|2.12.4          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) [v6.3.4](/platform/runtime/machine-image/ami-v634)  |
+|2.12.3          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
+|2.12.2          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) |
+|2.12.1          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+|2.12.0          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier |
+|2.11.12         | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+|2.11.11         | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) [v5.10.4](/platform/runtime/machine-image/ami-v5104/)  |
+|2.11.8          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+|2.10.7          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) [v6.3.4](/platform/runtime/machine-image/ami-v634) |
+|2.10.6          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/)  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)  |
+|2.9.3           | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.1.4](/platform/runtime/machine-image/ami-v614/) <br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v6.3.4](/platform/runtime/machine-image/ami-v634)  |
