@@ -11,6 +11,19 @@ The Shippable Platform provides images with multiple versions of commonly-used l
 
 Our language specific images that are updated monthly so that the latest and greatest versions are always available for you to test.  The sections below provide more information about which versions are available in each image.
 
+## ASP.Net
+
+The following images are available when you configure `language: ASP.Net` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
+
+* Windows server 2016: w16aspnetcore
+	* [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/)
+	* [Github](https://github.com/dry-dock/w16aspnetcore)
+
+| ASP.Net version |   OS  |  Machine Image |
+|----------------|----------------|-----------
+|2.0.6         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+|2.0.5         |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
+
 ## Clojure
 
 The following images are available when you configure `language: clojure` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
@@ -56,6 +69,20 @@ Each of the language images is built from the respective base OS version of the 
 |clang 5.0.0       | v5.10.4             | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
 |clang 4.0.0       | v5.7.3, v5.8.2      | [v5.7.3](/platform/runtime/machine-image/ami-v573/), [v5.8.2](/platform/runtime/machine-image/ami-v582/) | All
 |clang 3.9.0       | v5.6.1 and earlier  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
+
+## DotNet
+
+The following images are available when you configure `language: DotNet` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
+
+* Windows server 2016: w16dotnetcore
+	* [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/)
+	* [Github](https://github.com/dry-dock/w16dotnetcore)
+
+| DotNet version |   OS  |  Machine Image |
+|----------------|----------------|-----------
+|2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+|2.1.4           |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
+
 
 ## Go
 
@@ -293,29 +320,3 @@ The following images are available when you configure `language: scala` in your 
 |2.10.7          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634) |
 |2.10.6          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.10.4](/platform/runtime/machine-image/ami-v5104/)  |
 |2.9.3           | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.3.4](/platform/runtime/machine-image/ami-v634)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)   |
-
-## DotNet
-
-The following images are available when you configure `language: DotNet` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
-
-* Windows server 2016: w16dotnetcore
-	* [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/)
-	* [Github](https://github.com/dry-dock/w16dotnetcore)
-
-| DotNet version |   OS  |  Machine Image |
-|----------------|----------------|-----------
-|2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-|2.1.4           |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
-
-## ASP.Net
-
-The following images are available when you configure `language: ASP.Net` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
-
-* Windows server 2016: w16aspnetcore
-	* [Docker Hub](https://hub.docker.com/r/drydock/w16aspnetcore/)
-	* [Github](https://github.com/dry-dock/w16aspnetcore)
-	
-| ASP.Net version |   OS  |  Machine Image |
-|----------------|----------------|-----------
-|2.0.6         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-|2.0.5         |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
