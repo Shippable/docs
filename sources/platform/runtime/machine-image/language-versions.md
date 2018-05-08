@@ -58,17 +58,24 @@ Each of the language images is built from the respective base OS version of the 
 * Ubuntu 16.04: u16cppall
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/)
 	* [Github](https://github.com/dry-dock/u16cppall)
+* Ubuntu 16.04(aarch64): u16cppall
+	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cpp/)
+	* [Github](https://github.com/dry-dock/aarch64_u16cppall)
+* CentOs 7: c7cppall
+	* [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/)
+	* [Github](https://github.com/dry-dock/c7cppall)
+	
+	| Compiler Version | OS     |Machine Image |
+	|------------------|-----------|-----------
+	|gcc 7.3					 |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+	|gcc 7.2           |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)|
+	|gcc 7.1           |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v5.8.2](/platform/runtime/machine-image/ami-v 582/) |
+	|gcc 6             |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
+	|clang 5.0.1       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+	|clang 5.0.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
+	|clang 4.0.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
+	|clang 3.9.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
-
-| Compiler Version | Language Image Tags | Machine Image |Supported OS
-|------------------|---------------------|-----------|-----------
-|gcc 7.2           | v5.10.4             | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
-|gcc 7.1           | v5.7.3, v5.10.4     | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later | All
-|gcc 6             | v5.6.1 and earlier  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
-|clang 5.0.1       | v6.1.4              | [v6.1.4](/platform/runtime/machine-image/ami-v614/) | All |
-|clang 5.0.0       | v5.10.4             | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) | All
-|clang 4.0.0       | v5.7.3, v5.8.2      | [v5.7.3](/platform/runtime/machine-image/ami-v573/), [v5.8.2](/platform/runtime/machine-image/ami-v582/) | All
-|clang 3.9.0       | v5.6.1 and earlier  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier | All
 
 ## DotNet
 
