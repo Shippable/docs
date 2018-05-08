@@ -32,7 +32,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |                OS                | Machine Images       
 |----------|----------------------------------|------
-| 2.1.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later
+| 2.1.1    | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
 | 1.6.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 1.6.0    | - Ubuntu 16.04(aarch64)          | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
 
@@ -63,26 +63,26 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## MongoDB
 
-| Version  | Machine Images
-|----------|---------
-| 3.6.2   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.4.7    | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.4.6    | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-| 3.4.4    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) (Ubuntu 16.04)
-| 3.4.3    | [v5.4.1](/platform/runtime/machine-image/ami-v541/) and [v5.5.1](/platform/runtime/machine-image/ami-v551/) (Ubuntu 16.04)
-| 3.4.2    | [v5.3.2](/platform/runtime/machine-image/ami-v532/) (Ubuntu 16.04)
-| 3.0.15   | [v5.6.1](/platform/runtime/machine-image/ami-v561/) (Ubuntu 14.04)
-| 3.0.14   | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier (Ubuntu 14.04)
+| Version  |  OS     | Machine Images
+|----------|---------|-------------------
+|3.6.3 |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7|[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.6.2  |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 3.4.9  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
+| 3.4.6  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.4    |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.3.2](/platform/runtime/machine-image/ami-v532/)  to [v5.6.1](/platform/runtime/machine-image/ami-v561/) 
 
 ## MySQL
 
-| Version  |  Machine Images | OS
+| Version  |  OS  | Machine Images
 |----------|---------| ------
-| 5.7.20   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 5.7.19  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)  | Ubuntu 16.04 |
-| 5.7.18  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/) | Ubuntu 16.04 |
-| 5.7.17  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier | Ubuntu 16.04 |
-| 5.6.33  | [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later  | Ubuntu 14.04 |
+|5.7.22| - CentOS 7| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|5.7.21|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|5.7.20 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+|5.7.19 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.10.4](/platform/runtime/machine-image/ami-v5104/) 
+|5.7.18|- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/) 
+| 5.7 |- Ubuntu 16.04   |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.6.1](/platform/runtime/machine-image/ami-v561/)
+| 5.6 |- Ubuntu 14.04   |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+
 
 ## Neo4j
 
