@@ -109,42 +109,48 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## RabbitMQ
 
-| Version  | Machine Images
-|----------|---------
-| 3.6.14   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.6.10   | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
-| 3.6.6    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+| Version  |    OS    | Machine Images
+|----------|---------|----------
+|3.6.15 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.6.14   |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|3.6.12    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)   
+| 3.6.10   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.6.6    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Redis
 
-| Version  |  Machine Images
-|----------|---------
-| 4.0.7   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 4.0.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.2.9  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-| 3.2.8  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+| Version  |  OS  | Machine Images
+|----------|---------|--------
+|4.0.9 |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7   | [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)    
+|4.0.8 |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 4.0.7  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) 
+| 4.0.1  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.2.9  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+| 3.2.8  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 ## RethinkDB
 
-| Version  |   Machine Images
-|----------|---------
-|2.3.6 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-|2.3.5 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
+| Version  |    OS    | Machine Images
+|----------|---------|---------
+|2.3.6 |- Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+|2.3.5 | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier
 
 ## Riak
 
-| Version  |   Machine Images
-|----------|---------
-|2.2.3 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later
-|2.2.0  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+| Version  |  OS    | Machine Images
+|----------|---------|-------
+|2.2.3 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/)to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|2.2.0 | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Selenium
 
-| Version  |  Tags
-|----------|---------
-| 3.8.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 3.4.0    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
-| 3.0.1    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+| Version  |  OS    | Machine Images
+|----------|---------|-------
+|3.11.1| - Ubuntu 16.04(aarch 64)|[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.8.1   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7  | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/)to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|3.5.3  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
+| 3.4.0    |  - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.0.1    |  - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 ##SQLite
 
