@@ -175,7 +175,7 @@ apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
 | Version  |    OS    | Machine Images
 |----------|---------|-------
 |3.11.2|- Ubuntu 14.04<br>- CentOS 7 |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
 Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
 To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
