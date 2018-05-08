@@ -86,20 +86,26 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## Neo4j
 
-| Version  |  Machine Images
-|----------|---------
-| 3.3.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-|3.2.3  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-|3.2.2  | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-|3.1.1  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+| Version  |  OS    |Machine Images
+|----------|---------|----------
+|3.3.4  |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.3.1 |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+|3.2.6 | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
+|3.2.3  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.8.2](/platform/runtime/machine-image/ami-v582/)
+|3.2.2  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.7.3](/platform/runtime/machine-image/ami-v573/)
+|3.1.1  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Postgres
 
-| Version  |   Machine Images
-|----------|---------
-| 10.1   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 9.6.3    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and later
-| 9.6.2    | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+| Version  |    OS    |   Machine Images
+|----------|---------|------------
+|10.3 |- Ubuntu 14.04<br>- CentOS 7 |[v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|10.2  | - CentOS 7  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 10.1  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 9.6.5 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)<br>[v5.10.4](/platform/runtime/machine-image/ami-v5104/) and [v6.1.4](/platform/runtime/machine-image/ami-v614/)
+| 9.6.3 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 9.6.2 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+|9.5 |- Ubuntu 16.04(aarch 64) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
 ## RabbitMQ
 
