@@ -293,3 +293,15 @@ The following images are available when you configure `language: scala` in your 
 |2.10.7          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634) |
 |2.10.6          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.10.4](/platform/runtime/machine-image/ami-v5104/)  |
 |2.9.3           | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.3.4](/platform/runtime/machine-image/ami-v634)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)   |
+
+## DotNet
+
+The following images are available when you configure `language: DotNet` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
+
+* Windows server 2016: w16dotnetcore
+	* [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/)
+	* [Github](https://github.com/dry-dock/w16dotnetcore)
+
+| DotNet version |   OS  |  Machine Image |
+|----------------|----------------|-----------
+|2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
