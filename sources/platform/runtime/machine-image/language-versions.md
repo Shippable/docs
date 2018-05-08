@@ -261,20 +261,20 @@ The following images are available when you configure `language: python` in your
 * Ubuntu 16.04(aarch64): u16pytall
 	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16pytall/)
 	* [Github](https://github.com/dry-dock/aarch64_u16c7pytall)
-* CentOs 7: c7pytall
+* CentOS 7: c7pytall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7pytall/)
 	* [Github](https://github.com/dry-dock/c7pytall)
 
 
 	| Python Version | OS  | Machine Image |
 	|----------------|------------------------------|----------------------------|
-	|3.6.5           |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|3.6.5           |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS   | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 	|3.6.4           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.1.4](/platform/runtime/machine-image/ami-v614/)to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  |
 	|3.6.2           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v5.10.4](/platform/runtime/machine-image/ami-v5.10.4/) |
 	|3.6.1           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.7.3](/platform/runtime/machine-image/ami-v573/) |
 	|3.6.0           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier |
 	|3.5.5           |- Ubuntu 14.04                    |  [v6.2.4](/platform/runtime/machine-image/ami-v6.2.4/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-	|3.5.4           |- CentOs 7                   | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
+	|3.5.4           |- CentOS 7                   | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
 	|3.5.3           |- Ubuntu 14.04                    | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier |
 	|3.5.2           |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 	|3.4.8           |- Ubuntu 16.04                    | [v6.2.4](/platform/runtime/machine-image/ami-v6.2.4/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
@@ -284,7 +284,7 @@ The following images are available when you configure `language: python` in your
 	|3.2.6           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|2.7.12          |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)  | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 	|2.7.6           |- Ubuntu 14.04                    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
-	|2.7.5           |- CentOs 7                        | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+	|2.7.5           |- CentOS 7                        | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 	|2.6.9           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|pypy2-v5.10.0   |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|  
 	|pypy3-v5.10.1   |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.1.4](/platform/runtime/machine-image/ami-v614/)to [v6.4.4](/platform/runtime/machine-image/ami-v644/) |  
