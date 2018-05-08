@@ -119,12 +119,14 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 ## Redis
 
-| Version  |  Machine Images
-|----------|---------
-| 4.0.7   | [v6.1.4](/platform/runtime/machine-image/ami-v614/)
-| 4.0.1  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.2.9  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
-| 3.2.8  | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
+| Version  |  OS  | Machine Images
+|----------|---------|--------
+|4.0.9 |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7   | [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)    
+|4.0.8 |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)<br>- CentOS 7  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 4.0.7  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) 
+| 4.0.1  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
+| 3.2.9  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and [v5.7.3](/platform/runtime/machine-image/ami-v573/)
+| 3.2.8  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 ## RethinkDB
 
