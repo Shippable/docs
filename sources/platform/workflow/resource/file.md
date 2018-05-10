@@ -22,7 +22,8 @@ resources:
   - name:           <string>
     type:           file
     integration:    <string>
-    versionTemplate:        
+    versionTemplate:
+      sourceName:   <string>        
       versionName:  <string>
 ```
 
@@ -38,13 +39,13 @@ resources:
 
 	        versionTemplate:
 	          sourceName: <points to publicly accessible file URI>
-            seed: <any uniquely identifying label, such as a commit sha>
+            versionName: <any uniquely identifying label, such as a commit sha>
 
 	* With a JFrog Artifactory integration:
 
 	        versionTemplate:
 	          sourceName: <"repositoryName/path" of an Artifactory repository file>
-            seed: <any uniquely identifying label, such as a commit sha>
+            versionName: <any uniquely identifying label, such as a commit sha>
 
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
@@ -55,6 +56,7 @@ resources:
     type:           file
     integration:    <string>
     pointer:        <object>
+      sourceName:   <string>
     seed:
       versionName:  <string>
 ```
