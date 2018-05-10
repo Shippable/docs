@@ -467,6 +467,7 @@ pages:
       - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl.md
       - Creating a kubeconfig file for a self-hosted Kubernetes cluster: deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster.md
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
+      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gke-shippable.md
     - Templates:
       - Provision GCP VPC with Ansible: provision/tutorial/provision-gcp-vpc-ansible.md
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
@@ -489,7 +490,6 @@ pages:
       - Deploying to Amazon EKS using Helm: deploy/tutorial/continuous-deployment-to-amazon-eks-helm.md
       - Deploying to Azure Kubernetes Service (AKS) using Helm: deploy/tutorial/continuous-deployment-to-aks-helm.md
       - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-helm.md
-      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-shippable.md
       - Deploying to Amazon EKS using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-amazon-eks-shippable.md
       - Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-aks-shippable.md
       - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable.md
