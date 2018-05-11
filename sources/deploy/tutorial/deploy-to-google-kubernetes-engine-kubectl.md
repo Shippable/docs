@@ -4,7 +4,9 @@ sub_section: Kubernetes
 
 # Deploy to Google Kubernetes Engine using kubectl
 
-This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using native `kubectl` commands. It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
+This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using native `kubectl` commands.
+
+This document assumes you're familiar with the following concepts:
 
 * [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
@@ -13,103 +15,15 @@ This tutorial explains how to continuously deploy a Docker container to Google K
 * [Kubernetes Services Spec](https://kubernetes.io/docs/concepts/services-networking/service/)
 * [kubectl command](https://kubernetes.io/docs/reference/kubectl/overview/)
 
-## Manual Steps to Deploy
+If you're unfamiliar with Docker or kubectl, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to GKE using kubectl](http://blog.shippable.com/deploy-docker-container-to-gke-using-kubectl).
 
-First, we will walk through a step-by-step guide on how to manually deploy a Docker image to Google Kubernetes Engine.
+There are many challenges with manually doing Docker deployments. In short, you will struggle with making your Kubernetes specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
-* Create a project on Google Cloud Platform and note down the `Project ID`.  To do this, [refer to GCP instructions.](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
 
-* Install the version of `gcloud` CLI based on the OS of the machine from which you plan to deploy your application. To do this, [refer to GCP instructions.](https://cloud.google.com/sdk/gcloud/)
+## Automating GKE deployments
 
-* Authenticate gcloud to GCP. You do this with the following command `gcloud auth login`.  To do this, [refer to GCP instructions.](https://cloud.google.com/sdk/gcloud/reference/auth/login)
-
-* Create a Kubernetes Cluster on GCP and node down the `Name` and `Region`. [Refer to GCP instructions.](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster)
-
-* Connect to your Kubernetes cluster by executing this command `gcloud container clusters get-credentials $CLUST --zone $CLUST_REG`. Here, `$CLUST` & `$CLUST_REG` represents the name and region of the cluster you created above.
-
-* Build and Push the Docker image of your application to a registry of your choice. You can do this manually, or reference our guide on doing this with Shippable: [How to Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub). The Docker image for our sample Node.js app is here: [Docker Image](https://hub.docker.com/r/devopsrecipes/node_app/tags/)
-
-* Create a Kubernetes Deployment Spec to deploy your app. To do this, [refer to Kubernetes instructions.](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#deployment-v1-apps)
-
-If you're using our sample application, the deployment spec [appDeploy.yml](https://github.com/devops-recipes/cd_gke_kubectl/blob/master/specs/appDeploy.yml) is shown below. Make sure you replace the wildcards `${APP_LABEL}`, `${APP_IMG}` and `${APP_TAG}` in the file with information that applies to your scenario.
-
-**Kubernetes Deployment Spec**
-
-```
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  namespace: default
-  name: ${APP_LABEL}
-spec:
-  replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
-  template:
-    metadata:
-      labels:
-        app: ${APP_LABEL}
-    spec:
-      containers:
-      - name: ${APP_LABEL}
-        image: ${APP_IMG}:${APP_TAG}
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-```
-
-* Create a Kubernetes Service Spec to expose your application to the internet or to other internal applications. To do this, refer to [Kubernetes Services Spec docs.](https://kubernetes.io/docs/concepts/services-networking/service/)
-
-If you're using our sample application, the Service spec [appSvc.yml](https://github.com/devops-recipes/cd_gke_kubectl/blob/master/specs/appSvc.yml) is shown below. Make sure you replace the wildcards `${APP_LABEL}` in the file with information that applies to your scenario. Also, **ensure that you use the same label as the one in your deployment spec**, otherwise the service will not bind to your application.  
-
-**Kubernetes Service Spec**
-
-```
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: default
-  name: ${APP_LABEL}
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: ${APP_LABEL}
-
-```
-
-* `cd` to the location of your Kubernetes deployment and service spec files and run the following commands:
-      * `kubectl delete  -f ./appDeploy.yml` to delete the app if it already exists.
-      * `kubectl delete -f ./appSvc.yml` to delete the service if it already exists.
-      * `kubectl create -o json -f ./appDeploy.yml` to deploy a new version of the app.
-      * `kubectl create -o json -f ./appSvc.yml` to provision a new service to the app.
-
-
-* Execute `kubectl get svc ${APP_LABEL}` with your service label, to get the IP address of your endpoint. Your application is now deployed!
-
-## Challenges with manual deployments
-
-While manual deployments are great while getting started with Kubernetes, there are a few challenges:
-
-* Unless you create templates for your Kubernetes spec files, you'll end up with a file per application/service per environment, which adds up very quickly. However, the problem
-with template files is that you now need a programmatic way to inject environment specific values during runtime. Even with Helm, the variables file needs to be created. Helm just moves the wildcards into a single file, doesn't really solve the problem of how to supply it.
-* Without automation in place, someone on your team will need to deploy manually multiple times a day and maintain a history of what is deployed in each environment, and by whom. This creates inefficiency and a reliance on people.
-* Security with RBAC is a problem. The machine used to deploy is authenticated to a project (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
-* The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines for each team.
-
-In a nutshell, if you want to achieve frictionless deployments to Kubernetes, you need to templatize your Kubernetes specs and automate your multi-stage build, test and deployment workflow.
-
-## Automating Kubernetes deployments
-
-Next, we will demonstrate how you can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
+You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
 * Creating an event-driven workflow that automates the entire software delivery lifecycle
 * Securing workflow jobs with RBAC and contextually injecting credentials based on who/what is running the deployment job
@@ -183,13 +97,13 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 ####3. Author Assembly Line configuration
 
-The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called `shippable.yml`, which is parsed to create your Assembly Line workflow.
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on `shippable.yml` is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
 
 #####3a. Add empty shippable.yml to your repo
 
-Add an empty config file to the the root of your repo.
+Add an empty **shippable.yml** file to the the root of repository.
 
 #####3b. Add `resources` section of the config
 
@@ -275,6 +189,8 @@ jobs:
   - name: deploy_app_kctl_gke
     type: runSh
     steps:
+      # The node_app_img_dh image resource is defined in the CI tutorial which pushed this image to Docker Hub: http://docs.shippable.com/ci/tutorial/build-push-image-to-docker-hub
+      # If you have not followed that tutorial, please delete this resource
       - IN: node_app_img_dh
       - IN: gcp_cli
         switch: off
@@ -288,17 +204,26 @@ jobs:
             options:
               env:
                 - APP_LABEL: "kctl-app"
+                # Uncomment and replace values with hardcoded values if you deleted the node_app_img_dh resource  
+                # - APP_IMG: "image name"
+                # - APP_TAG: "image tag"                
           script:
             # Config file prep section
             - pushd $(shipctl get_resource_state "config_repo")
             - cd specs
+
+            # Delete the 2 lines below if you deleted the node_app_img_dh resource     
             - export APP_IMG=$(shipctl get_resource_version_key node_app_img_dh sourceName)
             - export APP_TAG=$(shipctl get_resource_version_key node_app_img_dh versionName)
+
+            # Replace wildcards in spec
             - shipctl replace appDeploy.yml appSvc.yml
+
             # Cluster login section
             - export CLUST=$(shipctl get_resource_version_key gke_cluster sourceName)
             - export CLUST_REG=$(shipctl get_resource_version_key gke_cluster region)
             - gcloud container clusters get-credentials $CLUST --zone $CLUST_REG
+
             # App deployment section
             - kubectl delete  -f ./appDeploy.yml 2>/dev/null || echo ""
             - kubectl delete -f ./appSvc.yml  2>/dev/null || echo ""
@@ -307,6 +232,23 @@ jobs:
             - cat kube_output.json
             - popd
 ```
+
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deploy_app_kctl_kube`.
+
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * Kubernetes spec files are version controlled in a repo represented by `cd_k8s_repo`.
+  * Credentials to connect to Cluster are in `cd_k8s_kube_config`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
+  * `node_app_img_dh` is an **image** resource that comes from another tutorial [which explains how to build and push a Docker image](/ci/tutorial/build-push-image-to-docker-hub) and contains the image name and tag in `sourceName & versionName ` fields, which are required by this job. If you already have this and just want to use this tutorial to deploy, just delete this resource and hardcode the values APP_IMG and APP_TAG in the **TASK.runtime.options.env** section.
+* The `TASK` section contains actual code that is executed when the job runs. We have just one task named `deploy_app` which does the following:
+  * First, we define environment variables required by the scripts-
+    * `APP_LABEL` which is the label we use to the tie the service and the app
+  *  `script` section has a list of commands to execute sequentially.
+    * First, we use the Shippable utility function `get_resource_state` to go to the folder where scripts are stored
+    * Next, we extract the image info and set APP_IMG and APP_TAG from the `node_app_img_dh` resource, again using shipctl functions
+    * Next, we replace all wildcards in appDeploy.yml appSvc.yml files
+    * Last, we execute kubectl commands to create the app and the service
+
+
 
 * Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deploy_app_kctl_gke`.
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job. These are the resources we defined in the previous step. The interesting thing to note in this section is that many IN resources have been configured with `switch: off` flag, which means any changes to these resources will not trigger this job automatically. However, when the job does trigger, it will use the latest versions of these resources.

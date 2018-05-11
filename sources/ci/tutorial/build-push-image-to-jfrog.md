@@ -108,6 +108,7 @@ The above YML does the following things:
 * The `integration` created in first step is referenced here to automatically login to JFrog Docker registry.
 * Global environment variables store information about the Docker image. Please replace the `JFROG_ARTIFACTORY_ACC` value your `Repository key` on JFrog and `JFROG_ARTIFACTORY_REPO` with the image name.
 * The `build` section defines the scripts to build and push the image. As you can see, native docker commands can be directly used in your configuration.
+* We use standard environment variables to build the image tag
 
 ####3. Enable the repo for CI
 
@@ -175,11 +176,55 @@ Here we are creating an image named `node_app_jfrog_img_jfrog` that can be acces
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
+#####1b. Add `jobs` section of the config
+
+A job is an execution unit of the assembly line.
+
+In order to treat your CI workflow like an Assembly Line job, i.e. be able to define `IN` and `OUT` resources, you need to define a `runCI` job with the name of your repository appended by `_runCI`.
+
+In this section, we will define the `runCI` job that will specify `node_app_jfrog_img_jfrog` as an `OUT`, meaning your CI workflow will update this resource.
+
+Add the following at the very end of your **shippable.yml**:
+
+#####i. job named `node_app_jfrog_runCI`.
+
+```
+jobs:
+  - name: node_app_jfrog_runCI
+    type: runCI
+    dependencyMode: strict
+    triggerMode: parallel
+    steps:
+      - OUT: node_app_jfrog_img_jfrog
+
+```
+
+####2. Update node_app_jfrog_img_jfrog in CI Config
+
+To update the `node_app_jfrog_img_jfrog` resource with Docker image information, such as image name and tag, add the following to the `build` section of your **shippable.yml**:
+
+```
+env:
+  global:
+    #Add the resource name to env->global section     
+    - SHIP_IMG_RES=$JFROG_ARTIFACTORY_REPO"_img_dh"
+
+build:
+  # Add this on_success section to build section
+  on_success:
+    - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
+```
+
+* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
+
+
+
+
 
 ###1. Add Assembly Line config
 
 
-- SHIP_IMG_RES=$JFROG_ARTIFACTORY_REPO"_img_dh"
+
 
 
 Add the following YAML config after the CI config:
@@ -191,8 +236,7 @@ Add the following YAML config after the CI config:
 # orchestration platform like Kubernetes. For instructions, please
 # refer to the section on Adding Continuous Deployment
 
-on_success:
-  - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
+
 
 ## OPTIONAL : In case you want to use this image in CD Assembly Lines
 resources:

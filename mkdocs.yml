@@ -61,12 +61,26 @@ pages:
       - Building and testing your project:
         - Configuring CI commands: ci/build-and-test.md
         - Building Docker images: ci/build-docker-images.md
+        - Running tests in parallel: ci/parallelize-tests.md
         - Status code: ci/build_status.md
       - Configuring test/code coverage:
         - Basic config: ci/test-code-coverage-reports.md
         - JaCoCo reports: ci/jacoco-reports.md
-      - Sending notifications: ci/send-notifications.md
-      - Pushing artifacts: ci/push-artifacts.md
+      - Sending notifications:
+        - Overview: ci/send-notifications.md
+        - Sending messages to Slack: ci/slack-notifications.md
+        - Sending messages to Email: ci/email-notifications.md
+        - Sending messages to Hipchat: ci/hipchat-notifications.md
+        - Sending messages to IRC: ci/irc-notifications.md
+      - Pushing artifacts:
+        - Overview: ci/push-artifacts.md
+        - Push artifacts to S3: ci/push-to-s3.md
+        - Push to JFrog Artifactory: ci/push-to-artifactory.md
+        - Push Docker image to Docker Hub: ci/push-docker-hub.md
+        - Push Docker image to Amazon ECR: ci/push-amazon-ecr.md
+        - Push Docker image to GCR: ci/push-gcr.md
+        - Push Docker image to Quay: ci/push-quay.md
+        - Push Docker image to Docker registry: ci/push-docker-registry.md
       - Deployments:
         - Overview: ci/deployment-overview.md
         - Heroku: ci/deploy-to-heroku.md
@@ -77,6 +91,7 @@ pages:
       - Advanced config:
         - Caching: ci/caching.md
         - Using a custom Docker image: ci/custom-docker-image.md
+        - Running Docker Compose: ci/docker-compose.md
         - Building pull requests: ci/pull-request-builds.md
         - Skipping a build: ci/skip-builds.md
         - Using git submodules: ci/git-submodules.md
@@ -87,6 +102,9 @@ pages:
         - Console logs: ci/console-logs.md
         - Build badges: ci/build-badges.md
         - Scheduled builds: ci/scheduled-builds.md
+        - Running builds as non-root user: ci/non-root.md
+        - Triggering webhooks: ci/webhook.md
+        - Triggering parallel jobs: ci/matrix-builds.md
       - Language guide:
         - Overview: ci/supported-languages.md
         - Node.js: ci/nodejs-continuous-integration.md
@@ -102,25 +120,8 @@ pages:
     - Debugging:
       - SSH Access to Build Machine: ci/ssh-access.md
     - Tutorials:
-      - Triggering parallel jobs: ci/matrix-builds.md
       - Build and push Docker image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
       - Building a custom Docker image to use for CI: ci/tutorial/build-custom-ci-image.md
-      - Running Docker Compose: ci/docker-compose.md
-      - Running tests in parallel: ci/parallelize-tests.md
-      - Sending messages to Slack: ci/slack-notifications.md
-      - Sending messages to Email: ci/email-notifications.md
-      - Sending messages to Hipchat: ci/hipchat-notifications.md
-      - Sending messages to IRC: ci/irc-notifications.md
-      - Triggering webhooks: ci/webhook.md
-      - Push artifacts to S3: ci/push-to-s3.md
-      - Push to JFrog Artifactory: ci/push-to-artifactory.md
-      - Push Docker image to Docker Hub: ci/push-docker-hub.md
-      - Push Docker image to Amazon ECR: ci/push-amazon-ecr.md
-      - Push Docker image to GCR: ci/push-gcr.md
-      - Push Docker image to Quay: ci/push-quay.md
-      - Push Docker image to Docker registry: ci/push-docker-registry.md
-      - Running builds as non-root user: ci/non-root.md
-
   - Deploy:
     - Before you start:
       - Why deploy?: deploy/why-deploy.md
@@ -386,9 +387,6 @@ pages:
         - Set up Integrations: platform/management/subscription/integrations.md
       - Project:
         - Settings: platform/management/project/settings.md
-    - API:
-      - Overview: platform/api/api-overview.md
-      - Tokens: platform/api/api-tokens.md
     - Shippable Server:
       - Overview: platform/server/overview.md
       - Installation instructions:
@@ -412,6 +410,9 @@ pages:
         - Services: platform/server/services.md
         - Integrations: platform/server/integrations.md
         - Manage admins: platform/server/superuser.md
+    - API:
+      - Overview: platform/api/api-overview.md
+      - Tokens: platform/api/api-tokens.md
     - Tutorials:
       - Workflow:
         - Anatomy of shippable.yml: platform/tutorial/workflow/shippable-yml.md
@@ -458,15 +459,15 @@ pages:
       - Provision AWS VPC using Ansible: provision/tutorial/provision-aws-vpc-ansible.md
       - Provision AWS VPC with Terraform: provision/tutorial/provision-aws-vpc-terraform.md
       - Provision AWS EC2 machine using Ansible: provision/tutorial/provision-aws-ec2-ansible.md
+      - Provision AWS EC2 virtual machines with Terraform: provision/tutorial/provision-aws-ec2-terraform.md
       - Build and Push image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
       - Build a custom CI Image: ci/tutorial/build-custom-ci-image.md
       - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
-    - Drafts:
-      - Provision AWS EC2 virtual machines with Terraform: provision/tutorial/provision-aws-ec2-terraform.md
       - Build Google Compute Engine Image with Packer: provision/tutorial/build-google-compute-engine-image-packer.md
       - Deploying to Google Kubernetes Engine (GKE) using kubectl: deploy/tutorial/deploy-to-google-kubernetes-engine-kubectl.md
       - Deploying Java WAR from Nexus to EC2 VM using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
       - Build AWS EC2 AMI using Packer: provision/tutorial/build-aws-ec2-ami-packer.md
+    - Drafts:
       - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl.md
       - Creating a kubeconfig file for a self-hosted Kubernetes cluster: deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster.md
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
