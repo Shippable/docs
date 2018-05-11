@@ -87,6 +87,17 @@ Please note that any changes due to your plan downgrade will be effective immedi
 
 Your new price will be reflected in your next invoice.
 
+### Enabling cache
+You can upgrade your dyamic SKU to have `cache` addon. This will make your builds faster. To know more about caching click here.
+
+* You can purchase cache addon for any of your existing dynamic SKU or new dynamic SKU by clicking on the cache checkbox in your SKU row.
+
+* You will be charged some fixed amount for enabling caching apart from your SKU charge.
+
+* Click on the **Upgrade** button once you have selected cache checkboxes for required SKUs.
+
+   <img src="/images/platform/management/enable-cache-billing.png" alt="Enable cache">
+
 ##Changing payment method
 
 You can change the credit card being used for a Subscription at any time. Just go to the Subscription **Billing** page, click on **Edit plan** and click on the **Change payment method** icon to choose another card or add a new one.
