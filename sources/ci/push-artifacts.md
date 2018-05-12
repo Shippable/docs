@@ -1,6 +1,7 @@
 page_main_title: Overview
 main_section: CI
-sub_section: Pushing artifacts
+sub_section: Configuration
+sub_sub_section: Pushing artifacts
 page_title: Pushing artifacts
 page_description: How to push artifacts like a JAR/WAR file or a Docker image to an artifacts repository like JFrog Artifactory or a Docker registry at the end of your CI workflow in Shippable.
 

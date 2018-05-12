@@ -9,49 +9,15 @@ This tutorial explains how to automate the provisioning of an AWS EC2 virtual ma
 This document assumes you're familiar with the following concepts:
 
 * [AWS EC2](https://aws.amazon.com/documentation/ec2/)
+* [Terraform overview](https://www.terraform.io/intro/index.html)
 * [Terraform aws_instance](https://www.terraform.io/docs/providers/aws/r/instance.html)
 
-If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision AWS EC2 Virtual Machine with Terraform](http://blog.shippable.com/provision-ec2-vm-terraform).
+If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually with scripts. Refer to our blog for a step-by-step tutorial: [Provision AWS EC2 Virtual Machine with Terraform](http://blog.shippable.com/provision-aws-ec2-virtual-machines-with-terraform).
 
-## Manual steps
+There are many challenges with manually running Terraform scripts. In short, you will struggle with always maintaining the state file, making Terraform templates reusable by injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the script. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
-Step 1: Prep your machine
-Have your security credentials handy to authenticate to your AWS Account. Refer to the AWS Credentials documentation.
+If you want to achieve frictionless execution of Terraform templates, you need to templatize your scripts and automate the workflow used to execute them.
 
-Install Terraform based on the OS of the machine from which you plan to execute the script. Refer to the Terraform Installation guide.
-
-Step 2: Prepare Terraform scripts
-Terraform scans for all files with extensions `*.tf` in the current folder and its subfolders recursively. It combines them all into a single file before executing it. In our example, we are using a the following files: 
-
-* terraform.tfvars supplies the values for all the dynamic variables needed
-* variables.tf is the representation of those variables in Terraform format
-* ec2.tf is the actual script that provisions EC2
-
-```
-├── terraform.tfvars
-├── variables.tf
-├── ec2.tf
-
-```
-
-If you do not have your own Terraform scripts, please feel free to clone our sample playbook here: https://github.com/devops-recipes/prov_aws_ec2_terraform
-
-In our scenario, you will need to provide the values in the tfvars file and you should be good to go
-
-In terraform.tfvars, replace these wildcards (security group, subnet id, instance information etc.) with your desired values: `${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${vpc_region} ${vpc_public_sn_id} ${vpc_public_sg_id} ${inst_ami} ${inst_type} ${aws_key_name}`. 
-
-Step 3: Apply your Terraform scripts
-Execute the following command to run your Terraform scripts from the directory that contains the .tf file.
-
-`terraform apply -var-file=terraform.tfvars`
-
-Verify on AWS if the EC2 machine was provisioned.
-
-There are many challenges with manually running Terraform files. In short, you will struggle with making Terraform files reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-The biggest one being, where to keep the state file. Pushing it into SCM system is an option, but then again how to maintain multiple Terraform state files. Single repo or multiple repos? You will have to clone this into your machine everytime and remember to push it back. If you lose this file, it is a huge mess.
-
-If you want to achieve frictionless execution of Terraform scripts with modular, reusable workflows, you need to templatize your scripts and automate the workflow used to execute them.
 
 ## Automated workflow to provision an AWS EC2 instance with Terraform
 
@@ -59,7 +25,7 @@ You can easily automate your workflow using Shippable's Assembly Lines. The foll
 
 * Creating an event-driven, automated workflow
 * Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running your scripts
-* Dynamically injecting wildcard values in template playbooks, depending on the state of the workflow
+* Dynamically injecting wildcard values in templates, depending on the state of the workflow
 * Visualizing your workflow and it's current status in a graphical view
 
 To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
@@ -86,7 +52,7 @@ The following sections explain the process of automating a workflow to provision
 
 **Complete YML is at [devops-recipes/prov_aws_ec2_terraform/shippable.yml](https://raw.githubusercontent.com/devops-recipes/prov_aws_ec2_terraform/master/shippable.yml)**
 
-Your workflow will look like this, where the green box is the job that runs your Terrform script, while the grey boxes are input resources that are required for your scripts:
+Your workflow will look like this, where the green box is the job that runs your terraform script, while the grey boxes are input resources that are required for your scripts:
 
 <img src="/images/tutorial/provision-aws-ec2-terraform-fig1.png" alt="Assembly Line view">
 
@@ -171,7 +137,7 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 ######iii. state resource named `aws_ec2_tf_state`
 
-Every apply of TF scripts generates a terraform.tfstate file. This is a very important file as it holds the state of your provisioning. TF looks for this file when you apply and if it is not present, it will recreate all you resources resulting in duplicate objects. We use the state resource to store this and make it available everytime we need to run the apply command. 
+Every apply of Terraform scripts generates a **terraform.tfstate** file. This is a very important file as it holds the state of your provisioning. Terraform looks for this file when you apply and if it is not present, it will recreate all you resources, resulting in duplicate objects. We use the state resource to store the state file and make it available every time we run the apply command.
 
 Detailed info about `state` resource is [here](/platform/workflow/resource/state).
 
@@ -187,7 +153,7 @@ A job is an execution unit of the Assembly Line. Our job has to perform four tas
 
 * Replace wildcards needed by the Terraform scripts
 * Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
-* Run playbook
+* Run script
 * Output `instance_ip` into the `params` resource to make it available for downstream jobs
 
 ```
@@ -252,7 +218,7 @@ jobs:
     * Next, we replace all wildcards in the file `terraform.tfvars`
     * Last, we apply the scripts
   * `on_success` section is executed if the TASK succeeded. This step updates the `params` resource with `ec2_ins_0_ip` generated during the execution
-  * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ec2_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since TF does not rollback changes of a failed apply command
+  * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ec2_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since Terraform does not rollback changes of a failed apply command
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 

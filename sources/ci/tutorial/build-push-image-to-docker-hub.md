@@ -25,6 +25,11 @@ This tutorial will take you on a step-by-step journey on how to achieve this sce
 
 <img src="/images/tutorial/build-push-docker-hub-fig1.png" alt="E2E Pipeline View">
 
+Before you start, you should be familiar with the following Shippable platform features:
+
+* [Shippable CI configuration](/platform/workflow/config/#ci-configuration)
+* [Docker Registry integration](/platform/integration/dockerRegistryLogin)
+
 ### Instructions
 
 The following sections explain the process of configuring a CI workflow to continuously test, build and push a Docker image to Docker Hub. We will use a Node.js app that uses Mocha and Istanbul for unit testing and code coverage.
@@ -127,19 +132,21 @@ This section shows how you can output your Docker image information into an `ima
 
 
 ### Concepts
+
 Here are the additional concepts you need to know before you start:
 
+* [Shippable Assembly Line config](/platform/workflow/config/#assembly-lines-configuration)
 * [Github integration](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-  * [image](/platform/workflow/resource/image)
-  * [gitRepo](/platform/workflow/resource/gitrepo)
+    * [image](/platform/workflow/resource/image)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
 * [Jobs](/platform/workflow/job/overview/)
-  * [runCI](/platform/workflow/job/runci)
+    * [runCI](/platform/workflow/job/runci)
 * [Resources](/platform/workflow/resource/overview/)
-  * [image](/platform/workflow/resource/image)
+    * [image](/platform/workflow/resource/image)
 
 
-### Step-by-step instructions
+### Instructions
 
 The following steps shows how to dynamically update the tags of image resource when the CI process that generates the image is finished.
 
@@ -149,7 +156,7 @@ The following steps shows how to dynamically update the tags of image resource w
 
 ####1. Author Assembly Line configuration
 
-Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed AL configuration info is [here](/deploy/configuration).
+Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed Assembly Line configuration info is [here](/deploy/configuration).
 
 #####1a. Add `resources` section of the config
 
@@ -188,8 +195,6 @@ jobs:
     type: runCI
     steps:
       - OUT: node_app_img_dh
-    flags:
-      - node_app
 ```
 
 ####2. Update node_app_img_dh in CI Config
@@ -203,9 +208,8 @@ env:
     - SHIP_IMG_RES=$DOCKER_REPO"_img_dh"
 
 build:
-  # Add this on_success section to build
+  # Add this on_success section to build section
   on_success:
-    - shipctl put_resource_state $SHIP_IMG_RES sourceName $DOCKER_REPO
     - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
 ```
 

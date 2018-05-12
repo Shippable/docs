@@ -1,6 +1,7 @@
 page_main_title: AWS EBS
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: AWS Elastic Beanstalk integration
 page_description: Setting up AWS Elastic Beanstalk integrations on Shippable
 page_keywords: eb, amazon, aws, shippable, google, openshift

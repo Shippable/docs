@@ -3,6 +3,7 @@ main_section: Provision
 sub_section: AWS
 
 # Build Amazon AMI using Packer
+
 This tutorial explains how to automate the building of an AWS AMI using Packer.
 
 This document assumes you're familiar with the following concepts:
@@ -12,50 +13,11 @@ This document assumes you're familiar with the following concepts:
 * [File Provisioner](https://www.packer.io/docs/provisioners/file.html)
 * [Manifest Post Processor](https://www.packer.io/docs/post-processors/manifest.html)
 
-If you're unfamiliar with Packer, it would be good to start with learning how to build AMIs manually. Refer to our blog for a step-by-step tutorial: [Build AWS AMI Manually](http://blog.shippable.com/build-aws-ami-packer).
-
-## Manual Steps to Deploy
-Step 1: Prep your machine
-Have your security credentials handy to authenticate to your AWS Account. Refer to the AWS Credentials documentation.
-
-Install Packer based on the OS of the machine from which you plan to execute the script. 
-
-Step 2: Prepare Packer scripts
-Packer uses a .json template that has the build instructions. The basic construct is that a packer template has one builder and multiple steps of provisiners and post-processors. In this case we are using a file based provisioner that copies the file into the build machine and executes it. We also have a manifest post-processor that enables us to output the amiId that was just built. 
-
-Below are the files that we have created for building our AMI:
-* vars.json supplies the values for all the dynamic variables needed
-* baseInit.sh is the shell script that will install packages inside the build machine
-* baseAmi.json is the packer template
-
-```
-├── baseAmi.json
-├── baseInit.sh
-├── vars.json
-
-```
-
-If you do not have your own Packer scripts, please feel free to clone our sample repo here: https://github.com/devops-recipes/aws_ami_with_packer
-
-In our scenario, you will need to provide the values in the vars.json file and you should be good to go
-
-In vars.json, replace these wildcards (security group, subnet id, instance information etc.) with your desired values: `${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${vpc_region} ${vpc_public_sn_id} ${vpc_public_sg_id} ${source_ami} ${instance_type} ${ssh_username}`. 
-
-Step 3: Build your Packer image
-Execute the following command to start Packer build from the directory that contains baseAmi.json file.
-
-`packer build -var-file=vars.json baseAMI.json`
-
-Verify on AWS if the AMI was built.
-
-There are many challenges with manually running Packer builds. In short, you will struggle with making Packer files reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless execution of Packer build scripts with modular & reusable process, you need to templatize your playbooks and automate the workflow used to execute them.
+If you're unfamiliar with Packer, you can start with learning how to build AMIs manually. Refer to our blog for a step-by-step tutorial: [Build AWS AMI Manually](http://blog.shippable.com/build-aws-ami-packer).
 
 ## Automating the building of AWS AMI with Packer
 
-## Automating Packer GCE Image builds
-We are going to address the challenges above in a systematic way by using Assembly Lines (AL) that Shippable provides. AL offers a variety of benefits, the prominent being
+You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
 * Capability to create an event driven workflow that automates the entire software delivery lifecycle
 * Ability to create RBAC and contextually inject credentials based on who/what is running the deployment job
@@ -78,7 +40,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Step by Step Instructions
 
-The following sections explain the process of automating a workflow to build an AWS AMI with Packer. We will demonstrate this with our sample application.
+The following sections explain the process of automating a workflow to build an Amazon AMI using Packer. We will demonstrate this with our sample application.
 
 **Source code is available at [devops-recipes/aws_ami_with_packer](https://github.com/devops-recipes/aws_ami_with_packer)**
 
@@ -155,13 +117,15 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `aws_ami_pack_creds`
 
-To be able to interact with AWS, you need creds. Your AWS credentials are securely stored in this integration, and you can extract them in your job when needed.
+Your AWS credentials are securely stored in this integration.
+
+To let Packer interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
 ######iii. params resource named `aws_ami_pack_info`
 
-We store information like **ami_id**, which is created during the build process, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that provisions machines will need to know which AMI_ID to provision.
+We store information like **ami_id**, which is created during the build process, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that provisions machines will need to know which **AMI_ID** to provision.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
@@ -170,7 +134,7 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 A job is an execution unit of the Assembly Line. Our job has to perform three tasks:
 
 * Replace the wildcards needed by the Packer file
-* Build AMI
+* Build the AMI
 * Output `ami_id` into the `params` resource to make it available for downstream jobs
 
 Add the following to your **shippable.yml**:
@@ -181,25 +145,29 @@ jobs:
   - name: build_aws_ami_pack
     type: runSh
     steps:
-      - IN: aws_vpc_tf_info
       - IN: aws_ami_pack_repo
         switch: off
       - IN: aws_vpc_tf_state
         switch: off
       - IN: aws_ami_pack_creds
         switch: off
+        # The aws_vpc_tf_info resource is defined in the AWS VPC provisioning tutorial: http://docs.shippable.com/provision/tutorial/provision-aws-vpc-terraform
+        # If you have not followed that tutorial, please delete this resource
+      - IN: aws_vpc_tf_info        
       - TASK:
           name: build_ami
           runtime:
             options:
               env:
-                #- vpc_id: "implicitly set from aws_vpc_tf_info"
-                #- vpc_region: "implicitly set from aws_vpc_tf_info"
-                #- vpc_public_sg_id: "implicitly set from aws_vpc_tf_info"
-                #- vpc_public_sn_id: "implicitly set from aws_vpc_tf_info"
                 - source_ami: "ami-43a15f3e"
                 - instance_type: "t2.micro"
                 - ssh_username: "ubuntu"
+                # Uncomment and replace values with hardcoded values if you deleted the aws_vpc_tf_info resource  
+                #- vpc_id:
+                #- vpc_region:
+                #- vpc_public_sg_id:
+                #- vpc_public_sn_id:
+
           script:
             - pushd $(shipctl get_resource_state "aws_ami_pack_repo")
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ami_pack_creds "accessKey")
@@ -216,24 +184,24 @@ jobs:
         - popd
 ```
 
-* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `build_aws_ami_pack`.
+* Adding the above config to the jobs section of **shippable.yml** will create a `runSh` job called `build_aws_ami_pack`.
 
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
-  * Packer script files are version controlled in a repo represented by `aws_ami_pack_repo`.
-  * Credentials to connect to AWS are in `aws_ami_pack_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
-  * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_id, vpc_region, vpc_public_sn_id & vpc_public_sg_id`, which are required by this job. If you already have a VPC and just want to use this tutorial to build an AMI, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
+    * Packer script files are version controlled in a repo represented by `aws_ami_pack_repo`.
+    * Credentials to connect to AWS are in `aws_ami_pack_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
+    * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_id, vpc_region, vpc_public_sn_id & vpc_public_sg_id`, which are required by this job. If you already have a VPC and just want to use this tutorial to build an AMI, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
 * The `TASK` section contains actual code that is executed when the job runs. We have just one task named `build_ami` which does the following:
-  * First, we define environment variables required by the scripts-
-    * `vpc_id` is the id of the VPC on which the temporary build machine get provisioned
-    * `vpc_region` is the aws region where the VPC is present
-    * `vpc_public_sn_id` is the id of a public subnet
-    * `vpc_public_sg_id` is the id of the security group that has SSH access to the subnet
-  *  `script` section has a list of commands to execute sequentially.
-    * First, we use the Shippable utility function `get_resource_state` to go to the folder where scripts are stored
+    * First, we define environment variables required by the scripts-
+        * `vpc_id` is the id of the VPC on which the temporary build machine get provisioned
+        * `vpc_region` is the aws region where the VPC is present
+        * `vpc_public_sn_id` is the id of a public subnet
+        * `vpc_public_sg_id` is the id of the security group that has SSH access to the subnet
+        *  `script` section has a list of commands to execute sequentially.
+    * We then use the Shippable utility function `get_resource_state` to go to the folder where scripts are stored
     * Next, we extract the AWS credentials from the `aws_ami_pack_creds`resource, again using shipctl functions
-    * Next, we replace all wildcards in the vars.json file
-    * Last, we kick off the build process. This step also updates the `params` resource with `ami_id` generated during the execution. 
- 
+    * Next, we replace all wildcards in the **vars.json** file
+    * Lastly, we kick off the build process. This step also updates the `params` resource with `ami_id` generated during the execution.
+
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 
 Detailed info about Shippable Utility functions is [here](/platform/tutorial/workflow/using-shipctl).

@@ -1,6 +1,7 @@
 page_main_title: AWS Opsworks
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: Deploying to AWS OpsWorks
 page_description: How to deploy your application to AWS OpsWorks
 page_keywords: aws opsworks, continuous deployment, CI/CD

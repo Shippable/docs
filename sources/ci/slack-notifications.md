@@ -1,6 +1,7 @@
 page_main_title: Sending messages to Slack
 main_section: CI
-sub_section: Sending notifications
+sub_section: Configuration
+sub_sub_section: Sending notifications
 page_title: Sending slack notifications
 page_description: Configure Slack to send notifications for Continuous Integration and Delivery actions
 page_keywords: slack, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
@@ -17,13 +18,8 @@ There are 2 steps to add a Slack integration: Configuring the webhook on Slack, 
 
 ###1. Configure an incoming webhook on Slack
 
-*  Sign in to your Slack account and [go to this link to create an incoming webhook](https://my.slack.com/services/new/incoming-webhook/).
-     -  Provide credentials to your Slack account, if prompted.
-*  In the **Post Channel** section, use the dropdown and select a channel to create the webhook. It does not matter which channel you choose while creating the webhook. We will override it when you configure the integration on Shippable.
-*  Click the 'Add Incoming Webhook integration' button.
+* Follow instructions in the Slack docs to [create an incoming webhook](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack).
 *  Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
-*  Click the **Save Settings** button.
-
 
 ###2. Add the Slack integration to your Account
 

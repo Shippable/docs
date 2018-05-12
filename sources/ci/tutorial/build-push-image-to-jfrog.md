@@ -1,116 +1,77 @@
-page_description: Build and Push a Docker image to Docker registry on JFrog Artifactory
+page_description: Build and Push Docker Image to JFrog Artifactory
 main_section: CI
-sub_section: Docker
+sub_section: Tutorials
 
-# Build and Push Docker Image to Docker Registry on JFrog Artifactory
+# Build and Push Docker Image to JFrog Artifactory
 
-This tutorial explains how to continuously build and push a Node.js based web application to a Docker Registry hosted on JFrog Artifactory. We are using an application that has basic CI tests.
+This tutorial explains how to continuously build and push an image to Artifactory.
+
+We will start with a simple Node.js application, run some CI tests and code coverage, and then package the application into a Docker image and push it to Artifactory.
 
 This document assumes you're familiar with the following concepts:
 
-* [Docker Registry on JFrog Artifactory](https://www.jfrog.com/confluence/display/RTF/Docker+Registry)
 * [Docker build](https://docs.docker.com/engine/reference/commandline/build/)
 * [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
 * [Docker login](https://docs.docker.com/engine/reference/commandline/login/)
 * [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 
-## Manual Steps to Build
-This section covers step by step instructions to manually build your Docker image
+If you're unfamiliar with Docker, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Build and push a Docker image to JFrog Artifactory](http://blog.shippable.com/build-a-docker-image-and-push-it-to-docker-hub).
 
-* Create a GitHub repo that will hold the code to build the image. For this e.g. full source code is available [here](https://github.com/devops-recipes/node_app_jfrog)
-* Have the URL, UserName and Password to your Docker Registry on JFrog Artifactory
-* Install Docker on your local machine. More information is in [Getting Started Guide](https://docs.docker.com/get-started/)
-* Install JFrog CLI on your local machine. More information is in [JFrog CLI site](https://jfrog.com/getcli/)
-* Login to docker `docker login` with your credentials and the URL to your repo. It looks something like this `docker login devopsrecipes-dr.jfrog.io` and follow the prompt
-* Your Dockerfile will look something like below
+## Automated build and push to Docker Hub
 
-**Dockerfile**
-```
-FROM readytalk/nodejs
+There are many build services for Docker, but they offer limited functionality in addition to building an image. For example, you will not be able to run CI tests, code quality checks, code coverage, etc, before building your Docker image.
 
-# Add our configuration files and scripts
-WORKDIR /app
-ADD . /app
-RUN npm install
-EXPOSE 80
+This tutorial will take you on a step-by-step journey on how to achieve this scenario.
 
-ENTRYPOINT ["/nodejs/bin/npm", "start"]
-```
-* Build your image by executing this command. `$DOCKER_REG` is the name of your account `$DOCKER_IMG` is your image name and `$BUILD_NUMBER` is your tag
+<img src="/images/tutorial/build-push-docker-hub-fig1.png" alt="E2E Pipeline View">
 
-```
-docker build -t $DOCKER_REG/$DOCKER_REPO:$BUILD_NUMBER .
-```
+Before you start, you should be familiar with the following Shippable platform features:
 
-* Now you can push this image to your hub by executing this command.
-
-```
-sudo docker push $DOCKER_REG/$DOCKER_REPO:$BUILD_NUMBER
-```
-
-If you're unfamiliar with Docker Registry hosted on JFrog Artifactory, you should start with learning how to implement this scenario manually. Refer to our blog for a step-by-step tutorial: [Node.js CI: Build and Push a Node application to Docker Registry on JFrog Artifactory](http://blog.shippable.com/node-ci-jfrog-artifactory).
-
-There are many challenges with manually executing this CI workflow. First, you should execute it for every commit against the latest codebase, which is difficult to enforce manually. Second, if you want to trigger a dependent multi-stage workflow which deploys this application to Test, Staging environments and runs test suites, you will have to manually handle all that as well. This leads to overdependence on people and isn't efficient.
-
-If you want to achieve frictionless development, you should automate your CI workflow.
+* [Shippable CI configuration](/platform/workflow/config/#ci-configuration)
+* [Docker Registry integration](/platform/integration/dockerRegistryLogin)
 
 
-## Automating Build and Push to JFrog Artifactory
+### Instructions
 
-This tutorial will show you how to automate your workflow using Shippable's native CI feature.
-
-To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
-
-### Concepts
-
-* [Integrations](/platform/integration/overview/)
- * [Docker Registry](/platform/integration/dockerRegistryLogin)
-* [How CI works on Shippable](/ci/why-continuous-integration/)
-
-### Step-by-step instructions
-
-The following sections explain the process of configuring a CI workflow to continuously test, build and push a Node.js Dockerized app to Docker Registry on JFrog Artifactory. 
+The following sections explain the process of configuring a CI workflow to continuously test, build and push a Docker image to Artifactory. We will use a Node.js app that uses Mocha and Istanbul for unit testing and code coverage.
 
 **Source code is available at [devops-recipes/node_app_jfrog](https://github.com/devops-recipes/node_app_jfrog)**
 
-**Complete YML is at [devops-recipes/node_app_jfrog/shippable.yml](https://github.com/devops-recipes/node_app_jfrog/blob/master/shippable.yml)**
+**Complete YML is at [devops-recipes/node_app_jfrog/shippable.yml](https://raw.githubusercontent.com/devops-recipes/node_app_jfrog/master/shippable.yml)**
+
+You can clone our sample repository to follow this tutorial.
 
 ####1. Add necessary Account Integrations
 
-Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). The following are the integrations that we will use in this sample
+Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use a Docker registry integration in this scenario.
 
-#####1a. Add `Docker Registry` Integration
+#####1a. Add `Docker Registry` Integration**
 
-To be able to push and pull images from Docker Hub, we need to add the `drship_jf_docker` integration.
+To be able to push and pull images from JFrog's Docker registry, we add `drship_artifactory_docker ` integration. Make sure you name the integration `drship_artifactory_docker` since that is the name we're using in our sample automation scripts.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). 
-
-Make sure you name the integration `drship_jf_docker` since that is the name we're using in our sample automation scripts. Also, set the right Docker URL based on where your registry is present. In our case it is `https://devopsrecipes-dr.jfrog.io`, where `dr` is our registry name. 
-
-Detailed steps on how to add a Key value Integration are [here](/platform/integration/key-value/#creating-an-account-integration).
-
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
 
 ####2. Author CI configuration
 
-The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your CI workflow.
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**.
 
 Detailed CI configuration info is [here](/ci/yml-structure/).
 
 #####2a. Add empty shippable.yml to your repo
 
-Add an empty **shippable.yml** to the the root of your repo.
+Add an empty **shippable.yml** to the the root of your repository that contains your Dockerfile.
 
-#####2b. Add `ci` section of the config
+#####2b. Add CI config
 
-Configure CI by adding the following code to **shippable.yml**:
+Configure CI steps by adding the following code snipped to the YML file. If you're using a clone of our sample repository, the config is already present. You'll just need to make a few edits as noted below:
 
 ```
 language: node_js
 
 integrations:
+artifactory-integration
   hub:
-    - integrationName: drship_jf_docker
+    - integrationName: drship_artifactory_docker    # integration name from step 1a
       type: dockerRegistryLogin
 
 branches:
@@ -123,8 +84,8 @@ env:
     - CODE_COVERAGE_DIR=$SHIPPABLE_REPO_DIR/shippable/codecoverage
     - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/tests
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
-    - JFROG_ARTIFACTORY_IMG="node_app_jfrog"
-    - JFROG_ARTIFACTORY_REG=devopsrecipes-dr.jfrog.io # {account name}
+    - JFROG_ARTIFACTORY_REPO="node_app_jfrog"      # replace with image name
+    - JFROG_ARTIFACTORY_ACC=devopsrecipes-node-app-jfrog.jfrog.io   # replace with your Artifactory repository key
 
 build:
   ci:
@@ -135,18 +96,19 @@ build:
     - $MOD_LOC/istanbul --include-all-sources cover -root "$SHIPPABLE_REPO_DIR/routes" $SHIPPABLE_REPO_DIR/node_modules/mocha/bin/_mocha -- -R spec-xunit-file --recursive "$TESTS_LOC_DIR/**/*.spec.js"
     - $MOD_LOC/istanbul report cobertura --dir $CODE_COVERAGE_DIR
     - popd
-
   post_ci:
-    - docker build -t $JFROG_ARTIFACTORY_REG/$JFROG_ARTIFACTORY_IMG:$BRANCH.$BUILD_NUMBER .
-    - docker push $JFROG_ARTIFACTORY_REG/$JFROG_ARTIFACTORY_IMG:$BRANCH.$BUILD_NUMBER
-
+    - docker build -t $JFROG_ARTIFACTORY_ACC/$JFROG_ARTIFACTORY_REPO:$BRANCH.$BUILD_NUMBER .
+    - docker push $JFROG_ARTIFACTORY_ACC/$JFROG_ARTIFACTORY_REPO:$BRANCH.$BUILD_NUMBER
 ```
 
 The above YML does the following things:
 
 * Language is set to Node.js
-* The integration is referenced here to automatically inject Docker Registry credentials
-* The `build` section contains scripts to build and push your Node.js app packaged as a Docker image
+* We will automatically build when a commit is made to `master` branch. Commits to other branches will not trigger a build.
+* The `integration` created in first step is referenced here to automatically login to JFrog Docker registry.
+* Global environment variables store information about the Docker image. Please replace the `JFROG_ARTIFACTORY_ACC` value your `Repository key` on JFrog and `JFROG_ARTIFACTORY_REPO` with the image name.
+* The `build` section defines the scripts to build and push the image. As you can see, native docker commands can be directly used in your configuration.
+* We use standard environment variables to build the image tag
 
 ####3. Enable the repo for CI
 
@@ -158,58 +120,71 @@ Detailed steps on enabling a repo are [here](/ci/enable-project/).
 
 You can either manually trigger your CI project or commit a change to the application git repository which should automatically build your project.
 
-Verify that your repository was created on JFrog Docker Registry!
+Verify that your image was pushed to Artifactory!
 
 ## Adding CD capability
 
 CI is a developer focused activity that produces a deployable unit of your application, a Docker image in this instance. If you want to add a Continuous Delivery workflow which deploys your application into successive environments like Test, Staging, Production and runs test suites, the downstream jobs performing these activities will need to know where to find your Docker image.
 
-This section shows how you can output your Docker image information into a `image` resource which can be used by downstream jobs.
+This section shows how you can output your Docker image information into an `image` resource which can be used by downstream jobs.
+
+<img src="/images/tutorial/build-push-docker-hub-fig2.png" alt="E2E Pipeline View">
 
 ### Concepts
 
 Here are the additional concepts you need to know before you start:
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Shippable Assembly Line config](/platform/workflow/config/#assembly-lines-configuration)
+* [Github integration](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
- * [image](/platform/workflow/resource/image)
+    * [image](/platform/workflow/resource/image)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
 * [Jobs](/platform/workflow/job/overview/)
- * [runCI](/platform/workflow/job/runci)
+    * [runCI](/platform/workflow/job/runci)
+* [Resources](/platform/workflow/resource/overview/)
+    * [image](/platform/workflow/resource/image)
 
 ### Instructions
 
+The following steps shows how to dynamically update the tags of an `image` resource when the CI process that generates the image is finished.
+
+**Source code is available at [devops-recipes/node_app_jfrog](https://github.com/devops-recipes/node_app_jfrog)**
+
+**Complete YML is at [devops-recipes/node_app_jfrog/shippable.yml](https://raw.githubusercontent.com/devops-recipes/node_app_jfrog/master/shippable.yml)**
+
 ####1. Author Assembly Line configuration
 
-Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed AL configuration info is [here](/deploy/configuration).
+Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed Assembly Line configuration info is [here](/deploy/configuration).
 
 #####1a. Add `resources` section of the config
 
-`resources` section defines the params resource which will hold information about the Docker image and its location.
+`resources` section defines the image resource which holds information about the Docker image and its location.
 
 ```
 resources:
-  - name: node_app_img_jf
+  - name: node_app_jfrog_img_jfrog
     type: image
-    integration: drship_jf_docker # replace with your integration name
+    integration: drship_artifactory_docker  # Replace with your integration name
     versionTemplate:
-      sourceName: "devopsrecipes-dr.jfrog.io/node_app_jfrog" # replace with your Hub URL
+      sourceName: "devopsrecipes-node-app-jfrog.jfrog.io/node_app_jfrog"  # Replace with your Artifactory URL
+      isPull: false
       versionName: latest
+
 ```
 
-######i. image resource named `node_app_img_jf`
-An image resource contains information about the Docker image. We are setting the integration to `drship_jf_docker` which was the same integration that we created above. `sourceName` is the full URL of the image and `versionName` is the tag.
+Here we are creating an image named `node_app_jfrog_img_jfrog` that can be accessed using credentials from the integration `drship_artifactory_docker`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Each time a new tag is created, a new version of the resource will be created.
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
-#####1b. Add `jobs` section of the config**
+#####1b. Add `jobs` section of the config
 
 A job is an execution unit of the assembly line.
 
 In order to treat your CI workflow like an Assembly Line job, i.e. be able to define `IN` and `OUT` resources, you need to define a `runCI` job with the name of your repository appended by `_runCI`.
 
-In this section, we will define the `runCI` job that will specify the `node_app_img_jf` as an `OUT`, meaning your CI workflow will update this resource.
+In this section, we will define the `runCI` job that will specify `node_app_jfrog_img_jfrog` as an `OUT`, meaning your CI workflow will update this resource.
 
-Add the following at the very end of your **shippable.yml**. If you already have this job in your yml, just add the `OUT` resource `node_app_img_jf`:
+Add the following at the very end of your **shippable.yml**:
 
 #####i. job named `node_app_jfrog_runCI`.
 
@@ -220,45 +195,94 @@ jobs:
     dependencyMode: strict
     triggerMode: parallel
     steps:
-      - OUT: node_app_img_jf
-```
-
-#####1c. Update node_app_img_jf in CI config
-
-To update the `node_app_img_jf` resource with image tag information, add the following to the `build` section:
+      - OUT: node_app_jfrog_img_jfrog
 
 ```
+
+####2. Update node_app_jfrog_img_jfrog in CI Config
+
+To update the `node_app_jfrog_img_jfrog` resource with Docker image information, such as image name and tag, add the following to the `build` section of your **shippable.yml**:
+
+```
+env:
+  global:
+    #Add the resource name to env->global section     
+    - SHIP_IMG_RES=$JFROG_ARTIFACTORY_REPO"_img_dh"
+
 build:
+  # Add this on_success section to build section
   on_success:
-    - shipctl put_resource_state node_app_img_jf versionName $BRANCH.$BUILD_NUMBER
+    - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
 ```
 
-####2. Push changes to shippable.yml
-
-Commit and push all the above changes to **shippable.yml**.
+* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
 
 
-####3. Add the Assembly Line to your Shippable Subscription
 
-In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
 
-Please skip this section if you have already added this as a sync repository.
 
-Your SPOG view should look something like this:
+###1. Add Assembly Line config
 
-<img src="/images/tutorial/build-push-image-to-jfrog-fig1.png" alt="E2E Pipeline View">
 
-####4. Test your Assembly Line
 
-Add a commit to your repo and you should see the CI process kick off, which builds a Docker image and then pushes it to your JFrog Docker Repository. The location info is then pushed into `node_app_img_jf` as a new version.
 
-<img src="/images/tutorial/build-push-image-to-jfrog-fig2.png" alt="E2E Pipeline View">
 
-If `node_app_img_jf` is an `IN` to another job in your workflow that pulls the image, that job will be triggered every time the `node_app_img_jf` version is updated.
+Add the following YAML config after the CI config:
+
+```
+# OPTIONAL: This configuration is to add continuous deployment
+# to your CI project. You can store the image pointer and tag in
+# an image resource, which can then be deployed to any container
+# orchestration platform like Kubernetes. For instructions, please
+# refer to the section on Adding Continuous Deployment
+
+
+
+## OPTIONAL : In case you want to use this image in CD Assembly Lines
+resources:
+  - name: node_app_jfrog_img_jfrog
+    type: image
+    integration: drship_artifactory_docker # replace with your integration name
+    versionTemplate:
+      sourceName: "devopsrecipes-node-app-jfrog.jfrog.io/node_app_jfrog" # replace with your Hub URL
+      isPull: false
+      versionName: latest
+
+jobs:
+  - name: node_app_jfrog_runCI
+    type: runCI
+    dependencyMode: strict
+    triggerMode: parallel
+    steps:
+      - OUT: node_app_jfrog_img_jfrog
+    flags:
+      - node_app_jfrog
+```
+
+This section does the following things:
+
+* If the ci section runs without any error, then using in-built utility function `put_resource_state` we copy the image tag into the `versionName` field of image `node_app_jfrog_img_jfrog` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
+* `resources` section is used to define resources that are used by the assembly line. Here we are creating an image named `node_app_jfrog_img_jfrog` that can be access using integration `drship_artifactory_docker`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
+* `jobs` section is used to define a jobs that run as part of the Assembly Line. When a CI project is enable a job is automatically created with the name of the repo appended by `_runCI`. We are extending this automatically created CI job to also have an image output. In additon we are also adding a flag. We are allowing these jobs to run in parallel if multiple webhooks come in and also we making sure it only triggers when all dependencies are in consistent state, hence `strict`
+
+###2. Add Github Integration
+In order to read your Assembly Line configuration from Github, we need an integration. Add `drship_github` integration.
+
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
+
+###3. Add Assembly Line to Shippable
+Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.
+
+Detailed steps to add an Assembly Line are [here](deploy/configuration/).
+
+###4. End to End Build and Push Assembly Line
+If you change the view of your Subscription page to SPOG view, you should see something like this:
+
+<img src="/images/tutorial/build-push-docker-image-fig5.png" alt="E2E Pipeline View">
+
+###5. Test your Assembly Line
+Add a commit to your repo and you should see the CI process kick off, which builds a Docker image and then pushes it to Docker Hub. The tag info is then pushed into the image resource as a new version.
+
+If your image resource is an IN to another job in your workflow that deploys the image, that job will be triggered every time the image version is updated.
 
 ## Further Reading
-* [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
-* [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)

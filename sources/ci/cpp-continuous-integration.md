@@ -1,6 +1,7 @@
 page_main_title: C/C++
 main_section: CI
-sub_section: Language guide
+sub_section: Configuration
+sub_sub_section: Language guide
 page_title: Continuous Integration for C/C++ projects
 page_description: How to do Continuous Integration for C/C++ projects in Shippable
 

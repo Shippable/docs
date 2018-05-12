@@ -1,6 +1,7 @@
 page_main_title: Unsupported languages
 main_section: CI
-sub_section: Language guide
+sub_section: Configuration
+sub_sub_section: Language guide
 page_title: Building unsupported languages
 page_description: How to build unsupported languages in Shippable
 

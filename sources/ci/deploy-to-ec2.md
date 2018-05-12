@@ -1,6 +1,7 @@
 page_main_title: Amazon EC2
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: Deploying to EC2 using CodeDeploy
 page_description: How to deploy your application to AWS CodeDeploy
 page_keywords: AWS codedeploy, continuous deployment, CI/CD, continuous integration

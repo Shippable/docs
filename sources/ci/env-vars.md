@@ -1,6 +1,7 @@
 page_main_title: Working with env variables
 main_section: CI
-sub_section: Preparing your environment
+sub_section: Configuration
+sub_sub_section: Preparing your environment
 page_title: Working with environment variables
 page_description: How to customize your build workflow using environment variables in Shippable
 

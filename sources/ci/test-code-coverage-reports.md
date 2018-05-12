@@ -1,6 +1,7 @@
 page_main_title: Overview with default scenario
 main_section: CI
-sub_section: Configuring test and code coverage
+sub_section: Configuration
+sub_sub_section: Configuring test/code coverage
 page_title:  Configuring Test and Code Coverage Reports
 page_description: How to configure Test and Code Coverage Reports
 

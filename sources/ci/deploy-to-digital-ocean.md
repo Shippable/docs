@@ -1,6 +1,7 @@
 page_main_title: Digital Ocean
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: Deploying to Digital Ocean
 page_description: How to deploy your application to Digital Ocean
 page_keywords: digital ocean, continuous deployment, CI/CD

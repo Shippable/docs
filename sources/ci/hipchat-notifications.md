@@ -1,6 +1,7 @@
 page_main_title: Sending messages to Hipchat
 main_section: CI
-sub_section: Sending notifications
+sub_section: Configuration
+sub_sub_section: Sending notifications
 page_title: Sending Hipchat notifications
 page_description: Configure Hipchat to send notifications for Continuous Integration and Delivery actions
 page_keywords: hipchat, atlassian, notifications, CI/CD, Continuous Integration, Continuous Deployment, CI/CD, testing, automation

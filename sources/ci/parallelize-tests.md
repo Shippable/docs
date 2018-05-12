@@ -1,6 +1,6 @@
 page_main_title: Running tests in parallel
 main_section: CI
-sub_section: Building and testing your project
+sub_section: Tutorials
 page_title: Running tests in parallel
 page_description: How to run tests in parallel in Shippable
 

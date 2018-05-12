@@ -1,6 +1,7 @@
 page_main_title: Building pull requests
 main_section: CI
-sub_section: Advanced config
+sub_section: Configuration
+sub_sub_section: Advanced config
 page_title: Building pull requests in Shippable
 page_description: How to automatically build pull requests for all enabled projects in Shippable
 

@@ -22,7 +22,7 @@ If you want to achieve frictionless execution of Ansible playbooks with modular,
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
 * Creating an event-driven, automated workflow
-* Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running the ansible playbook
+* Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running the Ansible playbook
 * Dynamically injecting wildcard values in template playbooks, depending on the state of the workflow
 * Visualizing your workflow and it's current status in a graphical view
 
@@ -138,7 +138,7 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 Your AWS credentials are securely stored in this integration.
 
-To let ansible interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
+To let Ansible interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 

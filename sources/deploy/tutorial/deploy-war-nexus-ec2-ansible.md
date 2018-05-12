@@ -4,7 +4,7 @@ page_description: Deploying a Java WAR application from Nexus Repository manager
 
 # Deploying a Java WAR package from Nexus to AWS EC2 using Ansible
 
-This tutorial explains how to automate deployment of a Java-based WAR package stored on Nexus Repository Manager to a virtual machine running on AWS EC2 using Ansible playbooks.
+This tutorial explains how to automate the deployment of a Java-based WAR package stored on Nexus Repository Manager to a virtual machine running on AWS EC2 using Ansible playbooks.
 
 This document assumes you're familiar with the following concepts:
 
@@ -15,82 +15,15 @@ This document assumes you're familiar with the following concepts:
 * [Ansible shell module](https://docs.ansible.com/ansible/2.3/shell_module.html)
 * [Ansible copy module](https://docs.ansible.com/ansible/2.3/copy_module.html)
 
-## Manual Steps to Deploy a WAR from Nexus to EC2
+If you're unfamiliar with Ansible, it would be good to start with learning how to deploy packages manually with playbooks. Refer to our blog for a step-by-step tutorial: [Deploy a WAR package from Nexus to AWS using Ansible](http://blog.shippable.com/deploy-a-war-package-from-nexus-to-aws-using-ansible).
 
-You can run your ansible scripts manually on your local machine to deploy your application. This is the best way to get started, and once you know how it works, you can automate it.
+There are many challenges with manually running Ansible playbooks. In short, you will struggle with making playbooks reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
-* Have your security credentials handy to authenticate to your AWS Account. [Refer to the AWS Credentials documentation](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
-
-* Install Ansible based on the OS of the machine from which you plan to execute the script. [Refer to the Ansible Installation guide](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
-
-* Ansible uses a convention of folder structure that looks something like below
-    * **ansible.cfg** holds configuration info
-    * **inventory** has the inventory of artifacts
-    * **variables.yml** has the variables that are used to replace wildcards in your playbooks to make them more reusable
-    * **war_deploy_playbook.yml** is the playbook which has a list of tasks to deploy your WAR
-
-```
-├── ansible.cfg
-├── inventory
-│   ├── base
-│   ├── ec2.ini
-│   ├── ec2.py
-│   ├── static_hosts
-├── variables.yml
-├── war_deploy_playbook.yml
-```
-
-* If you do not have your own ansible playbooks, please feel free to clone our sample playbook here: [https://github.com/devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible)
-
-* In our scenario, the important files are:
-    * [war_deploy_playbook.yml](https://github.com/devops-recipes/cd_war_vm_ansible/blob/master/ansible/war_deploy_playbook.yml), which is the playbook that deploys your WAR
-    * [variables.yml](https://github.com/devops-recipes/cd_war_vm_ansible/blob/master/ansible/variables.yml), which contains wildcard settings for the playbook.
-
-* It is important to note the following:
-    * **war_deploy_playbook.yml** scripts have some wildcards, which ansible replaces with values from **variables.yml**.
-    * Since we want to create a reusable playbook, we have not hardcoded values in **variables.yml** but left it up to the user to replace these when needed. This will be done in a later step, just before running the playbook.   
-
-* Execute the following commands to set up your AWS credentials as environment variables. The playbook will need these at runtime.
-
-```
-export AWS_ACCESS_KEY_ID=<replace your key>
-export AWS_SECRET_ACCESS_KEY=<replace your secret>
-```
-
-* In **ansible.cfg**, replace `${PEM_CD_WAR_VM_KEYPATH}` with the path to the PEM key that has access to SSH into your EC2 machine.
-
-* In **variables.yml**, replace these wildcards with your desired values: `${AWS_REGION} ${repository_url} ${group_id} ${artifact_id} ${artifact_version} ${artifact_extension} ${artifact_filename} ${artifact_dest}`.
-
-* Execute the following command to run the ansible playbook from the directory that contains the playbook.
-
-```
-ansible-playbook -v war_deploy_playbook.yml
-```
-
-* Verify on the EC2 machine that the correct WAR file was copied to `${artifact_dest}`.
-
-* You can also run shell scripts that will execute after deployment by changing the last task in `war_deploy_playbook.yml` or adding a new shell task.
-
-```
-    - name: Test copy action
-      shell: "ls {{ artifact_dest }}"
-```
-
-## Challenges with manual deployments
-
-There are a few challenges with manual execution of Ansible playbooks:
-
-* Ansible playbook templates can be reused since they have wildcards. However, you need a programmatic way to replace wildcards at runtime. Creating static variables files is an option, but reduces reusability.
-* Automating provisioning for different environments and creating a dependency tree of all applications that are deployed into that environment is tedious to achieve with manual steps. You need an automated workflow to effectively transfer information like subnet_id, security_group_id to downstream activities. for e.g. EC2 provisioners.
-* Security with RBAC is a problem. The machine used to provision is authenticated to an AWS account (even in the case of service accounts). This means that the only way you can implement RBAC across multiple projects/teams is to use multiple accounts on the machine. This is messy and painful to maintain at scale.
-* The machine has to be prepped with the right version of the CLI. If multiple teams are deploying and they have a need to use different versions of the CLI, you will need different deployment machines for each team.
-
-In a nutshell, if you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
-
+If you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
 
 ## Automating the deployment of WAR from Nexus to an EC2 machine
 
-Next, we will demonstrate how you can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
+You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
 * Creating an event-driven, automated workflow
 * Securing workflow jobs with RBAC and contextually injecting credentials depending on who/what is running the ansible playbook

@@ -1,6 +1,7 @@
 page_main_title: Heroku
 main_section: CI
-sub_section: Deployments
+sub_section: Configuration
+sub_sub_section: Deployments
 page_title: Deploying to Heroku
 page_description: How to deploy your application to Heroku
 page_keywords: heroku, continuous deployment, CI/CD
