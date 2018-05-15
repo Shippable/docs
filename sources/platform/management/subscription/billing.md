@@ -88,11 +88,11 @@ Please note that any changes due to your plan downgrade will be effective immedi
 Your new price will be reflected in your next invoice.
 
 ### Enabling cache
-You can upgrade your dyamic SKU to have `cache` addon. This will make your builds faster. To know more about caching click here.
+You can upgrade your on-demand nodes to have `cache` addon. To know more about caching [click here](/platform/runtime/caching).
 
-* You can purchase cache addon for any of your existing dynamic SKU or new dynamic SKU by clicking on the cache checkbox in your SKU row.
+* You can purchase cache addon for any of your existing on-demand node or new on-demand node by clicking on the cache checkbox for that node.
 
-* You will be charged some fixed amount for enabling caching apart from your SKU charge.
+* Node caching is a chargeable add-on. When you enable caching for a node, the unit price will be updated accordingly.
 
 * Click on the **Upgrade** button once you have selected cache checkboxes for required SKUs.
 

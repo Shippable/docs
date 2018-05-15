@@ -9,18 +9,20 @@ page_description: How to speed up your builds using caching in Shippable
 You can optionally turn on caching for your jobs to speed up your build by pulling your cache instead of installing all your dependencies.
 
 ## Caching types
-Currecntly we support two types of cachings.
+Shippable currently supports two types of caching:
 
 * Node caching
-* Artifact caching 
+* Artifact caching (only available for runCI jobs)
 
 ## Node caching
 
 ### How node caching works
 
-You can enable node caching for any of your on-demand nodepool and then all the nodes created for that particular nodepool will be cached. This type of caching is not limited to only runCI jobs. This can be used for all the jobs running on that node.
+When you use an on-demand node pool, Shippable dynamically provisions and terminates nodes for you based on your usage. The first build that runs on a freshly provisioned node can take longer to start running if it needs to pull in dependencies that are not already available on the node. When the node stays idle for a certain amount of time, Shippable will terminate it. Your dependencies will need to be pulled again when the next build runs on yet another freshly provisioned node.
 
-If node caching is enabled for any of your nodepool then this means all the nodes coming under that nodepool will not be terminated for the duration you set in tha cache settings. We will just start and stop the nodes when ever required. In this way all your build dependencies will always be present.
+With node caching enabled, Shippable will pause and restart the same on-demand node for you instead of provisioning fresh machines. This allows your average build times to improve because dependencies can now be shared across a larger number of builds.
+
+Because this cache is tied to the node itself, both runCI and runSh jobs can take advantage of it.
 
 ### How to enable node caching
 
@@ -29,7 +31,7 @@ You can enable node caching for any of your node caching while editing the nodep
 <img src="/images/platform/runtime/nodepool-cache.png"
    70  alt="Enabling caching for a nodepool" style="width:800px;"/>
 
-You will see this cache checkbox on the nodepool edit page only if SKU for that nodepool has `cache` addon. Click [here](/platform/management/subscription/billing/) to see how you can enable `cache` for any of your plan.
+You will see this cache checkbox on the nodepool edit page only if SKU for that nodepool has `cache` addon. [Click here](/platform/management/subscription/billing/) to see how you can enable `cache` for any of your plan.
 
 ### Clearing cache
 You can remove caching from your nodepool anytime by navigating to the edit nodepool page and disabling cache option. Now if your node remains idle for a long time then we will terminate the existing node and when next time you try running a build we will initialize a fresh node for you, hence all your installations from previous builds will be gone.
