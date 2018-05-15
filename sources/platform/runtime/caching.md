@@ -26,15 +26,15 @@ Because this cache is tied to the node itself, both runCI and runSh jobs can tak
 
 ### How to enable node caching
 
-You can enable node caching for any of your node caching while editing the nodepool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required. 
+You can enable node caching for any of your node caching while editing the node pool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required. 
 
 <img src="/images/platform/runtime/nodepool-cache.png"
    70  alt="Enabling caching for a nodepool" style="width:800px;"/>
 
-You will see this cache checkbox on the nodepool edit page only if SKU for that nodepool has `cache` addon. [Click here](/platform/management/subscription/billing/) to see how you can enable `cache` for any of your plan.
+You will see this cache checkbox on the node pool edit page only if SKU for that node pool has `cache` addon. [Click here](/platform/management/subscription/billing/) to see how you can enable `cache` for any of your plan.
 
 ### Clearing cache
-You can remove caching from your nodepool anytime by navigating to the edit nodepool page and disabling cache option. Now if your node remains idle for a long time then we will terminate the existing node and when next time you try running a build we will initialize a fresh node for you, hence all your installations from previous builds will be gone.
+You can remove caching from your node pool anytime by navigating to the edit node pool page and disabling cache option. Now if your node remains idle for a long time then we will terminate the existing node and when next time you try running a build we will initialize a fresh node for you, hence all your installations from previous builds will be gone.
 
 
 ## Artifact caching
