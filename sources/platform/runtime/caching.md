@@ -6,9 +6,40 @@ page_description: How to speed up your builds using caching in Shippable
 
 # Caching
 
-You can optionally turn on caching for your CI (`runCI`) jobs to speed up your build by pulling your cache instead of installing all your dependencies. Please note that caching is currently not available for any other job type.
+You can optionally turn on caching for your jobs to speed up your build by pulling your cache instead of installing all your dependencies.
 
-## How caching works
+## Caching types
+Shippable currently supports two types of caching:
+
+* Node caching
+* Artifact caching (only available for runCI jobs)
+
+## Node caching
+
+### How node caching works
+
+When you use an on-demand node pool, Shippable dynamically provisions and terminates nodes for you based on your usage. The first build that runs on a freshly provisioned node can take longer to start running if it needs to pull in dependencies that are not already available on the node. When the node stays idle for a certain amount of time, Shippable will terminate it. Your dependencies will need to be pulled again when the next build runs on yet another freshly provisioned node.
+
+With node caching enabled, Shippable will pause and restart the same on-demand node for you instead of provisioning fresh machines. This allows your average build times to improve because dependencies can now be shared across a larger number of builds.
+
+Because this cache is tied to the node itself, both runCI and runSh jobs can take advantage of it.
+
+### How to enable node caching
+
+To use node cache, you first need to purchase the "cache" add-on from the billing page. [Click here](/platform/management/subscription/billing/) to see how you can update your billing plan to enable this feature.
+
+You can enable node caching for any of your node caching while editing the node pool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required. 
+
+<img src="/images/platform/runtime/nodepool-cache.png"
+   70  alt="Enabling caching for a nodepool" style="width:800px;"/>
+
+### Clearing cache
+You can remove caching from your node pool anytime by navigating to the edit node pool page and disabling cache option. Now if your node remains idle for a long time then we will terminate the existing node and when next time you try running a build we will initialize a fresh node for you, hence all your installations from previous builds will be gone.
+
+
+## Artifact caching
+
+### How artifact caching works
 
 If caching is turned on, your cache is updated for every build and is available to subsequent builds. We create a tarball of whatever needs to be cached and upload it to S3 at the end of the build. Caching occurs at the **project level** only.
 
@@ -20,17 +51,17 @@ The roundtrip to and from S3 means that caching is very useful in specific scena
 
 * Files that take a long time to download but installed quickly do not benefit from caching since it takes as much time to download from S3 as from the original source. Examples are compiled binaries, JDK packages, etc.
 
-## Caching with multiple nodes
+### Artifact caching with multiple nodes
 
 You may have setup multiple nodes for a Subscription to run multiple builds in parallel. In this scenario, all nodes will get initialized with the same initial state of the cache and the cache will get updated at the end of each build.
 
-## Caching for matrix builds
+### Artifact caching for matrix builds
 
 If you have one node in your plan and run a matrix build with cache turned on, each build in the matrix will update the cache, which will be used by every subsequent build in the matrix.
 
 For matrix builds across multiple nodes, lets assume N nodes and M builds with M > N. The caching for the first N builds will work as mentioned in the previous section. The (N + 1)th build will use the cache created by the last matrix build that completed.
 
-## Clearing cache
+### Clearing cache
 
 You can clear cache in one of two ways:
 
@@ -41,7 +72,8 @@ In both cases, your cached content will be deleted before the job is run. This i
 
 This method is the best way to run a job with no cache without changing your `shippable.yml`.
 
-## Typical use-cases
+### Typical use-cases
 
 * [Caching node modules](/ci/caching/#1-caching-node-modules)
 * [Caching ruby gems](/ci/caching/#2-caching-ruby-gems)
+

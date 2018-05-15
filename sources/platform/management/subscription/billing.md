@@ -87,6 +87,17 @@ Please note that any changes due to your plan downgrade will be effective immedi
 
 Your new price will be reflected in your next invoice.
 
+### Enabling node cache
+You can upgrade your on-demand nodes to have `cache` addon. To know more about caching [click here](/platform/runtime/caching).
+
+* You can purchase cache addon for any of your existing on-demand node or new on-demand node by clicking on the cache checkbox for that node.
+
+* Node caching is a chargeable add-on. When you enable caching for a node, the unit price will be updated accordingly.
+
+* Click on the **Upgrade** button once you have selected cache checkboxes for required SKUs.
+
+   <img src="/images/platform/management/enable-cache-billing.png" alt="Enable cache">
+
 ##Changing payment method
 
 You can change the credit card being used for a Subscription at any time. Just go to the Subscription **Billing** page, click on **Edit plan** and click on the **Change payment method** icon to choose another card or add a new one.
