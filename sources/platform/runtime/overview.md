@@ -32,9 +32,9 @@ To run your DevOps activities, you need a node (virtual machine). Shippable supp
 #### [Dedicated On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes)
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can configure, depending on your need:
 
-* 2 core, 7.5GB RAM (L)(default)
-* 4 core, 15GB RAM (XL)
-* 8 core, 30GB RAM (2XL)
+* 2 core, 7.5GB RAM (Large)(default)
+* 4 core, 15GB RAM (X-Large)
+* 8 core, 30GB RAM (2X-Large)
 
 On-demand nodes can be purchased with Node caching enabled, which means that your nodes will be cached between jobs, instead of re-provisioned.
 
