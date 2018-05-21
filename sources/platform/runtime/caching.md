@@ -6,37 +6,39 @@ page_description: How to speed up your builds using caching in Shippable
 
 # Caching
 
-You can optionally turn on caching for your jobs to speed up your build by pulling your cache instead of installing all your dependencies.
-
-## Caching types
+Caching helps you speed up your jobs by avoid situations where you have to spend a lot of build time installing or pulling large dependencies.
 
 Shippable currently supports two types of caching:
 
-* Node caching
-* Artifact caching (only available for runCI jobs)
+* Node caching, where your entire build node is cached between jobs, and
+* Artifact caching, where you can cache large dependencies that take a long time to install at runtime
 
 ## Node caching
 
 ### How node caching works
 
-When you use an on-demand node pool, Shippable dynamically provisions and terminates nodes for you based on your usage. The first build that runs on a freshly provisioned node can take longer to start running if it needs to pull in dependencies that are not already available on the node. When the node stays idle for a certain amount of time, Shippable will terminate it. Your dependencies will need to be pulled again when the next build runs on yet another freshly provisioned node.
+Node caching is available as an addon for on-demand nodes.
 
-With node caching enabled, Shippable will pause and restart the same on-demand node for you instead of provisioning fresh machines. This allows your average build times to improve because dependencies can now be shared across a larger number of builds.
+When node caching is enabled, Shippable pauses your node after executing a job, instead of terminating it after some specified idle time. When the next job is triggered, the paused node is restarted, and it still contains any Docker images or dependencies that were installed as part of the previous job. This greatly speeds up builds that pull or build Docker images as part of their workflow.
 
-Because this cache is tied to the node itself, both runCI and runSh jobs can take advantage of it.
+In addition, the node is available to execute the job much faster, since restarting the node from a paused state is much faster than provisioning a new node. So if your build takes just a few minutes to execute, you save on the node provisioning time for every build, which adds up quickly to a big chunk of time saved.
+
+Both runCI and runSh jobs can take advantage of node caching.
 
 ### How to enable node caching
 
-To use node cache, you first need to purchase the "cache" add-on from the billing page. [Click here](/platform/management/subscription/billing/) to see how you can update your billing plan to enable this feature.
+To use node cache, you first need to purchase the **cache** add-on from the billing page. [Click here](/platform/management/subscription/billing/) to see how you can update your billing plan to enable this feature. Please note that this feature can be purchased per SKU, so all nodes of that SKU will have caching enabled.
 
-You can enable node caching for any of your node caching while editing the node pool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required.
+Once purchased, you can enable node caching for your node pool(s) by editing the node pool and selecting the cache checkbox.
 
 <img src="/images/platform/runtime/nodepool-cache.png"
    70  alt="Enabling caching for a nodepool" style="width:800px;"/>
 
 ### Clearing cache
-You can remove caching from your node pool anytime by navigating to the edit node pool page and disabling cache option. Now if your node remains idle for a long time then we will terminate the existing node and when next time you try running a build we will initialize a fresh node for you, hence all your installations from previous builds will be gone.
 
+You can remove caching from a node pool by editing the node pool and disabling **cache** option.
+
+This will revert nodes in that pool to default non-caching behavior which is [described here](/platform/runtime/nodes/#maximum-time-allocated-to-an-on-demand-node).
 
 ## Artifact caching
 
