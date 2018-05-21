@@ -8,7 +8,7 @@ page_description: Different types of Nodes which execute jobs supported by the S
 
 You need a virtual machine, i.e. node, on which your job is executed. The Shippable DevOps Assembly Lines platform supports two types of nodes:
 
-* **On-demand nodes** which are provisioned when a job is triggered and destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
+* **On-demand nodes** which are provisioned when a job is triggered and cached or destroyed after a preset amount of idle time if no new job is triggered during that time. This is the default node type for any SaaS subscription.
 * **BYON nodes** which are build nodes provided by you and attached to your Shippable Subscription. These nodes should be running and available when a job is triggered, since the Shippable platform does not dynamically provision them.
 
 Please note that a node can run one job at a time, so the number of nodes in your plan is the number of parallel jobs you can run for your Subscription.
@@ -21,24 +21,32 @@ On-demand nodes allow you to have a CI/CD platform with zero maintenance from ou
 
 Advantages of On-demand nodes are:
 
-* Zero management of CI/CD infrastructure since the platform takes care of provisioning/deprovisioning/cleanup etc.
+* Zero management of CI/CD infrastructure since the platform takes care of provisioning/caching/de-provisioning/cleanup etc.
 * Cost savings since the monthly price per node is ~50-66% cheaper than what you would pay AWS to just run the node for a month
 
 ### Node size
 
-The default node size for the free plan is equivalent to a c4.large instance on AWS, with 2 core, 3.75GB RAM.
+The default node size for the free plan gives is our L node which has 2 cores and 7.5GB RAM.
 
 For paid plans, you can choose between the following sizes:
 
-* 2 core, 3.75GB RAM -- equivalent to c4.large
-* 4 core, 7.5GB RAM -- equivalent to c4.xlarge
-* 8 core, 15GB RAM -- equivalent to c4.2xlarge
+* 2 core, 7.5GB RAM (L)(default)
+* 4 core, 15GB RAM (XL)
+* 8 core, 30GB RAM (2XL)
 
 The biggest reason to choose a larger sized node is faster job execution since they have more cores and RAM. However, if your jobs do not need the extra resources, you should do just fine on the c4.large machines.
 
 ### Maximum time allocated to an On-demand Node
 
-An On-demand node executes jobs, each of which have their own specific timeout. The platform checks if the On-demand node is idle for the last 5 minutes at the hourly boundary. If the node is idle, it is immediately de-provisioned.
+When a job is triggered, an on-demand node is spun up to execute the job. After the job is complete, the node is available to pick up subsequent jobs until it is terminated. At each hourly boundary after the node was first spun up, the platform checks to see if the node is idle, and if so, terminates the node. This ensures that we manage your build infrastructure in an efficient manner, which makes it possible for us to offer build nodes that are priced lower than AWS pricing.
+
+The downside of these ephemeral build nodes is that you cannot leverage Docker caching or caching of large dependencies, unless your job happens to run on a warm node that hasn't been terminated yet. If you want your node state to be preserved between jobs, you should buy Nodes with caching.
+
+### Node Caching
+
+If your plan includes Nodes with caching enabled, your nodes are cached after each build instead of de-provisioned.
+
+If you want Docker caching or have large dependencies that do not change with every job, this will save you a lot of time since you will not start with a fresh node each time. In order to ensure that your nodes don't run out of space, you can configure your Subscription to recycle nodes based on a calendar, or at a specified interval.
 
 ### Machine Images
 
@@ -68,9 +76,7 @@ Advantages are:
 * **Security:** Your build machines can be inside your VPC and/or behind your firewall, which gives you the ability to configure access, IAM, etc. We even have a way of configuring these machines so that you do not have to grant Shippable SSH access! This means your code never leaves your firewall and no external entity can access your machines.
 Complete control over your build machines, including SSH access, ability to choose your cloud provider and size of build machines.
 
-* **Faster build times:** You can leave your build machines running all the time, which eliminates the occasional 2-3 mins per build that is added when new machines are spun up on Shippable's hosted infrastructure.
-
-* **Docker caching:** If you use Docker for your build workflows like pulling Docker images from a registry or building Docker images, your build machines will already have these images and this will speed up your builds.
+* **Faster build times:** You can leave your build machines running all the time, which eliminates the additional minute per build that is added when new machines are spun up on Shippable's hosted infrastructure.
 
 ### Maintenance
 

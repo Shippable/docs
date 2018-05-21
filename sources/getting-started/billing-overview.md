@@ -10,14 +10,21 @@ As your team grows or you need more capacity, we have several paid options that 
 
 ## Hosted plans
 
-In a nutshell, our Hosted service pricing is:
+Our Hosted service pricing is shown in the table below. All prices are per build node per month.
 
-| Machine Size               	| Free plan <br>Unlimited builds for public repos<br>150 builds/month for private repos 	| Paid plan <br>Unlimited builds for public repos<br>Unlimited builds for private repos 	|
-|----------------------------	|:-------------------------------------------------------------------------------------:	|:-------------------------------------------------------------------------------------:	|
-| c4.large (2 cores, 3.75GB) 	|                                   One node included                                   	|                             $25/month for each build node                             	|
-| c4.xlarge (4 cores, 7.5GB) 	|                                           X                                           	|                             $75/month for each build node                             	|
-| c4.2xlarge (8 cores, 15GB) 	|                                           X                                           	|                             $150/month for each build node                            	|
-| [BYON](/platform/runtime/nodes/#custom-nodes) (attach any machine size) 	|                                           X                                           	|                             $25/month for each build node                            	|
+| Machine Size        	| Free plan <br>Unlimited builds for public repos<br>150 builds/month for private repos 	| Paid plan <br>Unlimited builds for public repos<br>Unlimited builds for private repos 	| Paid plan with Node caching 	|
+|---------------------	|:-------------------------------------------------------------------------------------:	|:-------------------------------------------------------------------------------------:	|:---------------------------:	|
+| Ubuntu/CentOS       	|                                                                                       	|                                                                                       	|                             	|
+| L                   	|                                   One node included                                   	|                                          $25                                          	|             $50             	|
+| XL                  	|                                           x                                           	|                                          $75                                          	|             $100            	|
+| 2XL                 	|                                           x                                           	|                                          $150                                         	|             $175            	|
+| Windows Server 2016 	|                                                                                       	|                                                                                       	|                             	|
+| L                   	|                                           x                                           	|                                          $25                                          	|             $50             	|
+| XL                  	|                                           x                                           	|                                          $150                                         	|             $175            	|
+| 2XL                 	|                                           x                                           	|                                          $300                                         	|             $325            	|
+| Bring Your Own Node (BYON)                	|                                                                                       	|                                                                                       	|                             	|
+| Any size            	|                                           x                                           	|                                          $25                                          	|              x              	|
+
 
 ##Shippable Server
 

@@ -19,7 +19,6 @@ There are many challenges with manually doing Docker deployments. In short, you 
 
 If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
 
-
 ## Automating Kubernetes deployments
 
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
@@ -158,7 +157,7 @@ jobs:
           script:
             - pushd $(shipctl get_resource_state "cd_k8s_repo")
             - cd specs
-            # Delete the 2 lines below if you deleted the node_app_img_dh resource 
+            # Delete the 2 lines below if you deleted the node_app_img_dh resource
             - export APP_IMG=$(shipctl get_resource_version_key node_app_img_dh sourceName)
             - export APP_TAG=$(shipctl get_resource_version_key node_app_img_dh versionName)
             - shipctl replace appDeploy.yml appSvc.yml
