@@ -7,7 +7,7 @@ page_description: Overview of Job Runtime that prepares the environment for your
 
 # Runtime
 
-Every activity in your DevOps Assembly Line requires a place to execute that activity. Job Runtime provides that so that the environment is prepped with the necessary OS, software tools and packages, runtime configurations, and secrets to authenticate with 3rd party services that the activity might interact with.
+Every activity in your DevOps workflow requires a machine or container to execute that activity. Our job runtime provides an environment that is prepped with the necessary OS, software tools and packages, runtime configurations, and secrets to authenticate with 3rd party services that the activity might interact with.
 
 Some of the key benefits of this are:
 
@@ -30,15 +30,18 @@ Job Runtime consists of the following components:
 To run your DevOps activities, you need a node (virtual machine). Shippable supports 2 types of nodes:
 
 #### [Dedicated On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes)
-These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need:
-	* 2 core, 3.75GB RAM (default) -- this is equivalent to AWS c4.large instance type
-	* 4 core, 7.5GB RAM -- this is equivalent to AWS c4.xlarge instance type
-	* 8 core, 15GB RAM -- this is equivalent to AWS c4.2xlarge instance type
+These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can configure, depending on your need:
+
+* 2 core, 7.5GB RAM (L)(default)
+* 4 core, 15GB RAM (XL)
+* 8 core, 30GB RAM (2XL)
+
+On-demand nodes can be purchased with Node caching enabled, which means that your nodes will be cached between jobs, instead of re-provisioned.
 
 [Read more on On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes).
 
 #### [Dedicated BYON Nodes](/platform/runtime/nodes/#custom-nodes)
-These are nodes that you manage yourself and hook to Shippable Assembly Lines to run your DevOps activities. The biggest reason for doing this is that your code never leaves your infrastructure. Another reason to do this would be if your jobs require access to internal resources that you don't want to be accessible from the internet. You can run these nodes anywhere you like.
+These are build nodes provided by you and attached to your Shippable Subscription. The biggest reason for doing this is that these nodes can be behind your firewall. You should choose this node type if you have security policies that prohibit your code from leaving your firewall, or if your jobs require access to internal resources that are not accessible from the internet. You can run these nodes anywhere you like.
 
 [Read more on BYON Nodes](/platform/runtime/nodes/#custom-nodes).
 

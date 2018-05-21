@@ -9,6 +9,7 @@ page_description: How to speed up your builds using caching in Shippable
 You can optionally turn on caching for your jobs to speed up your build by pulling your cache instead of installing all your dependencies.
 
 ## Caching types
+
 Shippable currently supports two types of caching:
 
 * Node caching
@@ -28,7 +29,7 @@ Because this cache is tied to the node itself, both runCI and runSh jobs can tak
 
 To use node cache, you first need to purchase the "cache" add-on from the billing page. [Click here](/platform/management/subscription/billing/) to see how you can update your billing plan to enable this feature.
 
-You can enable node caching for any of your node caching while editing the node pool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required. 
+You can enable node caching for any of your node caching while editing the node pool and selecting the cache checkbox. We have some default cache setting when you select the cache checkbox, you can also edit them if required.
 
 <img src="/images/platform/runtime/nodepool-cache.png"
    70  alt="Enabling caching for a nodepool" style="width:800px;"/>
@@ -76,4 +77,3 @@ This method is the best way to run a job with no cache without changing your `sh
 
 * [Caching node modules](/ci/caching/#1-caching-node-modules)
 * [Caching ruby gems](/ci/caching/#2-caching-ruby-gems)
-

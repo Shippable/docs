@@ -15,13 +15,14 @@ To run your DevOps activities, you need a Node (virtual machine). Shippable supp
 ### [Dedicated On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/)
 
 These are managed and dynamically provisioned by Shippable Platform. There is no need to worry about managing build infrastructure. There are multiple sizes that you can use depending on your need.
-	* 2 core, 3.75GB RAM (default) -- this is equivalent of AWS c4.large instance type
-	* 4 core, 7.5GB RAM -- this is equivalent of AWS c4.xlarge instance type
-	* 8 core, 15GB RAM -- this is equivalent of AWS c4.2xlarge instance type
+
+* 2 core, 7.5GB RAM (L)(default)
+* 4 core, 15GB RAM (XL)
+* 8 core, 30GB RAM (2XL)
 
 ### [Dedicated BYON Nodes](/platform/runtime/nodes/#custom-nodes)
 
-You can also attach your own nodes to your Shippable subscription and all your jobs are routed to those machines. This is great for organizations with specific security requirements that do not allow them to run builds on hosted infrastructure. There are additional advantages to BYON nodes, including Docker caching and faster builds due to no spin up time. There is some management required for BYON Nodes, but in most cases, it is as simple as hitting the **Reset Node** button. With BYON nodes, your code never leaves your infrastructure and your jobs can access internal resources that are inaccessible from the internet.
+You can also attach your own nodes to your Shippable subscription and all your jobs are routed to those machines. This is great for organizations with specific security requirements that do not allow them to run builds on hosted infrastructure. There is some management required for BYON Nodes, but in most cases, it is as simple as hitting the **Reset Node** button. With BYON nodes, your code never leaves your infrastructure and your jobs can access internal resources that are inaccessible from the internet.
 
 For more information, check out our [BYON nodes tutorial](/platform/runtime/nodes/#custom-nodes).
 
@@ -34,11 +35,9 @@ The platform is designed to work across multiple operating systems. We natively 
 * [Mac OS](/platform/tutorial/workflow/jobs-macos)
 * [CentOS](/platform/tutorial/workflow/jobs-centos)
 
-As mentioned before, we are a Docker-based platform. Hence any custom docker image for the above operating systems can be used in Job Runtime.
-
 ## Language
 
-For both OS versions, we maintain language-specific images that are updated every month so that the latest and greatest versions are always available. Please note that the right language image is automatically chosen for your [CI jobs](/ci/set-language/) based on the `language` tag in your `shippable.yml`
+For all OS versions, we maintain language-specific images that are updated every month so that the latest and greatest versions are always available. Please note that the right language image is automatically chosen for your [CI jobs](/ci/set-language/) based on the `language` tag in your `shippable.yml`
 
 We support the following languages:
 
