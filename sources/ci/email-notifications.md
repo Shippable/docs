@@ -8,6 +8,8 @@ page_keywords: email, Continuous Integration, Continuous Deployment, CI/CD, test
 
 #Sending CI notifications to Email
 
+<img src="/images/ci/email-success.png" alt="Success email">
+
 By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
 
 We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/account/set-email/)
@@ -100,6 +102,9 @@ integrations:
       sendFailingSnippet: true
 ```
 
+The email then will contain the commands, if any, that failed.
+
+<img src="/images/ci/email-failure-logs.png" alt="Email with failure logs">
 
 ###5. Customizing notification triggers
 
