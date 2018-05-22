@@ -49,8 +49,6 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Jobs](/platform/workflow/job/overview/)
     * [runSh](/platform/workflow/job/runsh)
 
-This example extends the work done in our tutorial to [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible) by adding an Assembly Line that provisions an AWS Virtual Private Cloud(VPC) using Ansible. However, you can also use it as a standalone tutorial by hardcoding values for subnet and security group IDs.
-
 ### Step by Step Instructions
 
 The following sections explain the process of automating a workflow to continuously deploy a Docker container to AWS Fargate using native `AWS CLI` commands. We will demonstrate this with our sample application.
@@ -199,7 +197,40 @@ jobs:
       - fargate
 ```
 
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deploy_app_ecs_fargate_deployment_strategy_replace`.
 
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * Fargate service and task definition spec files are version controlled in a repo represented by `cd_replace_ecs_fargate_repo`.
+  * AWS Credentials are in `cd_replace_ecs_fargate_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically.
+  * `node_app_img_dh` is an **image** resource that comes from another tutorial [which explains how to build and push a Docker image](/ci/tutorial/build-push-image-to-docker-hub) and contains the image name and tag in `sourceName & versionName ` fields, which are required by this job. If you already have this and just want to use this tutorial to deploy, just delete this resource and hardcode the values `APP_IMG` and `APP_TAG` in the **taskdefinition.json** file [here](https://github.com/devops-recipes/cd_replace_ecs_fargate_awscli/blob/master/specs/taskdefinition.json).
+
+* The `TASK` section contains actual code that is executed when the job runs. In this example, we have hardcoded values for subnet and security group IDs for the Fargate service. To learn how to provision these dynamically, look at [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible).
+
+We have just one task named `deployment_strategy_replace` which does the following:
+  * First, we define environment variables required by the scripts-
+    * `CLUSTER_NAME` is the name of the Fargate cluster.
+    * `SERVICE_NAME` is the name of the Fargate service.
+    * `FAMILY` is the name of the Fargate task definition.
+    * `DESIRED_TASK_COUNT` is the number of instances of the task that you want to run in the cluster.
+    * `CPU` represents the amount of CPU units needed by the task.
+    * `Memory` represents the amount of memory needed by the task.
+    * `SUBNET_ID` is the subnet id.
+    * `SECURITY_GROUP_ID` is the security group id.
+    * `AWS_REGION` is the region of your Fargate cluster.
+  * `script` section has a list of commands to execute sequentially.
+    * First, we use the Shippable utility function `get_resource_state` to go to the folder where scripts are stored
+    * Next, we extract the image info and set APP_IMG and APP_TAG from the `node_app_img_dh` resource, again using shipctl functions
+    * Next, we replace all wildcards in taskdefinition.json and servicedefinition.yml files
+    * Next, we execute AWS CLI commands to create the task definition.
+    * Next, we use a Shippable utility `replace_deployment_strategy.sh` to deploy the image using replace strategy that creates the Fargate service.
+    * Next, we validate that the service reached the steady state using a Shippable utility function `check_service_stability`
+    * Lastly , extract the public IP of the service using a Shippable utility script `get_ecs_service_public_ip.sh` and run a final curl command to get the HTML content.
+
+Supported task CPU and memory values for Fargate tasks can be found [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-cpu-memory-error.html).
+
+Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
+
+Detailed info about Shippable Utility functions are [here](/platform/tutorial/workflow/using-shipctl).
 
 #####2d. Push changes to shippable.yml
 
@@ -226,6 +257,7 @@ You can manually run the job by right clicking on the job or by triggering the C
 <img src="/images/tutorial/deploy-replace-aws-fargate-awscli-fig4.png" alt="AWS ECS Deploy console output">
 
 ## Further Reading
+* [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible).
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
