@@ -111,10 +111,13 @@ The following images are available when you configure `language: go` in your [sh
 	| Go Version  | OS|  Machine Image
 	|------------|---------------------|-----------
 	|1.10.1      |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-	|1.9.5       |  - Ubuntu 14.04                   | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-	|1.9.2       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
-	|1.9       	 |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later  |
-	|1.8.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
+	|1.10       |  - Ubuntu 16.04                   |  [v6.3.4](/platform/runtime/machine-image/ami-v634/) 
+	|1.9.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	| 1.9.4      |  - Ubuntu 16.04                  |  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+ 	|1.9.2       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.2.4](/platform/runtime/machine-image/ami-v624/) |
+	|1.9.1       	 |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)   |
+	|1.8.7       |  - Ubuntu 16.04 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|1.8.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  |
 	|1.8.3       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 	|1.7.6       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and later   |
 	|1.7.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
