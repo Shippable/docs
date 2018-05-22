@@ -200,8 +200,8 @@ In addition, the job itself comes with its own default set of variables. This is
 | JOB_STATE                   | The location of the `state` directory for this job|
 | JOB_PREVIOUS_STATE            | The location of the directory containing the `state` information from when the job last ran. |
 | JOB_TRIGGERED_BY_NAME  | The name of the resource that caused this job to execute. |
-| SHARED_DIR | Location of the directory that will be shared across all TASK's of
-a job |
+| SHARED_DIR | Location of the directory that will be shared across all TASK's of a job |
+|SHIPPABLE_AMI_VERSION 		 | The [machine image](/platform/runtime/machine-image/ami-overview/) version of the node.  For example, `v6.4.4`. |
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
