@@ -256,6 +256,7 @@ pages:
         - time: platform/workflow/resource/time.md
         - trigger: platform/workflow/resource/trigger.md
         - version: platform/workflow/resource/version.md
+        - webhook: platform/workflow/resource/webhook.md
       - Jobs:
         - Overview: platform/workflow/job/overview.md
         - deploy: platform/workflow/job/deploy.md
