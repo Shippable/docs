@@ -46,10 +46,9 @@ compiler:
   - gcc
 ```
 
-Our official build images, which are used to run your builds by default, come installed with the following:
+Our official build images, which are used to run your builds by default, come installed with multiple versions of C/C++ compilers.
 
-- gcc 6
-- clang 3.9.0
+To find out which versions are supported out of the box for your build image, read our [languages overview for C/C++](/platform/runtime/machine-image/language-versions/#cc).
 
 You can also test against multiple compilers by specifying them all:
 
@@ -71,7 +70,7 @@ You can define any custom environment variables in the `env` section of your yml
 
 ###Overriding the default build image
 
-Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/tutorial/runtime/ami-overview/).
+Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/runtime/machine-image/ami-overview/).
 
 If the default image does not satisfy your requirements, you can do one of three things:
 
