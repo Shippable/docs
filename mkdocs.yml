@@ -472,6 +472,7 @@ pages:
       - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl.md
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
+      - Deploy to Amazon Fargate using AWS CLI: deploy/tutorial/continuous-deployment-to-amazon-fargate-awscli.md
     - Templates:
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
       - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md
