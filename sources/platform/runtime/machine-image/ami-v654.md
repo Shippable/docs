@@ -8,7 +8,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 # Machine image v6.5.4 (Docker TAG v6.5.4)
 
-**Release Date: May 2nd, 2018**
+**Release Date: May 31, 2018**
 
 **What is installed on the machine image?**
 
