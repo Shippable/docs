@@ -22,22 +22,24 @@ the default Docker image depending on the `language` tag in your [yml configurat
 <img src="/images/platform/runtime/build-workflow.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>
 
-We currently offer the following Machine Images. **The default Machine Image for your subscription is the latest image available when your Subscription was added to Shippable.**
+We currently offer the following Machine Images. **The default Machine Image for your subscription is the latest image available when your Subscription was added to Shippable.** Shippable officially supports the Machine Images for 12 months from their release date after which they're deprecated.
 
 You can click on any image below to see what is pre-installed:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
-| [v6.3.4 (latest)](ami-v634/)      | Apr 2, 2018 |
+| [v6.5.4 (latest)](ami-v654/)      | May 31, 2018 |
+| [v6.4.4](ami-v644/)      | May 2, 2018 |
+| [v6.3.4](ami-v634/)      | Apr 2, 2018 |
 | [v6.2.4](ami-v624/)      | Feb 25, 2018 |
 | [v6.1.4](ami-v614/)      | January 25, 2018 |
 | [v5.10.4](ami-v5104/)      | October 27, 2017 |
 | [v5.8.2](ami-v582/)        | Aug 10, 2017    |
 | [v5.7.3](ami-v573/)        | Jul 20, 2017    |
 | [v5.6.1](ami-v561/)        | Jun 05, 2017    |
-| [v5.5.1](ami-v551/)        | Apr 26, 2017    |
-| [v5.4.1](ami-v541/)        | Mar 30, 2017    |
-| [v5.3.2](ami-v532/)        | Mar 11, 2017    |
+| [v5.5.1](ami-v551/)        | Apr 26, 2017 (deprecated)   |
+| [v5.4.1](ami-v541/)        | Mar 30, 2017 (deprecated)   |
+| [v5.3.2](ami-v532/)        | Mar 11, 2017 (deprecated)   |
 | [Stable](ami-stable/)      | Feb 19, 2016 (deprecated) |
 
 In most cases, the default Machine image set for your Subscription will be sufficient to run your builds. The main reasons why you might want to consider changing to a more recent image are:
