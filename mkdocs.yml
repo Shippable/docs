@@ -481,7 +481,6 @@ pages:
       - Using KOPS to provision a self-hosted Kubernetes cluster on GCP: provision/tutorial/provision-kubernetes-cluster-with-kops-gcp.md
       - Using AWS CLI to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-kubernetes-cluster-with-aws-cli.md
       - Using gcloud SDK to provision a self-hosted Kubernetes cluster on GCP: provision/tutorial/provision-kubernetes-cluster-with-gcloud-sdk.md
-
       - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-helm.md
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-google-kubernetes-engine-shippable.md
       - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable.md
@@ -499,6 +498,5 @@ pages:
       - Deploying to Amazon EKS using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-amazon-eks-shippable.md
       - Deploying to Amazon EKS using Helm: deploy/tutorial/continuous-deployment-to-amazon-eks-helm.md
       - Deploying to Amazon EKS using kubectl: deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl.md
-
   - Typography:
     - Typography page: ci/typography.md
