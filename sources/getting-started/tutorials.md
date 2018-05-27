@@ -61,7 +61,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 * [Deploying to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl)
 * [Deploying to Google Kubernetes Engine (GKE) using Helm](/deploy/tutorial/deploy-to-google-kubernetes-engine-helm)
 * [Deploying a WAR from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
-* [Deploying to a self-hosted Kubernetes cluster using Helm](/deploy/tutorial/continuous-deployment-to-kubernetes-cluster-helm)
+* [Deploying to a self-hosted Kubernetes cluster using Helm](/deploy/tutorial/deploy-to-kubernetes-cluster-helm)
 * [Deploying to Amazon EKS using kubectl](/deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl)
 * [Deploying to Azure Kubernetes Service (AKS) using kubectl](/deploy/tutorial/continuous-deployment-to-aks-kubectl)
 * [Deploying to Amazon EKS using Helm](/deploy/tutorial/continuous-deployment-to-amazon-eks-helm)
