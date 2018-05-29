@@ -246,6 +246,105 @@ You can manually run the job by right clicking on the job and clicking on **Buil
 
 Confirm that the required EC2 instance was created in AWS.
 
+## OPTIONAL: Automating the termination of AWS EC2 with Terraform
+
+You might also want to automatically terminate EC2 instances when you no longer need them. A great example is if you want to spin up a complete on-demand test environment and destroy them is tests pass.
+
+The steps below demonstrate how to implement the automatic termination workflow.
+
+### Step-by-Step Instructions
+
+For this workflow, we start with the resources and jobs that were created in the provisioning tutorial above, and just add another job that will terminate the EC2 instance.
+
+####1. Author Assembly Line configuration
+
+In this step, we will add a new job to your **shippable.yml** that terminates an EC2 instance using Terraform.
+
+#####1a. Add `jobs` section of the config**
+
+Our job will do the following:
+
+* Read information from `IN` resources, including `aws_ec2_tf_info` which contains `instance_id` and `instance_ip`.
+* Read information from `IN` resources, including `aws_vpc_tf_info` which contains `vpc_id`.
+* Replace wildcards needed by the Terraform scripts
+* Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
+* Initialize TF and run `terraform destroy`
+
+```
+# De-provision AWS ec2 with Terraform
+jobs:
+  - name: deprov_aws_ec2_tf
+    type: runSh
+    steps:
+      - IN: aws_ec2_tf_info
+        switch: off
+      - IN: aws_vpc_tf_info
+        switch: off
+      - IN: aws_ec2_tf_repo
+        switch: off
+      - IN: aws_ec2_tf_state
+        switch: off
+      - IN: aws_ec2_tf_creds
+        switch: off
+      - TASK:
+          name: deprov_inst
+          runtime:
+            options:
+              env:
+                - inst_type: "t2.micro"
+                - inst_ami: "ami-43a15f3e"
+                - aws_key_name: "dr_us_east_1"
+          script:
+            - pushd $(shipctl get_resource_state "aws_ec2_tf_repo")
+            - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_tf_creds "accessKey")
+            - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_ec2_tf_creds "secretKey")
+            - shipctl copy_file_from_resource_state aws_ec2_tf_state terraform.tfstate .
+            - shipctl replace terraform.tfvars
+            - terraform init
+            - terraform destroy -force -var-file=terraform.tfvars
+      - OUT: aws_ec2_tf_state
+    always:
+      script:
+        - shipctl copy_file_to_resource_state terraform.tfstate aws_ec2_tf_state
+        - popd
+
+```
+
+* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `deprov_aws_ec2_tf`.
+
+* The first section of `steps` defines all the input `IN` resources that are required to execute this job.
+  * Teraform script files are version controlled in a repo represented by `aws_ec2_repo`.
+  * Credentials to connect to AWS are in `aws_ec2_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
+  * The EC2 provisioning job outputs the instance information to a resource `aws_ec2_tf_info`. This job will take that resource as an IN to determine which instance(s) to terminate.
+  * The VPC provisioning job outputs the VPC information to a resource `aws_vpc_tf_info`. This job will take that resource as an IN to determine where the instance are.
+* The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `deprov_inst` which does the following:
+  *  `script` section has a list of commands that are executed sequentially.
+    * First, we use the Shippable utility function `get_resource_state` to go to the folder where TF files are present
+    * Next, we extract the AWS credentials from the `aws_ec2_creds`resource, again using shipctl functions
+    * Next, we copy the TF state file using Shippable utility function `copy_file_from_resource_state`. This will restore the statefile so that TF knows what to delete
+    * Next, we replace all wildcards in the variables file
+    * Last, we run terraform destroy. This will use the statefile and clean up the instances that were provisoned
+  * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ec2_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since Terraform does not rollback changes of a failed apply command
+
+Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
+
+Detailed info about Shippable Utility functions is [here](/platform/tutorial/workflow/using-shipctl).
+
+####2. Push changes to shippable.yml
+
+Commit and push all the above changes to **shippable.yml**.
+
+This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
+
+<img src="/images/tutorial/provision-aws-ec2-terraform-fig3.png" alt="Assembly Line view">
+
+Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
+
+####3. Run the job `deprov_aws_ec2_tf`
+
+You can manually run the job by right clicking on the job or by triggering the job to terminate AWS EC2 instances.
+
+<img src="/images/tutorial/provision-aws-ec2-terraform-fig4.png" alt="Build console output">
 
 ## Further Reading
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)

@@ -1,27 +1,28 @@
-page_description: Deploying a Dockerized Node.js app to GKE with kubectl
 main_section: Deploy
-sub_section: Kubernetes
+sub_section: Deploy to ECS
+page_description: Deploying a Dockerized Node.js app to AWS ECS cluster using Shippable managed jobs
 
-# Deploy to Google Kubernetes Engine using kubectl
+# Deploy to Amazon ECS using Shippable managed jobs
 
-This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using native `kubectl` commands.
+This tutorial explains how to continuously deploy a Docker container to Amazon Elastic Container Service using Shippable's managed jobs.
+
+If you want to use AWS native ECS templates and AWS CLI, you should go here....[]()
+
+The idea behind Shippable's managed jobs is to use generic definitions that will create the ECS specs at runtime automatically. One of the main advantages of this is that you are not tighltly coupled to the Orchestraction service. For e.g. the same definitions can be used to deploy to Kubernetes also, without changing any of the pipeline code
 
 This document assumes you're familiar with the following concepts:
 
-* [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
+* [Getting Started with AWS ECS](https://aws.amazon.com/ecs/getting-started/)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
-* [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
-* [Kubernetes Deployment Spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#deployment-v1-apps)
-* [Kubernetes Services Spec](https://kubernetes.io/docs/concepts/services-networking/service/)
-* [kubectl command](https://kubernetes.io/docs/reference/kubectl/overview/)
 
-If you're unfamiliar with Docker or kubectl, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to GKE using kubectl](http://blog.shippable.com/deploy-docker-container-to-gke-using-kubectl).
 
-There are many challenges with manually doing Docker deployments. In short, you will struggle with making your Kubernetes specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
+If you're unfamiliar with Docker or AWS ECS, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to ECS using AWS CLI](http://blog.shippable.com/deploy-docker-container-to-ecs-using-aws-cli).
+
+There are many challenges with manually doing Docker deployments. In short, you will struggle with making your ECS specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
 If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
 
-## Automating GKE deployments
+## Automating ECS deployments
 
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
@@ -36,16 +37,16 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 * [Workflow overview](/platform/workflow/overview/)
 * [Integrations](/platform/integration/overview/)
-      * [Google Cloud](/platform/integration/gcloudKey)
-      * [Docker Registry](/platform/integration/dockerRegistryLogin)
-      * [Github](/platform/integration/github)
+  * [AWS](/platform/integration/aws-keys)
+  * [Docker Registry](/platform/integration/dockerRegistryLogin)
+  * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-      * [image](/platform/workflow/resource/image)
-      * [gitRepo](/platform/workflow/resource/gitrepo)
-      * [cliConfig](/platform/workflow/resource/cliconfig)
-      * [cluster](/platform/workflow/resource/cluster)
+  * [image](/platform/workflow/resource/image)
+  * [gitRepo](/platform/workflow/resource/gitrepo)
+  * [cliConfig](/platform/workflow/resource/cliconfig)
+  * [cluster](/platform/workflow/resource/cluster)
 * [Jobs](/platform/workflow/job/overview/)
-      * [runSh](/platform/workflow/job/runsh)
+  * [runSh](/platform/workflow/job/runsh)
 
 This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to GKE.
 

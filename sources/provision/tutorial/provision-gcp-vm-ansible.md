@@ -335,7 +335,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 This should automatically trigger the sync process to add all the changes to the assembly line. Your view should look something like this.
 
-<img src="/images/tutorial/provision-gce-gcp-ansible-fig3.png" alt="Assembly Line view">
+<img src="/images/tutorial/provision-gcp-gce-ansible-fig3.png" alt="Assembly Line view">
 
 Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
 
