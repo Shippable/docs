@@ -143,7 +143,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS    | Machine Images
 |----------|---------|-------
-|2.2.3 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/)to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|2.2.3 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/)to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |2.2.0 | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
 ## Selenium
