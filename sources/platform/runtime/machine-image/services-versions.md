@@ -32,7 +32,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |                OS                | Machine Images       
 |----------|----------------------------------|------
-| 2.1.1    | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
+| 2.1.1    | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOS 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) 
 | 1.6.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 1.6.0    | - Ubuntu 16.04(aarch64)          | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
 
