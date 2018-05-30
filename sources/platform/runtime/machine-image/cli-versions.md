@@ -134,6 +134,7 @@ Please refer to the [kubectl CLI user guide](https://kubernetes.io/docs/user-gui
 
 | Version  | OS | Machine Images
 |----------|---------|-------|
+| 1.2.3    | - CentOS 7 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 1.2.2    | - Ubuntu 16.04 (aarch64) <br>- CentOS 7 <br>- Windows 16 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.1.0   | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch32) | [v5.10.1](/platform/runtime/machine-image/ami-v5101/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>   [v5.10.1](/platform/runtime/machine-image/ami-v5101/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 0.12.2 | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.8.2](/platform/runtime/machine-image/ami-v582/) and earlier
@@ -144,6 +145,7 @@ Please refer to the [Packer CLI page](https://www.packer.io/docs/commands/index.
 
 | Version  | OS | Machine Images
 |----------|---------|-------------| 
+| 0.11.7 | - CentOS 7 |  [v6.5.4](/platform/runtime/machine-image/ami-v654/) 
 | 0.11.5 | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- CentOS 7 |  [v6.4.4](/platform/runtime/machine-image/ami-v644/)  
 | 0.11.3 | - CentOS 7 |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 0.8.7  | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.10.4](/platform/runtime/machine-image/ami-v582/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) 
