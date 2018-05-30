@@ -26,6 +26,7 @@ This page lists the versions of CLI's available for each supported [OS](/platfor
 
 | Version  |  OS  | Machine Images |
 |----------|--------|--------|
+| 2.5.2 | - CentOS 7 <br> | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 2.4.4.0 | - CentOS 7 <br> | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 2.4.3.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 | 2.3.0.0 | - Ubuntu 14.04 <br> - Ubuntu 16.04 <br> - CentOS 7 <br> - Ubuntu 16.04(aarch32)  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  <br>  [v5.10.4](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) and later|
@@ -36,6 +37,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 
 | Version  |  OS | Machine Images
 |----------|---------|-------|
+| 1.15.14    | - CentOS 7 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 1.15.3    | - Ubuntu 16.04 (aarch64) <br>- CentOS 7 <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.15.2    | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -64,6 +66,7 @@ Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elas
 | Version  | OS   | Machine Images
 |----------|---------|-----|
 | 3.0.0     | - Ubuntu 16.04 (aarch64)  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
+| 2.0.32    | - CentOS 7 |[v6.5.4](/platform/runtime/machine-image/ami-v654/) 
 | 2.0.30    | - windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.27    | - CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
