@@ -112,7 +112,7 @@ We have the following base images, one for each supported OS version.
  | OS           | Image                    | Link                                                                                                          | Language versions                          | Additional packages                                                           |
  |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------|-------------------------------------------------------------------------------|
  | Ubuntu 16.04 | drydock/u16cloall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cloall/),<br>- [GitHub](https://github.com/dry-dock/u16cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-644)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
- | Ubuntu 14.04 | drydock/u14cloall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/),<br>- [GitHub](https://github.com/dry-dock/u14cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-644)<br>- leiningen<br>- Java 1.8<br>- Node 8.x<br>- Ruby 2.5.0 |
+ | Ubuntu 14.04 | drydock/u14cloall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cloall/),<br>- [GitHub](https://github.com/dry-dock/u14cloall) | - 1.3.0<br>- 1.4.0<br>- 1.5.1<br>- 1.6.0<br>- 1.7.0<br>- 1.8.0<br>- 1.9.0 | - [Common components](#common-644)<br>- leiningen<br>- Java 1.8<br>- Node 8.11.2<br>- Ruby 2.5.1 |
 
  ---
 
