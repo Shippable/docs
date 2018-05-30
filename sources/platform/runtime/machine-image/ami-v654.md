@@ -182,7 +182,7 @@ We have the following base images, one for each supported OS version.
   | OS           | Image                    | Link                                                                                                          | Language versions                | Additional packages                                                          |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------|------------------------------------------------------------------------------|
   | Ubuntu 16.04 | drydock/u16scaall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16scaall/),<br>- [GitHub](https://github.com/dry-dock/u16scaall) |<br>- 2.11.12<br>- 2.12.5 | - [Common components](#common-644)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14scaall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.11.12<br>- 2.12.5 | - [Common components](#common-644)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
+  | Ubuntu 14.04 | drydock/u14scaall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14scaall/),<br>- [GitHub](https://github.com/dry-dock/u14scaall) | - 2.11.12<br>- 2.12.16 | - [Common components](#common-644)<br>- sbt<br>- Java 1.8.0<br>- Node 8.11.2<br>- Ruby 2.5.1  |
 
 
 
