@@ -135,8 +135,7 @@ We have the following base images, one for each supported OS version.
   | OS           | Image                    | Link                                                                                                          | Language versions       | Additional packages                                                                              |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------|
   | Ubuntu 16.04 | drydock/u16phpall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16phpall/),<br>- [Github](https://github.com/dry-dock/u16phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0 |
-  | Ubuntu 14.04 | drydock/u14phpall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/),<br>- [Github](https://github.com/dry-dock/u14phpall) | - 5.6.32<br>- 7.0.26<br>- 7.1.12 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.1<br>- Ruby 2.5.0  |
-
+  | Ubuntu 14.04 | drydock/u14phpall:v6.5.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/),<br>- [Github](https://github.com/dry-dock/u14phpall) | - 5.6.36<br>- 7.0.30<br>- 7.1.17<br>- 7.2.5 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.2<br>- Ruby 2.5.1  |
  ---
 
  <a name="jav-644"></a>
