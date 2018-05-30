@@ -159,7 +159,7 @@ We have the following base images, one for each supported OS version.
   | OS           | Image                    | Link                                                                                                          | Language versions                                              | Additional packages                                                    |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------|
   | Ubuntu 16.04 | drydock/u16ruball:v6.5.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/),<br>- [GitHub](https://github.com/dry-dock/u16ruball) |- 2.2.9<br>- 2.3.6<br>- 2.4.3<br>- 2.5.1<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-644)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
-  | Ubuntu 14.04 | drydock/u14ruball:v6.5.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.2.8<br>- 2.3.6<br>- 2.4.3<br>- 2.5.0<br>- jruby-1.7.27<br>- jruby-9.1.16.0 | - [Common components](#common-644)<br>- rvm 1.29.3<br>- Java 1.8.0<br>- Node 8.11.1 |
+  | Ubuntu 14.04 | drydock/u14ruball:v6.5.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.2.10<br>- 2.3.7<br>- 2.4.4<br>- 2.5.1<br>- jruby-1.7.27<br>- jruby-9.1.17.0 | - [Common components](#common-644)<br>- rvm 2.5.1<br>- Java 1.8.0<br>- Node 8.11.2 |
 
 
  <a name="pyt-644"></a>
