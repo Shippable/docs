@@ -81,7 +81,7 @@ Please refer to the [Azure CLI Reference page](https://docs.microsoft.com/en-us/
 
 | Version  | OS |  Machine Images
 |----------|---------|-------------|
-| 17.06.0-ce | -  CentOS 7<br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br>- Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v5.8.2](/platform/runtime/machine-image/ami-v582/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)  <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 17.06.0-ce | -  CentOS 7<br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br>- Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later<br>[v5.8.2](/platform/runtime/machine-image/ami-v582/) and later <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)  <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
 
 Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/reference/commandline/docker/) for help with CLI commands.
