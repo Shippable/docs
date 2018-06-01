@@ -353,23 +353,7 @@ The following images are available when you configure `language: ruby` in your [
 |1.9.3         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |1.8.7         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
-## Jruby
 
-The following images are available when you configure `language: jruby` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
-
-| jruby Version | OS    |  Machine Image |
-|--------------|----------|-------------|
-|jruby 9.1.17  |-  Ubuntu 14.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
-|jruby 9.1.16  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-|jruby 9.1.15  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
-|jruby 9.1.13  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
-|jruby 9.1.12  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
-|jruby 9.1.5   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
-|jruby 9.1.2   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
-|jruby 9.0.0   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
-|jruby 1.7.27  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later |
-|jruby 1.7.19  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
-|ree 1.8.7     |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
 ## Scala
 
