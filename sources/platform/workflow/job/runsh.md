@@ -160,6 +160,44 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
+## YML templates
+If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in script section of each job repetatively you can define a template once and use this for all the jobs and keep your `shippable.jobs.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
+Below is a sample yml using templates:
+```
+templates: &template-script 
+  - echo "common-script 1"
+  - echo "common-script 2"
+  - echo "common-script 3"
+
+jobs:
+  - name: sample-job-A
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script
+            - echo "some more scripts"
+
+  - name: sample-job-B
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script
+            - echo "some more scripts"
+```
+
+**Note**: YML templates should be given in a single line script only. Passing template in a multiline script wont work.
+```
+  script:
+    - |
+      echo "This is job A"
+      *template-script          # this is not allowed
+      echo "some more scripts"
+```
+
 ## cliConfig special handling
 If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
 
