@@ -486,6 +486,7 @@ pages:
       - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/deploy-to-kubernetes-cluster-helm.md
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-google-kubernetes-engine-shippable.md
       - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable.md
+      - Using an Alpine custom image with runSh jobs
     - Future:
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
       - Provision Azure Virtual Network with Terraform: provision/tutorial/provision-azure-vnet-terraform.md
