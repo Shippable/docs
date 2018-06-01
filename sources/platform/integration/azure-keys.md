@@ -55,7 +55,6 @@ When you create a resource with this integration, and use it as an `IN` or `OUT`
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
 ### Shippable Utility Functions
-### Shippable Utility Functions
 The platform also provides a command line utility called [`shipctl`](/platform/tutorial/workflow/using-shipctl/) that can be used to retrieve the values of these environment variables.
 
 The specific function that can be used in the jobs yml is: `shipctl get_integration_resource_field <resource name> <field name>`.
