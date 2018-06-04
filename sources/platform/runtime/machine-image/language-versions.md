@@ -69,7 +69,7 @@ Each of the language images is built from the respective base OS version of the 
 ## gcc
 | Compiler Version | OS     |Machine Image |
 |------------------|-----------|-----------
-|gcc 8.0.1         | - Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|gcc 8.0.1         | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |gcc 7.3		   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 |gcc 7.2           | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)|
 |gcc 7.1           |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v5.8.2](/platform/runtime/machine-image/ami-v 582/) |
@@ -79,7 +79,7 @@ Each of the language images is built from the respective base OS version of the 
 
 | Compiler Version | OS     |Machine Image |
 |------------------|-----------|-----------
-|clang 6.0.0       |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654 )
+|clang 6.0.0       |- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654 )
 |clang 5.0.1       |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later |
 |clang 5.0.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
 |clang 4.0.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
@@ -114,8 +114,8 @@ The following images are available when you configure `language: go` in your [sh
 
 	| Go Version  | OS|  Machine Image
 	|------------|---------------------|-----------
-	|1.10.2      |  - Ubuntu 16.04  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
-	|1.10.1      |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
+	|1.10.2      |  - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
+	|1.10.1      |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 	|1.10        |  - Ubuntu 16.04                   |  [v6.3.4](/platform/runtime/machine-image/ami-v634/) 
 	|1.9.5       |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 	|1.9.4       |  - Ubuntu 16.04                  |  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
@@ -158,8 +158,8 @@ The following images are available when you configure `language: java` in your [
 | Java JDK    | OS    |    Machine Image |
 	|-----------|-----------|-----------
 |openjdk9   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 | [v5.10.4](/platform/runtime/machine-image/ami-v5.10.4/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-|openjdk8   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-|openjdk7   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+|openjdk8   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
+|openjdk7   | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
 
 ## oracleJDK
 
@@ -167,7 +167,7 @@ The following images are available when you configure `language: java` in your [
 |-----------|-----------|-----------
 |oraclejdk10 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 |  [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
 |oraclejdk9 | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- CentOs 7 |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
-|oraclejdk8 | - Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+|oraclejdk8 | - Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOs 7 |[v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
 |oraclejdk7 | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier |
 
 ## Node.js
@@ -192,23 +192,24 @@ The following versions are supported in each Machine Image:
 
 |  Node JS Version   | OS    |    Machine Image |
 |-----------|-----------|-----------
-|10.1.0 (npm 5.6.0)|- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
-|9.11.1 (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7   |  [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|10.2.1 (npm 5.6.0)|- CentOS 7  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) 
+|10.1.0 (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|9.11.1 (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7   |  [v6.5.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |9.9.0  (npm 5.6.0)|- Ubuntu 16.04   | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |9.5.0  (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 |9.4.0  (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04 |  [v6.1.4](/platform/runtime/machine-image/ami-v614/) |
-|8.11.2 (npm 5.6.0)|- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|8.11.2 (npm 5.6.0)|- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) <br>- CentOS 7 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |8.11.1 (npm 5.6.0)|- CentOS 7  | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |8.9.4  (npm 5.6.0)|- Ubuntu 14.04<br>- CentOS 7  |   [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)|
 |8.6.0             | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 |8.2.1             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |8.1.4             | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)  |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
-|7.10.1            | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+|7.10.1            | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
 |7.4.0             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |7.3.0             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |7.2.1             | - Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)<br>- CentOS 7 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |7.0.0             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-|6.14.2 (npm 5.6.0)| - Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|6.14.2 (npm 5.6.0)| - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) <br>- CentOS 7| [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |6.11.5 (npm 5.6.0)| - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 |6.11.4            | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 |6.11.2            | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
@@ -216,7 +217,8 @@ The following versions are supported in each Machine Image:
 |6.9.4             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |6.8.0             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |6.7.0             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-|5.12.0            | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.2.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+|5.12.0            | - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v5.2.2](/platform/runtime/machine-image/ami-v532/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
+|4.9.0  (npm 5.6.0)| -  CentOS 7       |  [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 |4.8.7  (npm 5.6.0)| - Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>- CentOS 7  |  [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 |4.8.4             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
 |4.2.3             | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
@@ -244,20 +246,20 @@ The following images are available when you configure `language: php` in your [s
 
 	| PHP Version | OS   | Machine Image |
 	|-------------|-----------|-----------
-    |7.2.5       | - Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
-    |7.1.17       | - Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
+    |7.2.5        | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
+    |7.1.17       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
     |7.1.12       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later|
 	|7.1.9        | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
 	|7.1.7        | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
 	|7.1.6        | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) |
 	|7.1          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier|
-	|7.0.30       | - Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
+	|7.0.30       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
     |7.0.26       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later |
 	|7.0.23       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
 	|7.0.22       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
 	|7.0.20       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)|
 	|7.0          | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier|
-	|5.6.36       | - Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
+	|5.6.36       | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)|
     |5.6.32       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later|
 	|5.6.31       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/) |
 	|5.6.30       | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)|
