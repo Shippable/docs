@@ -21,6 +21,7 @@ The following images are available when you configure `language: ASP.Net` in you
 
 | ASP.Net version |   OS  |  Machine Image |
 |----------------|----------------|-----------
+|2.0.7         |  Windows server 2016 | [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
 |2.0.6         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 |2.0.5         |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
 
@@ -95,6 +96,7 @@ The following images are available when you configure `language: DotNet` in your
 
 | DotNet version |   OS  |  Machine Image |
 |----------------|----------------|-----------
+|2.1.200         |  Windows server 2016 | [v6.5.4](/platform/runtime/machine-image/ami-v654/) |
 |2.1.104         |  Windows server 2016 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 |2.1.4           |  Windows server 2016 | [v6.3.4](/platform/runtime/machine-image/ami-v634/) |
 
