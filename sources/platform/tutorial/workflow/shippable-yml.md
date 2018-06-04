@@ -200,7 +200,7 @@ jobs:
       - NOTIFY:     <notification resource name>
         sendFailingSnippet: <true/false>
     on_cancel:
-      - script:     echo "CANCEL"
+      - NOTIFY:     <notification resource name>
     always:
       - script:     pwd
     flags:
@@ -291,11 +291,11 @@ jobs:
 		* `recipients` -- an array of emails/rooms/channels etc.
 		* `branches` -- limiting when to send notifications
 			* `only` -- an array of branch names
-		* `on_success` -- control the behaviour when the CI run is successful
-		* `on_failure` -- control the behaviour when the CI run has failed
-		* `on_cancel` -- control the behaviour when the CI run is cancelled
-		* `on_start` -- control the behaviour when the CI run has started
-		* `on_pull_request` -- control the behaviour when the CI run is for a pull request
+		* `on_success` -- control the behavior when the CI run is successful
+		* `on_failure` -- control the behavior when the CI run has failed
+		* `on_cancel` -- control the behavior when the CI run is cancelled
+		* `on_start` -- control the behavior when the CI run has started
+		* `on_pull_request` -- control the behavior when the CI run is for a pull request
 		* `sendConsoleLogs` -- send consoles logs as attachment (email type only)
 		* `sendCoverageReports ` -- send coverage reports as attachment (email type only)
 		* `sendFailingSnippet ` -- send failing console logs in the email (email type only)
@@ -384,15 +384,14 @@ Please remember that everything under the `jobs` and `resources` sections is glo
         * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
         * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
 
-    * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
-    	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
-    	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
-    	    * `sendFailingSnippet` -- this option will include logs from sections that failed in email notifications. No logs will be sent for other notification methods.
+    * **`on_start `** -- this section is executed before the `steps` are executed. You can send notifications by adding `NOTIFY`.
+        * `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
+            * `sendFailingSnippet` -- this option will include logs from sections that failed in email notifications. No logs will be sent for other notification methods.
     * **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
     * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
-    * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+    * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `NOTIFY` for all jobs.
     * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
-    * **`flags`** -- section defines a list of flags that can be added to the
+    * **`flags`** -- this section defines a list of flags that can be added to the
       job. The flags are helpful in grouping jobs logically and
       filtering them in SPOG view.
 

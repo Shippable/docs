@@ -96,7 +96,7 @@ jobs:
         - pwd
         - <any shell command>
     on_cancel:
-      - script:       echo "CANCEL"
+      NOTIFY:       <notification resource name>
 ```
 
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
@@ -122,7 +122,7 @@ A description of the job YML structure and the tags available is in the [jobs se
       run inside a container or on the host. `true` by default
   after which the job will be automatically stopped.
 
-* **`on_start `** -- Optional, and both `script` and `NOTIFY` types can be used
+* **`on_start `** -- Optional, `NOTIFY` types can be used to send notifications.
 
 * **`steps `** -- is an object which contains specific instructions to run this job
     * `IN` -- Optional, any resource or job can be used here, with as many `IN` resources and jobs as you need. The `switch`, `versionNumber`, `versionName` and `showBuildStatus` options are supported, too. However, `applyTo` is not supported.
@@ -156,7 +156,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`on_failure `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
-* **`on_cancel `** -- Optional, and both `script` and `NOTIFY` types can be used.
+* **`on_cancel `** -- Optional, only `NOTIFY` types can be used.
 
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 

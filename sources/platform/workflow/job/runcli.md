@@ -62,7 +62,6 @@ jobs:
   - name: <name>                                
     type: runCLI                                
     on_start:                                   #optional
-      - script: echo 'This block executes when the TASK starts'
       - NOTIFY: slackNotification
     steps:                                      
       - IN: <resource>                          
@@ -89,7 +88,7 @@ jobs:
 In addition to the required parameters described in the **Basic reference** section above, you can also
 configure your runCLI job with the parameters described below:
 
-  - [on_start](runcli.md#on_start): Specify `script` or `NOTIFY` sections
+  - [on_start](runcli.md#on_start): Specify `NOTIFY` sections
 that are executed when the job starts.
 
   - [on_success](runcli.md#on_success): Specify `script` or `NOTIFY`
