@@ -11,6 +11,8 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 ## Platform
 
 * [Configuring workflows](/platform/workflow/config)
+* [Using alpine custom image with runSh](/platform/tutorial/workflow/use-alpine-custom-image-runsh)
+* [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh)
 
 ## CI
 
