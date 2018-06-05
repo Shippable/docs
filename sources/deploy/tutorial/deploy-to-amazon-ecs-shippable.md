@@ -42,16 +42,14 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Resources](/platform/workflow/resource/overview/)
   * [image](/platform/workflow/resource/image)
   * [cluster](/platform/workflow/resource/cluster)
-  * [params](/platform/workflow/resource/params)
   * [dockerOptions](/platform/workflow/resource/dockerOptions)
-  * [replicas](/platform/workflow/resource/replicas)
 * [Jobs](/platform/workflow/job/overview/)
   * [manifest](/platform/workflow/job/manifest)
   * [deploy](/platform/workflow/job/deploy)
 
 This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to AWS ECS. The output of this is a docker image resouce `node_app_img_dh` which is what we deploy to ECS
 
-It also extends the work done in our Provisioning tutorial to [Provision AWS ECS Cluster using Terraform](/provision/tutorial/provision-aws-ecs-terraform). The out put of this tutorial is a cluster resource called `aws_ecs_cluster` which is used in the deploy job. 
+It also extends the work done in our Provisioning tutorial to [Provision AWS ECS Cluster using Terraform](/provision/tutorial/provision-aws-ecs-terraform). The output of this tutorial is a cluster resource called `aws_ecs_cluster` which is used in the deploy job. 
 
 ### Step by step instructions
 
@@ -88,11 +86,6 @@ resources:
       portMappings:
         - 80:80
 
-  - name: cd_ecs_replicas
-    type: replicas
-    version:
-      count: 1
-
   - name: cd_ecs_env
     type: params
     version:
@@ -110,19 +103,13 @@ All the Docker settings that your application requires need to be available as a
 
 Detailed info about `dockerOptions` resource is [here](/platform/workflow/resource/dockeroptions).
 
-######ii. `replicas` resource named `cd_ecs_replicas`
-
-If you need to control the number of copies of the application that you to run for parallelization, you can use replicas resource. By default, replica is set to 1 and can be overriden with a replicas resource. 
-
-Detailed info about `replicas` resource is [here](/platform/workflow/resource/replicas).
-
-######iii. params resource named `cd_ecs_env `
+######ii. params resource named `cd_ecs_env `
 
 If additional environment variables need to be set into the app, we can use the params resource to supply them. 
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
-######iv.`image` resource named `node_app_img_dh`
+######iii.`image` resource named `node_app_img_dh`
 
 The Docker image that you want to deploy to ECS should be available as a resource to the Assembly Line. In this example, this resource was created [here](https://github.com/devops-recipes/node_app/blob/master/shippable.yml). You can hard code it here if you do not wannt to automate the creation of the image
 
@@ -130,7 +117,7 @@ The Docker image that you want to deploy to ECS should be available as a resourc
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
-######v. `cluster` resource named `aws_ecs_cluster`
+######iv. `cluster` resource named `aws_ecs_cluster`
 
 This resource contains the location of your ECS cluster. In this example, this resource was created [here](https://github.com/devops-recipes/prov_aws_ecs_terraform/blob/master/shippable.yml). You can hard code it here if you do not wannt to automate the creation of the cluster
 
@@ -154,7 +141,6 @@ jobs:
     steps:
      - IN: node_app_img_dh # defined here https://github.com/devops-recipes/node_app/blob/master/shippable.yml
      - IN: cd_ecs_docker_opts
-     - IN: cd_ecs_replicas
      - IN: cd_ecs_env
 
   - name: cd_ecs_deploy
@@ -171,7 +157,6 @@ jobs:
 * The first job `cd_ecs_manifest` is used to create a template/manifest of your application definition
   * The `steps` section  defines all the input `IN` resources that are required to execute this job
     * `node_app_img_dh` is an **image** resource that will be deployed
-    * `cd_ecs_replicas` is used to define the number of copies
     * `cd_ecs_env` binds the env vars to the deployed app
   * Since this is a managed job, TASK section is not required and the platform creates the manifest automatically
 
