@@ -81,92 +81,92 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Troubleshooting](/ci/troubleshooting)
 - [Yml structure](/ci/yml-structure)
 - Preparing your environment:
-  - [Setting language and runtime](/ci/set-language)
-  - [Choosing a build image](/ci/build-image)
-  - [Specifying branches to build](/ci/specify-branches)
-  - [Working with env variables](/ci/env-vars)
+    - [Setting language and runtime](/ci/set-language)
+    - [Choosing a build image](/ci/build-image)
+    - [Specifying branches to build](/ci/specify-branches)
+    - [Working with env variables](/ci/env-vars)
 - Working with services:
-  - [Overview](/ci/services-overview)
-  - [Cassandra](/ci/cassandra)
-  - [CouchDB](/ci/couchdb)
-  - [Elasticsearch](/ci/elasticsearch)
-  - [Memcached](/ci/memcached)
-  - [MongoDB](/ci/mongodb)
-  - [MySQL](/ci/mysql)
-  - [Neo4j](/ci/neo4j)
-  - [PostgreSQL](/ci/postgresql)
-  - [RabbitMQ](/ci/rabbitmq)
-  - [Redis](/ci/redis)
-  - [Riak](/ci/riak)
-  - [RethinkDB](/ci/rethinkdb)
-  - [Selenium](/ci/selenium)
-  - [SQLite](/ci/sqlite)
+    - [Overview](/ci/services-overview)
+    - [Cassandra](/ci/cassandra)
+    - [CouchDB](/ci/couchdb)
+    - [Elasticsearch](/ci/elasticsearch)
+    - [Memcached](/ci/memcached)
+    - [MongoDB](/ci/mongodb)
+    - [MySQL](/ci/mysql)
+    - [Neo4j](/ci/neo4j)
+    - [PostgreSQL](/ci/postgresql)
+    - [RabbitMQ](/ci/rabbitmq)
+    - [Redis](/ci/redis)
+    - [Riak](/ci/riak)
+    - [RethinkDB](/ci/rethinkdb)
+    - [Selenium](/ci/selenium)
+    - [SQLite](/ci/sqlite)
 - Building and testing your project:
-  - [Configuring CI commands](/ci/build-and-test)
-  - [Building Docker images](/ci/build-docker-images)
-  - [Running tests in parallel](/ci/parallelize-tests)
-  - [Status code](/ci/build_status)
+    - [Configuring CI commands](/ci/build-and-test)
+    - [Building Docker images](/ci/build-docker-images)
+    - [Running tests in parallel](/ci/parallelize-tests)
+    - [Status code](/ci/build_status)
 - Configuring test/code coverage:
-  - [Basic config](/ci/test-code-coverage-reports)
-  - [JaCoCo reports](/ci/jacoco-reports)
+    - [Basic config](/ci/test-code-coverage-reports)
+    - [JaCoCo reports](/ci/jacoco-reports)
 - Sending notifications:
-  - [Overview](/ci/send-notifications)
-  - [Sending messages to Slack](/ci/slack-notifications)
-  - [Sending messages to Email](/ci/email-notifications)
-  - [Sending messages to Hipchat](/ci/hipchat-notifications)
-  - [Sending messages to IRC](/ci/irc-notifications)
+    - [Overview](/ci/send-notifications)
+    - [Sending messages to Slack](/ci/slack-notifications)
+    - [Sending messages to Email](/ci/email-notifications)
+    - [Sending messages to Hipchat](/ci/hipchat-notifications)
+    - [Sending messages to IRC](/ci/irc-notifications)
 - Pushing artifacts:
-  - [Overview](/ci/push-artifacts)
-  - [Push artifacts to S3](/ci/push-to-s3)
-  - [Push to JFrog Artifactory](/ci/push-to-artifactory)
-  - [Push Docker image to Docker Hub](/ci/push-docker-hub)
-  - [Push Docker image to Amazon ECR](/ci/push-amazon-ecr)
-  - [Push Docker image to GCR](/ci/push-gcr)
-  - [Push Docker image to Quay](/ci/push-quay)
-  - [Push Docker image to Docker registry](/ci/push-docker-registry)
+    - [Overview](/ci/push-artifacts)
+    - [Push artifacts to S3](/ci/push-to-s3)
+    - [Push to JFrog Artifactory](/ci/push-to-artifactory)
+    - [Push Docker image to Docker Hub](/ci/push-docker-hub)
+    - [Push Docker image to Amazon ECR](/ci/push-amazon-ecr)
+    - [Push Docker image to GCR](/ci/push-gcr)
+    - [Push Docker image to Quay](/ci/push-quay)
+    - [Push Docker image to Docker registry](/ci/push-docker-registry)
 - Deployments:
-  - [Overview](/ci/deployment-overview)
-  - [Heroku](/ci/deploy-to-heroku)
-  - [Amazon EC2](/ci/deploy-to-ec2)
-  - [AWS Opsworks](/ci/deploy-to-aws-opsworks)
-  - [AWS EBS](/ci/deploy-to-aws-beanstalk)
-  - [Digital Ocean](/ci/deploy-to-digital-ocean)
+    - [Overview](/ci/deployment-overview)
+    - [Heroku](/ci/deploy-to-heroku)
+    - [Amazon EC2](/ci/deploy-to-ec2)
+    - [AWS Opsworks](/ci/deploy-to-aws-opsworks)
+    - [AWS EBS](/ci/deploy-to-aws-beanstalk)
+    - [Digital Ocean](/ci/deploy-to-digital-ocean)
 - Advanced config:
-  - [Caching](/ci/caching)
-  - [Using a custom Docker image](/ci/custom-docker-image)
-  - [Running Docker Compose](/ci/docker-compose)
-  - [Building pull requests](/ci/pull-request-builds)
-  - [Skipping a build](/ci/skip-builds)
-  - [Using git submodules](/ci/git-submodules)
-  - [Retrying a command](/ci/retry-command)
-  - [Using SSH keys](/ci/ssh-keys)
-  - [Canceling builds](/ci/cancel-builds)
-  - [Customizing timeouts](/ci/custom-timeouts)
-  - [Console logs](/ci/console-logs)
-  - [Build badges](/ci/build-badges)
-  - [Scheduled builds](/ci/scheduled-builds)
-  - [Running builds as non-root user](/ci/non-root)
-  - [Triggering webhooks](/ci/webhook)
-  - [Triggering parallel jobs](/ci/matrix-builds)
+    - [Caching](/ci/caching)
+    - [Using a custom Docker image](/ci/custom-docker-image)
+    - [Running Docker Compose](/ci/docker-compose)
+    - [Building pull requests](/ci/pull-request-builds)
+    - [Skipping a build](/ci/skip-builds)
+    - [Using git submodules](/ci/git-submodules)
+    - [Retrying a command](/ci/retry-command)
+    - [Using SSH keys](/ci/ssh-keys)
+    - [Canceling builds](/ci/cancel-builds)
+    - [Customizing timeouts](/ci/custom-timeouts)
+    - [Console logs](/ci/console-logs)
+    - [Build badges](/ci/build-badges)
+    - [Scheduled builds](/ci/scheduled-builds)
+    - [Running builds as non-root user](/ci/non-root)
+    - [Triggering webhooks](/ci/webhook)
+    - [Triggering parallel jobs](/ci/matrix-builds)
 - Language guide:
-  - [Overview](/ci/supported-languages)
-  - [Node.js](/ci/nodejs-continuous-integration)
-  - [Python](/ci/python-continuous-integration)
-  - [Java](/ci/java-continuous-integration)
-  - [Ruby](/ci/ruby-continuous-integration)
-  - [Go](/ci/go-continuous-integration)
-  - [Scala](/ci/scala-continuous-integration)
-  - [PHP](/ci/php-continuous-integration)
-  - [Clojure](/ci/clojure-continuous-integration)
-  - [C/C++](/ci/cpp-continuous-integration)
-  - [Unsupported languages](/ci/unsupported-languages)
+    - [Overview](/ci/supported-languages)
+    - [Node.js](/ci/nodejs-continuous-integration)
+    - [Python](/ci/python-continuous-integration)
+    - [Java](/ci/java-continuous-integration)
+    - [Ruby](/ci/ruby-continuous-integration)
+    - [Go](/ci/go-continuous-integration)
+    - [Scala](/ci/scala-continuous-integration)
+    - [PHP](/ci/php-continuous-integration)
+    - [Clojure](/ci/clojure-continuous-integration)
+    - [C/C++](/ci/cpp-continuous-integration)
+    - [Unsupported languages](/ci/unsupported-languages)
 - Debugging:
-- [SSH Access to Build Machine](/ci/ssh-access)
+    - [SSH Access to Build Machine](/ci/ssh-access)
 - E2E Tutorials:
-- [Build and push Docker image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-- [Building a custom Docker image to use for CI](/ci/tutorial/build-custom-ci-image)
-- [Build and Push Docker Image to JFrog Artifactory](/ci/tutorial/build-push-image-to-jfrog)
-- [Build and Push Java WAR file to Nexus Repository with Maven](/ci/tutorial/build-push-java-war-nexus-maven)
+    - [Build and push Docker image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
+    - [Building a custom Docker image to use for CI](/ci/tutorial/build-custom-ci-image)
+    - [Build and Push Docker Image to JFrog Artifactory](/ci/tutorial/build-push-image-to-jfrog)
+    - [Build and Push Java WAR file to Nexus Repository with Maven](/ci/tutorial/build-push-java-war-nexus-maven)
 
 ## CD
 
@@ -191,46 +191,46 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Deploying a single container](/deploy/continuous-delivery-single-container-docker-application)
 - [Deploying a multi-container application](/deploy/continuous-delivery-multi-container-docker-application)
 - Deployment methods:
-  - [Overview](/deploy/deployment-methods-overview)
-  - [Blue-green](/deploy/deployment-method-blue-green)
-  - [Upgrade](/deploy/deployment-method-upgrade)
-  - [Replace](/deploy/deployment-method-replace)
-  - [Parallel](/deploy/deployment-method-parallel)
+    - [Overview](/deploy/deployment-methods-overview)
+    - [Blue-green](/deploy/deployment-method-blue-green)
+    - [Upgrade](/deploy/deployment-method-upgrade)
+    - [Replace](/deploy/deployment-method-replace)
+    - [Parallel](/deploy/deployment-method-parallel)
 - Using load balancers:
-  - [Overview](/deploy/lb-overview)
-  - [Amazon ECS Classic Load Balancer](/deploy/lb-amazon-ecs-classic)
-  - [Amazon ECS Application Load Balancer](/deploy/lb-amazon-ecs-app)
-  - [Kubernetes](/deploy/lb-kubernetes)
-  - [GKE](/deploy/lb-gke)  
+    - [Overview](/deploy/lb-overview)
+    - [Amazon ECS Classic Load Balancer](/deploy/lb-amazon-ecs-classic)
+    - [Amazon ECS Application Load Balancer](/deploy/lb-amazon-ecs-app)
+    - [Kubernetes](/deploy/lb-kubernetes)
+    - [GKE](/deploy/lb-gke)  
 - Advanced scenarios:
-  - [Multi-stage deployments](/deploy/multi-stage-deployments)
-  - [Gated deployments](/deploy/gated-deployments)
-  - [Scaling service instances](/deploy/scale-service-instances)
-  - [Customizing container options](/deploy/customizing-container-options)
-  - [Setting environment variables inside deployed container](/deploy/set-environment-deployed-container)
-  - [Specifying the version to deploy](/deploy/deploying-specific-version)
-  - [Rolling back deployments](/deploy/rollback)
-  - [Sending notifications upon deployments](/deploy/deployment-notifications)
-  - [Customizing deployed service names](/deploy/customize-service-names)
-  - [Pausing deployments](/deploy/pause-deployments)
-  - [Deleting a deployed service](/deploy/deleting-a-service)
+    - [Multi-stage deployments](/deploy/multi-stage-deployments)
+    - [Gated deployments](/deploy/gated-deployments)
+    - [Scaling service instances](/deploy/scale-service-instances)
+    - [Customizing container options](/deploy/customizing-container-options)
+    - [Setting environment variables inside deployed container](/deploy/set-environment-deployed-container)
+    - [Specifying the version to deploy](/deploy/deploying-specific-version)
+    - [Rolling back deployments](/deploy/rollback)
+    - [Sending notifications upon deployments](/deploy/deployment-notifications)
+    - [Customizing deployed service names](/deploy/customize-service-names)
+    - [Pausing deployments](/deploy/pause-deployments)
+    - [Deleting a deployed service](/deploy/deleting-a-service)
 - Specific cloud providers:
-  - Amazon ECS:
-    - [Single-container app](/deploy/amazon-ecs)
-    - [Multi-container app](/deploy/amazon-ecs-multiple-containers)
-    - [Resetting a deploy job](/deploy/amazon-ecs-deploy-reset)
-  - Kubernetes:
-    - [Single-container app](/deploy/kubernetes)
-    - [Multi-container app](/deploy/kubernetes-multiple-containers)
-    - [Multi-stage deployments](/deploy/kube-multi-stage-deployments)
-  - GKE:
-    - [Single-container app](/deploy/gke)
-  - Docker Datacenter:
-    - [Single-container app](/deploy/docker-datacenter)
-  - Docker Cloud:
-    - [Single-container app](/deploy/docker-cloud)
-  - Azure DC/OS:
-    - [Single-container app](/deploy/azure-dcos)
+    - Amazon ECS:
+        - [Single-container app](/deploy/amazon-ecs)
+        - [Multi-container app](/deploy/amazon-ecs-multiple-containers)
+        - [Resetting a deploy job](/deploy/amazon-ecs-deploy-reset)
+    - Kubernetes:
+        - [Single-container app](/deploy/kubernetes)
+        - [Multi-container app](/deploy/kubernetes-multiple-containers)
+        - [Multi-stage deployments](/deploy/kube-multi-stage-deployments)
+    - GKE:
+        - [Single-container app](/deploy/gke)
+    - Docker Datacenter:
+        - [Single-container app](/deploy/docker-datacenter)
+    - Docker Cloud:
+        - [Single-container app](/deploy/docker-cloud)
+    - Azure DC/OS:
+        - [Single-container app](/deploy/azure-dcos)
 
 ### Deployments to VMs
 
@@ -240,22 +240,22 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Deploying from a git repository to a single VM cluster](/deploy/vm-gitRepo)
 - [Deploying from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
 - Advanced scenarios for package based deployments:
-  - Multi-stage deployments
-  - Gated deployments
-  - Scaling service instances
-  - Setting environment variables on VM
-  - Specifying the version to deploy
-  - Rolling back deployments
-  - Sending notifications upon deployments
-  - Pausing deployments
-  - Deleting a deployed service
+    - Multi-stage deployments
+    - Gated deployments
+    - Scaling service instances
+    - Setting environment variables on VM
+    - Specifying the version to deploy
+    - Rolling back deployments
+    - Sending notifications upon deployments
+    - Pausing deployments
+    - Deleting a deployed service
 
 ### Deployments using cloud-native CLI:
 
 - AWS Elastic Beanstalk:
-  - [Deploying single-container environments](/deploy/aws-elastic-beanstalk)
-  - [Deploying multi-container environments](/deploy/aws-elastic-beanstalk-multiple-containers)
-  - [Multi-stage deployments](/deploy/aws-elastic-beanstalk-multiple-environments)
+    - [Deploying single-container environments](/deploy/aws-elastic-beanstalk)
+    - [Deploying multi-container environments](/deploy/aws-elastic-beanstalk-multiple-containers)
+    - [Multi-stage deployments](/deploy/aws-elastic-beanstalk-multiple-environments)
 
 ### Running test suites:
 - [Overview](/validate/devops-validate)
