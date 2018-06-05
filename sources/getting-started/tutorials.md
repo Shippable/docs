@@ -170,7 +170,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 ## CD
 
-### Kubernetes
+### Deploy using popular tools
 
 * [Deploying to Google Kubernetes Engine (GKE) using kubectl](/deploy/tutorial/deploy-to-google-kubernetes-engine-kubectl)
 * [Deploying to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl)
@@ -182,14 +182,9 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 * [Deploying to Azure Kubernetes Service (AKS) using kubectl](/deploy/tutorial/continuous-deployment-to-aks-kubectl)
 * [Deploying to Amazon EKS using Helm](/deploy/tutorial/continuous-deployment-to-amazon-eks-helm)
 * [Deploying to Azure Kubernetes Service (AKS) using Helm](/deploy/tutorial/continuous-deployment-to-aks-helm)
-* [Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-google-kubernetes-engine-shippable)
 * [Deploying to Amazon EKS using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-amazon-eks-shippable)
 * [Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-aks-shippable)
-* [Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable)
 
-### ECS
-
-* [Deploying AWS ECS using Shippable managed jobs](/deploy/tutorial/deploy-to-amazon-ecs-shippable)
 
 ### Managed jobs: deploy
 
