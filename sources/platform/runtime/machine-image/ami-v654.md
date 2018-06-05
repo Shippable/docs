@@ -51,7 +51,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 ## w16 sku
 * Host Operating System: Windows Server 2016 Datacenter Edition (Version 1607)
 * Build Container Operating System: Windows Server Core 2016 v10.0.14393.1884
-* Docker Server Version: 17.06.2-ee
+* Docker Server Version: 17.10.0-ce
 * Shippable Official w16 Docker Images with TAG: `v6.5.4`
 
 ## Shippable Official Docker Images
