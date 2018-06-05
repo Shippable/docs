@@ -8,6 +8,7 @@ This tutorial explains how to continuously deploy a Docker container to Google K
 
 This document assumes you're familiar with the following concepts:
 
+* [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)
 * [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
 * [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
@@ -36,16 +37,16 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 * [Workflow overview](/platform/workflow/overview/)
 * [Integrations](/platform/integration/overview/)
-      * [Google Cloud](/platform/integration/gcloudKey)
-      * [Docker Registry](/platform/integration/dockerRegistryLogin)
-      * [Github](/platform/integration/github)
+  * [Google Cloud](/platform/integration/gcloudKey)
+  * [Docker Registry](/platform/integration/dockerRegistryLogin)
+  * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-      * [image](/platform/workflow/resource/image)
-      * [gitRepo](/platform/workflow/resource/gitrepo)
-      * [cliConfig](/platform/workflow/resource/cliconfig)
-      * [cluster](/platform/workflow/resource/cluster)
+  * [image](/platform/workflow/resource/image)
+  * [gitRepo](/platform/workflow/resource/gitrepo)
+  * [cliConfig](/platform/workflow/resource/cliconfig)
+  * [cluster](/platform/workflow/resource/cluster)
 * [Jobs](/platform/workflow/job/overview/)
-      * [runSh](/platform/workflow/job/runsh)
+  * [runSh](/platform/workflow/job/runsh)
 
 This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to GKE.
 

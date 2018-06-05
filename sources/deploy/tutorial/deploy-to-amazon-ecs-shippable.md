@@ -42,6 +42,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Resources](/platform/workflow/resource/overview/)
   * [image](/platform/workflow/resource/image)
   * [cluster](/platform/workflow/resource/cluster)
+  * [params](/platform/workflow/resource/params)
   * [dockerOptions](/platform/workflow/resource/dockerOptions)
 * [Jobs](/platform/workflow/job/overview/)
   * [manifest](/platform/workflow/job/manifest)
@@ -71,7 +72,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####3b. Add `resources` section of the config
 
-`resources` section holds the information that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `dockerOptions`, `replicas`, and `params`.
+`resources` section holds the information that is necessary to deploy to a Kubernetes cluster. In this case we have 2 resources defined of type `dockerOptions` and `params`.
 
 Add the following to your `shippable.yml`:
 
