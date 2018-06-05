@@ -476,6 +476,7 @@ pages:
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
       - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
       - Provision AWS ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
+      - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
     - Templates:
       - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-google-kubernetes-engine-helm.md
       - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md
