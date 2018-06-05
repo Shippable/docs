@@ -9,9 +9,7 @@ page_description: How to get embeddable build status and code coverage badges fo
 
 You can get embeddable build status and code coverage badges for your project. These provide a visual indication of project status and code coverage percentage.
 
-- Go to your Project in the UI and click on **Settings**
-
-- Click on **Badges** in the left sidebar menu.
+- Go to your Project in the UI and click on the **Badges** icon in the top right.
 
 - Select the branch you want the status for and also whether you want the **Image URL** or **Markdown** code.
 
