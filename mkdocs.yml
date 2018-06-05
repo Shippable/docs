@@ -228,7 +228,10 @@ pages:
       - Provision with Ansible: provision/google-cloud-with-ansible.md
       - Provision Kubernetes cluster with Google Cloud SDK: provision/kubernetes-with-gkecli.md
     - Microsoft Azure infrastructure:
-      - Provision with Ansible: provision/microsoft-azure-with-ansible.md
+      - Ansible:
+        - Provision with Ansible: provision/microsoft-azure-with-ansible.md
+      - Terraform:
+        - Virtual Network: provision/tutorial/provision-azure-vnet-terraform.md
     - Digital Ocean infrastructure:
       - Provision with Ansible: provision/digital-ocean-with-ansible.md
   - Platform:
