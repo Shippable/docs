@@ -478,6 +478,7 @@ pages:
       - Provision AWS ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
+      - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
     - Templates:
       - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-gcp-gke-helm.md
       - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md
@@ -486,7 +487,6 @@ pages:
       - Using AWS CLI to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-self-kube-with-awscli.md
       - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/deploy-to-self-kube-helm.md
       - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/deploy-to-self-kube-shippable.md
-      - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
       - Using a private custom image with runSh jobs: platform/tutorial/workflow/use-private-custom-image-runsh.md
     - Future:
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
