@@ -1,0 +1,23 @@
+{
+  "name": "shippableindex",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
+    "underscore": "~1.8.3",
+    "async": "~2.4.0",
+    "marked": "~0.3.6",
+    "simple-markdown": "~0.2.1",
+    "he": "~1.1.1",
+    "js-yaml": "~3.8.3"
+  }
+}
