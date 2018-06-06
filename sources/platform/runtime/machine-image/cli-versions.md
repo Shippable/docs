@@ -66,15 +66,11 @@ Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elas
 
 | Version  | OS   | Machine Images
 |----------|---------|-----|
-| 3.0.0     | - Ubuntu 16.04 (aarch64)  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+| 3.0.0     | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 2.0.32    | - CentOS 7<br>- Ubuntu 14.04<br>- Windows 16 |[v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 2.0.30    | - windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.27    | - CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
-| 2.0.32    | - CentOS 7<br>- Ubuntu 14.04 |[v6.5.4](/platform/runtime/machine-image/ami-v654/)
-| 2.0.30    | - windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 2.0.27    | - CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 2.10.19   | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.10.2](/platform/runtime/machine-image/ami-v5102/)
 | 2.0.0.rc5 | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 2.0.12    | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
