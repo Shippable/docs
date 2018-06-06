@@ -466,27 +466,27 @@ pages:
       - Build a custom CI Image: ci/tutorial/build-custom-ci-image.md
       - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
       - Build Google Compute Engine Image with Packer: provision/tutorial/build-google-compute-engine-image-packer.md
-      - Deploying to Google Kubernetes Engine (GKE) using kubectl: deploy/tutorial/deploy-to-google-kubernetes-engine-kubectl.md
+      - Deploying to Google Kubernetes Engine (GKE) using kubectl: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
       - Deploying Java WAR from Nexus to EC2 VM using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
       - Build AWS EC2 AMI using Packer: provision/tutorial/build-aws-ec2-ami-packer.md
       - Creating a kubeconfig file for a self-hosted Kubernetes cluster: deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster.md
-      - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl.md
+      - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-kube-kubectl.md
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
       - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
       - Provision AWS ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
-    - Templates:
-      - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-google-kubernetes-engine-helm.md
-      - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md
-      - Using KOPS to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-kubernetes-cluster-with-kops-aws.md
-      - Using KOPS to provision a self-hosted Kubernetes cluster on GCP: provision/tutorial/provision-kubernetes-cluster-with-kops-gcp.md
-      - Using AWS CLI to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-kubernetes-cluster-with-aws-cli.md
-      - Using gcloud SDK to provision a self-hosted Kubernetes cluster on GCP: provision/tutorial/provision-kubernetes-cluster-with-gcloud-sdk.md
-      - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/deploy-to-kubernetes-cluster-helm.md
-      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-google-kubernetes-engine-shippable.md
-      - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-kubernetes-cluster-shippable.md
+      - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
+      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
+    - Templates:
+      - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-gcp-gke-helm.md
+      - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md
+      - Using KOPS to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-self-kube-on-aws-with-kops.md
+      - Using KOPS to provision a self-hosted Kubernetes cluster on GCP: provision/tutorial/provision-self-kube-on-gcp-with-kops.md
+      - Using AWS CLI to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-self-kube-with-awscli.md
+      - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/deploy-to-self-kube-helm.md
+      - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/deploy-to-self-kube-shippable.md
       - Using a private custom image with runSh jobs: platform/tutorial/workflow/use-private-custom-image-runsh.md
     - Future:
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
@@ -494,11 +494,11 @@ pages:
       - Provision Azure virtual machines with Ansible: provision/tutorial/provision-azure-vm-ansible.md
       - Provision Azure virtual machines with Terraform: provision/tutorial/provision-azure-vm-terraform.md
       - Build Azure Virtual Hard Disk(VHD) using Packer: provision/tutorial/build-azure-virtual-hard-disk-packer.md
-      - Using Azure CLI to provision a self-hosted Kubernetes cluster on Azure: provision/tutorial/provision-kubernetes-cluster-with-azure-cli.md
+      - Using Azure CLI to provision a self-hosted Kubernetes cluster on Azure: provision/tutorial/provision-self-kube-with-azurecli.md
       - Deploying to Azure Kubernetes Service (AKS) using kubectl: deploy/tutorial/continuous-deployment-to-aks-kubectl.md
       - Deploying to Azure Kubernetes Service (AKS) using Helm: deploy/tutorial/continuous-deployment-to-aks-helm.md
       - Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-aks-shippable.md
-      - Using KOPS to provision a self-hosted Kubernetes cluster on Azure: provision/tutorial/provision-kubernetes-cluster-with-kops-azure.md
+      - Using KOPS to provision a self-hosted Kubernetes cluster on Azure: provision/tutorial/provision-self-kube-on-azure-with-kops.md
       - Deploying to Amazon EKS using Shippable managed jobs: deploy/tutorial/continuous-deployment-to-amazon-eks-shippable.md
       - Deploying to Amazon EKS using Helm: deploy/tutorial/continuous-deployment-to-amazon-eks-helm.md
       - Deploying to Amazon EKS using kubectl: deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl.md
