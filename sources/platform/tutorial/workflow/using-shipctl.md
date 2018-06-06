@@ -605,6 +605,39 @@ jobs:
 
 ## Additional utilities
 
+### bump_version
+
+**Description**
+
+Increments the provided [semver version](https://semver.org/) with the given action.
+
+
+**Usage**
+
+```
+shipctl bump_version <version> <action>
+```
+
+- `version` is the semver version to be incremented
+- `action` is the type of increment to be applied
+
+The valid actions are:
+
+  - major: Increment the major version. The minor and patch versions are reset to 0.
+  - minor: Increment the minor version. The patch version is reset to 0.
+  - patch: Increment the patch version.
+  - alpha: Increment or add an `alpha` pre-release tag For example, `v1.1.1` becomes `v1.1.1-alpha` and `v1.1.1-alpha` becomes `v1.1.1-alpha.1`. Any other pre-release tags will be removed.
+  - beta: Increment or add a `beta` pre-release tag For example, `v1.1.1` becomes `v1.1.1-beta` and `v1.1.1-beta` becomes `v1.1.1-beta.1`. Any other pre-release tags will be removed.
+  - rc: Increment or add an `rc` pre-release tag For example, `v1.1.1` becomes `v1.1.1-rc` and `v1.1.1-rc` becomes `v1.1.1-rc.1`. Any other pre-release tags will be removed.
+  - final: Remove any pre-release tags, leaving `major.minor.patch`.
+
+**Example**
+
+```
+MY_NEW_VERSION="$(shipctl bump_version v1.0.0 minor)"
+```
+
+
 ### decrypt
 
 **Description**

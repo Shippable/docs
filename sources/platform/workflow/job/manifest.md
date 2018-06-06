@@ -45,10 +45,6 @@ jobs:
           - <image/file>
           - <image/file>
       - IN: 		<replicas> 				# optional
-      - IN: 		<replicas> 				# optional
-        applyTo:
-          - <image>
-          - <image>
       - IN: 		<any job or resource>  	# optional
 	 on_success:							# optional
 	   - NOTIFY: <notification resource name>
@@ -72,7 +68,7 @@ jobs:
 
 		* [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input for manifests containing image resource. It is used to set specific container options. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want `dockerOptions` resource to modify specific entities, use `applyTo` tag.
 
-		* [replicas](/platform/workflow/resource/replicas) -- Optional input for manifests containing image resource. It is used to set number of containers to spin up for an image. If you specify more than one `replicas`, the last one gets applied to all the `image` resources in the manifest. If you want the `replicas` resource to apply to a specific image only, you can use the `applyTo` tag.
+		* [replicas](/platform/workflow/resource/replicas) -- Optional input for manifests containing image resources. It is used to set the number of manifest copies to start when the manifest is deployed. If you specify more than one `replicas` resource, the last one overrides any previous ones.  This setting will carry forward in your Assembly Line until overridden by another `replicas` resource.
 
 		* [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` inputs. It is used to set environment variables during deployment. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` or `file` resources. Items are applied in the order they are provided in `steps`. If you want `params` resource to be associated with specific entities, use `applyTo` tag.
 

@@ -41,7 +41,19 @@ For Clojure projects, the `language` tag should always be set to `clojure`. You 
 language: clojure
 
 lein:
-  - lein2
+  - 1.9.0
+```
+
+Our official build images, which are used to run your builds by default, come installed with multiple versions of Go.
+
+To find out which versions are supported out of the box for your build image, read our [languages overview for Clojure](/platform/runtime/machine-image/language-versions/#clojure).
+
+If you want to test against several versions of Clojure, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
+
+```
+lein:
+  - 1.9.0
+  - 1.8.0
 ```
 
 **Important note:** The runtime tag only works with official CI images provided by Shippable. If you are using a custom image for your build, you will need to switch the runtime in the `ci` section of your yml.
@@ -53,7 +65,7 @@ If you're running a simple Scala build, feel free to skip this section since you
 
 ###Overriding the default build image
 
-Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/tutorial/runtime/ami-overview/).
+Depending on the `language` tag in your yml, an official build image is chosen for your build by default, and your build container is started with standard options. To find out the default image used for your builds, please read the [Machine images overview](../platform/runtime/machine-image/ami-overview/).
 
 If the default image does not satisfy your requirements, you can do one of three things:
 

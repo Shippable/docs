@@ -46,12 +46,12 @@ jobs:
       - IN:             <replicas>                # optional
       - IN:             <replicas>                # optional
         applyTo:
-          -             <image/manifest>
-          -             <image/manifest>
+          -             <manifest>
+          -             <manifest>
       - IN:             <loadBalancer>            # optional
         applyTo:
           - manifest:   <manifest>
-            image:      <image>         
+            image:      <image>
             port:       <number>
       - IN:             <any job or resource>     # optional
       - TASK:                                     # optional
@@ -105,7 +105,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
         * [dockerOptions](/platform/workflow/resource/dockeroptions) -- Optional input, but invalid if the manifest is not for an image. It is used to set specific container options. If more than one is provided, a UNION operation is performed to create an unique set and applied to all the `image` resources. Items are applied in the order they are provided in `steps`. If you want a `dockerOptions` resource to modify specific entities, use an `applyTo` tag.
 
-        * [replicas](/platform/workflow/resource/replicas) -- Optional input, but invalid if the manifest is not for an image. It is used to set number of containers to spin up for all images in a `manifest` or `release`. It can also be used to set up auto scaling in an Amazon ECS deployment. If you want a `replicas` resource to apply to specific entities, use an `applyTo` tag.
+        * [replicas](/platform/workflow/resource/replicas) -- Optional input, but invalid if the manifest is not for an image. It is used to set the number of manifest copies to start for all manifests in the job (manifests can come from other deploy jobs, release jobs, and manifest jobs). It can also be used to set up auto scaling in an Amazon ECS deployment. If you want a `replicas` resource to apply to specific manifests, use an `applyTo` tag along with one or more manifest names.
 
         * [params](/platform/workflow/resource/params) -- Optional input, and it works for both `image` and `file` based jobs. It is used to set environment variables during deployment. If more than one is provided, an UNION operation is performed to create an unique set and applied to all the `image` or `file` resources in a`manifest`, `release`, or `deploy` input. Items are applied in the order they are provided in `steps`. If you want a `params` resource to apply to specific entities, use an `applyTo` tag.
 

@@ -103,7 +103,7 @@ matrix:
 ```
 This creates a build matrix with 2 jobs with the specified parameters.
 
-### allowing failures
+### Allowing failures
 
 Allowed failures are items in your build matrix that are allowed to fail without causing the entire build to be shown as failed. You can define allowed failures in the build matrix as follows:
 
@@ -112,3 +112,9 @@ matrix:
   allow_failures:
     - rvm: 1.9.3
 ```
+
+### Rerunning unsuccessful items
+
+When rerunning a matrix build with failed items, you will have two options.  You can either rerun the whole matrix or only rerun the jobs that were unsuccessful.  If you choose to only rerun failed jobs, any items that previously succeeded will be copied into the new run.
+
+<img src="../../images/ci/rerun-modal.png" alt="Rerun modal">

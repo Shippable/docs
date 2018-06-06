@@ -42,7 +42,6 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Resources](/platform/workflow/resource/overview/)
     * [gitRepo](/platform/workflow/resource/gitrepo)
     * [integration](/platform/workflow/resource/integration)
-    * [params](/platform/workflow/resource/params)
 * [Jobs](/platform/workflow/job/overview/)
     * [runSh](/platform/workflow/job/runsh)
 

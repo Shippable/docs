@@ -48,24 +48,30 @@ To view your current plan:
 
 * To buy different types or sizes of machines, click on **Add new SKU**.
 
-* In the new row, select "BYON" (Bring Your Own Node) to run builds on your own infrastructure, or "On Demand" to run your builds on Shippable's infrastructure. You can also pick an instance size for on-demand nodes. Also select the appropriate architecture and Operating System for your nodes.
+* In the new row, select **On Demand** to run your builds on Shippable's infrastructure, or **BYON** if you want to use your own infrastructure.
 
-    <img src="/images/platform/management/new-sku-row.png" alt="Configure new SKU">
-
-    On-demand nodes are available for `x86_64` **Ubuntu 14.04**.
-
-    BYON nodes are available for `x86_64` architecture **CentOS**, **MacOS**, **Ubuntu 14.04**, **Ubuntu 16.04**, and **Windows Server 2016**. `aarch64` architecture is supported on **Ubuntu 16.04**.
-
+* Select the appropriate architecture and Operating System for your nodes:
+    *  On-demand nodes are available for `x86_64` architecture with **Ubuntu 14.04**, **Ubuntu 16.04**, **CentOS**, and **Windows Server 2016** platforms.
+    *  BYON nodes are available for `x86_64` architecture with **Ubuntu 14.04**, **Ubuntu 16.04**, **CentOS**,  **Windows Server 2016**, and **MacOS** platforms.
     **NOTE**: MacOS and Windows Server BYON nodes currently only support running [runSh jobs](/platform/workflow/job/runsh/). You will not be able to run [runCI jobs](/platform/workflow/job/runci/) on these platforms yet.
+    * `aarch64` architecture is supported on **Ubuntu 16.04**.
 
+* Pick an instance size:
+    * L is a build node with 2 cores and 7.75GB RAM
+    * XL is a build node with 4 cores and 15GB RAM
+    * 2XL is a build node with 8 cores and 30GB RAM
 
-* To buy more parallel capacity, adjust the number in the **Quantity** column to the capacity you need for each SKU.
+* Check the **cache** checkbox if you want to enable node caching for on-demand nodes. If you are pulling or building Docker images as part of your workflow, this is highly recommended to speed up your builds. More on [node caching here](/platform/runtime/caching/#node-caching).
+
+* To buy more parallel capacity, adjust the number in the **Quantity** column to the capacity you need for each SKU. This will allow you to run multiple jobs in parallel.
 
 * Enter a coupon code if you have one.
 
 * Enter a billing contact. This is required so that we know who to reach out to in case there is a problem with your billing.
 
 * Enter your credit card information card and click on **Upgrade**.
+
+<img src="/images/platform/management/new-sku-row.png" alt="Configure new SKU">
 
 We will charge your credit card immediately and send you an invoice. You can also view past invoices on this page.
 
@@ -88,9 +94,10 @@ Please note that any changes due to your plan downgrade will be effective immedi
 Your new price will be reflected in your next invoice.
 
 ### Enabling node cache
+
 You can upgrade your on-demand nodes to have `cache` addon. To know more about caching [click here](/platform/runtime/caching).
 
-* You can purchase cache addon for any of your existing on-demand node or new on-demand node by clicking on the cache checkbox for that node.
+* You can purchase the cache addon for any on-demand SKU.
 
 * Node caching is a chargeable add-on. When you enable caching for a node, the unit price will be updated accordingly.
 

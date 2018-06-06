@@ -10,7 +10,7 @@ Your Assembly Lines are defined through a YAML configuration file `shippable.yml
 
 There are two parts to your configuration:
 
-* A [CI portion](#ci-config), in which you can configure your CI commands. We define CI as all commands you want to execute in order to test your code, create a package, and push it to a artifact repository like Docker Hub or JFrog Artifactory, or to a Test environment.  
+* A [CI portion](#ci-config), in which you can configure your CI commands. We define CI as all commands you want to execute in order to test your code, create a package, and push it to a artifact repository like Docker Hub or JFrog Artifactory, or to a Test environment.
 * An [Assembly Lines portion](#assembly-lines-config), which is used to configure Continuous Delivery workflows, with application release automation, approval gates, deployments into successive environments like Dev, Test, Staging, Prod, etc.
 
 Let us look at both these configurations in greater detail.
@@ -77,7 +77,7 @@ matrix:
       <language version>: <version>
   exclude:
     - ENVG2: "doo"
-      <language version>: <version2>      
+      <language version>: <version2>
   allow_failures:
 	- <language version>: <version2>
 
@@ -402,7 +402,7 @@ Jobs are the executable units of your Assembly Line.  A list of all supported jo
         * `replicate` -- an optional setting that allows you to copy the current version of an `IN` resource in the context of the job to the desired `OUT` resource. This is useful if you need some pre-processing, for example, to validate the commit message of a git commit before you execute the actual job. A word of caution: this, if used improperly, can lead to unexpected behavior in your workflow
         * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
         * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
-
+        * `on_failure` -- an optional setting that allows the `OUT` version to be processed even on job failure. This is useful for example when you expect some parts of the workflow to fail, but still want an `OUT` version to be created. The default value is `false`, which means `OUT` version is processed only on success.
     * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
     	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
     	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
