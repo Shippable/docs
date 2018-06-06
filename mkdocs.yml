@@ -471,6 +471,13 @@ pages:
       - Build AWS EC2 AMI using Packer: provision/tutorial/build-aws-ec2-ami-packer.md
       - Creating a kubeconfig file for a self-hosted Kubernetes cluster: deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster.md
       - Deploying to a self-hosted Kubernetes cluster using kubectl: deploy/tutorial/deploy-to-self-kube-kubectl.md
+      - Adding an Assembly Line: platform/tutorial/workflow/add-assembly-line.md
+      - Testing your Assembly Line: platform/tutorial/workflow/test-assembly-line-config.md
+      #- Triggering jobs: platform/tutorial/workflow/trigger-job.md
+      - Scheduling workflows to trigger at a specific time: platform/tutorial/workflow/scheduled-triggers.md
+      - Inserting approval gates: platform/tutorial/workflow/insert-approval-gate.md
+      - Sending job status notifications: platform/tutorial/workflow/send-job-status-notifications.md
+      - Setting job timeout: platform/tutorial/workflow/set-job-timeout.md
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md

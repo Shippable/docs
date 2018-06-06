@@ -6,9 +6,13 @@ page_description: Workflow tutorials in Shippable
 
 # Workflow tutorials
 
-### Workflow configuration files
-* [Anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml)
-* [Importing workflow configuration files into Shippable](/platform/tutorial/workflow/crud-syncrepo)
+### Workflow configuration
+* [Configuration reference](/platform/workflow/config)
+* [Importing workflow configuration into Shippable](/platform/tutorial/workflow/crud-syncrepo)
+* [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
+* [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
+* [Sending job status notifications](/platform/tutorial/workflow/send-job-status-notifications)
+* [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
 
 ### Working with Jobs
 * [Overview](/platform/tutorial/workflow/crud-job)

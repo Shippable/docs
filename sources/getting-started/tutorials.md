@@ -13,15 +13,15 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 ### Configuration
 
 - [Enabling a CI project](/ci/enable-project): Enabling your project for CI sets up webhooks, so that your CI workflow can be automatically triggered when your source code changes.
-- [Adding an Assembly Line](/platform/tutorials/workflow/add-assembly-line): If you want Shippable to read your jobs and resources config, you need to add an Assemnly Line  that points to a repository containing the config.
-- Testing your Assembly Line config
+- [Adding an Assembly Line](/platform/tutorial/workflow/add-assembly-line): If you want Shippable to read your jobs and resources config, you need to add an Assemnly Line  that points to a repository containing the config.
+- [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
 - Breaking up your workflow into jobs
-- Triggering a job (automatic, manual, webhook, scheduled, dependency modes)
-- Scheduled triggers
+- Triggering a job
+- [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
 - Pausing/Restarting a job
 - Executing a job with specific input versions
-- Inserting an approval gate
-- Sending status notifications
+- [Inserting an approval gate](/platform/tutorial/workflow/insert-approval-gate)
+- [Sending status notifications](/platform/tutorial/workflow/send-job-status-notifications)
 - Filtering your SPOG view
 - Viewing version history for jobs and resources
 - (runSh) Sharing data between jobs
@@ -34,7 +34,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - (runCI, runSh) Sending status to source control repository
 - (runCI, runSh) Setting environment variables for a job
 - (runSh) Using multiple TASK sections
-- (runCI, runSh) Setting job timeout
+- [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)
 - (runSh) Using cliConfig for supported CLIs
 - (runCI, runSh) Creating Jira issues
 - (runSh, runCI)[Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
