@@ -13,6 +13,7 @@ page_description: Workflow tutorials in Shippable
 * [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
 * [Sending job status notifications](/platform/tutorial/workflow/send-job-status-notifications)
 * [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
+* [Inserting secrets in jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 
 ### Working with Jobs
 * [Overview](/platform/tutorial/workflow/crud-job)

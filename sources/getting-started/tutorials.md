@@ -25,7 +25,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - Filtering your SPOG view
 - Viewing version history for jobs and resources
 - (runSh) Sharing data between jobs
-- (runSh, runCI) Inserting secrets into jobs
+- [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 - (runCI, runSh) Running a job on a specific node pool
 - (runSh) Running a job directly on the node
 - (runCI, runSh) Using a custom image
