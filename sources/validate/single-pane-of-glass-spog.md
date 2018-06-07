@@ -140,12 +140,15 @@ To view either or both of these types of resources, click on the arrow dropdown 
 Dry Run feature allows you to validate and test your assembly lines before actually adding them. You can also build your Yml from scratch here and test it.
 To check the dry run assembly lines, follow these steps:
 1. Go to your subscription dashboard, click on the eye icon, and then click on `SPOG Dry Run`
-<img src="/images/getting-started/dry-run-on-sub-dash.png" alt="Location of dry-run on subscription dashboard"/>
+
+<img src="/images/getting-started/dry-run-on-sub-dash.png" alt="Location of dry-run on subscription dashboard" style="width:700px;"/>
 
 2.Now, you are on dry-run page. You will see three buttons at top right:
+
 <img src="/images/getting-started/dry-run-page.png" alt="Location of dry-run on subscription dashboard" style="width:700px;"/>
 
 3.Clicking on Import yml will show you a panel in the right, where you can either import from git repo or you can import you yml to see the dry-run assembly lines
+
 <img src="/images/getting-started/dry-run-import-yml-click.png" alt="dry run import yml" style="width:700px;"/>
 
 <img src="/images/getting-started/dry-run-import-yml-panel.png" alt="dry run import yml panel" style="width:700px;"/>
@@ -154,10 +157,12 @@ To check the dry run assembly lines, follow these steps:
 <img src="/images/getting-started/dry-run-import-gitrepo-project-search.png" alt="dry run project search" style="width:700px;"/>
 
 After selecting the project, you should select a branch for which you whould like to view dry run assembly lines.
+
 <img src="/images/getting-started/dry-run-import-gitrepo-search-branch.png" alt="dry run branch search" style="width:700px;"/>
 
 After selecting the branch, your dry run assembly lines will show up. It will look exactly same as how it will look if you add an actual syncRepo for selected project and branch.
 Any errors or warnings will be shown to you so that you can correct them before adding syncRepo.
+
 <img src="/images/getting-started/dry-run-import-gitrepo-assembly.png" alt="dry run assembly lines" style="width:700px;"/>
 
 To check the dry run assembly lines for any other project or branch, you can select the same from dropdowns and dry run assembly lines for those will be shown.
@@ -166,6 +171,7 @@ Please note that, since we support resource sharing between syncRepos in same su
 will be shown in dry run assembly lines.
 
 5.In import  your yml, you can paste your yml and click on import to check the dry run assembly line for it
+
 <img src="/images/getting-started/dry-run-import-your-yml-panel.png" alt="dry run import your yml" style="width:700px;"/>
 
 <img src="/images/getting-started/dry-run-import-your-yml-paste-yml.png" alt="dry run import your yml" style="width:700px;"/>
@@ -176,26 +182,35 @@ Any errors or warnings will be shown to you so that you can correct them before 
 <img src="/images/getting-started/dry-run-import-yml-assembly-lines.png" alt="dry run import your yml assembly lines" style="width:700px;"/>
 
 6.Also you can build your yml here from scratch, for that click on `Add Object` button
+
 <img src="/images/getting-started/dry-run-add-object-click.png" alt="dry run Add Object" style="width:700px;"/>
 
 Now you can see a panel in the right where you can search and select any resource or job.
+
 <img src="/images/getting-started/dry-run-add-object-search.png" alt="dry run Add Object" style="width:700px;"/>
 
 Clicking on a resource shows you all the settings to configure that resource
+
 <img src="/images/getting-started/dry-run-add-object-example-res.png" alt="dry run Add resource" style="width:700px;"/>
 
 After filling the required details, click on `Add object` button. Now you can see the added resource on your dry run SPOG.
+
 <img src="/images/getting-started/dry-run-resource-added-spog.png" alt="dry run resource on spog" style="width:700px;"/>
 
 You can do this for every resource and job type. Lets also add a job.
+
 <img src="/images/getting-started/dry-run-spog-job-added.png" alt="dry run job on spog" style="width:700px;"/>
 
 Clicking on any added resource or job on the dry run spog, shows you a edit panel of that particular resource or job. Lets edit added job configuaration by giving the added resource as IN.
+
 <img src="/images/getting-started/dry-run-resource-in-job.png" alt="dry run resource IN to job" style="width:700px;"/>
 
 Click on `update` and the change can be seen on the dry-run SPOG. Now, the added `git-repo-resource` is IN to added `runSh-job`
+
 <img src="/images/getting-started/dry-run-res-job-spog.png" alt="dry run assembly lines" style="width:700px;"/>
 
 7.You can also view the yml, by clicking `View YML`.
+
 <img src="/images/getting-started/dry-run-view-yml.png" alt="dry run view yml" style="width:700px;"/>
+
 You can download the yml by clicking on `Export` button.
