@@ -190,4 +190,3 @@ Click on `update` and the change can be seen on the dry-run SPOG. Now, the added
 7.You can also view the yml, by clicking `View YML`.
 <img src="/images/getting-started/dry-run-view-yml.png" alt="dry run view yml" style="width:700px;"/>
 You can download the yml by clicking on `Export` button.
-
