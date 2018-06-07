@@ -12,8 +12,10 @@ page_description: Workflow tutorials in Shippable
 * [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
 * [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
 * [Sending job status notifications](/platform/tutorial/workflow/send-job-status-notifications)
+* [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm)
 * [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
 * [Inserting secrets in jobs](/platform/tutorial/workflow/insert-secrets-in-job)
+* [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
 
 ### Working with Jobs
 * [Overview](/platform/tutorial/workflow/crud-job)

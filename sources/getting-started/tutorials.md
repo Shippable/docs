@@ -27,15 +27,15 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - (runSh) Sharing data between jobs
 - [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 - (runCI, runSh) Running a job on a specific node pool
-- (runSh) Running a job directly on the node
+- [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
 - (runCI, runSh) Using a custom image
 - [Using alpine custom image with runSh](/platform/tutorial/workflow/use-alpine-custom-image-runsh)
 - [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh)
-- (runCI, runSh) Sending status to source control repository
+- [Sending pull request status to source control](//platform/tutorial/workflow/sending-status-to-scm)
 - (runCI, runSh) Setting environment variables for a job
 - (runSh) Using multiple TASK sections
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)
-- (runSh) Using cliConfig for supported CLIs
+- [Using cliConfig for supported CLIs](/platform/tutorial/workflow/using-cliconfig)
 - (runCI, runSh) Creating Jira issues
 - (runSh, runCI)[Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
 - [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
