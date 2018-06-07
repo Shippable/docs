@@ -478,6 +478,7 @@ pages:
       - Inserting approval gates: platform/tutorial/workflow/insert-approval-gate.md
       - Sending job status notifications: platform/tutorial/workflow/send-job-status-notifications.md
       - Setting job timeout: platform/tutorial/workflow/set-job-timeout.md
+      - Inserting secrets in jobs: platform/tutorial/workflow/insert-secrets-in-job.md
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
