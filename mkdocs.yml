@@ -426,9 +426,10 @@ pages:
         - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sharing data through jobs: platform/tutorial/workflow/sharing-data-between-jobs.md
-        - Sending status to Source Control: platform/tutorial/workflow/sending-status-to-scm.md
+        - Sending pull request status to source control: platform/tutorial/workflow/sending-status-to-scm.md
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md
+        - Run job directly on node: platform/tutorial/workflow/run-job-on-node.md
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
         - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
