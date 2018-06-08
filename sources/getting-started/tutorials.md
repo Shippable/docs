@@ -36,7 +36,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - (runSh) Using multiple TASK sections
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)
 - [Using cliConfig for supported CLIs](/platform/tutorial/workflow/using-cliconfig)
-- (runCI, runSh) Creating Jira issues
+- [Creating Jira issues](/platform/workflow/tutorial/create-jira-issues)
 - (runSh, runCI)[Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
 - [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
 - [Running jobs on Mac OS](/platform/tutorial/workflow/jobs-macos)
