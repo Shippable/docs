@@ -16,7 +16,7 @@ page_description: Workflow tutorials in Shippable
 * [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
 * [Inserting secrets in jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 * [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
-* [Creating Jira issues from CI and runSh jobs](/platform/tutorial/workflow/create-jira-issues)
+* [Creating Jira issues from CI and pipeline jobs](/platform/tutorial/workflow/create-jira-issues)
 
 ### Working with Jobs
 * [Overview](/platform/tutorial/workflow/crud-job)
