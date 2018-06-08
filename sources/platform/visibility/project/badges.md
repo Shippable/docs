@@ -12,7 +12,7 @@ This is the place where you can get the project specific URLs to put badges on y
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Left Navbar">
 
 * Click on the project you want and then on the Project page, click on the **Badges** icon to open Settings.
 
