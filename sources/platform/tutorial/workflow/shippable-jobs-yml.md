@@ -22,7 +22,7 @@ The anatomy of the jobs configuration in `shippable.jobs.yml` generally follows 
 jobs:
   - name: 					<string>
     type: 					<job type name>
-	 on_start:
+    on_start:
       - NOTIFY: 			<notification resource name>
     steps:
       - IN: 				<resource>
@@ -58,7 +58,7 @@ jobs:
       - script: 			echo "FAILED"
       - NOTIFY: 			<notification resource name>
 	 on_cancel:
-      - script: 			echo "CANCEL"
+      - NOTIFY: 			<notification resource name>
 	 always:
       - script: 			pwd
      flags:
@@ -99,12 +99,10 @@ Any special `YML` tags that are job specific is defined in respective job pages.
     * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
     * `overwrite` -- an optional setting that allows you to completely replace the state of the `OUT` resource. This is useful, for example, if you have multiple jobs that affect the state of the resource and you want the state of your resource to always reflect the most recent update. The default value is `false`, which means the state of your resource is always appended to by the `OUT`, never replaced.
 
-  * **`on_start `** -- this section is executed before the `steps` are executed. You can run two types of activities here
-  	* `script` -- any single line shell script can be executed here. This option is only available in `runCI` and `runSh` jobs.
-  	* `NOTIFY` -- a resource of type [notification](/platform/workflow/resource/notification/) can be added to send alerts about the job.
+  * **`on_start `** -- this section is executed before the `steps` are executed. You can send notifications by adding a [notification resource](/platform/workflow/resource/notification/) with `NOTIFY`.
   * **`on_success `** -- this section is executed if the `steps` execution exits with 0 as the exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
   * **`on_failure `** -- this section is executed if the `steps` execution exits with non-zero exit code. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
-  * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
+  * **`on_cancel `** -- this section is executed if the `steps` execution is cancelled. Supports `NOTIFY` for all jobs.
   * **`always `** -- this section is executed no matter what the status is. Supports `script` for `runCI` and `runSh` and `NOTIFY` for all jobs.
   * **`flags`** -- this section defines a list of flags that can be added to the
       job. The flags are helpful in grouping jobs logically and
