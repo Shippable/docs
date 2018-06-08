@@ -430,6 +430,7 @@ pages:
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md
         - Run job directly on node: platform/tutorial/workflow/run-job-on-node.md
+        - How to create Jira issues for CI and runSh jobs: platform/tutorial/workflow/create-jira-issues.md
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
         - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
@@ -444,7 +445,6 @@ pages:
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
-        - How to create Jira issues from Shippable: platform/tutorial/integration/howto-create-jira-issues.md
       - Runtime:
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md

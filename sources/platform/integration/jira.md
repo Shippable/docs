@@ -22,11 +22,11 @@ Here is the information you need to create this integration:
 
 ## Usage in CI
 
-* [Creating Jira issues](/platform/tutorial/integration/howto-create-jira-issues.md)
+* [Creating Jira issues](/platform/tutorial/workflow/create-jira-issues.md)
 
 ## Usage in Assembly Lines
 
-* [Creating Jira issues](/platform/tutorial/integration/howto-create-jira-issues.md)
+* [Creating Jira issues](/platform/tutorial/workflow/create-jira-issues.md)
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
