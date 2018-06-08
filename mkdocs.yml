@@ -433,7 +433,7 @@ pages:
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md
         - Run job directly on node: platform/tutorial/workflow/run-job-on-node.md
-        - How to create Jira issues for CI and runSh jobs: platform/tutorial/workflow/create-jira-issues.md
+        - Creating Jira issues from CI and assembly line jobs: platform/tutorial/workflow/create-jira-issues.md
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
         - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md
