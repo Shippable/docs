@@ -7,7 +7,7 @@ sub_sub_section: Workflow
 
 If you are using Jira for issue tracking and project management, you can create Jira issues from within the Shippable UI to report bugs. You can also attach job logs to help with debugging.
 
-This ability is available for both CI jobs and pipeline jobs.
+This ability is available for both CI jobs and assembly line jobs.
 
 ## Setup
 
@@ -17,7 +17,7 @@ This ability is available for both CI jobs and pipeline jobs.
 
 ##Instructions  
 
-You can create Jira issues for [runCI](/platform/workflow/job/runci) and [runSh](/platform/workflow/job/runsh) jobs by following the steps below:
+You can create Jira issues for CI and assembly line jobs by following the steps below:
 
 * Complete the **Setup** step before following rest of the instructions below.
 
