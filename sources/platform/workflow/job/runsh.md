@@ -161,7 +161,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
 ## YML templates
-If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in script section of each job repetatively you can define a template once and use this for all the jobs and keep your `shippable.jobs.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
+If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your `shippable.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
 Below is a sample yml using templates:
 ```
 templates: &template-script 
@@ -187,9 +187,20 @@ jobs:
             - echo "This is job A"
             - *template-script
             - echo "some more scripts"
+
+  - name: sample-job-C
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job C"
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script
 ```
 
-**Note**: YML templates should be given in a single line script only. Passing template in a multiline script wont work.
+**Note**: YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
 ```
   script:
     - |
