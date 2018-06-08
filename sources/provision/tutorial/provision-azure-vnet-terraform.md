@@ -20,8 +20,6 @@ This document assumes you're familiar with the following concepts:
 * [Terraform azurerm_network_security_group](https://www.terraform.io/docs/providers/azurerm/d/network_security_group.html)
 * [Terraform azurerm_network_interface](https://www.terraform.io/docs/providers/azurerm/d/network_interface.html)
 
-If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually. Refer to our blog for a step-by-step tutorial: [Provision Azure Virtual Network with Terraform](http://blog.shippable.com/provision-azure-vnet-terraform).
-
 There are many challenges with manually running terraform scripts. In short, you will struggle with making scripts reusable and injecting the right values for wildcards at runtime, and maintaining the right version of the Terraform state file. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
 If you want to achieve frictionless execution of Terraform scripts that are modular and reusable, you need to templatize your scripts and automate the workflow used to execute them.
