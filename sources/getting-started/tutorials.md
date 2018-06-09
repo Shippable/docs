@@ -28,7 +28,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 - (runCI, runSh) Running a job on a specific node pool
 - [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
-- (runCI, runSh) Using a custom image
+- [Using a custom image](/platform/tutorial/workflow/use-custom-image)
 - [Using alpine custom image with runSh](/platform/tutorial/workflow/use-alpine-custom-image-runsh)
 - [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh)
 - [Sending pull request status to source control](//platform/tutorial/workflow/sending-status-to-scm)
