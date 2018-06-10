@@ -429,6 +429,7 @@ pages:
         - Writing to an OUT resource: platform/tutorial/workflow/writing-keyvalues-to-output-resource.md
         - Using central state: platform/tutorial/workflow/using-central-state.md
         - Sharing information across jobs: platform/tutorial/workflow/share-info-across-jobs.md
+        - Setting environment variables in jobs: platform/tutorial/workflow/set-env-vars-in-job.md
         - Sending pull request status to source control: platform/tutorial/workflow/sending-status-to-scm.md
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md

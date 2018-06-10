@@ -15,6 +15,7 @@ page_description: Workflow tutorials in Shippable
 * [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm)
 * [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
 * [Inserting secrets in jobs](/platform/tutorial/workflow/insert-secrets-in-job)
+* [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job)
 * [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
 * [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool)
 * [Using a custom Docker image](/platform/tutorial/workflow/use-custom-image)
