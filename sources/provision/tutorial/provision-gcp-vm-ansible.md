@@ -349,4 +349,4 @@ You can manually run the job by right clicking on the job or by triggering the j
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
-* [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
+* [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

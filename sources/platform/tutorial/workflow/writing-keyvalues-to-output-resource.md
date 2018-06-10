@@ -73,4 +73,4 @@ The `replicate` option will copy all of the version information from the input r
 
 ##Updating a `state` resource
 
-Please read our docs on [Using central state](/platform/tutorial/workflow/using-central-state) to learn how to write to the `state` resource.
+Please read our docs on [Using central state](/platform/tutorial/workflow/share-info-across-jobs/#central-state) to learn how to write to the `state` resource.

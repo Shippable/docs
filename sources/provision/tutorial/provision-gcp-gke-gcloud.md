@@ -208,4 +208,4 @@ Confirm that the required cluster was created on GCP.
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
 * [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
 * [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
-* [Sharing information between Jobs](/platform/tutorial/workflow/sharing-data-between-jobs/)
+* [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)
