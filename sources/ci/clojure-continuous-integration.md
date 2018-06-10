@@ -44,7 +44,7 @@ lein:
   - 1.9.0
 ```
 
-Our official build images, which are used to run your builds by default, come installed with multiple versions of Go.
+Our official build images, which are used to run your builds by default, come installed with multiple versions of Clojure.
 
 To find out which versions are supported out of the box for your build image, read our [languages overview for Clojure](/platform/runtime/machine-image/language-versions/#clojure).
 
