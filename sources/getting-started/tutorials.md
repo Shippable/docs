@@ -24,9 +24,9 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Sending status notifications](/platform/tutorial/workflow/send-job-status-notifications)
 - Filtering your SPOG view
 - Viewing version history for jobs and resources
-- (runSh) Sharing data between jobs
+- [Sharing information across jobs](/platform/tutorial/workflow/share-info-across-jobs)
 - [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job)
-- (runCI, runSh) Running a job on a specific node pool
+- [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool)
 - [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
 - [Using a custom image](/platform/tutorial/workflow/use-custom-image)
 - [Using alpine custom image with runSh](/platform/tutorial/workflow/use-alpine-custom-image-runsh)

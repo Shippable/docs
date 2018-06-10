@@ -30,7 +30,7 @@ resources:
 
 ## Usage in Assembly Lines
 
-This resource is used as an `IN` or `OUT` of `runSH` and `runCI` jobs. Please read the [**Using central state**](/platform/tutorial/workflow/using-central-state/) tutorial to learn about how you can store and use files and key-value pairs in the `state` resource..
+This resource is used as an `IN` or `OUT` of `runSH` and `runCI` jobs. Please read the [**Using central state**](/platform/tutorial/workflow/share-info-across-jobs/#central-state/) tutorial to learn about how you can store and use files and key-value pairs in the `state` resource..
 
 ### Default Environment Variables
 

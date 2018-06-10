@@ -16,6 +16,7 @@ page_description: Workflow tutorials in Shippable
 * [Setting job timeout](/platform/tutorial/workflow/set-job-timeout)
 * [Inserting secrets in jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 * [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
+* [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool)
 * [Using a custom Docker image](/platform/tutorial/workflow/use-custom-image)
 * [Creating Jira issues from CI and assembly line jobs](/platform/tutorial/workflow/create-jira-issues)
 
@@ -23,7 +24,7 @@ page_description: Workflow tutorials in Shippable
 * [Overview](/platform/tutorial/workflow/crud-job)
 * [Reading data from an IN resource in a job](/platform/tutorial/workflow/access-resource-data)
 * [Writing to an OUT resource in a job](/platform/tutorial/workflow/writing-keyvalues-to-output-resource)
-* [Sharing data amongst jobs](/platform/tutorial/workflow/sharing-data-between-jobs)
+* [Sharing data amongst jobs](/platform/tutorial/workflow/share-info-across-jobs)
 * [Sending status to source control](/platform/tutorial/workflow/sending-status-to-scm)
 * [runSh usecases](/platform/tutorial/workflow/using-runSh)
 
@@ -32,7 +33,7 @@ page_description: Workflow tutorials in Shippable
 * [Working with Triggers](/platform/tutorial/workflow/crud-trigger)
 
 ### Working with State
-* [Using Central State](/platform/tutorial/workflow/using-central-state)
+* [Using Central State](/platform/tutorial/workflow/share-info-across-jobs/#central-state)
 
 ### Running jobs on non-Ubuntu Operating Systems
 * [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows)

@@ -63,8 +63,8 @@ Please refer to these tutorials:
 
 * [Read information from an `IN` resource](/platform/tutorial/workflow/access-resource-data)
 * [Write to an `OUT` resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource)
-* [Sharing information through jobs](/platform/tutorial/workflow/sharing-data-between-jobs)
-* [Using central state](/platform/tutorial/workflow/using-central-state)
+* [Sharing information across jobs](/platform/tutorial/workflow/sharing-info-across-jobs)
+* [Using central state](/platform/tutorial/workflow/share-info-across-jobs/#central-state)
 
 <a name="pin"></a>
 ## Pinning specific resource versions

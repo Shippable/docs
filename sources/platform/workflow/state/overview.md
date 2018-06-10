@@ -31,7 +31,7 @@ You can store key-value pairs or files up to 1Mb as state for every immutable ve
 
 <img src="/images/platform/workflow/job-based-state.png" alt="DevOps tools exchanging information">
 
-To learn how to store key-value state or files in job state, read our tutorial on [Read/write from job-based-state](/platform/tutorial/workflow/sharing-data-between-jobs/)
+To learn how to store key-value state or files in job state, read our tutorial on [Read/write from job-based-state](/platform/tutorial/workflow/share-info-across-jobs/)
 
 ###Resource-based state
 
@@ -52,11 +52,4 @@ The `state` resource is key for these scenarios since it is the **only resource*
 
 <img src="/images/platform/workflow/shared-state-resource.png" alt="DevOps tools exchanging information">
 
-For more information, read the [state resource page](/platform/workflow/resource/state/) and check out our tutorial on [Using central state](/platform/tutorial/workflow/using-central-state.md)
-
-
-## Tutorials
-* [Sharing information through jobs](/platform/tutorial/workflow/sharing-data-between-jobs.md)
-* [Reading information from an IN resource](/platform/tutorial/workflow/access-resource-data)
-* [Writing information to an OUT Resource](/platform/tutorial/workflow/writing-keyvalues-to-output-resource.md)
-* [How to use central state to share files or key:value pairs across your Assembly Line](/platform/tutorial/workflow/using-central-state.md)
+For more information, read the [state resource page](/platform/workflow/resource/state/) and check out our tutorial on [Using central state](/platform/tutorial/workflow/share-info-across-jobs/#central-state)
