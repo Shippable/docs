@@ -13,11 +13,11 @@ Instead of needing to get this information through manual process like spreadshe
 
 Information can be shared across jobs in the following ways:
 
-* **Job state** allows you to store key-value pairs or files up to 1Mb in size in the state folder, from where it can be retrieved by any other job that is immediately downstream or even a successive run of the same job.
-* **resources**, which can be updated by one job and read by a downstream job
-* **state** resource, which provides you with central state that can be read and updated by downstream and upstream jobs in your workflow.
+* [**Job state**](#job-state) allows you to store key-value pairs or files up to 1Mb in size in the state folder, from where it can be retrieved by any other job that is immediately downstream or even a successive run of the same job.
+* [**resources**](#resources-state), which can be updated by one job and read by a downstream job
+* [**state** resource](#central-state), which provides you with central state that can be read and updated by downstream and upstream jobs in your workflow.
 
-
+<a name="job-state"></a>
 ## Using job state
 
 You can store two types of information in job state: **key-value pairs** and **files**.
@@ -105,6 +105,7 @@ jobs:
 ```
 Complete shipctl reference is [here](/platform/tutorial/workflow/using-shipctl/).
 
+<a name="resources-state"></a>
 ## Using resources
 
 You can share information through resources by writing to a resource from a job, and reading from the resource from a downstream job.
