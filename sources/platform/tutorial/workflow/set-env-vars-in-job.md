@@ -15,7 +15,7 @@ You can inject static environment variables in `runSh` jobs in one of three ways
 
 * The simplest way is to specify them in the `runtime:options:env:` section of the `runSh` config. However, these variables are not encrypted and anyone with access to the config repository can see them. [Instructions for this method are here](#task-sec)
 * You can use an `IN` [params resource](/platform/workflow/resource/params) which will automatically set the environment. The key-value pairs can be encrypted if necessary. [Instructions for this method are here](#params-res)
-* You can use an `IN` [integration resource](/platform/workflow/resource/integration) with a [**Key-value** integration](/platform/integration/key-value), which will automatically set the variables. Key-value integrations are stored in Vault and encrypted in-flight and at-rest. They also provide complete abstraction since the key-value pairs are not defined in automation scripts and can hence be updated without touch automation scripts. This is the recommended approach to inject environment variables that contain sensitive information. [Instructions for this method are here](#integration-res)
+* You can use an `IN` [integration resource](/platform/workflow/resource/integration) with a [**Key-value** integration](/platform/integration/key-value), which will automatically set the variables. Key-value integrations are stored in Vault and encrypted in-flight and at-rest. They also provide complete abstraction since the key-value pairs are not defined in automation scripts and can hence be updated without touching automation scripts. This is the recommended approach to inject environment variables that contain sensitive information. [Instructions for this method are here](#integration-res)
 
 <a name="task-sec"></a>
 #### Using the TASK section
@@ -96,7 +96,7 @@ The `echo` commands will output `admin` and `admin123`. The environment is alrea
 
 ### In CI(runCI) jobs
 
-To inject static environment variables in your CI job, read the CI documentation for [Preparing your environment](/ci/env-vars/#user-defined-variables)
+To inject static environment variables in your CI job, read the CI documentation for [Preparing your environment](/ci/env-vars/#user-defined-variables).
 
 ## Dynamic environment
 

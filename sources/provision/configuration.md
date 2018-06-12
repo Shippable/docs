@@ -45,7 +45,7 @@ At this point, Shippable will parse all configuration files in the sync reposito
 
 You might want to see how your pipelines will look as you're working on your syncRepo. We offer a **Dry run** feature where you can view your pipelines prior to adding them.
 
-For more on this, check out the [Testing your pipeline config docs](/provision/single-pane-of-glass-spog/#dry-run).
+For more on this, check out the [Testing your pipeline config docs](/platform/tutorial/workflow/test-assembly-line-config).
 
 ###Troubleshooting errors
 

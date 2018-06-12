@@ -437,6 +437,9 @@ pages:
         - Run job on a specific node pool: platform/tutorial/workflow/run-job-on-specific-node-pool.md
         - Using a custom Docker image: platform/tutorial/workflow/use-custom-image.md
         - Creating Jira issues from CI and assembly line jobs: platform/tutorial/workflow/create-jira-issues.md
+        - Filtering your SPOG view: platform/tutorial/workflow/filter-spog-view.md
+        - Viewing version history for job/resource: platform/tutorial/workflow/view-version-history.md
+        - Breaking up your workflow into jobs: platform/tutorial/workflow/break-workflow-into-jobs.md
         - Anatomy of shippable.resources.yml: platform/tutorial/workflow/shippable-resources-yml.md
         - Anatomy of shippable.triggers.yml: platform/tutorial/workflow/shippable-triggers-yml.md
         - Anatomy of shippable.jobs.yml: platform/tutorial/workflow/shippable-jobs-yml.md

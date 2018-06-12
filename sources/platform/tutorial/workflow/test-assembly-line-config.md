@@ -17,15 +17,19 @@ The **Dry Run** feature allows you to do exactly this.
 
 <img src="/images/platform/tutorial/workflow/test-assembly-line-config-dry-run.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
 
-* Select the repository and branch where your **shippable.yml** config is stored.
+* Click on the **Import YML** icon.
 
-<img src="/images/platform/tutorial/workflow/test-assembly-line-config-select-repo.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
+<img src="/images/platform/tutorial/workflow/test-assembly-line-config-fig1.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
 
-* Click on **Show** to see your workflow visually.
+* If you have your config in a source control repository, select the **Import from git repo** tab. You can also choose to paste your config and import it by selecting the **Import from YML** tab.
+
+<img src="/images/platform/tutorial/workflow/test-assembly-line-config-fig2.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
+
+* Select the repository and branch where your **shippable.yml** config is stored, and then click on **Import** to see your workflow visually.
 
 <img src="/images/platform/tutorial/workflow/test-assembly-line-config-view-dry-run.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
 
-If there is a problem with your configuration, we will show you an error or warning so that you can correct them.
+If there is a problem with your configuration, we will show you an error or warning so that you can correct them. If you want to model your workflow using the UI and export the resulting YAML, you can do so by following our [Modeling your configuration tutorial](/platform/tutorial/model-workflow). 
 
 Please note the following:
 
