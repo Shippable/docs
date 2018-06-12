@@ -38,13 +38,13 @@ You can also update the key-values for an `OUT` resource, i.e. update the resour
 To reset key-value pairs in state and add a new one, include the following in the `TASK` section of your `runSh` job or in your `runCI` scripts:
 
 ```
-shipctl post_resource_state <resource name> <key> <value>
+shipctl post_resource_state_multi "resource_name" "key1=value1 key2=value2"
 ```
 
 To append key-value pairs to state, include the following in the `TASK` section of your `runSh` job or in your `runCI` scripts:
 
 ```
-shipctl put_resource_state <resource name> <key> <value>
+shipctl put_resource_state_multi "resource_name" "key1=value1 key2=value2"
 ```
 
 ## Replicating an IN resource to an OUT

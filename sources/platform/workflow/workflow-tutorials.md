@@ -10,6 +10,7 @@ page_description: Workflow tutorials in Shippable
 * [Configuration reference](/platform/workflow/config)
 * [Importing workflow configuration into Shippable](/platform/tutorial/workflow/crud-syncrepo)
 * [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
+* [Breaking up your workflow into jobs](/platform/tutorial/workflow/break-workflow-into-jobs)
 * [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
 * [Sending job status notifications](/platform/tutorial/workflow/send-job-status-notifications)
 * [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm)
@@ -20,6 +21,8 @@ page_description: Workflow tutorials in Shippable
 * [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool)
 * [Using a custom Docker image](/platform/tutorial/workflow/use-custom-image)
 * [Creating Jira issues from CI and assembly line jobs](/platform/tutorial/workflow/create-jira-issues)
+* [Filtering your SPOG view](/platform/tutorial/workflow/filter-spog-view)
+* [Viewing version history for a job/resource](/platform/tutorial/workflow/view-version-history)
 
 ### Working with Jobs
 * [Overview](/platform/tutorial/workflow/crud-job)

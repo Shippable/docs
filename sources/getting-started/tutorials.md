@@ -15,15 +15,15 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Enabling a CI project](/ci/enable-project): Enabling your project for CI sets up webhooks, so that your CI workflow can be automatically triggered when your source code changes.
 - [Adding an Assembly Line](/platform/tutorial/workflow/add-assembly-line): If you want Shippable to read your jobs and resources config, you need to add an Assemnly Line  that points to a repository containing the config.
 - [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
-- Breaking up your workflow into jobs
-- Triggering a job
+- [Breaking up your workflow into jobs](/platform/tutorial/workflow/break-workflow-into-jobs)
+- [Triggering a job](/platform/workflow/job/overview/#when-does-a-job-execute)
 - [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers)
-- Pausing/Restarting a job
-- Executing a job with specific input versions
+- [Pausing/Restarting a job](/platform/tutorial/workflow/crud-job/#pausing-jobs)
+- [Executing a job with specific input versions](/platform/tutorial/workflow/pin-versions)
 - [Inserting an approval gate](/platform/tutorial/workflow/insert-approval-gate)
 - [Sending status notifications](/platform/tutorial/workflow/send-job-status-notifications)
-- Filtering your SPOG view
-- Viewing version history for jobs and resources
+- [Filtering your SPOG view](/platform/tutorial/workflow/filter-spog-view)
+- [Viewing version history for jobs and resources](/platform/tutorial/workflow/view-version-history)
 - [Sharing information across jobs](/platform/tutorial/workflow/share-info-across-jobs)
 - [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job)
 - [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool)
@@ -33,11 +33,10 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh)
 - [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm)
 - [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job)
-- (runSh) Using multiple TASK sections
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)
 - [Using cliConfig for supported CLIs](/platform/tutorial/workflow/using-cliconfig)
 - [Creating Jira issues](/platform/workflow/tutorial/create-jira-issues)
-- (runSh, runCI)[Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
+- [Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
 - [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
 - [Running jobs on Mac OS](/platform/tutorial/workflow/jobs-macos)
 - [Running jobs on CentOS](/platform/tutorial/workflow/jobs-centos)
@@ -47,7 +46,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 - Choosing the right node type
 - Buying specific node SKUs
-- Creating a node pool
+- [Creating a node pool](/platform/management/subscription/node-pools/#creating-a-node-pool)
 - Turning on caching
 - Choosing a machine image
 - Upgrading Docker version
