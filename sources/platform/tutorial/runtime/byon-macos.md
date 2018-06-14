@@ -5,7 +5,7 @@ sub_sub_section: Runtime
 page_title: macOS BYON nodes overview
 page_description: How to add, remove and view macOS nodes in your Node pool in Shippable
 
-# macOS BYON Nodes
+# Managing MacOS BYON Nodes
 
 To learn the basics of BYON nodes, please read [this overview](/platform/runtime/nodes/#custom-nodes).
 
