@@ -157,6 +157,7 @@ Every apply of Terraform scripts generates a **terraform.tfstate** file. This is
 
 Detailed info about `state` resource is [here](/platform/workflow/resource/state).
 
+<a name="define-aws_ecs_cluster"></a>
 ######iv. params resource named `aws_ecs_cluster`
 
 We store information like **clusterName** and **region**, which is created during the execution of your scripts, in a `cluster` resource. Downstream jobs can access this information programmatically if required. For example, a separate jobs that deploys to the cluster will need to know the connection information to the cluster.
@@ -230,7 +231,7 @@ jobs:
   * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_region`, `vpc_public_sn_id` and `vpc_public_sg_id`, which are required to provision ECS. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ecs` which does the following:
-  
+
   * First, we define environment variables required by the scripts-
     * `vpc_id, vpc_region, vpc_public_sg_id & vpc_public_sn_id` are implicity set from `aws_vpc_tf_info`. If you deleted that resource since you want to manually provide this info, hardcode this here
     * `ECS_KEY_PAIR_NAME` is name of the AWS Key pair used to provision instances for ECS
@@ -239,16 +240,16 @@ jobs:
     * `DESIRED_CAPACITY` is the ideal number of instances
     * `ECS_INSTANCE_TYPE` is the type of instance to be provisioned
     * `ECS_AMI_ID ` is the AMI used to provision instances
-  
+
   * `script` section has a list of commands which will be executed sequentially.
     * First, we extract the AWS credentials from the `aws_ecs_tf_creds`resource, again using shipctl functions
     * Then, we use the Shippable utility function `get_resource_state` to go to the folder where Terraform scripts are stored
     * Next, we replace all wildcards in the file `terraform.tfvars`
     * Then, we restore the tf state using Shippable utility function `copy_file_from_resource_state`
     * Last, we apply the scripts
-  
+
   * `on_success` section is executed if the TASK succeeded. This step updates the `cluster` resource with `sourceName` & `region` which were provisioned as part of this script
-  
+
   * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ecs_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since Terraform does not rollback changes of a failed apply command
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).

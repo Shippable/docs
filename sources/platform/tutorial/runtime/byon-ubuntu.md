@@ -5,7 +5,7 @@ sub_sub_section: Runtime
 page_title: Ubuntu BYON nodes overview
 page_description: How to add, remove and view Ubuntu nodes in your Node pool in Shippable
 
-# Ubuntu BYON Nodes
+# Managing Ubuntu BYON Nodes
 
 To learn the basics of BYON nodes, please read [this overview](/platform/runtime/nodes/#custom-nodes).
 
