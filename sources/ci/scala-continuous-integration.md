@@ -46,7 +46,7 @@ scala:
   - 2.9.3
 ```
 
-Our official build images, which are used to run your builds by default, come installed with multiple versions of Go.
+Our official build images, which are used to run your builds by default, come installed with multiple versions of Scala.
 
 To find out which versions are supported out of the box for your build image, read our [languages overview for Scala](/platform/runtime/machine-image/language-versions/#scala).
 
