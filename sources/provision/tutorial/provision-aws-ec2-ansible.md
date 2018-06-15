@@ -1,6 +1,7 @@
 page_description: Using Ansible playbooks to provision an AWS EC2 virtual machine
 main_section: Provision
 sub_section: AWS infrastructure
+sub_sub_section: Provision EC2 machines
 
 # Provision AWS EC2 virtual machine with Ansible
 
@@ -88,7 +89,7 @@ Detailed steps on how to add a PEM Key Integration are [here](/platform/integrat
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 If you're using our sample code, **shippable.yml** already exists and you can use it with a few modifications.
 

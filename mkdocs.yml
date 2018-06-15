@@ -219,14 +219,23 @@ pages:
       - Triggering jobs: provision/trigger-job.md
       - Sending notifications: provision/send-notifications.md
     - AWS infrastructure:
-      - Ansible:
-        - EC2: provision/tutorial/provision-aws-ec2-ansible.md
-        - VPC: provision/tutorial/provision-aws-vpc-ansible.md
-      - Terraform:
-        - Provision infrastructure: provision/aws-with-terraform.md
+      - Provision EC2 machines:
+        - Ansible: provision/tutorial/provision-aws-ec2-ansible.md
+        - Terraform: provision/tutorial/provision-aws-ec2-terraform.md
+      - Provision a VPC:
+        - Ansible: provision/tutorial/provision-aws-vpc-ansible.md
+        - Terraform: provision/tutorial/provision-aws-vpc-terraform.md
+      - Provision an ECS cluster:
+        - Terraform: provision/tutorial/provision-aws-ecs-terraform.md
+      - Build VM images:
+        - Packer: provision/tutorial/build-aws-ec2-ami-packer.md
     - Google Cloud infrastructure:
-      - Provision with Ansible: provision/google-cloud-with-ansible.md
-      - Provision Kubernetes cluster with Google Cloud SDK: provision/kubernetes-with-gkecli.md
+      - Provision GKE cluster:
+        - Gcloud SDK: provision/tutorial/provision-gcp-gke-gcloud.md
+      - Provision VM:
+        - Ansible: provision/tutorial/provision-gcp-vm-ansible.md
+      - Build VM images:
+        - Packer: provision/tutorial/build-google-compute-engine-image-packer.md
     - Microsoft Azure infrastructure:
       - Ansible:
         - Provision with Ansible: provision/microsoft-azure-with-ansible.md
@@ -494,7 +503,7 @@ pages:
       - Inserting secrets in jobs: platform/tutorial/workflow/insert-secrets-in-job.md
       - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
-      - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md      
+      - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md

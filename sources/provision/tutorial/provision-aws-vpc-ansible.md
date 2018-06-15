@@ -1,6 +1,7 @@
 page_description: Using Ansible playbooks to provision an AWS VPC
 main_section: Provision
 sub_section: AWS infrastructure
+sub_sub_section: Provision a VPC
 
 # Provision AWS VPC with Ansible
 

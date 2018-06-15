@@ -1,29 +1,17 @@
-page_description: Using gcloud to provision a GCP GKE cluster
+page_description: Provision a GKE cluster with gcloud SDK
 main_section: Provision
-sub_section: GCP infrastructure
+sub_section: Google Cloud infrastructure
+sub_sub_section: Provision GKE cluster
 
-# Provision GCP GLE with gcloud
+# Provision a GKE cluster with gcloud SDK
 
-This tutorial explains how to automate the provisioning of an Google Kubernetes Engine with gcloud.
+This tutorial explains how to automate the provisioning of a Google Kubernetes Engine(GKE) cluster with gcloud SDK.
 
 This document assumes you're familiar with the following concepts:
 
 * [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)
 * [GCloud and it's SDK](https://cloud.google.com/sdk/gcloud/)
 * [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
-
-If you're unfamiliar with GKE, it would be good to start with learning how to provision infrastructure manually with scripts. Refer to our blog for a step-by-step tutorial: [Provision GCP GKE with gcloud](http://blog.shippable.com/provision-gcp-gke-gcloud).
-
-## Manual Steps
-* install gcloud
-* create a service account on gcp
-* run the create cluster command
-
-
-There are many challenges with manually running scripts. In short, injecting the right values for creds, params at runtime, and managing security and accounts on the machine used to run the script. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless execution of Terraform templates, you need to templatize your scripts and automate the workflow used to execute them.
-
 
 ## Automated workflow to provision GKE with gcloud
 
@@ -37,18 +25,19 @@ You can easily automate your workflow using Shippable's Assembly Lines. The foll
 To jump into this tutorial, you will need to familiarize yourself with a few platform concepts.
 
 ### Concepts
+
 * [Workflow overview](/platform/workflow/overview/)
 * [Integrations](/platform/integration/overview/)
-  * [Google Cloud](/platform/integration/gcloudKey)
+    * [Google Cloud](/platform/integration/gcloudKey)
 * [Resources](/platform/workflow/resource/overview/)
-  * [cliConfig](/platform/workflow/resource/cliconfig)
-  * [cluster](/platform/workflow/resource/cluster)
+    * [cliConfig](/platform/workflow/resource/cliconfig)
+    * [cluster](/platform/workflow/resource/cluster)
 * [Jobs](/platform/workflow/job/overview/)
-  * [runSh](/platform/workflow/job/runsh)
+    * [runSh](/platform/workflow/job/runsh)
 
-### Step by Step Instructions
+### Instructions
 
-The following sections explain the process of automating a workflow to provision AWS ECS using Terraform. We will demonstrate this with our sample application.
+We will demonstrate this scenario with our sample application.
 
 **Source code is available at [devops-recipes/prov_gcp_gke_gcloud](https://github.com/devops-recipes/prov_gcp_gke_gcloud)**
 
@@ -60,21 +49,21 @@ Your workflow will look like this, where the green box is the job that runs your
 
 ####1. Add necessary Account Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for AWS Keys and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for Google Cloud and Github for this sample.
 
-#####1a. Add AWS Keys Integration
+#####1a. Add Google Cloud Integration
 
-To be able to interact with GCP, we need to add the `drship_aws` integration.
+To be able to interact with GCP, we need to add the `drship_gcp` integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Google Cloud Integration are [here](/platform/integration/gcloudkey/#creating-an-account-integration). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
 ####2. Author Assembly Line configuration
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 If you're using our sample code, **shippable.yml** already exists and you can use it with a few modifications.
 
@@ -84,7 +73,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to provision and ecs instance. In this case we have 4 resources defined of type `integration`, `gitRepo`, `state` and `cluster`.
+`resources` section holds the config info that is necessary to provision and ecs instance. In this case we have 2 resources defined of type `cliConfig`, and `params`.
 
 ```
 resources:
@@ -104,9 +93,10 @@ resources:
       sourceName: "tbd"
       region: "us-west1-a"
 ```
+
 ######i. cliConfig resource named `prov_gcp_gke_creds`
 
-Your GCP credentials are securely stored in this integration.
+The cliConfig resource securely stores your credentials for GCP and authenticates on your behalf, so you can start using gcloud commands in jobs.
 
 Detailed info about `cliConfig` resource is [here](/platform/workflow/resource/cliConfig).
 
@@ -121,7 +111,7 @@ Detailed info about `cluster` resource is [here](/platform/workflow/resource/clu
 A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
 * Check to see if the cluster already exists
-* If the cluster does not exisit, provision it by using the supplied values. (cliConfig has auto logged you into GCP and hence not auth needs to be performed)
+* If the cluster does not exist, provision it by using the supplied values.
 * If the job succeed, output `clusterName` and `region` into the `cluster` resource to make it available for downstream jobs
 
 ```
@@ -163,22 +153,22 @@ jobs:
 * Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `prov_gcp_gke`.
 
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
-  * Credentials to connect to GCP are in `prov_gcp_gke_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
+    * Credentials to connect to GCP are in `prov_gcp_gke_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ecs` which does the following:
-  
-  * First, we define environment variables required by the scripts-
-    * `cluster_name` is name of the cluster to be provisioned
-    * `cluster_zone` is the zone where the cluster is provisioned
-    * `machine_type` is the type of machines used for the nodes
-    * `machine_count` is the number of nodes the cluster will use
-    * `volume_size` is the storage available on the nodes in GB
-  
-  * `script` section has a list of commands which will be executed sequentially.
-    * First, we check if the cluster is already present
-    * If it's not present, provison using the `gcloud container clusters` command
- 
-  * `on_success` section is executed if the TASK succeeded. This step updates the `cluster` resource with `sourceName` & `region` which were provisioned as part of this script
+
+    * First, we define environment variables required by the scripts-
+        * `cluster_name` is name of the cluster to be provisioned
+        * `cluster_zone` is the zone where the cluster is provisioned
+        * `machine_type` is the type of machines used for the nodes
+        * `machine_count` is the number of nodes the cluster will use
+        * `volume_size` is the storage available on the nodes in GB
+
+    * `script` section has a list of commands which will be executed sequentially.
+        * First, we check if the cluster is already present.
+        * If it's not present, provision using the `gcloud container clusters` command.
+
+    * `on_success` section is executed if the TASK succeeded. This step updates the `cluster` resource with `sourceName` & `region` which were provisioned as part of this script.
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 

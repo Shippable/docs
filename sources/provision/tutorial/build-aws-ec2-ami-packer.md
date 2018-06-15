@@ -1,6 +1,7 @@
 page_description: Build AWS AMI with Packer
 main_section: Provision
-sub_section: AWS
+sub_section: AWS infrastructure
+sub_sub_section: Build VM images
 
 # Build Amazon AMI using Packer
 
