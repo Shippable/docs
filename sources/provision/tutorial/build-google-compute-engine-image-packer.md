@@ -1,6 +1,7 @@
 page_description: Using Packer to build a Google Cloud Platform VM image
 main_section: Provision
-sub_section: GCP infrastructure
+sub_section: Google Cloud infrastructure
+sub_sub_section: Build VM images
 
 # Build Google Compute Engine VM image using Packer
 

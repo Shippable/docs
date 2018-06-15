@@ -1,6 +1,7 @@
 page_description: Provision an Amazon ECS cluster with Terraform
 main_section: Provision
 sub_section: AWS infrastructure
+sub_sub_section: Provision an ECS cluster
 
 # Provision an Amazon ECS cluster with Terraform
 
