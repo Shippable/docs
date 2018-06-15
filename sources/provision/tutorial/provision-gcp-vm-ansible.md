@@ -1,21 +1,15 @@
-page_description: Using Ansible playbooks to provision GCP GCE virtual machine
+page_description: Using Ansible playbooks to provision a Google cloud virtual machine
 main_section: Provision
 sub_section: GCP infrastructure
 
-# Provision GCP GCE VM with Ansible
+# Provision Google Compute Engine(GCE) virtual machine with Ansible
 
-This tutorial explains how to automate the provisioning of an Google Compute Engine virtual machine using Ansible.
+This tutorial explains how to automate the provisioning of a Google Compute Engine(GCE) virtual machine using Ansible.
 
 This document assumes you're familiar with the following concepts:
 
-* [GCP GCE](https://cloud.google.com/compute/docs/)
+* [Google Cloud Engine](https://cloud.google.com/compute/docs/)
 * [Ansible gce module](http://docs.ansible.com/ansible/latest/modules/gce_module.html)
-
-If you're unfamiliar with Ansible, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision GCP GCE Virtual Machine with Ansible](http://blog.shippable.com/provision-gce-vm-ansible).
-
-There are many challenges with manually running ansible playbooks. In short, you will struggle with making playbooks reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless execution of Ansible playbooks with modular, reusable playbooks, you need to templatize your playbooks and automate the workflow used to execute them.
 
 ## Automated workflow to provision a GCE instance with Ansible
 
@@ -39,9 +33,9 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Jobs](/platform/workflow/job/overview/)
     * [runSh](/platform/workflow/job/runsh)
 
-### Step by Step Instructions
+### Instructions
 
-The following sections explain the process of automating a workflow to provision an GCE instance using Ansible. We will demonstrate this with our sample application.
+The following sections explain the process of automating a workflow to provision a GCE instance using Ansible. We will demonstrate this with our sample application.
 
 **Source code is available at [devops-recipes/prov_gcp_gce_ansible](https://github.com/devops-recipes/prov_gcp_gce_ansible)**
 
@@ -55,7 +49,7 @@ Your workflow will look like this, where the green box is the job that runs your
 
 * Create a project on GCP. [Refer to GCP docs to learn how to do this](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 
-* Create a service account for your project, download and store the `JSON` security key in a secure place. [Refer to GCP docs](https://cloud.google.com/compute/docs/access/service-accounts)
+* Create a service account for your project. Download and save the **JSON** security key. [Refer to GCP docs](https://cloud.google.com/compute/docs/access/service-accounts)
 
 ####2. Add necessary Account Integrations
 
@@ -67,15 +61,15 @@ To be able to interact with GCP, we add `drship_gcp `integration.
 
 Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration).
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step
 
 #####2b. Add `Github` Integration
 
-In order to read your AL configuration from Github, we add `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and Packer files.
+In order to read your workflow configuration from Github, we add `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and Ansible playbook files.
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step
 
 ####3. Author Assembly Line configuration
 
@@ -124,15 +118,15 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 ######ii. integration resource named `gcp_gce_creds`
 
-Your Google Cloud JSON file for service account are securely stored in this integration.
+The Google Cloud JSON file for your service account is securely stored in this integration.
 
-To let Ansible interact with GCP, we will export `JSON_key` stored in this resource into a file at runtime.
+To enable Ansible interaction with GCP, we will export the JSON key stored in this resource into a file at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
 ######iv. params resource named `gcp_gce_info`
 
-We store information like **instance_ip**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate jobs that deploys to the machine will need to know the instance IP and ID.
+We store information like **instance_ip**, **gce_tag_Role**, and **gce_name**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that deploys to the machine will need to know the instance IP.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
@@ -140,7 +134,7 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 
 A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
-* Replace wildcards needed by the ansible playbook
+* Replace wildcards needed by the Ansible playbook
 * Export `JSON_key` into a file
 * Run playbook
 * Output `instance_ip` into the `params` resource to make it available for downstream jobs
@@ -181,7 +175,7 @@ jobs:
         overwrite: true
 ```
 
-* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `prov_gcp_gce_ans`.
+* Adding the above config to the jobs section of **shippable.yml** will create a `runSh` job called `prov_gcp_gce_ans`.
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
   * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `gcp_gce_repo`.
   * Credentials to connect to GCP are in `gcp_gce_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
@@ -199,7 +193,7 @@ jobs:
     * `GCE_EMAIL` is service account email id of the project
     * `GCE_CREDENTIALS_FILE_PATH` is the path where the service account json key is present
   *  `script` section has a list of commands which will be executed sequentially.
-    * First, ansible gce module requires a couple of special libraries that are being installed
+    * First, Ansible's gce module requires a couple of special libraries that are being installed
     * Then, we use the Shippable utility function `get_resource_state` to go to the folder where Ansible playbook is stored
     * Next, we extract the service account json key from the `gcp_gce_creds`resource, again using shipctl functions
     * Next, we replace all wildcards in the playbook
@@ -245,7 +239,7 @@ You might also want to automatically terminate GCE instances when you no longer 
 
 The steps below demonstrate how to implement the automatic termination workflow.
 
-### Step-by-Step Instructions
+### Instructions
 
 For this workflow, we start with the resources and jobs that were created in the provisioning tutorial above, and just add another job that will terminate the GCE instance.
 
