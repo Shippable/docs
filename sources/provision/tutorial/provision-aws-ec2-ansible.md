@@ -42,7 +42,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 This example extends the work done in our tutorial to [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible) by adding an Assembly Line that provisioning an EC2 instance in the VPC. However, you can also use it as a standalone tutorial by hardcoding values for subnet and security group IDs.
 
-### Step by Step Instructions
+### Instructions
 
 The following sections explain the process of automating a workflow to provision an AWS EC2 machine using Ansible. We will demonstrate this with our sample application.
 
@@ -64,17 +64,17 @@ To be able to interact with AWS, we need to add the `drship_aws `integration. Yo
 
 Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration//aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
 #####1b. Add Github Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and ansible playbook files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and Ansible playbook files.
 
 In our case, we're using the repository [devops-recipes/prov_aws_ec2_ansible](https://github.com/devops-recipes/prov_aws_ec2_ansible).
 
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
 #####1c. Add PEM Key Integration
 
@@ -82,7 +82,7 @@ In order to SSH into an EC2 machine, we need a PEM key that is used to provision
 
 Detailed steps on how to add a PEM Key Integration are [here](/platform/integration/pemKey/#creating-an-account-integration).
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step
 
 ####2. Author Assembly Line configuration
 
@@ -138,7 +138,7 @@ Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/git
 
 Your AWS credentials are securely stored in this integration.
 
-To let Ansible interact with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
+To enable Ansible interaction with AWS, we will export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored in this resource as environment variables at runtime.
 
 Detailed info about `integration` resource is [here](/platform/workflow/resource/integration).
 
@@ -150,7 +150,7 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 ######iv. params resource named `aws_ec2_info`
 
-We store information like **instance_id** and **instance_ip**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate jobs that deploys to the machine will need to know the instance IP and ID.
+We store information like **instance_id** and **instance_ip**, which are created during the execution of your playbook, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that deploys to the machine will need to know the instance IP and ID.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
@@ -158,7 +158,7 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 
 A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
-* Replace wildcards needed by the ansible playbook
+* Replace wildcards needed by the Ansible playbook
 * Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
 * Run playbook
 * Output `instance_id` and `instance_ip` into the `params` resource to make it available for downstream jobs
@@ -209,7 +209,7 @@ jobs:
         overwrite: true
 ```
 
-* Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `prov_aws_ec2_ans`.
+* Adding the above config to the jobs section of **shippable.yml** will create a `runSh` job called `prov_aws_ec2_ans`.
 
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
     * Ansible script files are under `./ansible` folder and it is version controlled in a repo represented by `aws_ec2_repo`.
@@ -277,7 +277,7 @@ You might also want to automatically terminate EC2 instances when you no longer 
 
 The steps below demonstrate how to implement the automatic termination workflow.
 
-### Step-by-Step Instructions
+### Instructions
 
 For this workflow, we start with the resources and jobs that were created in the provisioning tutorial above, and just add another job that will terminate the EC2 instance.
 

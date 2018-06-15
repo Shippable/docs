@@ -352,6 +352,7 @@ pages:
         - AMI v5.3.2: platform/runtime/machine-image/ami-v532.md
         - AMI stable: platform/runtime/machine-image/ami-stable.md
       - Caching: platform/runtime/caching.md
+      - Tutorials: platform/runtime/runtime-tutorials.md
     - Visibility:
       - Overview: platform/visibility/overview.md
       - Single Pane of Glass: platform/visibility/single-pane-of-glass-spog.md
@@ -455,6 +456,8 @@ pages:
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
         - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
+        - Turn on node caching: platform/tutorial/runtime/turn-on-node-caching.md
+        - Managing node pools: platform/tutorial/runtime/manage-node-pools.md
         - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
         - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md
         - macOS BYON Nodes: platform/tutorial/runtime/byon-macos.md
@@ -489,11 +492,11 @@ pages:
       - Sending job status notifications: platform/tutorial/workflow/send-job-status-notifications.md
       - Setting job timeout: platform/tutorial/workflow/set-job-timeout.md
       - Inserting secrets in jobs: platform/tutorial/workflow/insert-secrets-in-job.md
+      - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
+      - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
+      - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md      
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
-      - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
-      - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
-      - Provision AWS ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md

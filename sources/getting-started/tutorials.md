@@ -41,19 +41,15 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Running jobs on Mac OS](/platform/tutorial/workflow/jobs-macos)
 - [Running jobs on CentOS](/platform/tutorial/workflow/jobs-centos)
 
-
 ### Runtime
 
-- Choosing the right node type
+- [Managing node pools](/platform/tutorial/runtime/manage-node-pools)
+- [Turning on node caching](/platform/tutorial/runtime/turn-on-node-caching)
 - Buying specific node SKUs
-- [Creating a node pool](/platform/management/subscription/node-pools/#creating-a-node-pool)
-- Turning on caching
-- Choosing a machine image
+- Choosing build images
 - Upgrading Docker version
-- Setting a default node pool
 - Setting timeout for jobs running on a node pool
-- Deleting a node pool
-- Managing BYON Nodes (Add/Delete/Re-intialize/Min requirements/View status)
+- [Managing BYON Nodes](/platform/tutorial/runtime/manage-byon-nodes)
 
 ### Integration
 
@@ -66,7 +62,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 ### Security
 
-- Encrypting Information
+- [Encrypting Information](/platform/tutorial/security/encrypt-vars)
 - Controlling workflow access based on roles
 - Abstracting secrets from automation scripts
 
@@ -171,9 +167,9 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 ### Deploy using popular tools
 
-* [Deploying to Google Kubernetes Engine (GKE) using kubectl](/deploy/tutorial/deploy-to-google-kubernetes-engine-kubectl)
-* [Deploying to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl)
-* [Deploying to Google Kubernetes Engine (GKE) using Helm](/deploy/tutorial/deploy-to-google-kubernetes-engine-helm)
+* [Deploying to Google Kubernetes Engine (GKE) using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
+* [Deploying to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-kube-kubectl)
+* [Deploying to Google Kubernetes Engine (GKE) using Helm](/deploy/tutorial/deploy-to-gcp-gke-helm)
 * [Deploying a WAR from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
 * [Deploying to a self-hosted Kubernetes cluster using Helm](/deploy/tutorial/deploy-to-kubernetes-cluster-helm)
 * [Deploying to Amazon EKS using kubectl](/deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl)

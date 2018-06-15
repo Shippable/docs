@@ -158,6 +158,7 @@ The following steps shows how to dynamically update the tags of image resource w
 
 Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed Assembly Line configuration info is [here](/deploy/configuration).
 
+<a name="define-node_app_img_dh"></a>
 #####1a. Add `resources` section of the config
 
 `resources` section defines the image resource which holds information about the Docker image and its location.

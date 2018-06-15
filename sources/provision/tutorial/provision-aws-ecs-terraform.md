@@ -1,40 +1,25 @@
-page_description: Using Terraform to provision an AWS ECS
+page_description: Provision an Amazon ECS cluster with Terraform
 main_section: Provision
 sub_section: AWS infrastructure
 
-# Provision AWS ECS with Terraform
+# Provision an Amazon ECS cluster with Terraform
 
-This tutorial explains how to automate the provisioning of an AWS Elastic Container Service using Terraform.
+This tutorial explains how to automate the provisioning of an Amazon Elastic Container Service cluster using Terraform.
 
 This document assumes you're familiar with the following concepts:
 
 * [AWS ECS](https://aws.amazon.com/documentation/ecs/)
 * [Terraform overview](https://www.terraform.io/intro/index.html)
-  * [aws_autoscaling_group](https://www.terraform.io/docs/providers/aws/d/autoscaling_groups.html)
-  * [aws_ecs_cluster](https://www.terraform.io/docs/providers/aws/d/ecs_cluster.html)
-  * [aws_iam_policy_document](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
-  * [aws_launch_configuration](https://www.terraform.io/docs/providers/aws/r/launch_configuration.html)
-  * [aws_iam_role](https://www.terraform.io/docs/providers/aws/d/iam_role.html)
-  * [aws_iam_instance_profile](https://www.terraform.io/docs/providers/aws/d/iam_instance_profile.html)
-  * [aws_iam_role_policy_attachment](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html)
-
-If you're unfamiliar with Terraform, it would be good to start with learning how to provision infrastructure manually with scripts. Refer to our blog for a step-by-step tutorial: [Provision AWS ECS with Terraform](http://blog.shippable.com/provision-aws-ecs-with-terraform).
-
-## Manual Steps
-* install terraform
-* have aws creds handy
-* replace all the values in tfvars files
-* initialize tf
-* apply tf
-* make sure you keep the state file somewhere safe
+    * [aws_autoscaling_group](https://www.terraform.io/docs/providers/aws/d/autoscaling_groups.html)
+    * [aws_ecs_cluster](https://www.terraform.io/docs/providers/aws/d/ecs_cluster.html)
+    * [aws_iam_policy_document](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
+    * [aws_launch_configuration](https://www.terraform.io/docs/providers/aws/r/launch_configuration.html)
+    * [aws_iam_role](https://www.terraform.io/docs/providers/aws/d/iam_role.html)
+    * [aws_iam_instance_profile](https://www.terraform.io/docs/providers/aws/d/iam_instance_profile.html)
+    * [aws_iam_role_policy_attachment](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html)
 
 
-There are many challenges with manually running Terraform scripts. In short, you will struggle with always maintaining the state file, making Terraform templates reusable by injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the script. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless execution of Terraform templates, you need to templatize your scripts and automate the workflow used to execute them.
-
-
-## Automated workflow to provision an AWS ECS with Terraform
+## Automated workflow to provision an AWS ECS cluster with Terraform
 
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
@@ -47,21 +32,21 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Concepts
 * [Integrations](/platform/integration/overview/)
-  * [AWS](/platform/integration/aws-keys)
-  * [Github](/platform/integration/github)
+    * [AWS](/platform/integration/aws-keys)
+    * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-  * [gitRepo](/platform/workflow/resource/gitrepo)
-  * [integration](/platform/workflow/resource/integration)
-  * [cluster](/platform/workflow/resource/cluster)
-  * [state](/platform/workflow/resource/state)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
+    * [integration](/platform/workflow/resource/integration)
+    * [cluster](/platform/workflow/resource/cluster)
+    * [state](/platform/workflow/resource/state)
 * [Jobs](/platform/workflow/job/overview/)
-  * [runSh](/platform/workflow/job/runsh)
+    * [runSh](/platform/workflow/job/runsh)
 
-This example extends the work done in our tutorial to [Provisioning an AWS VPC using Terraform](/provision/tutorial/provision-aws-vpc-terraform) by adding an Assembly Line that provisioning ECS in the VPC. However, you can also use it as a standalone tutorial by hardcoding values for subnet and security group IDs.
+This example extends the work done in our tutorial to [Provisioning an AWS VPC using Terraform](/provision/tutorial/provision-aws-vpc-terraform) by adding an Assembly Line that provisioning an ECS cluster in the VPC. However, you can also use it as a standalone tutorial by hardcoding values for subnet and security group IDs.
 
-### Step by Step Instructions
+### Instructions
 
-The following sections explain the process of automating a workflow to provision AWS ECS using Terraform. We will demonstrate this with our sample application.
+ We will demonstrate this scenario with our sample application.
 
 **Source code is available at [devops-recipes/prov_aws_ecs_terraform](https://github.com/devops-recipes/prov_aws_ecs_terraform)**
 
@@ -81,17 +66,17 @@ To be able to interact with AWS, we need to add the `drship_aws` integration.
 
 Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
 #####1b. Add Github Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and Terraform script files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and your Terraform script files.
 
 In our case, we're using the repository [devops-recipes/prov_aws_ecs_terraform](https://github.com/devops-recipes/prov_aws_ecs_terraform).
 
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
 ####2. Author Assembly Line configuration
 
@@ -111,7 +96,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 ```
 resources:
-# TF Files repo
+# Terraform files repo
   - name: aws_ecs_repo
     type: gitRepo
     integration: "drship_github"
@@ -133,7 +118,7 @@ resources:
     type: cluster
     integration: "drship_aws"
     pointer:
-      sourceName : "tbd" #name of the cluster to which we are deploying
+      sourceName : "tbd" #name of the cluster
       region: "tbd"
 ```
 
@@ -153,13 +138,14 @@ Detailed info about `integration` resource is [here](/platform/workflow/resource
 
 ######iii. state resource named `aws_ecs_tf_state`
 
-Every apply of Terraform scripts generates a **terraform.tfstate** file. This is a very important file as it holds the state of your provisioning. Terraform looks for this file when you apply and if it is not present, it will recreate all you resources, resulting in duplicate objects. We use the state resource to store the state file and make it available every time we run the apply command.
+Every apply of Terraform scripts generates a **terraform.tfstate** file. This is a very important file as it holds the state of your provisioning. Terraform looks for this file when you apply and if it is not present, it will recreate all your resources, resulting in duplicate objects. We use the `state` resource to store the state file and make it available every time we run the apply command.
 
 Detailed info about `state` resource is [here](/platform/workflow/resource/state).
 
+<a name="define-aws_ecs_cluster"></a>
 ######iv. params resource named `aws_ecs_cluster`
 
-We store information like **clusterName** and **region**, which is created during the execution of your scripts, in a `cluster` resource. Downstream jobs can access this information programmatically if required. For example, a separate jobs that deploys to the cluster will need to know the connection information to the cluster.
+We store information like **clusterName** and **region**, which is created during the execution of your scripts, in a `cluster` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that deploys to the cluster will need to know the connection information to the cluster.
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
 
@@ -189,7 +175,7 @@ jobs:
           runtime:
             options:
               env:
-                # implicitly set from aws_vpc_tf_info
+                # Uncomment and hardcode if you deleted the aws_vpc_tf_info resource
                 #- vpc_id: ""
                 #- vpc_region: ""
                 #- vpc_public_sg_id: ""
@@ -227,29 +213,29 @@ jobs:
   * Credentials to connect to AWS are in `aws_ecs_tf_keys`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
   * `aws_ecs_keys` contains the creds necessary to login into AWS
   * `aws_ecs_tf_state` is where the tfstate file is stored permanently. If you need to rerun the job, you can restore the state file from here
-  * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_region`, `vpc_public_sn_id` and `vpc_public_sg_id`, which are required to provision ECS. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
+  * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_id`, `vpc_region`, `vpc_public_sn_id` and `vpc_public_sg_id`, which are required to provision ECS. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ecs` which does the following:
-  
+
   * First, we define environment variables required by the scripts-
-    * `vpc_id, vpc_region, vpc_public_sg_id & vpc_public_sn_id` are implicity set from `aws_vpc_tf_info`. If you deleted that resource since you want to manually provide this info, hardcode this here
+    * `vpc_id, vpc_region, vpc_public_sg_id & vpc_public_sn_id` are implicity set from `aws_vpc_tf_info`. If you deleted that resource and you want to manually provide this info, hardcode this here
     * `ECS_KEY_PAIR_NAME` is name of the AWS Key pair used to provision instances for ECS
     * `MAX_INSTANCE_SIZE` is the maximum number of instances that auto scaling will go up to
-    * `MIN_INSTANCE_SIZE` is the minum number of instances that auto scaling will go down to
+    * `MIN_INSTANCE_SIZE` is the minimum number of instances that auto scaling will go down to
     * `DESIRED_CAPACITY` is the ideal number of instances
     * `ECS_INSTANCE_TYPE` is the type of instance to be provisioned
     * `ECS_AMI_ID ` is the AMI used to provision instances
-  
+
   * `script` section has a list of commands which will be executed sequentially.
     * First, we extract the AWS credentials from the `aws_ecs_tf_creds`resource, again using shipctl functions
     * Then, we use the Shippable utility function `get_resource_state` to go to the folder where Terraform scripts are stored
     * Next, we replace all wildcards in the file `terraform.tfvars`
     * Then, we restore the tf state using Shippable utility function `copy_file_from_resource_state`
     * Last, we apply the scripts
-  
+
   * `on_success` section is executed if the TASK succeeded. This step updates the `cluster` resource with `sourceName` & `region` which were provisioned as part of this script
-  
-  * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ecs_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in always section especially since Terraform does not rollback changes of a failed apply command
+
+  * `always` section is executed no matter what the outcome of TASK section was. Here we push the latest copy of `terraform.tfstate` back to `aws_ecs_tf_state` resource so that it is available for the next run with the latest state information. We need to do this in the `always` section since Terraform does not rollback changes of a failed apply command
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).
 
@@ -275,28 +261,28 @@ You can manually run the job by right clicking on the job and clicking on **Buil
 
 <img src="/images/tutorial/provision-aws-ecs-terraform-fig2.png" alt="Build console output">
 
-Confirm that the required ecs instance was created in AWS.
+Confirm that the required ECS instance was created.
 
 ## OPTIONAL: Automating the termination of AWS ECS with Terraform
 
-You might also want to automatically terminate ECS when you no longer need it. A great example is if you want to spin up a complete on-demand test environment and destroy it after tests pass.
+You can also automatically terminate ECS when you no longer need it. A great example is if you want to spin up a complete on-demand test environment and destroy it after tests pass.
 
 The steps below demonstrate how to implement the automatic termination workflow.
 
-### Step-by-Step Instructions
+### Instructions
 
-For this workflow, we start with the resources and jobs that were created in the provisioning tutorial above, and just add another job that will terminate the ecs instance.
+For this workflow, we start with the resources and jobs that were created in the provisioning tutorial above, and just add another job that will terminate the ECS instance.
 
 ####1. Author Assembly Line configuration
 
-In this step, we will add a new job to your **shippable.yml** that terminates an ecs instance using Terraform.
+In this step, we will add a new job to your **shippable.yml** that terminates an ECS instance using Terraform.
 
 #####1a. Add `jobs` section of the config**
 
 Our job will do the following:
 
 * Read information from `IN` resources, including `aws_ecs_cluster` which contains `sourceName` (clusterName) and `region`.
-* Read information from `IN` resources, including `aws_vpc_tf_info` which contains `vpc_id`.
+* Read information from `IN` resources, including `aws_vpc_tf_info` which contains `vpc_id`. If you deleted this resource in the tutorial above, you can hardcode the information required in the **TASK.runtime.options.env** section.
 * Replace wildcards needed by the Terraform scripts
 * Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
 * Initialize TF and run `terraform destroy`
