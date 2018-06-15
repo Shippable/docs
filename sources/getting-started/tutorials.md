@@ -43,16 +43,13 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 ### Runtime
 
-- Choosing the right node type
-- Buying specific node SKUs
-- [Creating a node pool](/platform/tutorial/runtime/manage-node-pools/#create-node-pool)
+- [Managing node pools](/platform/tutorial/runtime/manage-node-pools)
 - [Turning on node caching](/platform/tutorial/runtime/turn-on-node-caching)
-- [Choosing build images](/platform/tutorial/runtime/choose-machine-image)
+- Buying specific node SKUs
+- Choosing build images
 - Upgrading Docker version
-- Setting a default node pool
 - Setting timeout for jobs running on a node pool
-- Deleting a node pool
-- Managing BYON Nodes (Add/Delete/Re-intialize/Min requirements/View status)
+- [Managing BYON Nodes](/platform/tutorial/runtime/manage-byon-nodes)
 
 ### Integration
 
