@@ -494,9 +494,9 @@ pages:
       - Inserting secrets in jobs: platform/tutorial/workflow/insert-secrets-in-job.md
       - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
+      - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md      
     - Drafts:
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
-      - Provision AWS ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
