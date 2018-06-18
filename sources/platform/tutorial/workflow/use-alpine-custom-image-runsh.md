@@ -24,18 +24,6 @@ This document assumes you're familiar with the following concepts:
 * [Docker build](https://docs.docker.com/engine/reference/commandline/build/)
 * [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
 
-## Manual vs automated builds
-
-You can choose to build and push your custom image to a Docker registry manually, by [following instructions on our blog](http://blog.shippable.com/build-a-docker-image-and-push-it-to-docker-hub). You can then pull the image and use it to spin up your runSh container.
-
-However, we recommend automating the image building process for the following reasons:
-
-* Every time your custom image changes, your runSh workflow can be automatically triggered
-* Your custom image can be versioned with a build number, which helps keep track of changes and rollback easily
-* Your build nodes already have necessary packages and tools pre-installed, such as Docker.
-* Docker registry credentials are managed by the build platform which encrypts everything and just injects values at runtime.
-* Your machine is free while the image is building, which can be a resource intensive process.
-
 ## Automating Docker Builds
 
 There are many build services for Docker, but they will not automatically trigger your runSh workflow each time your Docker image is rebuilt. To configure a workflow where your runSh is triggered every time the base image changes, you need to configure the following on Shippable:
@@ -83,7 +71,7 @@ To be able to push and pull images from Docker Hub, we add `drship_dockerhub` in
 
 Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
 
-> Note: You might already have this if you have done any of our other tutorials. If so, skip this step
+> Note: You might already have this if you have done some of our other tutorials. If so, skip this step
 
 #####1b. Add `Github` Integration
 
@@ -152,7 +140,7 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 
 ######iii.`image` resource named `build_docker_ci_img_dh`
 
-This is an optional build process that uses `docker:latest` as the base image which is built on top of alpine. 
+This is an optional build process that uses `docker:latest` as the base image which is built on top of alpine.
 
 `sourceName` contains the location of the image and the `versionName` contains the tag. The `integration` value points to the Docker registry integration we created in the previous step.
 
@@ -269,7 +257,7 @@ jobs:
 *  On success, we output the tag information using the utility function `put_resource_state_multi` to image `build_alpine_ci_img_dh` so that downstream jobs have access to the latest tag pushed and are triggered if they have the image resource as an `IN`.
 
 ######iii. `job` named `build_docker_img`
-* This is very similar to the first job, except that it uses a different dockerfile to build. 
+* This is very similar to the first job, except that it uses a different dockerfile to build.
 
 
 Detailed info about `runSh` job is [here](/platform/workflow/job/runsh).

@@ -1,32 +1,22 @@
-page_main_title: Deploy to Amazon Fargate using AWS CLI
-main_section: Tutorial
-sub_section: Fargate
-sub_sub_section: AWS CLI
-page_title: Continuous Deployment to Amazon Fargate using AWS CLI
-page_description: Automated deployments to Amazon Fargate using AWS CLI
-page_keywords: Deploy docker containers, Fargate, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, AWS CLI
+page_description: Automated deployments to Amazon ECS using AWS CLI
+main_section: Deploy
+sub_section: Deploy using Cloud Native CLI
 
-# Continuous Replace deployments to Amazon Fargate using AWS CLI
+# Deploy to Amazon ECS using AWS CLI
 
-This tutorial explains how to continuously deploy a Docker container to AWS Fargate using native `AWS CLI` commands. We will use the `Replace` deployment strategy where your existing running services are stopped and removed before updating your service.  This results in downtime for your deployed service, but allows your cluster to use the bare minimum resources to run your deployments. This strategy is thus useful in scenarios where infrastructure cost savings are more important than service uptime.
+This tutorial explains how to automate the deployment of a Docker container to Amazon ECS using native **AWS CLI** commands. We will use the `Replace` deployment strategy where your existing running services are stopped and removed before updating your service.  This results in downtime for your deployed service, but allows your cluster to use the bare minimum resources to run your deployments. This strategy is thus useful in scenarios where infrastructure cost savings are more important than service uptime.
 
 This document assumes you're familiar with the following concepts:
 
 * [AWS CLI](https://aws.amazon.com/cli/)
-* [AWS Fargate](https://aws.amazon.com/fargate/)
 * [AWS ECS Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
 * [AWS ECS Service definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_definition_parameters.html)
 * [AWS ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html)
 * [AWS ECS Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
 
-If you're unfamiliar with Docker or AWS CLI, you should start with learning how to deploy Docker containers manually.
 
-There are many challenges with manually doing Docker deployments. In short, you will struggle with making your Fargate Service and Task definition specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
-
-## Automating Fargate deployments
+## Automating Amazon ECS deployments
 
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 

@@ -6,10 +6,9 @@ page_description: Deploying a Dockerized Node.js app to AWS ECS cluster using Sh
 
 This tutorial explains how to automate the deployment of a Docker container from Docker Hub to Amazon Elastic Container Service (ECS) using Shippable managed jobs.
 
-If you want to use native AWS ECS templates and AWS CLI, you should reference the following tutorials:
+If you want to use native AWS ECS templates and AWS CLI, you should reference the following tutorial:
 
 - [Deploy using AWS CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/)
-
 
 The idea behind Shippable's managed jobs is to use generic definitions that will automatically create ECS specs at runtime. One of the main advantages of this is that you are not tightly coupled to the Orchestration service and the same automation code can be used to deploy to Kubernetes with no changes.
 
@@ -68,7 +67,7 @@ Add an empty **shippable.yml** file to the repository where you want to store th
 
 #####3b. Add `resources` section of the config
 
-`resources` section holds the information that is necessary to deploy to ECS. In this case we have 2 resources defined of type `dockerOptions` and `params`.
+`resources` section holds the information that is necessary to deploy to ECS.
 
 Add the following to your **shippable.yml**:
 
@@ -103,31 +102,66 @@ Detailed info about `dockerOptions` resource is [here](/platform/workflow/resour
 
 ######ii. params resource named `cd_ecs_env `
 
-If additional environment variables need to be set into the app, we can use the params resource to supply them.
+If additional environment variables need to be set into the app, we can use the `params` resource to supply them.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
 ######iii.`image` resource named `node_app_img_dh`
 
-**node_app_img_dh** is an `image` resource is already defined in the [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) tutorial. If you're following this as a standalone tutorial, please [define the image here](/ci/tutorial/build-push-image-to-docker-hub/#define-node_app_img_dh) and hardcode the values.
+**node_app_img_dh** is an `image` resource is already defined in the [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) tutorial, i.e. [in this sample application](https://github.com/devops-recipes/node_app/blob/master/shippable.yml). If you have followed this tutorial and already have this image, please SKIP the rest and proceed to the next step (iv).
+
+If you're following this as a standalone tutorial, you need to follow two steps to add the `image` resource:
+
+* Create an account integration of type **Docker registry**. Instructions are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Write down the name of your integration.
+
+* [Define the image in your resources section](/ci/tutorial/build-push-image-to-docker-hub/#define-node_app_img_dh) and hardcode the values.
+
+```
+resources:
+  - name: node_app_img_dh
+    type: image
+    integration: drship_dockerhub #replace with your integration name
+    versionTemplate:
+      sourceName: "devopsrecipes/node_app" #replace with your Hub URL
+      versionName: latest
+
+```
 
 `sourceName` contains the location of the image and the `versionName` contains the tag.
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
+
 ######iv. `cluster` resource named `aws_ecs_cluster`
 
-**aws_ecs_cluster** is a `cluster` resource is already defined in the [Provision a Amazon ECS cluster using Terraform](/provision/tutorial/provision-aws-ecs-terraform) tutorial. If you're following this as a standalone tutorial, please [define the cluster here and hardcode the values](/provision/tutorial/provision-aws-ecs-terraform/#define-aws_ecs_cluster).
+**aws_ecs_cluster** is a `cluster` resource is already defined in the [Provision a Amazon ECS cluster using Terraform](/provision/tutorial/provision-aws-ecs-terraform) tutorial. If you have followed this tutorial and already have this cluster, please SKIP the rest and proceed to the next step (3c).
 
-`sourceName` is the name of the GKE cluster and `region` is the region where the cluster is present.
+If you're following this as a standalone tutorial, you need to follow two steps to add the `cluster` resource:
+
+* Create an account integration of type **AWS keys**. Instructions are [here](/platform/integration/aws-keys/#creating-an-account-integration). Write down the name of your integration.
+
+* Define the cluster in your resources section and hardcode the values.
+
+```
+resources:
+  - name: aws_ecs_cluster
+    type: cluster
+    integration: "drship_aws"   # replace with your integration name
+    pointer:
+      sourceName : "muclustername"  # name of the cluster
+      region: "tbd"
+```
+
+`sourceName` is the name of the ECS cluster and `region` is the region where the cluster is present.
 
 Detailed info about `cluster` resource is [here](/platform/workflow/resource/cluster).
+
 
 #####3c. Add `jobs` section of the config
 
 A job is an execution unit of the Assembly Line. There are 2 things that we need to accomplish:
 
-* Create a manifest that defines your application using the `manifest` job
+* Create a service definition that defines your application/service using the `manifest` job
 * Deploy the manifest into ECS using `deploy` job
 
 Add the following to your `shippable.yml`:
@@ -137,15 +171,15 @@ jobs:
   - name: cd_ecs_manifest
     type: manifest
     steps:
-     - IN: node_app_img_dh
-     - IN: cd_ecs_docker_opts
-     - IN: cd_ecs_env
+     - IN: node_app_img_dh       # image
+     - IN: cd_ecs_docker_opts    # docker runtime options
+     - IN: cd_ecs_env            # app env variables
 
   - name: cd_ecs_deploy
     type: deploy
     steps:
-      - IN: cd_ecs_manifest
-      - IN: aws_ecs_cluster
+      - IN: cd_ecs_manifest      # service definition
+      - IN: aws_ecs_cluster      # service definition
       - TASK: managed
         deployMethod: replace
 ```
