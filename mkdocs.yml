@@ -157,7 +157,7 @@ pages:
         - Deleting a deployed service: deploy/deleting-a-service.md
     - Deploy using Cloud Native CLI:
       - Overview: deploy/deploy-cloud-native-overview.md
-      - Amazon ECS: deploy/deploy-amazon-ecs-cloud-native-cli.md
+      - Amazon ECS: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
       - AWS Elastic Beanstalk:
         - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
         - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
@@ -504,13 +504,13 @@ pages:
       - Deploying to AWS ECS using Shippable: deploy/tutorial/deploy-to-amazon-ecs-shippable.md
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
       - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
-    - Drafts:
-      - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
-      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
-      - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
-      - Deploy to Amazon ECS Fargate using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-fargate-awscli.md
       - Deploy to Amazon ECS using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
+    - Drafts:
+      - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
+      - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
+      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
+      - Deploy to Amazon ECS Fargate using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-fargate-awscli.md
     - Templates:
       - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-gcp-gke-helm.md
       - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md

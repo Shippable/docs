@@ -1,26 +1,22 @@
 main_section: Deploy
 sub_section: Deploy to GKE
-page_description: Deploying a Dockerized Node.js app to GCP GKE cluster using Shippable managed jobs
+page_description: Deploying a Dockerized Node.js app to Google Kubernetes Engine cluster using Shippable managed jobs
 
-# Deploy to Google GKE using Shippable managed jobs
+# Deploy to Google Kubernetes Engine (GKE) using Shippable managed jobs
 
-This tutorial explains how to continuously deploy a Docker container to Google Kubernetes Engine using Shippable's managed jobs.
+This tutorial explains how to automate the deployment of a Docker container from a Docker registry to Google Kubernetes Engine using Shippable's managed jobs.
 
-If you want to use `kubectl` templates, you should go here....[Deploying to Google Kubernetes Engine (GKE) using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
+If you want to use `kubectl` templates instead, you should reference the following tutorial:
 
-The idea behind Shippable's managed jobs is to use generic definitions that will create the GKE specs at runtime automatically. One of the main advantages of this is that you are not tighltly coupled to the Orchestraction service. For e.g. the same definitions can be used to deploy to ECS also, without changing any of the pipeline code
+- [Deploying to Google Kubernetes Engine (GKE) using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
+
+The idea behind Shippable's managed jobs is to use generic definitions that will automatically create GKE specs at runtime. One of the main advantages of this is that you are not tightly coupled to the Orchestration service and the same automation code can be used to deploy to Amazon ECS with no changes.
 
 This document assumes you're familiar with the following concepts:
 
 * [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
 * [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
-
-If you're unfamiliar with Docker or GKE, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to GKE using kubectl](http://blog.shippable.com/deploy-docker-container-to-gke-using-kubectl).
-
-There are many challenges with manually doing Docker deployments. In short, you will struggle with making your kubectl specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
-
-If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
 
 ## Automating GKE deployments
 
@@ -37,24 +33,24 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 * [Workflow overview](/platform/workflow/overview/)
 * [Integrations](/platform/integration/overview/)
-  * [Google Cloud](/platform/integration/gcloudKey)
-  * [Docker Registry](/platform/integration/dockerRegistryLogin)
+    * [Google Cloud](/platform/integration/gcloudKey)
+    * [Docker Registry](/platform/integration/dockerRegistryLogin)
 * [Resources](/platform/workflow/resource/overview/)
-  * [image](/platform/workflow/resource/image)
-  * [cluster](/platform/workflow/resource/cluster)
-  * [params](/platform/workflow/resource/params)
-  * [dockerOptions](/platform/workflow/resource/dockerOptions)
+    * [image](/platform/workflow/resource/image)
+    * [cluster](/platform/workflow/resource/cluster)
+    * [params](/platform/workflow/resource/params)
+    * [dockerOptions](/platform/workflow/resource/dockerOptions)
 * [Jobs](/platform/workflow/job/overview/)
-  * [manifest](/platform/workflow/job/manifest)
-  * [deploy](/platform/workflow/job/deploy)
+    * [manifest](/platform/workflow/job/manifest)
+    * [deploy](/platform/workflow/job/deploy)
 
-This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to GCP GKE. The output of this is a docker image resouce `node_app_img_dh` which is what we deploy to GKE
+This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the Docker image `node_app_img_dh` to GKE.
 
-It also extends the work done in our Provisioning tutorial to [Provision GCP GKE using gcloud](/provision/tutorial/provision-gcp-gke-gcloud). The output of this tutorial is a cluster resource called `gcp_gke_cluster` which is used in the deploy job. 
+It also extends the work done in our Provisioning tutorial to [Provision GCP GKE using gcloud](/provision/tutorial/provision-gcp-gke-gcloud). The output of this tutorial is a cluster resource called `gcp_gke_cluster` which is used in the deploy job.
 
 ### Step by step instructions
 
-The following sections explain the process of automating a workflow to continuously deploy an app to GCP GKE using Shippable managed jobs. We will demonstrate this with our sample application.
+We will demonstrate the deployment workflow with our sample application.
 
 **Source code is available at [devops-recipes/cd_gke_ship](https://github.com/devops-recipes/cd_gke_ship)**
 
@@ -72,13 +68,13 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####3b. Add `resources` section of the config
 
-`resources` section holds the information that is necessary to deploy to a Kubernetes cluster. In this case we have 2 resources defined of type `dockerOptions` and `params`.
+`resources` section holds the information that is necessary to deploy to a Kubernetes cluster.
 
 Add the following to your `shippable.yml`:
 
 ```
 resources:
-  - name: cd_gke_docker_opts
+  - name: cd_gke_docker_opts # runtime container settings
     type: dockerOptions
     versionTemplate:
       workingDir: "/tmp"
@@ -86,7 +82,7 @@ resources:
       portMappings:
         - 80:80
 
-  - name: cd_gke_env
+  - name: cd_gke_env   # App environment variables
     type: params
     version:
       params:
@@ -95,6 +91,7 @@ resources:
 # resources from other tutorials used here to build end to end assembly lines
 # node_app_img_dh # defined here https://github.com/devops-recipes/node_app/blob/master/shippable.yml
 # gcp__cluster # defined here https://github.com/devops-recipes/prov_gcp_gke_gcloud/blob/master/shippable.yml
+# If you're doing this as a standalone tutorial, you can hardcode both of these as explained in the sections below.
 ```
 
 ######i.`dockerOptions` resource named `cd_gke_docker_opts`
@@ -105,21 +102,54 @@ Detailed info about `dockerOptions` resource is [here](/platform/workflow/resour
 
 ######ii. params resource named `cd_gke_env `
 
-If additional environment variables need to be set into the app, we can use the params resource to supply them. 
+If additional environment variables need to be set into the app, we can use the `params` resource to supply them.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
 ######iii.`image` resource named `node_app_img_dh`
 
-The Docker image that you want to deploy to GKE should be available as a resource to the Assembly Line. In this example, this resource was created [here](https://github.com/devops-recipes/node_app/blob/master/shippable.yml). You can hard code it here if you do not wannt to automate the creation of the image
+**node_app_img_dh** is an `image` resource is already defined in the [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) tutorial, i.e. [in this sample application](https://github.com/devops-recipes/node_app/blob/master/shippable.yml). If you have followed this tutorial and already have this image, please SKIP the rest and proceed to the next step (iv).
 
-`sourceName` contains the location of the image and the `versionName` contains the tag. 
+If you're following this as a standalone tutorial, you need to follow two steps to add the `image` resource:
+
+* Create an account integration of type **Docker registry**. Instructions are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Write down the name of your integration.
+
+* [Define the image in your resources section](/ci/tutorial/build-push-image-to-docker-hub/#define-node_app_img_dh) and hardcode the values.
+
+```
+resources:
+  - name: node_app_img_dh
+    type: image
+    integration: drship_dockerhub #replace with your integration name
+    versionTemplate:
+      sourceName: "devopsrecipes/node_app" #replace with your Hub URL
+      versionName: latest
+
+```
+
+`sourceName` contains the location of the image and the `versionName` contains the tag.
 
 Detailed info about `image` resource is [here](/platform/workflow/resource/image).
 
 ######iv. `cluster` resource named `gcp_gke_cluster`
 
-This resource contains the location of your GKE cluster. In this example, this resource was created [here](https://github.com/devops-recipes/prov_gcp_gke_gcloud/blob/master/shippable.yml). You can hard code it here if you do not wannt to automate the creation of the cluster
+This resource contains the location of your GKE cluster. In this example, this resource was created [here](https://github.com/devops-recipes/prov_gcp_gke_gcloud/blob/master/shippable.yml). If you have followed this tutorial and already have this cluster, please SKIP the rest and proceed to the next step (3c).
+
+If you're following this as a standalone tutorial, you need to follow two steps to add the `cluster` resource:
+
+* Create an account integration of type **Google Cloud**. Instructions are [here](/platform/integration/gcloudkey/#creating-an-account-integration). Write down the name of your integration.
+
+* Define the cluster in your resources section and hardcode the values.
+
+```
+resources:
+  - name: gcp_gke_cluster
+    type: cluster
+    integration: "drship_gcp"   # replace with your integration name
+    versionTemplate:
+      sourceName: "muclustername"
+      region: "us-west1-a"
+```
 
 `sourceName` is the name of the GKE cluster and `region` is the region where the cluster is present.
 
@@ -129,7 +159,7 @@ Detailed info about `cluster` resource is [here](/platform/workflow/resource/clu
 
 A job is an execution unit of the Assembly Line. There are 2 things that we need to accomplish:
 
-* Create a manifest that defines your application using the `manifest` job
+* Create a service definition that defines your application/service using the `manifest` job
 * Deploy the manifest into GKE using `deploy` job
 
 Add the following to your `shippable.yml`:
@@ -139,39 +169,40 @@ jobs:
   - name: cd_gke_manifest
     type: manifest
     steps:
-     - IN: node_app_img_dh # defined here https://github.com/devops-recipes/node_app/blob/master/shippable.yml
-     - IN: cd_gke_docker_opts
-     - IN: cd_gke_env
+     - IN: node_app_img_dh       # image
+     - IN: cd_gke_docker_opts    # docker runtime options
+     - IN: cd_gke_env            # app env variables
 
   - name: cd_gke_deploy
     type: deploy
     steps:
-      - IN: cd_gke_manifest
-      - IN: gcp_gke_cluster # defined here https://github.com/devops-recipes/prov_gcp_gke_gcloud/blob/master/shippable.yml
+      - IN: cd_gke_manifest      # service definition
+      - IN: gcp_gke_cluster      # service definition
       - TASK: managed
         deployMethod: replace
 ```
 
-* Adding the above config to the jobs section of shippable.yml will create 2 jobs
+* Adding the above config to the jobs section of **shippable.yml** will create 2 jobs
 
-* The first job `cd_gke_manifest` is used to create a template/manifest of your application definition
-  * The `steps` section  defines all the input `IN` resources that are required to execute this job
-    * `node_app_img_dh` is an **image** resource that will be deployed
-    * `cd_gke_env` binds the env vars to the deployed app
-  * Since this is a managed job, TASK section is not required and the platform creates the manifest automatically
+* The first job `cd_gke_manifest` is a [manifest](/platform/workflow/job/manifest) job that creates a template/manifest of your application definition.
+    * The `steps` section  defines all the input `IN` resources that are required to execute this job
+        * `node_app_img_dh` is an **image** resource that will be deployed
+        * `cd_gke_docker_opts` sets runtime options for the container    
+        * `cd_gke_env` binds the env vars to the deployed app
+    * Since this is a managed job, `TASK` section is not required and the platform creates the manifest automatically
 
-* The second job `cd_gke_deploy` is the jobs that deploys the container to GKE
-  * The `steps` section  defines all the input `IN` resources that are required to execute this job
-    * `cd_gke_manifest` is the manifest that is created from previous job
-    * `gcp_gke_cluster` contains the cluster and the keys to connect to the GKE cluster
-  * For this job, we want to replace the service with a new version. Hence the deployMethod is set to replace. For all the supported deployment methods, refer to detailed docs
+* The second job `cd_gke_deploy` is a [deploy](/platform/workflow/job/deploy) job that deploys the container to GKE
+    * The `steps` section  defines all the input `IN` resources that are required to execute this job
+        * `cd_gke_manifest` is the manifest that is created from previous job
+        * `gcp_gke_cluster` contains the cluster information and keys to connect to the GKE cluster
+    * For this job, we want to replace the service with a new version. Hence the `deployMethod` is set to `replace`.
 
 Detailed info about `manifest` job is [here](/platform/workflow/job/manifest).
 Detailed info about `deploy` job is [here](/platform/workflow/job/deploy).
 
 #####3d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####4. Add the Assembly Line to your Shippable organization
 
@@ -183,7 +214,7 @@ Your view will look something like this:
 
 <img src="/images/tutorial/deploy-to-gcp-gke-shippable-fig1.png" alt="Assembly Line view">
 
-> Note: This assembly line is incorporating [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) to dynamically build `app_be_img`, if you are using static image tag, then you will not see the CI section to the left of the image
+> Note: This assembly line is incorporating [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) to dynamically build `node_app_img_dh`, if you are using static image tag, then you will not see the CI section to the left of the image
 
 ####5. Run the deploy job `cd_gke_manifest`
 
