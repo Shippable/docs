@@ -266,7 +266,7 @@ jobs:
 
 ## Running on a specific node pool
 
-By default, all jobs run on your [default node poo](/platform/management/subscription/node-pools/). You can specify a node pool on which you want to execute your `runSh` job. The common reasons for this are:
+By default, all jobs run on your [default node pool](/platform/management/subscription/node-pools/). You can specify a node pool on which you want to execute your `runSh` job. The common reasons for this are:
 
 * Your runSh job is resource intensive, so you want to use a specific node pool which has bigger machines
 * You want to run the job on Mac OS, Windows, or CentOS and hence want to select a specific node pool
