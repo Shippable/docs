@@ -8,7 +8,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 
 # Machine image v6.6.2 (Docker TAG v6.6.2)
 
-**Release Date: june 28, 2018**
+**Release Date: June 28, 2018**
 
 **What is installed on the machine image?**
 
@@ -62,18 +62,18 @@ If you would like to use your own CI images in place of the official images, ins
 
 These are the official language images in this version:
 
-* [Common components](#common-644)
-* [Nodejs](#nod-644)
-* [Clojure](#clo-644)
-* [Go](#gol-644)
-* [PHP](#php-644)
-* [Java](#jav-644)
-* [Ruby](#rub-644)
-* [Python](#pyt-644)
-* [Scala](#sca-644)
-* [C/C++](#cpp-644)
-* [Dotnet](#dotnet-644)
-* [ASP.Net](#aspnet-644)
+* [Common components](#common-662)
+* [Nodejs](#nod-662)
+* [Clojure](#clo-662)
+* [Go](#gol-662)
+* [PHP](#php-662)
+* [Java](#jav-662)
+* [Ruby](#rub-662)
+* [Python](#pyt-662)
+* [Scala](#sca-662)
+* [C/C++](#cpp-662)
+* [Dotnet](#dotnet-662)
+* [ASP.Net](#aspnet-662)
 
 <a name="common-644"></a>
 ### Common components
