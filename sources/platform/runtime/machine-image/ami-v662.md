@@ -75,7 +75,7 @@ These are the official language images in this version:
 * [Dotnet](#dotnet-662)
 * [ASP.Net](#aspnet-662)
 
-<a name="common-644"></a>
+<a name="common-662"></a>
 ### Common components
 
 All language images are built `FROM` a base image that corresponds to the OS version. For example, the language image for Node,js `u16nodall` is built using `u16all` as the base image, and hence has all the packages, CLIs and services installed in the base image.
@@ -92,7 +92,7 @@ We have the following base images, one for each supported OS version.
  | Windows 16 | drydock/w16:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/w16/),<br>- [GitHub](https://github.com/dry-dock/w16) |  |- git 2.17.0<br>- git-lfs 2.4.0<br>- gcloud 202.0.0<br>- awscli 1.15.20<br>- Azurecli 2.0.32<br>- kubectl 1.10.2<br>- jfrog-cli 1.11.2<br>-  terraform 0.11.7<br>- packer 1.2.3<br>- jq 1.5.0 | |
  
 
- <a name="nod-644"></a>
+ <a name="nod-662"></a>
 
 ### Node.js
 
@@ -106,7 +106,7 @@ We have the following base images, one for each supported OS version.
 
  ---
 
- <a name="clo-644"></a>
+ <a name="clo-662"></a>
 
 ### Clojure
 
@@ -117,7 +117,7 @@ We have the following base images, one for each supported OS version.
 
  ---
 
- <a name="gol-644"></a>
+ <a name="gol-662"></a>
 
 ### Go
 
@@ -129,7 +129,7 @@ We have the following base images, one for each supported OS version.
 
  ---
 
- <a name="php-644"></a>
+ <a name="php-662"></a>
 
 ### PHP
 
@@ -139,7 +139,7 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 14.04 | drydock/u14phpall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/u14phpall/),<br>- [Github](https://github.com/dry-dock/u14phpall) | - 5.6.36<br>- 7.0.30<br>- 7.1.17<br>- 7.2.5 | - [Common components](#common-644)<br>- phpenv 1.1.1-2-g615f844<br>- Java 1.8.0<br>- Node 8.11.2<br>- Ruby 2.5.1  |
  ---
 
- <a name="jav-644"></a>
+ <a name="jav-662"></a>
 
 ### Java
 
@@ -153,7 +153,7 @@ We have the following base images, one for each supported OS version.
  ---
 
 
- <a name="rub-644"></a>
+ <a name="rub-662"></a>
 
 ### Ruby
 
@@ -163,7 +163,7 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 14.04 | drydock/u14ruball:v6.6.2 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.2.10<br>- 2.3.7<br>- 2.4.4<br>- 2.5.1<br>- jruby-1.7.27<br>- jruby-9.1.17.0 | - [Common components](#common-644)<br>- rvm 2.5.1<br>- Java 1.8.0<br>- Node 8.11.2 |
 
 
- <a name="pyt-644"></a>
+ <a name="pyt-662"></a>
 
 ### Python
 
@@ -176,7 +176,7 @@ We have the following base images, one for each supported OS version.
 
  ---
 
- <a name="sca-644"></a>
+ <a name="sca-662"></a>
 
 ### Scala
 
@@ -187,7 +187,7 @@ We have the following base images, one for each supported OS version.
 
 
 
- <a name="cpp-644"></a>
+ <a name="cpp-662"></a>
 
 ### C/C++
 
@@ -198,7 +198,7 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 16.04 | drydockaarch64/u16cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock-aarch64/u16cppall) | - gcc 8.0.1<br>- clang 6.0.0 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 8.x<br>- Ruby 2.5.1  |
   | CentOS 7 | drydock/c7cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.2.1<br>- clang 5.0.1 | - [Common components](#common-644)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.5.1   |
 
-<a name="dotnet-644"></a>
+<a name="dotnet-662"></a>
 
 ### Dotnet
 
@@ -206,7 +206,7 @@ We have the following base images, one for each supported OS version.
 |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------|
 | Windows 16 | dry-dock/w16dotnetcore:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/w16dotnetcore/),<br>- [GitHub](https://github.com/dry-dock/w16dotnetcore) | - .NET Core SDK 2.1.200 | - [Common components](#common-644)<br> |
 
-<a name="aspnet-644"></a>
+<a name="aspnet-662"></a>
 
 ### ASP.Net
 
