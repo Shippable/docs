@@ -14,7 +14,7 @@ This document assumes you're familiar with the following concepts:
 * [File Provisioner](https://www.packer.io/docs/provisioners/file.html)
 * [Manifest Post Processor](https://www.packer.io/docs/post-processors/manifest.html)
 
-If you're unfamiliar with Packer, you can start with learning how to build AMIs manually. Refer to our blog for a step-by-step tutorial: [Build AWS AMI Manually](http://blog.shippable.com/build-aws-ami-packer).
+If you're unfamiliar with Packer, you can start with learning how to build AMIs manually. Refer to our blog for a step-by-step tutorial: [Build AWS AMI Manually](http://blog.shippable.com/build-aws-amis-using-packer).
 
 ## Automating the building of AWS AMI with Packer
 
