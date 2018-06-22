@@ -1,4 +1,4 @@
-FROM drydock/microbase:v5.4.1
+FROM drydock/u16microbase:v6.5.4
 
 ADD . /home/shippable/docs
 
