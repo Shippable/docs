@@ -137,7 +137,7 @@ pages:
         - Using Shippable managed jobs: deploy/kubernetes.md
       - GKE:
         - Using kubectl: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
-        - Using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
+        - Using Shippable managed jobs: deploy/gke.md
       - AWS Elastic Beanstalk:
         - Using EB CLI- Single container: deploy/aws-elastic-beanstalk.md
         - Using EB CLI- Multiple containers: deploy/aws-elastic-beanstalk-multiple-containers.md
