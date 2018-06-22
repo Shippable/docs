@@ -16,7 +16,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ###Deploy
 
 * [Deploying a Single Container application to Amazon ECS](/deploy/amazon-ecs/)
-* [Deploying Multiple Containers to Amazon ECS](/deploy/amazon-ecs-multiple-containers/)
+* [Deploying Multiple Containers to Amazon ECS](/deploy/continuous-delivery-multi-container-docker-application/)
 * [Scaling your application on Amazon ECS](/deploy/amazon-ecs/#scaling-app-instances)
 * [Customizing container options](/deploy/amazon-ecs/#customizing-container-options)
 * [Supported deployment methods](/deploy/deployment-methods-overview/)
@@ -46,4 +46,4 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 * [Amazon ECS docs](https://aws.amazon.com/documentation/ecs/)
 * [Shippable CI YML structure](/ci/yml-structure/)
-* [Shippable Workflow Docs](/platform/workflow/overview/)
+* [Shippable Workflow Docs](/platform/overview/)

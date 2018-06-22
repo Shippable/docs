@@ -165,7 +165,7 @@ jobs:
 
   **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
-  If you do not want the deployment to be triggered automatically after CI, you can add `switch: off` to the `app_repo` input as described [here](/deploy/trigger-job/#switching-triggers-off) and trigger the deploy job manually.
+  If you do not want the deployment to be triggered automatically after CI, you can add `switch: off` to the `app_repo` input as described [here](/platform/tutorial/workflow/insert-approval-gate/) and trigger the deploy job manually.
 
 ###6. Trigger your pipeline
 

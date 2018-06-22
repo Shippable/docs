@@ -113,7 +113,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/workflow/overview/</loc>
+  <loc>http://docs.shippable.com/platform/overview/</loc>
   <lastmod>2018-03-06T06:43:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -468,7 +468,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/integration/gcr/</loc>
+  <loc>http://docs.shippable.com/platform/integration/deprecated/gcr/</loc>
   <lastmod>2018-03-06T06:43:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>

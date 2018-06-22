@@ -43,7 +43,7 @@ integrations:
     - integrationName: gcloud-integration    #replace with your subscription integration name
       type: gcloudKey
 ```
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 3. Push to GCR in your `shippable.yml` file:
 
@@ -75,7 +75,7 @@ integrations:
 
 ```
 
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
 
@@ -105,7 +105,7 @@ integrations:
 
 ```
 
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 In addition to the `only` tag which includes specific branches, you can also use the `except` tag to exclude specific branches.
 
@@ -139,7 +139,7 @@ integrations:
           - v0.2-beta # beta release tag
 
 ```
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 In addition to the `only` tag which includes specific release tags, you can also use the `except` tag to exclude specific release tags.
 
@@ -159,7 +159,7 @@ integrations:
     - integrationName: gcloud-integration    #replace with your subscription integration name
       type: gcloudKey
 ```
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
 
@@ -180,7 +180,7 @@ integrations:
       type: gcloudKey
 
 ```
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 
 ### Using a custom image for CI
@@ -197,7 +197,7 @@ integrations:
       type: gcloudKey
       agent_only: true
 ```
-**Note:** If you're still using the deprecated [GCR integration](/platform/integration/gcr), set the `type` here to `gcr`. Both will work exactly the same
+**Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
 If `agent_only` tag is set to `true`, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to GCR in the `pre_ci` and `push` sections of the yml.
 
@@ -209,10 +209,6 @@ Here are some links to a working sample of this scenario. This is a simple Node.
 the image to GCR.
 
 **Source code:**  [devops-recipes/ci-push-gcr](https://github.com/devops-recipes/ci-push-gcr).
-
-**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-gcr/runs/1/1/console"> CI build on Shippable</a>
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/59005d984f6072070074ce89/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-gcr)
 
 ## Improve this page
 

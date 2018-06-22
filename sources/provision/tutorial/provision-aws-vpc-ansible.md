@@ -12,7 +12,7 @@ This document assumes you're familiar with the following concepts:
 * [AWS VPC](https://aws.amazon.com/documentation/vpc/)
 * [Ansible aws_vpc module](https://docs.ansible.com/ansible/2.3/ec2_vpc_module.html)
 
-If you're unfamiliar with Ansible, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision AWS VPC Virtual Machine with Ansible](http://blog.shippable.com/provision-ec2-vpc-ansible).
+If you're unfamiliar with Ansible, it would be good to start with learning how to provision infrastructure manually with playbooks. Refer to our blog for a step-by-step tutorial: [Provision AWS VPC with Ansible](http://blog.shippable.com/provision-aws-vpc-ansible).
 
 There are many challenges with manually running ansible playbooks. In short, you will struggle with making playbooks reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the playbook. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
@@ -76,7 +76,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 If you're using our sample code, **shippable.yml** already exists and you can use it with a few modifications.
 
@@ -216,7 +216,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 

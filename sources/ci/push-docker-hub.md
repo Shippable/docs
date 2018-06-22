@@ -164,12 +164,6 @@ the image to Docker Hub.
 
 **Source code:**  [devops-recipes/node_app](https://github.com/devops-recipes/node_app).
 
-**Build link:** <a href="https://app.shippable.com/github/devops-recipes/node_app/runs/1/1/console" target="_blank"> CI build on Shippable</a>
-
-**Docker Hub image pushed:** [devopsrecipes/node_app](https://hub.docker.com/r/devopsrecipes/node_app/)
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/5abe655e2003d10700c3cf95/badge?branch=master)](https://app.shippable.com/github/devops-recipes/node_app)
-
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

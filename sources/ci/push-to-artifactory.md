@@ -109,10 +109,6 @@ the artifacts to JFrog.
 
 **Source code:**  [devops-recipes/ci-push-to-jfrog](https://github.com/devops-recipes/ci-push-to-jfrog)
 
-**Build link:** <a href="https://app.shippable.com/github/himanshu0503/ci-push-to-jfrog/runs/1/1/console" target="_blank"> CI build on Shippable</a>
-
-**Build status badge:** [![Run Status](https://api.shippable.com/projects/5901b124cd251706003517fe/badge?branch=master)](https://app.shippable.com/github/himanshu0503/ci-push-to-jfrog)
-
 ## Improve this page
 
 We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).

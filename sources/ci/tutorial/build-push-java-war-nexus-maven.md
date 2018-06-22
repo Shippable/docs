@@ -140,7 +140,7 @@ If you want to implement really hardcore automation, you can also build and push
 
 ### Concepts
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Platform overview](/platform/overview/)
 * [Resources](/platform/workflow/resource/overview/)
  * [image](/platform/workflow/resource/image)
 * [Jobs](/platform/workflow/job/overview/)
@@ -185,7 +185,7 @@ build:
 
 * `pre_ci` section runs before the `ci` section. In this case we are extracting the `IMG_TAG` from the image resource `build_custom_ci_img_dh` that was created as part of [this](/ci/tutorial/build-custom-ci-image). You can skip this if you already have an image and want to use a static image tag.
 * In the `pre_ci_boot` section, we set the image we want to use to boot up the CI container. If you're using a static tag, replace `$IMG_TAG` with your tag.
-* If the `ci` section runs without any error, then we use the utility function `put_resource_state` we copy a bunch of key values into a params resource `war_loc` (defined in the next step). Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](platform/tutorial/using-shipctl)
+* If the `ci` section runs without any error, then we use the utility function `put_resource_state` we copy a bunch of key values into a params resource `war_loc` (defined in the next step). Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/using-shipctl)
 
 ####2. Push changes to shippable.yml
 
@@ -195,7 +195,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 Please SKIP this if you did not follow step 1, i.e. you're using a static image tag.
 
-In order to tell Shippable to read your `jobs` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+In order to tell Shippable to read your `jobs` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
 
 Your view should look something like this:
 
@@ -217,17 +217,17 @@ This section shows how you can output your WAR information into a `params` resou
 
 Here are the additional concepts you need to know before you start:
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Platform overview](/platform/overview/)
 * [Resources](/platform/workflow/resource/overview/)
- * [image](/platform/workflow/resource/image)
+    * [image](/platform/workflow/resource/image)
 * [Jobs](/platform/workflow/job/overview/)
- * [runCI](/platform/workflow/job/runci)
+    * [runCI](/platform/workflow/job/runci)
 
 ### Instructions
 
 ####1. Author Assembly Line configuration
 
-Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed AL configuration info is [here](/deploy/configuration).
+Your Assembly Line config is also stored in **shippable.yml**, but the structure is quite different from CI config. Detailed AL configuration info is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 #####1a. Add `resources` section of the config
 
@@ -288,7 +288,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable Subscription
 
-In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
 
 Please skip this section if you have already added this as a sync repository.
 

@@ -12,7 +12,7 @@ This tutorial explains how to continuously deploy a Docker container to a self-h
 * [kubectl command](https://kubernetes.io/docs/reference/kubectl/overview/)
 * [kubeconfig files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 
-If you're unfamiliar with Docker or kubectl, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to a self-hosted Kubernetes cluster using kubectl](http://docs.shippable.com/deploy/tutorial/deploy-to-self-hosted-kubernetes-cluster-kubectl/).
+If you're unfamiliar with Docker or kubectl, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-kube-kubectl/).
 
 You can self-host Kubernetes on any cloud using KOPS. For our example, we'll use GKE on Google Cloud and even though it is a hosted service, we'll use raw kubeconfig files to authenticate to it. The steps outlined in this tutorial will work for any self-hosted Kubernetes cluster.
 
@@ -33,7 +33,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Concepts
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Platform overview](/platform/overview/)
 * [Integrations](/platform/integration/overview/)
   * [Kubernetes](/platform/integration/kubernetes)
   * [Docker Registry](/platform/integration/dockerRegistryLogin)
@@ -83,7 +83,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 #####3a. Add empty shippable.yml to your repo
 
@@ -196,7 +196,7 @@ Commit and push all the above changes to `shippable.yml`.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
 
 Your view will look something like this:
 
