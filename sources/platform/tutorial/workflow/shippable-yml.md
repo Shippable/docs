@@ -251,13 +251,13 @@ jobs:
 	* [MongoDB](/ci/mongodb)
 	* [MySQL](/ci/mongodb)
 	* [Neo4j](/ci/neo4j)
-	* [Postgres](/ci/postgres)
+	* [Postgres](/ci/postgresql)
 	* [RabbitMQ](/ci/rabbitmq)
 	* [Redis](/ci/redis)
 	* [RethidDB](/ci/rethinkdb)
 	* [Riak](/ci/riak)
-	* [Selenium](/ciselenium)
-	* [SqlLite](/ci/sqllite)
+	* [Selenium](/ci/selenium)
+	* [SqlLite](/ci/sqlite)
 
 ### Environment
 * **`env `** -- Set custom environment variables for your builds, including `secure` variables, i.e. encrypted variables, used to store sensitive information. [Read more](/ci/env-vars/).

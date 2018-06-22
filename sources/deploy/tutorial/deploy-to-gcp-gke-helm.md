@@ -18,7 +18,7 @@ This document assumes you're familiar with the following concepts:
 If you're unfamiliar with Docker or Helm, you should start with learning how to deploy Docker containers manually. Refer to our blog for a step-by-step tutorial: [Deploy a Docker container to GKE using Helm](http://blog.shippable.com/deploy-docker-container-to-gke-using-helm).
 
 ## Step by Step instructions
-This tutorial explains how to deploy a Docker container to Google Kubernetes Engine (GKE) using Helm Charts. It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts: 
+This tutorial explains how to deploy a Docker container to Google Kubernetes Engine (GKE) using Helm Charts. It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
 The best way to get started is to install the gcloud CLI and run scripts manually on your local machine to deploy a container. Once you understand the mechanics of it, you should consider automating your workflow by following our documentation on [Automatically deploying a Docker container to GKE]().
 
@@ -68,9 +68,9 @@ helm init --service-account tiller --upgrade
 
 * Create a Helm Chart to deploy your app. To do this, refer to [Helm instructions](https://docs.helm.sh/developing_charts/#charts).
 
-* If you don't want to create your own charts, you can use our sample repository at [https://github.com/devops-recipes/cd_gke_helm](https://github.com/devops-recipes/cd_gke_helm). 
+* If you don't want to create your own charts, you can use our sample repository at [https://github.com/devops-recipes/cd_gke_helm](https://github.com/devops-recipes/cd_gke_helm).
 
-* If you're using our sample application, the deployment chart [appDeploy.yaml[(https://github.com/devops-recipes/cd_gke_helm/blob/master/helmCharts/app/templates/appDeploy.yaml) is shown below. 
+* If you're using our sample application, the deployment chart [appDeploy.yaml[(https://github.com/devops-recipes/cd_gke_helm/blob/master/helmCharts/app/templates/appDeploy.yaml) is shown below.
 
 ```
 apiVersion: apps/v1beta1
@@ -173,17 +173,17 @@ Make sure you replace the wildcards `${APP_VERSION}` & `${APP_LABEL}` in the fil
  helm upgrade --install --namespace $NAMESPACE $APP_LABEL .
 ```
 
-* Execute `kubectl get svc ${APP_LABEL}` with your service label, to get the IP address of your endpoint. 
+* Execute `kubectl get svc ${APP_LABEL}` with your service label, to get the IP address of your endpoint.
 
 * Your application is now deployed! Check it out and confirm that the deployment was successful.
 
-### Challenges with manual deployments 
+### Challenges with manual deployments
 
 There are many challenges with manually doing Docker deployments. In short, you will struggle with making your Kubernetes specs reusable and injecting the right values for wildcards at runtime, and managing security and accounts on the machine used to run the deployments. Also, if you have dependent workflows, you will have to manually go trigger each one.
 
 If you want to achieve frictionless Docker deployments with modular, reusable specs, you need to templatize your specs and automate the workflow used to execute them.
 
-## Automated deployments to Kubernetes with Helm 
+## Automated deployments to Kubernetes with Helm
 
 You can easily automate your workflow using Shippable's Assembly Lines. The following Assembly Line features are particularly noteworthy for this scenario:
 
@@ -196,7 +196,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Concepts
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Platform overview](/platform/overview/)
 * [Integrations](/platform/integration/overview/)
   * [Google Cloud](/platform/integration/gcloudKey)
   * [Docker Registry](/platform/integration/dockerRegistryLogin)
@@ -260,7 +260,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on **shippable.yml** is [here](/deploy/configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 #####3a. Add empty shippable.yml to your repo
 
@@ -296,7 +296,7 @@ resources:
     integration: "drship_gcp"
     versionTemplate:
       region: "us-west1-a"
-       
+
 ```
 
 ######i.`image` resource named `node_app_img_dh`
@@ -403,7 +403,7 @@ Commit and push all the above changes to `shippable.yml`.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
 
 Your view will look something like this:
 

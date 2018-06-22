@@ -258,7 +258,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
@@ -366,7 +366,7 @@ This should automatically trigger the sync process to add all the changes to the
 
 <img src="/images/tutorial/provision-aws-ec2-ansible-fig3.png" alt="Assembly Line view">
 
-Detailed info to hook your AL is [here](/deploy/configuration/#adding-a-syncrepo).
+Detailed info to hook your AL is [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 
 ####3. Run the build job `term_aws_ec2_ans`
 

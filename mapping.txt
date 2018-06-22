@@ -83,7 +83,7 @@ integrations/notifications/webhooks /platform/integration/event-trigger
 integrations/imageRegistries/dockerHub /platform/integration/docker-hub
 integrations/imageRegistries/dockerTrustedRegistry /platform/integration/docker-trusted-registry
 integrations/imageRegistries/ecr /platform/integration/aws-ecr
-integrations/imageRegistries/gcr /platform/integration/gcr
+integrations/imageRegistries/gcr /platform/integration/deprecated/gcr
 integrations/imageRegistries/quay /platform/integration/quay
 integrations/imageRegistries/privateRegistry missing
 integrations/artifactRegistries/jfrogArtifactory /platform/integration/jfrog-artifactory
@@ -184,7 +184,7 @@ reference/int-github /platform/integration/github
 reference/int-github-enterprise /platform/integration/github-enterprise
 reference/int-gitlab /platform/integration/gitlab
 reference/int-gke /platform/integration/gke
-reference/int-gcr /platform/integration/gcr
+reference/int-gcr /platform/integration/deprecated/gcr
 reference/int-hipchat /platform/integration/hipchat
 reference/int-jenkins /platform/integration/jenkins
 reference/int-jfrog-artifactory /platform/integration/jfrog-artifactory

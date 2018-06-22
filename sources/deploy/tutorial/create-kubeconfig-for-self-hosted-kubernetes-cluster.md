@@ -7,8 +7,8 @@ This tutorial explains how to create a kubeconfig file to authenticate to a self
 
 It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
-* [Self hosting on GCP](https://kubernetes.io/docs/getting-started-guides/gce/)
-* [Self hosting on AWS](https://kubernetes.io/docs/getting-started-guides/aws/)
+* [Self hosting on GCP](https://devopscube.com/setup-kubernetes-cluster-google-cloud/)
+* [Self hosting on AWS](https://kubernetes.io/docs/setup/turnkey/aws/)
 * [kubeconfig files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 * [Configuring Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
