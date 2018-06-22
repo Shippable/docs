@@ -19,7 +19,7 @@ We have put together samples for all common deployment scenarios:
 
 - [Amazon ECS](/deploy/amazon-ecs/)
 - [Kubernetes](/deploy/kubernetes/)
-- [GKE](/deploy/gke/)
+- [GKE](/deploy/gke)
 - [Docker Datacenter](/deploy/continuous-delivery-single-container-docker-application/)
 - [Docker Cloud](/deploy/continuous-delivery-single-container-docker-application/)
 - [Microsoft Azure](/deploy/continuous-delivery-single-container-docker-application/)
