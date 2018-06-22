@@ -122,6 +122,8 @@ pages:
     - Tutorials:
       - Build and push Docker image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
       - Building a custom Docker image to use for CI: ci/tutorial/build-custom-ci-image.md
+      - Build and Push Java War to Nexus: ci/tutorial/build-push-java-war-nexus-maven.md
+      - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
   - CD:
     - Before you start:
       - Overview: deploy/why-deploy.md
