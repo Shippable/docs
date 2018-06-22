@@ -42,7 +42,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version|              OS            | Machine Images       
 |-------|----------------------------|---------------------
-|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |6.2.3  | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |6.1.1  | - CentOS 7<br> - Ubuntu 14.04<br>- Ubuntu 16.04<br> - Ubuntu 16.04(aarch64) |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later                
 |5.6.2  | - Ubuntu 14.04<br>- Ubuntu 16.04               |[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -60,13 +60,13 @@ This page lists the versions of Services available for each supported [OS](/plat
 |1.5.0     |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |1.4.39    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |1.4.34    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-|1.4.25    |- Ubuntu 16.04(aarch 64)         | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+|1.4.25    |- Ubuntu 16.04(aarch 64)         | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 
 ## MongoDB
 
 | Version  |  OS     | Machine Images
 |----------|---------|-------------------
-|3.6.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|3.6.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |3.6.3 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04|[v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 3.6.2  |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
 | 3.4.9  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -77,7 +77,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS  | Machine Images
 |----------|---------| ------
-|5.7.22| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|5.7.22| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |5.7.21|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |5.7.20 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 |5.7.19 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -90,7 +90,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS    |Machine Images
 |----------|---------|----------
-|3.3.5  |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|3.3.5  |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |3.3.4  |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 3.3.1 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |3.2.6 | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -102,7 +102,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |    OS    |   Machine Images
 |----------|---------|------------
-|10.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|10.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |10.3 |- CentOS 7<br>- Ubuntu 14.04 |[v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |10.2  | - CentOS 7  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 10.1  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -115,7 +115,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |    OS    | Machine Images
 |----------|---------|----------
-|3.6.15 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br>[v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br>[v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br>  [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|3.6.15 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br>[v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br>[v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br>  [v6.5.4](/platform/runtime/machine-image/ami-v654/) and later
 | 3.6.14   |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |3.6.12    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)   
 | 3.6.10   |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and  [v5.8.2](/platform/runtime/machine-image/ami-v582/)
@@ -125,7 +125,8 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS  | Machine Images
 |----------|---------|--------
-|4.0.9 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  <br>-  Ubuntu 16.04(aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+| 4.0.10 |  - Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.6.2](/platform/runtime/machine-image/ami-v662/)
+|4.0.9 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  <br>-  Ubuntu 16.04(aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |4.0.8 |- CentOS 7<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 4.0.7  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/)
 | 4.0.1  |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
@@ -150,7 +151,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS    | Machine Images
 |----------|---------|-------
-|3.11.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.5.4](/platform/runtime/machine-image/ami-v654/)
+|3.11.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 3.8.1   | - CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |3.5.3  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 | 3.4.0    |  - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
@@ -163,7 +164,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 | 3.22.0   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later
 |3.20.1  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)                   
 | 3.19.3   | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.5.4](/platform/runtime/machine-image/ami-v654/)
+| 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 3.8.2    |- Ubuntu 14.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 for ubuntu14 OS, AMI v6.1.4 onwards, sqlite-tools like sqlite-analyser are not installed. To run this you need to install
