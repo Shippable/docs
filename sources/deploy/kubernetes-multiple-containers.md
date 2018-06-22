@@ -128,7 +128,7 @@ For a complete reference for `manifest`, read the [job page](/platform/workflow/
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
-    * [Kubernetes integration](/platform/integration/kubernetes-config/)
+    * [Kubernetes integration](/platform/integration/kubernetes/)
 
     Copy the friendly name of the integration, in our case we named it `op_int`.
 

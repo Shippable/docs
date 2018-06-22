@@ -101,7 +101,7 @@ Integrations are used to connect your Shippable CI or CD workflows to third part
 
 - [AWS IAM](/platform/integration/aws-iam)
 - [AWS Keys](/platform/integration/aws-keys)
-- [Kubernetes](/platform/integration/kubernetes-config)
+- [Kubernetes](/platform/integration/kubernetes)
 - [Google Cloud](/platform/integration/gcloudKey)
 - [Azure](/platform/integration/azure-keys/)
 - [Azure DC/OS](/platform/integration/azureDcosKey)

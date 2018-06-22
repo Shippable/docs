@@ -1,6 +1,6 @@
 page_main_title: Kubernetes- Deploying a Docker application
-main_section: Deploy
-sub_section: Tutorials
+main_section: CD
+sub_section: Deploying containers using popular tools
 sub_sub_section: Kubernetes
 page_title: Deploying to Kubernetes
 page_description: How to deploy to Kubernetes in Shippable
@@ -10,6 +10,8 @@ page_description: How to deploy to Kubernetes in Shippable
 There are many strategies that can be used to deploy containers to [Kubernetes](https://kubernetes.io/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Kubernetes.
 
 For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for Kubernetes as well.
+
+For advanced scenarios using managed jobs, please refer to the docs on [Deploying containers with Shippable managed jobs](/deploy/deploy-docker-overview/).
 
 ## Assumptions
 
@@ -116,7 +118,7 @@ jobs:
 1. Create an account integration for Kubernetes in your Shippable UI. Instructions to create an integration are here:
 
     * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
-    * [Kubernetes integration](/platform/integration/kubernetes-config/)
+    * [Kubernetes integration](/platform/integration/kubernetes/)
 
     Copy the friendly name of the integration. We're using `op_int` for our sample snippet in the next step.
 

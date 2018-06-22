@@ -31,7 +31,7 @@ resources:
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
     * [Azure Container Service (AKS)](/platform/integration/azure-keys)
     * [Google Cloud](/platform/integration/gcloudKey)
-    * [Kubernetes](/platform/integration/kubernetes-config)
+    * [Kubernetes](/platform/integration/kubernetes)
 
 * **`versionTemplate`** -- is an object that contains provider specific properties
 	* For [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/),
@@ -135,7 +135,7 @@ resources:
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. The integration is only used when this resource is an input for a [provision](/platform/workflow/job/provision) job. Currently supported integration types are:
     * [Azure Container Service (AKS)](/platform/integration/azure-keys)
     * [Google Cloud](/platform/integration/gcloudKey)
-    * [Kubernetes](/platform/integration/kubernetes-config)
+    * [Kubernetes](/platform/integration/kubernetes)
 
 * **`pointer`** -- is an object that contains provider specific properties
 	* For [AWS Classic Load Balancers](https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/),

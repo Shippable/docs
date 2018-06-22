@@ -4,7 +4,7 @@ sub_section: Kubernetes
 
 # Accessing private Docker images from Kubernetes
 
-Majority of proprietary Docker images are often deployed to private Docker registries. This tutorial talks about how to configure a Kubernetes cluster to access those private images. 
+Most organizations store proprietary Docker images in private Docker registries. This tutorial talks about how to configure a Kubernetes cluster to access those private images.
 
 The tutorial assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
@@ -15,7 +15,7 @@ The tutorial assumes that you have working knowledge of Docker and Kubernetes an
 * [ImagePullSecrets](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 
 ## Step by Step instructions
-In this tutorial, we will use ImagePullSecrets which is a type of secret that allows you to pull from private Docker registries. 
+In this tutorial, we will use ImagePullSecrets which is a type of secret that allows you to pull from private Docker registries.
 
 ### Connect to your cluster using kubectl
 Make sure you are authenticated to your cluster with kubectl. For a self hosted Kubernetes, follow these [instructions](/deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster).

@@ -129,10 +129,13 @@ pages:
     - Deploying containers using popular tools:
       - Amazon ECS:
         - Using AWS CLI: deploy/deploy-amazon-ecs-cloud-native-cli.md
+        - Using Shippable managed jobs: deploy/amazon-ecs.md
       - Kubernetes:
         - Using kubectl: deploy/tutorial/deploy-to-self-kube-kubectl.md
+        - Using Shippable managed jobs: deploy/kubernetes.md
       - GKE:
         - Using kubectl: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
+        - Using Shippable managed jobs: deploy/gke.md
       - AWS Elastic Beanstalk:
         - Using EB CLI- Single container: deploy/aws-elastic-beanstalk.md
         - Using EB CLI- Multiple containers: deploy/aws-elastic-beanstalk-multiple-containers.md

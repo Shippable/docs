@@ -32,8 +32,11 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 ### Infrastructure provisioning
 
-* [Provisioning AWS infrastructure with Terraform](/provision/aws-with-terraform/)
-* [Provisioning AWS infrastructure with Ansible](/provision/aws-with-ansible/)
+* [Provisioning AWS VPC with Terraform](/provision/tutorial/provision-aws-vpc-terraform/)
+* [Provisioning AWS EC2 instances with Terraform](/provision/tutorial/provision-aws-ec2-terraform/)
+* [Provisioning Amazon ECS cluster with Terraform](/provision/tutorial/provision-aws-ecs-terraform/)
+* [Provisioning AWS VPC with Ansible](/provision/tutorial/provision-aws-vpc-ansible/)
+* [Provisioning AWS EC2 instances with Ansible](/provision/tutorial/provision-aws-ec2-ansible/)
 
 ## Sample application
 

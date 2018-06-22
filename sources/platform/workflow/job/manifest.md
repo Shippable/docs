@@ -60,7 +60,7 @@ jobs:
 
 * **`type`** -- is set to `manifest`.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`steps `** -- is an object which contains specific instructions to run this Job.
 
