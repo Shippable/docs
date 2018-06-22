@@ -53,7 +53,7 @@ If you want the benefits of using a SaaS platform, but still want to run your jo
 
 
 ### Using Shippable Server
-Shippable is also available as a Server. Please visit our <a href="https://www.shippable.com/enterprise.html">Enterprise</a> page for more information. Instructions on installing Server are [available here](/platform/tutorial/server/install/). Shippable Server is also available as a [one-box install](/platform/tutorial/server/install-aws-marketplace/) for a 10 user license on AWS Marketplace with a 30-day free trial.
+Shippable is also available as a Server. Please visit our <a href="https://www.shippable.com/enterprise.html">Enterprise</a> page for more information. Instructions on installing Server are [available here](/platform/server/install/). We offer a 30 day free pilot license for Shippable Server to help organizations evaluate it.
 
 
 ## How is this documentation structured?

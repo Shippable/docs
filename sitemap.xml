@@ -63,12 +63,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/tutorial/server/install/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/server/install-aws-marketplace/</loc>
+  <loc>http://docs.shippable.com/platform/server/install/</loc>
   <lastmod>2018-03-06T06:43:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -388,7 +383,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/integration/kubernetes-config/</loc>
+  <loc>http://docs.shippable.com/platform/integration/kubernetes/</loc>
   <lastmod>2018-03-06T06:43:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>

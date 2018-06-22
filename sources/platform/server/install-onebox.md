@@ -7,7 +7,7 @@ page_keywords: install, onebox, microservices, Continuous Integration, Continuou
 
 # Onebox pilot installation guide
 
-This document describes the steps to install Shippable Server for a Onebox pilot. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/tutorial/server/install/).
+This document describes the steps to install Shippable Server for a Onebox pilot. This is useful for server installations that are not used very heavily because it reduces the resources required.  For more information about the installer in general and other installation choices, see [admiral](/platform/server/install/).
 
 ## Shippable Server architecture
 

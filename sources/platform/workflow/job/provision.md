@@ -44,7 +44,7 @@ jobs:
 
 * **`type`** -- is set to `provision`
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`steps`** -- is an object which contains specific instructions to run this job
     * `IN` -- You need at least one `loadBalancer` resource as an input. Multiple `loadBalancer` resources may be listed as inputs. Currently we only support `loadBalancer` resource on GKE or Kubernetes services. If you need other entities [please let us know](https://www.github.com/Shippable/support/issues/new).

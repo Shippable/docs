@@ -11,7 +11,7 @@ Shippable uses Docker Swarm to manage all microservices, which are Docker contai
 
 ## Adding Swarm Workers
 
-Swarm workers are added in the [UI interface](/platform/tutorial/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be on Supported OS nodes and Docker 17.06 will be installed during initialization.
+Swarm workers are added in the [UI interface](/platform/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be on Supported OS nodes and Docker 17.06 will be installed during initialization.
 
 To add another machine as a worker, do the following before clicking **Apply**:
 

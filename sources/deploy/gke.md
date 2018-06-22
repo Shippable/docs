@@ -1,6 +1,6 @@
 page_main_title: GKE- Deploying a single container Docker application
-main_section: Deploy
-sub_section: Tutorials
+main_section: CD
+sub_section: Deploying containers using popular tools
 sub_sub_section: GKE
 page_title: Deploying to Google Container Engine (GKE)
 page_description: How to deploy to Google Container Engine (GKE) in Shippable
@@ -12,6 +12,8 @@ NOTE: Deployments made with [Google Cloud integrations](/platform/integration/gc
 There are many strategies that can be used to deploy containers to [GKE](https://cloud.google.com/container-engine/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on GKE.
 
 For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/). You can implement a similar workflow for GKE as well.
+
+For advanced scenarios using managed jobs, please refer to the docs on [Deploying containers with Shippable managed jobs](/deploy/deploy-docker-overview/).
 
 ## Assumptions
 

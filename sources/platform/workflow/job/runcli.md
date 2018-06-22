@@ -13,7 +13,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 All functionality available in the runCLI job is now available in the [runSh](/platform/workflow/job/runsh/#runsh) job, which is our recommended way to run custom workflows.
 Your existing runCLI jobs will continue to work as configured since we are passionate about not breaking any of our customers. However, just changing the `type` setting in your yml from `runCLI` to `runSh` will work seamlessly, so you are encouraged to make this change.
 
-[Shippable Server](http://docs.shippable.com/platform/tutorial/server/install/) customers who are running older versions of Server (versions 5.7.3 and below) will still need to use the runCLI job.
+[Shippable Server](http://docs.shippable.com/platform/server/install/) customers who are running older versions of Server (versions 5.7.3 and below) will still need to use the runCLI job.
 
 ## Description
 
@@ -46,7 +46,7 @@ name of the job in your pipeline visualization.
 
 - [type](runcli.md#type): The type of your job. This must be `runCLI`.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 - [steps](runcli.md#steps): The steps that should be executed in your job.
 Steps can have any number of `IN` and `OUT` resources. `IN` resources that are

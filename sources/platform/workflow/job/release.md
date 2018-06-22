@@ -62,7 +62,7 @@ jobs:
     * `rc` -- increments the alpha bit. So, first pass it will be `v1.0.0-rc` and next one will be `v1.0.0-rc.1`.
     * `final` -- removes pre-release flags on your incoming version, so if your input was `v4.0.0-rc.5`, then output version would be `v4.0.0`.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`steps `** -- is an object which contains specific instructions to run this job
     * `IN` -- You need at least one source of a semVer string, and one `manifest`-based input (`manifest`, `release`, or `deploy`).  If you use multiple of them, then they will be deployed as a whole. Below is the list of all Resources and Jobs that can be supplied as `IN`

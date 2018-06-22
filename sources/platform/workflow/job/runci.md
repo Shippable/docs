@@ -50,7 +50,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`type`** -- Required, is set to `runCI`
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Queued jobs with higher priority will run before the queued jobs with lower priority. Default priority for all the jobs is 9999. This will not stop any processing jobs and will
 prioritize only queued jobs in your pipeline.
