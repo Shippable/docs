@@ -41,3 +41,13 @@ jobs:
             pushd $(shipctl get_resource_state "docs_repo")
               ./deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
             popd
+
+  - name: check_rc_docs_for_broken_links
+    type: runSh
+    steps:
+      - IN: publish_rc_docs
+      - TASK:
+        - script: |
+            pushd $(shipctl get_resource_state "docs_repo")
+              ./deployDocs.sh s3://rcdocs.shippable.com us-east-1 rc
+            popd

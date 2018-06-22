@@ -82,7 +82,7 @@ integrations/notifications/irc /ci/irc-notifications
 integrations/notifications/webhooks /platform/integration/event-trigger
 integrations/imageRegistries/dockerHub /platform/integration/docker-hub
 integrations/imageRegistries/dockerTrustedRegistry /platform/integration/docker-trusted-registry
-integrations/imageRegistries/ecr /platform/integration/aws-ecr
+integrations/imageRegistries/ecr /platform/integration/deprecated/aws-ecr
 integrations/imageRegistries/gcr /platform/integration/deprecated/gcr
 integrations/imageRegistries/quay /platform/integration/quay
 integrations/imageRegistries/privateRegistry missing

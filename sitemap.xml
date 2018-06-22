@@ -413,7 +413,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/integration/aws-ecr/</loc>
+  <loc>http://docs.shippable.com/platform/integration/deprecated/aws-ecr/</loc>
   <lastmod>2018-03-06T06:43:37+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -473,7 +473,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/integration/gke/</loc>
+  <loc>http://docs.shippable.com/platform/integration/deprecated/gke/</loc>
   <lastmod>2018-03-06T06:43:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -1414,11 +1414,6 @@
 </url>
 <url>
   <loc>http://docs.shippable.com/deploy/continuous-delivery-single-container-docker-application/</loc>
-  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/deploy/docker-cloud/</loc>
   <lastmod>2018-03-06T06:43:25+00:00</lastmod>
   <priority>0.64</priority>
 </url>

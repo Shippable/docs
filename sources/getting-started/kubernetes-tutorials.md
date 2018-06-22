@@ -25,7 +25,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Gated deployments](/deploy/gated-deployments/)
 
 ### Provisioning Kubernetes clusters
-* [Provision Kubernetes cluster on GKE with gcloud CLI](/provision/kubernetes-with-gkecli/)
+* [Provision Kubernetes cluster on GKE with gcloud CLI](/provision/tutorial/provision-gcp-gke-gcloud)
 
 ## Sample application
 * [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic)
