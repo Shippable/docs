@@ -101,7 +101,7 @@ integrations:
     * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR.
         - Note: For running builds on docker version 17.06.0-ce and above, make sure that the `aws` cli installed in the image is 1.11.91 version or above.
-        - Both the deprecated [ECR integration](/platform/integration/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
+        - Both the deprecated [ECR integration](/platform/integration/deprecated/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
     * `gcloudKey` for Google Container Registry (GCR) (If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same)
     * `quayLogin` for Quay.io
 

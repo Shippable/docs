@@ -25,7 +25,7 @@ Before you start, you will need to connect your Amazon account with Shippable so
 
 After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with Amazon ECR using your keys and pushes the image to ECR in the `post_ci` section.
 
-**Note:** Both the deprecated [ECR integration](/platform/integration/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
+**Note:** Both the deprecated [ECR integration](/platform/integration/deprecated/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
 
 ```
 build:

@@ -84,7 +84,7 @@ resources:
 	            - <string>
 	          externalName:         <string>
 
-        Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/gke/) integration.
+        Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/deprecated/gke/) integration.
 
       * For [Azure Container Service (AKS) Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 
@@ -186,7 +186,7 @@ resources:
 	            - <string>
 	          externalName:         <string>
 
-        Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/gke/) integration.
+        Note: `bastionHost` is only supported for [Kubernetes](/platform/integration/kubernetes/) and [Google Cloud](/platform/integration/gcloudKey/) integrations. It will not work with a [Google Container Engine](/platform/integration/deprecated/gke/) integration.
 
       * For [Azure Container Service (AKS) Load Balancers](https://kubernetes.io/docs/user-guide/services/) used in `provision` jobs,
 

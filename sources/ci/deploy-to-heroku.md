@@ -349,7 +349,7 @@ application entry point is located in file called `helloworld.rb`:
 web: bundle exec ruby helloworld.rb -p $PORT
 ```
 Next, declare your dependencies in `Gemfile`. For example, if using
-[Mongoid](http://mongoid.org/) to access the database:
+[Mongoid](https://docs.mongodb.com/mongoid/master/) to access the database:
 
 ```
 source "https://rubygems.org"

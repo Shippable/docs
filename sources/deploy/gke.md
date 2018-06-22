@@ -7,7 +7,7 @@ page_description: How to deploy to Google Container Engine (GKE) in Shippable
 
 # Deploying to Google Container Engine (GKE)
 
-NOTE: Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects, while the deprecated [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers` (RC). Either integration can be used to deploy to GKE.
+NOTE: Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects, while the deprecated [Google Container Engine integrations](/platform/integration/deprecated/gke/) use `replicationControllers` (RC). Either integration can be used to deploy to GKE.
 
 There are many strategies that can be used to deploy containers to [GKE](https://cloud.google.com/container-engine/) using Shippable's Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on GKE.
 

@@ -26,7 +26,7 @@ The Docker Cloud integration can be used in the following [resources](/platform/
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
 
-The main scenario for using this integration is to [Deploy an application to Docker Cloud](/deploy/docker-cloud/).
+The main scenario for using this integration is to [Deploy an application to Docker Cloud](/deploy/continuous-delivery-single-container-docker-application/).
 
 ### Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
@@ -54,4 +54,4 @@ More information on other utility functions is [documented here](/platform/tutor
 
 ## Further Reading
 
-* [Deploy an application to Docker Cloud](/deploy/docker-cloud/)
+* [Deploy an application to Docker Cloud](/deploy/continuous-delivery-single-container-docker-application/)
