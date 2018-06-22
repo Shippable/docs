@@ -4,7 +4,7 @@ sub_section: Deploying containers using Shippable managed jobs
 page_title: Deploy to Container Orchestration Platforms
 page_description: How to deploy to Container Orchestration Platforms in Shippable
 
-# Deploying Docker applications to Container Orchestration Platforms
+# Deploying Docker applications to Container Orchestration Platforms [TODO]
 
 Docker has made it very easy to package your application in a portable, lightweight container that can be deployed to any cloud. The Docker CLI also supports basic commands that let you push the container as an image to a Docker registry and run the container on any machine.
 
@@ -44,5 +44,3 @@ To get started, check out our tutorials:
 ## Custom deployments with Cloud-Native CLIs
 
 You can also use cloud-native CLIs to configure your deployments yourself. The advantage is that you have full control over your deployments. However, this does not give you cross-cloud compatibility since moving to a different orchestration platform will require you to rewrite your deployment job.
-
-For deployments using the appropriate cloud-native CLI, please visit our [Deploy with Cloud-Native CLI docs](/deploy/deploy-cloud-native-overview/).

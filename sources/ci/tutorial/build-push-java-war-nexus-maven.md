@@ -185,7 +185,7 @@ build:
 
 * `pre_ci` section runs before the `ci` section. In this case we are extracting the `IMG_TAG` from the image resource `build_custom_ci_img_dh` that was created as part of [this](/ci/tutorial/build-custom-ci-image). You can skip this if you already have an image and want to use a static image tag.
 * In the `pre_ci_boot` section, we set the image we want to use to boot up the CI container. If you're using a static tag, replace `$IMG_TAG` with your tag.
-* If the `ci` section runs without any error, then we use the utility function `put_resource_state` we copy a bunch of key values into a params resource `war_loc` (defined in the next step). Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/using-shipctl)
+* If the `ci` section runs without any error, then we use the utility function `put_resource_state` we copy a bunch of key values into a params resource `war_loc` (defined in the next step). Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/workflow/using-shipctl)
 
 ####2. Push changes to shippable.yml
 

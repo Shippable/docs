@@ -215,7 +215,7 @@ build:
     - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
 ```
 
-* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/using-shipctl)
+* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/workflow/using-shipctl)
 
 
 
@@ -261,7 +261,7 @@ jobs:
 
 This section does the following things:
 
-* If the ci section runs without any error, then using in-built utility function `put_resource_state` we copy the image tag into the `versionName` field of image `node_app_jfrog_img_jfrog` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/using-shipctl)
+* If the ci section runs without any error, then using in-built utility function `put_resource_state` we copy the image tag into the `versionName` field of image `node_app_jfrog_img_jfrog` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/workflow/using-shipctl)
 * `resources` section is used to define resources that are used by the assembly line. Here we are creating an image named `node_app_jfrog_img_jfrog` that can be access using integration `drship_artifactory_docker`. `versionTemplate` has the information used to create the first version of the image. `sourceName` contains the location of the image and the  `versionName` contains the tag. `isPull` is used to configure whether the image is automatically pulled or not. Everytime a new tag is created, a new version get created. This is what `put_resource_state` does i.e. increment the version if there is any change
 * `jobs` section is used to define a jobs that run as part of the Assembly Line. When a CI project is enable a job is automatically created with the name of the repo appended by `_runCI`. We are extending this automatically created CI job to also have an image output. In additon we are also adding a flag. We are allowing these jobs to run in parallel if multiple webhooks come in and also we making sure it only triggers when all dependencies are in consistent state, hence `strict`
 
@@ -273,7 +273,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 ###3. Add Assembly Line to Shippable
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.
 
-Detailed steps to add an Assembly Line are [here](deploy/configuration/).
+Detailed steps to add an Assembly Line are [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 
 ###4. End to End Build and Push Assembly Line
 If you change the view of your Subscription page to SPOG view, you should see something like this:

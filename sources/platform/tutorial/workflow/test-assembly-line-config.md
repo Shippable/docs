@@ -29,7 +29,7 @@ The **Dry Run** feature allows you to do exactly this.
 
 <img src="/images/platform/tutorial/workflow/test-assembly-line-config-view-dry-run.png" alt="Test your DevOps Assembly Line" style="width:700px;"/>
 
-If there is a problem with your configuration, we will show you an error or warning so that you can correct them. If you want to model your workflow using the UI and export the resulting YAML, you can do so by following our [Modeling your configuration tutorial](/platform/tutorial/model-workflow). 
+If there is a problem with your configuration, we will show you an error or warning so that you can correct them. 
 
 Please note the following:
 

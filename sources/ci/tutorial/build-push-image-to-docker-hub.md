@@ -214,7 +214,7 @@ build:
     - shipctl put_resource_state $SHIP_IMG_RES versionName $BRANCH.$BUILD_NUMBER
 ```
 
-* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image name into the `sourceName` field, and image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/using-shipctl)
+* If the ci section runs without any error, then using in-built utility function `put_resource_state`, we copy the image name into the `sourceName` field, and image tag into the `versionName` field of image `node_app_img_dh` resource. Utility functions are invoked using the command `shipctl`. A full list of these commands are [here](/platform/tutorial/workflow/using-shipctl)
 
 ####3. Push changes to shippable.yml
 
