@@ -1,6 +1,6 @@
 page_main_title: Overview of attaching load balancers
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Using load balancers
 page_title: Overview of Attaching load balancers
 page_description: Overview of Attaching load balancers in Shippable

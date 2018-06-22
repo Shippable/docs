@@ -1,6 +1,6 @@
 page_main_title: deploy
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - deploy
 page_description: List of supported jobs
@@ -86,7 +86,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`workflow`** -- Optional. This may be set to either `serial` (default) or `parallel`.  If it is `parallel`, manifests will be deployed in parallel.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`steps`** -- is an object which contains specific instructions to run this job
     * `IN` -- You need one `cluster` and at least one `manifest`-based input (`manifest`, `release`, or `deploy`). You have can have more than one of these and if you use multiple, each `manifest` will be deployed as a separate service. Below is the list of all resources and jobs that can be supplied as `IN`.

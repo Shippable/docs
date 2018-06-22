@@ -1,6 +1,6 @@
 page_main_title: cliConfig
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: cliConfig resource reference
 page_description: cliConfig resource reference
@@ -36,7 +36,7 @@ resources:
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
 	* [Google Cloud](/platform/integration/gcloudKey)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
-	* [Kubernetes](/platform/integration/kubernetes-config)
+	* [Kubernetes](/platform/integration/kubernetes)
 	* [Quay](/platform/integration/quayLogin)
 
 * **`versionTemplate`** -- is an object that contains integration specific properties
@@ -127,7 +127,7 @@ resources:
 	* [Docker Registry](/platform/integration/dockerRegistryLogin)
 	* [Google Cloud](/platform/integration/gcloudKey)
 	* [JFrog Artifactory](/platform/integration/jfrog-artifactoryKey)
-	* [Kubernetes](/platform/integration/kubernetes-config)
+	* [Kubernetes](/platform/integration/kubernetes)
 	* [Quay](/platform/integration/quayLogin)
 
 * **`pointer`** -- is an object that contains integration specific properties

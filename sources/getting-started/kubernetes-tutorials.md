@@ -13,8 +13,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Pushing a Docker image to a Registry](/ci/push-artifacts/)
 
 ### Deploy
-* [Deploying a Single Container application to Kubernetes](/deploy/kubernetes/)
-* [Deploying Multiple Containers to Kubernetes](/deploy/kubernetes-multiple-containers/)
+* [Deploying an application to Kubernetes](/deploy/kubernetes/)
 * [Scaling your application on Kubernetes](/deploy/kubernetes/#scaling-app-instances)
 * [Customizing container options](/deploy/kubernetes/#customizing-container-options)
 * [Supported deployment methods](/deploy/deployment-methods-overview/)
@@ -26,7 +25,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Gated deployments](/deploy/gated-deployments/)
 
 ### Provisioning Kubernetes clusters
-* [Provision Kubernetes cluster on GKE with gcloud CLI](/provision/kubernetes-with-gkecli/)
+* [Provision Kubernetes cluster on GKE with gcloud CLI](/provision/tutorial/provision-gcp-gke-gcloud)
 
 ## Sample application
 * [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic)
@@ -34,4 +33,4 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ## Reference
 * [Kubernetes docs](https://kubernetes.io/docs/home/)
 * [Shippable CI YML structure](/ci/yml-structure/)
-* [Shippable Workflow Docs](/platform/workflow/overview/)
+* [Shippable Workflow Docs](/platform/overview/)

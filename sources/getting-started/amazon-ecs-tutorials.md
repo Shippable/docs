@@ -16,7 +16,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ###Deploy
 
 * [Deploying a Single Container application to Amazon ECS](/deploy/amazon-ecs/)
-* [Deploying Multiple Containers to Amazon ECS](/deploy/amazon-ecs-multiple-containers/)
+* [Deploying Multiple Containers to Amazon ECS](/deploy/continuous-delivery-multi-container-docker-application/)
 * [Scaling your application on Amazon ECS](/deploy/amazon-ecs/#scaling-app-instances)
 * [Customizing container options](/deploy/amazon-ecs/#customizing-container-options)
 * [Supported deployment methods](/deploy/deployment-methods-overview/)
@@ -32,8 +32,11 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 ### Infrastructure provisioning
 
-* [Provisioning AWS infrastructure with Terraform](/provision/aws-with-terraform/)
-* [Provisioning AWS infrastructure with Ansible](/provision/aws-with-ansible/)
+* [Provisioning AWS VPC with Terraform](/provision/tutorial/provision-aws-vpc-terraform/)
+* [Provisioning AWS EC2 instances with Terraform](/provision/tutorial/provision-aws-ec2-terraform/)
+* [Provisioning Amazon ECS cluster with Terraform](/provision/tutorial/provision-aws-ecs-terraform/)
+* [Provisioning AWS VPC with Ansible](/provision/tutorial/provision-aws-vpc-ansible/)
+* [Provisioning AWS EC2 instances with Ansible](/provision/tutorial/provision-aws-ec2-ansible/)
 
 ## Sample application
 
@@ -43,4 +46,4 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 * [Amazon ECS docs](https://aws.amazon.com/documentation/ecs/)
 * [Shippable CI YML structure](/ci/yml-structure/)
-* [Shippable Workflow Docs](/platform/workflow/overview/)
+* [Shippable Workflow Docs](/platform/overview/)

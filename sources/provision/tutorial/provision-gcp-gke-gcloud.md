@@ -1,5 +1,5 @@
 page_description: Provision a GKE cluster with gcloud SDK
-main_section: Provision
+main_section: IT Ops
 sub_section: Google Cloud infrastructure
 sub_sub_section: Provision GKE cluster
 
@@ -26,7 +26,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Concepts
 
-* [Workflow overview](/platform/workflow/overview/)
+* [Platform overview](/platform/overview/)
 * [Integrations](/platform/integration/overview/)
     * [Google Cloud](/platform/integration/gcloudKey)
 * [Resources](/platform/workflow/resource/overview/)
@@ -180,7 +180,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/deploy/configuration/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 

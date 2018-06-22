@@ -58,4 +58,4 @@ All build artifacts are deleted permanently when a repo is disabled or a build i
 For customers who cannot use a SaaS service for compliance reasons or personal preference, we offer two alternatives:
 
 - [BYON Nodes](/platform/runtime/nodes/#custom-nodes), where all the build orchestration happens through SaaS but the actual build nodes can be on-premises behind your firewall with no incoming traffic initiated from our SaaS service, and,
-- [Shippable Server](/platform/tutorial/server/install/), our Enterprise solution that you can install and manage behind your firewall
+- [Shippable Server](/platform/server/install/), our Enterprise solution that you can install and manage behind your firewall

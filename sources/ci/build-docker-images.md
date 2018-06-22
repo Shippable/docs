@@ -43,7 +43,7 @@ integrations:
 For other registries, the `type` is set as follows:
 
   - Amazon ECR: `type: ecr`
-  - GCR: `type: gcloudKey` (set the type to `gcloudKey` if you are using the new [Google Cloud Integration](/platform/integration/gcloudKey). If you are still using the deprecated [GCR Integration](/platform/integration/gcr), set the type to `gcr`)
+  - GCR: `type: gcloudKey` (set the type to `gcloudKey` if you are using the new [Google Cloud Integration](/platform/integration/gcloudKey). If you are still using the deprecated [GCR Integration](/platform/integration/deprecated/gcr), set the type to `gcr`)
   - CoreOS Quay: `type: quay`
 
 ###3. Building Docker image

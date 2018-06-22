@@ -1,6 +1,6 @@
 page_main_title: Blue-green deployment strategy
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Deployment methods
 page_title: Blue-green deployment strategy
 page_description: Blue-green deployment strategy in Shippable

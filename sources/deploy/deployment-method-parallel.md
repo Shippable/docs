@@ -1,6 +1,6 @@
 page_main_title: Deploying multiple manifests  in parallel
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Deployment methods
 page_title: Deploying multiple manifests in parallel
 page_description: How to deploy multiple manifests in parallel in Shippable

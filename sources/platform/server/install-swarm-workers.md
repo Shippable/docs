@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Configuring Swarm Workers
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Configuring Swarm Workers | Shippable Server
 page_description: Configure multiple Swarm worker for high availability
 page_keywords: docker, swarm, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
@@ -12,7 +11,7 @@ Shippable uses Docker Swarm to manage all microservices, which are Docker contai
 
 ## Adding Swarm Workers
 
-Swarm workers are added in the [UI interface](/platform/tutorial/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be on Supported OS nodes and Docker 17.06 will be installed during initialization.
+Swarm workers are added in the [UI interface](/platform/server/install/#the-admiral-ui) of the Admiral installer.  Workers should be on Supported OS nodes and Docker 17.06 will be installed during initialization.
 
 To add another machine as a worker, do the following before clicking **Apply**:
 
@@ -28,4 +27,4 @@ Configure all of the other infrastructure components how you would like them ins
 
 Once workers start initializing, you'll be able view the initialization logs by clicking the **Worker init logs** button.
 
-<img src="/images/platform/admiral/admiral-workers-logs.png" alt="Swarm worker logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-workers-logs.png" alt="Swarm worker logs">

@@ -1,5 +1,5 @@
 page_main_title: Provisioning Microsoft Azure with Ansible
-main_section: Provision
+main_section: IT Ops
 sub_section: Microsoft Azure infrastructure
 page_title: Provisioning Microsoft Azure infrastructure with Ansible
 page_description: How to provision Microsoft Azure infrastructure with Ansible in Shippable
@@ -13,7 +13,7 @@ infrastructure on [Microsoft Azure](https://azure.microsoft.com/). You would do 
 ##Setup
 
 Before you start, you will need to store your Microsoft Azure credentials as an [Account
-Integration](/platform/management/integrations#add-integration) so that your Shippable pipeline job can connect to Microsoft Azure without exposing your credentials. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Integration](/platform/tutorial/integration/howto-crud-integration/) so that your Shippable pipeline job can connect to Microsoft Azure without exposing your credentials. Once you add an account integration, you can use it for all your projects without needing to add it again.
 
 -  Go to your **Account Settings** by clicking on the gear icon in the top
 navigation bar.

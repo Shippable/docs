@@ -1,5 +1,5 @@
 page_main_title: Why deploy?
-main_section: Deploy
+main_section: CD
 sub_section: Before you start
 page_title: Deploying your application
 page_description: How to deploy your application in Shippable
@@ -19,9 +19,9 @@ We have put together samples for all common deployment scenarios:
 
 - [Amazon ECS](/deploy/amazon-ecs/)
 - [Kubernetes](/deploy/kubernetes/)
-- [GKE](/deploy/gke/)
+- [GKE](/deploy/gke)
 - [Docker Datacenter](/deploy/continuous-delivery-single-container-docker-application/)
-- [Docker Cloud](/deploy/docker-cloud/)
+- [Docker Cloud](/deploy/continuous-delivery-single-container-docker-application/)
 - [Microsoft Azure](/deploy/continuous-delivery-single-container-docker-application/)
 - [Amazon Elastic Beanstalk (Docker)](/deploy/aws-elastic-beanstalk/)
 

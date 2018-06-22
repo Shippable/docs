@@ -1,6 +1,6 @@
 page_main_title: Rolling back deployments
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Advanced topics
 page_title: Rolling back your deployments
 page_description: How to roll back your deployments in Shippable

@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Manage addons
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Manage addons | Shippable Server
 page_description: Enable and disable integrations available to Shippable Server users
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault

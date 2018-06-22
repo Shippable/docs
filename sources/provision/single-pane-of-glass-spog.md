@@ -1,5 +1,5 @@
 page_main_title: Single pane of glass
-main_section: Provision
+main_section: IT Ops
 sub_section: Before you start
 page_title: Single Pane of Glass (SPOG) View
 page_description: Features of Single Pane of Glass (SPOG) View

@@ -1,6 +1,6 @@
 page_main_title: cluster
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: cluster resource reference
 page_description: cluster resource reference
@@ -38,7 +38,7 @@ resources:
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
 	* [Google Cloud](/platform/integration/gcloudKey)
-	* [Kubernetes](/platform/integration/kubernetes-config)
+	* [Kubernetes](/platform/integration/kubernetes)
 	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/joyentTritonKey)
 
@@ -139,7 +139,7 @@ resources:
 	* [Docker Cloud](/platform/integration/dclKey)
 	* [Docker Datacenter](/platform/integration/ddcKey)
 	* [Google Cloud](/platform/integration/gcloudKey)
-	* [Kubernetes](/platform/integration/kubernetes-config)
+	* [Kubernetes](/platform/integration/kubernetes)
 	* [Node Cluster](/platform/integration/nodeCluster)
 	* [Joyent Triton](/platform/integration/joyentTritonKey)
 

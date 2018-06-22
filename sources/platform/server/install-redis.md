@@ -1,7 +1,6 @@
 page_main_title: Shippable Server - Install Redis
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Shippable Server - Install Redis
 page_description: Install Redis to handle websockets and www sessions
 page_keywords: ci, continuous integration, devops, docker, on-premises, enterprise, gitlab
@@ -38,7 +37,7 @@ You will need to click the **Apply** button after completing other sections.
 
 You can choose to install Redis on a separate server from the one where Admiral is installed.
 
-<img src="/images/platform/server/redis-new-node.png" alt="Installing Redis on the current node">
+<img width="50%" height="50%" src="/images/platform/server/redis-new-node.png" alt="Installing Redis on the current node">
 
 - Select **New Node** from the dropdown under `Install Secrets on` for **REDIS** in the **Control plane** panel.
 - Enter the IP address where you would like to install Redis.  This should be a supported OS machine with port 6379 accessible to the other Shippable components and services.
@@ -52,7 +51,7 @@ If you have an existing instance of Redis, either left over from a previous Ship
 
 To configure this:
 
-<img src="/images/platform/server/redis-existing.png" alt="Installing Redis on the current node">
+<img width="50%" height="50%" src="/images/platform/server/redis-existing.png" alt="Installing Redis on the current node">
 
 - Select **Existing** from the dropdown under `Install Redis on` for **REDIS** in the **Control plane** panel.
 - Enter the IP address of your Redis instance.  This should be a supported OS machine with port 6379 accessible to the other Shippable components and services.
@@ -69,4 +68,4 @@ Once Redis is initializing, you'll be able to view the configuration and logs.
 
 TThe **logs** button (paper clip icon) for **REDIS** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-redis-logs.png" alt="Redis logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-redis-logs.png" alt="Redis logs">

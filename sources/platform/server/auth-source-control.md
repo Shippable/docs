@@ -1,7 +1,6 @@
 page_main_title: Shippable Server authentication and source control
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Connect your source control | Shippable Server
 page_description: Connect your source control provider to Shippable server for authentication
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault

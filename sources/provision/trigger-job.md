@@ -1,5 +1,5 @@
 page_main_title: Triggering jobs
-main_section: Provision
+main_section: IT Ops
 sub_section: Before you start
 page_title: Triggering your jobs
 page_description: How to trigger jobs using both automated and manual triggers in Shippable

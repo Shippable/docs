@@ -1,7 +1,6 @@
 page_main_title: Troubleshooting a Shippable Server installation
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Installation instructions
+main_section: Shippable Server
+sub_section: Installation instructions
 page_title: Troubleshooting a Shippable Server installation
 page_description: Troubleshooting problems encountered during a Shippable Server installation
 page_keywords: ci, continuous integration, devops, docker, on-premises

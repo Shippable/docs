@@ -1,6 +1,6 @@
 page_main_title: Amazon ECS- Deploying a Docker application
-main_section: Deploy
-sub_section: Tutorials
+main_section: CD
+sub_section: Deploying containers using popular tools
 sub_sub_section: Amazon ECS
 page_title: Deploying to Amazon ECS
 page_description: How to deploy to Amazon ECS in Shippable
@@ -10,6 +10,8 @@ page_description: How to deploy to Amazon ECS in Shippable
 There are many strategies that can be used to deploy containers to [Amazon ECS](https://aws.amazon.com/ecs/) using Shippable Assembly Lines.  This page will describe how you can use the managed [**deploy job**](/platform/workflow/job/deploy/) to take a single Docker image and deploy it as an individual container to your cluster on Amazon ECS.
 
 For custom deployments using cloud-native CLIs, where you write all the deployment scripts yourself, check out our document on [Deploying to Amazon ECS with Cloud-Native CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/).
+
+For advanced scenarios using managed jobs, please refer to the docs on [Deploying containers with Shippable managed jobs](/deploy/deploy-docker-overview/).
 
 ## Assumptions
 

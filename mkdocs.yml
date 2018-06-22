@@ -122,15 +122,27 @@ pages:
     - Tutorials:
       - Build and push Docker image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
       - Building a custom Docker image to use for CI: ci/tutorial/build-custom-ci-image.md
-  - Deploy:
+      - Build and Push Java War to Nexus: ci/tutorial/build-push-java-war-nexus-maven.md
+      - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
+  - CD:
     - Before you start:
-      - Why deploy?: deploy/why-deploy.md
-      - Configuration: deploy/configuration.md
-      - Single pane of glass: deploy/single-pane-of-glass-spog.md
-      - Triggering deploy jobs: deploy/trigger-job.md
-      - Sending notifications: deploy/send-notifications.md
-      - Tracing resources: deploy/trace-pipeline.md
-    - Deploy to Container Orchestration Platforms:
+      - Overview: deploy/why-deploy.md
+      - Tutorials index: deploy/tutorials.md
+    - Deploying containers using popular tools:
+      - Amazon ECS:
+        - Using AWS CLI: deploy/deploy-amazon-ecs-cloud-native-cli.md
+        - Using Shippable managed jobs: deploy/amazon-ecs.md
+      - Kubernetes:
+        - Using kubectl: deploy/tutorial/deploy-to-self-kube-kubectl.md
+        - Using Shippable managed jobs: deploy/kubernetes.md
+      - GKE:
+        - Using kubectl: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
+        - Using Shippable managed jobs: deploy/gke.md
+      - AWS Elastic Beanstalk:
+        - Using EB CLI- Single container: deploy/aws-elastic-beanstalk.md
+        - Using EB CLI- Multiple containers: deploy/aws-elastic-beanstalk-multiple-containers.md
+        - Using EB CLI- Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
+    - Deploying containers using Shippable managed jobs:
       - Overview: deploy/deploy-docker-overview.md
       - Single Container Application: deploy/continuous-delivery-single-container-docker-application.md
       - Multi Container Application: deploy/continuous-delivery-multi-container-docker-application.md
@@ -155,63 +167,136 @@ pages:
         - Customizing deployed service names: deploy/customize-service-names.md
         - Pausing deployments: deploy/pause-deployments.md
         - Deleting a deployed service: deploy/deleting-a-service.md
-    - Deploy using Cloud Native CLI:
-      - Overview: deploy/deploy-cloud-native-overview.md
-      - Amazon ECS: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
-      - AWS Elastic Beanstalk:
-        - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
-        - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
-        - Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
-    - Deploy to VMs:
-      - Deploying from S3 to a single VM cluster: deploy/vm-basic.md
-      - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
-      - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
-      - Deploying from a git repository to a single VM cluster: deploy/vm-gitRepo.md
-      #- Deploying from Nexus to EC2 using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
-    - Tutorials:
-      - Amazon ECS:
-        - Single-container app: deploy/amazon-ecs.md
-        - Multi-container app: deploy/amazon-ecs-multiple-containers.md
         - Resetting a deploy job: deploy/amazon-ecs-deploy-reset.md
-      - Kubernetes:
-        - Single-container app: deploy/kubernetes.md
-        - Multi-container app: deploy/kubernetes-multiple-containers.md
-        - Multi-stage deployments: deploy/kube-multi-stage-deployments.md
-      - GKE:
-        - Single-container app: deploy/gke.md
-        # - Using custom pod templates: deploy/gke-custom-pods.md
-      - Docker Datacenter:
-        - Single-container app: deploy/docker-datacenter.md
-      - Docker Cloud:
-        - Single-container app: deploy/docker-cloud.md
-      - Azure DC/OS:
-        - Single-container app: deploy/azure-dcos.md
-  - Validate:
-    - Before you start:
-      - What is Validate?: validate/devops-validate.md
-      - Configuration: validate/configuration.md
-      - Single pane of glass: validate/single-pane-of-glass-spog.md
-      - Triggering jobs: validate/trigger-job.md
-      - Sending notifications: validate/send-notifications.md
-    - Running performance tests:
-      - Nouvola: validate/nouvola.md
-    - Running integration tests:
-      - Sauce Labs: validate/sauce-labs.md
-  - Release:
-    - Before you start:
-      - What is release management?: release/devops-release-management.md
-      - Configuration: release/configuration.md
-      - Single pane of glass: release/single-pane-of-glass-spog.md
-      - Triggering release jobs: release/trigger-job.md
-      - Sending notifications: release/send-notifications.md
-    - Creating a release:
-      - From Single Service/Component: release/single-component.md
-      - From Multiple Services/Components: release/mutiple-components.md
-      - From upstream releases: release/upstream-releases.md
+    - Deploying app packages to VMs:
+      - From S3: deploy/vm-basic.md
+      #- S3 to multiple VM clusters: deploy/vm-multiple-environments.md
+      - From JFrog Artifactory: deploy/vm-jfrog.md
+      - From Nexus: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
+      - From Git: deploy/vm-gitRepo.md
+    - Running test suites:
+      - Overview: validate/devops-validate.md
+      - Running performance tests with Nouvola: validate/nouvola.md
+      - Running integration tests with Sauce Labs: validate/sauce-labs.md
     - Managing release versions:
+      - Overview: release/devops-release-management.md
+      - Semantic versioning: release/single-component.md
       - Setting version number: release/set-version-number.md
       - Incrementing version numbers: release/increment-version-number.md
-  - Provision:
+  # - Deploy:
+  #   - Before you start:
+  #     - Why deploy?: deploy/why-deploy.md
+  #     - Configuration: deploy/configuration.md
+  #     - Single pane of glass: deploy/single-pane-of-glass-spog.md
+  #     - Triggering deploy jobs: deploy/trigger-job.md
+  #     - Sending notifications: deploy/send-notifications.md
+  #     - Tracing resources: deploy/trace-pipeline.md
+  #   - Deploy to Container Orchestration Platforms:
+  #     - Overview: deploy/deploy-docker-overview.md
+  #     - Single Container Application: deploy/continuous-delivery-single-container-docker-application.md
+  #     - Multi Container Application: deploy/continuous-delivery-multi-container-docker-application.md
+  #     - Deployment methods:
+  #       - Overview: deploy/deployment-methods-overview.md
+  #       - Blue-green: deploy/deployment-method-blue-green.md
+  #       - Upgrade: deploy/deployment-method-upgrade.md
+  #       - Replace: deploy/deployment-method-replace.md
+  #       - Parallel: deploy/deployment-method-parallel.md
+  #     - Using load balancers:
+  #       - Overview: deploy/lb-overview.md
+  #       - Amazon ECS Classic Load Balancer: deploy/lb-amazon-ecs-classic.md
+  #       - Amazon ECS Application Load Balancer: deploy/lb-amazon-ecs-app.md
+  #       - Kubernetes: deploy/lb-kubernetes.md
+  #       - GKE: deploy/lb-gke.md
+  #     - Advanced topics:
+  #       - Multi-stage deployments: deploy/multi-stage-deployments.md
+  #       - Gated deployments: deploy/gated-deployments.md
+  #       - Specifying the version to deploy: deploy/deploying-specific-version.md
+  #       - Rolling back deployments: deploy/rollback.md
+  #       - Sending notifications upon deployments: deploy/deployment-notifications.md
+  #       - Customizing deployed service names: deploy/customize-service-names.md
+  #       - Pausing deployments: deploy/pause-deployments.md
+  #       - Deleting a deployed service: deploy/deleting-a-service.md
+  #   - Deploy using Cloud Native CLI:
+  #     - Overview: deploy/deploy-cloud-native-overview.md
+  #     - Amazon ECS: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
+  #     - AWS Elastic Beanstalk:
+  #       - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
+  #       - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
+  #       - Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
+  #   - Deploy to VMs:
+  #     - Deploying from S3 to a single VM cluster: deploy/vm-basic.md
+  #     - Deploying from S3 to multiple VM clusters: deploy/vm-multiple-environments.md
+  #     - Deploying from JFrog Artifactory to a single VM cluster: deploy/vm-jfrog.md
+  #     - Deploying from a git repository to a single VM cluster: deploy/vm-gitRepo.md
+  #     #- Deploying from Nexus to EC2 using Ansible: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
+  #   - Tutorials:
+  #     - Amazon ECS:
+  #       - Single-container app: deploy/amazon-ecs.md
+  #       - Multi-container app: deploy/amazon-ecs-multiple-containers.md
+  #       - Resetting a deploy job: deploy/amazon-ecs-deploy-reset.md
+  #     - Kubernetes:
+  #       - Single-container app: deploy/kubernetes.md
+  #       - Multi-container app: deploy/kubernetes-multiple-containers.md
+  #       - Multi-stage deployments: deploy/kube-multi-stage-deployments.md
+  #     - GKE:
+  #       - Single-container app: deploy/gke.md
+  #       # - Using custom pod templates: deploy/gke-custom-pods.md
+  #     - Docker Datacenter:
+  #       - Single-container app: deploy/docker-datacenter.md
+  #     - Docker Cloud:
+  #       - Single-container app: deploy/docker-cloud.md
+  #     - Azure DC/OS:
+  #       - Single-container app: deploy/azure-dcos.md
+  # - Validate:
+  #   - Before you start:
+  #     - What is Validate?: validate/devops-validate.md
+  #     - Configuration: validate/configuration.md
+  #     - Single pane of glass: validate/single-pane-of-glass-spog.md
+  #     - Triggering jobs: validate/trigger-job.md
+  #     - Sending notifications: validate/send-notifications.md
+  #   - Running performance tests:
+  #     - Nouvola: validate/nouvola.md
+  #   - Running integration tests:
+  #     - Sauce Labs: validate/sauce-labs.md
+  # - Release:
+  #   - Before you start:
+  #     - What is release management?: release/devops-release-management.md
+  #     - Configuration: release/configuration.md
+  #     - Single pane of glass: release/single-pane-of-glass-spog.md
+  #     - Triggering release jobs: release/trigger-job.md
+  #     - Sending notifications: release/send-notifications.md
+  #   - Creating a release:
+  #     - From Single Service/Component: release/single-component.md
+  #     - From Multiple Services/Components: release/mutiple-components.md
+  #     - From upstream releases: release/upstream-releases.md
+  #   - Managing release versions:
+  #     - Setting version number: release/set-version-number.md
+  #     - Incrementing version numbers: release/increment-version-number.md
+  - Shippable Server:
+    - Before you start:
+      - Overview: platform/server/overview.md
+    - Installation instructions:
+      - Onebox pilot: platform/server/install-onebox.md
+      - Small to mid-sized teams:  platform/server/install-two-server.md
+      - Enterprise installations: platform/server/enterprise.md
+      - Upgrading Shippable Server: platform/server/upgrade.md
+      - Troubleshooting: platform/server/troubleshooting.md
+      - Installer reference: platform/server/install.md
+    - Configuration:
+      - Database: platform/server/install-db.md
+      - Secrets: platform/server/install-vault.md
+      - Message queue: platform/server/install-rabbitmq.md
+      - State Storage: platform/server/install-gitlab.md
+      - Redis: platform/server/install-redis.md
+      - Swarm: platform/server/install-swarm-workers.md
+      - Self-signed SSL certificates: platform/server/selfsigned-certificates.md
+      - Auth and source control: platform/server/auth-source-control.md
+      - Build config: platform/server/build-config.md
+      - System settings: platform/server/system-settings.md
+      - Services: platform/server/services.md
+      - Integrations: platform/server/integrations.md
+      - Manage admins: platform/server/superuser.md
+  - IT Ops:
     - Before you start:
       - What is provisioning: provision/why-infrastructure-provisioning.md
       - Configuration: provision/configuration.md
@@ -245,9 +330,11 @@ pages:
       - Provision with Ansible: provision/digital-ocean-with-ansible.md
   - Platform:
     - Overview: platform/overview.md
-    - Workflow:
-      - Overview: platform/workflow/overview.md
-      - Configuration: platform/workflow/config.md
+    - Reference: platform/reference.md
+    - Tutorials: platform/tutorials.md
+    - Configuration:
+      #- Overview: platform/workflow/overview.md
+      - YAML structure: platform/workflow/config.md
       - Resources:
         - Overview: platform/workflow/resource/overview.md
         - ciRepo: platform/workflow/resource/cirepo.md
@@ -403,29 +490,6 @@ pages:
         - Set up Integrations: platform/management/subscription/integrations.md
       - Project:
         - Settings: platform/management/project/settings.md
-    - Shippable Server:
-      - Overview: platform/server/overview.md
-      - Installation instructions:
-        - Onebox pilot: platform/server/install-onebox.md
-        - Small to mid-sized teams:  platform/server/install-two-server.md
-        - Enterprise installations: platform/server/enterprise.md
-        - Upgrading Shippable Server: platform/server/upgrade.md
-        - Troubleshooting: platform/server/troubleshooting.md
-        - Installer reference: platform/server/install.md
-      - Configuration:
-        - Database: platform/server/install-db.md
-        - Secrets: platform/server/install-vault.md
-        - Message queue: platform/server/install-rabbitmq.md
-        - State Storage: platform/server/install-gitlab.md
-        - Redis: platform/server/install-redis.md
-        - Swarm: platform/server/install-swarm-workers.md
-        - Self-signed SSL certificates: platform/server/selfsigned-certificates.md
-        - Auth and source control: platform/server/auth-source-control.md
-        - Build config: platform/server/build-config.md
-        - System settings: platform/server/system-settings.md
-        - Services: platform/server/services.md
-        - Integrations: platform/server/integrations.md
-        - Manage admins: platform/server/superuser.md
     - API:
       - Overview: platform/api/api-overview.md
       - Tokens: platform/api/api-tokens.md
@@ -506,12 +570,12 @@ pages:
       - Provision GCP virtual machines with Ansible: provision/tutorial/provision-gcp-vm-ansible.md
       - Provision an Amazon ECS cluster with Terraform: provision/tutorial/provision-aws-ecs-terraform.md
       - Provision GCP GKE cluster with gcloud: provision/tutorial/provision-gcp-gke-gcloud.md
-      - Deploy to Amazon ECS using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
+      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
+      - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
     - Drafts:
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
-      - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
-      - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
       - Deploy to Amazon ECS Fargate using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-fargate-awscli.md
+      - Deploy to Amazon ECS using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-awscli.md
     - Templates:
       - Deploying to Google Kubernetes Engine (GKE) using Helm: deploy/tutorial/deploy-to-gcp-gke-helm.md
       - Provision GCP virtual machines with Terraform: provision/tutorial/provision-gcp-vm-terraform.md

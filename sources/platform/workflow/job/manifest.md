@@ -1,6 +1,6 @@
 page_main_title: manifest
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - manifest
 page_description: List of supported jobs
@@ -60,7 +60,7 @@ jobs:
 
 * **`type`** -- is set to `manifest`.
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes)
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes)
 
 * **`steps `** -- is an object which contains specific instructions to run this Job.
 

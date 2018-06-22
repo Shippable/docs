@@ -1,6 +1,6 @@
 page_main_title: What is Validate?
-main_section: Validate
-sub_section: Before you start
+main_section: CD
+sub_section: Running test suites
 page_title: Validating your application
 page_description: How to validate your application in Shippable
 

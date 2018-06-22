@@ -1,5 +1,5 @@
 page_main_title: Configuration
-main_section: Provision
+main_section: IT Ops
 sub_section: Before you start
 page_title: Configuring Shippable pipelines through yml-based configuration files
 page_description: How to configure Shippable pipelines through yml-based configuration files

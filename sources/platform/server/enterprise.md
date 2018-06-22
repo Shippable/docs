@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Enterprise installations
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Installation instructions
+main_section: Shippable Server
+sub_section: Installation instructions
 page_title: Enterprise installations | Shippable Server
 page_description: Configuring builds for Shippable Server
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault

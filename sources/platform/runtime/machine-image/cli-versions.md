@@ -70,10 +70,10 @@ Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elas
 | 3.0.0     | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 2.0.37    | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Windows 16 |[v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 2.0.32    | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Windows 16 |[v6.5.4](/platform/runtime/machine-image/ami-v654/)
-| 2.0.30    | - windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
-| 2.0.27    | - CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
-| 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) 
-| 2.10.19   | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.10.2](/platform/runtime/machine-image/ami-v5102/)
+| 2.0.30    | - windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 2.0.27    | - CentOS 7 |  [v6.2.4](/platform/runtime/machine-image/ami-v624/)  to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 2.0.25    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 2.10.19   | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.10.4](/platform/runtime/machine-image/ami-v5104/)
 | 2.0.0.rc5 | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 2.0.12    | - Ubuntu 14.04 <br>- Ubuntu 16.04  | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 2.0.6     | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v5.7.3](/platform/runtime/machine-image/ami-v573/)
@@ -84,8 +84,7 @@ Please refer to the [Azure CLI Reference page](https://docs.microsoft.com/en-us/
 
 | Version  | OS |  Machine Images
 |----------|---------|-------------|
-| 17.10.0-ce | - Windows 16 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
-| 17.06.2-ee-5 | - Windows 16 |[v6.6.2](/platform/runtime/machine-image/ami-v662/)
+| 17.10.0-ce | - Windows 16 | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 17.06.0-ce | -  CentOS 7<br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br>- Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and later<br>[v5.8.2](/platform/runtime/machine-image/ami-v582/) and later <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) and later <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
 
@@ -133,7 +132,7 @@ Please refer to the [JFrog CLI User Guide](https://www.jfrog.com/confluence/disp
 | 1.10.0  | - Windows 16 <br>- CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br>  [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 1.9.0   | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 1.8.8   | - CentOS 7 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 1.8.0   | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>-  Ubuntu 16.04 (aarch64)  | [v5.10.2](/platform/runtime/machine-image/ami-v5102/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v5.10.2](/platform/runtime/machine-image/ami-v5102/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
+| 1.8.0   | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>-  Ubuntu 16.04 (aarch64)  | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to  [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 1.7.2  | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 1.5.1  | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch32) |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br>  [v6.3.4](/platform/runtime/machine-image/ami-v634/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 

@@ -104,7 +104,7 @@ restrictions' Under the 'Third-party application access policy' section.
 ---
 ## How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](/platform/management/git-identities/). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+Please read our documentation on [linking GitHub and Bitbucket accounts](/platform/management/account/git-identities/). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
 
 ---
 ## Why am I not able to see Bitbucket org repos after deleting and recreating my account on Shippable?

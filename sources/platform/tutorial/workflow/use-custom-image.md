@@ -29,7 +29,7 @@ We want to do our best to support your custom image, so please [open a support i
 
 ## Using a custom image for CI
 
-Please reference our CI tutorial on [using a custom image](/platform/) for step by step instructions.
+Please reference our CI tutorial on [using a custom image](/ci/custom-docker-image) for step by step instructions.
 
 ## Using a custom image in runSh
 

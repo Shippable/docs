@@ -7,8 +7,8 @@ This tutorial explains how to create a kubeconfig file to authenticate to a self
 
 It assumes that you have working knowledge of Docker and Kubernetes and understand the following concepts:
 
-* [Self hosting on GCP](https://kubernetes.io/docs/getting-started-guides/gce/)
-* [Self hosting on AWS](https://kubernetes.io/docs/getting-started-guides/aws/)
+* [Self hosting on GCP](https://devopscube.com/setup-kubernetes-cluster-google-cloud/)
+* [Self hosting on AWS](https://kubernetes.io/docs/setup/turnkey/aws/)
 * [kubeconfig files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 * [Configuring Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
@@ -41,7 +41,7 @@ You can create a service account by running the following command:
 kubectl create -f sa.yaml
 ```
 
-This will use your personal account to create the service account. Make sure your personal account has permissions to do this. 
+This will use your personal account to create the service account. Make sure your personal account has permissions to do this.
 
 ### Fetch the name of the secrets used by the service account
 This can be found by running the following command:
@@ -131,7 +131,7 @@ users:
 Copy two pieces of information from here `certificate-authority-data` and `server`
 
 
-### Create a kubeconfig file 
+### Create a kubeconfig file
 From the steps above, you should have the following pieces of information
 
 * token
@@ -172,7 +172,7 @@ If you want your client to use this context, copy sa-config to `$HOME/.kube` and
 kubectl config --kubeconfig=$HOME/.kube/sa-config set-context svcs-acct-context
 ```
 
-### Additinal steps for Hosted Kubernetes
+### Additional steps for Hosted Kubernetes
 If you want to use this type of auth with hosted solution, you might need to enable Legacy Authorization for the cluster
 
 * To do this on Google Kubernetes Engine

@@ -1,7 +1,6 @@
 page_main_title: Shippable Server - Install State storage
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Shippable Server - Install State storage
 page_description: Install Gitlab for storing state for Shippable Server
 page_keywords: ci, continuous integration, devops, docker, on-premises, enterprise, gitlab
@@ -38,7 +37,7 @@ You will need to click the **Apply** button after completing other sections.
 
 You can choose to install Gitlab on a separate server from the one where Admiral is installed. This will install GitLab CE version 8.9.6.
 
-<img src="/images/platform/server/gitlab-new-node.png" alt="Installing Gitlab on the current node">
+<img width="50%" height="50%" src="/images/platform/server/gitlab-new-node.png" alt="Installing Gitlab on the current node">
 
 - Select **New Node** from the dropdown under `Install State on` for **STATE** in the **Control plane** panel..
 - Enter a password for the root GitLab user.
@@ -53,7 +52,7 @@ If you have an existing instance of Gitlab, either left over from a previous Shi
 
 To configure this:
 
-<img src="/images/platform/server/gitlab-existing.png" alt="Installing Gitlab on the current node">
+<img width="50%" height="50%" src="/images/platform/server/gitlab-existing.png" alt="Installing Gitlab on the current node">
 
 - Select **Existing** from the dropdown under `Install State on` for **STATE** in the **Control plane** panel.
 - Enter a password for the root GitLab user.
@@ -71,4 +70,4 @@ Once GitLab is initializing, you'll be able to view the configuration and logs.
 
 The **Logs** button (paper clip icon) for **STATE** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-gitlab-logs.png" alt="GitLab logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-gitlab-logs.png" alt="GitLab logs">

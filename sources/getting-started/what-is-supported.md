@@ -125,7 +125,7 @@ Shippable supports a multitude of integrations into external providers. This mak
 - [AWS Elastic Beanstalk](/deploy/aws-elastic-beanstalk/)
 - [AWS Elastic Container Service](/platform/integration/aws-keys)
 - [Mesos DC/OS](/platform/integration/azureDcosKey)
-- [Kubernetes](/platform/integration/kubernetes-config)
+- [Kubernetes](/platform/integration/kubernetes)
 - [Google Container Engine](/platform/integration/gcloudKey)
 - [Azure Container Service](/platform/integration/azure-keys)
 - [Joyent Triton](/platform/integration/joyentTritonKey)
@@ -145,8 +145,8 @@ Shippable supports a multitude of integrations into external providers. This mak
 
 - [Slack](/platform/integration/slackKey)
 - [Hipchat](/platform/integration/hipchatKey)
-- [IRC](/platform/integration/irc)
-- [Email](/platform/integration/email)
+- IRC
+- Email
 - [Custom Webhooks](/platform/integration/webhook)
 
 ### PaaS Providers

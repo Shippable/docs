@@ -1,6 +1,6 @@
 page_main_title: Deploying from a git repository
-main_section: Deploy
-sub_section: Deploy to VMs
+main_section: CD
+sub_section: Deploying app packages to VMs
 page_title: Deploying an application to a VM Cluster from a git repository
 page_description: How to deploy an application to a VM Cluster from a git repository in Shippable
 
@@ -165,7 +165,7 @@ jobs:
 
   **You'll need to make sure your host machines have pre-installed all of the applications necessary to run your software.  In our case, we've pre-installed nodejs, npm, and forever on each host.**
 
-  If you do not want the deployment to be triggered automatically after CI, you can add `switch: off` to the `app_repo` input as described [here](/deploy/trigger-job/#switching-triggers-off) and trigger the deploy job manually.
+  If you do not want the deployment to be triggered automatically after CI, you can add `switch: off` to the `app_repo` input as described [here](/platform/tutorial/workflow/insert-approval-gate/) and trigger the deploy job manually.
 
 ###6. Trigger your pipeline
 

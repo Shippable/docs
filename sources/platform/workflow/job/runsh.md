@@ -1,6 +1,6 @@
 page_main_title: runSh
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - runSh
 page_description: List of supported jobs
@@ -107,7 +107,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 * **`triggerMode`** -- Optional, can be `parallel` or `serial` and  defaults to `serial`.  When set to `serial`, if this job is triggered multiple times, the resulting builds will be processed one at a time.  When set to `parallel`, the builds can run at the same time, up to the number of minions available to the subscription.  Please note that this can result in unpredictable behavior with regard to the job's [state information](/platform/tutorial/workflow/share-info-across-jobs/).
 
-* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/overview#trigger-modes).
+* **`dependencyMode`** -- Optional. This may be set to `immediate`, `strict` or `chrono`. For detailed explanation, read about [job triggering mechanisms](/platform/workflow/job/overview/#job-trigger-modes).
 
 * **`priority`** -- Optional. This may be set to any value from 0 to 10000 inclusive, with 0 being the highest priority and 10000 being the lowest priority. Queued jobs with higher priority will run before the queued jobs with lower priority. Default priority for all the jobs is 9999. This will not stop any processing jobs and will prioritize only queued jobs in your pipeline.
 
@@ -164,7 +164,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your `shippable.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
 Below is a sample yml using templates:
 ```
-templates: &template-script 
+templates: &template-script
   - echo "common-script 1"
   - echo "common-script 2"
   - echo "common-script 3"
@@ -218,14 +218,14 @@ Here is a list of the tools configured for each integration type:
 | ------------------------------------|-------------|
 | [AWS Keys](/platform/integration/aws-keys) | [AWS](/platform/runtime/machine-image/cli-versions/#aws) & [Elastic Beanstalk](/platform/runtime/machine-image/cli-versions/#aws-elastic-beanstalk) |
 | [AWS Keys with ECR scope](/platform/integration/aws-keys) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
-| [Azure](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
-| [Azure with AKS scope](/platform/integration/azure) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) & [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| [Azure](/platform/integration/azure-keys) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) |
+| [Azure with AKS scope](/platform/integration/azure-keys) | [Azure](/platform/runtime/machine-image/cli-versions/#azure) & [kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Docker Registry](/platform/integration/dockerRegistryLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [Google Cloud](/platform/integration/gcloudKey) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#google-cloud-platform) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Google Cloud with GKE scope](/platform/integration/gcloudKey) | [Google Cloud](/platform/runtime/machine-image/cli-versions/#google-cloud-platform) & [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Google Cloud with GCR scope](/platform/integration/gcloudKey) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | [JFrog](/platform/integration/jfrog-artifactoryKey) | [JFrog](/platform/runtime/machine-image/cli-versions/#jfrog) |
-| [Kubernetes](/platform/integration/kubernetes-config) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
+| [Kubernetes](/platform/integration/kubernetes) | [Kubectl](/platform/runtime/machine-image/cli-versions/#kubectl) |
 | [Quay](/platform/integration/quayLogin) | [Docker](/platform/runtime/machine-image/cli-versions/#docker) |
 | For all Integrations above | [Packer](/platform/runtime/machine-image/cli-versions/#packer) & [Terraform](/platform/runtime/machine-image/cli-versions/#terraform)|
 

@@ -1,6 +1,6 @@
 page_main_title: params
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: params resource reference
 page_description: params resource reference

@@ -1,6 +1,6 @@
 page_main_title: dockerOptions
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: dockerOptions resource reference
 page_description: dockerOptions resource reference
@@ -234,11 +234,11 @@ resources:
 `template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Google Container Engine
-Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
+Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/deprecated/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
 
 
 ##### Deploying with a Google Container Engine integration
-Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
+Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/deprecated/gke/).
 ```
 resources:
   - name: <string>
@@ -721,11 +721,11 @@ resources:
 `template`, `selector`,  and `strategy` are passthrough objects. These are defined in the Kubernetes DeploymentSpec v1beta2 apps API reference [here](https://kubernetes.io/docs/api-reference/v1.9/#deployment-v1beta2-apps). Any other fields in prior or later versions of the DeploymentSpec can also be specified, since these are passthrough.
 
 #### Google Container Engine
-Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
+Deployments made with [Google Cloud integrations](/platform/integration/gcloudKey/) utilize `deployment` objects and [Google Container Engine integrations](/platform/integration/deprecated/gke/) use `replicationControllers`, so deployments to GKE have different options depending on the integration used.
 
 
 ##### Deploying with a Google Container Engine integration
-Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/gke/).
+Top level docker options: Only one top level, `pod`, is currently supported for Google Container Engine with a [Google Container Engine integration](/platform/integration/deprecated/gke/).
 ```
 resources:
   - name: <string>

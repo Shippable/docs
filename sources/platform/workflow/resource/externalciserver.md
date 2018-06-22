@@ -1,6 +1,6 @@
 page_main_title: externalCIServer
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: externalCIServer resource reference
 page_description: How to integrate any job in your existing CI server with your Shippable assembly line using Shippable API?
