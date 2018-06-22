@@ -1,6 +1,6 @@
 page_main_title: manifest
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - manifest
 page_description: List of supported jobs

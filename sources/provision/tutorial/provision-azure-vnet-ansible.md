@@ -1,6 +1,6 @@
 page_main_title: Provision Azure Virtual Network with Ansible
-main_section: Tutorial
-sub_section: Azure
+main_section: IT Ops
+sub_section: Microsoft Azure infrastructure
 sub_sub_section: VNet
 page_title: Provision Azure Virtual Network with Ansible
 page_description: Provision Azure Virtual Network with Ansible

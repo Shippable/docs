@@ -1,7 +1,6 @@
 page_main_title: Shippable installer
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Admiral - Database Configuration
 page_description: Admiral Database Configuration
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, postgres
@@ -221,4 +220,4 @@ You can view database configuration by clicking on the **Control plane** in the 
 
 The **logs** button (paper clip icon) for **DATABASE** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-database-logs.png" alt="Database logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-database-logs.png" alt="Database logs">

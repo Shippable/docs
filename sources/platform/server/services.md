@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Scale Services
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Scale Services | Shippable Server
 page_description: Scale your services through Admiral UI
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault

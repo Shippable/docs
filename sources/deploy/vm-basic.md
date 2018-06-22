@@ -1,6 +1,6 @@
 page_main_title: Deploying artifacts
-main_section: Deploy
-sub_section: Deploy to VMs
+main_section: CD
+sub_section: Deploying app packages to VMs
 page_title: Deploying an application to a VM Cluster from AWS S3
 page_description: How to deploy an application to a VM Cluster from AWS S3 in Shippable
 

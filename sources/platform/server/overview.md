@@ -1,6 +1,6 @@
 page_main_title: Shippable Server overview
-main_section: Platform
-sub_section: Shippable Server
+main_section: Shippable Server
+sub_section: Before you start
 page_title: Shippable Server overview
 page_description: Run the Shippable CI/CD and DevOps platform on-premises behind your firewall
 page_keywords: ci, continuous integration, devops, docker, on-premises

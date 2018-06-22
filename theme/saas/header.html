@@ -36,7 +36,16 @@
         <li {% if "CI" in meta.main_section %} class="active" {% endif %}>
           <a href="/ci/why-continuous-integration/">CI</a>
         </li>
-        <li {% if "Deploy" in meta.main_section %} class="active" {% endif %}>
+        <li {% if "CD" in meta.main_section %} class="active" {% endif %}>
+          <a href="/deploy/why-deploy/">CD</a>
+        </li>
+        <li {% if "IT Ops" in meta.main_section %} class="active" {% endif %}>
+          <a href="/provision/why-infrastructure-provisioning">IT Ops</a>
+        </li>
+        <li {% if "Shippable Server" in meta.main_section %} class="active" {% endif %}>
+          <a href="/platform/server/overview">Shippable Server</a>
+        </li>
+        <!-- <li {% if "Deploy" in meta.main_section %} class="active" {% endif %}>
           <a href="/deploy/why-deploy/">Deploy</a>
         </li>
         <li {% if "Validate" in meta.main_section %} class="active" {% endif %}>
@@ -47,7 +56,7 @@
         </li>
         <li {% if "Provision" in meta.main_section %} class="active" {% endif %}>
           <a href="/provision/why-infrastructure-provisioning">Provision</a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <!--/.nav-collapse -->

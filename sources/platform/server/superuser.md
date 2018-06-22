@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Adding admins
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Adding admins | Shippable Server
 page_description: Add admins to your Shippable Server instance through Admiral
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault

@@ -1,5 +1,5 @@
 page_main_title: Provision Azure Virtual Network with Terraform
-main_section: Provision
+main_section: IT Ops
 sub_section: Microsoft Azure infrastructure
 sub_sub_section: Terraform
 page_title: Provision Azure Virtual Network with Terraform

@@ -1,7 +1,6 @@
 page_main_title: Shippable Server - Install RabbitMQ for Messaging
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Shippable Server - Install RabbitMQ
 page_description: Install RabbitMQ to handle messaging for Shippable Server
 page_keywords: ci, continuous integration, devops, docker, on-premises, enterprise, rabbitmq
@@ -38,7 +37,7 @@ You can choose to install RabbitMQ on a separate server from the one where Admir
 
 To configure this:
 
-<img src="/images/platform/server/rabbitmq-new-node.png" alt="Installing RabbitMQ on the current node">
+<img width="50%" height="50%" src="/images/platform/server/rabbitmq-new-node.png" alt="Installing RabbitMQ on the current node">
 
 - Select **New Node** from the dropdown under `Install RabbitMQ on` for **MESSAGING** in the **Control plane** panel..
 - Choose a password for RabbitMQ.
@@ -53,7 +52,7 @@ If you have an existing instance of RabbitMQ, either left over from a previous S
 
 To configure this:
 
-<img src="/images/platform/server/rabbitmq-existing.png" alt="Connecting to an existing RabbitMQ">
+<img width="50%" height="50%" src="/images/platform/server/rabbitmq-existing.png" alt="Connecting to an existing RabbitMQ">
 
 - Select **Existing** from the dropdown under `Install RabbitMQ on`for **MESSAGING** in the **Control plane** panel.
 - Enter a username and password for RabbitMQ.
@@ -74,4 +73,4 @@ After RabbitMQ is initialized, you'll be able to view the configuration and logs
 
 The **logs** button (paper clip icon) for **MESSAGING** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-rabbitmq-logs.png" alt="RabbitMQ logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-rabbitmq-logs.png" alt="RabbitMQ logs">

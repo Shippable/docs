@@ -1,5 +1,5 @@
 page_main_title: Sending notifications
-main_section: Provision
+main_section: IT Ops
 sub_section: Before you start
 page_title: Sending job status notifications
 page_description: How to send job status notifications in Shippable

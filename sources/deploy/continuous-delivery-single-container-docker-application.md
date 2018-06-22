@@ -1,6 +1,6 @@
 page_main_title: Continuous Deployment of a single container Docker application to an Orchestration Platform.
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 page_title: Continuous Deployment for a single container Docker application
 page_description: How to continuously deploy a single container Docker application
 

@@ -1,5 +1,5 @@
 page_main_title: Provision Kubernetes cluster on GKE with Google Cloud SDK (gcloud CLI)
-main_section: Provision
+main_section: IT Ops
 sub_section: Google Cloud infrastructure
 page_title: Provision Kubernetes cluster on GKE with Google Cloud SDK (gcloud CLI)
 page_description: How to provision Kubernetes cluster on GKE with Google Cloud SDK (gcloud CLI) in Shippable

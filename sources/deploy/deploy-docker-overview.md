@@ -1,6 +1,6 @@
 page_main_title: Deploying Docker applications to Container Orchestration Platforms
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 page_title: Deploy to Container Orchestration Platforms
 page_description: How to deploy to Container Orchestration Platforms in Shippable
 

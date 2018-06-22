@@ -1,5 +1,5 @@
 page_main_title: Provisioning Google Cloud with Ansible
-main_section: Provision
+main_section: IT Ops
 sub_section: Google Cloud infrastructure
 page_title: Provisioning Google Cloud infrastructure with Ansible
 page_description: How to provision Google Cloud infrastructure with Ansible in Shippable

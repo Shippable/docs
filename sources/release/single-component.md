@@ -1,6 +1,6 @@
 page_main_title: From Single Service/Component
-main_section: Release
-sub_section: Creating a release
+main_section: CD
+sub_section: Managing release versions
 page_title: Creating a release for a single service or component
 page_description: How to create a release for a single service / component in Shippable
 

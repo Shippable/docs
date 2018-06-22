@@ -1,6 +1,6 @@
 page_main_title: Sending notifications upon deployments.
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Advanced topics
 page_title: Sending notifications upon deployments
 page_description: How to send notifications upon deployments in Shippable

@@ -1,7 +1,6 @@
 page_main_title: Shippable Server - Install Vault for secrets
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configurationwidth="50%" height="50%"
 page_title: Shippable Server - Vault Configuration
 page_description: Admiral Vault Configuration
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, vault
@@ -36,7 +35,7 @@ You will need to click the **Apply** button after completing other sections.
 
 You can choose to install Vault on a separate server from the one where Admiral is installed. This is our recommended approach.
 
-<img src="/images/platform/server/vault-new-node.png" alt="Installing Vault on the current node">
+<img width="50%" height="50%" src="/images/platform/server/vault-new-node.png" alt="Installing Vault on the current node">
 
 - Select **New Node** from the dropdown under `Install Secrets on` for **SECRETS** in the **Control plane** panel.
 - Enter the IP address where you would like to install Vault.  This should be a supported OS machine with port 8200 accessible to the other Shippable components and services.
@@ -50,7 +49,7 @@ If you have an existing instance of Vault, either left over from a previous Ship
 
 To configure this:
 
-<img src="/images/platform/server/vault-existing.png" alt="Reusing an existing Vault instance">
+<img width="50%" height="50%" src="/images/platform/server/vault-existing.png" alt="Reusing an existing Vault instance">
 
 - Select **Existing** rom the dropdown under `Install Secrets on` for **SECRETS** in the **Control plane** panel.
 - Enter the IP address of your Vault instance.  This should be a supported OS machine with ports 8200 accessible to the other Shippable components and services.
@@ -67,7 +66,7 @@ Once Vault is initializing, you'll be able to view the configuration and logs.
 
 The **logs** button (paper clip icon) for **SECRETS** will show the logs from installation and initialization.
 
-<img src="/images/platform/admiral/admiral-vault-logs.png" alt="vault logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-vault-logs.png" alt="vault logs">
 
 ## Unsealing Vault
 

@@ -1,6 +1,6 @@
 page_main_title: release
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - release
 page_description: Create and increment semantic version for a service definition

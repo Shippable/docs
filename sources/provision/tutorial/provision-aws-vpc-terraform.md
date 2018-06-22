@@ -1,5 +1,5 @@
 page_description: Using Terraform to provision an AWS VPC
-main_section: Provision
+main_section: IT Ops
 sub_section: AWS infrastructure
 sub_sub_section: Provision a VPC
 

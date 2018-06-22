@@ -1,5 +1,5 @@
 page_main_title: Why deploy?
-main_section: Deploy
+main_section: CD
 sub_section: Before you start
 page_title: Deploying your application
 page_description: How to deploy your application in Shippable

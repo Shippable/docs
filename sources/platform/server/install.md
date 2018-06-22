@@ -1,7 +1,6 @@
 page_main_title: Installing Shippable Server
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Installation instructions
+main_section: Shippable Server
+sub_section: Installation instructions
 page_title: Admiral reference
 page_description: Reference page for installing the Shippable CI/CD and DevOps platform behind your firewall
 page_keywords: ci, continuous integration, devops, docker, on-premises

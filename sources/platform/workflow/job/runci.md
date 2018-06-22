@@ -1,6 +1,6 @@
 page_main_title: runCI
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: DevOps pipeline runCI job
 page_description: Description of the runCI job
