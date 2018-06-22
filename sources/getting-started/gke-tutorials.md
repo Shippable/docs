@@ -37,4 +37,4 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 * [GKE docs](https://cloud.google.com/container-engine/docs/)
 * [Shippable CI YML structure](/ci/yml-structure/)
-* [Shippable Workflow Docs](/platform/workflow/overview/)
+* [Shippable Workflow Docs](/platform/overview/)
