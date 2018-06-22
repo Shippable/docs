@@ -18,12 +18,14 @@ Some guidelines for determining the granularity of a job are:
 * A job should have a continuous workflow, with no stops in between. For example, if you need manual input for a step, it's best to separate that step into another job with an approval gate in between. This prevents your jobs from blocking a build node waiting for input.
 * For branch based workflows, it's best to separate jobs per branch (or branch type), so that you can easily identify status of each branch.
 
+## Example workflow: Pull requests
+
 Let's take a simple example of a typical workflow: For every merge to `master` branch, you want to run CI, build a Docker image and deploy to Kubernetes dev env if tests pass, run some additional tests against the deployed app, and send the test results back to your source control provider status API.
 
 1. You have feature branches that open PRs to the master branch. In the PR workflow, you want to run tests, build a Docker image and deploy to Kubernetes dev env if tests pass, run some additional tests against the deployed app, and send the test results back to your source control provider status API.
 2. On merges to `master` branch, you want to build a Docker images tagged with an incremental version, push this image to Docker Hub, deploy this image to Kubernetes test environment, and run some tests. If tests pass, you want to trigger the downstream workflow that deploys to Staging, etc.
 
-## Single job approach
+### Single job approach
 
 Let's consider the PR workflow to start with. Technically, you can bundle all these steps into one `runCI` or `runSh` job. Your Single Pane of Glass will look like this:
 
@@ -36,7 +38,7 @@ The approach above has the following characteristics:
 
 If you want to include the commit workflow in the same job, you can use `IF` statements to put everything in one job and your workflow will look just like the first option above. If the job is green or red, you have no way of knowing what passed or failed unless you dig into the logs.
 
-## Multiple jobs approach
+### Multiple jobs approach
 
 Let's look at an alternative approach to the same PR workflow:
 
@@ -48,4 +50,4 @@ Now, if you configure your commit workflow in a separate pipeline, here is how y
 
 <img src="/images/platform/tutorial/workflow/break-workflow-into-jobs-fig4.png" alt="Splitting up workflow into granular jobs">
 
-This is the recommended approach to give you enough granularity to be able to identify status, send notifications, and take a more workflow based approach. The platform is flexible enough to support both approaches, so this is one of the first decisions you'll need to make while designing your automation. 
+This is the recommended approach to give you enough granularity to be able to identify status, send notifications, and take a more workflow based approach. The platform is flexible enough to support both approaches, so this is one of the first decisions you'll need to make while designing your automation.
