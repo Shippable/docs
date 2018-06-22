@@ -28,8 +28,8 @@ This page lists the versions of CLI's available for each supported [OS](/platfor
 |----------|--------|--------|
 | 2.5.2 | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 2.4.4.0 | - CentOS 7 <br> | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
-| 2.4.3.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
-| 2.3.0.0 | - Ubuntu 14.04 <br> - Ubuntu 16.04 <br> - CentOS 7 <br> - Ubuntu 16.04(aarch32)  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  <br>  [v5.10.4](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) and later|
+| 2.4.3.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) |
+| 2.3.0.0 | - Ubuntu 14.04 <br> - Ubuntu 16.04 <br> - CentOS 7 <br> - Ubuntu 16.04(aarch32)  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  <br>  [v5.10.4](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
 Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/command_line_tools.html) for help with CLI commands.
 
@@ -40,7 +40,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 | 1.15.41   | - Windows 16 | [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 1.15.20   | - Windows 16 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 1.15.14   | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64)| [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
-| 1.15.3    | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br>- CentOS 7 <br>| [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 1.15.3    | - Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br>- CentOS 7 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.15.2    | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.91   | - Ubuntu 16.04 (aarch32) <br> | [v6.3.4](/platform/runtime/machine-image/ami-v644/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 1.14.64   | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v5104/)
@@ -97,7 +97,7 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 | 206.0.0  |  - Windows 16 |[v6.6.2](/platform/runtime/machine-image/ami-v662/)
 | 202.0.0  |  - Windows 16 | [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 | 200.0.0  |  - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>-  Ubuntu 16.04 (aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
-| 196.0.0  |  - Ubuntu 16.04 (aarch64) <br>-  Ubuntu 16.04 (aarch32) <br>- CentOS 7 <br>- Windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br>  [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 196.0.0  |  - Ubuntu 16.04 (aarch64) <br>-  Ubuntu 16.04 (aarch32) <br>- CentOS 7 <br>- Windows 16  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br>  [v6.4.4](/platform/runtime/machine-image/ami-v644/) <br>  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 194.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 189.0.0  |  - CentOS 7 <br>| [v6.2.4](/platform/runtime/machine-image/ami-v644/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
 | 173.0.0  |  - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
