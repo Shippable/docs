@@ -1,6 +1,6 @@
 page_main_title: Customizing deployed service names
-main_section: Deploy
-sub_section: Deploy to Container Orchestration Platforms
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Advanced topics
 page_title: Customizing deployed service names
 page_description: How to customizing deployed service names in Shippable

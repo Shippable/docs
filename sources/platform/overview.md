@@ -5,33 +5,38 @@ page_title: Platform Overview
 page_description: Overview of Shippable's DevOps Assembly Lines Platform and supported Usecases
 
 # Platform Overview
-There are a plethora of DevOps tools for infrastructure provisioning, configuration management, continuous integration, deployments and so on. Today, a majority of DevOps activities are being automated in functional silos, making the software delivery process disjointed. Valuable resources and time are spent trying to connect "Islands of Automation" with ad-hoc homegrown scripts. These scripts are brittle and cumbersome to create, maintain, and reuse. More importantly, they add friction to your Continuous Delivery initiative.
 
-So we came up with [Shippable's DevOps Assembly Lines Platform](https://www.shippable.com/devops-assembly-lines.html). The best way to visualize the platform is to think of it as an expanded view of the cube below:  
+Shippable's DevOps Assembly Lines platform helps you easily create event-driven, streamlined workflows across your tools and functional silos to help you ship code faster.
 
-<img src="/images/platform/assembly-lines.jpg" alt="Shippable DevOps Assembly Lines Platform" style="width:600px;"/>
+Most organizations have a diverse toolchain and several teams are involved in shipping software, such as Dev, Test, Ops, DevOps, SecOps, etc. While there are many tools that help automate activities like CI, infrastructure provisioning, config mgmt, multi-stage deployments, and so on, it is often difficult to connect these silo'ed tools into seamless Continuous Delivery workflows. Shippable's mission is to make that process as simple as possible so that every organization can ship their applications as frequently as a startup does.
 
-A cube is formed by 6 equal squares, so is our DevOps Platform.  With 6 equally important areas of focus, we believe we have a clear solution to "DevOps Nirvana."
+Most organizations follow the stages below when maturing their software delivery automation:
 
-## Facets of our DevOps platform
+<img src="/images/platform/devops-cd-maturity.png" alt="Shippable DevOps Assembly Lines Platform">
 
-### Use Cases
-DevOps activities span the entire Software Delivery Lifecycle. These are performed by many teams with a diverse set of tools. Most of these activities can be broadly classified into 5 buckets:
+Shippable helps you mature through these stages in a systematic fashion.
 
-- [Continuous Integration (CI)](/ci/why-continuous-integration/): For every code change, build, unit test, and package your application. You can also push your package to an endpoint, such as a PaaS/IaaS or artifact repository.
+## Workflow automation
 
-- [Validate](/validate/devops-validate/): Run functional/integration/performance tests when your application is deployed to a Test environment.
+A workflow is an event-driven dependency chart of **jobs**, which execute a DevOps activities (CI, deployments, infrastructure provisioning, etc) and **resources**, which hold the information needed for jobs to execute (credentials, key-value pairs, keys/tokens, etc).
 
-- [Release](/release/devops-release-management/): At any point in your workflow, apply a semantic version to your package to identify it. Configure approval gates for specific parts of the pipeline, such as production deployments.
+<img src="/images/pipelines-structure.png" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;" alt="DevOps workflows">
 
-- [Deploy](/deploy/why-deploy/): Deploy your application to any endpoint, including Docker orchestration platforms like Kubernetes or Amazon ECS, PaaS endpoints like AWS Elastic Beanstalk, or just a Virtual Machine cluster running on any cloud.
+Shippable helps you create workflows very easily with a simple declarative YAML-based language. The platform also manages state and job output information across the workflow so that all dependent jobs can access the information they need from upstream jobs in order to execute. This helps co-ordinate activities centrally across diverse DevOps tools and silo'ed teams without custom DIY scripts.
 
-- [Provision](/provision/why-infrastructure-provisioning/): Automate your provisioning workflows with Ansible, Terraform, Chef, or Puppet.
+Jobs and resources can connect to third party providers or services through [integrations](/platform/integration/overview/).
 
-Our DevOps platform makes it easy to automate activities in these buckets and easily connect them to achieve Continuous Delivery. It is highly flexible and provides a lot of native functionality while also integrating with your favorite tools.
+Workflows can be configured for a variety of scenarios, including:
 
-###Workflow
-[Workflow](workflow/overview) makes it easy to connect all of the "Islands of Automation" into DevOps assembly lines across all environments, projects, and tools. A workflow is a dependency chart where upstream activities broadcast events and job state to downstream activities. This helps co-ordinate tasks centrally across diverse DevOps tools without custom DIY scripts. The platform also manages state and job output information across the workflow so that all dependent jobs can access the information they need in order to execute.  Workflows are authored through a simple declarative yml-based language.
+* Set up simple Continuous Integration for your applications
+* Create streamlined Continuous Delivery workflows that connect all your CI/CD and DevOps activities across tools and functional silos
+* Automate IT Ops workflows like infrastructure provisioning, security patching, and image building
+
+In addition to the actual workflow logic, the platform also helps you do the following:
+
+* Efficiently managing your DevOps infrastructure
+* Securing workflows with abstracted secrets and RBAC
+* Measuring the effectiveness of your CI/CD and DevOps processes
 
 ### Integrations
 [Integrations](/platform/integration/overview) are used to connect your Shippable CI or CD workflows to third party platforms or services and manage secrets like keys, tokens, passwords that are needed for your applications. Integrations are created and owned by users, who then choose to make these integrations available to specific organizations/repositories for use in their CI or CD configuration.  
@@ -47,22 +52,28 @@ For example, if you have authored a job that copies a file to `S3`, Runtime will
 ### Management
 [Management](/platform/management/overview) gives you the ability to control the flow of deployable units across your entire Assembly Line. It gives you the option to implement "Automation with a human touch," i.e., **Jidoka**. Management can help with operational tasks like pausing or unpausing activities, rolling back, upgrading your deployment, managing runtime images, etc.
 
-##Configuration
+## Configuration
 
 Your Assembly Lines are defined through yml-based configuration files:
 
-**CI config**
+### CI config
 
-`shippable.yml` is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI. It must reside at the root of your repository. [Read more...](/platform/tutorial/workflow/shippable-yml/)
+A YAML based configuration file, **shippable.yml**, is used to configure your continuous integration (CI) workflow. This is the only file you need if you want to only use Shippable for CI. It must reside at the root of your repository. [Read more...](/platform/workflow/config/#ci-configuration)
 
 If you're using Shippable for CI only, follow [these instructions](/ci/enable-project/) to enable your repository.
 
-**Assembly Line config**
+### Assembly Line config
 
-The same `shippable.yml` file used for CI also contains definitions of the jobs, resources, and triggers in your Assembly Line. [Read more...](/platform/tutorial/workflow/shippable-yml/)
+An Assembly Line is an event-driven dependency workflow composed of **jobs**, **resources**, and **triggers**. If you want to set up workflows that require more complexity than running a small set of commands, or create workflows that are not tightly coupled with a single repository, you should create an Assembly Line to configure it.
 
-Assembly Line configuration files should be committed to a repository in your source control. This repository is called a **Sync repository**. If you have separate deployment pipelines for different environments or applications, you can put config files for each environment or application in separate repositories. You can add your Sync Repository by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/) tutorial.
+The same **shippable.yml** file used for CI also contains definitions of the jobs, resources, and triggers in your Assembly Line. [Read more...](/platform/workflow/config/#assembly-lines-configuration)
+
+Assembly Line configuration files can be committed to any repository in your source control. This repository is called a **Sync repository**. Jobs and resources defined in an Assembly Line are global across the Subscription (i.e. organization or team), so you can define your workflows across several repositories if needed.  
+
+You can add your Assembly Line config to Shippable by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/) tutorial. The platform will then parse the `jobs` and `resources` section of your config to create your workflows.
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)
 * [Quick Start to CD](/getting-started/cd-sample)
+* [Platform reference](/platform/reference)
+* [Platform tutorials](/platform/tutorials)

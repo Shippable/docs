@@ -424,7 +424,7 @@ menu,ol.shipNav,ul.shipNav {
 /* Subsection header styling */
 .subSectionHeader {
   color: #333;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .subSectionHeader::before {
@@ -622,6 +622,7 @@ div.swagger-ui-wrap div.container {
 
 .nav>li>a {
   padding: 5px 15px;
+  /*font-weight: 500;*/
 }
 
 .navbar-default.navbar-transparent .navbar-nav>li>a {

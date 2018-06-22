@@ -1,7 +1,7 @@
 page_main_title: Amazon ECS- Resetting your deployment
-main_section: Deploy
-sub_section: Tutorials
-sub_sub_section: Amazon ECS
+main_section: CD
+sub_section: Deploying containers using Shippable managed jobs
+sub_sub_section: Advanced topics
 page_title: Resetting an Amazon ECS Deployment
 page_description: How to reset an Amazon ECS Deployment in Shippable
 

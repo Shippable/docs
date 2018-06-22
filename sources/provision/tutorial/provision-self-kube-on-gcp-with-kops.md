@@ -1,6 +1,6 @@
 page_main_title: Provision Kubernetes cluster on GCP with KOPS
-main_section: Tutorial
-sub_section: GCP
+main_section: IT Ops
+sub_section: Google Cloud infrastructure
 sub_sub_section: Kubernetes
 page_title: Provision Kubernetes cluster on GCP with KOPS
 page_description: Provision Kubernetes cluster on GCP with KOPS

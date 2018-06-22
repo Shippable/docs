@@ -1,6 +1,7 @@
 page_description: Automated deployments to Amazon ECS using AWS CLI
-main_section: Deploy
-sub_section: Deploy using Cloud Native CLI
+main_section: CD
+sub_section: Deploying containers using popular tools
+sub_sub_section: Amazon ECS
 
 # Deploy to Amazon ECS using AWS CLI
 
@@ -41,7 +42,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 ### Step by Step Instructions
 
-The following sections explain the process of automating a workflow to continuously deploy a Docker container to AWS Fargate using native `AWS CLI` commands. We will demonstrate this with our sample application.
+The following sections explain the process of automating a workflow to continuously deploy a Docker container to Amazon ECS using native `AWS CLI` commands. We will demonstrate this with our sample application.
 
 **Source code is available at [devops-recipes/cd_replace_ecs_fargate_awscli](https://github.com/devops-recipes/cd_replace_ecs_fargate_awscli/)**
 

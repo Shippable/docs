@@ -1,6 +1,6 @@
 page_main_title: Provision Kubernetes cluster on AWS with KOPS
-main_section: Tutorial
-sub_section: AWS
+main_section: IT Ops
+sub_section: AWS infrastructure
 sub_sub_section: Kubernetes
 page_title: Provision Kubernetes on AWS with KOPS
 page_description: Provision Kubernetes cluster on AWS with KOPS

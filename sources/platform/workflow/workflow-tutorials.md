@@ -1,6 +1,6 @@
 page_main_title: Workflow tutorials
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 page_title: Workflow tutorials
 page_description: Workflow tutorials in Shippable
 

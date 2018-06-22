@@ -1,5 +1,5 @@
 page_main_title: Provisioning AWS infrastructure with Terraform
-main_section: Provision
+main_section: IT Ops
 sub_section: AWS infrastructure
 page_title: Provisioning AWS infrastructure with Terraform
 page_description: How to provision AWS infrastructure with Terraform in Shippable

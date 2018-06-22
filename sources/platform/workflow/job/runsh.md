@@ -1,6 +1,6 @@
 page_main_title: runSh
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Jobs
 page_title: Unified Pipeline Jobs - runSh
 page_description: List of supported jobs
@@ -164,7 +164,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your `shippable.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
 Below is a sample yml using templates:
 ```
-templates: &template-script 
+templates: &template-script
   - echo "common-script 1"
   - echo "common-script 2"
   - echo "common-script 3"

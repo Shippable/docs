@@ -1,6 +1,6 @@
 page_main_title: loadBalancer
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Resources
 page_title: loadBalancer resource reference
 page_description: loadBalancer resource reference

@@ -1,6 +1,7 @@
 page_description: Deploying a Dockerized Node.js app to GKE with kubectl
-main_section: Deploy
-sub_section: Kubernetes
+main_section: CD
+sub_section: Deploying containers using popular tools
+sub_sub_section: GKE
 
 # Deploy to Google Kubernetes Engine using kubectl
 

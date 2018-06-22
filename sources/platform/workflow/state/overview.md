@@ -1,6 +1,6 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: State
 page_title: State - DevOps Assembly Lines
 page_description: State(ful) workflow means that it is designed to remember the data from preceding events. Since DevOps automation is creating "Islands of Automation" due to fragmented tools, this component is a key element to achieve frictionless CI/CD.

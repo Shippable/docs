@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | System settings
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: System settings | Shippable Server
 page_description: System settings for Shippable Server
 page_keywords: docker, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation,

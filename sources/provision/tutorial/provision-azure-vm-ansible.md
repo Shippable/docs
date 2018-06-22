@@ -1,6 +1,6 @@
 page_main_title: Provision Azure VM with Ansible
-main_section: Tutorial
-sub_section: Azure
+main_section: IT Ops
+sub_section: Microsoft Azure infrastructure
 sub_sub_section: VM
 page_title: Provision Azure VM with Ansible
 page_description: Provision Azure VM with Ansible

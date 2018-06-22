@@ -1,6 +1,6 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 sub_sub_section: Triggers
 page_title: Unified Pipeline Jobs
 page_description: Triggers are used to manually start a Job.

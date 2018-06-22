@@ -5,6 +5,7 @@ page_title: Integrations overview
 page_description: Overview of all supported Integrations that connect your Shippable CI or CD workflows to third party platforms or services and manage secrets that might be needed by your applications
 
 # Integrations Overview
+
 Integrations are used to connect your Shippable CI or CD workflows to third party platforms or services and manage secrets that might be needed by your applications. They are owned by users of our platform and the scope feature allows you to decide which organizations/repos have access to use it in their DevOps activities.
 
 One the biggest benefits of using Shippable DevOps Assembly Line Integrations as opposed to using encrypted strings that contain the connection information is "Separation of Concerns." These are the problems of using encrypted strings:

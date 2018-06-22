@@ -1,5 +1,5 @@
 page_description: Provision a GKE cluster with gcloud SDK
-main_section: Provision
+main_section: IT Ops
 sub_section: Google Cloud infrastructure
 sub_sub_section: Provision GKE cluster
 

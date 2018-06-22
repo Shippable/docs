@@ -1,5 +1,5 @@
 page_main_title: Provisioning Digital Ocean infrastructure with Ansible
-main_section: Provision
+main_section: IT Ops
 sub_section: Digital Ocean infrastructure
 page_title: Provisioning Digital Ocean infrastructure with Ansible
 page_description: How to provision Digital Ocean infrastructure with Ansible in Shippable

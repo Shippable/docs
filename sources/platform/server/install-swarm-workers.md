@@ -1,7 +1,6 @@
 page_main_title: Shippable Server | Configuring Swarm Workers
-main_section: Platform
-sub_section: Shippable Server
-sub_sub_section: Configuration
+main_section: Shippable Server
+sub_section: Configuration
 page_title: Configuring Swarm Workers | Shippable Server
 page_description: Configure multiple Swarm worker for high availability
 page_keywords: docker, swarm, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
@@ -28,4 +27,4 @@ Configure all of the other infrastructure components how you would like them ins
 
 Once workers start initializing, you'll be able view the initialization logs by clicking the **Worker init logs** button.
 
-<img src="/images/platform/admiral/admiral-workers-logs.png" alt="Swarm worker logs">
+<img width="50%" height="50%" src="/images/platform/admiral/admiral-workers-logs.png" alt="Swarm worker logs">

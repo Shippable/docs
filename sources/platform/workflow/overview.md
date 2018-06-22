@@ -1,6 +1,6 @@
 page_main_title: Workflow Overview
 main_section: Platform
-sub_section: Workflow
+sub_section: Configuration
 page_title: Workflow Overview
 page_description: Overview of Workflows in Shippable
 
