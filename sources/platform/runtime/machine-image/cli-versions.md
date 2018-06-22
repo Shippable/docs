@@ -56,7 +56,7 @@ Please refer to the [AWS CLI page](https://aws.amazon.com/cli/) for help with CL
 | Version  |  OS |  Machine Images
 |----------|-----------|-----|
 | 3.12.4 | - Ubuntu 14.04  <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32)  | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to  [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) to  [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) to  [v6.6.2](/platform/runtime/machine-image/ami-v662/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/)
-| 3.11.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5102/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
+| 3.11.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 3.10.3 | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 3.9.0  | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04 (aarch64) <br>- Ubuntu 16.04 (aarch32) <br> | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier <br /> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.3.4](/platform/runtime/machine-image/ami-v634/) to  [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
