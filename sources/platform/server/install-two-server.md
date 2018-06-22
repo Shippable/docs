@@ -255,7 +255,7 @@ Admiral will continue running for a bit and install a whole bunch of things. You
 Please note down the `Login Token` and the IP address/port of the admin panel. You can run `sudo ./admiral.sh info` at any time to retrieve your Login token and Admiral URL.
 
 
-###3. Initialize Control pane
+###3. Initialize Control plane
 
 *  First, you need to connect to the Admiral web app in your browser by entering IP address and port, for example `http://54.172.2.206:50003`. It might be a good idea to bookmark this Admiral URL.
 
@@ -265,25 +265,21 @@ Please note down the `Login Token` and the IP address/port of the admin panel. Y
 
 * You will see a page like this, which indicates that none of the server components are initialized yet:
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-1.png">.
+<img src="/images/platform/tutorial/server/controlplane-two-server-1.png">.
 
 * No changes are needed for the **SWARM** section.
 
 * For the **Secrets** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**. Click on **Save changes**.
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-2.png" alt="Admiral-2-server">
+<img src="/images/platform/tutorial/server/controlplane-two-server-2.png" alt="admiral-two-server-install-secrets">
 
-* For the **Messaging** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**.
+* For the **Messaging** section, select **This Node** and change the password if you want to.
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-3.png">
+* For the **State** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**..
 
-*  For the **State** section, change the password if you so want to. Select **New Node**. Enter the IP address of **Server 2**. Check the box below the command, since we have already run the command earlier while installing the database on **Server 2**..
+<img src="/images/platform/tutorial/server/controlplane-two-server-3.png" alt="admiral-two-server-install-state">
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-4.png">
-
-* For the **Redis** section, select **New Node**. Enter an easy-to-remember password and the IP address of **Server 2**. Copy the command, run it on **Server 2**, and then check the box after you have run the command.
-
-<img src="/images/platform/tutorial/server/controlpane-two-server-5.png" alt="Admiral-2-server">
+* For the **Redis** section, select **This Node** and change the password if you want to.
 
 * Click on **Apply**.
 
@@ -293,7 +289,7 @@ Please note down the `Login Token` and the IP address/port of the admin panel. Y
 
 * Admiral will now start initializing all the components such as Database, Redis etc. If you scroll up, you can see the state of all the components in the `Summary` panel.
 
-<img src="/images/platform/tutorial/server/controlpane-two-server-6.png">
+<img src="/images/platform/tutorial/server/controlplane-two-server-4.png">
 
 * Once initialization is complete, you should see `Initialized` status for these sections (after collapsing those section panes).
 
@@ -316,7 +312,7 @@ authorization provider.
 
 * Click **Apply**.
 
-###3. Initialize Build pane
+###3. Initialize Build plane
 
 * Click on `Build plane` in the left navigation bar.
 
