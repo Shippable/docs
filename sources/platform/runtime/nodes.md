@@ -82,8 +82,8 @@ Complete control over your build machines, including SSH access, ability to choo
 
 You will need to do a few maintenance tasks if you are using BYON nodes:
 
-* [Attaching the nodes](/platform/tutorial/runtime/custom-nodes/#add-node) to your Subscription
-* Periodically [re-initializing the node](/platform/tutorial/runtime/custom-nodes/#reset-node) with latest software updates from Shippable
+* [Attaching the nodes](/platform/tutorial/runtime/manage-byon-nodes/#add-node) to your Subscription
+* Periodically [re-initializing the node](/platform/tutorial/runtime/manage-byon-nodes/#reset-node) with latest software updates from Shippable
 * Periodic node cleanup since the nodes stay up between jobs and the artifacts can build up over time
 
 ### Minimum requirements
@@ -118,4 +118,4 @@ If you choose to run your BYON Node on an unsupported OS like Alpine, please ens
 
 ### Tutorials
 
-Please read our [BYON Node tutorials](/platform/tutorial/runtime/custom-nodes/) to learn how to add a BYON node, re-initialize it, and delete it.
+Please read our [BYON Node tutorials](/platform/tutorial/runtime/manage-byon-nodes/) to learn how to add a BYON node, re-initialize it, and delete it.

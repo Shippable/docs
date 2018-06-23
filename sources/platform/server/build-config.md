@@ -61,7 +61,7 @@ To add system nodes, follow the instructions below:
 
 <img src="/images/platform/tutorial/server/system-nodes.png" alt="Admiral-2-server">
 
-* Follow instructions to add a node. You can follow guidelines [described at Step 6 onwards on the Add a node page](/platform/tutorial/runtime/custom-nodes/#adding-a-build-node)
+* Follow instructions to add a node. You can follow guidelines [described at Step 6 onwards on the Add a node page](/platform/tutorial/runtime/manage-byon-nodes/#adding-a-build-node)
 
 * Repeat these steps for the number of system nodes you want to add.
 
@@ -77,11 +77,11 @@ By default, Custom nodes are enabled for a Shippable Server installation. You wi
 
 #### **Adding a Custom node**
 
-Instructions to add BYON nodes are explained here: [Adding BYON nodes](/platform/tutorial/runtime/custom-nodes/).
+Instructions to add BYON nodes are explained here: [Adding BYON nodes](/platform/tutorial/runtime/manage-byon-nodes/).
 
 By default, all super users or Subscription owners can add BYON nodes to a Subscription. If you want to restrict addition of BYON Nodes to super users, check the **Restrict BYON node creation to admins only** checkbox in the Admiral UI.
 
-To set up Custom nodes, sign in to Shippable Server and [follow instructions here](/platform/tutorial/runtime/custom-nodes/).
+To set up Custom nodes, sign in to Shippable Server and [follow instructions here](/platform/tutorial/runtime/manage-byon-nodes/).
 
 #### **Disable Custom nodes**
 

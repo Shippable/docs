@@ -8,7 +8,7 @@ sub_section: Before you start
 
 ### Amazon ECS
 
-- [Deploy using AWS CLI](/deploy/tutorial/deploy-amazon-ecs-cloud-native-cli)
+- [Deploy using AWS CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/)
 
 ### Kubernetes
 
@@ -46,12 +46,12 @@ sub_section: Before you start
 ### Advanced scenarios
 - [Multi-stage deployments](/deploy/multi-stage-deployments)
 - [Gated deployments](/deploy/gated-deployments)
-- [Scaling service instances](/deploy/scale-service-instances)
-- [Customizing container options](/deploy/customizing-container-options)
-- [Setting environment variables inside deployed container](/deploy/set-environment-deployed-container)
+- [Customizing container options](/deploy/tutorial/customizing-container-options)
+- [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
+- [Scaling service instances](/deploy/tutorial/scaling-services)
 - [Specifying the version to deploy](/deploy/deploying-specific-version)
 - [Rolling back deployments](/deploy/rollback)
-- [Sending notifications upon deployments](/deploy/deployment-notifications.)
+- [Sending notifications upon deployments](/deploy/deployment-notifications)
 - [Customizing deployed service names](/deploy/customize-service-names)
 - [Pausing deployments](/deploy/pause-deployments)
 - [Deleting a deployed service](/deploy/deleting-a-service)
@@ -59,7 +59,6 @@ sub_section: Before you start
 ## Deploy non-container application packages
 
 - [Deploying from S3 to a single VM cluster](/deploy/vm-basic)
-- [Deploying from S3 to multiple VM clusters](/deploy/vm-multiple-environments)
 - [Deploying from JFrog Artifactory to a single VM cluster](/deploy/vm-jfrog)
 - [Deploying from a git repository to a single VM cluster](/deploy/vm-gitRepo)
 - [Deploying from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
