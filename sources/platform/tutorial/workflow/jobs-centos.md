@@ -28,7 +28,7 @@ To run runCI/runSh jobs on CentOS, you can use a Shippable provided on-demand no
 
 ## Setting up BYON Nodes
 
-The minimum requirements for BYON nodes are documented [here](/platform/tutorial/runtime/byon-windows/#minimum-requirements).
+The minimum requirements for BYON nodes are documented [here](/platform/tutorial/runtime/manage-byon-nodes/#centos).
 
 ###1. Purchase the BYON CentOS SKU
 
@@ -47,5 +47,5 @@ The minimum requirements for BYON nodes are documented [here](/platform/tutorial
 
 ###3. Initialize your BYON node
 
-* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#viewing-your-nodes).
-* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-centos/#adding-new-nodes).   
+* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#view-nodes).
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).   

@@ -9,7 +9,7 @@ page_title: Running jobs on Mac OS
 ##1. Provision a macOS 10.12 Sierra node.
 
 * To run iOS/Mac builds, you will first need to provision a macOS 10.12 Sierra machine in a private or public cloud. At this time, Shippable does not allow you to dynamically provision Mac nodes and we will be soon launching this functionality.
-The minimum requirements for the node are documented [here](/platform/tutorial/runtime/byon-macos/#minimum-requirements).
+The minimum requirements for the node are documented [here](/platform/tutorial/runtime/manage-byon-nodes/#macos).
 * Only runSh jobs are supported for iOS/Mac at this time.
 
 ##2. Purchase the Mac OS SKU
@@ -35,8 +35,8 @@ you can assign your runSh jobs to a specific Node pool.
 
 ##4. Initialize your BYON node
 
-* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-macos/#viewing-your-nodes).
-* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-macos/#adding-new-nodes).   
+* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#view-nodes).
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).   
 
 ##5. Define CI jobs and resources.
 

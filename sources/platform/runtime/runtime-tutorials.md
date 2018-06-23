@@ -11,7 +11,4 @@ sub_section: Runtime
 
 ## BYON nodes
 
-* [Managing Ubuntu nodes](/platform/tutorial/runtime/byon-ubuntu/)
-* [Managing Windows nodes](/platform/tutorial/runtime/byon-windows/)
-* [Managing CentOS nodes](/platform/tutorial/runtime/byon-centos/)
-* [Managing MacOS nodes](/platform/tutorial/runtime/byon-macos/)
+* [Managing BYON nodes](/platform/tutorial/runtime/manage-byon-nodes)

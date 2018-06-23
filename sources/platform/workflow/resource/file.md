@@ -86,7 +86,6 @@ resources:
 This resource is used in the following documented scenarios:
 
 * [Deploying an application to a VM Cluster from AWS S3](/deploy/vm-basic/)
-* [Deploying an application to multiple VM Clusters from AWS S3](/deploy/vm-multiple-environments/)
 * [Deploying an application to a VM Cluster from a JFrog Artifactory repository](/deploy/vm-jfrog/)
 
 

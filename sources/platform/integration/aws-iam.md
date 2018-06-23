@@ -30,7 +30,7 @@ The AWS IAM integration can be used in the following [resources](/platform/workf
 The main scenarios for using this integration are:
 
 * [Deploy a single container Docker application to Amazon ECS](/deploy/amazon-ecs/)
-* [Deploy a multiple container Docker application to Amazon ECS](/deploy/amazon-ecs-multiple-containers/)
+* [Deploy a multiple container Docker application to Amazon ECS](/deploy/continuous-delivery-multi-container-docker-application/)
 
 ### IAM Policies
 

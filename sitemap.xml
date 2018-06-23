@@ -973,27 +973,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/tutorial/runtime/custom-nodes/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-centos/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-macos/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-ubuntu/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/runtime/byon-windows/</loc>
+  <loc>http://docs.shippable.com/platform/tutorial/runtime/manage-byon-nodes/</loc>
   <lastmod>2018-03-06T06:43:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -1568,11 +1548,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/deploy/vm-multiple-environments/</loc>
-  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://docs.shippable.com/deploy/vm-jfrog/</loc>
   <lastmod>2018-03-06T06:43:26+00:00</lastmod>
   <priority>0.64</priority>
@@ -1580,11 +1555,6 @@
 <url>
   <loc>http://docs.shippable.com/deploy/vm-gitRepo/</loc>
   <lastmod>2018-03-06T06:43:26+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/deploy/amazon-ecs-multiple-containers/</loc>
-  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>

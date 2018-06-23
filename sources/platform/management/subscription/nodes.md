@@ -43,4 +43,4 @@ You can add a new node by clicking the `+` icon on the top right corner of **NOD
 ## Managing nodes
 
 You do not need to manage Shippable provided [On-demand Nodes](/platform/runtime/nodes/#dynamic-nodes/), since the platform does everything for you automatically.
-To manage BYON nodes, please read the [Using BYON Nodes document](/platform/tutorial/runtime/custom-nodes/)
+To manage BYON nodes, please read the [Using BYON Nodes document](/platform/tutorial/runtime/manage-byon-nodes/)

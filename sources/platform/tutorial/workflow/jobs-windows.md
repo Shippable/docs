@@ -48,8 +48,8 @@ You can use a Shippable provided on-demand node or bring your own node (BYON).
 
 ##3. Initialize your BYON node
 
-* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#viewing-your-nodes).
-* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/byon-windows/#adding-new-nodes).   
+* Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#view-nodes).
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).   
 
 ## Define CI jobs and resources.
 

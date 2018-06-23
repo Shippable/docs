@@ -32,7 +32,7 @@ Validate Assembly Line YAML structure before committing it to source control or 
 - [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm): While CI jobs send job status to source control by default, special configuration is needed for a similar workflow with runSh jobs.
 - [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job): Learn the different ways you can inject environment variables into a job.
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout): Default timeouts for jobs are 60 min for free subscriptions and 120 min for paid subscriptions. This tutorial shows how you can set a lower timeout for a job.
-- [Creating Jira issues](/platform/workflow/tutorial/create-jira-issues): If you use Jira to track bugs, this tutorial will teach you how to open tickets from within the Shippable UI.
+- [Creating Jira issues](/platform/tutorial/workflow/create-jira-issues): If you use Jira to track bugs, this tutorial will teach you how to open tickets from within the Shippable UI.
 - [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows): Learn how you can execute runSh jobs on Windows Server 2016.
 - [Running jobs on Mac OS](/platform/tutorial/workflow/jobs-macos): Learn how you can execute runSh jobs on MacOS.
 - [Running jobs on CentOS/RHEL7](/platform/tutorial/workflow/jobs-centos): Learn how you can execute runSh jobs on CentOS/RHEL7.

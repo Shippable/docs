@@ -35,7 +35,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job)
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)
 - [Using cliConfig for supported CLIs](/platform/tutorial/workflow/using-cliconfig)
-- [Creating Jira issues](/platform/workflow/tutorial/create-jira-issues)
+- [Creating Jira issues](/platform/tutorial/workflow/create-jira-issues)
 - [Using the shipctl utility to read/write to INs and OUTs](/platform/tutorial/workflow/using-shipctl)
 - [Running jobs on Windows Server 2016](/platform/tutorial/workflow/jobs-windows)
 - [Running jobs on Mac OS](/platform/tutorial/workflow/jobs-macos)
@@ -200,9 +200,9 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - Advanced scenarios:
     - [Multi-stage deployments](/deploy/multi-stage-deployments)
     - [Gated deployments](/deploy/gated-deployments)
-    - [Scaling service instances](/deploy/scale-service-instances)
-    - [Customizing container options](/deploy/customizing-container-options)
-    - [Setting environment variables inside deployed container](/deploy/set-environment-deployed-container)
+    - [Customizing container options](/deploy/tutorial/customizing-container-options)
+    - [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
+    - [Scaling service instances](/deploy/tutorial/scaling-services)
     - [Specifying the version to deploy](/deploy/deploying-specific-version)
     - [Rolling back deployments](/deploy/rollback)
     - [Sending notifications upon deployments](/deploy/deployment-notifications)
@@ -230,7 +230,6 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 ### Deployments to VMs
 
 - [Deploying from S3 to a single VM cluster](/deploy/vm-basic)
-- [Deploying from S3 to multiple VM clusters](/deploy/vm-multiple-environments)
 - [Deploying from JFrog Artifactory to a single VM cluster](/deploy/vm-jfrog)
 - [Deploying from a git repository to a single VM cluster](/deploy/vm-gitRepo)
 - [Deploying from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)

@@ -164,6 +164,9 @@ pages:
         - Specifying the version to deploy: deploy/deploying-specific-version.md
         - Rolling back deployments: deploy/rollback.md
         - Sending notifications upon deployments: deploy/deployment-notifications.md
+        - Customizing container options: deploy/tutorial/customizing-container-options.md
+        - Setting environment variables: deploy/tutorial/set-environment-deployed-container.md
+        - Scaling service instances: deploy/tutorial/scaling-services.md
         - Customizing deployed service names: deploy/customize-service-names.md
         - Pausing deployments: deploy/pause-deployments.md
         - Deleting a deployed service: deploy/deleting-a-service.md
@@ -510,6 +513,7 @@ pages:
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md
         - Run job directly on node: platform/tutorial/workflow/run-job-on-node.md
         - Run job on a specific node pool: platform/tutorial/workflow/run-job-on-specific-node-pool.md
+        - Execute a job against specific IN versions: platform/tutorial/workflow/pin-versions.md
         - Using a custom Docker image: platform/tutorial/workflow/use-custom-image.md
         - Creating Jira issues from CI and assembly line jobs: platform/tutorial/workflow/create-jira-issues.md
         - Filtering your SPOG view: platform/tutorial/workflow/filter-spog-view.md
@@ -532,11 +536,7 @@ pages:
       - Runtime:
         - Turn on node caching: platform/tutorial/runtime/turn-on-node-caching.md
         - Managing node pools: platform/tutorial/runtime/manage-node-pools.md
-        - BYON Nodes: platform/tutorial/runtime/custom-nodes.md
-        - CentOS BYON Nodes: platform/tutorial/runtime/byon-centos.md
-        - macOS BYON Nodes: platform/tutorial/runtime/byon-macos.md
-        - Ubuntu BYON Nodes: platform/tutorial/runtime/byon-ubuntu.md
-        - Windows BYON Nodes: platform/tutorial/runtime/byon-windows.md
+        - BYON Nodes: platform/tutorial/runtime/manage-byon-nodes.md
       - Security:
          - Encrypting information: platform/tutorial/security/encrypt-vars.md
       - Glossary:
