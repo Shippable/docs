@@ -79,6 +79,7 @@ In addition, the Job itself comes with its own default set of variables. This is
 | BUILD_JOB_NUMBER    						| Sequential number of the Job |
 | SUBSCRIPTION_ID    						| Shippable ID that represents git organization uniquely |
 | JOB_PATH    								| The path of the directory containing files critical for this job |
+| JOB_TRIGGERED_BY_NAME       | The job or resource that triggered this job |
 | JOB_STATE      							| The location of the `state` directory for this job|
 | JOB_PREVIOUS_STATE 						| The location of the directory containing the `state` information from when the job last ran. |
 

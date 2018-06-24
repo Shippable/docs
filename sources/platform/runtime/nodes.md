@@ -114,7 +114,7 @@ If you choose to run your BYON Node on an unsupported OS like Alpine, please ens
 * bash
 * python2.7
 * /proc/sys/kernel/uuid
-* apt-get // this is used to install further dependencies like git and openssh-client
+* apt-get (this is used to install further dependencies like git and openssh-client)
 
 ### Tutorials
 

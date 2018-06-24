@@ -125,9 +125,8 @@ pages:
       - Build and Push Java War to Nexus: ci/tutorial/build-push-java-war-nexus-maven.md
       - Build and Push image to Jfrog: ci/tutorial/build-push-image-to-jfrog.md
   - CD:
-    - Before you start:
-      - Overview: deploy/why-deploy.md
-      - Tutorials index: deploy/tutorials.md
+    - Overview: deploy/continuous-delivery.md
+    - Tutorials index: deploy/tutorials.md
     - Deploying containers using popular tools:
       - Amazon ECS:
         - Using AWS CLI: deploy/deploy-amazon-ecs-cloud-native-cli.md
@@ -300,12 +299,8 @@ pages:
       - Integrations: platform/server/integrations.md
       - Manage admins: platform/server/superuser.md
   - IT Ops:
-    - Before you start:
-      - What is provisioning: provision/why-infrastructure-provisioning.md
-      - Configuration: provision/configuration.md
-      - Single pane of glass: provision/single-pane-of-glass-spog.md
-      - Triggering jobs: provision/trigger-job.md
-      - Sending notifications: provision/send-notifications.md
+    - Overview: provision/why-infrastructure-provisioning.md
+    - Tutorials: provision/tutorials.md
     - AWS infrastructure:
       - Provision EC2 machines:
         - Ansible: provision/tutorial/provision-aws-ec2-ansible.md

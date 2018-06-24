@@ -7,8 +7,8 @@ sub_sub_section: Runtime
 
 Shippable supports two node types:
 
-* [On demand](/platform/runtime/nodes/#dynamic-nodes/) nodes that are provided by Shippable
-* [BYON nodes](/platform/runtime/nodes/#custom-nodes) that are provided by you and can be inside your VPC
+* [On demand](/platform/runtime/nodes/#on-demand-nodes) nodes that are provided by Shippable
+* [BYON nodes](/platform/runtime/nodes/#byon-nodes) that are provided by you and can be inside your VPC
 
 The main reasons for choosing BYON are usually the following:
 
