@@ -103,7 +103,7 @@ added to the node pool when they're provisioned. For creating node pools
 containing On-demand nodes, no additional steps are required.
 
 * [BYON nodes](/platform/runtime/nodes/#byon-nodes) need to be manually added
-  to the node pools when creating them. Refer to the documentation on [BYON nodes](/platform/runtime/nodes/#byon-nodes) for steps to add new nodes.
+  to the node pools when creating them. Refer to the documentation on [BYON nodes](/platform/tutorial/runtime/manage-byon-nodes) for steps to add new nodes.
 
 <a name="view-node-pool"></a>
 ### Removing nodes from node pools
@@ -112,4 +112,4 @@ containing On-demand nodes, no additional steps are required.
   only the new node count as the maximum limit for the nodes it can provision.
 
 * To remove [BYON nodes](/platform/runtime/nodes/#byon-nodes) from node pools,
-  delete individual nodes from their respective node pools. Refer to the documentation on [BYON nodes](/platform/runtime/nodes/#byon-nodes) for steps to delete nodes.
+  delete individual nodes from their respective node pools. Refer to the documentation on [BYON nodes](/platform/tutorial/runtime/manage-byon-nodes) for steps to delete nodes.

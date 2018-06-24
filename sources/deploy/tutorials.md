@@ -18,11 +18,11 @@ sub_section: Before you start
 
 - [Deploy using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
 
+### AWS Elastic Beanstalk
 
-- AWS Elastic Beanstalk:
-    - Deploying single-container environments: deploy/aws-elastic-beanstalk.md
-    - Deploying multi-container environments: deploy/aws-elastic-beanstalk-multiple-containers.md
-    - Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
+- [Deploying single-container environments](/deploy/aws-elastic-beanstalk)
+- [Deploying multi-container environments](/deploy/aws-elastic-beanstalk-multiple-containers)
+- [Multi-stage deployments](/deploy/aws-elastic-beanstalk-multiple-environments)
 
 ## Deploy containers using Shippable managed jobs
 
@@ -62,3 +62,16 @@ sub_section: Before you start
 - [Deploying from JFrog Artifactory to a single VM cluster](/deploy/vm-jfrog)
 - [Deploying from a git repository to a single VM cluster](/deploy/vm-gitRepo)
 - [Deploying from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
+
+## Run test suites
+
+- [Overview](/validate/devops-validate/)
+- [Running Performance tests using Nouvola](/validate/nouvola)
+- [Running integration tests with Sauce Labs](/validate/sauce-labs)
+
+## Manage release versions
+
+- [Overview](/release/devops-release-management/)
+- [Create a release from a single component](/release/single-component)
+- [Setting version number](/release/set-version-number)
+- [Incrementing version numbers](/release/increment-version-number)

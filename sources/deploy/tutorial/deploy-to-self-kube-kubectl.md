@@ -35,15 +35,15 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 
 * [Platform overview](/platform/overview/)
 * [Integrations](/platform/integration/overview/)
-  * [Kubernetes](/platform/integration/kubernetes)
-  * [Docker Registry](/platform/integration/dockerRegistryLogin)
-  * [Github](/platform/integration/github)
+    * [Kubernetes](/platform/integration/kubernetes)
+    * [Docker Registry](/platform/integration/dockerRegistryLogin)
+    * [Github](/platform/integration/github)
 * [Resources](/platform/workflow/resource/overview/)
-  * [image](/platform/workflow/resource/image)
-  * [gitRepo](/platform/workflow/resource/gitrepo)
-  * [cliConfig](/platform/workflow/resource/cliconfig)
+    * [image](/platform/workflow/resource/image)
+    * [gitRepo](/platform/workflow/resource/gitrepo)
+    * [cliConfig](/platform/workflow/resource/cliconfig)
 * [Jobs](/platform/workflow/job/overview/)
-  * [runSh](/platform/workflow/job/runsh)
+    * [runSh](/platform/workflow/job/runsh)
 
 This example extends the work done in our CI tutorial to [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub) by adding an Assembly Line that deploys the application to GKE.
 
