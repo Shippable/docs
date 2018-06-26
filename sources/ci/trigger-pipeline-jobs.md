@@ -1,8 +1,7 @@
-page_main_title: Triggering other jobs after CI
+page_description: Trigger Assembly Line jobs after CI finishes
 main_section: CI
-sub_section: Overview
-page_title: Triggering other jobs after CI
-page_description: How to trigger other jobs after the CI job completes
+sub_section: Configuration
+sub_sub_section: Advanced config
 
 # Triggering other jobs after CI
 

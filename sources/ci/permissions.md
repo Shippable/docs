@@ -1,7 +1,7 @@
 page_main_title: Permissions
 main_section: CI
 sub_section: Configuration
-sub_sub_section: Overview
+sub_sub_section: Advanced config
 page_title: Role based access control for Shippable subscription and repositories
 page_description: Role based access control for Shippable subscription and repositories
 

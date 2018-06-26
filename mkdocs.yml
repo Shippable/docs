@@ -28,13 +28,10 @@ pages:
       - Deploy your first app: getting-started/cd-sample.md
     - FAQ: getting-started/support.md
   - CI:
-    - Overview:
-      - Why CI?: ci/why-continuous-integration.md
-      - Enabling a project: ci/enable-project.md
-      - Triggering your CI job: ci/trigger-job.md
-      - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
-      - Permissions: ci/permissions.md
-      - Troubleshooting: ci/troubleshooting.md
+    - CI overview: ci/why-continuous-integration.md
+    - Enabling a project: ci/enable-project.md
+    - Triggering your CI job: ci/trigger-job.md
+    - Tutorials: ci/tutorials.md
     - Configuration:
       - Yml structure: ci/yml-structure.md
       - Preparing your environment:
@@ -105,6 +102,8 @@ pages:
         - Running builds as non-root user: ci/non-root.md
         - Triggering webhooks: ci/webhook.md
         - Triggering parallel jobs: ci/matrix-builds.md
+        - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
+        - Managing roles and permissions: ci/permissions.md
       - Language guide:
         - Overview: ci/supported-languages.md
         - Node.js: ci/nodejs-continuous-integration.md
@@ -119,6 +118,7 @@ pages:
         - Unsupported languages: ci/unsupported-languages.md
     - Debugging:
       - SSH Access to Build Machine: ci/ssh-access.md
+      - Troubleshooting: ci/troubleshooting.md
     - Tutorials:
       - Build and push Docker image to Docker Hub: ci/tutorial/build-push-image-to-docker-hub.md
       - Building a custom Docker image to use for CI: ci/tutorial/build-custom-ci-image.md
