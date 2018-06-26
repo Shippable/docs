@@ -25,13 +25,9 @@ DevOps activities span the entire Software Delivery Lifecycle. These are perform
 
 - [Continuous Integration (CI)](ci/why-continuous-integration/): For every code change, build, unit test, and package your application. You can also push your package to a PaaS/IaaS or artifact repository.
 
-- [Validate](validate/devops-validate/): Run functional/integration/performance tests when your application is deployed to a Test environment
+- [Continuous Delivery (CD)](deploy/continuous-delivery/): Create event-driven workflows for application release automation, with multi-stage deployments, semantic versioning, and execution of test suites.
 
-- [Release](release/devops-release-management/): At any point in your workflow, apply a semantic version to your package to identify it. Configure approval gates for specific parts of the pipeline, such as production deployments.
-
-- [Deploy](deploy/why-deploy/): Deploy your application to any endpoint, including Docker orchestration platforms like Kubernetes or Amazon ECS, PaaS endpoints like AWS Elastic Beanstalk, or just a Virtual Machine cluster running on any cloud.
-
-- [Provision](provision/why-infrastructure-provisioning/): Automate your provisioning workflows with Ansible, Terraform, Puppet, or Chef.
+- [IT Operations](provision/why-infrastructure-provisioning/): Automate your infrastructure provisioning, image building, and security patching workflows with Ansible, Terraform, Puppet, or Chef. Connect IT Ops and CD workflows to create a dependency graph that eliminates the need for manual exchange of information.
 
 Shippable makes it easy to automate activities in these buckets and then connect them to achieve Continuous Delivery. It is highly flexible and provides a lot of native functionality, while also integrating with your favorite tools.
 
@@ -41,9 +37,9 @@ We have optimized the platform for DevOps with a bunch of [pre-defined Jobs](pla
 
 ## How do I get Shippable?
 
-Shippable is available as a Hosted SaaS offering as well as a Server.
+Shippable is available as a [Hosted SaaS offering](https://app.shippable.com) as well as a [Server](/platform/server/overview).
 
-There is also a third hybrid option through BYON Nodes, where build orchestration happens through the SaaS service, but your jobs run on your own nodes.
+There is also a third hybrid option through [BYON Nodes](/platform/runtime/nodes), where build orchestration happens through the SaaS service, but your jobs run on your own nodes.
 
 ### Using Shippable SaaS
 
@@ -53,14 +49,22 @@ If you want the benefits of using a SaaS platform, but still want to run your jo
 
 
 ### Using Shippable Server
-Shippable is also available as a Server. Please visit our <a href="https://www.shippable.com/enterprise.html">Enterprise</a> page for more information. Instructions on installing Server are [available here](/platform/server/install/). We offer a 30 day free pilot license for Shippable Server to help organizations evaluate it.
+Shippable is also available as a Server. Please visit our <a href="https://www.shippable.com/enterprise.html">Enterprise</a> page for more information. Instructions on installing Server are [available here](/platform/server/overview/). We offer a 30 day free pilot license for Shippable Server to help organizations evaluate it.
 
 
 ## How is this documentation structured?
 
 We believe achieving Continuous Delivery through DevOps is a journey that needs a systematic approach. The idea is to automate the different buckets of DevOps activities mentioned above in a structured manner.
 
-As a result, we have structured our documentation to mimic DevOps use case buckets. You can choose to embark on this journey across any or all of these buckets, depending on what your organization needs. On the other hand, if you want to understand everything that the Platform does, there is a dedicated section that gives you an overview of the [Platform](platform/overview).
+As a result, we have structured documentation as follows:
+
+* The [Platform section](/platform/overview) provides an overview of all platform components, a [reference to config and definitions](/platform/reference), and a [list of base tutorials](/platform/tutorials) that will be useful regardless of your specific scenario.
+
+* The [CI section](/ci/why-continuous-integration) explains the config needed for basic CI workflows, and includes a set of tutorials for common scenarios.
+
+* The [CD section](/deploy/continuous-delivery) contains tutorials for Docker and non-Docker deployments, running test suites, and managing semantic versions for releases.
+
+* If you need to run Shippable on-premises, you should check out the [Shippable Server](/platform/server/overview) docs for guidance with installation and config.
 
 ## Some core concepts
 These are some of the core concepts that we use across the docs.

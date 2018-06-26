@@ -1,9 +1,6 @@
-page_main_title: CI Troubleshooting
+page_description: Troubleshooting common CI issues
 main_section: CI
-sub_section: Troubleshooting
-page_title: Troubleshoot Continuous Integration
-page_description: Commonly asked questions that will help with troubleshooting
-page_keywords: concepts, documentation, shippable, CI/CD
+sub_section: Debugging
 
 #Troubleshooting Errors
 
