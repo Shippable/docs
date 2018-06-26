@@ -195,7 +195,7 @@ We have the following base images, one for each supported OS version.
   | Ubuntu 16.04 | drydock/u16cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/u16cppall) | - gcc 8.0.1<br>- clang 6.0.0 | - [Common components](#common-662)<br>- Java 1.8.0<br>- Node 8.11.3<br>- Ruby 2.5.1 |
   | Ubuntu 14.04 | drydock/u14cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [GitHub](https://github.com/dry-dock/u14cppall) | - gcc 8.0.1<br>- clang 6.0.0 | - [Common components](#common-662)<br>- Java 1.8.0<br>- Node 8.11.3<br>- Ruby 2.5.1  |
   | Ubuntu 16.04 | drydockaarch64/u16cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/aarch64_u16cppall) | - gcc 8.0.1<br>- clang 6.0.0 | - [Common components](#common-662)<br>- Java 1.8.0<br>- Node 8.11.3<br>- Ruby 2.5.1  |
-  | CentOS 7 | drydock/c7cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.2.1<br>- clang 5.0.1 | - [Common components](#common-662)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.5.1   |
+  | CentOS 7 | drydock/c7cppall:v6.6.2 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 7.3.1<br>- clang 5.0.1 | - [Common components](#common-662)<br>- Java 1.8.0<br>- Node 9.11.1<br>- Ruby 2.5.1   |
 
 <a name="dotnet-662"></a>
 
