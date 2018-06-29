@@ -31,7 +31,7 @@ pages:
     - CI overview: ci/why-continuous-integration.md
     - Enabling a project: ci/enable-project.md
     - Triggering your CI job: ci/trigger-job.md
-    - Tutorials: ci/tutorials.md
+    - Tutorials index: ci/tutorials.md
     - Configuration:
       - Yml structure: ci/yml-structure.md
       - Preparing your environment:
@@ -300,7 +300,7 @@ pages:
       - Manage admins: platform/server/superuser.md
   - IT Ops:
     - Overview: provision/why-infrastructure-provisioning.md
-    - Tutorials: provision/tutorials.md
+    - Tutorials index: provision/tutorials.md
     - AWS infrastructure:
       - Provision EC2 machines:
         - Ansible: provision/tutorial/provision-aws-ec2-ansible.md
@@ -329,7 +329,7 @@ pages:
   - Platform:
     - Overview: platform/overview.md
     - Reference: platform/reference.md
-    - Tutorials: platform/tutorials.md
+    - Tutorials index: platform/tutorials.md
     - Configuration:
       #- Overview: platform/workflow/overview.md
       - YAML structure: platform/workflow/config.md

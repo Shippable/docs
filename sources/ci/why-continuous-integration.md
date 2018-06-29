@@ -36,10 +36,11 @@ Shippable automatically builds and tests your repositories when the following tr
 
 *  commit webhook
 *  webhook for a pull request opened for an enabled repository
-*  webhook for a git tag push event (GitHub only, turned off by default)
-*  webhook for a release event (GitHub only, turned off by default)
+*  webhook for a git tag push event (Turned off by default)
+*  webhook for a release event (Turned off by default)
+*  a new version of an `IN` job or resource is detected (only if you've made your CI job [part of an Assembly Line workflow](/ci/trigger-pipeline-jobs/))
 
-You can also initiate manual builds through the UI, by clicking on the Build button for any project or branch, irrespective of a webhook event.
+You can also initiate manual builds through the UI, by clicking on the **Build** button for any project or branch, irrespective of a webhook event.
 
 To learn how to switch some of these triggers off, read about the configuration in [Triggering your CI](trigger-job/).
 
