@@ -37,7 +37,7 @@ pages:
       - Preparing your environment:
         - Setting language and runtime: ci/set-language.md
         - Choosing a build image: ci/build-image.md
-        - Specifying branches to build: ci/specify-branches.md
+        - Specifying branches/tags to build: ci/specify-branches.md
         - Working with env variables: ci/env-vars.md
       - Working with services:
         - Overview: ci/services-overview.md
