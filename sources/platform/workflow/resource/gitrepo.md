@@ -162,11 +162,11 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_COMMIT            			| SHA of the commit of the version being used. |
 | `<NAME>`\_COMMIT\_MESSAGE    			| Commit message of the version being used. |
 | `<NAME>`\_COMMITTER         			| Name of the committer for the SHA being used. |
-| `<NAME>`\_GIT\_TAG\_NAME      			| If a tag name was present in the current version, this will be the tag name. Supported only if the integration is GitHub.|
+| `<NAME>`\_GIT\_TAG\_NAME      			| If a tag name was present in the current version, this will be the tag name. |
 | `<NAME>`\_HEAD\_BRANCH       			| If the version in context is a pull requests, then this is the name of the branch the pull request was opened from. |
 | `<NAME>`\_HTTPS\_URL       				| The HTTPS URL for the Git repository. |
 | `<NAME>`\_INTEGRATION\_`<FIELDNAME>`	| Values from the integration that was used. More info on the specific integration page. |
-| `<NAME>`\_IS\_GIT\_TAG        			| Set to `TRUE` if the version in context is a git tag based build. Supported only if the integration is GitHub. |
+| `<NAME>`\_IS\_GIT\_TAG        			| Set to `TRUE` if the version in context is a git tag based build. |
 | `<NAME>`\_IS\_RELEASE        			| Set to `TRUE` if the version in context is a git release based build. Supported only if the integration is GitHub. |
 | `<NAME>`\_KEYPATH           			| Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo. |
 | `<NAME>`\_OPERATION 						| The operation of the resource; either `IN` or `OUT`. |
