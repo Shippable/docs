@@ -211,7 +211,7 @@ Manually trigger your CI project or commit a change to the application git repos
 
 CI is a developer focused activity that produces a deployable unit of your application, a WAR file in this instance. If you want to add a Continuous Delivery workflow which deploys your application into successive environments like Test, Staging, Production and runs test suites, the downstream jobs performing these activities will need to know where to find your WAR file.
 
-This section shows how you can output your WAR information into a `params` resource which can be used by downstream jobs.
+This section shows how you can output your WAR information into a `params` resource which can be used by downstream jobs. This section also shows about using an already available [Sonatype Nexus repository installed in a GCP VM](/provision/tutorial/provision-nexus-with-gcloudcli) to deploy the war packages with the help of Shippable Assembly lines.
 
 ### Concepts
 
@@ -268,8 +268,11 @@ jobs:
     steps:
       - IN: build_custom_ci_img_dh
       - OUT: war_loc
+      - IN: gcp_nexus_info
 
 ```
+
+The resource named `gcp_nexus_info` is defined at [devops-recipes/install_gce_nexus](https://github.com/devops-recipes/install_gce_nexus) and a tutorial about [Provisioning Sonatype Nexus with Gcloud cli](/provision/tutorial/provision-nexus-with-gcloudcli) is available for reference.
 
 #####1c. Update war_loc in CI config
 
@@ -280,6 +283,22 @@ build:
   on_success:
     - shipctl put_resource_state_multi war_loc "versionName=$artifact_version" "artifact_version=$artifact_version" "group_id=$group_id" "artifact_id=$artifact_id"
     - shipctl put_resource_state_multi war_loc "artifact_extension=$artifact_extension" "repository_url=$repository_url" "build_nbr=$BUILD_NUMBER"
+```
+
+#####1d. Use `gcp_nexus_info` resource to obtain Nexus URL
+
+```
+build:
+  ci:
+    - export nexus_url="http://${NEXUS_HOST}"
+    - export repository_url=$nexus_url"/"$artifact_repo
+    - |
+       mkdir -p $ship_test_res_loc
+       mkdir -p ~/.m2
+    - shipctl replace temp/settings.xml pom.xml
+    - cp temp/settings.xml ~/.m2/.
+    - mvn -q -B clean install deploy
+    - ls -al $SHIPPABLE_BUILD_DIR/target
 ```
 
 ####2. Push changes to shippable.yml
