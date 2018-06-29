@@ -2,7 +2,7 @@ page_main_title: Triggering your CI job
 main_section: CI
 sub_section: Overview
 page_title: Triggering your CI job
-page_description: How to trigger a Shippable CI job 
+page_description: How to trigger a Shippable CI job
 
 #Triggering your CI job
 
@@ -38,9 +38,13 @@ You can enable or disable triggering of builds for your project based on specifi
 
 To do this:
 
-- Go to your Project in the UI and click on the **wrench icon** which will render all your project settings.
+- Go to your Project in the UI and click on the **Gears icon** which will render all your project settings.
 
-<img src="/images/ci/project-settings.png" alt="Configure webhook events to trigger builds">
+Gears icon:
+<img width="80%" height="80%" src="/images/ci/trigger-job-fig2.png" alt="Configure webhook events to trigger builds">
+
+Project Settings:<br/>
+<img src="/images/ci/trigger-job-fig1.png" alt="Configure webhook events to trigger builds">
 
 - You can configure the following:
     - **Pull Requests**: Default value is **Enabled**. Every pull request triggers a build on Shippable when opened. Toggle the control to stop the triggering of builds for pull requests.
@@ -51,13 +55,13 @@ events, toggle the control.This feature is supported only for GitHub.
 
 ## Pausing your project
 
-You can 'Pause' a project to stop triggering builds for all webhook events. You will still be able to trigger a build manually.
+You can 'Pause' a project to stop triggering builds for all events, including webhooks and Assembly Line triggers, by toggling the **Process Webhooks** option in Project Settings. You will still be able to trigger a build manually.
 
 You can 'Resume' a paused project at any time, which will re-establish webhooks and builds will be triggered as expected.
 
 ## Serializing jobs for a project
 
-You can disable parallel jobs for a allows you to restrict job processing based on branch name.
+You can disable parallel jobs for any project, if you don't want concurrent execution in spite of available build nodes.
 
 When this setting is disabled, any waiting job will not begin until all processing
 jobs have completed.
@@ -65,7 +69,7 @@ jobs have completed.
 You can further customize this by selecting the specific branches that you don't
 want running in parallel.
 
-<img src="/images/ci/project-settings.png" alt="Run Parallel Jobs">
+<img src="/images/ci/trigger-job-fig1.png" alt="Run Parallel Jobs">
 
 In this example, if jobs are triggered simultaneously for branches `master` and
 `prtest`, only one job will be allowed to run at a time, even if the subscription
