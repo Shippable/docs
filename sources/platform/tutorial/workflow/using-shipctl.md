@@ -674,6 +674,12 @@ shipctl get_git_changes <--path|--resource>
 - `--directories-only` lists only the directories containing changes.
 - `--depth` returns file/folder at certain depth. Root directory has depth value 1.
 
+**Example**
+
+```
+CHANGED_MICROSERVICES=$(shipctl get_git_changes --resource="monoRepo-gitRepo" --directories-only)
+```
+
 ### get_json_value
 
 **Description**
