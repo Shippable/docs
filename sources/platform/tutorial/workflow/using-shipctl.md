@@ -677,7 +677,7 @@ shipctl get_git_changes <--path|--resource>
 **Example**
 
 ```
-CHANGED_MICROSERVICES=$(shipctl get_git_changes --resource="monoRepo-gitRepo" --directories-only)
+CHANGED_MICROSERVICES=$(shipctl get_git_changes --resource="monoRepo-gitRepo" --directories-only --depth=1)
 ```
 
 ### get_json_value
