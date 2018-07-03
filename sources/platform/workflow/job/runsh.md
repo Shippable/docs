@@ -278,7 +278,8 @@ jobs:
     type: runSh
     steps:
     - TASK:
-        script: |
+        script:
+          - |
             echo foo
             trap "" ERR
             sl
@@ -299,11 +300,12 @@ jobs:
     type: runSh
     steps:
     - TASK:
-        script: |
+        script:
+          - |
             trap "" EXIT
             exit 0
 ```
-will result in the build getting failed.
+will result in a failed build.
 
 ## Further Reading
 * [runSh tutorial with many examples](/platform/tutorial/workflow/using-runSh)
