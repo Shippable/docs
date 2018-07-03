@@ -8,9 +8,9 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # externalCI
 
-The `externalCI` job is a representation of your continuous integration jobs in other CI servers such as Jenkins in Shippable Assembly Line. This job is used to integrate any job in your existing CI server with your Shippable assembly line so that you can easily view all the job metadata such as job name, status code, start and stop timestamps in your Shippable dashboard. You can also trigger upstream jobs by adding this job in your `shippable.yml` and specifying this it as IN step to the jobs you want to trigger.
+The `externalCI` job is a representation of your continuous integration jobs in other CI servers such as Jenkins in Shippable Assembly Line. This job is used to integrate any job in your existing CI server with your Shippable assembly line so that you can easily view all the job metadata such as job name, status code, start and stop timestamps in your Shippable dashboard. You can also trigger upstream jobs by adding this job in your **shippable.yml** and specifying this it as IN step to the jobs you want to trigger.
 
-You can create a `externalCI` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml`:
+You can create a `externalCI` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to **shippable.yml**:
 
 ```
 jobs:
@@ -43,7 +43,7 @@ Body:
 }
 ```
 
-* **`jobName`** -- is name of the externalCI job for which you want to update status. If this job is not added in `shippable.yml` then we create it.
+* **`jobName`** -- is name of the externalCI job for which you want to update status. If this job is not added in **shippable.yml** then we create it.
 
 * **`statusCode`** -- is the status code of the external build. Status can only be `processing`(4001), `success`(4002) or `failure`(4003.
 

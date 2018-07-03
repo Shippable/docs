@@ -9,7 +9,7 @@ page_description: How to replicate an IN resource to an OUT in Shippable
 
 You might want to update a resource with a copy of another resource in your job.  For example, if you have two image resources and want to update the second with the same tag as the first at the end of your job.  To do this, you can use the `replicate` option.
 
-Let us assume you want to copy the tag from myImage to myNewImage. This can be accomplished with the following `shippable.yml`:
+Let us assume you want to copy the tag from myImage to myNewImage. This can be accomplished with the following **shippable.yml**:
 
 ```
 jobs:

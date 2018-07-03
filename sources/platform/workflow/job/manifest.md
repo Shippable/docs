@@ -20,7 +20,7 @@ A `manifest` can contain the following:
 
 A `manifest` is always deployed as a whole i.e. if it contains multiple images/files, all the images/files will be deployed even if only one changed. If you want them to deployed independently, you should create multiple manifests to represent them.
 
-You can create a `manifest` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml`.
+You can create a `manifest` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to **shippable.yml**.
 
 ## YML Definition
 

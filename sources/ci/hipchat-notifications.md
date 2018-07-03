@@ -37,7 +37,7 @@ There are 2 steps to add a Hipchat integration: Generating an API token for Hipc
 
 ##Basic config
 
-Once you have completed the Setup steps, you are ready to configure your `shippable.yml` to send Hipchat notifications. The basic configuration looks like this:
+Once you have completed the Setup steps, you are ready to configure your **shippable.yml** to send Hipchat notifications. The basic configuration looks like this:
 
 
 ```
@@ -120,7 +120,7 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 ##Removing Hipchat notifications
 
-To stop sending Hipchat notifications, simply remove the configuration from the `shippable.yml` for that project.
+To stop sending Hipchat notifications, simply remove the configuration from the **shippable.yml** for that project.
 
 If you are not using your Hipchat notification anywhere else, you can delete it from your Account Integrations list as well.
 

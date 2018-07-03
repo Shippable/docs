@@ -77,9 +77,9 @@ that represents the options of the application container.
 
 The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
-* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the**shippable.yml** file.
 
 This file should be committed to your source control. Step 8 of the workflow below will describe how to add the config to Shippable.
 
@@ -312,7 +312,7 @@ jobs:
 
 ###8. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have the `shippable.yml` file as described above, commit it to your repository. You can then [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. You can then [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ###9. Trigger your pipeline
 

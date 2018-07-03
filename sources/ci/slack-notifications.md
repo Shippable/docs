@@ -32,7 +32,7 @@ There are 2 steps to add a Slack integration: Configuring the webhook on Slack, 
 
 ##Basic config
 
-Once you have completed the Setup steps, you are ready to configure your `shippable.yml` to send Slack notifications. The basic configuration looks like this:
+Once you have completed the Setup steps, you are ready to configure your **shippable.yml** to send Slack notifications. The basic configuration looks like this:
 
 
 ```
@@ -114,7 +114,7 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 ##Removing Slack notifications
 
-To stop sending Slack notifications, simply remove the configuration from the `shippable.yml` for that project.
+To stop sending Slack notifications, simply remove the configuration from the **shippable.yml** for that project.
 
 If you are not using your Slack notification anywhere else, you can delete it from your Account Integrations list as well.
 

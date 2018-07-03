@@ -11,7 +11,7 @@ CouchDB is pre-installed on all our official build images. However, we do not st
 
 ##Starting CouchDB
 
-To start CouchDB, include the following in your `shippable.yml`:
+To start CouchDB, include the following in your **shippable.yml**:
 
 ```
 services:

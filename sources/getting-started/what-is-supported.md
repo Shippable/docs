@@ -37,7 +37,7 @@ The platform is designed to work across multiple operating systems. We natively 
 
 ## Language
 
-For all OS versions, we maintain language-specific images that are updated every month so that the latest and greatest versions are always available. Please note that the right language image is automatically chosen for your [CI jobs](/ci/set-language/) based on the `language` tag in your `shippable.yml`
+For all OS versions, we maintain language-specific images that are updated every month so that the latest and greatest versions are always available. Please note that the right language image is automatically chosen for your [CI jobs](/ci/set-language/) based on the `language` tag in your **shippable.yml**
 
 We support the following languages:
 

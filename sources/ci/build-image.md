@@ -11,7 +11,7 @@ When a build is triggered on Shippable, we spin up a machine on AWS using the Ma
 
 The AMI used to spin up the AWS machine is called the **Machine Image**.
 
-Each Machine Image contains Shippable Official Docker Images for all languages. By default, a Shippable Official Docker Image is used for your CI job, depending on the `language` tag in your `shippable.yml`. In most cases, this is sufficient to run your builds. You can view our [complete list of Machine Images](/platform/runtime/machine-image/ami-overview/), and click on any image to view what is installed on the image, including a detailed description of the Shippable Official Docker Image for each language.
+Each Machine Image contains Shippable Official Docker Images for all languages. By default, a Shippable Official Docker Image is used for your CI job, depending on the `language` tag in your **shippable.yml**. In most cases, this is sufficient to run your builds. You can view our [complete list of Machine Images](/platform/runtime/machine-image/ami-overview/), and click on any image to view what is installed on the image, including a detailed description of the Shippable Official Docker Image for each language.
 
 To view the current Machine Image for your Subscription or to change it, read the [Manage machine image section](#manage-machine-image) below.
 
@@ -68,7 +68,7 @@ Shippable uses the `docker run` command to spin up your build container. By defa
 sudo docker run -d --privileged=true --net=bridge -v <volumes> --entrypoint=/home/shippable/cexec/build.sh -e <env variables> imageName:tag
 ```
 
-You can customize this by specifying the options you want in the `pre_ci_boot` section of your `shippable.yml`. For a complete list of options that can be specified for `docker run`, please consult the [Docker reference document](https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources).
+You can customize this by specifying the options you want in the `pre_ci_boot` section of your **shippable.yml**. For a complete list of options that can be specified for `docker run`, please consult the [Docker reference document](https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources).
 
 **Please remember that if you customize options in the `pre_ci_boot` section, we will not set the `--privileged=true --net=bridge` options while calling the docker run command. If you want to run your container in privileged mode or to create a network stack on the default Docker bridge, you will need to specify this in `pre_ci_boot` if you need them.**
 

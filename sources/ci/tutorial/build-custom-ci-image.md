@@ -90,7 +90,7 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 
 #####1b. Add `Github` Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`).
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**).
 
 In our case, we're using the repository [`build_custom_ci_image`](https://github.com/devops-recipes/build_custom_ci_image).
 
@@ -100,9 +100,9 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 ####2. Author Assembly Line configuration
 
-The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called `shippable.yml`, which is parsed to create your Assembly Line workflow.
+The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
 
-Detailed documentation on `shippable.yml` is [here](/platform/workflow/config/#assembly-lines-configuration).
+Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
 #####2a. Add empty shippable.yml to your repo
 
@@ -112,7 +112,7 @@ Add an empty config file to the the root of your repository.
 
 `resources` section holds the information that is necessary to push the image to Docker Hub. In this case we have two resources defined of type `image` and `gitRepo`.
 
-Add the following to `shippable.yml`:
+Add the following to **shippable.yml**:
 
 ```
 resources:
@@ -154,7 +154,7 @@ A job is an execution unit of the Assembly Line. Our job has to perform two task
 
 ######i. `job` named `build_custom_img`
 
-Add the following to `shippable.yml`:
+Add the following to **shippable.yml**:
 
 ```
 jobs:
@@ -198,13 +198,13 @@ Detailed info about Shippable Utility functions are [here](/platform/tutorial/wo
 
 #####2d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable Subscription
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
@@ -220,7 +220,7 @@ Manually run the job only once by right clicking on the job. You can look at the
 
 If you want to use this image to run CI for your application, you'll need to provide the image as an `IN` for the CI job and use the image information in the `pre_ci_boot` section.
 
-An example of this is in our [**java_web_app**](https://github.com/devops-recipes/java_web_app/blob/master/shippable.yml) repository. The relevant `shippable.yml` configuration for your application is as follows:
+An example of this is in our [**java_web_app**](https://github.com/devops-recipes/java_web_app/blob/master/shippable.yml) repository. The relevant **shippable.yml** configuration for your application is as follows:
 
 ```
 language: java
@@ -258,7 +258,7 @@ jobs:
 * The `ci` section contains commands that execute your CI workflow. Since this is just a simple example, we're just printing a string here.
 * The `jobs` section simply wraps your CI config into an Assembly Line `runCI` job and provides the image resource `build_custom_ci_img_dh` as an `IN` so that we can extract the custom image information in the `pre_ci` section.
 
-Commit these `shippable.yml` changes to your application repository.
+Commit these **shippable.yml** changes to your application repository.
 
 **Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)**
 

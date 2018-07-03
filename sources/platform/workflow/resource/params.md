@@ -8,7 +8,7 @@ page_description: params resource reference
 # params
 `params` resource stores user defined key-value pairs. This can be then be injected into a job runtime environment where your DevOps activity runs or can set environment variables of your deploy target (VMs or containers).
 
-You can create a `params` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `params` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)
@@ -89,7 +89,7 @@ Whenever `params` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a se
 
 ## Resource Templating
 
-Since the key/value pairs from params are automatically added to the environment, this makes them a great candidate for use in templated resources.  Any time another resource is defined in the `shippable.yml` using an environment variable where a constant value would normally go, the environment variable will get replaced at runtime with values from the environment. For example:
+Since the key/value pairs from params are automatically added to the environment, this makes them a great candidate for use in templated resources.  Any time another resource is defined in the **shippable.yml** using an environment variable where a constant value would normally go, the environment variable will get replaced at runtime with values from the environment. For example:
 
 
 ### Latest Syntax

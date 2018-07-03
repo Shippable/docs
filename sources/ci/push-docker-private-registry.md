@@ -19,7 +19,7 @@ Before you start, you will need to connect your Docker Private Registry with Shi
 
 ##Basic config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with your Docker Private Registry using your keys and pushes the image to the registry in the `post_ci` section.
+After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to authenticate with your Docker Private Registry using your keys and pushes the image to the registry in the `post_ci` section.
 
 ```
 build:

@@ -97,7 +97,7 @@ The tutorials in this section deal with deployments that can be implemented at t
 - [Running builds as non-root user](/ci/non-root)
 - [Triggering webhooks](/ci/webhook)
 - [Triggering parallel jobs](/ci/matrix-builds)
-- [Triggering other jobs after CI](/ci/trigger-pipeline-jobs)
+- [Making your CI job part of your Assembly Line woikflow](/ci/trigger-pipeline-jobs)
 - [Managing Roles and Permissions](/ci/permissions)
 
 ### Language guide

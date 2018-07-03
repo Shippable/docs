@@ -14,11 +14,11 @@ By default, we send email notifications to the last committer and project owner 
 
 We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/account/set-email/)
 
-To customize email notifications, you'll need to configure options in the `shippable.yml` file.
+To customize email notifications, you'll need to configure options in the **shippable.yml** file.
 
 ##Basic config
 
-Follow instructions below to configure email notifications for your CI workflows. This is configured in `shippable.yml`.
+Follow instructions below to configure email notifications for your CI workflows. This is configured in **shippable.yml**.
 
 The yml format looks like this:
 
@@ -144,7 +144,7 @@ You can set the following options for the `on_success`, `on_failure`, `on_cancel
 If you do not specify any of these tags, the defaults are: `on_success` is set to `change`, `on_failure` is set to `always`, `on_cancel` is set to `on_failure`, `on_start` is set to `never` and `on_pull_request` is set to `always`.
 
 ###6. Turn off email notifications
-If you do not want to get notified for any reason, you can turn off email notifications with the following in your `shippable.yml`:
+If you do not want to get notified for any reason, you can turn off email notifications with the following in your **shippable.yml**:
 
 ```
 integrations:                               

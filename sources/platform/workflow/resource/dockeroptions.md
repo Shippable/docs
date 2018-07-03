@@ -15,7 +15,7 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)
 
-You can define `dockerOptions` by adding it to `shippable.yml` as shown below. This will create a resource of type `dockerOptions`. You can include any settings shown below that you want as part of your `dockerOptions`. All settings are optional. [Read below](#descriptions) for a description and the format of each setting.
+You can define `dockerOptions` by adding it to **shippable.yml** as shown below. This will create a resource of type `dockerOptions`. You can include any settings shown below that you want as part of your `dockerOptions`. All settings are optional. [Read below](#descriptions) for a description and the format of each setting.
 
 For a table showing the mapping of each setting to a setting in your Container Service, read [mapping dockerOptions to your Container Service](#mappingDockerOptions).
 

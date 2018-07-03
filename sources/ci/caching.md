@@ -98,9 +98,9 @@ Unless these unwanted files are removed, your tests could fail during the CI bui
 
 Remove the unwanted files in one of the two ways:
 
-*  Use the `git clean` command: In your `shippable.yml` add the `git clean` in the `ci` section using the following format:
+*  Use the `git clean` command: In your **shippable.yml** add the `git clean` in the `ci` section using the following format:
     -  `git clean -f` removes all untracked files not ignored by `.gitignore`.
     -  `git clean -f -X` removes all untracked files included in `.gitignore` only.
     -  `git clean -f -x` removes all untracked files.
 
-*  Add commands such as `rm` to remove the unwanted files in your `shippable.yml` in the `ci` section.  
+*  Add commands such as `rm` to remove the unwanted files in your **shippable.yml** in the `ci` section.  

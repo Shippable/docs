@@ -8,9 +8,9 @@ page_description: gitRepo resource reference
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with the webhook payload.
 
-When a webhook is received, jobs that have this resource as an `IN` will usually be triggered.  Jobs will not be triggered for commit webhooks determined to have updated any `shippable.yml`, `shippable.resources.yml`, `shippable.jobs.yml` or `shippable.triggers.yml` files.
+When a webhook is received, jobs that have this resource as an `IN` will usually be triggered.  Jobs will not be triggered for commit webhooks determined to have updated any **shippable.yml**, `shippable.resources.yml`, `shippable.jobs.yml` or `shippable.triggers.yml` files.
 
-You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

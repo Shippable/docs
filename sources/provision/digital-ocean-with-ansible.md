@@ -38,7 +38,7 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.yml`, define the following resources to be used as
+In **shippable.yml**, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -57,7 +57,7 @@ resources:
       branch: master
 ```
 
-And, in `shippable.yml`, define the following job in order to execute
+And, in **shippable.yml**, define the following job in order to execute
 an Ansible playbook to provision on Digital Ocean from your pipeline:
 
 ```yaml
@@ -98,7 +98,7 @@ In our `runSh` job, `IN: myDOCliConfig` gives an environment variable named `MYD
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.yml`:
+**shippable.yml**:
 ```yaml
 resources:
   # This time resource triggers an attached job nightly at 11:00pm UTC

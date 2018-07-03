@@ -23,7 +23,7 @@ configure your builds.
 <a name="basic-node-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Node.js project.
+The following **shippable.yml** should get you started with a simple Node.js project.
 
 ```
 language: node_js

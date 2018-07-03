@@ -7,7 +7,7 @@ page_description: How to configure CI for your project in shippable.yml
 
 # Configuring your CI
 
-The following sections of your `shippable.yml` will contain the bulk of your CI configuration:
+The following sections of your **shippable.yml** will contain the bulk of your CI configuration:
 
 -  The `ci` section is where you install dependencies, create databases and folders, and include your build and test commands.
 -  The `post_ci` section includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry.

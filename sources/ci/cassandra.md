@@ -11,7 +11,7 @@ Cassandra is pre-installed on all Shippable Official images. However, we do not 
 
 ##Starting Cassandra
 
-To start Cassandra, include the following in your `shippable.yml`:
+To start Cassandra, include the following in your **shippable.yml**:
 
 ```
 services:

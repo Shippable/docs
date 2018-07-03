@@ -32,9 +32,9 @@ These are the key components of the assembly line diagram -
 
 The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
-* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the**shippable.yml** file.
 
 ## Steps
 
@@ -215,7 +215,7 @@ gcloud -q container clusters delete $1 --zone=$2
 
 ###6. Import configuration into your Shippable account to create the assembly line for the application.
 
-Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 Once you have imported your configuration, your Assembly Line will look like this in the [SPOG View](/platform/visibility/single-pane-of-glass-spog/).
 

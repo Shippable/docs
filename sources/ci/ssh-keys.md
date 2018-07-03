@@ -25,9 +25,9 @@ ssh-agent bash -c 'ssh-add /tmp/ssh/01_deploy; git clone git@github.com/orgName/
 
 ## Adding your own SSH key
 
-Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control. For example, create a [SSH key integration](/platform/integration/sshKey/). Add this newly created key integration to both the Subscription Settings and the `shippable.yml` of every project you want to use it in.
+Apart from these two keys you can also set up key integrations and use those keys to access your projects on source control. For example, create a [SSH key integration](/platform/integration/sshKey/). Add this newly created key integration to both the Subscription Settings and the **shippable.yml** of every project you want to use it in.
 
-Example `shippable.yml` integration:
+Example **shippable.yml** integration:
 
 ```
 integrations:

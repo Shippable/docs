@@ -18,7 +18,7 @@ To run your CI build, you will first need to [enable your repository for CI](ena
 
 -  You have set up your builds to be triggered on a schedule using a [time](/platform/workflow/resource/time/) resource. Scheduled builds trigger the default branch configured in the SCM.
 
-In the first two scenarios, builds are triggered automatically and the workflow configured in your `shippable.yml` is executed. For more information on pull requests builds, [read the docs on that topic](pull-request-builds/).
+In the first two scenarios, builds are triggered automatically and the workflow configured in your **shippable.yml** is executed. For more information on pull requests builds, [read the docs on that topic](pull-request-builds/).
 
 ##Manual builds
 

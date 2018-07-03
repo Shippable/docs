@@ -9,7 +9,7 @@ page_description: Overview of deploying to IaaS/PaaS at the end of your Shippabl
 
 At the end of your CI workflow, you might want to push your application package to an IaaS or PaaS to run it.
 
-You can deploy to various endpoints directly from your CI by configuring your `shippable.yml`. The examples below show how you can push to popular cloud providers.
+You can deploy to various endpoints directly from your CI by configuring your **shippable.yml**. The examples below show how you can push to popular cloud providers.
 
 - [Amazon EC2](deploy-to-ec2/)
 - [Elastic Beanstalk](deploy-to-aws-beanstalk/)

@@ -8,7 +8,7 @@ page_description: How to use a key-value pair integration in CI
 
 ##Using your integration in Shippable CI
 
-Adding the integration to your CI workflow is quite simple.  Just update your `shippable.yml` file, adding an "integrations" section like this:
+Adding the integration to your CI workflow is quite simple.  Just update your **shippable.yml** file, adding an "integrations" section like this:
 ```
 integrations:  # this section can contain several different types of integrations
   generic:     # k/v pair should be under the 'generic' header

@@ -19,7 +19,7 @@ Before you start, you will need to connect your Docker Hub account with Shippabl
 
 ##Basic config
 
-2. After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to
+2. After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to
 authenticate with Docker Hub using your credentials.
 
 ```
@@ -29,7 +29,7 @@ integrations:
       type: dockerRegistryLogin                        
 ```
 
-3. Push to Docker hub in your `shippable.yml` file:
+3. Push to Docker hub in your **shippable.yml** file:
 
 ```
 build:

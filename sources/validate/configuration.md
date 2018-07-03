@@ -16,7 +16,7 @@ You may have the entire pipeline configuration maintained in one repository, spl
 <a name="sync"></a>
 ##Sync repository
 
-A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains `shippable.yml` files.
+A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains **shippable.yml** files.
 
 You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 

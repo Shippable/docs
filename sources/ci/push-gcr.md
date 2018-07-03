@@ -35,7 +35,7 @@ Before you start, you will need to connect your  Google cloud account with Shipp
 
 ##Basic config
 
-2. After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with GCR using your credentials.
+2. After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to authenticate with GCR using your credentials.
 
 ```
 integrations:
@@ -45,7 +45,7 @@ integrations:
 ```
 **Note:** If you're still using the deprecated [GCR integration](/platform/integration/deprecated/gcr), set the `type` here to `gcr`. Both will work exactly the same
 
-3. Push to GCR in your `shippable.yml` file:
+3. Push to GCR in your **shippable.yml** file:
 
 ```
 build:
@@ -189,7 +189,7 @@ If you are using a custom image for your CI workflow, we will try to login to GC
 
 You can solve this in 2 ways:
 
--  Set `agent_only: true` for GCR integration in your `shippable.yml`.
+-  Set `agent_only: true` for GCR integration in your **shippable.yml**.
 ```
 integrations:
   hub:

@@ -271,7 +271,7 @@ By default, all jobs run on your [default node pool](/platform/management/subscr
 * Your runSh job is resource intensive, so you want to use a specific node pool which has bigger machines
 * You want to run the job on Mac OS, Windows, or CentOS and hence want to select a specific node pool
 
-Your `shippable.yml` can be configured as shown below:
+Your **shippable.yml** can be configured as shown below:
 
 ```
 jobs:

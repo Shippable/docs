@@ -7,7 +7,7 @@ page_description: Popular language versions and the machine images where they ar
 
 # Languages
 
-The Shippable Platform provides images with multiple versions of commonly-used languages pre-installed. A default image will be selected based on the language specified in your [shippable.yml](/ci/yml-structure/) file when running a CI job, or you can [select a different image](/ci/build-image/) in the `pre_ci_boot` section of your `shippable.yml`.
+The Shippable Platform provides images with multiple versions of commonly-used languages pre-installed. A default image will be selected based on the language specified in your [shippable.yml](/ci/yml-structure/) file when running a CI job, or you can [select a different image](/ci/build-image/) in the `pre_ci_boot` section of your **shippable.yml**.
 
 Our language specific images that are updated monthly so that the latest and greatest versions are always available for you to test.  The sections below provide more information about which versions are available in each image.
 
@@ -331,7 +331,7 @@ The following images are available when you configure `language: ruby` in your [
 
 | Ruby Version | OS    |  Machine Image
 |--------------|----------|----------------
-|2.5.1         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/) 
+|2.5.1         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.6.2](/platform/runtime/machine-image/ami-v662/)
 |2.5.0         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) and later <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/)  |
 |2.4.4         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.2](/platform/runtime/machine-image/ami-v662/) |
 |2.4.3         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.1.4](/platform/runtime/machine-image/ami-v614/) |

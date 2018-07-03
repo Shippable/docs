@@ -11,7 +11,7 @@ ElasticSearch is pre-installed on all Shippable Official images. However, we do 
 
 ##Starting ElasticSearch
 
-To start ElasticSearch, include the following in your `shippable.yml`:
+To start ElasticSearch, include the following in your **shippable.yml**:
 
 ```
 services:

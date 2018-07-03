@@ -57,9 +57,9 @@ Once a project is enabled, we build all commits and pull requests for that proje
 
 ---
 ## What is the difference between a Build Container (cexec) and Shippable Agent (genExec) on the Shippable platform?
-A Build Container (also called cexec) is a Docker Container that is spun up on the host Node machine that executes the Continuous Integration related tasks. These include installing the required dependencies, cloning information from the source control system repository, executing unit tests and running test/code coverage reports, all of which have to be specified in the `shippable.yml` file.  
+A Build Container (also called cexec) is a Docker Container that is spun up on the host Node machine that executes the Continuous Integration related tasks. These include installing the required dependencies, cloning information from the source control system repository, executing unit tests and running test/code coverage reports, all of which have to be specified in the **shippable.yml** file.  
 
-Shippable Agent (genExec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the `shippable.yml` file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent. Pipeline related enhancements and runSh jobs are also executed on the Shippable Agent.
+Shippable Agent (genExec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the **shippable.yml** file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent. Pipeline related enhancements and runSh jobs are also executed on the Shippable Agent.
 
 ---
 ## Why can't I see some of my repositories in my Shippable account?

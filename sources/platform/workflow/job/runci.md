@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # runCI
 
-`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
+`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [**shippable.yml**](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
 
 `runCI` jobs execute on Shippable provided [On-demand Nodes or BYON Nodes](/platform/runtime/overview#nodes)
 
@@ -21,7 +21,7 @@ Note: If your `CI` project was enabled before March 2017, you can create these o
 
 ## How do you use it in Assembly Lines?
 
-Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/crud-job#adding) it as a job in `shippable.yml`. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in `shippable.yml`.
+Now if you want your `runCI` job to interact with other entities of the Assembly line, you can fully customize it by [adding](/platform/tutorial/workflow/crud-job#adding) it as a job in **shippable.yml**. This creates a wrapper around your existing job.  You can also use this pre-defined job as an `IN` to any other job in your pipeline without having to explicitly define it in **shippable.yml**.
 
 ## YML Definition
 
@@ -57,7 +57,7 @@ prioritize only queued jobs in your pipeline.
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.
-    * `TASK` -- is not allowed in this job. It is done through [`shippable.yml`](/platform/tutorial/workflow/shippable-yml/)
+    * `TASK` -- is not allowed in this job. It is done through [**shippable.yml**](/platform/tutorial/workflow/shippable-yml/)
     * `OUT` -- Optional, any Resource can be used here and as many as you need.
         * `replicate` -- Optional, any `IN` Resource of same type can be used.
         * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.

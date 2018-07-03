@@ -271,7 +271,7 @@ In order to read your Assembly Line configuration from Github, we need an integr
 Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
 
 ###3. Add Assembly Line to Shippable
-Next, add the configuration to your Shippable subscription. Jobs and resources section from your `shippable.yml` are parsed to create the workflow.
+Next, add the configuration to your Shippable subscription. Jobs and resources section from your **shippable.yml** are parsed to create the workflow.
 
 Detailed steps to add an Assembly Line are [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
 

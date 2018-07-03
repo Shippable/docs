@@ -11,7 +11,7 @@ Neo4j is pre-installed on all our official images. However, we do not start it b
 
 ##Starting Neo4j
 
-To start Neo4j, include the following in your `shippable.yml`:
+To start Neo4j, include the following in your **shippable.yml**:
 
 ```
 services:

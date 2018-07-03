@@ -54,7 +54,7 @@ properly authenticate it against the API endpoint:
 - You also need to specify which API endpoint the tool needs to
   connect to by setting `AWS_DEFAULT_REGION` environment variable.
 - Next, add the secret along with your key id (`AWS_ACCESS_KEY_ID`)
-  and region as environment variables in `shippable.yml` (please note
+  and region as environment variables in **shippable.yml** (please note
   that name of the variable matters).
 - We also add environment variable for CodeDeploy application name
   (`CD_APP_NAME`) and deployment group (`CD_DEPLOYMENT_GROUP`), to be

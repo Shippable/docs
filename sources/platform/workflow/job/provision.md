@@ -16,7 +16,7 @@ The `provision` job is used to create ancillary objects like load balancers on C
 
 **Please note that when `provision` jobs are deleted, the resulting objects are also deleted from the container service.**
 
-You can create a `provision` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml`:
+You can create a `provision` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to **shippable.yml**:
 
 
 ```

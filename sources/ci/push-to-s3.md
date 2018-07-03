@@ -22,7 +22,7 @@ Before you start, you will need to connect your Amazon S3 account with Shippable
 
 ## Config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to login into S3 using your keys and pushes the artifacts in the `on_success` section.
+After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to login into S3 using your keys and pushes the artifacts in the `on_success` section.
 
 ```
 env:

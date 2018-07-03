@@ -29,7 +29,7 @@ If your Dockerfile specifies a private image in its `FROM` section, we need to a
 
   Write down the friendly name of the integration you just created.
 
-* Include the integration in your `shippable.yml`.
+* Include the integration in your **shippable.yml**.
 
 For example, here is a snippet for Docker Hub and Docker Private/Trusted Registry:
 
@@ -48,7 +48,7 @@ For other registries, the `type` is set as follows:
 
 ###3. Building Docker image
 
-You can include the  `docker build` command in your `shippable.yml` as shown below:
+You can include the  `docker build` command in your **shippable.yml** as shown below:
 
 ```
 build:

@@ -10,7 +10,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 `cluster` is used to represent a set of machines or a container orchestration system. It is predominantly used to deploy services/apps to the specified cluster and in some cases it can also be used to run certain maintenance activities on the cluster as a whole.
 
-You can create a `cluster` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `cluster` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

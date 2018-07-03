@@ -86,7 +86,7 @@ on your desktop:
 gem install capistrano
 ```
 
-And add the following `ci` block to the `shippable.yml`
+And add the following `ci` block to the **shippable.yml**
 file:
 
 ```
@@ -188,7 +188,7 @@ production:
 
 ```
 
-Finally, we can add `on_success` step to the `shippable.yml`, ordering deployment to the production after successful build:
+Finally, we can add `on_success` step to the **shippable.yml**, ordering deployment to the production after successful build:
 
 ```
 on_success:
@@ -255,7 +255,7 @@ Then, paste this key in the Dokku setup console that we accessed earlier (using 
 
 ### Configuring the deployment
 
-The droplet can now be deployed using CI/CD on Shippable, there are a few changes to be made on the `shippable.yml` file to push the right branch to dokku on deployment. A simple YAML for a nodejs application would look like
+The droplet can now be deployed using CI/CD on Shippable, there are a few changes to be made on the **shippable.yml** file to push the right branch to dokku on deployment. A simple YAML for a nodejs application would look like
 
 ```
 language: node_js

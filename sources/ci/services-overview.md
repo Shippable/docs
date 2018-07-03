@@ -7,7 +7,7 @@ page_description: How to use popular services like PostgreSQL, MongoDB, MySQL, R
 
 #Services overview
 
-Shippable supports many popular services like PostgreSQL, MongoDB, MySQL, etc. With a simple one line config in your `shippable.yml`, you can have any supported service up and running and available for your build.
+Shippable supports many popular services like PostgreSQL, MongoDB, MySQL, etc. With a simple one line config in your **shippable.yml**, you can have any supported service up and running and available for your build.
 
 All supported services are pre-installed on your build machines, so you do not have to install them as part of your CI config.
 

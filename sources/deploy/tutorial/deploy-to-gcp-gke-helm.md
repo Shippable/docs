@@ -248,7 +248,7 @@ Detailed steps on how to add a Docker Registry Integration are [here](/platform/
 
 #####2c. Add `Github` Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and Kubernetes config files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and Kubernetes config files.
 
 In our case, we're using the repository [`devops-recipes/cd_gke_kubectl`](https://github.com/devops-recipes/cd_gke_kubectl).
 
@@ -270,7 +270,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 `resources` section holds the information that is necessary to deploy to a Kubernetes cluster. In this case we have 4 resources defined of type `image`, `gitRepo`, `cliConfig` and `cluster`.
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 resources:
@@ -331,7 +331,7 @@ A job is an execution unit of the Assembly Line. Our job has to perform three ta
 * Initialize a connection to the cluster using `gcloud`
 * Deploy to the cluster using `kubectl`
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 jobs:
@@ -397,13 +397,13 @@ Detailed info about Shippable Utility functions are [here](/platform/tutorial/wo
 
 #####3d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####4. Add the Assembly Line to your Shippable organization
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 

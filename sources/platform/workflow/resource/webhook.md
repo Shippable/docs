@@ -6,9 +6,9 @@ page_title: webhook resource reference
 page_description: webhook resource reference
 
 # webhook
-Adding a `webhook` resource to your `shippable.yml` gives you a way to trigger one or more jobs in your Assembly Line whenever the associated URL is called using the HTTP POST method.  Any JSON payload that is passed in via the POST call will be stored in the version of the resource.  This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/), thus providing access to the received payload.
+Adding a `webhook` resource to your **shippable.yml** gives you a way to trigger one or more jobs in your Assembly Line whenever the associated URL is called using the HTTP POST method.  Any JSON payload that is passed in via the POST call will be stored in the version of the resource.  This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/), thus providing access to the received payload.
 
-You can create a `webhook` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to your `shippable.yml`.
+You can create a `webhook` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to your **shippable.yml**.
 
 
 ## YML Definition

@@ -26,7 +26,7 @@ The most basic use case is Continuous Integration (CI).
 
 The workflow for CI is simple.
 
-- You [**enable** a repository](/ci/enable-project/) for CI and add a configuration file `shippable.yml`. This repository can be in any supported [source control system](/getting-started/what-is-supported/#source-control-management).
+- You [**enable** a repository](/ci/enable-project/) for CI and add a configuration file **shippable.yml**. This repository can be in any supported [source control system](/getting-started/what-is-supported/#source-control-management).
 
 - For every change in your source code, a job that executes the instructions in your config is triggered.
 

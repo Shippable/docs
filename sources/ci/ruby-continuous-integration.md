@@ -22,7 +22,7 @@ configure your builds.
 <a name="basic-ruby-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Ruby project.
+The following **shippable.yml** should get you started with a simple Ruby project.
 
 ```
 language: ruby

@@ -5,8 +5,8 @@ sub_sub_section: Integrations
 page_title: Using a Docker Private Registry Integration in CI
 page_description: How to use a Docker Private Registry integration in CI
 
-###Configure Private Docker Registry integration in the `shippable.yml`
-To enable Private Docker Registry integration for your project, add the following to the `shippable.yml` file for that project.
+###Configure Private Docker Registry integration in the **shippable.yml**
+To enable Private Docker Registry integration for your project, add the following to the **shippable.yml** file for that project.
 ```
 pre_ci_boot:
     image_name: manishas/myImage
@@ -23,7 +23,7 @@ integrations:
           - master
           - dev
 ```
-While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
+While the above is a sample code for your **shippable.yml**, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
 - `image_name:` value is in the format docker-registry-username/docker-registry-image-repo.
 - `image_tag:` value is the tag for the image that you want to pull.
@@ -39,7 +39,7 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 If you want to build your Docker image as part of your workflow for each CI run and if your 'Dockerfile' has a `FROM` which pulls a private image from Private Docker Registry, then you will need to do the following steps:
 
 1. Ensure your Subscription has access to the Private Docker Registry integration
-2. Configure your `shippable.yml` to associate the Private Docker Registry integration for your project and add few options to ensure you are building the Docker image as part of CI.
+2. Configure your **shippable.yml** to associate the Private Docker Registry integration for your project and add few options to ensure you are building the Docker image as part of CI.
 
 ###Ensure your Subscription has access to the Private Docker Registry integration
 To ensure your Subscription has access to the Private Docker Registry integration, do the following:
@@ -49,9 +49,9 @@ To ensure your Subscription has access to the Private Docker Registry integratio
 3. Click the 'gears' icon and then on 'Integrations'.
 4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `+` button and completing the required fields.
 
-###Configure Private Docker Registry integration in the `shippable.yml`
+###Configure Private Docker Registry integration in the **shippable.yml**
 
-Add the following to your `shippable.yml` file:
+Add the following to your **shippable.yml** file:
 
 ```
 build:
@@ -85,12 +85,12 @@ integrations:
 
 ##Push an image to Private Docker Registry
 
-You can push your image to Private Docker Registry in the `post_ci` or `push` sections of the `shippable.yml`. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
+You can push your image to Private Docker Registry in the `post_ci` or `push` sections of the **shippable.yml**. The main difference is that the `post_ci` section runs inside the build container and the `push` section runs outside the build container in the Shippable Agent.
 
 To push an image to Private Docker Registry, do the following:
 
 1. Ensure your Subscription has access to the Private Docker Registry integration
-2. Configure your `shippable.yml` to associate the Private Docker Registry integration for your project and add few options to ensure you are pushing the Docker image in `post_ci` section or in the `push` section.
+2. Configure your **shippable.yml** to associate the Private Docker Registry integration for your project and add few options to ensure you are pushing the Docker image in `post_ci` section or in the `push` section.
 
 ###Ensure your Subscription has access to the Private Docker Registry integration
 To ensure your Subscription has access to the Private Docker Registry integration, do the following:
@@ -100,9 +100,9 @@ To ensure your Subscription has access to the Private Docker Registry integratio
 3. Click the 'gears' icon and then on 'Integrations'.
 4. If you find your integration in the list, you're good to go to the next step. If not, add the account integration to the Subscription by clicking on the `+` button and completing the required fields.
 
-###Configure Private Docker Registry integration in the `shippable.yml`
+###Configure Private Docker Registry integration in the **shippable.yml**
 
-To push the Docker image to Private Docker Registry in the `post_ci` section, add the following to your `shippable.yml` file:
+To push the Docker image to Private Docker Registry in the `post_ci` section, add the following to your **shippable.yml** file:
 
 ```
 build:
@@ -120,7 +120,7 @@ integrations:
           - master
 ```
 
-Similarly to push the Docker image to Private Docker Registry in the `push` section, add the following to your `shippable.yml` file:
+Similarly to push the Docker image to Private Docker Registry in the `push` section, add the following to your **shippable.yml** file:
 
 ```
 build:

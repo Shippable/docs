@@ -10,7 +10,7 @@ page_description: How to do Continuous Integration with RethinkDB in Shippable
 RethinkDB is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs RethinkDB.
 
 ##Starting RethinkDB
-To start RethinkDB, include the following in your `shippable.yml`:
+To start RethinkDB, include the following in your **shippable.yml**:
 
 ```
 services:

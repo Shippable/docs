@@ -22,7 +22,7 @@ They are predominantly used for the following reasons:
 
 ## YML Definition
 
-Resources are defined in `shippable.yml` as shown below:
+Resources are defined in **shippable.yml** as shown below:
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)
@@ -75,7 +75,7 @@ To understand how you can access the above components through your job scripts, 
 
 All resources are versioned. A new resource version is created in two ways:
 
-* When you update the resource definition in `shippable.yml`
+* When you update the resource definition in **shippable.yml**
 * When a job updates an `OUT` resource
 
 This is critical if you want to be able to roll back, upgrade, or [pin the resource](/platform/tutorial/workflow/crud-job/#pin) to a particular point of time.

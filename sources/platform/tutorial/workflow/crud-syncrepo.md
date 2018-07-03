@@ -63,7 +63,7 @@ To change the syncRepo name and subscription integration used:
 
 <img src="/images/platform/tutorial/workflow/edit-syncRepo.png" alt="Edit syncRepo">
 
-The default flag may be changed in the UI and additional flags added in your `shippable.yml`. Adding a flag will include that syncRepo, and all of its resources and jobs, in the SPOG view when you filter on that flag.
+The default flag may be changed in the UI and additional flags added in your **shippable.yml**. Adding a flag will include that syncRepo, and all of its resources and jobs, in the SPOG view when you filter on that flag.
 
 To change the default flag:
 

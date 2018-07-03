@@ -8,13 +8,13 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Anatomy of shippable.yml
 
-Shippable's DevOps Platform leverages a declarative syntax for Continuous Integration and Assembly Line configuration with a YAML config file `shippable.yml`.
+Shippable's DevOps Platform leverages a declarative syntax for Continuous Integration and Assembly Line configuration with a YAML config file **shippable.yml**.
 
-Please note that if you only want to use Shippable for a simple CI workflow, your `shippable.yml` needs to be at the root of the repository you want to enable for CI.
+Please note that if you only want to use Shippable for a simple CI workflow, your **shippable.yml** needs to be at the root of the repository you want to enable for CI.
 
 If you're using the `jobs` and `resources` sections of the yml to configure Assembly Lines, your configuration is global across all repositories in your Subscription and can be committed to any folder in any repository that you [add as a **Sync repository**](/platform/tutorial/workflow/crud-syncrepo).
 
-The anatomy of `shippable.yml` follows the structure below:
+The anatomy of **shippable.yml** follows the structure below:
 
 ```
 

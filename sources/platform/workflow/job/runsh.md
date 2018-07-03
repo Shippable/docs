@@ -15,7 +15,7 @@ You can also add [cliConfig](/platform/workflow/resource/cliconfig) resources as
 
 A new version is created every time this job is executed.
 
-You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml` and it executes on Shippable provided [On-demand Nodes](/platform/runtime/overview#nodes) or [BYON Nodes](/platform/runtime/overview#nodes). `runSh` examples can be found [here](/platform/tutorial/workflow/using-runSh).
+You can create a `runSh` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to **shippable.yml** and it executes on Shippable provided [On-demand Nodes](/platform/runtime/overview#nodes) or [BYON Nodes](/platform/runtime/overview#nodes). `runSh` examples can be found [here](/platform/tutorial/workflow/using-runSh).
 
 ## YML Definition
 ```
@@ -161,7 +161,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 * **`always `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
 ## YML templates
-If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your `shippable.yml` file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
+If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your **shippable.yml** file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
 Below is a sample yml using templates:
 ```
 templates: &template-script

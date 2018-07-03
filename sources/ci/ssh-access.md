@@ -5,7 +5,7 @@ page_title: SSH Access to Build Machine
 page_description: How to get SSH Access to Build Machine
 
 # SSH Access to Build Machine
-SSH access to build machine allows you to debug problems that arise due to differences in your local and Shippable environment. It also gives you a chance to play around with different commands to get to the best `shippable.yml` possible. Here is a list of FAQs to get you started:
+SSH access to build machine allows you to debug problems that arise due to differences in your local and Shippable environment. It also gives you a chance to play around with different commands to get to the best **shippable.yml** possible. Here is a list of FAQs to get you started:
 
 ## Which Machine image supports SSH access for debugging?
 SSH debugging is supported on all AMI's for On-demand nodes. This option is not shown for BYON / System nodes since you can SSH into these nodes independently from Shippable.

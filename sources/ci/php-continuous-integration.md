@@ -21,7 +21,7 @@ configure your builds.
 <a name="basic-php-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple PHP project.
+The following **shippable.yml** should get you started with a simple PHP project.
 
 ```
 language: php

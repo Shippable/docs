@@ -20,7 +20,7 @@ Once you add an account integration, you can use it for all your projects withou
 
 ## Basic Config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with JFrog using your keys and pushes the artifacts in `ci` section.
+After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to authenticate with JFrog using your keys and pushes the artifacts in `ci` section.
 
 ```
 build:

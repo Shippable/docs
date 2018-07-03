@@ -36,7 +36,7 @@ Creating an integration is a two step process. All Integrations are owned by use
 
 Once an integration is enabled for a Subscription, you can use it in any project in that Subscription with a few lines of yml configuration. **Please note that the integration name in your yml should be same as the one configured in your integration.**
 
-Integrations can be configured in the `integrations` section of your `shippable.yml` if you're [configuring CI](/ci/yml-structure), or in the `resources` section of your `shippable.yml` if you're [configuring an Assembly Line](/platform/workflow/resource/integration/).
+Integrations can be configured in the `integrations` section of your **shippable.yml** if you're [configuring CI](/ci/yml-structure), or in the `resources` section of your **shippable.yml** if you're [configuring an Assembly Line](/platform/workflow/resource/integration/).
 
 ## Adding integration to a subscription
 

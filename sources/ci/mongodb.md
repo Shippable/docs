@@ -11,7 +11,7 @@ MongoDB is pre-installed on all Shippable Official images. However, we do not st
 
 ##Starting MongoDB
 
-To start MongoDB, include the following in your `shippable.yml`:
+To start MongoDB, include the following in your **shippable.yml**:
 
 ```
 services:

@@ -22,7 +22,7 @@ configure your builds.
 <a name="basic-scala-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Scala project.
+The following **shippable.yml** should get you started with a simple Scala project.
 
 ```
 language: scala

@@ -19,7 +19,7 @@ Before you start, you will need to connect your Docker Registry with Shippable s
 
 ##Basic config
 
-After completing the Setup step, add the following to the `shippable.yml` for your project. This snippet tells our service to authenticate with your Docker Registry using your keys and pushes the image to the registry in the `post_ci` section.
+After completing the Setup step, add the following to the **shippable.yml** for your project. This snippet tells our service to authenticate with your Docker Registry using your keys and pushes the image to the registry in the `post_ci` section.
 
 if url is not specified while creating integration, then
 

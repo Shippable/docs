@@ -9,7 +9,7 @@ page_description: file resource reference
 
 A `file` resource is a pointer to a file on an external file share. It can be used as an `IN` for `manifest` jobs to create a service definition with a file, or in a `runSh` job that needs the file to run scripts.
 
-You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `file` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

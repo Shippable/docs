@@ -9,7 +9,7 @@ page_description: How to do Continuous Integration with Riak in Shippable
 
 Riak is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Riak.
 
-To start Riak, include the following in your `shippable.yml`:
+To start Riak, include the following in your **shippable.yml**:
 
 ```
 services:
