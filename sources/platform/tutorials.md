@@ -13,6 +13,7 @@ Enabling your project for CI sets up webhooks, so that your CI workflow can be a
 If you want Shippable to read your `jobs` and `resources` config, you need to add an Assembly Line  that points to a repository containing the config.
 - [Testing your Assembly Line config](/platform/tutorial/workflow/test-assembly-line-config)
 Validate Assembly Line YAML structure before committing it to source control or adding it to Shippable
+- [Moving jobs and resources to a different config file](/platform/tutorial/workflow/migrate-jobs-resources): This tutorials shows you how to move jobs and resource to a different config file without affecting your workflow
 - [Breaking up your workflow into jobs](/platform/tutorial/workflow/break-workflow-into-jobs): This tutorial walks you through how to determine the granularity of a job for your specific workflows
 - [Triggering a job](/platform/workflow/job/overview/#when-does-a-job-execute): Learn when jobs get triggered and how to set up dependencies between various components of your workflow
 - [Scheduling workflows to trigger at a specific time](/platform/tutorial/workflow/scheduled-triggers): Schedule a cron for your workflows
