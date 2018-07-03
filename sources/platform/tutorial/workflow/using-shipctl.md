@@ -661,6 +661,25 @@ shipctl decrypt <source filename> <key filename>
 MY_DECRYPTED_DATA="$(shipctl decrypt "properties.json" "/key/id_rsa")"
 ```
 
+### get_git_changes
+Lists the files/directories containing changes within a commit range.
+
+```
+shipctl get_git_changes <--path|--resource>
+```
+
+- `--path` is the file system path to a git repository.
+- `--resource` is the name of the [gitRepo resource](/platform/workflow/resource/gitrepo/).
+- `--commit-range` specifies the range of commits to look for changes (Example: `HEAD~1..HEAD`). Defaults to `$SHIPPABLE_COMMIT_RANGE` for CI jobs. If used in [runSh jobs](/platform/workflow/job/runsh/), the commit range is automatically configured by automatically looking at the version of the [gitRepo resource](/platform/workflow/resource/gitrepo/) mentioned in `--resource` argument.
+- `--directories-only` lists only the directories containing changes.
+- `--depth` returns file/folder at certain depth. Root directory has depth value 1.
+
+**Example**
+
+```
+CHANGED_MICROSERVICES=$(shipctl get_git_changes --resource="monoRepo-gitRepo" --directories-only --depth=1)
+```
+
 ### get_json_value
 
 **Description**
