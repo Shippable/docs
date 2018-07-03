@@ -100,14 +100,18 @@ build:
   ci:
     - ./runTests.sh
     - docker build -t myImageRepo/myImageName:myImageTag .
+    - docker push myImageRepo/myImageName:myImageTag
     - shipctl post_resource_state "my_image" "versionName" "myImageTag"
 ```
 
 Couple of things:
 
-* We usually recommend using $BRANCH.$BUILD_NUMBER as the tag for your image, so that it is versioned.
 * The `shipctl` method shown in the example will update the image version, which triggers the next job in your workflow, `next-job-in-pipeline` in this example.
+* We usually recommend using $BRANCH.$BUILD_NUMBER as the tag for your image, so that it is versioned. However, if you use a static tag like `latest`, you will need to change something in the image definition to trigger a new version of the resource which will trigger the next job. This could be as simple as just setting an additional value like SHA using the `post_resource_state_multi` instead of `post_resource_state` like the example above :
 
+```
+- shipctl post_resource_state_multi "my_image" "versionName=latest sha=$COMMIT"
+```
 
 ## Triggering CI after another job
 
@@ -180,6 +184,7 @@ jobs:
       - TASK:
           script:
             - docker build -t myImageRepo/myImageName:myImageTag .
+            - docker push myImageRepo/myImageName:myImageTag
             - shipctl post_resource_state "my_image" "versionName" "myImageTag"   #replace image resource name and tag"
 ```
 
@@ -187,4 +192,8 @@ A few things to note here:
 
 * The upstream job has an `OUT` tag which specifies the resource `my_image` that is updated as part of the job. As long as the `runCI` job has the same resource as an `IN`, any change to the resource by the upstream job will trigger the next job.
 * The upstream job uses a [shippable utility method](/platform/tutorial/workflow/using-shipctl/#post_resource_state) to increment the image resource version, which will trigger any job that has the image resource as an `IN`. The `shipctl post_resource_state` method shown in the example will update the image version, which triggers the next job in your workflow, `next-job-in-my_app_runCI` in this example.
-* We usually recommend using $BUILD_NUMBER as the tag for your image, so that it is versioned. However, you can use any tag you want.
+* We usually recommend using $BUILD_NUMBER as the tag for your image, so that it is versioned. However, if you use a static tag like `latest`, you will need to change something in the image definition to trigger a new version of the resource which will trigger the next job. This could be as simple as just setting an additional value like build number using the `post_resource_state_multi` instead of `post_resource_state` like the example above :
+
+```
+- shipctl post_resource_state_multi "my_image" "versionName=latest buildNum=$BUILD_NUMBER"
+```
