@@ -21,7 +21,7 @@ configure your builds.
 <a name="basic-clojure-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Clojure project.
+The following **shippable.yml** should get you started with a simple Clojure project.
 
 ```
 language: clojure

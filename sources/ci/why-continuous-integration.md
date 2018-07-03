@@ -26,7 +26,7 @@ The picture below shows a very basic CI workflow. Shippable receives an incoming
 Your CI workflow stops after deployment to an endpoint. If you want to define your end to end application delivery pipelines, check out our other use cases like [Validate](../validate/devops-validate/), [Release](../release/devops-release-management/), [Deploy](../deploy/why-deploy/), and [Provision](../provision/why-infrastructure-provisioning/).
 
 ##Configuration
-Your CI workflow is configured with a yml based file called **shippable.yml** which should be committed to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the yml structure and how to configure it, check out our [Build Configuration page](yml-structure/).
+Your CI workflow is configured with a YAML based file called **shippable.yml** which should be committed to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the **shippable.yml** structure and how to configure it, check out our [Build Configuration page](yml-structure/).
 
 ##CI Triggers
 
@@ -58,3 +58,11 @@ When a build is triggered, it is executed in the sequence below -
 -  If the `ci` and `post_ci` sections were successful, commands in the `on_success` section are executed.
 -  If the `ci` and/or `post_ci` sections failed, commands in the `on_failure` section are execured.
 -  If notifications are configured in the yml, we will send out notifications about build results through the configured channel. Email notifications are on by default.
+
+## Configuring Continuous Delivery
+Continuous integration is a very developer-focused workflow, but you also need to automate a bunch of other activities to achieve Continuous Delivery, such as deployment into multiple environments (e.g. Test, Staging, Production), as well as running test suites, provisioning infrastructure, etc.
+
+If you want to use Shippable to configure these end to end workflows, the following documents will be useful:
+
+* [Shippable platform overview](/platform/overview)
+* [Triggering your CI job as part of your Assembly Line workflow](/ci/trigger-pipeline-jobs)

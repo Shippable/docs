@@ -153,7 +153,7 @@ Please note that you do not need to add flags to every job or resource in your p
 <a name="orphan"></a>
 ##View orphaned and soft-deleted resources
 
-Orphaned resources are resources that are defined in your `shippable.yml` but not used as inputs or outputs for any job.
+Orphaned resources are resources that are defined in your **shippable.yml** but not used as inputs or outputs for any job.
 Soft-deleted resources and jobs are resources/jobs that are deleted from your `yml` files. We do not automatically delete these to avoid situations where something gets mistakenly deleted from the yml and you want to retrieve it at a later time.
 
 To view either or both of these types of resources, click on the arrow dropdown in your SPOG pane header and choose the ones you want to view.

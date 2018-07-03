@@ -29,13 +29,13 @@ Login to [Shippable](http://www.shippable.com) using your GitHub credentials.
 ###3. Create the AWS Keys Integration
 
 - Create an AWS Keys integration following the directions [here](/ci/push-amazon-ecr/#setup) and name the integration dr-ecr. If you choose
-a different name, replace dr-ecr with your integration name in the `shippable.yml` file.
+a different name, replace dr-ecr with your integration name in the **shippable.yml** file.
 
 - Create the deploy-ecs-basic repository in your AWS account.
 
-- In your `shippable.yml` file at the root of your github repository, specify your AWS repository URL in the ECR_REPO variable.
+- In your **shippable.yml** file at the root of your github repository, specify your AWS repository URL in the ECR_REPO variable.
 
-- In your `shippable.yml` file, locate the the resource named `deploy-ecs-basic-image` and replace
+- In your **shippable.yml** file, locate the the resource named `deploy-ecs-basic-image` and replace
 `679404489841.dkr.ecr.us-east-1.amazonaws.com` with your repository URL.
 
 ###4. Enable the project
@@ -69,14 +69,14 @@ This should be the subscription where you forked the repository.
 
 - Add an ECS cluster integration using the directions specified [here](/platform/integration/aws-iam/). This is the cluster to which the
 Node.js docker image will be deployed to. Name the integration dr-aws.
-If you choose a different name, replace dr-aws with your integration name in the `shippable.yml` file.
+If you choose a different name, replace dr-aws with your integration name in the **shippable.yml** file.
 
-- In the `shippable.yml` file, locate the resource named `deploy-ecs-basic-ecs-cluster`. Replace `us-east-1` with your AWS
+- In the **shippable.yml** file, locate the resource named `deploy-ecs-basic-ecs-cluster`. Replace `us-east-1` with your AWS
 region.
 
 ###8. Add your pipeline
 
-- Your pipeline configuration is defined in the `shippable.yml` file in the root of your forked repository.
+- Your pipeline configuration is defined in the **shippable.yml** file in the root of your forked repository.
 This forked repository is called a [sync repo resource](/platform/workflow/resource/syncrepo) since it contains pipeline configuration.
 
 - Add your syncRepo resource following the instructions [here](/platform/workflow/resource/syncrepo/#adding-a-syncrepo-from-the-ui). The project should

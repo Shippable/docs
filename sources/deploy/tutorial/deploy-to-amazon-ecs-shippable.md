@@ -164,7 +164,7 @@ A job is an execution unit of the Assembly Line. There are 2 things that we need
 * Create a service definition that defines your application/service using the `manifest` job
 * Deploy the manifest into ECS using `deploy` job
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 jobs:

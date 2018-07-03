@@ -195,7 +195,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 Please SKIP this if you did not follow step 1, i.e. you're using a static image tag.
 
-In order to tell Shippable to read your `jobs` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+In order to tell Shippable to read your `jobs` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your **shippable.yml** config and adds your workflow to Shippable.
 
 Your view should look something like this:
 
@@ -307,7 +307,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable Subscription
 
-In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your `shippable.yml` config and adds your workflow to Shippable.
+In order to tell Shippable to read your `jobs` and `resources` config, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses the `jobs` and `resources` sections of your **shippable.yml** config and adds your workflow to Shippable.
 
 Please skip this section if you have already added this as a sync repository.
 

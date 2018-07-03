@@ -102,7 +102,7 @@ pages:
         - Running builds as non-root user: ci/non-root.md
         - Triggering webhooks: ci/webhook.md
         - Triggering parallel jobs: ci/matrix-builds.md
-        - Triggering other jobs after CI: ci/trigger-pipeline-jobs.md
+        - Making CI part of Assembly Line workflows: ci/trigger-pipeline-jobs.md
         - Managing roles and permissions: ci/permissions.md
       - Language guide:
         - Overview: ci/supported-languages.md

@@ -11,7 +11,7 @@ Memcached is pre-installed on all Shippable Official images. However, we do not 
 
 ##Starting memcached
 
-To start Memcached, include the following in your `shippable.yml`:
+To start Memcached, include the following in your **shippable.yml**:
 
 ```
 services:

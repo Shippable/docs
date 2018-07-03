@@ -33,7 +33,7 @@ Typical examples of jobs are:
 
 ## YML Definition
 
-Jobs are defined in `shippable.yml` as shown below:
+Jobs are defined in **shippable.yml** as shown below:
 
 ```
 jobs:

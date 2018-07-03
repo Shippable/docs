@@ -11,7 +11,7 @@ page_description: syncRepo resource reference
 
 At the core, it is a [gitRepo](/platform/workflow/resource/gitrepo), i.e., a source code repo which contains the workflow definitions. You can add a `syncRepo` by following these [instructions](/platform/tutorial/workflow/crud-syncrepo).
 
-**Note:** Shippable only looks for files ending with `shippable.yml`. Names like `shippable.yml.example` are ignored, but `example.shippable.yml` will be processed.
+**Note:** Shippable only looks for files ending with **shippable.yml**. Names like `shippable.yml.example` are ignored, but `example.shippable.yml` will be processed.
 
 ## Used in Jobs
 This resource can be used as an `IN` to any job if you choose to trigger something whenever the definition of your Assembly Lines change.

@@ -21,7 +21,7 @@ configure your builds.
 <a name="basic-go-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Go project.
+The following **shippable.yml** should get you started with a simple Go project.
 
 ```
 language: go

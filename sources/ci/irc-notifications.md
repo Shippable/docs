@@ -93,7 +93,7 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 ##Removing IRC notifications
 
-To stop sending IRC notifications, simply remove the configuration from the `shippable.yml` for that project.
+To stop sending IRC notifications, simply remove the configuration from the **shippable.yml** for that project.
 
 ## Improve this page
 

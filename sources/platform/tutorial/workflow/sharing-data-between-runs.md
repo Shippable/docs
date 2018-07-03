@@ -13,7 +13,7 @@ You can do this by moving whatever you want to persist to the `$JOB_STATE` folde
 
 Let us see how to implement this scenario.
 
-The custom job is defined in `shippable.yml` as shown below. The job just runs a script `doSomething.sh`:
+The custom job is defined in **shippable.yml** as shown below. The job just runs a script `doSomething.sh`:
 
 
 ```

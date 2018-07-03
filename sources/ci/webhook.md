@@ -23,7 +23,7 @@ Before you start, you will need to connect your external entity with Shippable s
 
 ##Basic config
 
-Once you have added the integration to Shippable, you are ready to configure your `shippable.yml` to send the webhook payload. The basic configuration looks like this:
+Once you have added the integration to Shippable, you are ready to configure your **shippable.yml** to send the webhook payload. The basic configuration looks like this:
 
 
 ```
@@ -50,7 +50,7 @@ If you want to create a issue on GitHub when your build fails, you can provide t
 
 <img src="/images/ci/add-webhook-int.png" alt="Adding webhook integration">
 
-You can configure your `shippable.yml`:
+You can configure your **shippable.yml**:
 
 ```
 integrations:
@@ -135,7 +135,7 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 ##Removing webhook notifications
 
-To stop sending webhook notifications, simply remove the configuration from the `shippable.yml` for that project.
+To stop sending webhook notifications, simply remove the configuration from the **shippable.yml** for that project.
 
 ## Improve this page
 

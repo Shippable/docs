@@ -59,7 +59,7 @@ with the AWS endpoint:
   add `AWS_SECRET_ACCESS_KEY=<your secret key here>` in Shippable
   settings panel).
 - Next, add the secret along with your key id as environment variables
-  in `shippable.yml` (please note that name of the variable matters):
+  in **shippable.yml** (please note that name of the variable matters):
 
 ```
 env:

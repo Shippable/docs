@@ -15,7 +15,7 @@ Your tests results data needs to be in junit format and your code coverage resul
 
 To set up test result visualization for a repository, do the following:
 
-- Run tests as part of your CI workflow using `shippable.yml`
+- Run tests as part of your CI workflow using **shippable.yml**
 - Make sure test results are in junit format.
 - Output test results to shippable/testresults folder.
 
@@ -38,7 +38,7 @@ Once you have set this up, you can view your test results in the **Test** tab on
 
 To set up code coverage visualization for a repository, do the following:
 
-- Run your code coverage command(s) as part of your CI workflow using `shippable.yml`
+- Run your code coverage command(s) as part of your CI workflow using **shippable.yml**
 - Make sure code coverage output is in cobertura xml format.
 - Output code coverage output to shippable/codecoverage folder.
 

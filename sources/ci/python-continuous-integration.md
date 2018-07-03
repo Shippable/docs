@@ -21,7 +21,7 @@ configure your builds.
 <a name="basic-python-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Python project.
+The following **shippable.yml** should get you started with a simple Python project.
 
 ```
 language: python

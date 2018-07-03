@@ -19,9 +19,9 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file  -
 
-* [Resources](/platform/workflow/resource/overview/) are defined in the `resources` section of the`shippable.yml` file.
+* [Resources](/platform/workflow/resource/overview/) are defined in the `resources` section of the**shippable.yml** file.
 
-* [Jobs](/platform/workflow/job/overview/) are defined in the `jobs` section of the`shippable.yml` file.
+* [Jobs](/platform/workflow/job/overview/) are defined in the `jobs` section of the**shippable.yml** file.
 
 ## Steps
 
@@ -174,7 +174,7 @@ The snippet above does the following:
 
 ##6. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have the `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
 
 ##7. Trigger your pipeline
 

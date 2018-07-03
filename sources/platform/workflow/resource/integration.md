@@ -8,7 +8,7 @@ page_description: integration resource reference
 # integration
 `integration` resource is used to represent credentials that have been encrypted using Shippable Integrations.
 
-You can create a `integration` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `integration` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

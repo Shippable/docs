@@ -134,7 +134,7 @@ A job is an execution unit of the Assembly Line. Our job has to perform four tas
 * Use Shippable utilities to monitor the deployment until the Cluster reaches steady state.
 * If the deployment is successful, use Shippable utilities to extract the Public IP of the deployed Service and run `curl` on it as a deployment validation activity.
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 jobs:
@@ -225,13 +225,13 @@ Detailed info about Shippable Utility functions are [here](/platform/tutorial/wo
 
 #####2d. Push changes to shippable.yml
 
-Commit and push all the above changes to `shippable.yml`.
+Commit and push all the above changes to **shippable.yml**.
 
 ####3. Add the Assembly Line to your Shippable organization
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 

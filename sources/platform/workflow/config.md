@@ -6,7 +6,7 @@ page_description: Overview of workflow configuration in Shippable
 
 # Configuration
 
-Your Assembly Lines are defined through a YAML configuration file `shippable.yml`.
+Your Assembly Lines are defined through a YAML configuration file **shippable.yml**.
 
 There are two parts to your configuration:
 
@@ -26,10 +26,10 @@ To use Shippable for CI, you will need to do the following:
 Some things to note about CI config:
 
 * CI config is only applied to the enabled repository. You cannot separate config from the repository you want to test.
-* We automatically create a [`runCI`](/platform/workflow/job/runci) job when you enable a repository for CI. This job can be used in your Assembly Line just like any other job. The name of this job is always `(your repo name)_runCI`, so a runCI job for a repository named `apprepo` will be `apprepo_runCI`. This job executes all commands in the CI portion of your `shippable.yml`.
-* Even if you have additional `shippable.yml` files in your repository, only the CI portion of the file at the root of your repository will be parsed and executed by Shippable.
+* We automatically create a [`runCI`](/platform/workflow/job/runci) job when you enable a repository for CI. This job can be used in your Assembly Line just like any other job. The name of this job is always `(your repo name)_runCI`, so a runCI job for a repository named `apprepo` will be `apprepo_runCI`. This job executes all commands in the CI portion of your **shippable.yml**.
+* Even if you have additional **shippable.yml** files in your repository, only the CI portion of the file at the root of your repository will be parsed and executed by Shippable.
 
-A reference for the CI portion of `shippable.yml` is shown below:
+A reference for the CI portion of **shippable.yml** is shown below:
 
 ```
 
@@ -273,18 +273,18 @@ integrations:
 
 To use Shippable's Assembly Lines which let you configure complex workflows across several jobs and resources, you will need to do the following:
 
-* Write one or more configuration files `shippable.yml` and commit them to your source control. This is called a called the Sync repository.
+* Write one or more configuration files **shippable.yml** and commit them to your source control. This is called a called the Sync repository.
 * [Add one or more Sync repositories](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) through the Shippable UI, pointing to the location of your config in source control.
 
 Some things to note about Assembly Lines config:
 
-* **Assembly Lines config is global across your Subscription.** Even if you separate out config for various portions into separate `shippable.yml` files, the names of your jobs and resources will still need to be unique across the Subscription.
-* You can have as many `shippable.yml` files as you want and distribute config across them if needed. As an example, our customers manage config in the following different ways:
+* **Assembly Lines config is global across your Subscription.** Even if you separate out config for various portions into separate **shippable.yml** files, the names of your jobs and resources will still need to be unique across the Subscription.
+* You can have as many **shippable.yml** files as you want and distribute config across them if needed. As an example, our customers manage config in the following different ways:
     * Create a central DevOps repository and include all Assembly Lines configuration for all services and applications in that repository. This is usually done by creating a corresponding folder structure in this central DevOps repository. Organizations with central DevOps teams usually like this approach.
     * Keeping the Assembly Line config for each microservice with the source code for that microservice. This is typically the choice when the organization has decoupled teams working on microservices.
 * You can separate out jobs and resources config into separate config files called `shippable.jobs.yml` and `shippable.resources.yml` respectively. You will need to add the repo/branch where these files are stored as a Syns repository so that Shippable can read your config.
 
-A reference for the Assembly Lines portion of `shippable.yml` is shown below:
+A reference for the Assembly Lines portion of **shippable.yml** is shown below:
 
 ```
 #### RESOURCES CONFIG (GLOBAL ACROSS SUBSCRIPTION)

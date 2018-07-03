@@ -28,9 +28,9 @@ We will now proceed to implementing the jobs and resources in the workflow.
 
 The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
 
-* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the`shippable.yml` file.
+* [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
-* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the`shippable.yml` file.
+* [Jobs](/platform/workflow/job/overview/) (green boxes) are defined in the `jobs` section of the**shippable.yml** file.
 
 This file should be committed to your source control. Step 3 of the workflow below will describe how to add the config to Shippable.
 
@@ -88,7 +88,7 @@ resources:
 
 In order to set up the jobs for this assembly line, we need to first enable the repository for CI.  So, we will enable it for CI and add it as a syncRepo (to add the resources we've defined) now.  Then we will add the jobs and trigger the pipeline.
 
-Once you have the resources defined in your `shippable.yml` file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the resources defined in your **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
 
 Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
 
@@ -118,7 +118,7 @@ jobs:
 
 ```
 
-We will also need to tell the CI job what we want to update in `app_repo`.  To do this, add a `post_ci` section to your `shippable.yml` to update the gitRepo `versionName` and `shaData` to match the version of the ciRepo when it is not a pull request.  When CI runs for a pull request, we'll run the tests and skip the deployment.
+We will also need to tell the CI job what we want to update in `app_repo`.  To do this, add a `post_ci` section to your **shippable.yml** to update the gitRepo `versionName` and `shaData` to match the version of the ciRepo when it is not a pull request.  When CI runs for a pull request, we'll run the tests and skip the deployment.
 
 ```
 post_ci:

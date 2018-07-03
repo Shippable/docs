@@ -38,7 +38,7 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.yml`, define the following resources to be used as
+In **shippable.yml**, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -58,7 +58,7 @@ resources:
 ```
 
 ### Provisioning using the new [Google Cloud](/platform/integration/gcloudKey) integration the following is valid:
-In `shippable.yml`, define the following job in order to execute
+In **shippable.yml**, define the following job in order to execute
 an Ansible playbook to provision on Google Cloud from your pipeline:
 
 ```yaml
@@ -102,7 +102,7 @@ Now we need to use this exported environment variables in your ansible playbook.
 ```
 
 ### Provisioning using the deprecated [Google Cloud](/platform/integration/gce) integration the following is valid:
-In `shippable.yml`, define the following job in order to execute
+In **shippable.yml**, define the following job in order to execute
 an Ansible playbook to provision on Google Cloud from your pipeline:
 
 ```yaml
@@ -152,7 +152,7 @@ Note that, the environment variable name is generated based on the format `x_INT
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.yml`:
+**shippable.yml**:
 ```yaml
 jobs:
   # This time resource triggers an attached job nightly at 11:00pm UTC

@@ -42,7 +42,7 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.yml`, define the following resources to be used as
+In **shippable.yml**, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -68,7 +68,7 @@ resources:
     integration: mysshintegration # replace with your ssh/pem integration name
 ```
 
-And, in `shippable.yml`, define the following job in order to execute
+And, in **shippable.yml**, define the following job in order to execute
 an Ansible playbook to provision on AWS from your pipeline:
 
 ```yaml
@@ -112,7 +112,7 @@ To set up this pipeline, simply separate your provision and terminate actions
 into separate jobs and name the 'provision' job as an input to the
 'terminate' job.
 
-`shippable.yml`:
+**shippable.yml**:
 ```yaml
 jobs:
   # job to execute Ansible script to provision aws instances
@@ -179,7 +179,7 @@ jobs:
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.yml`:
+**shippable.yml**:
 ```yaml
 resources:
   # This time resource triggers an attached job nightly at 11:00pm UTC

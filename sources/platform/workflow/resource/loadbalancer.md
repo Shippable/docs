@@ -8,7 +8,7 @@ page_description: loadBalancer resource reference
 # loadBalancer
 `loadBalancer` resource is used to represent a loadbalancer as the name suggests.
 
-You can create a `loadBalancer` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `loadBalancer` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

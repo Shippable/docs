@@ -22,7 +22,7 @@ Instructions are at :
 
 ###Step 2: Update shippable.yml
 
-Next, you should define a [notification resource](/platform/workflow/resource/notification/) in your `shippable.yml`.
+Next, you should define a [notification resource](/platform/workflow/resource/notification/) in your **shippable.yml**.
 
 
 ####Example: Slack
@@ -76,7 +76,7 @@ resources:
 
 ###Step 3: Add the resource to a job
 
-You can use your resource in `jobs` in your `shippable.yml` to configure when notifications are sent:
+You can use your resource in `jobs` in your **shippable.yml** to configure when notifications are sent:
 
 ```
 jobs:

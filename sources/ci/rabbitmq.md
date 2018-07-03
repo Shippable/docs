@@ -10,7 +10,7 @@ page_description: How to do Continuous Integration with Rabbitmq in Shippable
 Rabbitmq is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs Rabbitmq.
 
 ##Starting RabbitMQ
-To start Rabbitmq, include the following in your `shippable.yml`:
+To start Rabbitmq, include the following in your **shippable.yml**:
 
 ```
 services:

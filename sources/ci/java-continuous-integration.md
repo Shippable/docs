@@ -21,7 +21,7 @@ configure your builds.
 <a name="basic-java-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple Java project.
+The following **shippable.yml** should get you started with a simple Java project.
 
 ```
 language: java

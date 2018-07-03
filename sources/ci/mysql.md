@@ -11,7 +11,7 @@ MySQL is pre-installed on all Shippable Official images. However, we do not star
 
 ##Starting MySQL
 
-To start MySQL, include the following in your `shippable.yml`:
+To start MySQL, include the following in your **shippable.yml**:
 
 ```
 services:

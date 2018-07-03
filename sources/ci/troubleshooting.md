@@ -30,9 +30,9 @@ Reason: Admin permissions on the repository are required to enable it as a proje
   - Errors
     - failed to find yml file
 ```
-Reason: All build configuration on Shippable happens through the `shippable.yml` file present at the root of your source contorl repository. If this file is missing, we don't know how to run your build and you see the error.
+Reason: All build configuration on Shippable happens through the **shippable.yml** file present at the root of your source contorl repository. If this file is missing, we don't know how to run your build and you see the error.
 
-**How to avoid:** For any repository you enable on Shippable, create a `shippable.yml` file at the root of your repo in your source control. At a minimum, include the language used in your repo, the version used & commands for tests that you are running. This example below shows a basic shippable.yml file that uses Node.js v5.3 and runs an npm test:
+**How to avoid:** For any repository you enable on Shippable, create a **shippable.yml** file at the root of your repo in your source control. At a minimum, include the language used in your repo, the version used & commands for tests that you are running. This example below shows a basic shippable.yml file that uses Node.js v5.3 and runs an npm test:
 
 ```
 language: node_js
@@ -56,9 +56,9 @@ The shippable.yml reference guide is the best resource to learn what's possible 
   - Errors
     - Integration name specified in yml does not match integrations present in Subscription settings: <name specified in subscription>
 ```
-Reason: Notification and Hub integrations need to be set in two places - In the UI and in the `shippable.yml` file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the `shippable.yml` file.
+Reason: Notification and Hub integrations need to be set in two places - In the UI and in the **shippable.yml** file. You'll get this error if the name for the integration does not match in 'Subscription' Settings; 'Integrations' section and in the **shippable.yml** file.
 
-**How to avoid:** Ensure the integration name are exactly the same in both `shippable.yml` and the integration in the UI. Read our documentation on enabling [notifications](/platform/integration/slackKey/#slack-integration) and [hub](/platform/integration/overview/) integration for more details.
+**How to avoid:** Ensure the integration name are exactly the same in both **shippable.yml** and the integration in the UI. Read our documentation on enabling [notifications](/platform/integration/slackKey/#slack-integration) and [hub](/platform/integration/overview/) integration for more details.
 
 ---
 ### common2| cleanRunYml|callerId:
@@ -67,9 +67,9 @@ Reason: Notification and Hub integrations need to be set in two places - In the 
   - Errors
     - common2|_cleanRunYml|callerId:!xxxxxxxxx prjectId: yyyyy
 ```
-Reason: The language configured in the `shippable.yml` file should have the correct syntax in order to be recognized. You will also get this error if you have enabled a project in the 'Infra' tab instead of the 'CI' tab. Infra projects are meant for terraform deployments and do not allow languages to be specified in the YML.
+Reason: The language configured in the **shippable.yml** file should have the correct syntax in order to be recognized. You will also get this error if you have enabled a project in the 'Infra' tab instead of the 'CI' tab. Infra projects are meant for terraform deployments and do not allow languages to be specified in the YML.
 
-**How to avoid:** Ensure the correct syntax is used when specifying a language in the `shippable.yml`. All supported langagues and configuration syntax is [available here](/ci/set-language/#setting-language-and-runtime).
+**How to avoid:** Ensure the correct syntax is used when specifying a language in the **shippable.yml**. All supported langagues and configuration syntax is [available here](/ci/set-language/#setting-language-and-runtime).
 
 If you have indeed enabled the project through the 'Infra' tab instead of the 'CI' tab, then go to the 'Settings' page for your project, under the 'Options' tab, click the 'Delete' button. Go to the CI tab and enable the project from there and run your build.
 
@@ -80,9 +80,9 @@ If you have indeed enabled the project through the 'Infra' tab instead of the 'C
   - Errors
     - invalid yml format
 ```
-Reason: This error is shown when the overall structure and syntax of the `shippable.yml` file needs to be fixed
+Reason: This error is shown when the overall structure and syntax of the **shippable.yml** file needs to be fixed
 
-**How to avoid:** Use online tools such as [YAML Lint](http://www.yamllint.com/) or [YAML Online Parser](http://yaml-online-parser.appspot.com/) to check the overall structure and syntax of the `shippable.yml` file
+**How to avoid:** Use online tools such as [YAML Lint](http://www.yamllint.com/) or [YAML Online Parser](http://yaml-online-parser.appspot.com/) to check the overall structure and syntax of the **shippable.yml** file
 
 ---
 ### bad YML data
@@ -91,9 +91,9 @@ Reason: This error is shown when the overall structure and syntax of the `shippa
   - Errors
     - Bad YML data in build.ci. Only strings allowed
 ```
-Reason: This error is shown when a particular line or section within the `shippable.yml` file needs to be fixed.
+Reason: This error is shown when a particular line or section within the **shippable.yml** file needs to be fixed.
 
-**How to avoid:** Refer our documentation **UpdateLink** on the `shippable.yml` file for the syntax of a specific section called out in the error.
+**How to avoid:** Refer our documentation **UpdateLink** on the **shippable.yml** file for the syntax of a specific section called out in the error.
 
 ---
 ### Permission denied (publickey)
@@ -139,7 +139,7 @@ Reason: There are two reasons why you get this error:
 
 How to avoid: For the reasons above, follow these steps:
 
-1. To fix this error, you can either update your Dockerfile to set the $HOME environment variable, or you can set it in the `pre_ci_boot` section in the options tag within `shippable.yml` as shown:
+1. To fix this error, you can either update your Dockerfile to set the $HOME environment variable, or you can set it in the `pre_ci_boot` section in the options tag within **shippable.yml** as shown:
 
     ```
 build:
@@ -164,9 +164,9 @@ gcr_login
 
 ```
 
-Reason: When you are using a custom image for your CI & you have specified a Google Container Registry (GCR) in the hub integration and in your `shippable.yml`, we try to log into GCR from inside the CI build container. Hence you would need the gcloud SDK (or awscli for ECR integrations) installed inside your custom image.
+Reason: When you are using a custom image for your CI & you have specified a Google Container Registry (GCR) in the hub integration and in your **shippable.yml**, we try to log into GCR from inside the CI build container. Hence you would need the gcloud SDK (or awscli for ECR integrations) installed inside your custom image.
 
-**How to avoid:** To avoid this, set the `agent_only: true` in the `shippable.yml` as shown below:
+**How to avoid:** To avoid this, set the `agent_only: true` in the **shippable.yml** as shown below:
 
 ```
 integrations:
@@ -191,7 +191,7 @@ allocate 913408 bytes)
 
 Reason: The default memory_limit in the php.ini has been reached.
 
-**How to avoid:** You can add/change the settings of the php.ini file located at `~/.phpenv/versions/$(phpenv version-name)/etc/php.ini`. Add the following to the `ci` section of the `shippable.yml`:
+**How to avoid:** You can add/change the settings of the php.ini file located at `~/.phpenv/versions/$(phpenv version-name)/etc/php.ini`. Add the following to the `ci` section of the **shippable.yml**:
 
 ```
 - echo "memory_limit = 256M" >> $HOME/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -213,8 +213,8 @@ Reason: The Hub integration needs to be configured correctly.
 
 1. Ensure the Hub integration has been correctly set in the 'Account' settings based on the Docker Registry used **UpdateLink**
 2. Check the 'Project' Settings to ensure the above integration is listed under the 'Hub Integration'. Read instructions on setting it up **UpdateLink**, if it is not.
-3. Ensure it is listed in the `shippable.yml` file under the `integration` section and the `integrationName` is exactly the same as the one specified in the UI.
-4. Ensure the indentation in the `shippable.yml` is correct. Here is an example
+3. Ensure it is listed in the **shippable.yml** file under the `integration` section and the `integrationName` is exactly the same as the one specified in the UI.
+4. Ensure the indentation in the **shippable.yml** is correct. Here is an example
 
 ```
 integration:
@@ -247,7 +247,7 @@ ImportError: cannot import name Config
 ```
 Reason: A new version of `awsebcli` was released, and pip is installing the new version. While 3.7.6 runs without an error, 3.7.7 needs a newer version of 'botocore'.
 
-**How to avoid:** Upgrade 'botocore' to the latest version at the end of the `post_ci` section by including the command below in the `shippable.yml` file:
+**How to avoid:** Upgrade 'botocore' to the latest version at the end of the `post_ci` section by including the command below in the **shippable.yml** file:
 ```
 post_ci:
   - pip install --upgrade botocore
@@ -269,9 +269,9 @@ Reason: The standard AMI uses Docker Engine of version 1.9. Our normal policy is
 ###Slack notifications do not occur after the July 1st service maintenance
 On July 1, 2016, Shippable underwent a scheduled service maintenance. Since then Slack notifications is not triggered for few customers.
 
-Reason: Legacy users who have Slack integration configured only in the UI ('Subscription' settings; 'Integrations' section; 'Notification Integration') and not in the `shippable.yml` had Slack notifications triggered for all events. Since the service update, Slack notifications are required to be configured both in the UI and in the `shippable.yml`. Hence legacy users who have Slack notifications configured only in the UI no longer receive the notifications.
+Reason: Legacy users who have Slack integration configured only in the UI ('Subscription' settings; 'Integrations' section; 'Notification Integration') and not in the **shippable.yml** had Slack notifications triggered for all events. Since the service update, Slack notifications are required to be configured both in the UI and in the **shippable.yml**. Hence legacy users who have Slack notifications configured only in the UI no longer receive the notifications.
 
-**How to avoid:** In order to ensure Slack notifications are triggered for the legacy users, just like before, for all events, use the following code in your `shippable.yml` file:
+**How to avoid:** In order to ensure Slack notifications are triggered for the legacy users, just like before, for all events, use the following code in your **shippable.yml** file:
 
 ```
 integrations:
@@ -284,7 +284,7 @@ integrations:
       on_success: always
 ```
 
-Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the `shippable.yml` file. Changing both to `always` matches the previous fallback behavior for legacy users.
+Note that `on_start` defaults to `never` and `on_success` defaults to `change` if these tags are not specified in the **shippable.yml** file. Changing both to `always` matches the previous fallback behavior for legacy users.
 
 Read more about [configuring Slack notifications](/platform/integration/slackKey/#slack-integration) in our documentation.
 
@@ -293,7 +293,7 @@ Read more about [configuring Slack notifications](/platform/integration/slackKey
 
 A couple of reasons why this could happen:
 
-(1) Missing YML in the branch you are building. Create a `shippable.yml` file in the root of your repository. Here is the [reference](/ci/yml-structure/#anatomy-of-shippableyml) for a `shippable.yml` file
+(1) Missing YML in the branch you are building. Create a **shippable.yml** file in the root of your repository. Here is the [reference](/ci/yml-structure/#anatomy-of-shippableyml) for a **shippable.yml** file
 
 (2) Shippable YML is invalid. Please validate your YML using either of the links below:
 
@@ -381,7 +381,7 @@ The usual workflow for a pull request is:
 
 ---
 ### How do I specify a region while setting up AWS Keys Integration for ECR?
-When you set up the [AWS keys integration](/platform/integration/aws-keys), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [AWS keys integration](/platform/integration/aws-keys), the default region is set to  `us-east-1`. You can override the default region by configuring the **shippable.yml** file as shown below.
 
 ```
 integrations:
@@ -405,9 +405,9 @@ You can also build your own Docker image with all the dependencies you need for 
 
 Let's look at an example of using Node.js & Ruby in a build.
 
-Specify your [language](/ci/set-language/#setting-language-and-runtime) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/build-image/) for that language.
+Specify your [language](/ci/set-language/#setting-language-and-runtime) in the **shippable.yml**. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/build-image/) for that language.
 
-All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
+All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your **shippable.yml** should look like this:
 
 ```
 language: node_js
@@ -426,7 +426,7 @@ build:
 
 Yes, you can run unit tests in multiple languages in the same repo. Let's look at an example of running Javascript and Python unit tests in the same build on Shippable.
 
-The easiest way to do this would be to specify `node_js` as your language in the `shippable.yml` file, since python already comes installed on our node images by default. Your `shippable.yml` should look like this:
+The easiest way to do this would be to specify `node_js` as your language in the **shippable.yml** file, since python already comes installed on our node images by default. Your **shippable.yml** should look like this:
 
 
 ```

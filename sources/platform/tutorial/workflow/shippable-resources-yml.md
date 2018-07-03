@@ -10,9 +10,9 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 [Resources](/platform/workflow/resource/overview/) are the basic building blocks of your pipelines. They typically contain information needed for [jobs](/platform/workflow/job/overview/) to execute and sometimes they also are used to store information produced by a job.
 
-Resources can be defined in `shippable.yml` (the preferred approach) or in `shippable.resources.yml`(the legacy approach) committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
+Resources can be defined in **shippable.yml** (the preferred approach) or in `shippable.resources.yml`(the legacy approach) committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
 
-For anatomy of `shippable.yml`, please [read this doc](/platform/tutorial/workflow/shippable-yml).
+For anatomy of **shippable.yml**, please [read this doc](/platform/tutorial/workflow/shippable-yml).
 
 The anatomy of the resources configuration in `shippable.resources.yml` generally follows the structure below:
 

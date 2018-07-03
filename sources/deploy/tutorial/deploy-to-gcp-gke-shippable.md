@@ -70,7 +70,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 `resources` section holds the information that is necessary to deploy to a Kubernetes cluster.
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 resources:
@@ -162,7 +162,7 @@ A job is an execution unit of the Assembly Line. There are 2 things that we need
 * Create a service definition that defines your application/service using the `manifest` job
 * Deploy the manifest into GKE using `deploy` job
 
-Add the following to your `shippable.yml`:
+Add the following to your **shippable.yml**:
 
 ```
 jobs:
@@ -208,7 +208,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your `shippable.yml` config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to `shippable.yml`.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 

@@ -39,6 +39,6 @@ This is the exact scripts that were executed as part of this run
 <img src="/images/platform/visibility/project-job-scripts.jpg" alt="Console output, tests, and coverage for a Continuous Integration job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ## YML
-This is the object form of [`shippable.yml`](/platform/tutorial/workflow/shippable-yml) that was used to create this CI run
+This is the object form of [**shippable.yml**](/platform/tutorial/workflow/shippable-yml) that was used to create this CI run
 
 <img src="/images/platform/visibility/project-job-yml.jpg" alt="Console output, tests, and coverage for a Continuous Integration job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

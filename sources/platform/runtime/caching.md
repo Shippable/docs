@@ -73,7 +73,7 @@ You can clear cache in one of two ways:
 
 In both cases, your cached content will be deleted before the job is run. This is a one-time action, so if cache is still set to true in your yml, the CI job will generate a new cache which will be used for subsequent builds.
 
-This method is the best way to run a job with no cache without changing your `shippable.yml`.
+This method is the best way to run a job with no cache without changing your **shippable.yml**.
 
 ### Typical use-cases
 

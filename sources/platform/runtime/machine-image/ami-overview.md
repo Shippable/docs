@@ -15,9 +15,9 @@ CI or Assembly Line is enabled on Shippable.
 The following picture shows the components of the machine image and how they interact with each other.
 
 * When a new job is triggered, Shippable orchestration spins up a new build node, aka minion, with your default Subscription machine image.
-*  For CI jobs configured with `shippable.yml`, the Shippable Agent on the build node spins up a build container  using either
+*  For CI jobs configured with **shippable.yml**, the Shippable Agent on the build node spins up a build container  using either
 the default Docker image depending on the `language` tag in your [yml configuration](/ci/yml-structure) or a [custom Docker image](/ci/custom-docker-image/) if specified in the yml. All commands in the `ci` and `post_ci` section of your YAML are run inside the build container.
-* For `runSh` jobs configured in `shippable.yml`, commands in the `script` section are run in the Shippable Agent.
+* For `runSh` jobs configured in **shippable.yml**, commands in the `script` section are run in the Shippable Agent.
 
 <img src="/images/platform/runtime/build-workflow.png"
 alt="Machine Image for a Subscription" style="width:800px;"/>

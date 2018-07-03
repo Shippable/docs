@@ -78,7 +78,7 @@ Follow the steps below to pull a private image:
     - [Google Cloud](../platform/integration/gcloudKey/)
     - [Quay](../platform/integration/quayLogin/)      
 
-- Add the following to your `shippable.yml`
+- Add the following to your **shippable.yml**
 
 
 ```
@@ -110,13 +110,13 @@ integrations:
 
 ##Building an image to use for CI
 
-You can build a Docker image in the `pre_ci` section of your `shippable.yml` and then use it to spin up the CI container. Commands in the `pre_ci` section are run on the build machine, i.e. outside your CI container, so this gives you an opportunity to actually build your CI container as part of you workflow.  
+You can build a Docker image in the `pre_ci` section of your **shippable.yml** and then use it to spin up the CI container. Commands in the `pre_ci` section are run on the build machine, i.e. outside your CI container, so this gives you an opportunity to actually build your CI container as part of you workflow.  
 
 Follow the steps below to build a Docker image and use it to spin up your CI container:
 
 * Make sure the **Dockerfile** for the image you want to build is in your repository
 
-* Include the following in your `shippable.yml`. This snippet builds a Docker image called **myImage** with the tag **latest** from a Dockerfile at the root of the repository. You can use your own image name and tag as needed:
+* Include the following in your **shippable.yml**. This snippet builds a Docker image called **myImage** with the tag **latest** from a Dockerfile at the root of the repository. You can use your own image name and tag as needed:
 
 ```
 build:

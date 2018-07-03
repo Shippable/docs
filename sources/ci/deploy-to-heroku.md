@@ -60,7 +60,7 @@ To use Heroku toolbelt, you first need to obtain API key for your
 account. Go to your [account settings](https://dashboard.heroku.com/account) and copy it from 'API Key' section. It is recommended to save your access key as secret in
 Shippable, as is discussed in secure_env_variables. Encrypt your
 variable as `HEROKU_API_KEY=<your key here>` and paste the encrypted
-secret in `shippable.yml` as follows:
+secret in **shippable.yml** as follows:
 
 ```
 env:
@@ -137,7 +137,7 @@ the branches, so plain push would fail due to divergent histories.
 Heroku passes ClearDB MySQL connection details as an environment
 variable called `CLEARDB_DATABASE_URL` containing connection URL. To
 mock it with the test database during build, add the following
-environment variable in your `shippable.yml` config:
+environment variable in your **shippable.yml** config:
 
 ```
 env:
@@ -246,7 +246,7 @@ MongoHQ is as simple as substituting all occurrences of this variable.
 To start using MongoDB, first add the addon of your choice to your
 Heroku application.
 
-In your `shippable.yml` you first need to tell Shippable to provide your
+In your **shippable.yml** you first need to tell Shippable to provide your
 build with MongoDB service. Then, provide mock connection URL to be used
 by your tests. On Shippable, MongoDB is accessed without providing user
 nor password.

@@ -20,7 +20,7 @@ In some scenarios (e.g. rollback), you might want to deploy a specific image ver
 
 ### Pinning using YAML config
 
-There are two ways to achieve pinning in your `shippable.yml`.
+There are two ways to achieve pinning in your **shippable.yml**.
 
 ####**Pinning an input image for a manifest job**
 

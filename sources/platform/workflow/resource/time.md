@@ -8,7 +8,7 @@ page_description: time resource reference
 # time
 `time` resource provides cron-like functionality. It is used to to trigger a job in a cron-like manner. This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/). The timezone used for triggering jobs is UTC.
 
-You can create a `time` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `time` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

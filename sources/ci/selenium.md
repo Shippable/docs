@@ -13,7 +13,7 @@ Selenium is pre-installed on all Shippable Official images. However, we do not s
 
 To use Selenium, you need a browser to start it on. We support Firefox and it is also pre-installed on official images.
 
-The following `shippable.yml` snippet shows how to use Selenium with a Node.js project.
+The following **shippable.yml** snippet shows how to use Selenium with a Node.js project.
 
 ```
 language: node_js

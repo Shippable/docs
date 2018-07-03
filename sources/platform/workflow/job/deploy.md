@@ -11,7 +11,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 A new version is created anytime this job is executed.
 
-You can create a `deploy` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to `shippable.yml`. These jobs execute on Shippable provided runtime.
+You can create a `deploy` job by [adding](/platform/tutorial/workflow/crud-job#adding) it to **shippable.yml**. These jobs execute on Shippable provided runtime.
 
 ## YML Definition
 

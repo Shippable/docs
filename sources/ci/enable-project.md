@@ -25,7 +25,7 @@ To enable a project, first navigate to the subscription that contains the projec
 
 - After enabling a project, click on the Subscription and then the project that you just enabled. You can build your project by clicking on the `Build` button.
 
-Please remember that you will need a `shippable.yml` at the root of your repository in order to run the build. This is the configuration file for your build and tells us the commands you need to run as part of your CI workflow.
+Please remember that you will need a **shippable.yml** at the root of your repository in order to run the build. This is the configuration file for your build and tells us the commands you need to run as part of your CI workflow.
 
 <a name="private-repos"></a>
 ##Enabling GitHub private repositories

@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Reading data from an IN resource
 
-If you are using scripted jobs like `runSh` or `runCI`, you will need to extract information from `IN` resources so you can use it in your scripts. This document explains how to achieve this using our utility `shipctl`. You can use the methods described below in the `TASK` section of `runSh` jobs or in your `shippable.yml` for CI.
+If you are using scripted jobs like `runSh` or `runCI`, you will need to extract information from `IN` resources so you can use it in your scripts. This document explains how to achieve this using our utility `shipctl`. You can use the methods described below in the `TASK` section of `runSh` jobs or in your **shippable.yml** for CI.
 
 For example:
 

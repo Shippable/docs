@@ -23,7 +23,7 @@ We support the following kinds of environment variables.
 
 [**Standard environment variables**](#stdEnv) are pre-populated by us and are automatically available to you during every build. For example, you can use the $BRANCH variable to call different scripts depending on which branch is being built as shown above.
 
-[**User defined environment variables**](#usrEnv) are your custom variables which you can define in the `env` section of your `shippable.yml`. You can define one or multiple variables, as well as encrypt variables to store sensitive information. For example, the snippet below makes the variables $TEST and $FOO available during your build workflow.
+[**User defined environment variables**](#usrEnv) are your custom variables which you can define in the `env` section of your **shippable.yml**. You can define one or multiple variables, as well as encrypt variables to store sensitive information. For example, the snippet below makes the variables $TEST and $FOO available during your build workflow.
 
 [**Unmanaged jobs environment variables**](/platform/workflow/job/runsh/#default-environment-variables) are environment variables that can be used in [runCI](/platform/workflow/job/runci/) and [runSh](/platform/workflow/job/runsh/) jobs.
 
@@ -49,7 +49,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |BUILD_NUMBER		 | Build number for current build.|
 |BUILD_URL		 | Direct URL link to the build output.|
 |CACHE_CONTAINER    | false |
-|CACHE_DIR    |  If cache is true in the build section of `shippable.yml`, then **true**.  Otherwise **false**.  |
+|CACHE_DIR    |  If cache is true in the build section of **shippable.yml**, then **true**.  Otherwise **false**.  |
 |CI		 | true|
 |COMMIT  |Commit id that is being built and tested. |
 |COMMITTER  |Name of the last committer. |
@@ -86,13 +86,13 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |SHIPPABLE_BUILD_DIR | Directory where the repository is cloned. |
 |SHIPPABLE_BUILD_ID 		 |ID of build in Shippable. |
 |SHIPPABLE_BUILD_NUMBER | Build number for current build. |
-|SHIPPABLE_BUNDLER_ARGS  | The value of bundler_args in the build section of `shippable.yml`. |
+|SHIPPABLE_BUNDLER_ARGS  | The value of bundler_args in the build section of **shippable.yml**. |
 |SHIPPABLE_COMMIT_RANGE  | Parent commit… current commit being built.  |
 |SHIPPABLE_DATA_DIR | $HOME/data|
-|SHIPPABLE_GEMFILE | The gemfile specified for the job in the `shippable.yml`. |
+|SHIPPABLE_GEMFILE | The gemfile specified for the job in the **shippable.yml**. |
 | SHIPPABLE_GO_VERSION | GO version specified for the job. |
 | SHIPPABLE_GOPATH | PATH set to $HOME |
-|SHIPPABLE_JDK_VERSION | The jdk for the job in the `shippable.yml`. |
+|SHIPPABLE_JDK_VERSION | The jdk for the job in the **shippable.yml**. |
 |SHIPPABLE_LEIN_VERSION		 | Clojure version specified for the job.|
 |SHIPPABLE_MYSQL_BINARY		 |"/usr/bin/mysqld_safe" |
 |SHIPPABLE_MYSQL_CMD		 |"\$SHIPPABLE_MYSQL_BINARY" |
@@ -108,7 +108,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 | SHIPPABLE_RUBY | Ruby version version specified for the job. |
 | SHIPPABLE_SCALA_VERSION | Scala version specified for the job. |
 |SHIPPABLE_SELENIUM_PORT | 4444|
-|SHIPPABLE_SELENIUM_BINARY |Location of selenium binary. It is set only if selenium is in the addons or services in the `shippable.yml`. |
+|SHIPPABLE_SELENIUM_BINARY |Location of selenium binary. It is set only if selenium is in the addons or services in the **shippable.yml**. |
 |SHIPPABLE_SUBMODULE_ENABLED | Whether or not submodules in the repository will be updated. |
 |SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
 |SUBSCRIPTION_ID | ID of the Subscription. |

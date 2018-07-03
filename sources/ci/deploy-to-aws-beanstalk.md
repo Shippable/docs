@@ -43,7 +43,7 @@ Shippable performs the following steps for you, to deploy your source code on EB
 To enable Shippable to perform these steps, you will need to configure the following two steps for a successful deployment to EB.
 
 1. Add AWS EB Integration to your subscription.
-2. Configure your `shippable.yml` to associate the AWS EB integration for your project.
+2. Configure your **shippable.yml** to associate the AWS EB integration for your project.
 
 ###1. Add AWS EB Integration to your Subscription
 
@@ -52,14 +52,14 @@ To enable Shippable to perform these steps, you will need to configure the follo
 3. Click on the **gear icon** on the Subscription page and then on **Integrations**.
 4. Click the `+` button.
 5. Provide an easy-to-remember name for the AWS EB integration for your Subscription, such as `aws-eb-integration`, in the 'Name' field.
-**IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
+**IMPORTANT:** The 'Name' you have entered in this step should be used in your **shippable.yml** file. Both names should be exactly the same. If not the build will fail with an error.
 6. From the 'Account Integrations' dropdown select the AWS account integration created.
 7. Click the `Save` button.
 8. The AWS EB integration will show up in the list of integrations for your subscription.
 
-###2. Configure your `shippable.yml` to associate the AWS EB integration for your project
+###2. Configure your **shippable.yml** to associate the AWS EB integration for your project
 
-To enable AWS EB integration for your project, add the following to the `shippable.yml` file for that project.
+To enable AWS EB integration for your project, add the following to the **shippable.yml** file for that project.
 
 **Note:** Both the deprecated [ECR integration](/platform/integration/deprecated/aws-ecr) and newer [AWS keys](/platform/integration/aws-keys) integration support the same YML structure.
 
@@ -74,7 +74,7 @@ integrations:
       env_name: sample-node-eb-paas-env
       region: us-east-1
 ```
-While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
+While the above is a sample code for your **shippable.yml**, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
 - `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
 - `type:` is `aws`.
@@ -98,7 +98,7 @@ In addition, the blog ["How to deploy your application to AWS Elastic Beanstak"]
 
 ##Docker Deployment to AWS EB
 
-Shippable performs the following steps for you to deploy Docker on EB, after all the steps in `shippable.yml` that run inside the build container are complete:
+Shippable performs the following steps for you to deploy Docker on EB, after all the steps in **shippable.yml** that run inside the build container are complete:
 
 - Logs into EB
 - Updates your Dockerrun.aws.json file with the IMAGE_NAME & TAG
@@ -112,7 +112,7 @@ To enable Shippable perform the above steps, you will need to configure the foll
 
 1. Add AWS EB Integration to your subscription.
 2. Configure the `dockerrun.aws.json` file.
-3. Configure your `shippable.yml` to associate the AWS EB integration for your project.
+3. Configure your **shippable.yml** to associate the AWS EB integration for your project.
 
 ###1. Add AWS EB Integration to your subscription
 
@@ -121,7 +121,7 @@ To enable Shippable perform the above steps, you will need to configure the foll
 3. Click the 'Settings' tab and go to the 'Integrations' section.
 4. Click the `Add Integration` button.
 5. Provide an easy-to-remember name for the AWS EB integration for your Subscription, such as `aws-eb-docker`, in the 'Name' field.
-**IMPORTANT:** The 'Name' you have entered in this step should be used in your `shippable.yml` file. Both names should be exactly the same. If not the build will fail with an error.
+**IMPORTANT:** The 'Name' you have entered in this step should be used in your **shippable.yml** file. Both names should be exactly the same. If not the build will fail with an error.
 6. From the 'Account Integrations' dropdown select the AWS account integration created.
 7. Click the `Save` button.
 8. The AWS EB integration will show up in the list of integrations for your subscription.
@@ -137,9 +137,9 @@ Ensure the `dockerrun.aws.json` file is in the root of your source code director
   }  
 ```
 
-###3. Configure your `shippable.yml` to associate the AWS EB integration for your project
+###3. Configure your **shippable.yml** to associate the AWS EB integration for your project
 
-To enable AWS EB integration for your project, add the following to the `shippable.yml` file for that project.
+To enable AWS EB integration for your project, add the following to the **shippable.yml** file for that project.
 
 ```
 integrations:
@@ -154,7 +154,7 @@ integrations:
       image_name: "harryi3t/sample_node_eb_docker"
       image_tag: "$BRANCH.$BUILD_NUMBER"
 ```
-While the above is a sample code for your `shippable.yml`, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
+While the above is a sample code for your **shippable.yml**, use the descriptions of each field below to modify the `yml` and tailor it to your requirements.
 
 - `integrationName:` value is the name of the AWS EB integration you added to the 'Subscription' settings (keep the double quotes). It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshooting/#integration-name-specified-in-yml-does-not-match).
 - `type:` is `aws`.

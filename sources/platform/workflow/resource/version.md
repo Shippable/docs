@@ -8,7 +8,7 @@ page_description: version resource reference
 # version
 `version` resource is used to store <a href="http://www.semver.org/">semantic version</a> numbers.
 
-You can create a `version` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `version` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

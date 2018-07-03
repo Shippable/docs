@@ -35,7 +35,7 @@ The first step is to enable continuous integration for your forked repository.
 - If `basic-node` repo is not shown  in the list, click on the **Sync** button next to the Search box. This syncs your Shippable subscription with your source control account. Find the `basic-node` project and enable it.
 
 ###4. Run a build
-Your sample project already has a config file `shippable.yml` at the root of the repository.
+Your sample project already has a config file **shippable.yml** at the root of the repository.
 
 - After enabling the project, you will be redirected to the Project page for `basic-node`.
 

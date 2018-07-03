@@ -6,9 +6,9 @@ page_title: trigger resource reference
 page_description: trigger resource reference
 
 # trigger
-Adding a `trigger` resource to your `shippable.yml` gives you a way to trigger a job in your Assembly Line whenever you commit a change to that resource. This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/).
+Adding a `trigger` resource to your **shippable.yml** gives you a way to trigger a job in your Assembly Line whenever you commit a change to that resource. This resource can be used used as an `IN` input for [any job](/platform/workflow/job/overview/).
 
-You can create a `trigger` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to `shippable.yml`.
+You can create a `trigger` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
 - [Latest Syntax (Shippable v6.1.1 and above)](#latestSyntax)
 - [Old Syntax (forward compatible)](#oldSyntax)

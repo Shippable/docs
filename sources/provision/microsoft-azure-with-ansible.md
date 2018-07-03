@@ -38,7 +38,7 @@ resources and jobs:
 -  jobs
     *  **runSh** - for executing your Ansible scripts
 
-In `shippable.yml`, define the following resources to be used as
+In **shippable.yml**, define the following resources to be used as
 inputs to your pipeline:
 
 ```yaml
@@ -57,7 +57,7 @@ resources:
       branch: master
 ```
 
-In `shippable.yml`, define the following job in order to execute
+In **shippable.yml**, define the following job in order to execute
 an Ansible playbook to provision on Microsoft Azure from your pipeline:
 
 ```yaml
@@ -129,7 +129,7 @@ Note that, the environment variable name is generated based on the format `x_INT
 To schedule a pipeline job to automatically execute an Ansible playbook on a
 recurring basis, add a `time` resource.
 
-`shippable.yml`:
+**shippable.yml**:
 ```yaml
 resources:
   # This time resource triggers an attached job nightly at 11:00pm UTC

@@ -71,7 +71,7 @@ Detailed steps on how to add an AWS Keys Integration are [here](/platform/integr
 
 #####1b. Add Github Integration
 
-In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (`shippable.yml`) and ansible playbook files.
+In order to read your workflow configuration from Github, we need to add the `drship_github` integration. This points to the repository containing your Shippable workflow config file (**shippable.yml**) and ansible playbook files.
 
 In our case, we're using the repository [devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible).
 

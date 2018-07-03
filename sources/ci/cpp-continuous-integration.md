@@ -22,7 +22,7 @@ configure your builds.
 <a name="basic-cpp-config"></a>
 ##Basic configuration
 
-The following `shippable.yml` should get you started with a simple C/C++ project.
+The following **shippable.yml** should get you started with a simple C/C++ project.
 
 
 ```
