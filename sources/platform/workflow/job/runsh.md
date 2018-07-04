@@ -162,7 +162,11 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 ## YML templates
 If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your **shippable.yml** file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
-Below is a sample yml using templates:
+
+Currently, we support defining templates in following ways:-
+
+* You can define templates in your jobs file itself. Below is a sample yml using templates defined in the same file as your jobs.
+
 ```
 templates: &template-script
   - echo "common-script 1"
@@ -199,6 +203,153 @@ jobs:
         - echo "SUCCESS"
         - *template-script
 ```
+
+* You can define all your templates in a separate file called `shippable.templates.yml` and then use templates defined in this file across all your jobs in that repo. Below is a sample yml using templates defined in separate file.
+
+* `shippable.templates.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* `shippable.jobs.yml`
+
+```yaml
+jobs:
+  - name: sample-job-A
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-1
+            - echo "some more scripts"
+
+  - name: sample-job-B
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-2
+            - echo "some more scripts"
+
+  - name: sample-job-C
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job C"
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-3
+```
+
+* You can also import external template files defined in some other **public** repo using its raw file path, and then use templates defined in this file in your jobs by mentioning these external urls in your `shippable.templates.yml` under `externalReferences` section. Below is an example showing how you can use templates from an external file in your jobs.
+
+* external template file `template1.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* external templates file `template2.yml`
+
+```yaml
+
+templates3: &template-script-3
+  - echo "common-script 5"
+  - echo "common-script 6"
+
+
+templates4: &template-script-4
+  - echo "common-script 7"
+  - echo "common-script 8"
+
+```
+
+* `shippable.templates.yml`
+
+```yaml
+
+externalReferences:
+  - https://github.com/sampleTest/sample_templates/raw/master/template1.yml
+  - https://github.com/sampleTest/sample_templates/raw/master/template2.yml
+
+templates5: &template-script-5
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates6: &template-script-6
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* `shippable.jobs.yml`
+
+```yaml
+jobs:
+  - name: sample-job-A
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-1
+            - echo "some more scripts"
+
+  - name: sample-job-B
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-2
+            - echo "some more scripts"
+
+  - name: sample-job-C
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job C"
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-3
+
+  - name: sample-job-D
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job D"
+            - *template-script-4
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-5
+
+```
+
 
 **Note**: YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
 ```
