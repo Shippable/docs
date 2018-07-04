@@ -163,9 +163,7 @@ A description of the job YML structure and the tags available is in the [jobs se
 ## YML templates
 If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your **shippable.yml** file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
 
-Currently, we support defining templates in following ways:-
-
-* You can define templates in your jobs file itself. Below is a sample yml using templates defined in the same file as your jobs.
+Below is a sample yml using templates defined in the same file as your jobs.
 
 ```
 templates: &template-script
@@ -204,7 +202,10 @@ jobs:
         - *template-script
 ```
 
-* You can define all your templates in a separate file called `shippable.templates.yml` and then use templates defined in this file across all your jobs in that repo. Below is a sample yml using templates defined in separate file.
+## shippable.templates.yml
+Defining separate templates for each of the files might be an overhead if you want to use some common templates in more than one file. You can avoid this by creating a separate `shippable.templates.yml` in the root directory of your project and define all your templates in this file and use them in all the jobs file of that project. This helps significantly in reducing the number of lines in your yml and also makes your ymls more neat and clean.
+
+Below is a sample yml using templates defined in a separate file.
 
 * `shippable.templates.yml`
 
@@ -254,7 +255,9 @@ jobs:
         - *template-script-3
 ```
 
-* You can also import external template files defined in some other **public** repo using its raw file path, and then use templates defined in this file in your jobs by mentioning these external urls in your `shippable.templates.yml` under `externalReferences` section. Below is an example showing how you can use templates from an external file in your jobs.
+There might be some cases where you need to use some common templates in more than one projects. In this case, instead of defining these templates in each of the projects you can rather keep them in some **public** repo and then mention their raw file path in `shippable.templates.yml` under `externalReferences` section, and then use templates defined in this file in your jobs.
+
+Below is an example showing how you can import external templates files and use the templates defined in those files in your jobs.
 
 * external template file `template1.yml`
 
@@ -351,7 +354,10 @@ jobs:
 ```
 
 
-**Note**: YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
+**Note**:
+
+* YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
+
 ```
   script:
     - |
@@ -359,6 +365,8 @@ jobs:
       *template-script          # this is not allowed
       echo "some more scripts"
 ```
+
+* Currently we support `externalReferences` only from a public repo, so please make sure your external templates file are publically accessible.
 
 ## cliConfig special handling
 If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
