@@ -219,6 +219,10 @@ templates2: &template-script-2
   - echo "common-script 3"
   - echo "common-script 4"
 
+templates3: &template-script-3
+  - echo "common-script 5"
+  - echo "common-script 6"
+
 ```
 
 * `shippable.jobs.yml`
