@@ -162,7 +162,9 @@ A description of the job YML structure and the tags available is in the [jobs se
 
 ## YML templates
 If some common scripts need to be used in multiple jobs or TASKs then instead of writing them in the script section of each job repetitively you can define a template once and use this for all the jobs and keep your **shippable.yml** file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
-Below is a sample yml using templates:
+
+Below is a sample yml using templates defined in the same file as your jobs.
+
 ```
 templates: &template-script
   - echo "common-script 1"
@@ -200,7 +202,162 @@ jobs:
         - *template-script
 ```
 
-**Note**: YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
+## shippable.templates.yml
+Defining separate templates for each of the files might be an overhead if you want to use some common templates in more than one file. You can avoid this by creating a separate `shippable.templates.yml` in the root directory of your project and define all your templates in this file and use them in all the jobs file of that project. This helps significantly in reducing the number of lines in your yml and also makes your ymls more neat and clean.
+
+Below is a sample yml using templates defined in a separate file.
+
+* `shippable.templates.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* `shippable.jobs.yml`
+
+```yaml
+jobs:
+  - name: sample-job-A
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-1
+            - echo "some more scripts"
+
+  - name: sample-job-B
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-2
+            - echo "some more scripts"
+
+  - name: sample-job-C
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job C"
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-3
+```
+
+There might be some cases where you need to use some common templates in more than one projects. In this case, instead of defining these templates in each of the projects you can rather keep them in some **public** repo and then mention their raw file path in `shippable.templates.yml` under `externalReferences` section, and then use templates defined in this file in your jobs.
+
+Below is an example showing how you can import external templates files and use the templates defined in those files in your jobs.
+
+* external template file `template1.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* external templates file `template2.yml`
+
+```yaml
+
+templates3: &template-script-3
+  - echo "common-script 5"
+  - echo "common-script 6"
+
+
+templates4: &template-script-4
+  - echo "common-script 7"
+  - echo "common-script 8"
+
+```
+
+* `shippable.templates.yml`
+
+```yaml
+
+externalReferences:
+  - https://github.com/sampleTest/sample_templates/raw/master/template1.yml
+  - https://github.com/sampleTest/sample_templates/raw/master/template2.yml
+
+templates5: &template-script-5
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates6: &template-script-6
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* `shippable.jobs.yml`
+
+```yaml
+jobs:
+  - name: sample-job-A
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-1
+            - echo "some more scripts"
+
+  - name: sample-job-B
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job A"
+            - *template-script-2
+            - echo "some more scripts"
+
+  - name: sample-job-C
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job C"
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-3
+
+  - name: sample-job-D
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "This is job D"
+            - *template-script-4
+    on_success:
+      script:
+        - echo "SUCCESS"
+        - *template-script-5
+
+```
+
+
+**Note**:
+
+* YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
+
 ```
   script:
     - |
@@ -208,6 +365,8 @@ jobs:
       *template-script          # this is not allowed
       echo "some more scripts"
 ```
+
+* Currently we support `externalReferences` only from a public repo, so please make sure your external templates file are publically accessible.
 
 ## cliConfig special handling
 If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
