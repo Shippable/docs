@@ -296,7 +296,7 @@ Some things to note about Assembly Lines config:
 * You can have as many **shippable.yml** files as you want and distribute config across them if needed. As an example, our customers manage config in the following different ways:
     * Create a central DevOps repository and include all Assembly Lines configuration for all services and applications in that repository. This is usually done by creating a corresponding folder structure in this central DevOps repository. Organizations with central DevOps teams usually like this approach.
     * Keeping the Assembly Line config for each microservice with the source code for that microservice. This is typically the choice when the organization has decoupled teams working on microservices.
-* You can separate out jobs and resources config into separate config files called `shippable.jobs.yml` and `shippable.resources.yml` respectively. You will need to add the repo/branch where these files are stored as a Syns repository so that Shippable can read your config.
+* You can separate out jobs and resources config into separate config files called `shippable.jobs.yml` and `shippable.resources.yml` respectively. You will need to add the repo/branch where these files are stored as a Sync repository so that Shippable can read the `jobs` and `resources` sections of your config.
 
 A reference for the Assembly Lines portion of **shippable.yml** is shown below:
 
@@ -304,12 +304,11 @@ A reference for the Assembly Lines portion of **shippable.yml** is shown below:
 #### RESOURCES CONFIG (GLOBAL ACROSS SUBSCRIPTION)
 
 resources:
-  - name:           <string>
-    type:           <resource type name>
-    integration:    <string>
-    pointer:        <object>
-    seed:           <object>
-    version:        <object>
+  - name:               <string>
+    type:               <resource type name>
+    integration:        <string>
+    versionTemplate:    <object>
+    flags:              <array>
 
 #### END RESOURCES CONFIG
 
