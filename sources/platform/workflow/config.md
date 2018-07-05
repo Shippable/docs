@@ -62,24 +62,38 @@ services:
   - <service name>
   - <service name>
 
+#### basic env config. Each set will trigger a separate job, so the config below will trigger two jobs ####
 env:
   - ENV1: "foo" <environment variables in dictionary format>
     ENV2: "moo"
   - ENV1: "foo" <environment variables in dictionary format>
     ENV2: "boo"
-  global:
-  - ENVG1: "goo"
-  - ENVG2: "doo"
+#### end basic env config ####
 
+#### alternate env var config, use if you have global variables ####
+#### global variables will be set in all jobs, and each set of variabled under matrix will trigger a separate job ####
+env:    
+  global:
+    - ENVG1: "goo"
+    - ENVG2: "doo"
+  matrix:
+    - ENV1: "foo" <environment variables in dictionary format>
+      ENV2: "moo"
+    - ENV1: "foo" <environment variables in dictionary format>
+      ENV2: "boo"  
+#### end alternate env config ####
+
+#### matrix config - use when you want to include, exclude, or allow failures for specific combinations####
 matrix:
   include:
-    - ENV1: "foomoo"
+    - ENV1: "foo"
       <language version>: <version>
   exclude:
     - ENVG2: "doo"
       <language version>: <version2>
   allow_failures:
-	- <language version>: <version2>
+	  - <language version>: <version2>
+####end matrix config ####
 
 build:
   pre_ci:
