@@ -288,6 +288,6 @@ Manually run the job only once by right clicking on the job. You can look at the
 ## Further Reading
 * [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
+* [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

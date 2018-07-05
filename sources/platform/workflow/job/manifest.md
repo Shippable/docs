@@ -76,7 +76,7 @@ jobs:
 
 * **`on_start`**, **`on_success`**, **`on_failure`**, **`on_cancel`**, **`always`** are used to send notifications for those events. You need to provide a [**notification**](/platform/workflow/resource/notification) resource pointing to the provider like Slack, Email, IRC, Hipchat, etc.
 
-The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
+The [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page contains additional descriptions of these tags.
 
 **Notes:**
 

@@ -17,7 +17,7 @@ Shippable does not directly integrate Kubernetes load balancers (services) with 
 
 ###1. Add a loadBalancer resource.
 
-Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. As an example:
+Add a [loadBalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/workflow/config/) file. As an example:
 
 ```
 resources:
@@ -55,7 +55,7 @@ If you want to set custom labels for your loadBalancer, check out [instructions 
 
 The [provision](/platform/workflow/job/provision/) job is used to create ancillary objects like load balancers on Container Orchestration Platforms like GKE and Kubernetes.
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:
@@ -76,7 +76,7 @@ If you have another set of labels that you'd like to use instead, you can use a 
 
 **Steps**
 
-* Add a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+* Add a [dockerOptions resource](/platform/workflow/resource/dockeroptions) to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:

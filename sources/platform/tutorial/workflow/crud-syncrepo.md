@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # Adding/Updating an Assembly Line
 
-The `syncRepo` resource is the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.yml](/platform/tutorial/workflow/shippable-yml) files.
+The `syncRepo` resource is the heart of Shippable DevOps Assembly Lines since this resource is a pointer to the source control repository (called sync repository) containing the files that define your DevOps Assembly Lines, namely, [shippable.yml](/platform/workflow/config) files.
 
 When you add a [syncRepo](/platform/workflow/resource/syncrepo), Shippable creates a resource and an [rSync](/platform/workflow/job/rsync/) job automatically. We also add a webhook to your source control system for the repo so that we can trigger synchronization if you change the definitions of your Assembly Lines.
 
@@ -75,7 +75,7 @@ To change the default flag:
 
 To add additional flags:
 
-* Add your syncRepo to the `resources` section of the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file in that syncRepo with the additional flags:
+* Add your syncRepo to the `resources` section of the [shippable.yml](/platform/workflow/config/) file in that syncRepo with the additional flags:
 ```
 resources:
   - name: mySyncRepo

@@ -99,7 +99,7 @@ jobs:
       NOTIFY:       <notification resource name>
 ```
 
-A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
+A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page.
 
 * **`name`** -- Required, should be an easy to remember text string.
 

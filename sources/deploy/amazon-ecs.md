@@ -50,7 +50,7 @@ that represents the options of the application container.
 
 ## Configuration
 
-The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/workflow/config/) file at the root of the repository -
 
 * [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
@@ -75,7 +75,7 @@ This file should be committed to your source control. Step 5 of the workflow bel
 
     Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
 
-2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -96,7 +96,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:
@@ -115,7 +115,7 @@ jobs:
 
 **Steps**
 
-Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -135,7 +135,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to the existing `jobs` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `jobs` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:
@@ -174,7 +174,7 @@ However, you can customize these and many other options by including a [dockerOp
 
 ###1. Add a dockerOptions resource
 
-Add a `dockerOptions` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
+Add a `dockerOptions` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
 resources:
@@ -210,7 +210,7 @@ You can also include environment variables needed by your application in your se
 
 ###1. Add a params resource
 
-Add a `params` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set environment variables needed to connect to your database:
+Add a `params` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to set environment variables needed to connect to your database:
 
 ```
 resources:
@@ -250,7 +250,7 @@ By default, we always deploy one instance of your application. You can scale it 
 
 ###1. Add a replicas resource
 
-Add a `replicas` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to scale your application to 5 instances:
+Add a `replicas` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to scale your application to 5 instances:
 
 ```
 resources:

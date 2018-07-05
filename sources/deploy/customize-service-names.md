@@ -21,7 +21,7 @@ The default naming convention used by Shippable for services created during depl
 
 ## Overriding service names
 
-Set the `deployName` attribute in the [deploy](/platform/workflow/job/deploy) job in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Set the `deployName` attribute in the [deploy](/platform/workflow/job/deploy) job in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:

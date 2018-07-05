@@ -19,7 +19,7 @@ However, you can customize these and many other options by including a [dockerOp
 
 ###1. Add a dockerOptions resource
 
-Add a `dockerOptions` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
+Add a `dockerOptions` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to set memory to 1024MB and expose port 80, you would write the following snippet:
 
 ```
 resources:

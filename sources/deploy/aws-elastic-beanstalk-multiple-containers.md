@@ -25,7 +25,7 @@ We will be defining the jobs and resources in a step by step manner below.
 
 They are three configuration files that are needed to achieve this usecase -
 
-* **[shippable.yml](/platform/tutorial/workflow/shippable-yml/):** [Resources](/platform/workflow/resource/overview/) and [jobs](/platform/workflow/job/overview/) are defined in this file.
+* **[shippable.yml](/platform/workflow/config/):** [Resources](/platform/workflow/resource/overview/) and [jobs](/platform/workflow/job/overview/) are defined in this file.
 
 * **`Dockerrun.aws.json`**: This file specifies the image and environment configuration. Placeholders are defined in this file for the image and environment configuration. These placeholders give us flexibility to use the image and environment configuration that you will define in Shippable configuration files.
 
@@ -120,7 +120,7 @@ Once the creation is done, you should see this:
 * **Description:** `deploy-eb-basic-image` and `deploy-eb-nginx-image` represent the Docker images of our sample application. In our example, these images hosted on Amazon ECR.
 * **Required:** Yes.
 
-2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -157,7 +157,7 @@ resources:
 1. Create an account integration using your Shippable account for Amazon ECR.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
 
-2. Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -176,7 +176,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -198,7 +198,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to the `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -226,7 +226,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 
 ```

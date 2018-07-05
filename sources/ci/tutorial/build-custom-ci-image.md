@@ -260,7 +260,7 @@ jobs:
 
 Commit these **shippable.yml** changes to your application repository.
 
-**Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)**
+**Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/).**
 
 You're now done! Each time your custom Docker image source code is updated, a new image will be built and pushed to Docker registry, which will trigger your CI workflow.
 
@@ -271,6 +271,6 @@ Your Assembly Line will look like this:
 ## Further Reading
 * [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
+* [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

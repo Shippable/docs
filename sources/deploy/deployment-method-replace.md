@@ -13,7 +13,7 @@ In this strategy, your existing running tasks / services / deployment objects ar
 
 The replace strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) job to `replace`.
 
-As an example, the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file for our standard [single container application](/deploy/continuous-delivery-single-container-docker-application/) looks like this:
+As an example, the [shippable.yml](/platform/workflow/config/) file for our standard [single container application](/deploy/continuous-delivery-single-container-docker-application/) looks like this:
 
 ```
 jobs:

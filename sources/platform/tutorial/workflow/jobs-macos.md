@@ -40,7 +40,7 @@ you can assign your runSh jobs to a specific Node pool.
 
 ##5. Define CI jobs and resources.
 
-* Your CI jobs and resources are defined in a [shippable.yml](/platform/tutorial/workflow/shippable-yml/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
+* Your CI jobs and resources are defined in a [shippable.yml](/platform/workflow/config/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
 * Create the shippable.yml in any of your configured SCM integration repository, **except the source code repository that you are building itself**. This approach offers several benefits such as controlling execute permissions on the jobs
 defined in the yml since only users who have write permissions on the repository can execute the jobs defined in it as well as commits to the yml file not triggering the build job itself. You can for experimentation purposes create the shippable.yml file in the source code repository itself, but this will create the undesired side-effect of running the build job whenever the shippable.yml file is committed, since the build job needs the repository as an input in order for it to checkout the repository. We are in the meantime actively working on a feature that will solve this job triggering issue.
 * We now define a [gitRepo resource](/platform/workflow/resource/gitrepo/#gitrepo) in shippable.yml  that points to the repository that you want to build. This resource

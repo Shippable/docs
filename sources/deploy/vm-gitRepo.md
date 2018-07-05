@@ -26,7 +26,7 @@ We will now proceed to implementing the jobs and resources in the workflow.
 
 ## Configuration
 
-The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/workflow/config/) file at the root of the repository -
 
 * [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
@@ -47,7 +47,7 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -74,7 +74,7 @@ In this integration, we specify the public IP addresses of all the VMs where we 
 
 2. Set the friendly name of the integration as `vm_nodes_int`. If you change the name, please change it also in the yml below.
 
-3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -106,7 +106,7 @@ At this point, you should be able to see the CI project and rSync job on your SP
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file to add a `jobs` section.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file to add a `jobs` section.
 
 ```
 jobs:
@@ -126,7 +126,7 @@ post_ci:
   - if [ $IS_PULL_REQUEST == "false" ] ; then jq -M --argfile ciRepo $APP_CIREPO_PATH/version.json '.version.propertyBag.shaData = $ciRepo.version.propertyBag.shaData' $APP_REPO_PATH/version.json > tmp.json && mv tmp.json $APP_REPO_PATH/version.json; fi;
 ```
 
-If you get an error with a `shipctl` command, make sure that your subscription is on a recent [machine image](/platform/runtime/machine-image/ami-overview/).  Or specify a more recent build image for CI in [pre_ci_boot](/platform/tutorial/workflow/shippable-yml/#build).
+If you get an error with a `shipctl` command, make sure that your subscription is on a recent [machine image](/platform/runtime/machine-image/ami-overview/).  Or specify a more recent build image for CI in [pre_ci_boot](/platform/workflow/config/#build).
 
 ###5. Define `app_deploy`.
 
@@ -140,7 +140,7 @@ If you get an error with a `shipctl` command, make sure that your subscription i
 
 **Steps**
 
-Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:

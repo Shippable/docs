@@ -16,7 +16,7 @@ You can easily add a load balancer and apply it to the specific image/port that 
 
 ###1. Add a loadBalancer resource
 
-Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. As an example:
+Add a [loadbalancer](/platform/workflow/resource/loadbalancer/#loadbalancer) resource to your [shippable.yml](/platform/workflow/config/) file. As an example:
 
 ```
 resources:

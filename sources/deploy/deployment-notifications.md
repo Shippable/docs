@@ -33,7 +33,7 @@ Set the friendly name of the integration as `app_notification_provider`. If you 
 
 ###2. Add a notification resource
 
-Next, you need a [notification](/platform/workflow/resource/notification/) resource to configure the recipients of your notifications. In our example, we're using Slack and specifying the channel and the users who will receive the automated notifications, so our [shippable.yml](/platform/tutorial/workflow/shippable-yml/) looks like this:
+Next, you need a [notification](/platform/workflow/resource/notification/) resource to configure the recipients of your notifications. In our example, we're using Slack and specifying the channel and the users who will receive the automated notifications, so our [shippable.yml](/platform/workflow/config/) looks like this:
 
 ```
 resources:

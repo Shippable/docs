@@ -11,7 +11,7 @@ You can also include environment variables needed by your application in your se
 
 ###1. Add a params resource
 
-Add a `params` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to set environment variables needed to connect to your database:
+Add a `params` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to set environment variables needed to connect to your database:
 
 ```
 resources:
