@@ -324,6 +324,6 @@ If `war_loc` is an `IN` to another job in your workflow that pulls the WAR file,
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
+* [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

@@ -14,7 +14,7 @@ Jobs take Inputs in the form of [Resources](/platform/workflow/resource/overview
 
 Jobs can be defined in **shippable.yml** (the preferred approach) or in `shippable.jobs.yml`(the legacy approach) committed to source control in your [Sync repository](/platform/workflow/resource/syncrepo/).
 
-For anatomy of **shippable.yml**, please [read this doc](/platform/tutorial/workflow/shippable-yml).
+For anatomy of **shippable.yml**, please [read this doc](/platform/workflow/config).
 
 The anatomy of the jobs configuration in `shippable.jobs.yml` generally follows the structure below:
 

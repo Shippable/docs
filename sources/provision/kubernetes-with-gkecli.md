@@ -30,7 +30,7 @@ These are the key components of the assembly line diagram -
 
 ## Configuration
 
-The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/workflow/config/) file at the root of the repository -
 
 * [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
@@ -45,7 +45,7 @@ The configuration for this Assembly Line is in the [shippable.yml](/platform/tut
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -79,7 +79,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_github`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -105,7 +105,7 @@ resources:
 
 1. Create an account integration using your Shippable account for GKE. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gcloud`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -123,7 +123,7 @@ resources:
 
 **Steps**
 
-Add the following trigger resource to the `resources` block in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following trigger resource to the `resources` block in your [shippable.yml](/platform/workflow/config/) file.
 ```
 resources:
 # triggers for the provision-gke-kubernetes-cluster app
@@ -146,7 +146,7 @@ Both jobs take the `gke_cliConfig` resource as an INPUT. This initializes both j
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:

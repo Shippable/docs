@@ -6,7 +6,7 @@ page_description: How to define Assembly line configuration in Shippable
 
 #Configuration
 
-Your pipelines are defined through yml-based configuration files. The [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file contains definitions of the jobs, resources, and triggers in your pipeline.
+Your pipelines are defined through yml-based configuration files. The [shippable.yml](/platform/workflow/config/) file contains definitions of the jobs, resources, and triggers in your pipeline.
 
 Pipeline configuration files should be committed to a repository in your source control. This repository is called a [sync repository](#sync). You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 

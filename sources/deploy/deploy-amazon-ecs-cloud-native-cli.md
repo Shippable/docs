@@ -17,7 +17,7 @@ The [deploy job](/platform/workflow/job/deploy) helps make your deployments very
 
 ## Configuration
 
-The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file  -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/workflow/config/) file  -
 
 * [Resources](/platform/workflow/resource/overview/) are defined in the `resources` section of the**shippable.yml** file.
 
@@ -36,7 +36,7 @@ The configuration for this Assembly Line is in the [shippable.yml](/platform/tut
 1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
   resources:
@@ -70,7 +70,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 Set the friendly name of the integration as `app_scm`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to the existing `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -94,7 +94,7 @@ resources:
 
 Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below .
 
-2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -146,7 +146,7 @@ ${APP_IMAGE_SOURCENAME} and ${APP_IMAGE_VERSIONNAME} are variables that will get
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:

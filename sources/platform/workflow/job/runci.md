@@ -8,7 +8,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # runCI
 
-`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [**shippable.yml**](/platform/tutorial/workflow/shippable-yml/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
+`runCI` is a job that represents a repo that is enabled for CI on Shippable. This is how Shippable was started before we realized that trying to create complex workflows in one single YML script was impossible and we needed DevOps Assembly Lines. As a result, this job is somewhat different from other jobs since the actual configuration is driven through the CI sections of [**shippable.yml**](/platform/workflow/config/). The runCI job is just a wrapper that lets you easily integrate your CI workflow with the rest of your assembly line.
 
 `runCI` jobs execute on Shippable provided [On-demand Nodes or BYON Nodes](/platform/runtime/overview#nodes)
 
@@ -44,7 +44,7 @@ jobs:
         replicate: <resource>
         replicateOnPullRequest: <true/false>
 ```
-A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
+A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page.
 
 * **`name`** -- Required, and needs to match whatever got created automatically when you enabled the repo for CI. It typically is in the format of `<repo name>_runCI`. You can find the exact name from the SPOG view.
 
@@ -57,12 +57,12 @@ prioritize only queued jobs in your pipeline.
 
 * **`steps `** -- is an object which contains specific instructions to run this Job
     * `IN` -- Optional, any Resource or Job can be used here and as many of them as you need. `switch`, `versionNumber`, and `versionName` are supported too but `applyTo` is not supported.
-    * `TASK` -- is not allowed in this job. It is done through [**shippable.yml**](/platform/tutorial/workflow/shippable-yml/)
+    * `TASK` -- is not allowed in this job. It is done through [**shippable.yml**](/platform/workflow/config/)
     * `OUT` -- Optional, any Resource can be used here and as many as you need.
         * `replicate` -- Optional, any `IN` Resource of same type can be used.
         * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
 
-The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
+The [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page contains additional descriptions of these tags.
 
 ## Default Environment Variables
 In order to make it easier to write your scripts and work with `IN` and `OUT` resources, we have made several environment variables available for use within your `TASK` section of your `runCI` job. Visit the Resource page for each type, to get the list of environment variables that get set depending on the Resource type thats either `IN` or `OUT`.
@@ -94,4 +94,4 @@ How to use these utility functions is [documented here](/platform/tutorial/workf
 
 * [jobs](/platform/workflow/job/overview)
 * [resources](/platform/workflow/resource/overview)
-* [CI configuration](/platform/tutorial/workflow/shippable-yml/)
+* [CI configuration](/platform/workflow/config/)

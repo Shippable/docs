@@ -2,7 +2,7 @@ faq /support
 ci/overview /ci/why-continuous-integration
 ci/supported /ci/services-overview/
 ci/runFirstBuild /getting-started/ci-sample/
-ci/shippableyml /platform/tutorial/workflow/shippable-yml
+ci/shippableyml /platform/workflow/config
 ci/languages/node /ci/nodejs-continuous-integration
 ci/languages/python /ci/python-continuous-integration
 ci/languages/java /ci/java-continuous-integration
@@ -129,7 +129,7 @@ tutorials/pipelines/deploy-to-kubernetes /deploy/kubernetes/
 tutorials/pipelines/runShUseIntegrations /platform/workflow/job/runsh/
 tutorials/pipelines/updateResourceVersion /release/increment-version-number/
 navigatingUI/accountSettings/api /platform/api/api-tokens
-reference/shippable-yml /platform/tutorial/workflow/shippable-yml
+reference/shippable-yml /platform/workflow/config
 reference/shippable-jobs-yml /platform/tutorial/workflow/shippable-jobs-yml
 reference/shippable-resources-yml /platform/tutorial/workflow/shippable-resources-yml
 reference/shippable-triggers-yml /platform/tutorial/workflow/shippable-triggers-yml
@@ -212,7 +212,7 @@ reference/admiral-vault /platform/tutorial/server/install-vault
 reference/admiral-bbs /platform/tutorial/server/install-bbs
 reference/glossary /platform/tutorial/glossary
 support /getting-started/support
-platform/shippable-yml /platform/tutorial/workflow/shippable-yml
+platform/shippable-yml /platform/workflow/config
 deploy/amazon-ecs-strategy /deploy/deployment-method-blue-green
 deploy/amazon-ecs-elb-alb /deploy/lb-amazon-ecs-app
 deploy/amazon-ecs-multiple-environments /deploy/multi-stage-deployments

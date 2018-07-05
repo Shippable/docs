@@ -52,7 +52,7 @@ jobs:
         - <flag 2>
 ```
 
-For more information, read the [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page.
+For more information, read the [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page.
 
 ## When does a Job execute?
 
@@ -177,5 +177,5 @@ Unmanaged jobs provide much more flexibility, while still preserving most advant
 If you need a job that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
 ## Further Reading
-* [Anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/)
+* [Anatomy of shippable.yml](/platform/workflow/config/)
 * [Working with jobs](/platform/tutorial/workflow/crud-job/)

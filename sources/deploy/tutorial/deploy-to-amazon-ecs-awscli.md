@@ -250,6 +250,6 @@ You can manually run the job by right clicking on the job or by triggering the C
 ## Further Reading
 * [Provisioning an AWS VPC using Ansible](/provision/tutorial/provision-aws-vpc-ansible).
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
-* [Defining Resources in shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources-config)
-* [Defining Jobs in shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs-config)
+* [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
+* [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

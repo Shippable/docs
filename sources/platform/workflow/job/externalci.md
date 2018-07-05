@@ -55,7 +55,7 @@ Body:
 
 * **`versionData`** -- Optional, is an object which can be used to pass key-values pairs to other jobs that are dependent on this job.
 
-The [jobs section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#jobs) page contains additional descriptions of these tags.
+The [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page contains additional descriptions of these tags.
 
 ## Further Reading
 * [jobs](/platform/workflow/job/overview)

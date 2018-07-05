@@ -39,7 +39,7 @@ resources:
     versionTemplate:    <object>
     flags:              <array>
 ```
-For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
+For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/workflow/config/#resources) page.
 
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
@@ -54,7 +54,7 @@ resources:
     seed:               <object>
     version:            <object>
 ```
-For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/tutorial/workflow/shippable-yml/#resources) page.
+For an explanation of each field, read the [resources section of the anatomy of shippable.yml](/platform/workflow/config/#resources) page.
 
 ## Resource structure
 

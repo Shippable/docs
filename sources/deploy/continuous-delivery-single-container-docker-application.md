@@ -55,7 +55,7 @@ that represents the options of the application container.
 
 ## Configuration
 
-The configuration for this Assembly Line is in the [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file at the root of the repository -
+The configuration for this Assembly Line is in the [shippable.yml](/platform/workflow/config/) file at the root of the repository -
 
 * [Resources](/platform/workflow/resource/overview/) (grey boxes) are defined in the `resources` section of the**shippable.yml** file.
 
@@ -76,7 +76,7 @@ This file should be committed to your source control. Step 8 of the workflow bel
 1. Create an account integration using your Shippable account for your Docker registry.
     Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
 
-2. Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -105,7 +105,7 @@ If no options are specified, the platform sets the following default options -
 
 **Steps**
 
-Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -125,7 +125,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -144,7 +144,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:
@@ -165,7 +165,7 @@ jobs:
 
 **Steps**
 
-Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -190,7 +190,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 2. Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
 
-3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+3. Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 resources:
@@ -210,7 +210,7 @@ resources:
 
 **Steps**
 
-Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file.
+Add the following yml block to the existing `jobs` section of your [shippable.yml](/platform/workflow/config/) file.
 
 ```
 jobs:

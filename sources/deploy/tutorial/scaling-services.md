@@ -11,7 +11,7 @@ By default, we always deploy one instance of your application. You can scale it 
 
 ###1. Add a replicas resource
 
-Add a `replicas` resource to your [shippable.yml](/platform/tutorial/workflow/shippable-yml/) file. For example, to scale your application to 5 instances:
+Add a `replicas` resource to your [shippable.yml](/platform/workflow/config/) file. For example, to scale your application to 5 instances:
 
 ```
 resources:
