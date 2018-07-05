@@ -38,7 +38,7 @@ These are the key components of the assembly line diagram -
 
 * `app_image` is a **required** [image](/platform/workflow/resource/image/) resource that represents the Docker image of the app stored in Amazon ECR.
 * `op_cluster` is a **required** [cluster](/platform/workflow/resource/cluster/) resource that represents Amazon ECS cluster to which you're deploying the application.
-* `app_options` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
+* `app_opts` is an **optional** [dockerOptions](/platform/workflow/resource/dockeroptions/#dockeroptions) resource
 that represents the options of the application container.
 * `app_env` is an **optional** [params](/platform/workflow/resource/params) resource that stores key-value pairs that are set as environment variables for consumption by the application.
 * `app_replicas` is an **optional** [replicas](/platform/workflow/resource/replicas) resource that specifies the number of instances of the container to deploy.
@@ -66,7 +66,7 @@ This file should be committed to your source control. Step 5 of the workflow bel
 * **Required:** Yes.
 * **Integrations needed:** AWS Keys, or any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) if your image isn't stored in ECR.
 
-**Steps**  
+**Steps**
 
 1. Create an account integration for AWS Keys in your Shippable UI. Instructions to create an integration are here:
 
@@ -82,7 +82,7 @@ resources:
 
   - name: app_image # resource friendly name
     type: image
-    integration: aws_keys_int    #friendly name of your integration          
+    integration: aws_keys_int    #friendly name of your integration
     pointer:
       sourceName: "679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-ecs-basic"    #image name
     seed:
@@ -122,7 +122,7 @@ resources:
 
   - name: op_cluster    # resource friendly name
     type: cluster
-    integration: aws_keys_int   # friendly name of integration from step 1          
+    integration: aws_keys_int   # friendly name of integration from step 1
     pointer:
       sourceName: "deploy-ecs-cluster" # name of the actual cluster in ECS
       region: "us-east-1" # AWS region where cluster is located.
@@ -179,7 +179,7 @@ Add a `dockerOptions` resource to your [shippable.yml](/platform/workflow/config
 ```
 resources:
 
-  - name: app_options
+  - name: app_opts
     type: dockerOptions
     version:
       memory: 1024
@@ -199,7 +199,7 @@ jobs:
     type: manifest
     steps:
      - IN: app_image
-     - IN: app_options
+     - IN: app_opts
 ```
 
 ## Setting env vars
