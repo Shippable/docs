@@ -130,9 +130,6 @@ tutorials/pipelines/runShUseIntegrations /platform/workflow/job/runsh/
 tutorials/pipelines/updateResourceVersion /release/increment-version-number/
 navigatingUI/accountSettings/api /platform/api/api-tokens
 reference/shippable-yml /platform/workflow/config
-reference/shippable-jobs-yml /platform/tutorial/workflow/shippable-jobs-yml
-reference/shippable-resources-yml /platform/tutorial/workflow/shippable-resources-yml
-reference/shippable-triggers-yml /platform/tutorial/workflow/shippable-triggers-yml
 reference/jobs-overview /platform/workflow/job/jobs-overview
 reference/jobs-unmanaged /platform/workflow/job/jobs-unmanaged
 reference/job-deploy /platform/workflow/job/deploy
