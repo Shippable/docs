@@ -55,6 +55,10 @@ branches:
   except:
     - feat*
 
+#### Optional: select the node pool you want to run this job on,if different from default ####
+runtime:
+  nodePool: <node pool name>
+
 git:
    submodules: <boolean>
 

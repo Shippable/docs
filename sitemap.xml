@@ -908,21 +908,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-resources-yml/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-triggers-yml/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/platform/tutorial/workflow/shippable-jobs-yml/</loc>
-  <lastmod>2018-03-06T06:43:40+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://docs.shippable.com/platform/tutorial/workflow/jobs-windows/</loc>
   <lastmod>2018-03-06T06:43:40+00:00</lastmod>
   <priority>0.64</priority>
