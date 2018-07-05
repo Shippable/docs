@@ -20,6 +20,10 @@ language:
 node_js:      # language runtime
   - #language version
 
+# Optional: select the node pool you want to run this job on,if different from default
+runtime:
+  nodePool: <node pool name>
+
 services:
   - #any supported service
 
