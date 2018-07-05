@@ -37,7 +37,7 @@ env:
   - ISOLATED=false
 ```
 
-The configuration above will generate a 16 build matrix!
+The configuration above will generate a 12 build matrix!
 
 Even though each build in the matrix is a separate build, the Shippable UI also shows an aggregated view in order to organize all builds into a single build number. For example, if the yml snippet above triggers build number 13, with each individual build in the matrix numbered 13.1 through 13.16.
 
