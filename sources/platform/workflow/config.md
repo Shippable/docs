@@ -347,16 +347,46 @@ jobs:
       - OUT:        <resource>
         replicate:  <IN resource>
         replicateOnPullRequest:  <true/false>
+    on_start:
+      script:
+        - echo "STARTING!!"
+        - echo <do something>
+      NOTIFY:
+        - name: <notification resource name>
+          sendFailingSnippet: true
+        - name: <notification resource name>
     on_success:
-      - script:     echo "SUCCESS"
+      script:
+        - echo "SUCCESS!!"
+        - echo <do something>
+      NOTIFY:
+        - name: <notification resource name>
+          sendFailingSnippet: true
+        - name: <notification resource name>
     on_failure:
-      - script:     echo "FAILED"
-      - NOTIFY:     <notification resource name>
-        sendFailingSnippet: true
+      script:
+        - echo "FAILED!!"
+        - echo <do something>
+      NOTIFY:
+        - name: <notification resource name>
+          sendFailingSnippet: true
+        - name: <notification resource name>
     on_cancel:
-      - NOTIFY:     <notification resource name>
+      script:
+        - echo "CANCELLED!!"
+        - echo <do something>
+      NOTIFY:
+        - name: <notification resource name>
+          sendFailingSnippet: true
+        - name: <notification resource name>
     always:
-      - script:     pwd
+      script:
+        - echo "ALWAYS!!"
+        - echo <do something>
+      NOTIFY:
+        - name: <notification resource name>
+          sendFailingSnippet: true
+        - name: <notification resource name>
 
 #### END JOBS CONFIG
 
