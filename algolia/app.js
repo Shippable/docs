@@ -119,7 +119,7 @@ function parseDocsYml() {
                     code_snippets_link_map: new Object()
                 };
 
-                data.page_name = path.replace('docs/sources/', '');
+                data.page_name = path.replace('../sources/', '');
                 data.page_name = data.page_name.replace('.md', '');
                 data.page_baselink = 'http://docs.shippable.com/' + data.page_name;
 
