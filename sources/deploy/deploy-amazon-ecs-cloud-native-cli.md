@@ -174,7 +174,7 @@ The snippet above does the following:
 
 ##6. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/add-assembly-line/). You can then follow instructions to [add your assembly line to Shippable](/platform/tutorial/workflow/add-assembly-line/).
 
 ##7. Trigger your pipeline
 

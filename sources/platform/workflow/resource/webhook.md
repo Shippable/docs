@@ -33,7 +33,7 @@ resources:
 
 ### Usage
 
-Once your new webhook resource has been added to your Assembly Line via your [sync repo](/platform/tutorial/workflow/crud-syncrepo), you can access the generated webhook url by going to the resource page and clicking the "more" button next to the first version.
+Once your new webhook resource has been added to your Assembly Line via your [sync repo](/platform/tutorial/workflow/add-assembly-line), you can access the generated webhook url by going to the resource page and clicking the "more" button next to the first version.
 
 <img src="/images/platform/resources/webhook/webhookVersion-sanitized.png" alt="webhook resource page">
 

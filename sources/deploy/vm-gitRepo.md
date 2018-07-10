@@ -88,9 +88,9 @@ resources:
 
 In order to set up the jobs for this assembly line, we need to first enable the repository for CI.  So, we will enable it for CI and add it as a syncRepo (to add the resources we've defined) now.  Then we will add the jobs and trigger the pipeline.
 
-Once you have the resources defined in your **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the resources defined in your **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/add-assembly-line/).
 
-Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
+Follow [these instructions](/platform/tutorial/workflow/add-assembly-line/) to import your configuration files into your Shippable account.
 
 And [enable the project for CI](/ci/enable-project/).
 

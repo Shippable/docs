@@ -157,7 +157,7 @@ After Windows Server 1709 is officially supported, you can also use named pipes 
 
 * Commit the file and create a syncRepo.
 
-The repository containing your jobs and resources is called a [Sync repository](/platform/tutorial/workflow/crud-syncrepo/) and represents your workflow configuration. Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
+The repository containing your jobs and resources is called a [Sync repository](/platform/tutorial/workflow/add-assembly-line/) and represents your workflow configuration. Follow [these instructions](/platform/tutorial/workflow/add-assembly-line/) to import your configuration files into your Shippable account.
 
 * Trigger your pipeline
 After you create the syncRepo, you can view the runSh job in the [SPOG view](/platform/visibility/single-pane-of-glass-spog/).

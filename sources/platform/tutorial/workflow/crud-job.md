@@ -19,7 +19,7 @@ Jobs are defined in a yml-based configuration file, **shippable.yml**, that is c
 ## Adding Jobs
 Jobs are defined in a configuration file, **shippable.yml**, and this file is added to a source control repository, which we call your [sync repository](/platform/workflow/resource/syncrepo).. All user permissions that users have on the repo is carried over to the objects defined in the YML. For example, if user 1 has read access he/she will only have read access to jobs defined in the repo.
 
-Once **shippable.yml** is committed to a repository, you will have to add it to Shippable through the UI. Detailed step by step instructions are [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
+Once **shippable.yml** is committed to a repository, you will have to add it to Shippable through the UI. Detailed step by step instructions are [here](/platform/tutorial/workflow/add-assembly-line).
 
 Once your sync repository is added, the platform watches for changes (job additions, edits or deletions) through source control webhooks. YML changes are automatically synced and they are reflected in the SPOG immediately.
 

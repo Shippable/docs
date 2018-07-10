@@ -12,7 +12,7 @@ tutorial consists of two parts -
 * CI build that creates a docker image of the Node.js app and pushes it to Amazon ECR.
 * Pipeline that deploys the ECR image to ECS.
 
-You can find a ton of other deploy examples [here](/deploy/why-deploy/).
+You can find a ton of other CD examples [here](/deploy/continuous-delivery/).
 
 ###1. Fork our sample project
 

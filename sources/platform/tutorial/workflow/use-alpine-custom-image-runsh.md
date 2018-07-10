@@ -126,7 +126,7 @@ resources:
 
 ######i. `gitRepo` resource named `build_alpine_ci_repo`
 
-This resource points to the repository that contains your Docker image source files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository [https://github.com/devops-recipes/build_alpine_ci_image](https://github.com/devops-recipes/build_alpine_ci_image). Dockerfile for this app is [here](https://github.com/devops-recipes/build_alpine_ci_image/blob/master/Dockerfile).
+This resource points to the repository that contains your Docker image source files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository [https://github.com/devops-recipes/build_alpine_ci_image](https://github.com/devops-recipes/build_alpine_ci_image). Dockerfile for this app is [here](https://github.com/devops-recipes/build_alpine_ci_image/blob/master/Dockerfile.alpine37).
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
@@ -272,7 +272,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/add-assembly-line). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
@@ -286,7 +286,7 @@ Manually run the job only once by right clicking on the job. You can look at the
 <img src="/images/tutorial/use-alpine-custom-image-runsh-fig3.png" alt="Deploy console output">
 
 ## Further Reading
-* [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
+* [Add your Assembly Line config](/platform/tutorial/workflow/add-assembly-line/)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)

@@ -292,7 +292,7 @@ integrations:
 To use Shippable's Assembly Lines which let you configure complex workflows across several jobs and resources, you will need to do the following:
 
 * Write one or more configuration files **shippable.yml** and commit them to your source control. This is called a called the Sync repository.
-* [Add one or more Sync repositories](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) through the Shippable UI, pointing to the location of your config in source control.
+* [Add one or more Sync repositories](/platform/tutorial/workflow/add-assembly-line) through the Shippable UI, pointing to the location of your config in source control.
 
 Some things to note about Assembly Lines config:
 
@@ -462,7 +462,7 @@ Jobs are the executable units of your Assembly Line.  A list of all supported jo
 
 If you're using Shippable for CI only, follow [these instructions](/ci/enable-project/) to enable your repository.
 
-If you're using Shippable's Assembly Lines, you can add your syncRepo by following instructions in the [Adding an Assembly Line](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) tutorial.
+If you're using Shippable's Assembly Lines, you can add your syncRepo by following instructions in the [Adding an Assembly Line](/platform/tutorial/workflow/add-assembly-line) tutorial.
 
 
 ## Further Reading
