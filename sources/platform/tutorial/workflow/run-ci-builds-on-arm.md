@@ -65,7 +65,7 @@ If you want to configure a multi-stage workflow with event driven triggers (what
 * [Assembly Lines config](/platform/workflow/config/#assembly-lines-configuration)
 * [runSh job reference](/platform/workflow/job/runsh)
 
-To run your `runSh` job on the shared Arm node pool, add the following to your job. Set the `nodePool` tag to `shippable_shared_aarch64` as shown below:
+To run your `runSh` job on the shared Arm node pool, add the following to your job. Set the `nodePool` tag to `shippable_shared_aarch64`, and `container` to `true` as shown below:
 
 ```
 jobs:
