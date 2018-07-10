@@ -13,7 +13,7 @@ The following steps will help you move jobs or resources between repositories wi
 
 2. Add the resources, jobs or triggers you want to migrate to the destination repository's **shippable.yml**.
 
-3. If you have added the destination repository's config as an Assembly Line, go to the next step. Otherwise, add the destination repository [as a Sync repository](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) so that Shippable can parse the Assembly Line config.      
+3. If you have added the destination repository's config as an Assembly Line, go to the next step. Otherwise, add the destination repository [as a Sync repository](/platform/tutorial/workflow/add-assembly-line) so that Shippable can parse the Assembly Line config.      
 
 4. Commit the changes to **shippable.yml** to the destination repository. This will run the `rSync` job of the destination repository. If the job completes successfully, the jobs and resources you moved are now read from the destination repository. Your SPOG view will not change as no dependency has changed. To verify this you can view logs of the rSync job.
 <img src="/images/pipelines/migrationConsoleLog.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

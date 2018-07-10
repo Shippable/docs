@@ -26,7 +26,7 @@ This page lists the versions of CLI's available for each supported [OS](/platfor
 
 | Version  |  OS  | Machine Images |
 |----------|--------|--------|
-| 2.5.2 | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v/)
+| 2.5.2 | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch64)  | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)
 | 2.4.4.0 | - CentOS 7 <br> | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 | 2.4.3.0 | - Ubuntu 14.04 <br>- Ubuntu 16.04 <br> - Ubuntu 16.04 (aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) |
 | 2.3.0.0 | - Ubuntu 14.04 <br> - Ubuntu 16.04 <br> - CentOS 7 <br> - Ubuntu 16.04(aarch32)  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)  <br>  [v5.10.4](/platform/runtime/machine-image/ami-v561/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>  [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.3.4](/platform/runtime/machine-image/ami-v634/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)|

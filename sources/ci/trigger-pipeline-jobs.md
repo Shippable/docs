@@ -54,7 +54,7 @@ jobs:
 
 If this repository has already been added as an Assembly Line syncRepo, just commit it and your workflow will be updated to trigger `next-job-in-pipeline` when `myapp_runCI` finishes.
 
-If this repository is not yet a [syncRepo](/platform/workflow/resource/syncRepo), follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) to add your Assembly Line config to Shippable.
+If this repository is not yet a [syncRepo](/platform/workflow/resource/syncRepo), follow [these instructions](/platform/tutorial/workflow/add-assembly-line) to add your Assembly Line config to Shippable.
 
 <a name="update-resource"></a>
 ### Updating a resource
@@ -149,7 +149,7 @@ jobs:
 
 If this repository has already been added as an Assembly Line syncRepo, just commit it and your workflow will be updated to trigger `myapp_runCI` when `upstream_job` finishes.
 
-If this repository is not yet a [syncRepo](/platform/workflow/resource/syncRepo), follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo) to add your Assembly Line config to Shippable.
+If this repository is not yet a [syncRepo](/platform/workflow/resource/syncRepo), follow [these instructions](/platform/tutorial/workflow/add-assembly-line) to add your Assembly Line config to Shippable.
 
 <a name="update-resource-ci"></a>
 ### Updating a resource

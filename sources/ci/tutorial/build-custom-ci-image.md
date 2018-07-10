@@ -204,7 +204,7 @@ Commit and push all the above changes to **shippable.yml**.
 
 In Shippable's world, a Subscription maps to an Organization or a Team, depending on the source control provider. An Assembly Line workflow is defined at a Subscription level and all jobs are resources are global to your subscription.
 
-To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
+To add your Assembly Line to Shippable, you need to add the repository containing the configuration as a "sync repository" by [following instructions here](/platform/tutorial/workflow/add-assembly-line). This automatically parses your **shippable.yml** config and adds your workflow to Shippable. Your workflow will always be kept in sync with the config in this repository, and be automatically updated every time you push a change to **shippable.yml**.
 
 Your view will look something like this:
 
@@ -260,7 +260,7 @@ jobs:
 
 Commit these **shippable.yml** changes to your application repository.
 
-**Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/).**
+**Please note that you will need to [enable your application repository for CI](/ci/enable-project/) and also add the jobs configuration by following instructions to [Add your Assembly Line config](/platform/tutorial/workflow/add-assembly-line/).**
 
 You're now done! Each time your custom Docker image source code is updated, a new image will be built and pushed to Docker registry, which will trigger your CI workflow.
 
@@ -269,7 +269,7 @@ Your Assembly Line will look like this:
 <img src="/images/tutorial/build-custom-ci-image-fig3.png" alt="Deploy console output">
 
 ## Further Reading
-* [Add your Assembly Line config](/platform/tutorial/workflow/crud-syncrepo/)
+* [Add your Assembly Line config](/platform/tutorial/workflow/add-assembly-line/)
 * [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)

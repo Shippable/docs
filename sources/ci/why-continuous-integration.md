@@ -23,7 +23,7 @@ The picture below shows a very basic CI workflow. Shippable receives an incoming
 
 <img src="../../images/ci/ciWorkflow.png" alt="Continuous Integration workflow" style="width:1000px;"/>
 
-Your CI workflow stops after deployment to an endpoint. If you want to define your end to end application delivery pipelines, check out our other use cases like [Validate](../validate/devops-validate/), [Release](../release/devops-release-management/), [Deploy](../deploy/why-deploy/), and [Provision](../provision/why-infrastructure-provisioning/).
+Your CI workflow stops after deployment to an endpoint. If you want to define your end to end application delivery pipelines, check out our [Continuous Delivery tutorials](/deploy/continuous-delivery) which show you how to configure multi-stage deployments, release mgmt with semantic versioning and approval gates, and our [IT Ops section](/provision/why-infrastructure-provisioning/) which shows you how to make provisioning and infrastructure management activities part of your workflows.
 
 ##Configuration
 Your CI workflow is configured with a YAML based file called **shippable.yml** which should be committed to the root of the repository you want to build. This is mandatory for all enabled projects and tells us what the build should do. For the **shippable.yml** structure and how to configure it, check out our [Build Configuration page](yml-structure/).

@@ -17,4 +17,4 @@ You can deploy to various endpoints directly from your CI by configuring your **
 - [Digital Ocean](deploy-to-digital-ocean/)
 - [Heroku](deploy-to-heroku/)
 
-Please note that our preferred and recommended approach for deploying to any endpoint is through pipelines. Please read the [Deploy guide](../deploy/why-deploy/).
+Please note that our preferred and recommended approach for deploying to any endpoint is through pipelines. Please read the [Continuous Delivery guide](/deploy/continuous-delivery/).

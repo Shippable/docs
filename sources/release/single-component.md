@@ -73,8 +73,7 @@ The scenario in our sample project covers the following steps:
 - Set up your CI workflow, which pushes a Docker image to Docker Hub.
 - Every time the image is updated, a [**manifest** job](/platform/workflow/job/manifest/) updates the manifest.
 - The **release job** will version your manifest with [semantic versioning](http://semver.org/).
-- This will trigger a **deploy** job which will deploy your versioned component to a target endpoint of your choice. [Read more on deployments](/deploy/why-deploy/).
-
+- This will trigger a **deploy** job which will deploy your versioned component to a target endpoint of your choice. [Read more on deployments](/deploy/continuous-delivery/).
 
 ## Improve this page
 

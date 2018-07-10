@@ -273,7 +273,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 ###3. Add Assembly Line to Shippable
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your **shippable.yml** are parsed to create the workflow.
 
-Detailed steps to add an Assembly Line are [here](/platform/tutorial/workflow/crud-syncrepo/#adding-a-syncrepo).
+Detailed steps to add an Assembly Line are [here](/platform/tutorial/workflow/add-assembly-line).
 
 ###4. End to End Build and Push Assembly Line
 If you change the view of your Subscription page to SPOG view, you should see something like this:

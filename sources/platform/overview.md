@@ -70,7 +70,7 @@ The same **shippable.yml** file used for CI also contains definitions of the job
 
 Assembly Line configuration files can be committed to any repository in your source control. This repository is called a **Sync repository**. Jobs and resources defined in an Assembly Line are global across the Subscription (i.e. organization or team), so you can define your workflows across several repositories if needed.  
 
-You can add your Assembly Line config to Shippable by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/crud-syncrepo/) tutorial. The platform will then parse the `jobs` and `resources` section of your config to create your workflows.
+You can add your Assembly Line config to Shippable by following instructions in the [How to work with syncRepo](/platform/tutorial/workflow/add-assembly-line/) tutorial. The platform will then parse the `jobs` and `resources` section of your config to create your workflows.
 
 ## Further Reading
 * [Quick Start to CI](/getting-started/ci-sample)

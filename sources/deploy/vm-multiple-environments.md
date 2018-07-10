@@ -207,9 +207,9 @@ Also, our application is written in nodejs and we're using foreverjs to run the 
 
 ###6. Import configuration into your Shippable account.
 
-Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. This repository is called a [sync repository](/platform/tutorial/workflow/add-assembly-line/).
 
-Follow [these instructions](/platform/tutorial/workflow/crud-syncrepo/) to import your configuration files into your Shippable account.
+Follow [these instructions](/platform/tutorial/workflow/add-assembly-line/) to import your configuration files into your Shippable account.
 
 ###7. Trigger your pipeline
 

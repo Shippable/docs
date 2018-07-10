@@ -312,7 +312,7 @@ jobs:
 
 ###8. Import the configuration into your Shippable account to create the assembly line for the application.
 
-Once you have the **shippable.yml** file as described above, commit it to your repository. You can then [add your assembly line to Shippable](/platform/tutorial/workflow/crud-syncrepo/).
+Once you have the **shippable.yml** file as described above, commit it to your repository. You can then [add your assembly line to Shippable](/platform/tutorial/workflow/add-assembly-line/).
 
 ###9. Trigger your pipeline
 

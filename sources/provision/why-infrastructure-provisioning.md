@@ -18,7 +18,7 @@ Shippable helps you automate IT Operations by providing the following functional
 - You have a complete history of your config and reproducing a previous config is a one click rollback action.
 - Your infrastructure provisioning can be part of your overall DevOps workflow, so you can implement advanced scenarios like configuring Shippable to bring up on-demand Test environments when a new version of your application is available. You can also automate triggering your tests automatically and tearing down your test environment if all tests pass. Save big with transient test environments!
 
-The set of documents under this section focus on scenarios related to provisioning and managing your infrastructure. To read more about CI or CD support, please read the [CI section](/ci/why-continuous-integration/) and [CD section](/deploy/why-deploy).
+The set of documents under this section focus on scenarios related to provisioning and managing your infrastructure. To read more about CI or CD support, please read the [CI section](/ci/why-continuous-integration/) and [CD section](/deploy/continuous-delivery).
 
 ## Tutorials
 

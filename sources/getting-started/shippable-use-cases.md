@@ -54,7 +54,7 @@ Consider the following scenario:
 - The updated manifest version automatically triggers a deployment to your Test environment. Your Test team is notified.
 - Once tests are completed and the team signs off on them, the manifest version is automatically deployed to Staging.
 
-For more on deployment scenarios, read our [Deploy docs](/deploy/why-deploy/).
+For more on CD scenarios, read our [Deploy docs](/deploy/continuous-delivery/).
 
 <a name="validate"></a>
 ##Validating your application
