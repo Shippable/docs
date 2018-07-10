@@ -59,7 +59,7 @@ resources:
               KEY2: "value2"                     #optional
               secure: <encrypted value>          #optional
 
-    You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.    
+    You can use secure variables to [encrypt](/ci/env-vars/#secure-variables) any key-value pairs that contain sensitive information you don't want to expose as plain text.
 
 ## Used in Jobs
 This resource is used as an `IN` for the following jobs
@@ -97,20 +97,20 @@ Since the key/value pairs from params are automatically added to the environment
 resources:
   - name: prod-params
     type: params
-    version:
+    versionTemplate:
       params:
         NAMESPACE: production
 
   - name: beta-params
     type: params
-    version:
+    versionTemplate:
       params:
         NAMESPACE: beta
 
   - name: kube-cluster
     type: cluster
     integration: my-kube-key
-    pointer:
+    versionTemplate:
       sourceName: "cluster-1"
       region: "us-central1-f"
       namespace: "${NAMESPACE}"
@@ -121,13 +121,13 @@ resources:
 resources:
   - name: prod-params
     type: params
-    versionTemplate:
+    version:
       params:
         NAMESPACE: production
 
   - name: beta-params
     type: params
-    versionTemplate:
+    version:
       params:
         NAMESPACE: beta
 

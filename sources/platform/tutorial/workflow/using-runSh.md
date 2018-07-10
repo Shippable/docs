@@ -261,7 +261,8 @@ jobs:
             - echo "Checking available docker images"
             - sudo docker images
     on_failure:
-      NOTIFY: slacknotify
+      NOTIFY:
+        - name: slacknotify
 ```
 
 ## Running on a specific node pool
@@ -278,7 +279,7 @@ jobs:
 
   - name: container_multiple_tasks
     type: runSh
-    runtime:                 
+    runtime:
       nodePool: myNodePool
     steps:
       - TASK:
