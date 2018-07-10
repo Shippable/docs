@@ -27,7 +27,7 @@ Follow instructions below to start running builds on 64-bit Arm machines. To run
 * From the left navigation bar, choose the organization which contains your open source Arm-based projects.
 * Click on the **Gears** icon at the top right of your Subscription page, and click on **Billing**.
 * Click on the **Edit** button, and then click on the **Add new SKU** button.
-* Choose the **Shared** plan type, which is currently only available for Arm. Choose **aarch64** or **aarch32** Architecture, and **Ubuntu 16.04** for OS as shown below.
+* Choose the **Shared** plan type, which is currently only available for Arm. Choose **aarch64** Architecture, and **Ubuntu 16.04** for OS as shown below.
 
 <img src="/images/platform/tutorial/workflow/run-ci-builds-on-arm-fig1.png" alt="show deleted objects">
 
