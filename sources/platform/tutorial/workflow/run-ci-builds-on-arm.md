@@ -25,7 +25,6 @@ Follow instructions below to start running builds on 64-bit Arm machines. To run
 ### 1. Get a new shared license
 
 * From the left navigation bar, choose the organization which contains your open source Arm-based projects.
-
 * Click on the **Gears** icon at the top right of your Subscription page, and click on **Billing**.
 * Click on the **Edit** button, and then click on the **Add new SKU** button.
 * Choose the **Shared** plan type, which is currently only available for Arm. Choose **aarch64** or **aarch32** Architecture, and **Ubuntu 16.04** for OS as shown below.
@@ -43,16 +42,15 @@ Next, you need to configure your **shippable.yml** to run on this shared pool of
 
 #### CI jobs
 
-If you are running CI jobs, the **shippable.yml** configuration is explained in the [CI section](/ci/yml-structure/), and our support for CI in general is explained in [CI overview](/ci/why-continuous-integration/).
+If you are running CI jobs, the **shippable.yml** configuration is explained on the [YAML config page](/ci/yml-structure/), and our support for CI in general is explained in [CI overview](/ci/why-continuous-integration/).
 
 * [Enable your CI project](/ci/enable-project/).
 * Add a **shippable.yml** to the root of your repository and configure your workflow. Read the [configuration reference](/ci/yml-structure/) for help with config.
-* The important thing here is to configure your builds to run builds on the shared node pool. The `runtime` section of the YAML will help achieve this:
+* The important thing here is to configure your builds to run builds on the shared node pool. The `runtime` section of the YAML will help achieve this. Set it to `shippable_shared_aarch64` as shown below:
 
 ```
 runtime:
   nodePool: shippable_shared_aarch64
-
 ```
 * That's it! Commit your config file and your project will start building on the shared pool!
 
@@ -67,7 +65,7 @@ If you want to configure a multi-stage workflow with event driven triggers (what
 * [Assembly Lines config](/platform/workflow/config/#assembly-lines-configuration)
 * [runSh job reference](/platform/workflow/job/runsh)
 
-To run your `runSh` job on the shared Arm node pool, add the following to your job:
+To run your `runSh` job on the shared Arm node pool, add the following to your job. Set the `nodePool` tag to `shippable_shared_aarch64` as shown below:
 
 ```
 jobs:
