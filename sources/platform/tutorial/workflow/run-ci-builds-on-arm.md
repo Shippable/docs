@@ -73,6 +73,7 @@ jobs:
     type: runSh
     runtime:                        
       nodePool: shippable_shared_aarch64
+      container: true
     # rest of runSh config  
 
 ```
