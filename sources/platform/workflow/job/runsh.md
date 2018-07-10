@@ -85,18 +85,22 @@ jobs:
       script:
         - echo "SUCCESS"
         - <any shell command>
-      NOTIFY:       <notification resource name>
+      NOTIFY:
+        - name: <notification resource name>
+        - name: <notification resource name>
     on_failure:
       script:
         - echo "FAILED"
         - <any shell command>
-      NOTIFY:       <notification resource name>
+      NOTIFY:
+        - name: <notification resource name>
     always:
       script:
         - pwd
         - <any shell command>
     on_cancel:
-      NOTIFY:       <notification resource name>
+      NOTIFY:
+        - name: <notification resource name>
 ```
 
 A description of the job YML structure and the tags available is in the [jobs section of the anatomy of shippable.yml](/platform/workflow/config/#jobs) page.

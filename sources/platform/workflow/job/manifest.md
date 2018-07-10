@@ -29,8 +29,8 @@ jobs:
   - name: 			    <string>				# required
     type: 			    manifest				# required
     dependencyMode:     <chrono/strict/immediate> # optional
-	on_start:				            # optional
-	  - NOTIFY:     <notification resource name>
+    on_start:				            # optional
+      - NOTIFY:     <notification resource name>
     steps:
       - IN: 		<image/file>			# required
       - IN: 		<image/file>			# optional
