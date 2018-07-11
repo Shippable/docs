@@ -87,7 +87,7 @@ Add an empty **shippable.yml** file to the the root of repository.
 
 #####2b. Add `resources` section of the config
 
-`resources` section holds the config info that is necessary to provision an AWS VPC. In this case we have 4 resources defined of type `integration`, `gitRepo`, `state` and `params`.
+`resources` section holds the config info that is necessary to provision an Amazon ElastiCache Memcached cluster. In this case we have 4 resources defined of type `integration`, `gitRepo`, `state` and `params`.
 
 Add the following to your **shippable.yml**:
 
@@ -142,7 +142,7 @@ Detailed info about `state` resource is [here](/platform/workflow/resource/state
 
 ######iv. params resource named `aws_memcached_tf_info`
 
-We store information like **vpc_id** and **subnet_id**, which are created during the execution of your scripts, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that provisions machines will need to know the VPC and Subnet IDs.
+We store information like **configuration_endpoint**, **port** etc. which are created during the execution of your scripts, in a `params` resource. Downstream jobs can access this information programmatically if required. For example, a separate job that deploys an application which uses the Memcached cluster for caching.
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
@@ -206,14 +206,14 @@ jobs:
 * Adding the above config to the jobs section of shippable.yml will create a `runSh` job called `prov_aws_memcached_tf`.
 
 * The first section of `steps` defines all the input `IN` resources that are required to execute this job.
-  * `aws_vpc_tf_info` injects environment variables like `vpc_public_sn_id` and `vpc_private_sg_id` which will be used while provisioning the Amazon ElastiCache Memcached cluster.
+  * `aws_vpc_tf_info` injects environment variables like `vpc_public_sn_id` and `vpc_private_sg_id` which will be used while provisioning the Amazon ElastiCache Memcached cluster. Refer [Provision AWS VPC with Terraform](/provision/tutorial/provision-aws-vpc-terraform/) for its definition.
   * Terraform script files are under the root folder and it is version controlled in a repository represented by `aws_memcached_tf_repo`.
   * Credentials to connect to AWS are in `aws_memcached_tf_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
   * The `aws_memcached_tf_state` resource contains the `terraform.tfstate` file from previous executions of the `apply` command, which is needed to make sure we don't provision duplicate objects
 
 * The `TASK` section contains actual code that is executed when the job runs. We have just one task named `prov_aws_elasticache_memcached` which does the following:
   * First, we define environment variables required by Terraform scripts-
-    * `vpc_region` is the aws region where the VPC is going to be created
+    * `aws_region` is the aws region where the Amazon ElastiCache Memcached is going to be created
   * `script` section has a list of commands to execute sequentially.
     * First, we use the Shippable utility function `get_resource_state` to go to the folder where Terraform scripts are stored
     * Next, we extract the AWS credentials from the `aws_memcached_tf_creds` resource, again using shipctl functions
@@ -245,9 +245,9 @@ Your view will look something like this:
 
 You can manually run the job by right clicking on the job and clicking on `Build job`, or by committing a change to your repository containing Terraform scripts.
 
-<img src="/images/tutorial/provision-aws-vpc-terraform-fig2.png" alt="Build console output">
+<img src="/images/tutorial/provision-aws-memcached-terraform-fig2.png" alt="Build console output">
 
-Confirm that the required VPC was created in AWS.
+Confirm that the required Memcached cluster was created in AWS.
 
 ## OPTIONAL: Automating the termination of Amazon ElastiCache Memcached with Terraform
 You might also want to automatically Amazon ElastiCache Memcached when you no longer need them. A great example is if you want to spin up a complete on-demand test environment and destroy them once the tests pass.
@@ -315,7 +315,7 @@ Our job will do the following:
   * Teraform script files are version controlled in a repo represented by `deprov_aws_memcached_tf`.
   * Credentials to connect to AWS are in `aws_memcached_tf_creds`. This resource has `switch: off` flag which means any changes to it will not trigger this job automatically
   * The Amazon ElastiCache Memcached provisioning job outputs the clusrer information to a resource `aws_ec2_tf_info`. This job will take that resource as an IN to determine which instance(s) to terminate.
-  * The VPC provisioning job outputs the VPC information to a resource `aws_memcached_tf_info`. This job will take that resource as an IN to determine where the cluster instances are.
+  * The provisioning job outputs the Memcached information to a resource `aws_memcached_tf_info`. This job will take that resource as an IN to determine where the cluster instances are.
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `deprov_aws_elasticache_memcached` which does the following:
   *  `script` section has a list of commands that are executed sequentially.
     * First, we use the Shippable utility function `get_resource_state` to go to the folder where TF files are present
