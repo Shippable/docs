@@ -567,6 +567,7 @@ pages:
       - Deploying to Google Kubernetes Engine (GKE) using Shippable managed jobs: deploy/tutorial/deploy-to-gcp-gke-shippable.md
       - Accessing images from private Docker images from Kubernetes : deploy/tutorial/access-private-docker-image-from-kubernetes.md
       - Provision Sonatype Nexus with Gcloud cli: provision/tutorial/provision-nexus-with-gcloudcli.md
+      - Provision Amazon ElastiCache Memcached with Terraform: provision/tutorial/provision-aws-memcached-terraform.md
     - Drafts:
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
       - Deploy to Amazon ECS Fargate using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-fargate-awscli.md
