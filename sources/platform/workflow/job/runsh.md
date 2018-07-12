@@ -376,6 +376,15 @@ jobs:
 
 * Currently we support `externalReferences` only from a public repo, so please make sure your external templates file are publically accessible.
 
+* Yml template is supported with our new syntax only, using this with our old deprecated syntax will not work.
+
+```
+  - TASK:
+    - script: echo "This is job A"
+    - script: *template-script         # this is not supported
+    - script: echo "some more scripts"
+```
+
 ## cliConfig special handling
 If a resource of type [cliConfig](/platform/workflow/resource/cliconfig) is added an `IN` into `runSh`, then the corresponding CLI is automatically configured and prepared for you to execute CLI specific commands. The job uses the subscription integration specified in `cliConfig` to determine which CLI tools to configure. E.g., if you use a `cliConfig` that uses Docker based integration, then we will automatically log you into the hub based on the configuration. This removes the need for you to having to do this manually.
 
