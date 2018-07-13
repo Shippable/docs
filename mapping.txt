@@ -69,7 +69,6 @@ pipelines/jobs/runCI /platform/workflow/job/runci
 pipelines/jobs/runCLI /platform/workflow/job/runcli
 pipelines/jobs/runSh /platform/workflow/job/runsh
 pipelines/jobs/jenkinsJob /platform/workflow/job/jenkinsjob
-pipelines/trace /deploy/trace-pipeline/
 integrations/overview /platform/integration/overview
 integrations/scm/github /platform/integration/github
 integrations/scm/githubEnterprise /platform/integration/github-enterprise

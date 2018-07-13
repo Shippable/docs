@@ -1,3 +1,4 @@
+page_main_title: Build and Push a Java WAR file to Nexus using Maven
 page_description: Build and Push a Java WAR file to Nexus using Maven
 main_section: CI
 sub_section: Tutorials

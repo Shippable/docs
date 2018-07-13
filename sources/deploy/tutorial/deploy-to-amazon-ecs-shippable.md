@@ -1,3 +1,4 @@
+page_main_title: Deploying a Dockerized Node.js app to AWS ECS cluster using Shippable managed jobs
 main_section: Deploy
 sub_section: Deploy to ECS
 page_description: Deploying a Dockerized Node.js app to AWS ECS cluster using Shippable managed jobs

@@ -1,3 +1,4 @@
+page_main_title: Provision Google Compute Engine(GCE) virtual machine with Ansible
 page_description: Using Ansible playbooks to provision a Google cloud virtual machine
 main_section: IT Ops
 sub_section: Google Cloud infrastructure

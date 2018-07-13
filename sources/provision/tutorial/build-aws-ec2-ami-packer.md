@@ -1,3 +1,4 @@
+page_main_title: Build AWS AMI with Packer
 page_description: Build AWS AMI with Packer
 main_section: IT Ops
 sub_section: AWS infrastructure
