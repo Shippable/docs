@@ -1,4 +1,5 @@
-page_description: Trigger Assembly Line jobs after CI finishes
+page_main_title: Making CI part of your Assembly Line workflow
+page_description: Making CI part of your Assembly Line workflow
 main_section: CI
 sub_section: Configuration
 sub_sub_section: Advanced config

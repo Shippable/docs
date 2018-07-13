@@ -1,3 +1,4 @@
+page_main_title: Deploy to Google Kubernetes Engine (GKE) with Helm
 page_description: Continuously deploying to GKE with Helm
 main_section: Deploy
 sub_section: Kubernetes

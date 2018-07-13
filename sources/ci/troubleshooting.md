@@ -1,3 +1,4 @@
+page_main_title: Troubleshooting common CI issues
 page_description: Troubleshooting common CI issues
 main_section: CI
 sub_section: Debugging

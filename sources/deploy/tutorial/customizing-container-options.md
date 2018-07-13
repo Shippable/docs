@@ -1,4 +1,5 @@
-page_description: Customize container options for deployed application container
+page_main_title: Customize container options for deployed Docker container
+page_description: Customize container options for deployed Docker container
 main_section: CD
 sub_section: Deploying containers using Shippable managed jobs
 sub_sub_section: Advanced topics

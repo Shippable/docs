@@ -1,4 +1,5 @@
-page_description: How to customizing deployed service names in Shippable
+page_main_title: Continuous Delivery with Shippable
+page_description: Continuous Delivery with Shippable
 main_section: CD
 
 # Continuous Delivery with Shippable

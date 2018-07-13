@@ -1,4 +1,5 @@
-page_description: Step by Step instructions on how to create a kubeconfig file to authenticate to a self hosted Kubernetes cluster
+page_main_title: Creating a kubeconfig file for a self-hosted Kubernetes cluster
+page_description: Creating a kubeconfig file for a self-hosted Kubernetes cluster
 main_section: Deploy
 sub_section: Kubernetes
 

@@ -1,3 +1,4 @@
+page_main_title: Build and Push image to Docker Hub
 page_description: Build and Push image to Docker Hub
 main_section: CI
 sub_section: Tutorials

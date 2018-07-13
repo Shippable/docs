@@ -1,3 +1,4 @@
+page_main_title: Build and Push Docker Image to JFrog Artifactory
 page_description: Build and Push Docker Image to JFrog Artifactory
 main_section: CI
 sub_section: Tutorials

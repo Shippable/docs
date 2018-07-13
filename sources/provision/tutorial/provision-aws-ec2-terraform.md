@@ -1,3 +1,4 @@
+page_main_title: Provision AWS EC2 virtual machine with Terraform
 page_description: Using Terraform to provision an AWS EC2 virtual machine
 main_section: IT Ops
 sub_section: AWS infrastructure

@@ -1,4 +1,5 @@
-page_description: Automating IT Operations activities such as infrastrucure provisioning, image building,
+page_main_title: Automating IT Operations activities such as infrastrucure provisioning and image building
+page_description: Automating IT Operations activities such as infrastrucure provisioning and image building,
 main_section: IT Ops
 sub_section: Before you start
 

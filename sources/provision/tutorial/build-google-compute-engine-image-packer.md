@@ -1,3 +1,4 @@
+page_main_title: Using Packer to build a Google Cloud Platform VM image
 page_description: Using Packer to build a Google Cloud Platform VM image
 main_section: IT Ops
 sub_section: Google Cloud infrastructure
