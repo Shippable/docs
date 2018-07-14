@@ -28,8 +28,7 @@ Validate Assembly Line YAML structure before committing it to source control or 
 - [Inserting secrets into jobs](/platform/tutorial/workflow/insert-secrets-in-job): Securely inject secrets at runtime without fear of breaches or accidental disclosure.
 - [Running a job on a specific node pool](/platform/tutorial/workflow/run-job-on-specific-node-pool): If you want job(s) to run on a specific pool due to resource needs or security reasons, you can do so by following steps in this tutorial.
 - [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node): By default, jobs run inside a container, but you can override that and run directly on the virtual machine.
-- [Using a custom image](/platform/tutorial/workflow/use-custom-image): By default, the platform uses a standard image library to run jobs, but you can override that and use your own custom image.
-- [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh): This tutorials shows you how to use a private Docker image to execute your runSh job.
+- [Using a custom Docker image](/platform/tutorial/workflow/use-custom-image): By default, the platform uses a standard image library to run jobs, but you can override that and use your own custom image.
 - [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm): While CI jobs send job status to source control by default, special configuration is needed for a similar workflow with runSh jobs.
 - [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job): Learn the different ways you can inject environment variables into a job.
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout): Default timeouts for jobs are 60 min for free subscriptions and 120 min for paid subscriptions. This tutorial shows how you can set a lower timeout for a job.

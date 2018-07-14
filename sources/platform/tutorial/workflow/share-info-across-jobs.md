@@ -110,7 +110,11 @@ Complete shipctl reference is [here](/platform/tutorial/workflow/using-shipctl/)
 
 You can share information through resources by writing to a resource from a job, and reading from the resource from a downstream job.
 
-<img src="/images/platform/tutorial/workflow/share-info-across-jobs-fig1.png" alt="Sharing information across jobs">
+<img src="/images/platform/tutorial/workflow/share-info-across-jobs-fig2.png" alt="Sharing information across jobs">
+
+In the picture above, **resource_1** is an `OUT` for **job_1** and an `IN` for **job_2**. So **job_1** can write to **resource_1**, which creates a new version of the resource, which in turn triggers **job_2** unless automatic triggers are turned off. 
+
+The resource can be anything, from a `params` resource that stores key-value pairs, to an `image` pointing to a Docker image. A complete list of resources is [here](/platform/workflow/resource/overview).
 
 In order to use resources to exchange information, you can reference the following tutorials:
 

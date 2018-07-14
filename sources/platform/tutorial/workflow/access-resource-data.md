@@ -4,7 +4,6 @@ sub_section: Tutorials
 sub_sub_section: Workflow
 page_title: shipctl - DevOps Assembly Line Jobs
 page_description: How to use shipctl
-page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Reading data from an IN resource
 
@@ -22,6 +21,10 @@ jobs:
         - script: |
           # shipctl method you want to call
 ```
+
+You can read information from an `IN` resources with the [shipctl utility](/platform/tutorial/workflow/using-shipctl/).
+
+A few common use-cases for reading from an `IN` resource are described below.
 
 ## Reading meta information
 

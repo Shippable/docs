@@ -80,7 +80,7 @@ The default flag may be changed in the UI and additional flags added in your **s
 
 #### Change default flag:
 
-* Click on the `syncRepo` resource in your [SPOG view](/platform/visibility/single-pane-pf-glass-spog). This will take you the history page:
+* Click on the `syncRepo` resource in your [SPOG view](/platform/visibility/single-pane-of-glass-spog). This will take you the history page:
 
 <img src="/images/platform/tutorial/workflow/edit-syncRepo-flag.png" alt="edit syncRepo flag">
 
