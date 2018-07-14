@@ -7,8 +7,11 @@ page_description: How to write to an OUT resource in Shippable
 
 # Writing to an OUT resource
 
-Resource updates for `OUT` resources are automatically handled by managed jobs, but scripted jobs like `runSh` and `runCI` need to update these resources as part of their  scripts. Updating these `OUT` resources is essential to trigger subsequent portions of your deployment pipeline.
+Resource updates for `OUT` resources are automatically handled by managed jobs, but scripted jobs like `runSh` and `runCI` need to update these resources as part of their scripts. Updating these `OUT` resources is essential to trigger subsequent portions of your CD workflow.
 
+You can write information to `OUT` resources with the [shipctl utility](/platform/tutorial/workflow/using-shipctl/). In general, the `shipctl post_resource_state` method can be used to write to most fields in the `versionTemplate` section of any resource.
+
+A few common use-cases for writing to an `OUT` resource are described below.
 
 ## Updating versionName
 
@@ -31,7 +34,7 @@ jobs:
 
 ```
 
-##Updating key-value information
+## Updating key-value information
 
 You can also update the key-values for an `OUT` resource, i.e. update the resource state. This works for `params` resources which only contain key-value pairs, as well as other resources which can store key-values in state.
 

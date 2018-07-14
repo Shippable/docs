@@ -30,7 +30,6 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - [Running a job directly on the node](/platform/tutorial/workflow/run-job-on-node)
 - [Using a custom image](/platform/tutorial/workflow/use-custom-image)
 - [Using alpine custom image with runSh](/platform/tutorial/workflow/use-alpine-custom-image-runsh)
-- [Using private custom image with runSh](/platform/tutorial/workflow/use-private-custom-image-runsh)
 - [Sending pull request status to source control](/platform/tutorial/workflow/sending-status-to-scm)
 - [Setting environment for a job](/platform/tutorial/workflow/set-env-vars-in-job)
 - [Setting job timeouts](/platform/tutorial/workflow/set-job-timeout)

@@ -24,6 +24,11 @@ A workflow is an event-driven dependency chart of **jobs**, which execute a DevO
 
 Shippable helps you create workflows very easily with a simple declarative YAML-based language. The platform also manages state and job output information across the workflow so that all dependent jobs can access the information they need from upstream jobs in order to execute. This helps co-ordinate activities centrally across diverse DevOps tools and silo'ed teams without custom DIY scripts.
 
+A complete overview of jobs and resources is here:
+
+* [Jobs overview](/platform/workflow/job/overview)
+* [Resources overview](/platform/workflow/resource/overview)
+
 Jobs and resources can connect to third party providers or services through [integrations](/platform/integration/overview/).
 
 Workflows can be configured for a variety of scenarios, including:
