@@ -581,7 +581,6 @@ pages:
       - Using AWS CLI to provision a self-hosted Kubernetes cluster on AWS: provision/tutorial/provision-self-kube-with-awscli.md
       - Deploying to a self-hosted Kubernetes cluster using Helm: deploy/tutorial/deploy-to-self-kube-helm.md
       - Deploying to a self-hosted Kubernetes cluster using Shippable managed jobs: deploy/tutorial/deploy-to-self-kube-shippable.md
-      - Using a private custom image with runSh jobs: platform/tutorial/workflow/use-private-custom-image-runsh.md
     - Future:
       - Provision Azure Virtual Network with Ansible: provision/tutorial/provision-azure-vnet-ansible.md
       - Provision Azure Virtual Network with Terraform: provision/tutorial/provision-azure-vnet-terraform.md
