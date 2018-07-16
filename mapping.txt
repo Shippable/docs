@@ -209,14 +209,14 @@ reference/admiral-bbs /platform/tutorial/server/install-bbs
 reference/glossary /platform/tutorial/glossary
 support /getting-started/support
 platform/shippable-yml /platform/workflow/config
-deploy/amazon-ecs-strategy /deploy/deployment-method-blue-green
+deploy/amazon-ecs-strategy /deploy/deployment-methods-overview
 deploy/amazon-ecs-elb-alb /deploy/lb-amazon-ecs-app
 deploy/amazon-ecs-multiple-environments /deploy/multi-stage-deployments
 deploy/amazon-ecs-unmanaged /deploy/deploy-amazon-ecs-cloud-native-cli
 deploy/amazon-ecs-naming-conventions /deploy/deployment-methods-overview
-deploy/kubernetes-strategy /deploy/deployment-method-blue-green
+deploy/kubernetes-strategy /deploy/deployment-methods-overview
 deploy/kubernetes-multiple-environments /deploy/multi-stage-deployments
-deploy/gke-strategy /deploy/deployment-method-blue-green
+deploy/gke-strategy /deploy/deployment-methods-overview
 deploy/gke-loadbalancer /deploy/lb-gke
 deploy/gke-multiple-containers /deploy/continuous-delivery-multi-container-docker-application
 deploy/gke-multiple-environments /deploy/multi-stage-deployments
