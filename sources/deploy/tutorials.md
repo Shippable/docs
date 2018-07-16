@@ -4,7 +4,7 @@ sub_section: Before you start
 
 # Continuous Delivery tutorials
 
-## Deploy containers using popular tools
+## Deployment targets
 
 ### Amazon ECS
 
@@ -29,13 +29,6 @@ sub_section: Before you start
 - [Deploying a single container](/deploy/continuous-delivery-single-container-docker-application)
 - [Deploying a multi-container application](/deploy/continuous-delivery-multi-container-docker-application)
 
-### Deployment methods
-- [Overview](/deploy/deployment-methods-overview)
-- [Blue-green](/deploy/deployment-method-blue-green)
-- [Upgrade](/deploy/deployment-method-upgrade)
-- [Replace](/deploy/deployment-method-replace)
-- [Parallel](/deploy/deployment-method-parallel)
-
 ### Using load balancers
 - [Overview](/deploy/lb-overview)
 - [Amazon ECS Classic Load Balancer](/deploy/lb-amazon-ecs-classic)
@@ -46,6 +39,7 @@ sub_section: Before you start
 ### Advanced scenarios
 - [Multi-stage deployments](/deploy/multi-stage-deployments)
 - [Gated deployments](/deploy/gated-deployments)
+- [Specifying deployment methods](/deploy/deployment-methods-overview)
 - [Customizing container options](/deploy/tutorial/customizing-container-options)
 - [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
 - [Scaling service instances](/deploy/tutorial/scaling-services)
@@ -71,7 +65,7 @@ sub_section: Before you start
 
 ## Manage release versions
 
-- [Overview](/release/devops-release-management/)
+- [Overview](/release/overview)
 - [Create a release from a single component](/release/single-component)
 - [Setting version number](/release/set-version-number)
 - [Incrementing version numbers](/release/increment-version-number)

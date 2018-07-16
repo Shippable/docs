@@ -170,26 +170,15 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 * [Deploying to a self-hosted Kubernetes cluster using kubectl](/deploy/tutorial/deploy-to-self-kube-kubectl)
 * [Deploying to Google Kubernetes Engine (GKE) using Helm](/deploy/tutorial/deploy-to-gcp-gke-helm)
 * [Deploying a WAR from Nexus to EC2 using Ansible](/deploy/tutorial/deploy-war-nexus-ec2-ansible)
-* [Deploying to a self-hosted Kubernetes cluster using Helm](/deploy/tutorial/deploy-to-kubernetes-cluster-helm)
+* [Deploying to a self-hosted Kubernetes cluster using Helm](/deploy/tutorial/deploy-to-self-kube-helm)
 * [Deploying to Amazon EKS using kubectl](/deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl)
 * [Deploying to Amazon ECS using Shippable](/deploy/tutorial/deploy-to-amazon-ecs-shippable)
-* [Deploying to Azure Kubernetes Service (AKS) using kubectl](/deploy/tutorial/continuous-deployment-to-aks-kubectl)
-* [Deploying to Amazon EKS using Helm](/deploy/tutorial/continuous-deployment-to-amazon-eks-helm)
-* [Deploying to Azure Kubernetes Service (AKS) using Helm](/deploy/tutorial/continuous-deployment-to-aks-helm)
-* [Deploying to Amazon EKS using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-amazon-eks-shippable)
-* [Deploying to Azure Kubernetes Service (AKS) using Shippable managed jobs](/deploy/tutorial/continuous-deployment-to-aks-shippable)
 
 
 ### Managed jobs: deploy
 
 - [Deploying a single container](/deploy/continuous-delivery-single-container-docker-application)
 - [Deploying a multi-container application](/deploy/continuous-delivery-multi-container-docker-application)
-- Deployment methods:
-    - [Overview](/deploy/deployment-methods-overview)
-    - [Blue-green](/deploy/deployment-method-blue-green)
-    - [Upgrade](/deploy/deployment-method-upgrade)
-    - [Replace](/deploy/deployment-method-replace)
-    - [Parallel](/deploy/deployment-method-parallel)
 - Using load balancers:
     - [Overview](/deploy/lb-overview)
     - [Amazon ECS Classic Load Balancer](/deploy/lb-amazon-ecs-classic)
@@ -199,6 +188,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 - Advanced scenarios:
     - [Multi-stage deployments](/deploy/multi-stage-deployments)
     - [Gated deployments](/deploy/gated-deployments)
+    - [Deployment strategies](/deploy/deployment-methods-overview)
     - [Customizing container options](/deploy/tutorial/customizing-container-options)
     - [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
     - [Scaling service instances](/deploy/tutorial/scaling-services)

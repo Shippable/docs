@@ -19,11 +19,11 @@ There are many ways to deploy an application on Shippable. This document explain
 <a name="blue-green"></a>
 ## Blue-Green deployments (default)
 
-This is the default behavior that the deploy job uses unless otherwise specified. Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic. Only after Shippable validates the health of the green service (newer version), it deletes the blue service (older version). If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
+This is the default deployment strategy when you use the managed `deploy` job  Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called **Blue** and **Green**. At any time, only one of the environments is live, with the live environment serving all production traffic. Shippable validates the health of the **Green** service (newer version), and if healthy, it deletes the **Blue** service (older version). If the **Green** service is unstable, Shippable deletes the it and roll backs the application to the stable and prior **Blue** service.
 
-The only catch is that you'll need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host. For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/lb-amazon-ecs-app).
+To use blue-green deployments, you need to have enough capacity on your cluster to run two copies of what you're deploying.  This can be challenging if you're using port mappings and a classic load balancer, since you might run into port conflicts on the host. For ECS, Shippable recommends the use of application load balancers, which you can [read about here](/deploy/lb-amazon-ecs-app).
 
-To configure blue-green deployments, read the [Blue-Green deployments](/deploy/deployment-method-blue-green) doc.
+The following explains the actual behavior for different orchestration platforms:
 
 **ECS workflow:**
 
@@ -46,14 +46,39 @@ To configure blue-green deployments, read the [Blue-Green deployments](/deploy/d
 2. Wait for the deployment to report a successful rollout.
 3. Delete the old deployment.
 
-The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  The only catch is that you'll need to have enough capacity on your cluster to run two full copies of what you're deploying.
+The deployment name will change each time, but each deployment will always contain the same combination of labels that reference the manifest and the deploy job names.  This allows you to create a Kubernetes service with a selector that will always match what you're deploying, thus ensuring zero down time.  
+
+If the green service is found to be unstable, Shippable deletes the green service and rollbacks the application to the stable and prior blue service.
+
+### Instructions
+
+Follow the steps below to configure blue-green deployments using the managed `deploy` job:
+
+* Ensure that your cluster has enough capacity to deploy two copies of your service or application.
+
+* Since blue-green is the default deployment strategy, you do not have to specify anything specific in the **shippable.yml**.
+
+* In some scenarios, you might want to ensure that your containers stay up for a specific period of time after deployment before declaring the deployment a success. For example, you could want to run some acceptance tests or ensure that the containers aren't crashing after starting.
+The `stabilityDuration` tag on the [deploy](/platform/workflow/job/deploy) job addresses this scenario by allowing you to specify the amount of time in seconds (0-300) that a new service created in a blue-green deployment should be stable before marking the deployment as successful. "Stable" means that the desired number of instances matches the number that are actually running in the cluster for the timeframe specified.
+You can set the `stabilityDuration` tag in your YAML to configure this as shown below:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    stabilityDuration: 300            # add this to your deploy job
+    steps:
+      #Rest of deploy job definition...
+```
+In this example, we want the actual number of replicas to run continuously for 300 seconds. The deploy job waits for a maximum duration of 15 minutes for this condition to be satisfied. For example, if the one of the containers go down after 3 minutes, the deploy job will wait for the crashed container to restart and once it starts running, it will reset the timer to zero. At this point, all the containers have to again run continuously for 300 seconds.
 
 <a name="upgrade"></a>
 ## Upgrade deployments
 
-In this strategy, a new service is created on the orchestration platform on the very first deployment. However every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
+In this strategy, a new service is created on the orchestration platform on the very first deployment. Every subsequent deployment will just update the existing service. Shippable makes a best effort guarantee for zero downtime in the upgrade method.
 
-To configure blue-green deployments, read the [Upgrade deployments](/deploy/deployment-method-upgrade) doc.
+The following explains the actual behavior for different orchestration platforms:
 
 **ECS workflow:**
 
@@ -77,6 +102,20 @@ When deploying to Kubernetes, Shippable's `upgrade` method relies on the default
 2. Wait for deployment rollout to complete.
 3. The first time the job runs, a new deployment object will be created, but every subsequent deployment will just update the existing object with the modified pod template.
 
+### Instructions
+
+The upgrade strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) to `upgrade` as shown below:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    method: upgrade               # add this to your deploy job
+    steps:
+      #Rest of deploy job definition...
+```
+
 <a name="replace"></a>
 ## Replace deployments
 
@@ -84,7 +123,19 @@ There are times when you might be working with a limited test environment, where
 
 For such scenarios, the Replace deployment strategy is appropriate. This strategy essentially deletes your existing running tasks / services / deployment objects before updating your service.
 
-To configure blue-green deployments, read the [Replace deployments](/deploy/deployment-method-replace) doc.
+### Instructions
+
+The replace strategy is specified by setting the `method` attribute on the [deploy](/platform/workflow/job/deploy) job to `replace` as shown below:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    method: replace
+    steps:
+      #Rest of deploy job definition...
+```
 
 <a name="parallel"></a>
 ## Deploying multiple containers in parallel
@@ -97,8 +148,22 @@ Depending on how many manifests you're deploying, you should notice a significan
 
 **You can deploy manifests in parallel regardless of the deployment method (blue-green/upgrade/replace) you're using.**
 
-To configure parallel deployments, read the [Deploying manifests in parallel](/deploy/deployment-method-parallel) doc.
+### Instructions
 
+You can set the `workflow` attribute on the [deploy](/platform/workflow/job/deploy) job to `parallel` in order to deploy multiple manifests in parallel.
+
+As an example:
+
+```
+jobs:
+
+  - name: app_deploy_job
+    type: deploy
+    workflow: parallel            # add this to your deploy job
+    method: upgrage               # this can be any method               
+    steps:
+      #Rest of deploy job definition...
+```
 
 ## Ask questions on Chat
 
