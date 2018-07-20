@@ -1,7 +1,6 @@
 page_main_title: Using deployment strategies (Blue-green, Replace etc.)
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
-sub_sub_section: Deployment methods
+sub_section: Shippable managed deployments
 page_title: Using deployment methods like Blue-green, Replace and Upgrade
 page_description: How to use deployment methods like Blue-green, Replace and Upgrade in Shippable
 

@@ -1,7 +1,7 @@
 page_main_title: Automated deployments to Amazon ECS using AWS CLI
 page_description: Automated deployments to Amazon ECS using AWS CLI
 main_section: CD
-sub_section: Deploying containers using popular tools
+sub_section: Custom deployments with CLIs/SDKs/tools
 sub_sub_section: Amazon ECS
 
 # Deploy to Amazon ECS using AWS CLI

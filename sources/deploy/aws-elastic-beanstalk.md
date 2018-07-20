@@ -1,7 +1,7 @@
 page_main_title: Deploying single-container environments
 main_section: CD
-sub_section: Deploying containers using popular tools
-sub_sub_section: AWS Elastic Beanstalk
+sub_section: Custom deployments with CLIs/SDKs/tools
+sub_sub_section: Deploy to AWS Elastic Beanstalk
 page_title: Deploy a single container to a single AWS EB environment
 page_description: How to deploy a single container to a single AWS EB environment in Shippable
 

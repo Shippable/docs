@@ -126,7 +126,7 @@ tutorials/pipelines/migrateResources /validate/configuration/#migrating-pipeline
 tutorials/pipelines/rollback-deployments /deploy/rollback/
 tutorials/pipelines/deploy-to-kubernetes /deploy/kubernetes/
 tutorials/pipelines/runShUseIntegrations /platform/workflow/job/runsh/
-tutorials/pipelines/updateResourceVersion /release/increment-version-number/
+tutorials/pipelines/updateResourceVersion /release/devops-release-management/
 navigatingUI/accountSettings/api /platform/api/api-tokens
 reference/shippable-yml /platform/workflow/config
 reference/jobs-overview /platform/workflow/job/jobs-overview

@@ -1,7 +1,7 @@
 page_main_title: Scaling service instances
 page_description: Scaling service instances
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 
 # Scaling service instances

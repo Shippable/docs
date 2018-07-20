@@ -247,9 +247,9 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
 
 ### Managing release versions:
 - [Overview](/release/devops-release-management)
-- [Semantic versioning](/release/single-component)
-- [Setting version number](/release/set-version-number)
-- [Incrementing version numbers](/release/increment-version-number)
+- [Semantic versioning](/release/devops-release-management)
+- [Setting version number](/release/devops-release-management)
+- [Incrementing version numbers](/release/devops-release-management)
 
 
 ## IT Ops

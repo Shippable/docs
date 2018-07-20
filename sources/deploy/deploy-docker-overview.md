@@ -1,46 +1,38 @@
 page_main_title: Deploying Docker applications to Container Orchestration Platforms
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 page_title: Deploy to Container Orchestration Platforms
 page_description: How to deploy to Container Orchestration Platforms in Shippable
 
-# Deploying Docker applications to Container Orchestration Platforms [TODO]
+# Deploying Docker applications to Container Orchestration Platforms
 
-Docker has made it very easy to package your application in a portable, lightweight container that can be deployed to any cloud. The Docker CLI also supports basic commands that let you push the container as an image to a Docker registry and run the container on any machine.
+The Shippable platform can be used to deploy Docker applications in one of two ways:
 
-However, most applications are more complex and need multiple Docker images packaged into several services. Orchestration platforms like Amazon ECS, Kubernetes, Azure Container Service, Docker Swarm, etc extend lifecycle management capabilities to complex, multi-container workloads deployed on a cluster of machines. By abstracting the underlying infrastructure, orchestration platforms allow users to treat the entire cluster as a single deployment target.  
+* Using the `deploy` job, which helps you deploy Docker containers without writing complex scripts. These are fully managed deployments where you specify what you want to deploy and the platform handles the complexity of creating task definitions and deployments. This is a great way to get started with Shippable and as long as you don't have highly custom requirements such as running custom scripts as part of the deployment, automatic rollbacks, etc, this approach will be sufficient for your needs.
 
-Shippable supports deploying simple or complex Docker applications from any [supported Docker registry](/platform/integration/overview/#supported-docker-registry-integrations) to the following Orchestration Platforms:
+* Using the `runSh` job, where you write your deployments scripts which are executed when the job is triggered. The main advantage of this approach is that there is no "magic", since the platform is only executing your scripts. You have complete control over your deployments and you can handle complex scenarios with your custom scripts. Popular cloud-native CLIs/SDKs/tools are already installed on our build machines to make this approach easier. Please refer to our [Custom deployments](/deploy/deploy-docker-overview/) section to get started with this approach.
 
-- [Amazon ECS](https://aws.amazon.com/ecs/)
-- [Kubernetes](https://kubernetes.io/)
-- [Google Container Engine](https://cloud.google.com/container-engine/)
-- [Azure DC/OS](https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-mesos-marathon-ui)
-- [Docker Cloud](https://cloud.docker.com/)
-- [Docker Datacenter](https://www.docker.com/enterprise-edition)
-- [Joyent Triton](https://www.joyent.com/triton/compute)
-- [Azure Container Service (AKS)](https://azure.microsoft.com/en-us/services/container-service/)
-
-You can deploy using one of two methods:
-
-* [Using the `deploy` job](#easy-deploy) that abstracts the underlying Container Orchestration Platform and provides a consistent way to deploy your application
-* [Using the `runSh` job](#custom-deploy) which lets you script the deployment using the cloud native CLI, offering complete control
-
-<a name="easy-deploy"></a>
-## Easy deployments with `deploy`
-
-The deploy job allows you to deploy a complex application to any supported orchestration platform with just a few lines of declarative YAML. The complexities of the underlying platform are abstracted, leading to the following advantages:
+The main advantage of using the managed `deploy` job are:
 
 * **Quick configuration** with a few lines of declarative YAML
 * **Hybrid cloud:** You can use the same deployment workflow to deploy to multiple clouds
 * **No lock-in:** If you move to a different orchestration platform, your deployment workflow config can be updated with changes to a couple of lines
 
-To get started, check out our tutorials:
+This section of the documentation contains several tutorials that demonstrate how you can use the managed [`deploy` job](/platform/workflow/job/deploy) to deploy Docker applications:
 
-- [Continuous Delivery of a single-container Docker app to an orchestration platform](/deploy/continuous-delivery-single-container-docker-application/)
-- [Continuous Delivery of a multi-container Docker app to an orchestration platform](/deploy/continuous-delivery-multi-container-docker-application/)
-
-<a name="custom-deploy"></a>
-## Custom deployments with Cloud-Native CLIs
-
-You can also use cloud-native CLIs to configure your deployments yourself. The advantage is that you have full control over your deployments. However, this does not give you cross-cloud compatibility since moving to a different orchestration platform will require you to rewrite your deployment job.
+* [Deploying a simple Docker application](/deploy/continuous-delivery-single-container-docker-application)
+- [Deploying private images](/deploy/deploy-private-images)
+- [Deploying multiple containers](/deploy/deploy-multiple-containers)
+- [Multi-stage deployments](/deploy/multi-stage-deployments)
+- [Gated deployments](/deploy/gated-deployments)
+- [Specifying deployment methods](/deploy/deployment-methods-overview)
+- [Specifying the version to deploy](/deploy/deploying-specific-version)
+- [Rolling back deployments](/deploy/rollback)
+- [Sending notifications upon deployments](/deploy/deployment-notifications)
+- [Customizing container options](/deploy/tutorial/customizing-container-options)
+- [Setting environment variables](/deploy/tutorial/set-environment-deployed-container)
+- [Scaling service instances](/deploy/tutorial/scaling-services)
+- [Customizing deployed service names](/deploy/customize-service-names)
+- [Pausing deployments](/deploy/pause-deployments)
+- [Deleting a deployed service](/deploy/deleting-a-service)
+- [Resetting a deploy job](/deploy/amazon-ecs-deploy-reset)

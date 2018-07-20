@@ -1,6 +1,6 @@
 page_main_title: Attaching a load balancer to an ECS cluster
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Using load balancers
 page_title: Attaching an Application Load Balancer to an ECS cluster
 page_description: How to attach an Application Load Balancer to an ECS cluster in Shippable

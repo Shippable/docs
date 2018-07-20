@@ -1,6 +1,6 @@
 page_main_title: Gated deployments
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 page_title: Gated deployments
 page_description: How to do Gated deployments in Shippable

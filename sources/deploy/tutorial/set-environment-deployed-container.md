@@ -1,7 +1,7 @@
 page_main_title: Set environment for deployed application container
 page_description: Set environment for deployed application container
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 
 # Set environment for deployed container
