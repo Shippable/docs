@@ -1,6 +1,6 @@
 page_main_title: Multi-stage deployments through Dev/Test/Prod Environments
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 page_title: Multi-stage deployments through Dev/Test/Prod Environments
 page_description: How to do Multi-stage deployments through Dev/Test/Prod Environments in Shippable

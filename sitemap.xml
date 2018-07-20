@@ -1578,51 +1578,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/release/configuration/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/single-pane-of-glass-spog/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/trigger-job/</loc>
-  <lastmod>2018-03-06T06:43:44+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/send-notifications/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/single-component/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/mutiple-components/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/upstream-releases/</loc>
-  <lastmod>2018-03-06T06:43:44+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/set-version-number/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/release/increment-version-number/</loc>
-  <lastmod>2018-03-06T06:43:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://docs.shippable.com/provision/aws-with-terraform/</loc>
   <lastmod>2018-03-06T06:43:41+00:00</lastmod>
   <priority>0.64</priority>

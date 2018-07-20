@@ -27,7 +27,7 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 * [Multi-stage deployments](/deploy/multi-stage-deployments/)
 * [Gated deployments](/deploy/gated-deployments/)
-* [Semantic versioning for releases](/release/single-component/)
+* [Semantic versioning for releases](/release/devops-release-management/)
 
 ## Sample application
 

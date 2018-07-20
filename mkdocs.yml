@@ -127,26 +127,19 @@ pages:
   - CD:
     - Overview: deploy/continuous-delivery.md
     - Tutorials index: deploy/tutorials.md
-    - Deployments:
-      - Amazon ECS:
-        - Using AWS CLI: deploy/deploy-amazon-ecs-cloud-native-cli.md
-        - Using Shippable managed jobs: deploy/amazon-ecs.md
-      - Kubernetes:
-        - Using kubectl: deploy/tutorial/deploy-to-self-kube-kubectl.md
-        - Using Shippable managed jobs: deploy/kubernetes.md
-      - GKE:
-        - Using kubectl: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
-        - Using Shippable managed jobs: deploy/gke.md
-      - AWS Elastic Beanstalk:
+    - Custom deployments with CLIs/SDKs/tools:
+      - Custom deployments overview: deploy/custom-deployments-overview.md
+      - Deploy to Amazon ECS: deploy/deploy-amazon-ecs-cloud-native-cli.md
+      - Deploy to Kubernetes: deploy/tutorial/deploy-to-self-kube-kubectl.md
+      - Deploy to GKE: deploy/tutorial/deploy-to-gcp-gke-kubectl.md
+      - Deploy to AWS EC2: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
+      - Deploy to AWS Elastic Beanstalk:
         - Using EB CLI- Single container: deploy/aws-elastic-beanstalk.md
         - Using EB CLI- Multiple containers: deploy/aws-elastic-beanstalk-multiple-containers.md
         - Using EB CLI- Multi-stage deployments: deploy/aws-elastic-beanstalk-multiple-environments.md
-      - AWS EC2:
-        - Deploy Java WAR from Nexus to EC2: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
-    - Deploying containers using Shippable managed jobs:
+    - Shippable managed deployments:
       - Overview: deploy/deploy-docker-overview.md
-      - Single Container Application: deploy/continuous-delivery-single-container-docker-application.md
-      - Multi Container Application: deploy/continuous-delivery-multi-container-docker-application.md
+      - Deploying a simple application: deploy/continuous-delivery-single-container-docker-application.md
       - Using load balancers:
         - Overview: deploy/lb-overview.md
         - Amazon ECS Classic Load Balancer: deploy/lb-amazon-ecs-classic.md
@@ -154,6 +147,8 @@ pages:
         - Kubernetes: deploy/lb-kubernetes.md
         - GKE: deploy/lb-gke.md
       - Advanced topics:
+        - Deploying private images: deploy/deploy-private-images.md
+        - Deploying multiple containers: deploy/deploy-multiple-containers.md
         - Multi-stage deployments: deploy/multi-stage-deployments.md
         - Gated deployments: deploy/gated-deployments.md
         - Specifying deployment methods: deploy/deployment-methods-overview.md
@@ -163,25 +158,21 @@ pages:
         - Customizing container options: deploy/tutorial/customizing-container-options.md
         - Setting environment variables: deploy/tutorial/set-environment-deployed-container.md
         - Scaling service instances: deploy/tutorial/scaling-services.md
+        - Managing releases with semantic versioning: release/devops-release-management.md
         - Customizing deployed service names: deploy/customize-service-names.md
         - Pausing deployments: deploy/pause-deployments.md
         - Deleting a deployed service: deploy/deleting-a-service.md
         - Resetting a deploy job: deploy/amazon-ecs-deploy-reset.md
-    - Deploying app packages to VMs:
-      - From S3: deploy/vm-basic.md
+    #- Deploying app packages to VMs:
+      #- From S3: deploy/vm-basic.md
       #- S3 to multiple VM clusters: deploy/vm-multiple-environments.md
-      - From JFrog Artifactory: deploy/vm-jfrog.md
-      - From Nexus: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
-      - From Git: deploy/vm-gitRepo.md
+    #  - From JFrog Artifactory: deploy/vm-jfrog.md
+    #  - From Nexus: deploy/tutorial/deploy-war-nexus-ec2-ansible.md
+    #  - From Git: deploy/vm-gitRepo.md
     - Running test suites:
       - Overview: validate/devops-validate.md
       - Running performance tests with Nouvola: validate/nouvola.md
       - Running integration tests with Sauce Labs: validate/sauce-labs.md
-    - Managing release versions:
-      - Overview: release/devops-release-management.md
-      - Semantic versioning: release/single-component.md
-      - Setting version number: release/set-version-number.md
-      - Incrementing version numbers: release/increment-version-number.md
   - Shippable Server:
     - Before you start:
       - Overview: platform/server/overview.md

@@ -59,6 +59,7 @@ resources:
 ```
 
 ## Call the Nouvola API to execute your test plan in your shippable.yml file.
+
 ```
 jobs:
 
@@ -99,16 +100,7 @@ The build will complete when status transitions from Waiting->Starting->Working-
 
 ## Connecting the runSh job to your deploy job in the pipeline
 
-If you have created a pipeline with a deploy job and want to run these tests after your deploy job completes, there is a simple way to connect your runSh job to your deploy job. We will connect the deploy job specified in [ECS deploy](/deploy/continuous-delivery-single-container-docker-application/) using an OUT directive.
-
-```
-  - name: deploy-ecs-basic-deploy
-    type: deploy
-    steps:
-      - IN: deploy-ecs-basic-manifest
-      - IN: deploy-ecs-basic-ecs-cluster
-      - OUT: test-api-nouvola-run-tests
-```
+If you want to run this test job after your deployment job, you can specify the deploy job as an `IN` for the test job. This will ensure that your tests will run every time there is a new deployment.  
 
 ## Sample project
 

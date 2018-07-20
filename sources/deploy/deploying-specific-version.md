@@ -1,6 +1,6 @@
 page_main_title: Specifying the version to deploy.
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 page_title: Specifying version to deploy
 page_description: How to specify input versions of resources to deploy in Shippable

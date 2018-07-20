@@ -22,6 +22,4 @@ The set of documents under the **Continuous Delivery** pillar deal with deployin
 
 To get started, you can click through the left navigation menu or take a look at the [Tutorials page](/deploy/tutorials).
 
-A complete list of all Shippable tutorials is available [here](/getting-started/tutorials)
-
 To start with basics of the Shippable platform and how jobs and resources work, please read the [Platform section](/platform/overview) of the docs.

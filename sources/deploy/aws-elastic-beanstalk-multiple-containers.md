@@ -1,7 +1,7 @@
 page_main_title: Deploying multi-container environments
 main_section: CD
-sub_section: Deploying containers using popular tools
-sub_sub_section: AWS Elastic Beanstalk
+sub_section: Custom deployments with CLIs/SDKs/tools
+sub_sub_section: Deploy to AWS Elastic Beanstalk
 page_title: Deploy multiple containers to a single EB environment
 page_description: How to deploy multiple containers to a single EB environment in Shippable
 

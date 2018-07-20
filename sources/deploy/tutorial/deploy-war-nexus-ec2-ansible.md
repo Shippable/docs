@@ -1,6 +1,7 @@
 page_main_title: Deploying a Java WAR package from Nexus to AWS EC2 using Ansible
 main_section: CD
-sub_section: Deploying app packages to VMs
+sub_section: Custom deployments with CLIs/SDKs/tools
+sub_sub_section: AWS_EC2
 page_description: Deploying a Java WAR application from Nexus Repository manager to an AWS EC2 virtual machine using Ansible playbooks
 
 # Deploying a Java WAR package from Nexus to AWS EC2 using Ansible

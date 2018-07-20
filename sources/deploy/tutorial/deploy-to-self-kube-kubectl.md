@@ -1,7 +1,7 @@
 page_main_title: Deploy to self-hosted Kubernetes cluster using kubectl
 page_description: Continuous Deployment to a Kubernetes cluster using kubectl
 main_section: CD
-sub_section: Deploying containers using popular tools
+sub_section: Custom deployments with CLIs/SDKs/tools
 sub_sub_section: Kubernetes
 
 # Deploy to self-hosted Kubernetes cluster using kubectl

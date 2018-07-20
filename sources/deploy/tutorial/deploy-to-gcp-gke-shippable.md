@@ -63,11 +63,11 @@ The platform is built with "Everything as Code" philosophy, so all configuration
 
 Detailed documentation on **shippable.yml** is [here](/platform/workflow/config/#assembly-lines-configuration).
 
-#####3a. Add empty shippable.yml to your repo
+#####1a. Add empty shippable.yml to your repo
 
 Add an empty **shippable.yml** file to the the root of repository.
 
-#####3b. Add `resources` section of the config
+#####1b. Add `resources` section of the config
 
 `resources` section holds the information that is necessary to deploy to a Kubernetes cluster.
 
@@ -97,7 +97,7 @@ resources:
 
 ######i.`dockerOptions` resource named `cd_gke_docker_opts`
 
-All the Docker settings that your application requires need to be available as a resource to the Assembly Line. In this example, we using a very small subset of the settings (memory, ports etc.)
+All the Docker settings that your application requires need to be available as a resource to the Assembly Line. In this example, we are using a very small subset of the settings (memory, ports etc.)
 
 Detailed info about `dockerOptions` resource is [here](/platform/workflow/resource/dockeroptions).
 

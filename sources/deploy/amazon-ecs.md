@@ -1,6 +1,6 @@
 page_main_title: Amazon ECS- Deploying a Docker application
 main_section: CD
-sub_section: Deploying containers using popular tools
+sub_section: Custom deployments with CLIs/SDKs/tools
 sub_sub_section: Amazon ECS
 page_title: Deploying to Amazon ECS
 page_description: How to deploy to Amazon ECS in Shippable

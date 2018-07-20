@@ -1,6 +1,6 @@
 page_main_title: Deleting a deployed service.
 main_section: CD
-sub_section: Deploying containers using Shippable managed jobs
+sub_section: Shippable managed deployments
 sub_sub_section: Advanced topics
 page_title: Deleting a deployed service
 page_description: How to delete a deployed service in Shippable
