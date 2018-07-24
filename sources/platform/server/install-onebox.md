@@ -14,7 +14,7 @@ This document describes the steps to install Shippable Server for a Onebox pilot
 **Shippable Server comprises of the following -**
 
 * **Control Plane** which consists of:
-    * Core services - these are the administration, app (UI), login and core backend runtime services of Admiral.  
+    * Core services - these are the administration, app (UI), login and core backend runtime services of Admiral.
     * State services - these are open source components that store transient and persistent state.
 * **Build Plane** consisting of build servers - these run the execution agents that spin up CI and CD jobs.
 * **Source Control Management(SCM) Plane** - this is your on-premise or cloud based SCM such as GitHub, GitHub Enterprise, BitBucket, Bitbucket Server, or GitLab., which needs to be able to communicate with the Control Plane.
@@ -120,7 +120,8 @@ $ git checkout v6.3.4
 
 You will see the following output:
 
-`ubuntu@ip-172-31-29-44:~$ git clone Cloning into 'admiral'...
+```
+$ ubuntu@ip-172-31-29-44:~$ git clone Cloning into 'admiral'...
 remote: Counting objects: 15276, done.
 remote: Compressing objects: 100% (97/97), done.
 remote: Total 15276 (delta 85), reused 105 (delta 58), pack-reused 15121
@@ -130,7 +131,7 @@ Checking connectivity... done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
 ubuntu@ip-172-31-4-17:~/admiral$ git checkout v6.3.4
 HEAD is now at 9018791... updating version.txt to v6.3.4
-`
+```
 
 We have checked out tag v6.3.4, which is the latest tag available as of March 2018. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that v6.3.4, will be available April 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
 
