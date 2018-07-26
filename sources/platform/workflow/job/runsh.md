@@ -81,6 +81,8 @@ jobs:
         replicateOnPullRequest:    <true/false>
       - OUT:          <resource>
         overwrite:    true
+      - OUT:          <resource>
+        on_failure:   true
     on_success:
       script:
         - echo "SUCCESS"
@@ -151,6 +153,7 @@ A description of the job YML structure and the tags available is in the [jobs se
         * `replicate` -- Optional, any `IN` resource of same type can be used.
         * `replicateOnPullRequest` -- an optional setting that can be used with replicate, specify true to update the replicated `OUT` resource on pull requests.
         * `overwrite` -- Optional, default is `false`.
+        * `on_failure` -- Optional, default is `false`. Specify `true` to create a new version even on job failure.
 
     * `showBuildStatus` -- Optional, defaults to false. If set to true, build status will be set on the gitRepo depending on how the gitRepo
     resource is configured. For example if `buildOnCommit:false` and `buildOnPullRequest:true`, then status will be updated
