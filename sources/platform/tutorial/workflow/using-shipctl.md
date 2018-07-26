@@ -616,6 +616,8 @@ You can find the value of the access key in the **myAWSCreds** integration with 
 jobs:
   - name: myCustomJob
     type: runSh
+    integrations:
+      - myAWSCreds    
     steps:
       - TASK:
         - script: MY_INT_FIELD="$(shipctl get_integration_field "myAWSCreds" "accessKey")"
