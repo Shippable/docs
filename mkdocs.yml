@@ -187,7 +187,10 @@ pages:
       - Database: platform/server/install-db.md
       - Secrets: platform/server/install-vault.md
       - Message queue: platform/server/install-rabbitmq.md
-      - State Storage: platform/server/install-gitlab.md
+      - State Storage:
+        - Overview: platform/server/install-state.md
+        - GitLab: platform/server/install-gitlab.md
+        - S3: platform/server/install-s3-state.md
       - Redis: platform/server/install-redis.md
       - Swarm: platform/server/install-swarm-workers.md
       - Self-signed SSL certificates: platform/server/selfsigned-certificates.md
