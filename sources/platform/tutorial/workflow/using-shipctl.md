@@ -572,8 +572,10 @@ The key values could be used with `get_integration_field` command to get the val
 **Usage**
 
 ```
-shipctl get_integration_keys <integration name>
+shipctl get_integration_keys <subscription integration name>
 ```
+
+- `subscription integration name` is the name of the subscription integration.
 
 **Example**
 
@@ -600,14 +602,13 @@ Gets the value of a field from an integration used in a `runSh` job.
 **Usage**
 
 ```
-shipctl get_integration_field <integration name> <field name>
+shipctl get_integration_field <subscription integration name> <field name>
 ```
 
-- `integration name` is the name of the integration
+- `subscription integration name` is the name of the subscription integration.
 - `field name` is the name of field for which you want to get the value. This could be obtained for any integration by using `get_integration_keys` command.
 
 **Example**
-
 
 Say you have a [runSh job](/platform/workflow/job/runSh/), which uses the integration **myAWSCreds**.
 You can find the value of the access key in the **myAWSCreds** integration with the following:
