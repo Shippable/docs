@@ -39,6 +39,9 @@ Before we start, you need to open the following ports so that various Shippable 
 
 #### Server 1
 - 22: ssh into the machine
+- 5672: messaging
+- 15672: messaging admin
+- 6379: redis
 - 50000: Shippable API
 - 50001: Shippable UI
 - 50003: Shippable installer webapp
@@ -46,8 +49,6 @@ Before we start, you need to open the following ports so that various Shippable 
 #### Server 2
 
 - 22: ssh into the machine
-- 5672: messaging
-- 6379: redis
 - 80: internal gitlab server api endpoint
 - 443: internal gitlab server secure api endpoint
 - 2222: internal gitlab server ssh port
@@ -84,7 +85,8 @@ $ git checkout v6.3.4
 
 You will see the following output:
 
-`ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
+```
+ubuntu@ip-172-31-29-44:~$ git clone https://github.com/Shippable/admiral.git
 Cloning into 'admiral'...
 remote: Counting objects: 15276, done.
 remote: Compressing objects: 100% (97/97), done.
@@ -94,9 +96,9 @@ Resolving deltas: 100% (9106/9106), done.
 ubuntu@ip-172-31-29-44:~$ cd admiral/
 ubuntu@ip-172-31-4-17:~/admiral$ git checkout v6.3.4
 HEAD is now at 9018791... updating version.txt to v6.3.4
-`
+```
 
-We have checked out tag v6.3.4, which is the latest tag available as of March 2018. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that v6.3.4, will be available April 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
+**Important:** We have checked out tag `v6.3.4`, which is the latest tag available as of March 2018. To see the complete list of versions and install a specific version, you can run `git tag` to see all the tags and then checkout the tag you want. Please note that versions more recent that v6.3.4, will be available April 2018 onwards and we recommend installing the latest version (which you can find out by running `git tag`).
 
 ###2. Run Admiral CLI
 
@@ -175,7 +177,7 @@ n
 |___ Please enter the IP address of the database
 ```
 
-Enter the IP address of `Server 1`.
+Enter the IP address of `Server 2`.
 
 ```
 54.210.100.250
