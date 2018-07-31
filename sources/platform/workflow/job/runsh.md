@@ -129,8 +129,7 @@ A description of the job YML structure and the tags available is in the [jobs se
       run inside a container or on the host. `true` by default
   after which the job will be automatically stopped.
 
-* **`integrations`** -- Optional. This is an array which can be used to input subscription
-    integrations to a job. You can use [shipctl](/platform/tutorial/workflow/using-shipctl/#state-mgmt) utilities `get_integration_keys` and `get_integration_field` to get the credentials.
+* **`integrations`** -- Optional. This is an array which can be used to input subscription integrations to a job. You can use [shipctl](/platform/tutorial/workflow/using-shipctl/#state-mgmt) utilities `get_integration_keys` and `get_integration_field` to get the credentials.
 
 * **`on_start `** -- Optional, `NOTIFY` types can be used to send notifications.
 
