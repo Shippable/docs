@@ -52,3 +52,8 @@ venvs
 
 # Vim session files
 Session.vim
+
+# Algolia artifacts
+algolia/index.json
+algolia/node_modules
+algolia/package-lock.json
