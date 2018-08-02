@@ -198,7 +198,7 @@ jobs:
               env:
                 - inst_type: "t2.micro"
                 - inst_ami: "ami-43a15f3e"
-                - aws_key_name: "dr_us_east_1"
+                - aws_key_name: "dr_us_east_1_tf"
           script:
             - pushd $(shipctl get_resource_state "aws_ec2_tf_repo")
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_tf_creds "accessKey")
@@ -317,7 +317,7 @@ jobs:
               env:
                 - inst_type: "t2.micro"
                 - inst_ami: "ami-43a15f3e"
-                - aws_key_name: "dr_us_east_1"
+                - aws_key_name: "dr_us_east_1_tf"
           script:
             - pushd $(shipctl get_resource_state "aws_ec2_tf_repo")
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_tf_creds "accessKey")
