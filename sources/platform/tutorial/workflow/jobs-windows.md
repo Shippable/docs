@@ -31,7 +31,19 @@ You can use a Shippable provided on-demand node or bring your own node (BYON).
 
 ## Setting up BYON Nodes
 
-###1. Purchase the BYON WindowsServer 2016 SKU
+### System requirements
+
+Windows BYON nodes must meet the following requirements to be initalized successfully:
+
+* You must be running **Windows Server 2016 (Version 1607)**, which is the current LTSC release. You can run `winver` to identify your Windows version.
+
+    <img src="/images/platform/tutorial/workflow/windows-version.png" alt="winver">
+
+* If you have not already enabled Windows Containers, you must do so by running `Install-WindowsFeature containers` from an elevated PowerShell prompt . A restart will be required.
+
+    <img src="/images/platform/tutorial/workflow/windows-containers.png" alt="install-windows-containers">
+
+### 1. Purchase the BYON WindowsServer 2016 SKU
 
 * Click **Edit plan**,  **Add new SKU**.
 * Click the dropdown under **Type** and select **BYON**.
@@ -40,24 +52,23 @@ You can use a Shippable provided on-demand node or bring your own node (BYON).
 * Adjust the number in the Quantity column to the capacity you need.
 * Enter the billing contact and credit card information and click on **Upgrade**
 
-##2. Configure Node pools
+### 2. Configure Node pools
 
 * After you purchase the Windows SKU, a default [Node Pool](/platform/management/subscription/node-pools/) is created and all the purchased nodes are assigned to the default Node Pool.
 * You can make this Node pool your default Node pool so that all jobs run on it by default. If the Node pool is not set to be the default Node pool, jobs will need to be explicitly assigned to it.
 * You can create more Node pools if you want and change the allocation of nodes amongst your node pools.
 
-##3. Initialize your BYON node
+### 3. Initialize your BYON node
 
 * Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#view-nodes).
 * Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).   
 
-## Define CI jobs and resources.
+## Define CI jobs and resources
 
 * Your CI jobs and resources are defined in a [shippable.yml](/platform/workflow/config/) in a repository in a supported SCM. The list of supported SCM integrations are documented [here](/platform/integration/overview/#supported-scm-integrations).
 * Create the shippable.yml in any of your configured SCM integration repository, **except the source code repository that you are building itself**. This approach offers several benefits such as controlling execute permissions on the jobs
 defined in the yml since only users who have write permissions on the repository can execute the jobs defined in it as well as commits to the yml file not triggering the build job itself. You can for experimentation purposes create the shippable.yml file in the source code repository itself, but this will create the undesired side-effect of running the build job whenever the shippable.yml file is committed, since the build job needs the repository as an input in order for it to checkout the repository. We are in the meantime actively working on a feature that will solve this job triggering issue.
-* We now define a [gitRepo resource](/platform/workflow/resource/gitrepo/#gitrepo) in shippable.yml  that points to the repository that you want to build. This resource
-creates the necessary webhooks on your repository so that the job is automatically triggered on commits/prs/release tags.
+* We now define a [gitRepo resource](/platform/workflow/resource/gitrepo/#gitrepo) in shippable.yml  that points to the repository that you want to build. This resource creates the necessary webhooks on your repository so that the job is automatically triggered on commits/prs/release tags.
 You can configure which webhooks you want to create, documented [here](/platform/workflow/resource/gitrepo/#gitrepo).
 
 ```
@@ -146,19 +157,20 @@ RUN Invoke-WebRequest https://download.docker.com/win/static/stable/x86_64/docke
     [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine); \
     Remove-Item .\docker-17.06.2-ce.zip; \
     Remove-Item -recur -force $env:TEMP\docker;
-```     
+```
+
 * Set the DOCKER_HOST environment variable to connect to the docker daemon running on the host.
 
 ```
-$env:DOCKER_HOST=tcp://localhost:2375
+$gateway = ((Get-NetRoute | where {$_.DestinationPrefix -eq '0.0.0.0/0'}).NextHop)
+$env:DOCKER_HOST="tcp://${gateway}:2375"
 ```
-
-After Windows Server 1709 is officially supported, you can also use named pipes as described [here](https://docs.docker.com/docker-for-windows/faqs/#how-do-i-connect-to-the-remote-docker-engine-api).
 
 * Commit the file and create a syncRepo.
 
 The repository containing your jobs and resources is called a [Sync repository](/platform/tutorial/workflow/add-assembly-line/) and represents your workflow configuration. Follow [these instructions](/platform/tutorial/workflow/add-assembly-line/) to import your configuration files into your Shippable account.
 
 * Trigger your pipeline
+
 After you create the syncRepo, you can view the runSh job in the [SPOG view](/platform/visibility/single-pane-of-glass-spog/).
 Right click on the job in the SPOG and click **Run job**. You can also trigger the job by committing changes to the repository.
