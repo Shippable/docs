@@ -40,14 +40,23 @@ Integrations can be configured in the `integrations` section of your **shippable
 
 ## Adding integration to a subscription
 
-If you need to use an integration in additional Subscriptions after it was created, you can add it to the Subscription by following the steps below:
+You can either add a existing account integration to your subscription or you can also create a integration without using account integration.
 
 - In the **Subscriptions** section of your left navbar, click on the Subscription you need.
 - Click on the **Settings (Gear)** icon and click on **Integrations** in the dropdown.
 - Click on the **+** button on the top right
 - Name your integration and then in the **Account integrations** dropdown, select the integration you want to add. To keep it easy, name your integration with the same name as your account integration.
+
+<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="using account integration">
+
+- You can also create a shared integration on your subscription, by following the steps below:
+     - Name your integration and then choose the right **Integration type** depending on what you are trying to configure.
+     - You can restrict usage of the integration by providing Edit permissions.
+
+<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-shared-subInt.png" alt="shared subscription integration">
+
 - If you want to restrict usage of the integration to specific projects, choose the Project(s). You can just leave it at *All projects* to let all projects in the Subscription use it.
-- Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
+- Click on **Create**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
 
 ## Updating a Subscription integration's underlying account integration
 
