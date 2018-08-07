@@ -144,7 +144,7 @@ This folder contains files for Vault initialization including `config.hcl` and `
 This folder contains files for initializing the state storage infrastructure component such as `gitlab.rb`, `gitlab-secrets.json`, `ssh_host_ecdsa_key`, `ssh_host_ecdsa_key.pub`, `ssh_host_ed25519_key`, `ssh_host_ed25519_key.pub`, `ssh_host_rsa_key`, `ssh_host_rsa_key.pub` and `scripts` and `Trusted-certs` folders.
 
 ### vault
-This folder contains files for initializing the state storage infrastructure component such as `gitlab.rb`, `gitlab-secrets.json`, `ssh_host_ecdsa_key`, `ssh_host_ecdsa_key.pub`, `ssh_host_ed25519_key`, `ssh_host_ed25519_key.pub`, `ssh_host_rsa_key`, `ssh_host_rsa_key.pub` and `scripts` and `trusted-certs` folders.
+This folder contains files for initializing the secret storage infrastructure component.
 
 ### workers
 This folder contains files for initializing the Swarm workers.
