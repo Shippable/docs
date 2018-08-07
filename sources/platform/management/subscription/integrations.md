@@ -33,7 +33,7 @@ A complete list of all supported integrations is [available in the integrations 
 
 ## Adding an integration to your Subscription
 
-If you want to add an existing account integration to your Subscription, please follow [instructions here](/platform/tutorial/integration/howto-crud-integration/#adding-integration-to-a-subscription).
+Follow [instructions here](/platform/tutorial/integration/howto-crud-integration/#adding-integration-to-a-subscription) to create a subscription integration
 
 ## Edit your Subscription integration
 
