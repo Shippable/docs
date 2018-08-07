@@ -561,6 +561,69 @@ jobs:
         - script: MY_INT_FIELD="$(shipctl get_integration_resource_field "myGkeCluster" "jsonkey")"
 ```
 
+### get_integration_keys
+
+**Description**
+
+Gets all the possible keys from an integration used in a `runSh` job.
+
+The key values could be used with `get_integration_field` command to get the value stored in the integration.
+
+**Usage**
+
+```
+shipctl get_integration_keys <subscription integration name>
+```
+
+- `subscription integration name` is the name of the subscription integration.
+
+**Example**
+
+Say you have a [runSh job](/platform/workflow/job/runSh/), which uses the integration **myAWSCreds**.
+You can find all the keys present in the **myAWSCreds** integration with the following:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    integrations:
+      - myAWSCreds
+    steps:
+      - TASKS:
+        - script: shipctl get_integration_keys "myAWSCreds"
+```
+
+### get_integration_field
+
+**Description**
+
+Gets the value of a field from an integration used in a `runSh` job.
+
+**Usage**
+
+```
+shipctl get_integration_field <subscription integration name> <field name>
+```
+
+- `subscription integration name` is the name of the subscription integration.
+- `field name` is the name of field for which you want to get the value. This could be obtained for any integration by using `get_integration_keys` command.
+
+**Example**
+
+Say you have a [runSh job](/platform/workflow/job/runSh/), which uses the integration **myAWSCreds**.
+You can find the value of the access key in the **myAWSCreds** integration with the following:
+
+```
+jobs:
+  - name: myCustomJob
+    type: runSh
+    integrations:
+      - myAWSCreds    
+    steps:
+      - TASK:
+        - script: MY_INT_FIELD="$(shipctl get_integration_field "myAWSCreds" "accessKey")"
+```
+
 ### get_params_resource
 
 **Description**
