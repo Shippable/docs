@@ -40,8 +40,9 @@ If you want to add an existing account integration to your Subscription, please 
 You can click on the integration name and make the following edits to your Subscription integration:
 
 * Change integration name: This does not affect your account integration name, but just changes the name at a Subscription level. Please note that your project YAML files should use the Subscription integration name.
-* If you are using already existing account integration on your subscription then you can change underlying account integration : This is a handy way to start using new credentials for your workflows without needing to change the integration name in the YAML. For example, if Tom added all integrations and then leaves the company, Mary can add her own account integrations, and then change all Subscription integrations to start using her account integrations instead of Tom's.
-* If you are using a subscription integration at subscription level, you cannot share this across subscriptions but you can allow members of your subscription to edit it
+* Change underlying integration : This is a handy way to start using new credentials for your workflows without needing to change the integration name in the YAML.
+    - When using subscription level subscription integrations, you can edit its values directly if you have sufficient permissions. If you are unable to edit a subscription level subscription integration, please contact a subscription owner who can edit it for you, or grant you edit permissions.
+    - When using account level subscription integrations, you can update it to use one of your own account integrations. For example, if Tom added all integrations and then leaves the company, Mary can add her own account integrations, and then change all subscription integrations to start using her account integrations instead of Tom's.
 * Restrict use of the integration to specific projects in the Subscription as a security measure.  
 
 ## Deleting an integration from a Subscription

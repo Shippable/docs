@@ -49,6 +49,7 @@ Follow the steps to go to the create subscription integration page:
 <img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="default subscription integration">
 
 There are two types of subscription integration.
+
 - Subscription integration at account level
 - Subscription integration at subscription level
 
