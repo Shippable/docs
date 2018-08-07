@@ -40,23 +40,28 @@ Integrations can be configured in the `integrations` section of your **shippable
 
 ## Adding integration to a subscription
 
-You can either add a existing account integration to your subscription or you can also create a integration without using account integration.
+Follow the steps to go to the create subscription integration page:
 
 - In the **Subscriptions** section of your left navbar, click on the Subscription you need.
 - Click on the **Settings (Gear)** icon and click on **Integrations** in the dropdown.
 - Click on the **+** button on the top right
-- Name your integration and then in the **Account integrations** dropdown, select the integration you want to add. To keep it easy, name your integration with the same name as your account integration.
 
-<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="using account integration">
+<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="default subscription integration">
 
-- You can also create a shared integration on your subscription, by following the steps below:
-     - Name your integration and then choose the right **Integration type** depending on what you are trying to configure.
-     - You can restrict usage of the integration by providing Edit permissions.
+There are two types of subscription integration.
+- Subscription integration at account level
+- Subscription integration at subscription level
 
-<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-shared-subInt.png" alt="shared subscription integration">
+When you create a subscription integration at account level, you can reuse it across multiple subscriptions, but you will not be able to share edit permissions with anyone.
+
+<img width="75%" height="75%" src="/images/platform/tutorial/integrations/using-acc-int.png" alt="subscription integration at account level">
+
+When you create a subscription integration at subscription level, you cannot share it across subscriptions but you can allow other members of your subscription to edit it.
+
+<img width="75%" height="75%" src="/images/platform/tutorial/integrations/edit-permissions.png" alt="subscription integration at subscription level">
 
 - If you want to restrict usage of the integration to specific projects, choose the Project(s). You can just leave it at *All projects* to let all projects in the Subscription use it.
-- Click on **Create**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
+- Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
 
 ## Updating a Subscription integration's underlying account integration
 
