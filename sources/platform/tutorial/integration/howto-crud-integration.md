@@ -52,11 +52,11 @@ There are two types of subscription integration.
 - Subscription integration at account level
 - Subscription integration at subscription level
 
-When you create a subscription integration at account level, you can reuse it across multiple subscriptions, but you will not be able to share edit permissions with anyone.
+An account level subscription integration is a way for you to allow a subscription to use one of your own account integrations. The same account integration can be reused in multiple subscriptions this way, but only you will be able to edit the integration's values.
 
 <img width="75%" height="75%" src="/images/platform/tutorial/integrations/using-acc-int.png" alt="subscription integration at account level">
 
-When you create a subscription integration at subscription level, you cannot share it across subscriptions but you can allow other members of your subscription to edit it.
+When you create a subscription integration at subscription level, you can choose to allow other owners, collaborators or members of the subscription to edit the integration's values. However, such integrations are local to a subscription and cannot be shared across different subscriptions.
 
 <img width="75%" height="75%" src="/images/platform/tutorial/integrations/edit-permissions.png" alt="subscription integration at subscription level">
 
