@@ -46,7 +46,7 @@ Follow the steps to go to the create subscription integration page:
 - Click on the **Settings (Gear)** icon and click on **Integrations** in the dropdown.
 - Click on the **+** button on the top right
 
-<img width="75%" height="75%" src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="default subscription integration">
+<img src="/images/platform/tutorial/integrations/add-subscription-integration-view.png" alt="default subscription integration">
 
 There are two types of subscription integration.
 
@@ -55,11 +55,11 @@ There are two types of subscription integration.
 
 When you create a subscription level subscription integration, you can choose to allow other owners, collaborators or members of the subscription to edit the integration's values. However, such integrations are local to a subscription and cannot be shared across different subscriptions.
 
-<img width="75%" height="75%" src="/images/platform/tutorial/integrations/edit-permissions.png" alt="subscription integration at subscription level">
+<img src="/images/platform/tutorial/integrations/edit-permissions.png" alt="subscription integration at subscription level">
 
 An account level subscription integration is a way for you to allow a subscription to use one of your own account integrations. The same account integration can be reused in multiple subscriptions this way, but only you will be able to edit the integration's values.
 
-<img width="75%" height="75%" src="/images/platform/tutorial/integrations/using-acc-int.png" alt="subscription integration at account level">
+<img src="/images/platform/tutorial/integrations/using-acc-int.png" alt="subscription integration at account level">
 
 - If you want to restrict usage of the integration to specific projects, choose the Project(s). You can just leave it at *All projects* to let all projects in the Subscription use it.
 - Click on **Save**. Please note that the name of your integration in your Subscription Settings should be used when referring to this integration in your `yml` files.
