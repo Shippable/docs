@@ -13,28 +13,23 @@ This document explains how to enable Arm builds for your Organization/Team and c
 
 * Your free Arm builds will be executed on a shared pool of machines that are available to all open source Arm-based projects.
 * We run each build inside a container, which is destroyed when the build ends. So your build information and artifacts will be cleaned up before the machine is repurposed for another build.
-* You will not be able to run native Docker commands as part of your build workflow. If you need this, please contact us at [support@shippable.com](mailto:support@shippable.com).
 * [runCI](/ci/why-continuous-integration) and [runSh](/platform/workflow/job/runsh) jobs are both supported for Arm.
 
 If you're interested in building commercial projects on Arm, you will need to use our [BYON functionality](/platform/tutorial/runtime/manage-byon-nodes/)
 
 ## Instructions
 
-Follow instructions below to start running builds on 64-bit Arm machines. To run builds on 32-bit Arm machines, send us a note at [support@shippable.com](mailto:support@shippable.com) and we will enable this for your organization/team.
+Follow instructions below to start running builds on 32-bit/64-bit Arm machines.
 
 ### 1. Get a new shared license
 
-* From the left navigation bar, choose the organization which contains your open source Arm-based projects.
-* Click on the **Gears** icon at the top right of your Subscription page, and click on **Billing**.
-* Click on the **Edit** button, and then click on the **Add new SKU** button.
-* Choose the **Shared** plan type, which is currently only available for Arm. Choose **aarch64** Architecture, and **Ubuntu 16.04** for OS as shown below.
+You can get a shared license to run 32-bit/64-bit builds by requesting a license from the Subscription Billing page.
 
-<img src="/images/platform/tutorial/workflow/run-ci-builds-on-arm-fig1.png" alt="show deleted objects">
+<img src="/images/platform/tutorial/workflow/run-builds-on-arm-fig1.png" alt="Subscription Billing Page, contact us for Arm builds">
 
-* Click on **Save** to update your plan.
-* You will now see your nodes on the **Node Pools** page, which can be accessed by going back to the Subscription page, clicking on the **Gear** icon, and clicking on **Node pools**.
+Click on the `Contact Us` link and let us know if you want to run builds on 32-bit or 64-bit Arm machines, and whether your repositories are public or private. Accordingly, a Shippable Admin will add the requested license for your subscription.
 
-<img src="/images/platform/tutorial/workflow/run-ci-builds-on-arm-fig2.png" alt="show deleted objects">
+<img src="/images/platform/tutorial/workflow/run-builds-on-arm-fig2.png" alt="Subscription Billing Page, contact form for Arm builds">
 
 ### 2. Configure your YAML
 
