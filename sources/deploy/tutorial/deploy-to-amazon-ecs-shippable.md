@@ -147,7 +147,7 @@ If you're following this as a standalone tutorial, you need to follow two steps 
 resources:
   - name: aws_ecs_cluster
     type: cluster
-    integration: "drship_aws"   # replace with your integration name
+    integration: "dr_aws"   # replace with your integration name
     pointer:
       sourceName : "muclustername"  # name of the cluster
       region: "tbd"

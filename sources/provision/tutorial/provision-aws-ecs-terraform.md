@@ -64,9 +64,9 @@ Integrations are used to connect your Shippable workflow with external providers
 
 #####1a. Add AWS Keys Integration
 
-To be able to interact with AWS, we need to add the `drship_aws` integration.
+To be able to interact with AWS, we need to add the `dr_aws` integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
@@ -109,7 +109,7 @@ resources:
 # AWS integration needed by Terraform
   - name: aws_ecs_keys
     type: integration
-    integration: "drship_aws"
+    integration: "dr_aws"
 
 # State resource to store Terraform State
   - name: aws_ecs_tf_state
@@ -118,7 +118,7 @@ resources:
 # Cluster info output
   - name: aws_ecs_cluster
     type: cluster
-    integration: "drship_aws"
+    integration: "dr_aws"
     pointer:
       sourceName : "tbd" #name of the cluster
       region: "tbd"

@@ -67,9 +67,9 @@ Integrations are used to connect your Shippable workflow with external providers
 
 #####1a. Add **AWS Keys** Integration
 
-To be able to interact with AWS, we need to add the `drship_aws` integration.
+To be able to interact with AWS, we need to add the `dr_aws` integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `drship_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -112,7 +112,7 @@ resources:
 # AWS Integration config
   - name: cd_replace_ecs_fargate_creds
     type: integration
-    integration: "drship_aws"
+    integration: "dr_aws"
 ```
 
 ######i. gitRepo resource named `cd_replace_ecs_fargate_repo `
