@@ -1538,16 +1538,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/deploy/docker-datacenter/</loc>
-  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://docs.shippable.com/deploy/azure-dcos/</loc>
-  <lastmod>2018-03-06T06:43:25+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://docs.shippable.com/validate/nouvola/</loc>
   <lastmod>2018-03-06T06:43:49+00:00</lastmod>
   <priority>0.64</priority>

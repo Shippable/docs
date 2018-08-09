@@ -397,7 +397,7 @@ jobs:
 
 * **Description:** `dmsk_release` is a [release](/platform/workflow/job/release/) job that is used to create a semantically versioned object for the applications service definition.
 
-The `bump` tag specifies how the release version will be incremented each time the release job runs. The seed version is specified in the `dmsk_prod_release_version` resource. Since we are deploying to production, we are bumping the minor version of the application. You can also bump either the major or patch version. More on incrementing versions is described in our tutorial for [bumping release versions](increment-version-number/).
+The `bump` tag specifies how the release version will be incremented each time the release job runs. The seed version is specified in the `dmsk_prod_release_version` resource. Since we are deploying to production, we are bumping the minor version of the application. You can also bump either the major or patch version. More on incrementing versions is described in our tutorial for [bumping release versions](/release/devops-release-management/).
 
 
 `dmsk_service_def` is specified as an INPUT since we are versioning the manifest which is immutable.

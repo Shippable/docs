@@ -15,26 +15,15 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 ###Deploy
 
-* [Deploying a Single Container application to GKE](/deploy/gke/)
-* [Deploying Multiple Containers to GKE](/deploy/continuous-delivery-multi-container-docker-application/)
-* [Scaling your application on GKE](/deploy/gke/#scaling-app-instances)
-* [Customizing container options](/deploy/gke/#customizing-container-options)
-* [Supported deployment methods](/deploy/deployment-methods-overview/)
-* [Using a load balancer with your GKE deployments](/deploy/lb-gke/)
-* [Rolling back GKE deployments](/deploy/rollback/)
+* [Deploy using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
+* [Deploy using Shippable managed deployments](/deploy/deploy-docker-overview/)
 
-###Release orchestration
+##Sample application
 
-* [Multi-stage deployments](/deploy/multi-stage-deployments/)
-* [Gated deployments](/deploy/gated-deployments/)
-* [Semantic versioning for releases](/release/devops-release-management/)
-
-## Sample application
-
-* [devops-recipes/deploy-gke-basic](https://github.com/devops-recipes/deploy-gke-basic)
+- [devops-recipes/deploy-gke-basic](https://github.com/devops-recipes/deploy-gke-basic)
 
 ## Reference
 
 * [GKE docs](https://cloud.google.com/container-engine/docs/)
-* [Shippable CI YML structure](/ci/yml-structure/)
+* [Shippable configuration reference](/platform/workflow/config/)
 * [Shippable Workflow Docs](/platform/overview/)

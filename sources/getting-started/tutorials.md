@@ -199,22 +199,7 @@ While you can explore our Platform, CI, and other Docs sections, this page is me
     - [Pausing deployments](/deploy/pause-deployments)
     - [Deleting a deployed service](/deploy/deleting-a-service)
 - Specific cloud providers:
-    - Amazon ECS:
-        - [Single-container app](/deploy/amazon-ecs)
-        - [Multi-container app](/deploy/amazon-ecs-multiple-containers)
-        - [Resetting a deploy job](/deploy/amazon-ecs-deploy-reset)
-    - Kubernetes:
-        - [Single-container app](/deploy/kubernetes)
-        - [Multi-container app](/deploy/kubernetes-multiple-containers)
-        - [Multi-stage deployments](/deploy/kube-multi-stage-deployments)
-    - GKE:
-        - [Single-container app](/deploy/gke)
-    - Docker Datacenter:
-        - [Single-container app](/deploy/docker-datacenter)
-    - Docker Cloud:
-        - [Single-container app](/deploy/docker-cloud)
-    - Azure DC/OS:
-        - [Single-container app](/deploy/azure-dcos)
+
 
 ### Deployments to VMs
 
