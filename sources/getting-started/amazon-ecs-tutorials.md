@@ -15,20 +15,8 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 
 ###Deploy
 
-* [Deploying a Single Container application to Amazon ECS](/deploy/amazon-ecs/)
-* [Deploying Multiple Containers to Amazon ECS](/deploy/continuous-delivery-multi-container-docker-application/)
-* [Scaling your application on Amazon ECS](/deploy/amazon-ecs/#scaling-app-instances)
-* [Customizing container options](/deploy/amazon-ecs/#customizing-container-options)
-* [Supported deployment methods](/deploy/deployment-methods-overview/)
-* [Using a Classic load balancer with your Amazon ECS deployments](/deploy/lb-amazon-ecs-classic/)
-* [Using an Application load balancer with your Amazon ECS deployments](/deploy/lb-amazon-ecs-app/)
-* [Rolling back Amazon ECS deployments](/deploy/rollback/)
-
-###Release orchestration
-
-* [Multi-stage deployments](/deploy/multi-stage-deployments/)
-* [Gated deployments](/deploy/gated-deployments/)
-* [Semantic versioning for releases](/release/devops-release-management/)
+* [Deploy using AWS CLI](/deploy/deploy-amazon-ecs-cloud-native-cli/)
+* [Deploy using Shippable managed deployments](/deploy/deploy-docker-overview/)
 
 ### Infrastructure provisioning
 
@@ -45,5 +33,5 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 ## Reference
 
 * [Amazon ECS docs](https://aws.amazon.com/documentation/ecs/)
-* [Shippable CI YML structure](/ci/yml-structure/)
+* [Shippable configuration reference](/platform/workflow/config/)
 * [Shippable Workflow Docs](/platform/overview/)
