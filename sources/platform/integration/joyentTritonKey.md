@@ -1,6 +1,7 @@
 page_main_title: Joyent Triton
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Joyent Triton integration
 page_description: How to create and use a Joyent Triton Integration in Shippable
 
@@ -8,9 +9,9 @@ page_description: How to create and use a Joyent Triton Integration in Shippable
 
 The [Joyent Triton](https://www.joyent.com/triton/compute) Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
-## Adding account integration
+## Adding an integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 
@@ -19,7 +20,7 @@ Here is the information you need to create this integration:
 * **Username** -- Username to login to Mesos master VM
 * **Validity Period** -- Certificate validity in number of days
 
-## Creating an Account Integration
+## Creating an Integration
 
 The Joyent Triton integration can be used in the following [resources](/platform/workflow/resource/overview/):
 

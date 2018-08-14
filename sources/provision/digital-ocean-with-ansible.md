@@ -12,20 +12,9 @@ infrastructure on [Digital Ocean](https://www.digitalocean.com/). You would do s
 
 ##Setup
 
-Before you start, you will need to store your Digital Ocean credentials as an [Account
-Integration](/platform/tutorial/integration/howto-crud-integration/) so that your Shippable pipeline job can connect to Digital Ocean without exposing your credentials in your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to store your Digital Ocean credentials as an [Integration](/platform/integration/overview/) so that your Shippable pipeline job can connect to Digital Ocean without exposing your credentials. Once you add an integration, you can use it for all your projects without needing to add it again.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top
-navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add
-Integration**
--  Locate **Digital Ocean** in the list and click on **Create Integration**
--  Name your integration and enter your Digital Ocean API Token with appropriate access. ( Read/Write )
--  Choose the Subscription(s) that are allowed to use these credentials.
--  Click **Save**
-
-<img src="../../images/provision/digital-ocean-integration.png" alt="add
-digital ocean credentials">
+Detailed steps on how to add a Digital Ocean Integration are [here](/platform/integration/do/).
 
 ##Basic config
 

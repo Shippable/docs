@@ -10,7 +10,7 @@ This tutorial explains how to continuously deploy a Docker container to a contai
 
 Before you start, you should familiarize yourself with the following concepts:
 
-* [Shippable platform overview](/platform/continuous-delivery)
+* [Shippable platform overview](/platform/overview/)
 * [Docker Getting Started](https://docs.docker.com/v17.09/get-started/part1/)
 * Concepts of the container orchestration platform you're deploying to, for example [Kubernetes Intro](https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/)
 
@@ -56,15 +56,15 @@ If you have already followed the manual steps, you might not need these except f
 
 If you're not deploying to GKE, you can set up a cluster on the platform of your choice.
 
-###2. Add necessary Account Integrations
+###2. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use an integration for GCP for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use an integration for GCP for this sample.
 
 ####2a. Add `Google Cloud Platform` Integration
 
 To be able to interact with GCP, we need to add the `drship_gcp `integration.
 
-Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
 
 If you're deploying to another orchestration service, please add the following integrations instead:
 
@@ -255,7 +255,7 @@ The scenario shown in this tutorial was very basic. There are many additional th
 - [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
 - [Scaling service instances](/deploy/tutorial/scaling-services)
 - [Specifying the version to deploy](/deploy/deploying-specific-version)
-- [Managing releases with semantic versioning](release/devops-release-management)
+- [Managing releases with semantic versioning](/release/devops-release-management)
 - [Rolling back deployments](/deploy/rollback)
 - [Sending notifications upon deployments](/deploy/deployment-notifications)
 - [Customizing deployed service names](/deploy/customize-service-names)

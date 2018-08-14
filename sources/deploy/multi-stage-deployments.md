@@ -93,8 +93,8 @@ This file should be committed to your source control. Step 8 of the workflow bel
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for your docker registry.
-Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for your docker registry.
+Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly name of the integration as `app_docker_hub`. If you change the name,
 please change it also in the yml below.
@@ -238,7 +238,7 @@ The list of supported container orchestration platforms can be found [here](/pla
 
 **Steps**
 
-1. Create an account integration using your Shippable account for the orchestration platform. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for the orchestration platform. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below.
 

@@ -1,6 +1,7 @@
 page_main_title: Docker Datacenter
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Docker Datacenter integration
 page_description: How to create and use a Docker Datacenter Integration in Shippable
 
@@ -8,9 +9,9 @@ page_description: How to create and use a Docker Datacenter Integration in Shipp
 
 The **Docker Datacenter** Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Datacenter so that you can deploy Docker based applications.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

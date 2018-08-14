@@ -11,15 +11,14 @@ You can push your image to Amazon ECR in any section [of your yml](/ci/yml-struc
 
 ##Setup
 
-Before you start, you will need to connect your Amazon account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Amazon account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/">Integrations</a>, so that your credentials are abstracted from your config file.
 
 #### Generating access keys for Amazon ECR
 - To generate **aws_access_key_id** and **aws_secret_access_key** please follow <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">Amazon's guide for Creating and Managing access keys</a>.
 
-#### Adding Amazon Keys integration to your Shippable Account
-- Follow the steps [here](/platform/integration/aws-keys) to create an account integration.
-- Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
-- Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
+#### Adding Amazon Keys integration
+- Follow the steps [here](/platform/integration/aws-keys) to create an integration.
+- Use the  integration name in the configuration below.
 
 ##Basic config
 

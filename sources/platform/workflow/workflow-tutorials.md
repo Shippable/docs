@@ -38,6 +38,10 @@ page_description: Workflow tutorials in Shippable
 * [Overview](/platform/tutorial/workflow/crud-resource)
 * [Working with Triggers](/platform/tutorial/workflow/crud-trigger)
 
+### Working with integrations
+
+* [Managing Subscription Integrations](/platform/tutorial/integration/subscription-integrations)
+
 ### Working with State
 * [Using Central State](/platform/tutorial/workflow/share-info-across-jobs/#central-state)
 

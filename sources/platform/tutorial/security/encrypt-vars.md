@@ -16,7 +16,7 @@ However, there are times when you just want to encrypt something so you can use 
 
 * From the left navbar, select your Subscription.
 
-<img width="30%" height="30%" src="/images/platform/resources/syncRepo/list-subscriptions.png" alt="Add Account Integration">
+<img width="30%" height="30%" src="/images/platform/resources/syncRepo/list-subscriptions.png" alt="Add Integration">
 
 * On the Subscription page, click on the **Gears** icon and click on **Settings**. You'll be taken to the Settings page.
 

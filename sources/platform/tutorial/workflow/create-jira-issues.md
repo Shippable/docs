@@ -13,7 +13,7 @@ This ability is available for both CI jobs and assembly line jobs.
 
 * Sign in to your Jira account using using your credentials. Create an api token from the **API tokens** tab.
 
-* Create an account integration in Shippable UI with your API token information. Instructions to add an account integration are [here](/platform/tutorial/integration/howto-crud-integration/#creating-an-integration). For help with completing the account integration input fields for a specific provider, refer to the [Jira integration document](/platform/integration/jira). Make sure you provide scopes for your integration to include the organization you want to open issues for.
+* Create an integration in Shippable UI with your API token information. Instructions to add an integration are [here](/platform/tutorial/integration/subscription-integrations/#create-sub-integration). For help with completing integration input fields for a specific provider, refer to the [Jira integration document](/platform/integration/jira). Make sure you provide scopes for your integration to include the organization you want to open issues for.
 
 ##Instructions  
 

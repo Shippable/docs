@@ -68,9 +68,9 @@ This file should be committed to your source control. Step 5 of the workflow bel
 
 **Steps**  
 
-1. Create an account integration for AWS Keys in your Shippable UI. Instructions to create an integration are here:
+1. Create an integration for AWS Keys in your Shippable UI. Instructions to create an integration are here:
 
-    * [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) and
+    * [Adding an integration](/platform/tutorial/integration/subscription-integrations/) and
     * [AWS Keys integration](/platform/integration/aws-keys/)
 
     Copy the friendly name of the integration, in our case we named it **aws_keys_int**.

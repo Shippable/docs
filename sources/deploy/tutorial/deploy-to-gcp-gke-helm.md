@@ -227,15 +227,15 @@ If you have already followed the manual steps, you might not need these except f
 * [Create a service account for your project](https://cloud.google.com/compute/docs/access/service-accounts). Download and store the `JSON` security key in a secure place.
 * [Create a Kubernetes container cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster) and note down the name and region. Make sure your service account has **Write** access to this cluster.
 
-####2. Add necessary Account Integrations
+####2. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for GCP, Docker registry, and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for GCP, Docker registry, and Github for this sample.
 
 #####2a. Add `Google Cloud Platform` Integration
 
 To be able to interact with GCP, we need to add the `drship_gcp `integration.
 
-Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -243,7 +243,7 @@ Detailed steps on how to add a Google Cloud Platform Integration are [here](/pla
 
 To be able to push and pull images from Docker Hub, we need to add the `drship_dockerhub` integration.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/). Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -253,7 +253,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [`devops-recipes/cd_gke_kubectl`](https://github.com/devops-recipes/cd_gke_kubectl).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -312,7 +312,7 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 
 ######ii. `gitRepo` resource named `helm_gke_repo`
 
-This resource points to the repository that contains your Kubernetes spec files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository `https://github.com/devops-recipes/cd_gke_helm`, namely, [here](https://github.com/devops-recipes/cd_gke_helm/tree/master/specs).
+This resource points to the repository that contains your Kubernetes spec files, so that they are accessible to your Assembly Line. For our example, these files are present in the repository `https://github.com/devops-recipes/cd_gke_helm`, namely, [here](https://github.com/devops-recipes/cd_gke_helm/).
 
 Detailed info about `gitRepo` resource is [here](/platform/workflow/resource/gitrepo).
 
@@ -420,7 +420,7 @@ You can manually run the job by right clicking on the job or by triggering the C
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

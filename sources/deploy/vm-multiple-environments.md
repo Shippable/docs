@@ -129,7 +129,7 @@ In this integration, we specify the public IP addresses of all the VMs where we 
 
 **Steps**
 
-1. Create two account integrations using your Shippable account for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create two integrations for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly names of the integrations as `dev_vm_int` and `prod_vm_int`. If you change the name, please change it also in the yml below.
 

@@ -83,12 +83,6 @@ resources:
 
 ## Used in Assembly Lines
 
-This resource is used in the following documented scenarios:
-
-* [Deploying an application to a VM Cluster from AWS S3](/deploy/vm-basic/)
-* [Deploying an application to a VM Cluster from a JFrog Artifactory repository](/deploy/vm-jfrog/)
-
-
 A `file` resource can be used as an `IN` for a [manifest](/platform/workflow/job/manifest) job and [runSh](/platform/workflow/job/runsh) job, or as an `OUT` for a `runSh` job.
 
 ### Default Environment Variables

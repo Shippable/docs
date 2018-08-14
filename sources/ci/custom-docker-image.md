@@ -68,15 +68,15 @@ In the snippet above, replace the following:
 
 ###Pulling a private image
 
-To pull a private image, you will first need to add an account integration for the registry you want to pull from. We will then authenticate against the registry and pull your image.
+To pull a private image, you will first need to add an integration for the registry you want to pull from. We will then authenticate against the registry and pull your image.
 
 Follow the steps below to pull a private image:
 
-- Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
-    - [Docker Registry](../platform/integration/dockerRegistryLogin/)
-    - [Amazon ECR](../platform/integration/aws-keys/)    
-    - [Google Cloud](../platform/integration/gcloudKey/)
-    - [Quay](../platform/integration/quayLogin/)      
+- Create an integration for the registry you want to pull from. For instructions, choose your registry below:
+    - [Docker Registry](/platform/integration/dockerRegistryLogin/)
+    - [Amazon ECR](/platform/integration/aws-keys/)    
+    - [Google Cloud](/platform/integration/gcloudKey/)
+    - [Quay](/platform/integration/quayLogin/)      
 
 - Add the following to your **shippable.yml**
 
@@ -96,7 +96,7 @@ integrations:
       type: dockerRegistryLogin
 ```
 
-* `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
+* `integrationName` is the friendly name of the integration you added. Please note that the name has to match exactly.
 * `type` depends on the registry you are pulling from:
     * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR.
@@ -133,7 +133,7 @@ build:
 ```
 
 * If your Dockerfile contains a `FROM` command that needs a private image, you will also need to follow a couple of additional steps:
-    * Create an account integration for the registry you want to pull from. For instructions, choose your registry below:
+    * Create an integration for the registry you want to pull from. For instructions, choose your registry below:
         - [Docker Registry](../platform/integration/dockerRegistryLogin/)
         - [Amazon ECR](../platform/integration/aws-keys/)    
         - [Google Cloud](../platform/integration/gcloudKey/)
@@ -147,7 +147,7 @@ integrations:
       type: dockerRegistryLogin
 ```
 
-* `integrationName` is the friendly name of the account integration you added. Please note that the name has to match exactly.
+* `integrationName` is the friendly name of the integration you added. Please note that the name has to match exactly.
 * `type` depends on the registry you are pulling from:
     * `dockerRegistryLogin` for Docker Hub and Docker Private/Trusted Registry
     * `ecr` for Amazon ECR

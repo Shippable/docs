@@ -1,6 +1,7 @@
 page_main_title: Slack
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Slack integration
 page_description: How to create and use a Slack Integration in Shippable to send notifications to channels or rooms for CI and Assembly Line events.
 
@@ -8,11 +9,11 @@ page_description: How to create and use a Slack Integration in Shippable to send
 
 A Slack Key integration is required to send notifications to channels or rooms for CI and Assembly Line events.
 
-## Creating an Account Integration
+## Creating an Integration
 
 * Follow instructions in the Slack docs to [create an incoming webhook](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack).
-*  Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
-* To add your account integration, follow steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page. Here is the information you need to create this integration:
+* Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
+* To add your integration, follow steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page. Here is the information you need to create this integration:
     * **Integration type** -- **Slack**
     * **Name** -- choose a friendly name for the integration
     * **WebhookUrl** -- Webhook URL to your Slack channel. This can be overridden when creating a resource.

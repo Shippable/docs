@@ -41,15 +41,15 @@ The following sections explain the process of configuring a CI workflow to conti
 
 You can clone our sample repository to follow this tutorial.
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use a Docker registry integration in this scenario.
+Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/integration/overview/). We will use a Docker registry integration in this scenario.
 
 #####1a. Add `Docker Registry` Integration**
 
 To be able to push and pull images from Docker Hub, we add `drship_dockerhub ` integration. Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
@@ -237,7 +237,7 @@ If `node_app_img_dh` is an `IN` to another job in your workflow that pulls the D
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

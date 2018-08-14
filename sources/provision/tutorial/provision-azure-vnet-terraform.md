@@ -56,9 +56,9 @@ The following sections explain the process of automating a workflow to provision
 
 **Complete YML is at [devops-recipes/prov_azure_vnet_terraform/shippable.yml](https://raw.githubusercontent.com/devops-recipes/prov_azure_vnet_terraform/master/shippable.yml)**
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for Azure and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for Azure and Github for this sample.
 
 #####1a. Add **Azure** Integration
 
@@ -74,7 +74,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [devops-recipes/prov_azure_vnet_terraform](https://github.com/devops-recipes/prov_azure_vnet_terraform).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -259,7 +259,7 @@ You can manually run the job by right clicking on the job and clicking on `Build
 Confirm that the required Virtual Network was created in Azure.
 
 ## Further Reading
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

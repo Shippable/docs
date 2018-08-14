@@ -13,9 +13,8 @@ You can push your image to Docker Hub in any section [of your yml](/ci/yml-struc
 
 Before you start, you will need to connect your Docker Hub account with Shippable so we have the credentials to push your image on your behalf.
 
-* To add the Docker hub account, please follow steps [here](/platform/integration/dockerRegistryLogin). Once you add an account integration, you can use it for all your projects without needing to add it again.
-* Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
-* Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
+* To add an integration to your Docker hub account, please follow steps [here](/platform/integration/dockerRegistryLogin).
+* Use the integration name in the configuration below.
 
 ##Basic config
 
@@ -40,6 +39,7 @@ build:
 You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above.
 
 ## Advanced config
+
 ### Limiting branches
 
 By default, your integration is valid for all branches. If you want to only push your image for specific branch(es), you can do so with the `branches` keyword.

@@ -17,7 +17,7 @@ Available under the Integration Family: **deploy**
 
 `AWS` Integration is used to connect Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with it cloud services like ECR, ECS, EC2, S3, and so on.
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/).
+You can create this from the integrations page by following instructions here: [Adding an integration](/platform/tutorial/integration/subscription-integrations/).
 
 This is the information you would require to create this integration
 

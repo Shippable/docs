@@ -18,9 +18,9 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Deploy using kubectl](/deploy/tutorial/deploy-to-gcp-gke-kubectl)
 * [Deploy using Shippable managed deployments](/deploy/deploy-docker-overview/)
 
-##Sample application
+### Provisioning
 
-- [devops-recipes/deploy-gke-basic](https://github.com/devops-recipes/deploy-gke-basic)
+* [Provisioning a GKE cluster with gcloud SDK](/provision/tutorial/provision-gcp-gke-gcloud/)
 
 ## Reference
 

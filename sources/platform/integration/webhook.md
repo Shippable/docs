@@ -1,6 +1,7 @@
 page_main_title: Webhook
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrationssub_section: Configuration
 page_title: Webhook integration
 page_description: How to create and use a Webhook Integration in Shippable so that you can send a webhook to an external service with custom payloads
 
@@ -8,9 +9,9 @@ page_description: How to create and use a Webhook Integration in Shippable so th
 
 **Webhook** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send a webhook to an external service with custom payloads.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

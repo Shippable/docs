@@ -15,9 +15,9 @@ If you have any existing ECR integrations you _can_ continue to use them. New in
 
 The **Amazon ECR** Integration is used to connect Shippable DevOps Assembly Lines platform to [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/) so that you can pull and push Docker images.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

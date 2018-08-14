@@ -58,15 +58,15 @@ The following steps explain the process of automating a workflow to continuously
 
 Before you start with the steps below, please ensure you have a Kubernetes cluster to which you have admin access. If you're just trying out the steps, you can use your own **kubeconfig** file. If you want to use a **kubeconfig** file that uses a service account, follow the instructions in our tutorial showing [how to authenticate against a self-hosted Kubernetes cluster using a service account](https://blog.shippable.com/authenticating-against-a-self-hosted-kubernetes-cluster-with-a-service-account).
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for GCP, Docker registry, and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for GCP, Docker registry, and Github for this sample.
 
 #####2a. Add `Kubernetes` Integration
 
 To be able to interact with your Kubernetes cluster, we need to add the `drship_kube` integration.
 
-Detailed steps on how to add a Kubernetes Integration are [here](/platform/integration/kubernetes/#creating-an-account-integration). Make sure you name the integration `drship_kube` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Kubernetes Integration are [here](/platform/integration/kubernetes/). Make sure you name the integration `drship_kube` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -76,7 +76,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [`devops-recipes/cd_k8s_kubectl`](https://github.com/devops-recipes/cd_k8s_kubectl).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -213,7 +213,7 @@ You can manually run the job by right clicking on the job or by triggering the C
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

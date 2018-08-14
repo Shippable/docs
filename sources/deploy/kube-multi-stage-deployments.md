@@ -97,8 +97,8 @@ This file should be committed to your source control. Step 11 of the workflow be
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for your docker registry.
-Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for your docker registry.
+Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly name of the integration as `drship_gcr`. If you change the name,
 please change it also in the yml below.
@@ -214,7 +214,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 **Steps**  
 
-1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
+1. Create an integration for your source control provider. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/). Set the friendly name of the integration as `dr_github`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 
@@ -239,7 +239,7 @@ resources:
 
 **Steps**
 
-1. Create an account integration using your Shippable account for Google Cloud. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
+1. Create an integration for Google Cloud. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/). Set the friendly name of the integration as `drship_gke`. If you change the name, please change it also in the yml below .
 
 2. Add the following yml block to the `resources` section of your [shippable.yml](/platform/workflow/config/) file.
 

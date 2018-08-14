@@ -10,11 +10,11 @@ page_description: How to reset an Amazon ECS Deployment in Shippable
 Shippable automatically tracks the state of your deployments based on the exchanges with Amazon ECS that occur when a deploy job runs.  However, if you take action directly on your cluster, Shippable won't necessarily know what you've done, and it could impact future deployments.  This is why shippable has implemented the "reset" feature for deploy jobs.
 
 ## Assumptions
-This page will assume that you're familiar with how to use Shippable Assembly Lines to deploy to Amazone ECS.  If you're not, please check out our [single-container app example](amazon-ecs) as a starting point.
+This page will assume that you're familiar with how to use Shippable Assembly Lines to deploy to  ECS.  If you're not, please check out our [single-container app example](/deploy/continuous-delivery-single-container-docker-application/) as a starting point.
 
 ## Setting up for failure
 
-To reproduce a failure that can be corrected by taking a reset action, we start by deploying an application to Amazon ECS.  Please follow the tutorial on deploying a [single-container app](amazon-ecs) to prepare for this example.
+To reproduce a failure that can be corrected by taking a reset action, we start by deploying an application to Amazon ECS.  Please follow the tutorial on deploying a [single-container app](/deploy/continuous-delivery-single-container-docker-application/) to prepare for this example.
 
 Once your single-container application is deployed and working, you can navigate to the Amazon ECS control panel in the AWS console, reduce your desiredCount to 0, and delete the service that Shippable created.
 

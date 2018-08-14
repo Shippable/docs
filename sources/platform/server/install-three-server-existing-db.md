@@ -485,7 +485,7 @@ To enable caching, navigate to the `Build configuration` section in the `Configu
 
 ###7. Configure add-ons
 * Click on `Add-ons`
-* Select the account integrations (you can always enable / disable) add-ons later.
+* Select the integrations you want to have available (you can always enable / disable later).
 * Click `Install Add-ons`
 
 ###8. Login to Shippable Server and setup Super user account.

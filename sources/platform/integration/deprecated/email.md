@@ -15,11 +15,11 @@ If you have any existing Email integrations you _can_ continue to use them. New 
 
 The **Email** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to an email address.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You do not need to add an email account integration if you're just configuring **shippable.yml** for CI workflows.
+You do not need to add an email integration if you're just configuring **shippable.yml** for CI workflows.
 
-If you're configuring notifications for Assembly Lines, you will need this integration. You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+If you're configuring notifications for Assembly Lines, you will need this integration. You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

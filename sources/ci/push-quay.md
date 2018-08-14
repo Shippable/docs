@@ -24,10 +24,10 @@ Before you start, you will need to connect your Quay.io account with Shippable s
 -  Check **Read/Write to any accessible repositories** box and click **Generate Access Token**.
 -  **Authorize Application** and copy the **Access Token**.
 
-#### Adding Quay.io Account Integration to your Shippable Account
-- Follow the steps outlined [here](/platform/integration/quayLogin/) to create an account integration.
-- Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
-- Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
+#### Adding Quay.io Integration to Shippable
+
+- Follow the steps outlined [here](/platform/integration/quayLogin/) to create an integration.
+- Use the integration name in the configuration below.
 
 ##Basic config
 

@@ -154,8 +154,8 @@ resources:
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for Amazon ECR.
-    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
+1. Create an integration for Amazon ECR.
+    Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/). Copy the friendly name of the integration, in our case we named it **aws_keys_int**.
 
 2. Add the following yml block to the existing `resources` section in your [shippable.yml](/platform/workflow/config/) file.
 

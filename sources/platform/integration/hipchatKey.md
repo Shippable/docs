@@ -1,6 +1,7 @@
 page_main_title: Hipchat
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Hipchat integration
 page_description: How to create and use a Hipchat Integration in Shippable
 
@@ -10,12 +11,12 @@ page_description: How to create and use a Hipchat Integration in Shippable
 
 The **Hipchat Key** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 
-## Creating an Account Integration
+## Creating an Integration
 
 * Sign in to your HipChat account using [this link to generate a token](https://www.hipchat.com/account/api).
     * Provide credentials to your HipChat account, if prompted.
 * Create a token with `Send Message` and `Send Notification` scopes. Copy the token.
-* To add your account integration, follow steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page. Here is the information you need to create this integration:
+* To add your integration, follow steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page. Here is the information you need to create this integration:
     * **Integration type** -- **Hipchat**
     * **Name** -- choose a friendly name for the integration
     * **Token** -- HipChat account token
@@ -24,7 +25,7 @@ More about Hipchat tokens is explained in [Hipchat documentation](https://develo
 
 ## Usage
 
-After you create the account integration, it can be used in the following scenarios:
+After you create the integration, it can be used in the following scenarios:
 
 ### CI
 

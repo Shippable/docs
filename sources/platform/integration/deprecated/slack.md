@@ -13,9 +13,9 @@ This integration has been marked deprecated. Existing integrations will continue
 
 A Slack integration is required to send notifications to channels or rooms for CI and Assembly Line events.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

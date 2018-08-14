@@ -26,10 +26,6 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Provisioning AWS VPC with Ansible](/provision/tutorial/provision-aws-vpc-ansible/)
 * [Provisioning AWS EC2 instances with Ansible](/provision/tutorial/provision-aws-ec2-ansible/)
 
-## Sample application
-
-* [devops-recipes/deploy-ecs-basic](https://github.com/devops-recipes/deploy-ecs-basic)
-
 ## Reference
 
 * [Amazon ECS docs](https://aws.amazon.com/documentation/ecs/)

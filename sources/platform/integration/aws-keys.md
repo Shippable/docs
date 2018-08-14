@@ -1,6 +1,7 @@
 page_main_title: AWS Keys
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: AWS Keys Integration
 page_description: How to create and use an AWS Keys Integration in Shippable
 
@@ -14,9 +15,9 @@ AWS Keys integration is used to connect Shippable to AWS services, such as:
 * [S3](https://aws.amazon.com/s3/)
 * Any other service that needs AWS Access and Secret keys to connect
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 
@@ -41,10 +42,7 @@ The AWS Keys integration can be used in the following [resources](/platform/work
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
 
-The following scenarios need this integration:
-
-* All [Deploy to Container Orchestration Platforms](/deploy/deploy-docker-overview/) scenarios if you're deploying to Amazon ECS
-* Tutorial: [Deploying a Docker application to Amazon ECS](/deploy/amazon-ecs/)
+You can use this integration in any workflow where you need to connect to AWS for some reason, such as provisioning infrastructure, deploying to AWS EC2 or Amazon ECS, etc.
 
 ### IAM Policies
 There are two ways to use an AWS Keys integration in Shippable Assembly Lines:

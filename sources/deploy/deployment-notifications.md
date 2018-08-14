@@ -18,11 +18,11 @@ You can send notifications upon the following events in your workflow:
 
 ## Instructions
 
-###1. Create an account integration
+###1. Create an integration
 
-If you're using Slack or HipChat to send deploy status notifications, you need to create an account integration. Instructions to create an integration can be found [here](/platform/tutorial/integration/howto-crud-integration/).
+If you're using Slack or HipChat to send deploy status notifications, you need to create an integration. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
-You can also send email or IRC notifications, for which you do not need an account integration. Proceed to step 2 in this case.
+You can also send email or IRC notifications, for which you do not need an integration. Proceed to step 2 in this case.
 
 For help with completing the fields needed for each provider, select your provider below:
 

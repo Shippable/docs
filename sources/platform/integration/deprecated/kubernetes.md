@@ -9,9 +9,9 @@ page_description: How to create and use a Kubernetes Integration in Shippable
 
 The [Kubernetes](https://kubernetes.io) Integration is used to connect Shippable DevOps Assembly Lines platform to self-hosted Kubernetes so that you can deploy Docker based applications.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Kubernetes integrations. You can use the new [Kubernetes](/platform/integration/kubernetes) instead.  
+Since this integration has been deprecated, you cannot create new integrations for this, you can only edit/delete the exisiting Kubernetes integrations. You can use the new [Kubernetes](/platform/integration/kubernetes) instead.  
 
 ## Creating a kubeconfig file
 

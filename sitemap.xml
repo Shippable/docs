@@ -1528,11 +1528,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://docs.shippable.com/deploy/kubernetes-multiple-containers/</loc>
-  <lastmod>2018-03-06T06:43:26+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://docs.shippable.com/deploy/kube-multi-stage-deployments/</loc>
   <lastmod>2018-03-06T06:43:26+00:00</lastmod>
   <priority>0.64</priority>

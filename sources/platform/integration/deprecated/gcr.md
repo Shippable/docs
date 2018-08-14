@@ -15,9 +15,9 @@ If you have any existing GCR integrations, you can continue to use them.
 
 The GCR Integration is used to connect Shippable DevOps Assembly Lines platform to Google Container Registry so that you can pull and push Docker images.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting GCR integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
+Since this integration has been deprecated, you cannot create new integrations for this, you can only edit/delete the exisiting GCR integrations. You can use the new [Google Cloud](/platform/integration/gcloudKey) instead.
 
 ## Usage in CI
 

@@ -61,15 +61,15 @@ Complete installing scripts are [here](https://github.com/devops-recipes/build_a
 
 **Complete YML is at [devops-recipes/build_alpine_ci_image/shippable.yml](https://raw.githubusercontent.com/devops-recipes/build_alpine_ci_image/master/shippable.yml)**
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for Docker registry and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for Docker registry and Github for this sample.
 
 #####1a. Add `Docker Registry` Integration
 
 To be able to push and pull images from Docker Hub, we add `drship_dockerhub` integration.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/). Make sure you name the integration `drship_dockerhub` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done some of our other tutorials. If so, skip this step
 
@@ -79,7 +79,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [`build_alpine_ci_image`](https://github.com/devops-recipes/build_alpine_ci_image).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
@@ -287,7 +287,7 @@ Manually run the job only once by right clicking on the job. You can look at the
 
 ## Further Reading
 * [Add your Assembly Line config](/platform/tutorial/workflow/add-assembly-line/)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)
