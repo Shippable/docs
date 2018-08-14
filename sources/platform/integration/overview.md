@@ -20,21 +20,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 ## Managing integrations
 
-You can create integrations at a **Subscription level** or an **Account Level**.
-
-### Subscription integrations (recommended for teams)
-
-A Subscription integration is owned by the Subscription and not by a specific user. A Subscription admin can set role-based access at an Admin, Member, or Collaborator levels. Subscription integrations can be scoped to be used by a subset (or all) of repositories within that Subscription.
-
-You need a Subscription integration in order to use the integration in your CI and Assembly Lines configuration file **shippable.yml**.
-
-To learn more about creating and managing subscription integrations, please read our documentation on [Subscription integrations](/platform/tutorial/integration/subscription-integrations).
-
-### Account integrations
-
-An Account integration is owned by the user who creates it in their Shippable account. No other person can view the values for these integrations or update them, other than the owner. Account integrations can be scoped to be used across several subscriptions (i.e. Github organizations or Bitbucket teams) that you have access to.
-
-To learn more about creating and managing account integrations, please read our documentation on [Account integrations](/platform/tutorial/integration/howto-crud-integration).
+To learn how to create and manage integrations, read out tutorial on [Managing integrations](/platform/tutorial/integration/subscription-integrations).
 
 ## Supported integration types
 

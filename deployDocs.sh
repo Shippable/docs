@@ -18,14 +18,14 @@ sync_docs() {
 
   echo "Installing requirements with pip"
   pip install -r requirements.txt
-
+  
   echo "Building docs"
   mkdocs build
 
   if [ "$RUN_MODE" = "production" ]; then
     echo "copying sitemap.xml"
     cp sitemap.xml ./site/.
-  fi  
+  fi
 
   if [ -f $REDIRECT_MAPPINGS_FILE ]; then
     echo "Setting up redirects"
