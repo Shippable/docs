@@ -55,7 +55,7 @@ You can also set the environment using the `integration` resource with a [Key-va
 
 Follow the steps below to do this.
 
-* Create a **Key-value** account integration by following instructions  [here](/platform/tutorial/integration/howto-crud-integration/#creating-an-integration). While creating the integration, please ensure that you set scopes to include the organization or project that contains your **shippable.yml** config.
+* Create a **Key-value** integration by following instructions  [here](/platform/tutorial/integration/subscription-integrations/#create-sub-integration). While creating the integration, please ensure that you set scopes to include the project(s) that contains your **shippable.yml** config.
 As an example, let us assume you create the integration with the following key-value pairs:
 
 ```
@@ -63,7 +63,7 @@ username=admin
 password=admin123
 ```
 
-* Note down your account integration name.
+* Note down your integration name.
 
 * Define an `integration` resource in your **shippable.yml**:
 

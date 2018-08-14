@@ -113,7 +113,7 @@ Detailed info about `params` resource is [here](/platform/workflow/resource/para
 
 If you're following this as a standalone tutorial, you need to follow two steps to add the `image` resource:
 
-* Create an account integration of type **Docker registry**. Instructions are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration). Write down the name of your integration.
+* Create an integration of type **Docker registry**. Instructions are [here](/platform/integration/dockerRegistryLogin/). Write down the name of your integration.
 
 * [Define the image in your resources section](/ci/tutorial/build-push-image-to-docker-hub/#define-node_app_img_dh) and hardcode the values.
 
@@ -139,7 +139,7 @@ Detailed info about `image` resource is [here](/platform/workflow/resource/image
 
 If you're following this as a standalone tutorial, you need to follow two steps to add the `cluster` resource:
 
-* Create an account integration of type **AWS keys**. Instructions are [here](/platform/integration/aws-keys/#creating-an-account-integration). Write down the name of your integration.
+* Create an integration of type **AWS keys**. Instructions are [here](/platform/integration/aws-keys/). Write down the name of your integration.
 
 * Define the cluster in your resources section and hardcode the values.
 
@@ -229,7 +229,7 @@ You can manually run the job by right clicking on the job or by triggering the j
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

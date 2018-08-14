@@ -9,15 +9,15 @@ page_title: Quay integration (Deprecated)
 ## Deprecation Note
 This integration has been deprecated. A new integration called [Quay.io quayLogin](/platform/integration/quayLogin) of type generic has been introduced which can be used instead.
 
-If you have any existing Quay account integrations of type hub, you can continue to use them.
+If you have any existing Quay integrations of type hub, you can continue to use them.
 
 ---
 
 The [CoreOs Quay](https://quay.io/) Integration is used to connect Shippable DevOps Assembly Lines platform to Quay Docker Registry so that you can pull and push Docker images.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Quay.io integrations. You can use the new [Quay.io quayLogin](/platform/integration/quayLogin) instead.
+Since this integration has been deprecated, you cannot create new integrations for this, you can only edit/delete the exisiting Quay.io integrations. You can use the new [Quay.io quayLogin](/platform/integration/quayLogin) instead.
 
 ## Usage in CI
 

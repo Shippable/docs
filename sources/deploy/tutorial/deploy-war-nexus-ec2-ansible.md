@@ -59,15 +59,15 @@ The following sections explain the process of automating a workflow to deploy a 
 
 **Complete YML is at [devops-recipes/cd_war_vm_ansible/shippable.yml](https://raw.githubusercontent.com/devops-recipes/cd_war_vm_ansible/master/shippable.yml)**
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for AWS Keys and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for AWS Keys and Github for this sample.
 
 #####1a. Add AWS Keys Integration
 
 To be able to interact with AWS, we need to add the `dr_aws `integration.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/gcloudKey/). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -77,7 +77,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [devops-recipes/cd_war_vm_ansible](https://github.com/devops-recipes/cd_war_vm_ansible).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -85,7 +85,7 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 In order to SSH into an EC2 machine, we need a PEM key that is used to provision the machine (you could also do this with custom SSH key, in this case we are using the PEM key). We add `drship_aws_pem` integration to store it.
 
-Detailed steps on how to add a PEM Key Integration are [here](/platform/integration/pemKey/#creating-an-account-integration).
+Detailed steps on how to add a PEM Key Integration are [here](/platform/integration/pemKey/).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
@@ -255,7 +255,7 @@ Confirm that the required WAD was deployed to the EC2 machine.
 
 ## Further Reading
 * [Build and Push a Docker Image to Docker Hub](/ci/tutorial/build-push-image-to-docker-hub)
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

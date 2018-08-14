@@ -11,15 +11,11 @@ Webhook integrations can be used to send payloads to external entities for vario
 
 ##Setup
 
-Before you start, you will need to connect your external entity with Shippable so that we have the credentials to send the payload on your behalf. We do this through [account integrations](../platform/integration/overview/), so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your external entity with Shippable so that we have the credentials to send the payload on your behalf. We do this through [integrations](/platform/integration/overview/), so that any sensitive information is abstracted from your config file.
 
-###Add the Webhook integration to your Account
+###Add a Webhook integration to Shippable
 
--  Go to your **Integrations** in the left sidebar menu and then click on **Add integration**.
--  Locate **Webhook** in the list of integration types and click on **Create Integration**.
--  Name your integration with a friendly name and enter the webhook URL endpoint where you want to send the payload to in the 'Webhook URL' field.
--  Choose the Subscription which contains the repository to which you want add webhooks. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
--  Click **Save**
+- Follow instructions in the [Webhook integration document](/platform/integration/webhook) to add a webhook integration.
 
 ##Basic config
 
@@ -41,12 +37,12 @@ Use the descriptions of each field below to modify the `yml` and tailor it to yo
 - `type` is `webhook`.
 - `payload` is an array specifying the payload you want to send to the external entity.
 
-And you're done. The webhook payload will be sent to the endpoint in the account integration for all branches when builds fail or change from failure to success. To further configure when the webhook is sent, see the advanced config section below.
+And you're done. The webhook payload will be sent to the endpoint in the integration for all branches when builds fail or change from failure to success. To further configure when the webhook is sent, see the advanced config section below.
 
 
 ##Creating GitHub issues with a webhook integration
 
-If you want to create a issue on GitHub when your build fails, you can provide the GitHub repository API endpoint to create an issue in your account integration.
+If you want to create a issue on GitHub when your build fails, you can provide the GitHub repository API endpoint to create an issue in your integration.
 
 <img src="/images/ci/add-webhook-int.png" alt="Adding webhook integration">
 

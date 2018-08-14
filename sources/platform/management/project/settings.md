@@ -12,7 +12,7 @@ You can configure different options and settings for your project on this page. 
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * Click on the project you want and then on the Project page, click on the **Spanner** icon to open Settings.
 

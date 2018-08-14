@@ -43,9 +43,9 @@ Validate Assembly Line YAML structure before committing it to source control or 
 - [Turning on node caching](/platform/tutorial/runtime/turn-on-node-caching): Caching can dramatically speed up your builds. Learn how to turn it on and start building faster!
 - [Managing BYON Nodes](/platform/tutorial/runtime/manage-byon-nodes): Learn how to add your own build infrastructure to your Shippable subscription and manage it.
 
-### Integration
+### Integrations
 
-- [Managing integrations](/platform/tutorial/integration/howto-crud-integration/): This tutorial shows how you can create and manage integrations, which are used to connect to third party providers or store secure information.
+- [Managing integrations](/platform/tutorial/integration/subscription-integrations/): This tutorial shows how you can create and manage integrations, which are used to connect to third party providers or store secure information.
 
 ### Security
 

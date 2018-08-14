@@ -9,15 +9,15 @@ page_title: Node cluster integration (Deprecated)
 ## Deprecation Note
 This integration has been deprecated. A new integration called [nodeCluster](/platform/integration/nodeCluster) of type generic has been introduced which can be used instead.
 
-If you have any existing Node Cluster account integrations of type deploy, you can continue to use them.
+If you have any existing Node Cluster integrations of type deploy, you can continue to use them.
 
 ---
 
 The **Node Cluster** Integration is used to connect Shippable DevOps Assembly Lines platform to a cluster of VMs and deploy apps to the entire cluster.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting Node Cluster integrations. You can use the [nodeCluster](/platform/integration/nodeCluster) integration of type generic instead which will work exactly the same way as the deprecated Node Cluster integration of type deploy.
+Since this integration has been deprecated, you cannot create new integrations for it, but can only edit/delete the exisiting Node Cluster integrations. You can use the [nodeCluster](/platform/integration/nodeCluster) integration of type generic instead which will work exactly the same way as the deprecated Node Cluster integration of type deploy.
 
 
 ## Usage in Assembly Lines

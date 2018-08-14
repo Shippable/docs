@@ -54,15 +54,15 @@ The following sections explain the process of automating a workflow to that buil
 * Create a service account for your project, download and store the `JSON` security key in a secure place. [Refer to GCP docs](https://cloud.google.com/compute/docs/access/service-accounts)
 
 
-####2. Add necessary Account Integrations
+####2. Add Integrations
 
-Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). The following are the integrations that we will use in this sample
+Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/integration/overview/). The following are the integrations that we will use in this sample
 
 #####2a. Add `Google Cloud Platform` Integration
 
 To be able to interact with GCP, we add `drship_gcp `integration.
 
-Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/#creating-an-account-integration).
+Detailed steps on how to add a Google Cloud Platform Integration are [here](/platform/integration/gcloudKey/).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
@@ -72,7 +72,7 @@ In order to read your AL configuration from Github, we add `drship_github` integ
 
 In this case this we are using repo [`devops-recipes/gcp_image_with_packer `](https://github.com/devops-recipes/gcp_image_with_packer).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/).
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step
 
@@ -255,7 +255,7 @@ You can manually run the job by right clicking on the job and clicking on **Buil
 <img src="/images/tutorial/build-google-compute-engine-image-packer-fig2.png" alt="Build console output">
 
 ## Further Reading
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

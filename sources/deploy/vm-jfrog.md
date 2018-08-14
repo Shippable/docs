@@ -51,8 +51,8 @@ Since we are deploying and running a NodeJS application, preinstall nodejs, npm,
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for JFrog Artifactory.
-    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for JFrog Artifactory.
+    Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly name of the integration as `dr-artifactory`. If you change the name, please change it also in the yml below.
 
@@ -117,7 +117,7 @@ In this integration, we specify the public IP addresses of all the VMs where we 
 
 **Steps**
 
-1. Create an account integration using your Shippable account for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for [`Node Cluster`](/platform/integration/nodeCluster/). Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 2. Set the friendly name of the integration as `vm_nodes_int`. If you change the name, please change it also in the yml below.
 

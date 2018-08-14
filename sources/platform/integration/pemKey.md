@@ -1,6 +1,7 @@
 page_main_title: PEM Keys
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: PEM integration
 page_description: How to create and use an PEM Key Integration that is used to connect Shippable DevOps Assembly Lines platform to VMs that allow PEM based auth
 
@@ -8,9 +9,9 @@ page_description: How to create and use an PEM Key Integration that is used to c
 
 The PEM Key Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow PEM based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform and Ansible use this to execute scripts on a machine.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

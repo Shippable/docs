@@ -18,7 +18,7 @@ You can view all the currently active nodes in your Subscription by following th
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * On the Subscription page, click on the **Gears** icon and click on **Nodes**. In the **NODE LISTS** section, you can view the list of currently active nodes.
 

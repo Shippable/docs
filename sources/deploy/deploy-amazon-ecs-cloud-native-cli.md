@@ -33,8 +33,8 @@ The configuration for this Assembly Line is in the [shippable.yml](/platform/wor
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for your Docker registry.
-    Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/). Copy the friendly name of the integration.
+1. Create an integration for your Docker registry.
+    Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/). Copy the friendly name of the integration.
 
 2. Add the following yml block to your [shippable.yml](/platform/workflow/config/) file.
 
@@ -66,7 +66,7 @@ If your CLI repository is on another SCM account, create an integration for it b
 
 **Steps**  
 
-1. Create an account integration using your SCM. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for your source control provider. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 Set the friendly name of the integration as `app_scm`. If you change the name, please change it also in the yml below .
 
@@ -90,7 +90,7 @@ resources:
 
 **Steps**  
 
-1. Create an account integration using your Shippable account for AWS. Instructions to create an integration can be found [here](http://docs.shippable.com/platform/tutorial/integration/howto-crud-integration/).
+1. Create an integration for AWS. Instructions to create an integration can be found [here](/platform/tutorial/integration/subscription-integrations/).
 
 Set the friendly name of the integration as `op_int`. If you change the name, please change it also in the yml below .
 

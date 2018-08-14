@@ -48,15 +48,15 @@ The following sections explain the process of automating a workflow to build an 
 
 **Complete YML is at [devops-recipes/aws_ami_with_packer/shippable.yml](https://raw.githubusercontent.com/devops-recipes/aws_ami_with_packer/master/shippable.yml)**
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for AWS Keys and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for AWS Keys and Github for this sample.
 
 #####1a. Add **AWS Keys** Integration
 
 To be able to interact with AWS, we need to add the `dr_aws` integration. Your AWS credentials are securely stored in this integration, and you can extract them in your job when needed.
 
-Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/#creating-an-account-integration). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add an AWS Keys Integration are [here](/platform/integration/aws-keys/). Make sure you name the integration `dr_aws` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -66,7 +66,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [devops-recipes/aws_ami_with_packer](https://github.com/devops-recipes/aws_ami_with_packer).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
@@ -231,7 +231,7 @@ You can manually run the job by right clicking on the job and clicking on `Build
 Confirm that the required AMI was created on AWS.
 
 ## Further Reading
-* [Working with Integrations](/platform/tutorial/integration/howto-crud-integration/)
+* [Managing Integrations](/platform/tutorial/integration/subscription-integrations/)
 * [Defining Resources in shippable.yml](/platform/workflow/config/#resources)
 * [Defining Jobs in shippable.yml](/platform/workflow/config/#jobs)
 * [Sharing information between Jobs](/platform/tutorial/workflow/share-info-across-jobs/)

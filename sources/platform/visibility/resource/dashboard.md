@@ -14,7 +14,7 @@ To get here:
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * On your Subscription dashboard, scroll down to the Resources list and look for the Resource name in the **Name column** and click on it. If you cannot see the Resources list, click on the **Eye** icon on your Subscription dashboard and make sure the **View resources** option is enabled.
 

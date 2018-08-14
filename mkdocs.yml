@@ -267,64 +267,39 @@ pages:
         - runSh: platform/workflow/job/runsh.md
         - runCLI: platform/workflow/job/runcli.md
         - rSync: platform/workflow/job/rsync.md
+      - Integrations:
+        - Overview: platform/integration/overview.md
+        - AWS IAM: platform/integration/aws-iam.md
+        - AWS Keys: platform/integration/aws-keys.md
+        - Azure: platform/integration/azure-keys.md
+        - Azure DC/OS: platform/integration/azureDcosKey.md
+        - Bitbucket: platform/integration/bitbucket.md
+        - Digital Ocean: platform/integration/do.md
+        - Docker Cloud: platform/integration/dclKey.md
+        - Docker Datacenter: platform/integration/ddcKey.md
+        - Docker Registry: platform/integration/dockerRegistryLogin.md
+        - Webhook: platform/integration/webhook.md
+        - Git Credential: platform/integration/git-credential.md
+        - GitHub: platform/integration/github.md
+        - GitHub Enterprise: platform/integration/github-enterprise.md
+        - GitLab: platform/integration/gitlab.md
+        - Google Cloud: platform/integration/gcloudKey.md
+        - HipChat: platform/integration/hipchatKey.md
+        - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
+        - Jira: platform/integration/jira.md
+        - Joyent Triton: platform/integration/joyentTritonKey.md
+        - Key-value: platform/integration/key-value.md
+        - Kubernetes: platform/integration/kubernetes.md
+        - Node Cluster: platform/integration/nodeCluster.md
+        - PEM Keys: platform/integration/pemKey.md
+        - Quay.io: platform/integration/quayLogin.md
+        - Slack: platform/integration/slackKey.md
+        - SSH Keys: platform/integration/sshKey.md
+        - Deprecated integrations: platform/integration/deprecated-integrations.md
       - State:
         - Overview: platform/workflow/state/overview.md
       - Tutorials: platform/workflow/workflow-tutorials.md
-    - Integrations:
-      - Overview: platform/integration/overview.md
-      - AWS IAM: platform/integration/aws-iam.md
-      - AWS Keys: platform/integration/aws-keys.md
-      - Azure: platform/integration/azure-keys.md
-      - Azure DC/OS: platform/integration/azureDcosKey.md
-      - Bitbucket: platform/integration/bitbucket.md
-      - Digital Ocean: platform/integration/do.md
-      - Docker Cloud: platform/integration/dclKey.md
-      - Docker Datacenter: platform/integration/ddcKey.md
-      - Docker Registry: platform/integration/dockerRegistryLogin.md
-      - Webhook: platform/integration/webhook.md
-      - Git Credential: platform/integration/git-credential.md
-      - GitHub: platform/integration/github.md
-      - GitHub Enterprise: platform/integration/github-enterprise.md
-      - GitLab: platform/integration/gitlab.md
-      - Google Cloud: platform/integration/gcloudKey.md
-      - HipChat: platform/integration/hipchatKey.md
-      - JFrog Artifactory: platform/integration/jfrog-artifactoryKey.md
-      - Jira: platform/integration/jira.md
-      - Joyent Triton: platform/integration/joyentTritonKey.md
-      - Key-value: platform/integration/key-value.md
-      - Kubernetes: platform/integration/kubernetes.md
-      - Node Cluster: platform/integration/nodeCluster.md
-      - PEM Keys: platform/integration/pemKey.md
-      - Quay.io: platform/integration/quayLogin.md
-      - Slack: platform/integration/slackKey.md
-      - SSH Keys: platform/integration/sshKey.md
-      - Deprecated:
-        - Amazon ECR: platform/integration/deprecated/aws-ecr.md
-        - Amazon ECS: platform/integration/deprecated/aws-ecs.md
-        - Amazon Web Services: platform/integration/deprecated/aws.md
-        - Azure DC/OS: platform/integration/deprecated/azure-dcos.md
-        - Azure: platform/integration/deprecated/azure.md
-        - Docker Cloud: platform/integration/deprecated/docker-cloud.md
-        - Docker Datacenter : platform/integration/deprecated/docker-datacenter.md
-        - Docker Hub: platform/integration/deprecated/docker-hub.md
-        - Docker Trusted Registry: platform/integration/deprecated/docker-trusted-registry.md
-        - Docker Private Registry: platform/integration/deprecated/docker-private-registry.md
-        - Email: platform/integration/deprecated/email.md
-        - Event Trigger: platform/integration/deprecated/event-trigger.md
-        - Google Cloud: platform/integration/deprecated/gce.md
-        - Google Container Registry: platform/integration/deprecated/gcr.md
-        - Google Container Engine: platform/integration/deprecated/gke.md
-        - HipChat: platform/integration/deprecated/hipchat.md
-        - IRC: platform/integration/deprecated/irc.md
-        - Jenkins: platform/integration/deprecated/jenkins.md
-        - JFrog Artifactory: platform/integration/deprecated/jfrog-artifactory.md
-        - PEM Keys: platform/integration/deprecated/key-pem.md
-        - SSH Keys:  platform/integration/deprecated/key-ssh.md
-        - Kubernetes: platform/integration/deprecated/kubernetes.md
-        - Node Cluster: platform/integration/deprecated/node-cluster.md
-        - Quay.io: platform/integration/deprecated/quay.md
-        - Slack: platform/integration/deprecated/slack.md
-        - Joyent Triton: platform/integration/deprecated/tripub.md
+
     - Runtime:
       - Overview: platform/runtime/overview.md
       - Nodes: platform/runtime/nodes.md
@@ -423,13 +398,10 @@ pages:
         - Running jobs on CentOS: platform/tutorial/workflow/jobs-centos.md
         - Running jobs on Arm: platform/tutorial/workflow/run-ci-builds-on-arm.md
       - Integrations:
-        - How to work with Integrations: platform/tutorial/integration/howto-crud-integration.md
-        - How to create a kubeconfig file: platform/tutorial/integration/howto-create-kubeconfig.md
-        - How to install kubectl: platform/tutorial/integration/howto-install-kubectl.md
-        - How to connect Shippable through AWS IAM: platform/tutorial/integration/howto-create-AWS-IAM-access.md
+        - Managing account integrations: platform/tutorial/integration/howto-crud-integration.md
+        - Managing subscription integrations: platform/tutorial/integration/subscription-integrations.md
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
-        - How to use Docker Private Registry Integration in runCI: platform/tutorial/integration/howto-use-docker-private-registry-in-runci.md
       - Runtime:
         - Turn on node caching: platform/tutorial/runtime/turn-on-node-caching.md
         - Managing node pools: platform/tutorial/runtime/manage-node-pools.md
@@ -501,3 +473,30 @@ pages:
       - Deploying to Amazon EKS using kubectl: deploy/tutorial/continuous-deployment-to-amazon-eks-kubectl.md
   - Typography:
     - Typography page: ci/typography.md
+  - Indirect Links:
+    - Deprecated:
+      - Amazon ECR: platform/integration/deprecated/aws-ecr.md
+      - Amazon ECS: platform/integration/deprecated/aws-ecs.md
+      - Amazon Web Services: platform/integration/deprecated/aws.md
+      - Azure DC/OS: platform/integration/deprecated/azure-dcos.md
+      - Azure: platform/integration/deprecated/azure.md
+      - Docker Cloud: platform/integration/deprecated/docker-cloud.md
+      - Docker Datacenter : platform/integration/deprecated/docker-datacenter.md
+      - Docker Hub: platform/integration/deprecated/docker-hub.md
+      - Docker Trusted Registry: platform/integration/deprecated/docker-trusted-registry.md
+      - Docker Private Registry: platform/integration/deprecated/docker-private-registry.md
+      - Email: platform/integration/deprecated/email.md
+      - Event Trigger: platform/integration/deprecated/event-trigger.md
+      - Google Cloud: platform/integration/deprecated/gce.md
+      - Google Container Registry: platform/integration/deprecated/gcr.md
+      - Google Container Engine: platform/integration/deprecated/gke.md
+      - HipChat: platform/integration/deprecated/hipchat.md
+      - IRC: platform/integration/deprecated/irc.md
+      - JFrog Artifactory: platform/integration/deprecated/jfrog-artifactory.md
+      - PEM Keys: platform/integration/deprecated/key-pem.md
+      - SSH Keys:  platform/integration/deprecated/key-ssh.md
+      - Kubernetes: platform/integration/deprecated/kubernetes.md
+      - Node Cluster: platform/integration/deprecated/node-cluster.md
+      - Quay.io: platform/integration/deprecated/quay.md
+      - Slack: platform/integration/deprecated/slack.md
+      - Joyent Triton: platform/integration/deprecated/tripub.md

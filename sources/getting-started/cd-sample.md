@@ -44,7 +44,7 @@ The first step is to enable continuous integration for your forked repository.
 
 - On the [Shippable landing page](https://app.shippable.com) , select your subscription from the `Subscriptions` dropdown.
 This should be the subscription where you forked the repository.
-<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="Add Account Integration">
+<img width="30%" height="30%" src="/images/platform/integrations/list-subscriptions.png" alt="Add Integration">
 
 - On the Subscription page, click on the **+** button. If you have not enabled any projects on Shippable,
  you will be directly be taken to this page which shows a list of your repositories.

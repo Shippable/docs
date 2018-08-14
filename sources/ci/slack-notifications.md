@@ -12,7 +12,7 @@ You can send Slack notifications for various events in your CI workflow, includi
 
 ##Setup
 
-Before you start, you will need to connect your Slack account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Account Integrations](../platform/integration/overview/), so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Slack account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Integrations](../platform/integration/overview/), so that any sensitive information is abstracted from your config file.
 
 There are 2 steps to add a Slack integration: Configuring the webhook on Slack, and adding the webhook to your Shippable account.
 
@@ -21,14 +21,9 @@ There are 2 steps to add a Slack integration: Configuring the webhook on Slack, 
 * Follow instructions in the Slack docs to [create an incoming webhook](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack).
 *  Copy the text in the 'Webhook URL' section. It looks like this: `https://hooks.slack.com/services/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`.
 
-###2. Add the Slack integration to your Account
+###2. Add the Slack integration to Shippable
 
--  Go to your **Account Settings** by clicking on the gear icon in the top navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add integration**
--  Locate **Slack** in the list and click on **Create Integration**
--  Name your integration with a friendly name and enter the Slack webhook URL in the 'Webhook URL' field
--  Choose the Subscription which contains the repository for which you want to send notifications. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
--  Click **Save**
+-  Follow instructions in the [Slack integration doc](/platform/integration/slackKey) to create a Slack integration. You will need the Webhook URL from the previous step.
 
 ##Basic config
 
@@ -116,8 +111,4 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 To stop sending Slack notifications, simply remove the configuration from the **shippable.yml** for that project.
 
-If you are not using your Slack notification anywhere else, you can delete it from your Account Integrations list as well.
-
-## Improve this page
-
-We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
+If you are not using your Slack notification anywhere else, you can delete it from your Integrations list as well.

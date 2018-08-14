@@ -9,7 +9,7 @@ page_title: Event Trigger integration (Deprecated)
 ## Deprecation Note
 This integration has been deprecated. A new integration called [Webhook](/platform/integration/webhook) of type generic has been introduced which can be used instead.
 
-If you have any existing Event Trigger account integrations of type notification, you can continue to use them.
+If you have any existing Event Trigger integrations of type notification, you can continue to use them.
 
 ---
 
@@ -18,9 +18,9 @@ If you have any existing Event Trigger account integrations of type notification
 * Create a daisy chain of projects, so that you can trigger one from another
 * Send a webhook to an external service with custom payloads
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting Event Trigger integrations. You can use the [Webhook](/platform/integration/webhook) integration instead which will work exactly the same way as the typed `Generic Webhook` of deprecated Event Trigger integration.
+Since this integration has been deprecated, you cannot create new integrations for it, but can only edit/delete the exisiting Event Trigger integrations. You can use the [Webhook](/platform/integration/webhook) integration instead which will work exactly the same way as the typed `Generic Webhook` of deprecated Event Trigger integration.
 
 Here is the information you need to create this integration:
 

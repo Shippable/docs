@@ -13,9 +13,9 @@ This integration has been marked deprecated. Existing integrations will continue
 
 The **Hipchat** Integration is used to connect Shippable DevOps Assembly Lines platform so that you can send notifications to channels or rooms.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 
@@ -27,7 +27,7 @@ Here is how you can get your [Hipchat account token](https://developer.atlassian
 
 ## Usage
 
-After you create the account integration, it can be used in the following scenarios:
+After you create the integration, it can be used in the following scenarios:
 
 ### CI
 

@@ -42,15 +42,15 @@ The following sections explain the process of configuring a CI workflow to conti
 
 You can clone our sample repository to follow this tutorial.
 
-####1. Add necessary Account Integrations
+####1. Add necessary integrations
 
-Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use a Docker registry integration in this scenario.
+Integrations are used to connect Shippable Platform with external providers. More information about integrations is [here](/platform/integration/overview/). We will use a Docker registry integration in this scenario.
 
 #####1a. Add `Docker Registry` Integration**
 
 To be able to push and pull images from JFrog's Docker registry, we add `drship_artifactory_docker ` integration. Make sure you name the integration `drship_artifactory_docker` since that is the name we're using in our sample automation scripts.
 
-Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/#creating-an-account-integration).
+Detailed steps on how to add a Docker Registry Integration are [here](/platform/integration/dockerRegistryLogin/).
 
 ####2. Author CI configuration
 
@@ -269,7 +269,7 @@ This section does the following things:
 ###2. Add Github Integration
 In order to read your Assembly Line configuration from Github, we need an integration. Add `drship_github` integration.
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration).
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/).
 
 ###3. Add Assembly Line to Shippable
 Next, add the configuration to your Shippable subscription. Jobs and resources section from your **shippable.yml** are parsed to create the workflow.

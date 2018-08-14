@@ -14,7 +14,7 @@ To get here:
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * On the Subscription page, click on the **Eye** icon to switch between Grid and SPOG views.
 

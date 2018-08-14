@@ -14,7 +14,7 @@ To get here:
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * On your Subscription dashboard, look for the Job name in the **Name column** and click on it.
 

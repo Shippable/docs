@@ -28,15 +28,15 @@ The following sections explain the process of automating a workflow to install S
 
 **Complete YML is at [devops-recipes/install_gce_nexus/shippable.yml](https://raw.githubusercontent.com/devops-recipes/install_gce_nexus/master/shippable.yml)**
 
-####1. Add necessary Account Integrations
+####1. Add Integrations
 
-Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/tutorial/integration/howto-crud-integration/). We will use integrations for Google Cloud and Github for this sample.
+Integrations are used to connect your Shippable workflow with external providers. More information about integrations is [here](/platform/integration/overview/). We will use integrations for Google Cloud and Github for this sample.
 
 #####1a. Add Google Cloud Integration
 
 To be able to interact with GCP, we need to add the `drship_gcp` integration.
 
-Detailed steps on how to add a Google Cloud Integration are [here](/platform/integration/gcloudkey/#creating-an-account-integration). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Google Cloud Integration are [here](/platform/integration/gcloudKey/). Make sure you name the integration `drship_gcp` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 
@@ -46,7 +46,7 @@ In order to read your workflow configuration from Github, we need to add the `dr
 
 In our case, we're using the repository [devops-recipes/install_gce_nexus](https://github.com/devops-recipes/install_gce_nexus).
 
-Detailed steps on how to add a Github Integration are [here](/platform/integration/github/#creating-an-account-integration). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
+Detailed steps on how to add a Github Integration are [here](/platform/integration/github/). Make sure you name the integration `drship_github` since that is the name we're using in our sample automation scripts.
 
 > Note: You might already have this if you have done some of our other tutorials. If so, skip this step.
 

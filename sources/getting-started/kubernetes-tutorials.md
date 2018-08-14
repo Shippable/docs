@@ -17,10 +17,6 @@ The [Shippable DevOps Assembly Line Platform](/platform/overview/) supports end-
 * [Deploy using kubectl](/deploy/tutorial/deploy-to-self-kube-kubectl/)
 * [Deploy using Shippable managed deployments](/deploy/deploy-docker-overview/)
 
-##Sample application
-
-- [devops-recipes/deploy-kubernetes-basic](https://github.com/devops-recipes/deploy-kubernetes-basic)
-
 ## Reference
 * [Kubernetes docs](https://kubernetes.io/docs/home/)
 * [Shippable configuration reference](/platform/workflow/config/)

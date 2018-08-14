@@ -1,6 +1,7 @@
 page_main_title: Docker Registry
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Docker Registry integration
 page_description: How to create and use a Docker Registry Integration in Shippable
 
@@ -8,9 +9,9 @@ page_description: How to create and use a Docker Registry Integration in Shippab
 
 The [Docker Registry](https://docs.docker.com/registry/deploying/) Integration is used to connect Shippable DevOps Assembly Lines platform to Docker Hub, Docker Trusted Registry or privately hosted Docker Hub so that you can pull and push Docker images.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can add this account integration by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add this integration by following steps on the [Adding an integration](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 

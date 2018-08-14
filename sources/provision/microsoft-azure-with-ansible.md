@@ -12,20 +12,9 @@ infrastructure on [Microsoft Azure](https://azure.microsoft.com/). You would do 
 
 ##Setup
 
-Before you start, you will need to store your Microsoft Azure credentials as an [Account
-Integration](/platform/tutorial/integration/howto-crud-integration/) so that your Shippable pipeline job can connect to Microsoft Azure without exposing your credentials. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to store your Microsoft Azure credentials as an [Integration](/platform/integration/overview/) so that your Shippable pipeline job can connect to Microsoft Azure without exposing your credentials. Once you add an integration, you can use it for all your projects without needing to add it again.
 
--  Go to your **Account Settings** by clicking on the gear icon in the top
-navigation bar.
--  Click on **Integrations** in the left sidebar menu and then click on **Add
-Integration**
--  Locate **Microsoft Azure** in the list and click on **Create Integration**
--  Name your integration and enter your Subscription Id, username, and password.
--  Choose the Subscription(s) that are allowed to use these credentials.
--  Click **Save**
-
-<img src="../../images/provision/microsoft-azure-integration.png" alt="add
-google cloud credentials">
+Detailed steps on how to add an Azure Keys Integration are [here](/platform/integration/azure-keys/).
 
 ##Basic config
 
@@ -119,9 +108,9 @@ jobs:
 
 In our `runSh` job, `IN: myMazCliConfig` gives the following environment variables
 
-  - `MYMAZCLICONFIG_INTEGRATION_USERNAME` - Username given in the Microsoft Azure account integration.
-  - `MYMAZCLICONFIG_INTEGRATION_PASSWORD` - Password given in the Microsoft Azure account integration.
-  - `MYMAZCLICONFIG_INTEGRATION_SUBSCRIPTIONID` - Subscription Id given in the Microsoft Azure account integration.
+  - `MYMAZCLICONFIG_INTEGRATION_USERNAME` - Username given in the Microsoft Azure integration.
+  - `MYMAZCLICONFIG_INTEGRATION_PASSWORD` - Password given in the Microsoft Azure integration.
+  - `MYMAZCLICONFIG_INTEGRATION_SUBSCRIPTIONID` - Subscription Id given in the Microsoft Azure integration.
 
 Note that, the environment variable name is generated based on the format `x_INTEGRATION_APITOKEN`, where x is the cliConfig resource name in upper case with any characters other than letters, numbers, or underscores and leading numbers removed.
 

@@ -30,19 +30,18 @@ By default, email notifications are sent to the committer and commit author if t
 *  a build fails
 *  a previously failing build is now successful
 
-
 ## Basic configuration
 
 To configure notifications, follow the steps below:
 
-* If you're configuring Slack, Hipchat, or Webhook notifications, create an Account integration with your credentials, URL, etc.
+* If you're configuring Slack, Hipchat, or Webhook notifications, create an integration with your credentials, URL, etc.
 * Configure the `integrations` section of your **shippable.yml** to specify notification targets and filters
 
-###1. Create an account integration
+###1. Create an integration
 
 Please skip this section if you are configuring email or IRC notifications.
 
-For Slack, Hipchat, or Webhook, choose your provider and follow step for **Creating an Account Integration**:
+For Slack, Hipchat, or Webhook, choose your provider and follow step for **Creating an Integration**:
     * [Slack integration](/platform/integration/slackKey)
     * [Hipchat integration](/platform/integration/hipchatKey)
     * [Webhook integration](/platform/integration/webhook)
@@ -133,7 +132,7 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 To stop sending notifications, simply remove the configuration from the **shippable.yml** for that project.
 
-For Slack and Hipchat, if you are not using your notification integration anywhere else, you can delete it from your Account Integrations as well.
+For Slack and Hipchat, if you are not using your notification integration anywhere else, you can delete it from your  Integrations as well.
 
 ##Further Reading
 

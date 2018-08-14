@@ -28,14 +28,15 @@ Integrations allow users to store their sensitive information with a friendly na
 
 Here is how integrations work at a high level:
 
-- You add your secrets as integrations to your account and set permissions on those secrets. This means that only the subscriptions or repositories you choose will have access to your integrations.
+- You add your secrets as integrations to your Account or Subscription and set permissions on those secrets. This means that only the subscriptions or repositories you choose will have access to your integrations.
+
 - You refer to the integrations with their friendly name in your YAML.
 
 <img src="/images/platform/security/adding-integrations.png" alt="Adding integrations">
 
 Let's see how the scenarios above will play out with integrations:
 
-1. The team at AmazingFoo follows [instructions to update the integration](/platform/tutorial/integration/howto-crud-integration/#updating-a-subscription-integrations-underlying-account-integration) in one place. No automation scripts have to be changed.
+1. The team at AmazingFoo follows [instructions to update the integration](/platform/tutorial/integration/subscription-integrations/#update-sub-integrations) in one place. No automation scripts have to be changed.
 
 2. There is no action required for this scenario since integrations are not encrypted with project/subscription keys. Everything will work as expected.
 
@@ -48,5 +49,5 @@ For a list of supported Integrations, [read our docs here](/platform/integration
 ##Further Reading
 
 - [Integrations overview](/platform/integration/overview)
-- [Working with Integrations](/platform/tutorial/integration/howto-crud-integration)
+- [Managing integrations](/platform/tutorial/integration/subscription-integrations)
 - [Encryption with secure variables](/platform/tutorial/security/encrypt-vars)

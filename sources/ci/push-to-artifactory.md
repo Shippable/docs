@@ -13,10 +13,9 @@ You can push your artifacts to JFrog in any section [of your yml](/ci/yml-struct
 
 Before you start, you will need to connect your JFrog account with Shippable so we have the credentials to push artifacts on your behalf.
 
-* Please follow the steps outlined [here](/platform/integration/jfrog-artifactoryKey/) to create an account integration.
-Once you add an account integration, you can use it for all your projects without needing to add it again.
-* Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
-* Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
+* Please follow the steps outlined [here](/platform/integration/jfrog-artifactoryKey/) to create an integration.
+
+* Use the integration name in the configuration below. 
 
 ## Basic Config
 

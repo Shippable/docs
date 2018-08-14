@@ -72,13 +72,13 @@ jobs:
 
 If you want to pull a private custom image, you will need to do a little extra work since we will need your credentials to pull the image.
 
-* Create an account integration for the Docker registry where your private image is stored. Instructions to add an account integration are [here](/platform/tutorial/integration/howto-crud-integration/#creating-an-integration). For help with completing the account integration input fields for a specific provider, refer to the relevant document below:
+* Create an integration for the Docker registry where your private image is stored. Instructions to add an integration are [here](/platform/tutorial/integration/subscription-integrations/#create-sub-integration). For help with completing integration input fields for a specific provider, refer to the relevant document below:
     * [Docker Hub, Private/Trusted Registry](/platform/integration/dockerRegistryLogin)
     * [AWS ECR](/platform/integration/aws-keys)
     * [GCR](/platform/integration/gcloudKey)
     * [Quay](/platform/integration/quayLogin)    
 
-While creating the integration, please ensure that you set scopes to include the organization or project that contains your **shippable.yml** config.
+While creating the integration, please ensure that you set scopes to include the project(s) that contains your **shippable.yml** config.
 
 * Add a `cliConfig` resource with your Docker registry credentials to **shippable.yml**.
 

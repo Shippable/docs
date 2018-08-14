@@ -63,7 +63,7 @@ This section also shows you how you can execute your test suites after deploying
 - [Setting environment variables inside deployed container](/deploy/tutorial/set-environment-deployed-container)
 - [Scaling service instances](/deploy/tutorial/scaling-services)
 - [Specifying the version to deploy](/deploy/deploying-specific-version)
-- [Managing releases with semantic versioning](release/devops-release-management)
+- [Managing releases with semantic versioning](/release/devops-release-management)
 - [Rolling back deployments](/deploy/rollback)
 - [Sending notifications upon deployments](/deploy/deployment-notifications)
 - [Customizing deployed service names](/deploy/customize-service-names)

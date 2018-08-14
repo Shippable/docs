@@ -9,15 +9,15 @@ page_title: Joyent Triton integration (Deprecated)
 ## Deprecation Note
 This integration has been deprecated. A new integration called [Joyent Triton](/platform/integration/joyentTritonKey) of type generic has been introduced which can be used instead.
 
-If you have any existing Joyent Triton account integrations of type deploy, you can continue to use them.
+If you have any existing Joyent Triton integrations of type deploy, you can continue to use them.
 
 ---
 
 The [Joyent Triton](https://www.joyent.com/triton/compute) Integration is used to connect Shippable DevOps Assembly Lines platform to Joyent Triton Container Service to deploy Docker-based applications.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for this, you can only edit/delete the exisiting Joyent Triton integrations. You can use the new [Joyent Triton](/platform/integration/joyentTritonKey) of type generic instead.
+Since this integration has been deprecated, you cannot create new integrations for this, you can only edit/delete the exisiting Joyent Triton integrations. You can use the new [Joyent Triton](/platform/integration/joyentTritonKey) of type generic instead.
 
 ## Usage in Assembly Lines
 

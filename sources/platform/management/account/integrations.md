@@ -15,4 +15,4 @@ To view a list of currently configured account integrations, click on **Integrat
 The following documents will help you understand how integrations work, and how to work with them:
 
 * [Integrations overview](/platform/integration/overview/)
-* [Working with integrations](/platform/tutorial/integration/howto-crud-integration)
+* [Managing integrations](/platform/tutorial/integration/subscription-integrations)

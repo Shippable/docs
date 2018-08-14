@@ -1,6 +1,7 @@
 page_main_title: Google CLoud
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Google Cloud integration
 page_description: How to create and use a Google Cloud Integration in Shippable
 
@@ -8,9 +9,9 @@ page_description: How to create and use a Google Cloud Integration in Shippable
 
 `Google Cloud` Integration is used to connect Shippable DevOps Assembly Lines platform to Google Cloud and manage entities and services provided by Google Cloud.
 
-## Creating an Account Integration
+## Creating an Integration
 
-You can create this from the integrations page by following instructions here: [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/).
+You can create this from the integrations page by following instructions here: [Adding an integration](/platform/tutorial/integration/subscription-integrations/).
 
 This is the information you would require to create this integration:
 

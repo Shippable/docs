@@ -1,6 +1,7 @@
 page_main_title: AWS IAM integration for your deployment pipelines
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: AWS IAM Integration
 page_description: How to create and use an AWS IAM Integration in Shippable
 
@@ -8,11 +9,11 @@ page_description: How to create and use an AWS IAM Integration in Shippable
 
 The [AWS IAM](https://aws.amazon.com/iam/) Integration is used to connect the Shippable DevOps Assembly Lines platform to Amazon Web Services to interact with its cloud services like ECR, ECS, EC2, S3, and so on.
 
-## Creating an Account Integration
+## Creating an Integration
 
 You will need to add an IAM user to your AWS account to create this integration. Instructions are in the [AWS docs](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
-You can add an account integration to Shippable by following steps on the [Adding an account integration](/platform/tutorial/integration/howto-crud-integration/) page.
+You can add an integration to Shippable by following steps on the [Managing integrations](/platform/tutorial/integration/subscription-integrations/) page.
 
 Here is the information you need to create this integration:
 
@@ -26,11 +27,6 @@ The AWS IAM integration can be used in the following [resources](/platform/workf
 
 * [cluster](/platform/workflow/resource/cluster)
 * [integration](/platform/workflow/resource/integration)
-
-The main scenarios for using this integration are:
-
-* [Deploy a single container Docker application to Amazon ECS](/deploy/amazon-ecs/)
-* [Deploy a multiple container Docker application to Amazon ECS](/deploy/continuous-delivery-multi-container-docker-application/)
 
 ### IAM Policies
 

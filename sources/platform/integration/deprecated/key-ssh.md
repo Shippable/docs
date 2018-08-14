@@ -9,15 +9,15 @@ page_title: SSH keys integration (Deprecated)
 ## Deprecation Note
 This integration has been deprecated. A new integration called [sshKey](/platform/integration/sshKey) of type generic has been introduced which can be used instead.
 
-If you have any existing SSH Key account integrations of type hub, you can continue to use them.
+If you have any existing SSH Key integrations of type hub, you can continue to use them.
 
 ---
 
 **SSH Key** Integration is used to connect Shippable DevOps Assembly Lines platform to VMs that allow SSH based auth. This is typically used to SSH in and then run activities on the machine. Tools like Terraform and Ansible use this to execute scripts on a machine.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting ssh-key integrations. You can use the [sshKey](/platform/integration/sshKey) integration instead which will work exactly the same way as the deprecated ssh-key integration.
+Since this integration has been deprecated, you cannot create new integrations for it, but can only edit/delete the exisiting ssh-key integrations. You can use the [sshKey](/platform/integration/sshKey) integration instead which will work exactly the same way as the deprecated ssh-key integration.
 
 ## Usage in CI
 

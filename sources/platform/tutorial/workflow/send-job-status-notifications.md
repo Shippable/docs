@@ -27,12 +27,11 @@ The instructions below show how you can configure a `runSh` job to send notifica
 
 * Identify the job you want to send notifications from.
 
-* In you want to send Slack or Hipchat notifications, create an account integration for the notification type you want to send. Instructions to add an account integration are [here](/platform/tutorial/integration/howto-crud-integration/#creating-an-integration). For help with completing the account integration input fields for a specific provider, refer to the relevant document below:
+* In you want to send Slack or Hipchat notifications, create an integration for the notification type you want to send. Instructions to add an integration are [here](/platform/tutorial/integration/subscription-integrations/#create-sub-integration). For help with completing the integration input fields for a specific provider, refer to the relevant document below:
     * [Slack](/platform/integration/slackKey)
     * [Hipchat](/platform/integration/hipchatKey)
 
-While creating the integration, please ensure that you set scopes to include the organization or project that contains your **shippable.yml** config.
-
+While creating the integration, please ensure that you set scopes to include the project(s) that contains your **shippable.yml** config.
 
 * Define a `notification` resource in **shippable.yml**. The config shown below is for Slack, but config for other providers is available in the [notification resource reference document](/platform/workflow/resource/notification):
 

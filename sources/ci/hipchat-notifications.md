@@ -12,7 +12,7 @@ You can send Hipchat notifications for various events in your CI workflow, inclu
 
 ##Setup
 
-Before you start, you will need to connect your Hipchat account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Account Integrations](/platform/integration/overview/), so that any sensitive information is abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your Hipchat account with Shippable so we have the credentials to send notifications on your behalf. We do this through [Integrations](/platform/integration/overview/), so that any sensitive information is abstracted from your config file. Once you add an integration, you can use it for all your projects without needing to add it again.
 
 There are 2 steps to add a Hipchat integration: Generating an API token for Hipchat, , and adding the token to your Shippable account.
 
@@ -122,8 +122,4 @@ If you do not specify any of these tags, the defaults are: `on_success` is set t
 
 To stop sending Hipchat notifications, simply remove the configuration from the **shippable.yml** for that project.
 
-If you are not using your Hipchat notification anywhere else, you can delete it from your Account Integrations list as well.
-
-## Improve this page
-
-We really appreciate your help in improving our documentation. If you find any problems with this page, please do not hesitate to reach out at [support@shippable.com](mailto:support@shippable.com) or [open a support issue](https://www.github.com/Shippable/support/issues). You can also send us a pull request to the [docs repository](https://www.github.com/Shippable/docs).
+If you are not using your Hipchat notification anywhere else, you can delete it from your Integrations list as well.

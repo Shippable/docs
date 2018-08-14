@@ -10,15 +10,15 @@ page_description: How to create and use an AWS IAM Integration in Shippable
 ## Deprecation Note
 This integration has been deprecated. A new integration called [azureDcosKey](/platform/integration/azureDcosKey) of type generic has been introduced which can be used instead.
 
-If you have any existing Azure DC/OS account integrations of type deploy, you can continue to use them.
+If you have any existing Azure DC/OS integrations of type deploy, you can continue to use them.
 
 ---
 
 The [Azure DC/OS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mesosphere.dcos) integration is used to connect Shippable DevOps Assembly Lines platform to Azure DC/OS to deploy Docker based applications.
 
-## Creating an Account Integration
+## Creating an Integration
 
-Since this integration has been deprecated, you cannot create new account integrations for it, but can only edit/delete the exisiting AZURE_DCOS integrations. You can use the [azureDcosKey](/platform/integration/azureDcosKey) integration instead which will work exactly the same way as the deprecated AZURE DC/OS integration.
+Since this integration has been deprecated, you cannot create new integrations for it, but can only edit/delete the existing AZURE_DCOS integrations. You can use the [azureDcosKey](/platform/integration/azureDcosKey) integration instead which will work exactly the same way as the deprecated AZURE DC/OS integration.
 
 ## Usage in Assembly Lines
 

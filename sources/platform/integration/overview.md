@@ -1,34 +1,44 @@
 page_main_title: Overview
 main_section: Platform
-sub_section: Integrations
+sub_section: Configuration
+sub_sub_section: Integrations
 page_title: Integrations overview
 page_description: Overview of all supported Integrations that connect your Shippable CI or CD workflows to third party platforms or services and manage secrets that might be needed by your applications
 
 # Integrations Overview
 
-Integrations are used to connect your Shippable CI or CD workflows to third party platforms or services and manage secrets that might be needed by your applications. They are owned by users of our platform and the scope feature allows you to decide which organizations/repos have access to use it in their DevOps activities.
+Integrations are used to connect your Shippable CI or CD workflows to third party platforms or services and manage secrets that might be needed by your applications. Examples are tokens, keys, passwords, or even key-value pairs.
 
-One the biggest benefits of using Shippable DevOps Assembly Line Integrations as opposed to using encrypted strings that contain the connection information is "Separation of Concerns." These are the problems of using encrypted strings:
+The biggest advantages of our design for integrations are:
 
-* The seed key used to encrypt is a single point of failure.
-* Rotating the seed key means you have to change the encrypted strings wherever they are used.
-* There is no way to know which key that was used to encrypt it purely look at the encrypted string. This means additional DB of what, when, which, and how the values were encrypted which is additional work.
-* Scripts if they contain the encrypted values cannot participate in fork-based development. The reason for this is that unless every fork has access to the seed key, they will need to encrypt and replace these values. This means you will have to add it to `.gitignore` so that you don't override the parent's encrypted values. Changing these scripts through PRs is a pain.
-* It is impossible to know which values are present in which encrypted strings, which means I have to decrypt to know what is present in the encrypted values.
-* If any one of the values to change, unless you know where its used, there is no way to know which encrypted strings need to be updated
+* Integrations are created in the UI and used with friendly names in your YAML config. This means you do not have to touch your automation scripts when an integration is updated.
+* Integrations are securely stored in a <a href="https://www.vaultproject.io/">Vault store</a> and encrypted at rest and in-flight. Since you do not have to encrypt anything yourself, they are human readable by those who have been granted access.
+* Integrations values are not revealed in logs unless you choose to print them out as part of your workflow.
+* You can scope each integration to allow or deny access for repositories or roles.
 
-In case of Shippable Integrations,
+We are big believers in the concept that secrets need to be separated from scripts for better security and privacy.
 
-* Internally Shippable is managing encryption at rest and flight which means the users are absolved from worrying about seed keys.
-* Since the integration is used in scripts by reference pointers, changing the integration value in one place automatically propagates across every script that is using it. Maintenance of these integrations becomes trivial.
-* Users of these integrations never need to know what the values are and since the integrations are well documented, they can correctly assume which keys they should use in their scripts.
-* When these integrations are used in certain contexts, the platform automatically logs you in, or configures the CLI, which makes it easy for the script authors to interact with external entities.
-* Removing access is as simple as removing the a repo from the scope and the immediate next run will start to fail.
-* It is a more secure way of maintaining secrets.
+## Managing integrations
 
-We are big believers in the concept that secrets need to be separated from scripts for better security and privacy. All integrations are stored in our <a href="https://www.vaultproject.io/">Vault store</a> for maximum security.
+You can create integrations at a **Subscription level** or an **Account Level**.
 
-## Supported Orchestration Platform Integrations
+### Subscription integrations (recommended for teams)
+
+A Subscription integration is owned by the Subscription and not by a specific user. A Subscription admin can set role-based access at an Admin, Member, or Collaborator levels. Subscription integrations can be scoped to be used by a subset (or all) of repositories within that Subscription.
+
+You need a Subscription integration in order to use the integration in your CI and Assembly Lines configuration file **shippable.yml**.
+
+To learn more about creating and managing subscription integrations, please read our documentation on [Subscription integrations](/platform/tutorial/integration/subscription-integrations).
+
+### Account integrations
+
+An Account integration is owned by the user who creates it in their Shippable account. No other person can view the values for these integrations or update them, other than the owner. Account integrations can be scoped to be used across several subscriptions (i.e. Github organizations or Bitbucket teams) that you have access to.
+
+To learn more about creating and managing account integrations, please read our documentation on [Account integrations](/platform/tutorial/integration/howto-crud-integration).
+
+## Supported integration types
+
+### Orchestration Platform Integrations
 
 - [Amazon ECS](/platform/integration/aws-iam)
 - [Kubernetes](/platform/integration/kubernetes)
@@ -39,7 +49,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Docker Datacenter](/platform/integration/ddcKey)
 - [Joyent Triton](/platform/integration/joyentTritonKey)
 
-## Supported Docker Registry Integrations
+### Docker Registry Integrations
 
 - [AWS ECR](/platform/integration/aws-keys)
 - [Docker Hub](/platform/integration/dockerRegistryLogin)
@@ -49,7 +59,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [Quay](/platform/integration/quayLogin)
 - [JFrog](/platform/integration/jfrog-artifactoryKey)
 
-## Supported SCM Integrations
+### SCM Integrations
 
 - [Bitbucket](/platform/integration/bitbucket)
 - [GitHub](/platform/integration/github)
@@ -57,12 +67,12 @@ We are big believers in the concept that secrets need to be separated from scrip
 - [GitLab](/platform/integration/gitlab)
 - [Git Credential](/platform/integration/git-credential)
 
-## Supported Notification Integrations
+### Notification Integrations
 
 - [HipChat](/platform/integration/hipchatKey)
 - [Slack](/platform/integration/slackKey)
 
-## Supported Miscellaneous Integrations
+### Miscellaneous Integrations
 
 - [Key-Value Pair](/platform/integration/key-value)
 - [PEM keys](/platform/integration/pemKey)

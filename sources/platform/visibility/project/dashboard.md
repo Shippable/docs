@@ -12,7 +12,7 @@ This view displays the status and history of all execution runs of [runCI](/plat
 
 * Click on the Subscription in the left navbar.
 
-<img src="/images/getting-started/account-settings.png" alt="Add Account Integration">
+<img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
 * Click on the Project you want.
 

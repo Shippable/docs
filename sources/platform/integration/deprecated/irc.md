@@ -9,12 +9,12 @@ page_title: IRC integration
 ## Deprecation Note
 This integration has been deprecated. You can get IRC notifications in [CI](/ci/irc-notifications/) and [assembly lines](/platform/workflow/resource/notification/) by specifying recipients in yml files.
 
-If you have any existing IRC account integrations, you _can_ continue to use them.
+If you have any existing IRC integrations, you _can_ continue to use them.
 
 ---
 
 
-As of this time, Shippable only supports public IRC rooms, so you do not need an account integration to connect and send notifications to your IRC rooms.
+As of this time, Shippable only supports public IRC rooms, so you do not need an integration to connect and send notifications to your IRC rooms.
 
 ## Usage in CI
 

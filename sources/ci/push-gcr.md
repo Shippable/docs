@@ -11,7 +11,7 @@ You can push your image to GCR in any section [of your yml](/ci/yml-structure/#a
 
 ##Setup
 
-Before you start, you will need to connect your  Google cloud account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/"> Account Integrations</a>, so that your credentials are abstracted from your config file. Once you add an account integration, you can use it for all your projects without needing to add it again.
+Before you start, you will need to connect your  Google cloud account with Shippable so we have the credentials to push your image on your behalf. We do this through <a href="/platform/integration/overview/">Integrations</a>, so that your credentials are abstracted from your config file.
 
 #### Generating a JSON key on Google Developers Console (GDC)
 -  In the top navigation bar, select the project you want to integrate with Shippable.
@@ -25,13 +25,14 @@ Before you start, you will need to connect your  Google cloud account with Shipp
 -  Your new **JSON key** is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account.
 -  For more on JSON keys and Service accounts, read
 <a href="https://cloud.google.com/container-registry/docs/auth#using_a_json_key_file"> Google's docs</a>.
-#### Adding Google Cloud Account Integration to your Shippable Account
+
+#### Adding Google Cloud Integration to Shippable
+
 -  Please follow the steps mentioned [here](/platform/integration/gcloudKey/).
 
 <img src="/images/platform/integrations/gcloud-integration.png" alt="Add  Google Cloud credentials">
 
-- Ensure that your subscription has access to the account integration. Subscription integrations can be viewed using the steps articulated [here](http://docs.shippable.com/platform/management/subscription/integrations/#subscription-integrations).
-- Use the Subscription integration name in the configuration below. If you gave access to the subscription from the account integration dashboard, then the subscription integration is automatically created and has the same name as the account integration.
+- Use the integration name in the configuration below.
 
 ##Basic config
 
