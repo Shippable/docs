@@ -398,8 +398,7 @@ pages:
         - Running jobs on CentOS: platform/tutorial/workflow/jobs-centos.md
         - Running jobs on Arm: platform/tutorial/workflow/run-ci-builds-on-arm.md
       - Integrations:
-        - Managing account integrations: platform/tutorial/integration/howto-crud-integration.md
-        - Managing subscription integrations: platform/tutorial/integration/subscription-integrations.md
+        - Managing integrations: platform/tutorial/integration/subscription-integrations.md
         - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
         - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
       - Runtime:

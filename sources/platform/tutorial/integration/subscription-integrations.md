@@ -6,22 +6,23 @@ page_title: Managing Subscription Integrations
 page_description: Add, update, and manage Subscription Integrations
 page_keywords: Managing Subscription Integrations
 
-# Managing Subscription Integrations
+# Managing Integrations
 
-A Subscription integration can be created by anyone with access to the Subscription. They are owned by the Subscription, regardless of who created them. Subscription integrations can be scoped to be used by a subset (or all) of repositories within that Subscription.
+Integrations let you store secrets securely and use them during your CI and Assembly Line workflows. These secrets could be passwords, keys, tokens, key-value pairs, etc, and can be used to connect your workflows with third-party services or just to store sensitive information that shouldn't be exposed. A list of supported integrations is available in our [Integrations overview](/platform/integration/overview) document.
 
-You need a Subscription integration in order to use the integration in your CI and Assembly Lines configuration file **shippable.yml**.
+While creating an integration, you are asked to give it a friendly name which can then be referenced as needed in the YAML configuration file **shippable.yml**.
 
 <a name="create-sub-integration"></a>
-## Creating Subscription Integrations
+## Creating an integration
 
-You can create a Subscription integration in one of two ways:
+You can create an integration in one of two ways:
 
-- Creating a new integration at a Subscription level (**recommended**): Do this if you want to created a shared integration that can be viewed and updated by multiple people in your organization, depending on their roles.
+- **[Shared integrations](#create-shared-integration) (recommended for teams)**: These are integrations that are created at a Subscription level, and can be scoped to be used by a subset (or all) of repositories within that Subscription. Access to these integrations is controlled based on Admin, Member, and Collaborator roles. A user that has access to a shared integration also has permissions to view and update it in the Shippable UI.  
 
-- Creating an integration from an [Account Integration](/platform/tutorial/integration/howto-crud-integration): Do this if you do not want anyone else to access what's stored in the integration, or if you want to use the same integration in multiple Subscriptions.
+- **[Personal integrations](#create-personal-integration)**: These are integrations that are created at an Account level, and can be scoped to be used by repositories across several Subscriptions. Only the user who creates a Personal integration is allowed to view integration details or update it.
 
-### Creating a new integration at the Subscription level (Recommended approach)
+<a name="create-shared-integrations"></a>
+### Creating a shared integration (recommended for teams)
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
@@ -37,36 +38,45 @@ You can create a Subscription integration in one of two ways:
 
 - Complete all integration-specific fields. For instructions, go to the [Integrations overview doc](/platform/integration/overview/) and select the specific third-party integration you're configuring.
 
-- For the **Edit Permissions** dropdown, choose the Roles that can update this integration.
+- For the **Edit Permissions** dropdown, choose the Roles that can update this integration. For an explanation of how your Source Control Provider organization/team roles map to Shippable roles, please read our [roles and permissions doc](/ci/permissions/#userorg-permissions-mapping-to-shippable-roles). If a user's role is allowed access to this integration, they can view integration details and modify the integration.
 
-- Select the repositories that can use this integration. Default is **All projects**.
-
-- Click on **Save**.
-
-### Creating an integration from an Account Integration
-
-- [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
-
-- First, look at the list of Subscription integrations to make sure the one you need isn't already part of your Subscription. If you granted access to this Subscription while [creating the account integration](/platform/tutorial/integration/howto-crud-integration), a corresponding Subscription integration is auto-created and should already be present in the list.
-
-- If you don't see the integration you need, click on the **+** icon in the top right corner.
-
-<img src="/images/platform/tutorial/integrations/create-integration.png" alt="Subscription integrations">
-
-- Select the **Use an account integration** tab.
-
-- Give your integration a friendly name, select the type of integration you want to create, and the account integration. If you do not already have the account integration created, you can also create it from here by choosing **Add account integration**. Please also note that the friendly name specified here should be used in your CI and Assembly Lines config.
-
-<img src="/images/platform/tutorial/integrations/create_integration_from_account_int.png" alt="Subscription integrations">
-
-- Select the repositories that can use this integration. Default is **All projects**.
+- Select the repositories that can use this integration. This means that any **shippable.yml** files in these repositories can reference this integration. Default is **All projects**.
 
 - Click on **Save**.
+
+<a name="create-personal-integration"></a>
+### Creating a personal integration
+
+- From the left navigation bar, click on **Integrations**. This will take you to your **Account integrations dashboard**, which shows all the personal integrations you've created.
+
+<img src="/images/platform/tutorial/integrations/create-account-integration.png" alt="Account integrations">
+
+- Click on **+** icon at the top right.
+
+- Give your integration a friendly name.
+
+- Choose the right **Integration type**, depending on what you're trying to configure. Complete all integration-specific fields and click on **Save**. For instructions on how to complete the fields for a specific integration, go to the [Integrations overview doc](/platform/integration/overview/) and select the specific third-party integration you're configuring.
+
+<img src="/images/platform/tutorial/integrations/create-account-integration-2.png" alt="Account integrations">
+
+- Please note that while creating the integration, **you will need to specify which Subscriptions and/or Projects have access to it**.
+
+You can also create a personal integration by going to your [Subscription integrations dashboard](#view-sub-integrations), clicking on **+** to add an integration, selecting the **Use an account integration** tab, and creating an integration.
+
+## Viewing integrations
+
+You can view a list integrations at the following places:
+
+* [Subscription integration dashboard](#view-sub-integrations), that shows you a list of integrations are available to that specific Subscription. Subscription integrations can be shared integrations, or personal integrations that were scoped to include that Subscription.
+
+* [Account integrations dashboard](#view-account-integrations), that shows your personal integrations.
 
 <a name="view-sub-integrations"></a>
-## View Subscription integration dashboard
+### Subscription integrations dashboard
 
-You can manage Subscription integrations in one place by going to your Subscription Integration dashboard.
+Your Subscription integrations dashboard shows you a list of integrations are available to that specific Subscription. Subscription integrations can be shared integrations, or personal integrations that were scoped to include that Subscription.
+
+To view Subscription integrations:
 
 - Select your Subscription from the left navigation bar.
 
@@ -76,33 +86,84 @@ You can manage Subscription integrations in one place by going to your Subscript
 
 <img src="/images/platform/tutorial/integrations/subscription_gear_menu_integrations.png" alt="Subscription integrations">
 
-- You will see a list of your Subscription integrations. This list contains integrations that were created at a Subscription level, as well as ones that were created from an account integration. The two types are distinguished by icons as shown below:
+- You will see a list of your Subscription integrations. Shared and personal integrations are distinguished by icons as shown below:
 
 <img src="/images/platform/tutorial/integrations/subscription-integrations-list.png" alt="Subscription integrations">
 
+<a name="view-account-integrations"></a>
+### Account integrations dashboard
+
+Account integrations dashboard shows you a list of your personal integrations.
+
+- From the left navigation bar, click on **Integrations**.
+
+<img src="/images/platform/tutorial/integrations/create-account-integration.png" alt="Account integrations">
+
+Clicking on any individual integration will show you details for that integration.
+
 <a name="update-sub-integrations"></a>
-## Updating Subscription integrations
+## Updating integrations
+
+You can update shared integrations by going to the specific Subscription integration dashboard, and personal integrations from the Account integration dashboard.
+
+### Updating shared integrations
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
 - Click on the integration you want to update to go to the **Edit** page.
 
-- For integrations that were created at a Subscription level, you can update any field that you have permissions to.  
-
-- For integrations that were created at an Account level, you can update the following:
-    - Integration name, which is used to reference this integration in your YAML config for CI and Assembly Lines
-    - Associated Account integration. This is a great way to update your secrets without needing to touch YAML config.
+- For shared integrations, you can update any field that you have permissions to.  
 
 - Make the updates and click on **Save**.
 
-## Deleting Subscription integrations
+### Updating personal integrations
+
+- From the left navigation bar, click on **Integrations**. This will take you to your **Account integrations dashboard**, which shows all the personal integrations you've created.
+
+- Click on the integration you want to update to go to the **Edit** page.
+
+- Make your updates and click on **Save**.
+
+### Updating a Subscription integration created from a personal integration
+
+If you have a Subscription integration that was created as a result of a personal integration being scoped to include that Subscription, you can change it to point to another personal integration if needed.
+
+This is very useful in scenarios where an employee creates a personal integration and uses it in CI/Assembly Line workflows for your organization, and then leaves the company or somehow loses access to the organization. To avoid a situation where you need to create a new integration and update your YAML config everywhere, we let you point the same Subscription integration to a different personal integration.
+
+**Please note that this functionality is only available for Subscription Admins.**
+
+To do this:
+
+- [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
+
+- Click on the integration you want to update to go to the **Edit** page.
+
+- For personal integrations, you can update the following:
+    - Integration name, which is used to reference this integration in your YAML config for CI and Assembly Lines
+    - Associated personal (i.e. Account) integration. This is a great way to update your secrets without needing to touch YAML config.
+
+- Make your updates and click on **Save**.
+
+## Deleting integrations
+
+Depending on the type of integration, instructions to delete are given below.
+
+### Deleting shared integrations
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
 - Click on the integration you want to delete. On the Integration Edit page, click on **Delete** in the **Delete Integration** panel.
 
-Please note the following:
+Please note that if this integration is being used in any resources or jobs that are in your CI or Assembly Line workflows, you will see a list of these instead of the **Delete button**. Remove the integration from the jobs and resources, and then delete the integration.
 
-- If this integration is being used in any resources or jobs that are in your CI or Assembly Line workflows, you will see a list of these instead of the **Delete button**. Remove the integration from the jobs and resources, and then delete the integration.
+### Deleting personal integrations
 
-- If the integration was created at an Account level, deleting it at the Subscription level will not delete the user's Account integration. It will just remove scopes, so that it cannot be used in that Subscription.  
+- [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
+
+- Click on the integration you want to delete. On the Integration Edit page, click on **Delete** in the **Delete Integration** panel.
+
+Please note that if this integration is being used in any resources or jobs that are in your CI or Assembly Line workflows, you will see a list of these instead of the **Delete button**. Remove the integration from the jobs and resources, and then delete the integration.
+
+### Deleting Subscription integration created from a personal integration
+
+If you delete a Subscription integration that was created as a result of a personal integration being scoped to include that Subscription, deleting it just alters the personal integration scope to exclude that Subscription. It does not actually delete the personal integration from the account of the person who created it.
