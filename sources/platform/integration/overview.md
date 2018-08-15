@@ -20,7 +20,7 @@ We are big believers in the concept that secrets need to be separated from scrip
 
 ## Managing integrations
 
-To learn how to create and manage integrations, read out tutorial on [Managing integrations](/platform/tutorial/integration/subscription-integrations).
+To learn how to create and manage integrations, read our tutorial on [Managing integrations](/platform/tutorial/integration/subscription-integrations).
 
 ## Supported integration types
 
