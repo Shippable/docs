@@ -399,8 +399,6 @@ pages:
         - Running jobs on Arm: platform/tutorial/workflow/run-ci-builds-on-arm.md
       - Integrations:
         - Managing integrations: platform/tutorial/integration/subscription-integrations.md
-        - How to use Key-Value Integration in runCI: platform/tutorial/integration/howto-use-key-value-in-runci.md
-        - How to use Key-Value Integration in runSh: platform/tutorial/integration/howto-use-key-value-in-runSh.md
       - Runtime:
         - Turn on node caching: platform/tutorial/runtime/turn-on-node-caching.md
         - Managing node pools: platform/tutorial/runtime/manage-node-pools.md
