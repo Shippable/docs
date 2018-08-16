@@ -17,12 +17,12 @@ While creating an integration, you are asked to give it a friendly name which ca
 
 You can create an integration in one of two ways:
 
-- **[Shared integrations](#create-shared-integration) (recommended for teams)**: These are integrations that are created at a Subscription level, and can be scoped to be used by a subset (or all) of repositories within that Subscription. Access to these integrations is controlled based on Admin, Member, and Collaborator roles. A user that has access to a shared integration also has permissions to view and update it in the Shippable UI.  
+- **[Org integrations](#create-shared-integration) (recommended for teams)**: These are integrations that are created at a Subscription level, and can be scoped to be used by a subset (or all) of repositories within that Subscription. Access to these integrations is controlled based on Admin, Member, and Collaborator roles. A user that has access to an org integration also has permissions to view and update it in the Shippable UI.  
 
 - **[Personal integrations](#create-personal-integration)**: These are integrations that are created at an Account level, and can be scoped to be used by repositories across several Subscriptions. Only the user who creates a Personal integration is allowed to view integration details or update it.
 
 <a name="create-shared-integrations"></a>
-### Creating a shared integration (recommended for teams)
+### Creating an org integration (recommended for teams)
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
@@ -67,14 +67,14 @@ You can also create a personal integration by going to your [Subscription integr
 
 You can view a list integrations at the following places:
 
-* [Subscription integration dashboard](#view-sub-integrations), that shows you a list of integrations are available to that specific Subscription. Subscription integrations can be shared integrations, or personal integrations that were scoped to include that Subscription.
+* [Subscription integration dashboard](#view-sub-integrations), that shows you a list of integrations are available to that specific Subscription. Subscription integrations can be org integrations, or personal integrations that were scoped to include that Subscription.
 
 * [Account integrations dashboard](#view-account-integrations), that shows your personal integrations.
 
 <a name="view-sub-integrations"></a>
 ### Subscription integrations dashboard
 
-Your Subscription integrations dashboard shows you a list of integrations are available to that specific Subscription. Subscription integrations can be shared integrations, or personal integrations that were scoped to include that Subscription.
+Your Subscription integrations dashboard shows you a list of integrations are available to that specific Subscription. Subscription integrations can be org integrations, or personal integrations that were scoped to include that Subscription.
 
 To view Subscription integrations:
 
@@ -104,15 +104,13 @@ Clicking on any individual integration will show you details for that integratio
 <a name="update-sub-integrations"></a>
 ## Updating integrations
 
-You can update shared integrations by going to the specific Subscription integration dashboard, and personal integrations from the Account integration dashboard.
+You can update org integrations by going to the specific Subscription integration dashboard, and personal integrations from the Account integration dashboard.
 
-### Updating shared integrations
+### Updating org integrations
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
-- Click on the integration you want to update to go to the **Edit** page.
-
-- For shared integrations, you can update any field that you have permissions to.  
+- Click on the integration you want to update to go to the **Edit** page. Here, you can update any field that you have permissions to.  
 
 - Make the updates and click on **Save**.
 
@@ -136,9 +134,7 @@ To do this:
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
-- Click on the integration you want to update to go to the **Edit** page.
-
-- For personal integrations, you can update the following:
+- Click on the integration you want to update to go to the **Edit** page. Here, you can update the following:
     - Integration name, which is used to reference this integration in your YAML config for CI and Assembly Lines
     - Associated personal (i.e. Account) integration. This is a great way to update your secrets without needing to touch YAML config.
 
@@ -148,7 +144,7 @@ To do this:
 
 Depending on the type of integration, instructions to delete are given below.
 
-### Deleting shared integrations
+### Deleting org integrations
 
 - [Go to your Subscription integrations dashboard](#view-sub-integrations) by selecting your Subscription from the left navigation bar, clicking on the **Gear** icon at the top right of your Subscription dashboard, and selecting **Integrations**.
 
