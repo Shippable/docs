@@ -39,6 +39,7 @@ pages:
         - Choosing a build image: ci/build-image.md
         - Specifying branches/tags to build: ci/specify-branches.md
         - Working with env variables: ci/env-vars.md
+        - Setting git options: ci/set-git-options.md
       - Working with services:
         - Overview: ci/services-overview.md
         - Cassandra: ci/cassandra.md

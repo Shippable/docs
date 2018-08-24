@@ -60,6 +60,10 @@ resources:
             buildOnPullRequestClose:  <Boolean>
             buildOnRelease:           <Boolean>
             buildOnTagPush:           <Boolean>
+            depth:                    <Positive Integer>
+            gitConfig:
+              - <git config>
+              - <git config>
 
 * Detailed explation of the versionTemplate properties:
 	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**
@@ -75,6 +79,8 @@ resources:
     * `buildOnPullRequestClose` -- (default is false) used to control whether the resource will be updated for closing a pull request webhook
     * `buildOnRelease` -- (default is false) used to control whether the resource will be updated for release webhooks    
     * `buildOnTagPush` -- (default is false) used to control whether the resource will be updated for tag webhooks
+    * `depth` -- (optional) used to set the depth at which the repo is (shallow)cloned/fetched
+    * `gitConfig` -- (optional) used to set the git configs globally before the repo is cloned
 
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
