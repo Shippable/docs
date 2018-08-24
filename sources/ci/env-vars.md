@@ -111,6 +111,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |SHIPPABLE_SELENIUM_BINARY |Location of selenium binary. It is set only if selenium is in the addons or services in the **shippable.yml**. |
 |SHIPPABLE_SUBMODULE_ENABLED | Whether or not submodules in the repository will be updated. |
 |SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
+|SHIPPABLE_WWW_URL   | Direct URL link to the shippable main application website.|
 |SUBSCRIPTION_ID | ID of the Subscription. |
 |IS_GIT_TAG | Set to **true** if the build is triggered by a git tag push webhook. If not, this will be set to **false**. |
 |GIT_TAG_NAME | The git tag name if the build is triggered by a git tag push webhook or a release webhook. |
@@ -236,7 +237,7 @@ env:
 
 build:
   ci:
-    - echo $FOO  
+    - echo $FOO
 ```
 
 As with other user defined environment variables, you can specify multiple secure variables in your yml to trigger a build matrix or specify them as global.
