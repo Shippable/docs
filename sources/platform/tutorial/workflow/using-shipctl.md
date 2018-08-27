@@ -781,6 +781,7 @@ shipctl notify <notification resource name> <options>
 The options can be specified as part of the command, or defined as environment variables before the command is issued.
 
 command line options:
+
 - `--username`: Shows in the heading of the Slack message.  Defaults to "Shippable".
 - `--recipient`: A single target for the notification. Slack only. Should begin with `#` or `@`. If not specified, will default to the array of recipients defined in the notification resource.
 - `--pretext`: A string that becomes the first part of the Slack message.  It defaults to the current date/time.
@@ -790,6 +791,7 @@ command line options:
 - `--payload`: If specified, must be a path to a valid json file.  This json directly becomes the POST body in the request to Slack API or the webhook endpoint.  This parameter overrides all others.  In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages).  For webhook payloads, the only requirement is that it be valid json.
 
 environment options:
+
 - `NOTIFY_USERNAME` (--username)
 - `NOTIFY_RECIPIENT` (--recipient)
 - `NOTIFY_PRETEXT` (--pretext)
@@ -810,7 +812,7 @@ shipctl notify mySlackNotifier
 All defaults will be filled in and sent to recipients defined in the resource.
 
 ```
-shipctl notify mySlackNotifier --recipient=@johndoe
+shipctl notify mySlackNotifier --recipient="@johndoe"
 ```
 The default payload will be sent only to `@johndoe`
 
