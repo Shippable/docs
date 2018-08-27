@@ -457,7 +457,7 @@ resources:
   - name: myGkeCluster
     type: Google Cloud
     integration: myGcCreds
-    pointer:  
+    pointer:
       region: us-central1-a
       sourceName: demoAppCluster
 ```
@@ -544,7 +544,7 @@ resources:
   - name: myGkeCluster
     type: Google Cloud
     integration: myGcCreds
-    pointer:  
+    pointer:
       region: us-central1-a
       sourceName: demoAppCluster
 ```
@@ -618,7 +618,7 @@ jobs:
   - name: myCustomJob
     type: runSh
     integrations:
-      - myAWSCreds    
+      - myAWSCreds
     steps:
       - TASK:
         - script: MY_INT_FIELD="$(shipctl get_integration_field "myAWSCreds" "accessKey")"
@@ -705,7 +705,7 @@ MY_NEW_VERSION="$(shipctl bump_version v1.0.0 minor)"
 
 **Description**
 
-Uses the provided key to decrypt the specified file.  
+Uses the provided key to decrypt the specified file.
 
 This is typically used to decrypt information that was encrypted using Shippable keys. It helps you avoid building your own encrypt-decrypt system.
 
@@ -765,6 +765,60 @@ shipctl get_json_value <filename> <field name>
 ```
 MY_JSON_FIELD="$(shipctl get_json_value "properties.json" "servers[0].ipaddress")"
 ```
+
+### notify
+
+**Description**
+
+Utilizes notification resources to send custom messages at any time during the build to any recipient. (not currently supported on Windows)
+
+**Usage**
+
+```
+shipctl notify <notification resource name> <options>
+```
+
+The options can be specified as part of the command, or defined as environment variables before the command is issued.
+
+command line options:
+- `--username`: Shows in the heading of the Slack message.  Defaults to "Shippable".
+- `--recipient`: A single target for the notification. Slack only. Should begin with `#` or `@`. If not specified, will default to the array of recipients defined in the notification resource.
+- `--pretext`: A string that becomes the first part of the Slack message.  It defaults to the current date/time.
+- `--text`: The main section to display a message.  It defaults to a link to the current job.
+- `--color`: Defines the color to the left of the text section on Slack.  Defaults to "#65cea7" (Shippable success).
+- `--icon_url`: Defaults to Shippable's aye-aye icon if not specified.
+- `--payload`: If specified, must be a path to a valid json file.  This json directly becomes the POST body in the request to Slack API or the webhook endpoint.  This parameter overrides all others.  In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages).  For webhook payloads, the only requirement is that it be valid json.
+
+environment options:
+- `NOTIFY_USERNAME` (--username)
+- `NOTIFY_RECIPIENT` (--recipient)
+- `NOTIFY_PRETEXT` (--pretext)
+- `NOTIFY_TEXT` (--text)
+- `NOTIFY_COLOR` (--color)
+- `NOTIFY_ICON_URL` (--icon-url)
+- `NOTIFY_PAYLOAD` (--payload)
+
+The command line arguments take priority over the environment variables.
+
+Though many of these options are specific to Slack, they can be used for webhook notifications as well.  When these options are used in webhook notifications, the payload becomes an object of simple name/value pairs.  See the [notification resource documentation](/platform/workflow/resource/notification) for more information.
+
+**Examples**
+
+```
+shipctl notify mySlackNotifier
+```
+All defaults will be filled in and sent to recipients defined in the resource.
+
+```
+shipctl notify mySlackNotifier --recipient=@johndoe
+```
+The default payload will be sent only to `@johndoe`
+
+```
+shipctl notify myWebhookNotifier --payload=`pwd`/successPayload.json
+```
+Sends a custom payload, defined inside the json file, to the endpoint defined in the integration attached to myWebhookNotifier
+
 
 ### replace
 

@@ -135,12 +135,42 @@ resources:
 	            - "#beta"
 	            - "@botnot"
 
-## Used in Jobs
-This resource is used as a `NOTIFY` for all jobs.  For more information, see the [jobs overview](/platform/workflow/job/overview).
+## Usage in Jobs
+This resource can be used as a `NOTIFY` for all job types.  For more information, see the [jobs overview](/platform/workflow/job/overview).
 
+## Usage in shipctl
+Instead of including a notification resource as a `NOTIFY` step in one or more of your jobs, you can include it as an `IN` step, and then use [shipctl notify](/platform/tutorial/workflow/using-shipctl/#notify) to utilize it to send custom notifications throughout the build.
+
+At this time, `shipctl notify` only supports notification resources that utilize "Slack" or "webhook" type integrations, and is not currently available for Windows jobs.
+
+### Slack
+By default, `shipctl notify` will send a simple Slack message payload to the configured recipients.  This payload includes the current date/time and a link back to the current job on Shippable.  Each component of the payload can be individually customized.  For example, options like `--username` or `--icon-url` can be changed to show the name and icon of your own organization rather than Shippable.  The payload will be sent for each recipient defined in the resource.  However, the resource settings can be overridden by using the `--recipient` option, which accepts a single recipient.
+
+For example:
+```
+- >
+	if [ -z "$goals" ]; then
+		shipctl notify mySlackNotifier --recipient="#support" --color="#FF3333" --text="goals are not properly defined"
+	fi
+```
+This gives you much more flexibility in how and when your notifications are sent, as well as who recieves them under which conditions.
+
+### Webhook
+By default, `shiptcl notify` commands that target a resource with a webhook integration will send a default payload to the endpoint defined in the integration.  It is recommended to use the `--payload` option to specify your own customized payload.  This will allow you to configure your build to communicate successfully with any external service that accepts webhooks.
+
+For example:
+```
+- >
+	if [ -z "$goals" ]; then
+		shipctl notify myWebhookNotifier --payload=badPayload.json
+	else
+		shipctl notify myWebhookNotifier --payload=goodPayload.json
+	fi
+```
+Different payloads can be sent under different conditions, and can be filled in using values from the environment.
 
 ## Default Environment Variables
-Whenever `notification` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
+Whenever a `notification` resource is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
 `<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. Any numbers at the beginning of the name are also removed to create a valid variable. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
 

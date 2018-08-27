@@ -428,6 +428,7 @@ In addition, the job itself comes with its own default set of variables. This is
 | BUILD_NUMBER                | Sequentional number for the Job thats executing|
 | BUILD_JOB_ID                  | Internal ID of the currently running Job |
 | BUILD_JOB_NUMBER                | Sequential number of the Job |
+| BUILD_URL                  | Direct URL link to the current job. |
 | SUBSCRIPTION_ID               | Shippable ID that represents git organization uniquely |
 | JOB_PATH                    | The path of the directory containing files critical for this job |
 | JOB_STATE                   | The location of the `state` directory for this job|
@@ -435,6 +436,7 @@ In addition, the job itself comes with its own default set of variables. This is
 | JOB_TRIGGERED_BY_NAME  | The name of the resource that caused this job to execute. |
 | SHARED_DIR | Location of the directory that will be shared across all TASK's of a job |
 |SHIPPABLE_AMI_VERSION 		 | The [machine image](/platform/runtime/machine-image/ami-overview/) version of the node.  For example, `v6.4.4`. |
+|SHIPPABLE_WWW_URL          | Direct URL link to the shippable main application website.|
 
 ## Shippable Utility Functions
 To make it easy to use these environment variables, the platform provides a command line utility that can be used to work with these values.
