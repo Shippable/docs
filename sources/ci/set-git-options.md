@@ -21,7 +21,7 @@ You can set this tag to a positive integer. The depth specified in this tag will
 ```
 gitConfig:
   - http.sslVerify false
-  - core.editor vim
+  - http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
 ```
 
 You can set this tag to a list of git configs. The configs specified here will be set before the repository is cloned in the build using the `git config` command. These configs are set globally.
