@@ -443,6 +443,7 @@ pages:
       - Provision Amazon ElastiCache Memcached with Terraform: provision/tutorial/provision-aws-memcached-terraform.md
       - Provision Amazon ElastiCache Redis with Terraform: provision/tutorial/provision-aws-redis-terraform.md
       - Provision Amazon Relational Database Service (RDS) with Terraform: provision/tutorial/provision-aws-rds-terraform.md
+      - Configure Chatops with Slack: platform/tutorial/integration/howto-configure-chatops-with-slack.md
     - Drafts:
       - Using a custom alpine image with runSh jobs: platform/tutorial/workflow/use-alpine-custom-image-runsh.md
       - Deploy to Amazon ECS Fargate using AWS CLI: deploy/tutorial/deploy-to-amazon-ecs-fargate-awscli.md
