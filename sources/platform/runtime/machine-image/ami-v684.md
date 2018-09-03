@@ -91,7 +91,10 @@ We have the following base images, one for each supported OS version.
  | CentOS 7 | drydock/c7all:v6.8.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7/),<br>- [GitHub](https://github.com/dry-dock/c7) | - epel-release<br>- gcc<br>- gcc-c++<br>- kernel-devel<br>- make<br>- curl<br>- openssl<br>- wget<br>- unzip<br>- zip<br>- nano<br>- openssh-clients<br>-  htop<br>- rsync<br>- vim<br>- glibc.i686<br>- libgcc_s.so.1<br>- python36u<br>- python36u-libs<br>- python36u-devel<br>- python36u-pip<br>- virtualenv<br>- jq<br>- git<br>- git-lfs | - awscli 1.15.73<br>- gcloud 211.0.0<br>- kubectl 1.11.0<br>- doctl 1.8.3<br>- jfrog-cli 1.18.0<br>- ansible 2.6.2<br>- boto 2.49.0<br>- apache libcloud 2.3.0<br>- terraform 0.11.7<br>- packer 1.2.5<br>- azure-cli 2.0.43 |- MemCached 1.5.9<br>- LibMemCached 1.0.18<br>- Mongodb 4.0.1<br>- RabbitMQ 3.6.15<br>- Redis-server 4.0.11<br>- ElasticSearch 6.3.2<br>- Riak 2.2.3<br>- Selenium 3.14.0<br>- Sqlite 3.22.0<br>- mysql 5.7.23<br>- postgres 10.5<br>- couchdb 2.2.0 |
  | Windows 16 | drydock/w16:v6.8.4 | - [Docker Hub](https://hub.docker.com/r/drydock/w16/),<br>- [GitHub](https://github.com/dry-dock/w16) |  |- git 2.18.0<br>- git-lfs 2.4.2<br>- gcloud 213.0.0<br>- awscli 1.15.82<br>- Azurecli 2.0.44<br>- kubectl 1.11.2<br>- jfrog-cli 1.17.0<br>-  terraform 0.11.7<br>- packer 1.2.5<br>- jq 1.5.0 | |
 
-Note: Cassandra and Neo4j is not supported on v6.8.4 images since the images are based on Java 10, neo4j and cassandra is not supported on that version of Java. 
+### Note
+
+Cassandra and Neo4j is not supported on v6.8.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra and neo4j.
+
  <a name="nod-684"></a>
 
 ### Node.js

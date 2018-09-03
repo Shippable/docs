@@ -34,11 +34,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)|
 | 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
-Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
-To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
-of Cassandra is available.
-
-Note: Cassandra is not supported on v6.8.4 images since the images are based on Java 10 and cassandra is not supported on that version of Java.
+Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra is not supported on v6.8.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra.
 
 
 ## CouchDB
