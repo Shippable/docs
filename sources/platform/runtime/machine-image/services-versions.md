@@ -34,7 +34,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)|
 | 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
-Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra is not supported on v6.8.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra.
+Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra is not supported on v6.8.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra.
 
 
 ## CouchDB
@@ -189,7 +189,7 @@ Note: Neo4j is not supported on v6.8.4 images because it is incompatible with Ja
 | 3.22.0   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later
 |3.20.1  | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)                   
 | 3.19.3   | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/)
-| 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)
+| 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 | 3.8.2    |- Ubuntu 14.04 | [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier
 
 for ubuntu14 OS, AMI v6.1.4 onwards, sqlite-tools like sqlite-analyser are not installed. To run this you need to install
