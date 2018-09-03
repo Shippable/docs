@@ -9,6 +9,7 @@ page_description: Popular services and the machine images where they are install
 
 When you run a `runCI` job on Shippable, the following popular services are already pre-installed for your convenience:
 
+* [Cassandra](/ci/cassandra)
 * [CouchDB](/ci/couchdb/)
 * [ElasticSearch](/ci/elasticsearch/)
 * [Memcached](/ci/memcached/)
@@ -22,9 +23,22 @@ When you run a `runCI` job on Shippable, the following popular services are alre
 * [Riak](/ci/riak/)
 * [Selenium](/ci/selenium/)
 * [SqlLite](/ci/sqlite/)
-* [Cassandra](/ci/cassandra)
+
 
 This page lists the versions of Services available for each supported [OS](/platform/runtime/machine-image/os-versions) and the Machine Image(s) where you can find them. These services can be started automatically in a [runCI job](/platform/workflow/job/runci).
+
+##Cassandra
+
+| Version  |    OS    | Machine Images
+|----------|---------|-------
+|3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
+| 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
+
+Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
+To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
+of Cassandra is available.
+
+Note: Cassandra is not supported on v6.8.4 images since the images are based on Java 10 and cassandra is not supported on that version of Java.
 
 
 ## CouchDB
@@ -32,6 +46,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |                OS                | Machine Images       
 |----------|----------------------------------|------
+| 2.1.2    | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/)
 | 2.1.2    | - CentOS 7  |[v6.7.4](/platform/runtime/machine-image/ami-v674/)
 | 2.1.1    | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) <br>[v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later
 | 1.6.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
@@ -43,8 +58,9 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version|              OS            | Machine Images       
 |-------|----------------------------|---------------------
+|6.3.2  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |6.3.1  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.7.4](/platform/runtime/machine-image/ami-v674/)
-|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
+|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |6.2.3  | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |6.1.1  | - CentOS 7<br> - Ubuntu 14.04<br>- Ubuntu 16.04<br> - Ubuntu 16.04(aarch64) |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later                
 |5.6.2  | - Ubuntu 14.04<br>- Ubuntu 16.04               |[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -56,19 +72,20 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |     OS   | Machine Images         
 |----------|----------|-----------------
-|1.5.9     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.7.4](/platform/runtime/machine-image/ami-v674/)
-|1.5.7     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)
+|1.5.9     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.7.4](/platform/runtime/machine-image/ami-v674/) and [v6.8.4](/platform/runtime/machine-image/ami-v684/)
+|1.5.7     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.6.4](/platform/runtime/machine-image/ami-v664/)
 |1.5.4     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)   
 |1.5.2     |- Ubuntu 14.04<br>- Ubuntu 16.04 | [V5.10.4](/platform/runtime/machine-image/ami-v5104/)
 |1.5.0     |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 |1.4.39    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |1.4.34    |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
-|1.4.25    |- Ubuntu 16.04(aarch 64)         | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)
+|1.4.25    |- Ubuntu 16.04(aarch 64)         | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 
 ## MongoDB
 
 | Version  |  OS     | Machine Images
 |----------|---------|-------------------
+|4.0.1 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |4.0.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |3.6.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)
 |3.6.3 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04|[v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -81,6 +98,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS  | Machine Images
 |----------|---------| ------
+|5.7.23| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |5.7.22| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/) <br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |5.7.21|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |5.7.20 |- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)
@@ -103,10 +121,13 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.2.2  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |3.1.1  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
+Note: Neo4j is not supported on v6.8.4 images since the images are based on Java 10 and neo4j is not supported on that version of Java.
+
 ## Postgres
 
 | Version  |    OS    |   Machine Images
 |----------|---------|------------
+|10.5 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |10.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |10.3 |- CentOS 7<br>- Ubuntu 14.04 |[v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |10.2  | - CentOS 7  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)
@@ -130,6 +151,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS  | Machine Images
 |----------|---------|--------
+| 4.0.11 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 | 4.0.10 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) |  [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |4.0.9 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  <br>-  Ubuntu 16.04(aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
 |4.0.8 |- CentOS 7<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64)  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -156,6 +178,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 
 | Version  |  OS    | Machine Images
 |----------|---------|-------
+|3.14.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |3.13.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |3.11.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)
 | 3.8.1   | - CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -180,14 +203,3 @@ dpkg --add-architecture i386
 apt-get update
 apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
 ```
-
-##Cassandra
-
-| Version  |    OS    | Machine Images
-|----------|---------|-------
-|3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
-| 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
-
-Cassandra versions 3.6 -3.11 are [broken](https://issues.apache.org/jira/browse/CASSANDRA-14173) for oracle java due to a recent release.
-To use Cassandra, you should run it with `openjdk8` for it to work correctly. This will be patched as soon as newer version
-of Cassandra is available.
