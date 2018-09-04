@@ -39,7 +39,6 @@ pages:
         - Choosing a build image: ci/build-image.md
         - Specifying branches/tags to build: ci/specify-branches.md
         - Working with env variables: ci/env-vars.md
-        - Using shallow clone and git options: ci/set-git-options.md
       - Working with services:
         - Overview: ci/services-overview.md
         - Cassandra: ci/cassandra.md
@@ -105,6 +104,8 @@ pages:
         - Triggering parallel jobs: ci/matrix-builds.md
         - Making CI part of Assembly Line workflows: ci/trigger-pipeline-jobs.md
         - Managing roles and permissions: ci/permissions.md
+        - Using shallow clone: ci/shallow-clone.md
+        - Using git config: ci/set-git-config.md
       - Language guide:
         - Overview: ci/supported-languages.md
         - Node.js: ci/nodejs-continuous-integration.md
