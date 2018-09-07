@@ -770,7 +770,7 @@ MY_JSON_FIELD="$(shipctl get_json_value "properties.json" "servers[0].ipaddress"
 
 **Description**
 
-Utilizes notification resources to send custom messages at any time during the build to any recipient. (not currently supported on Windows)
+Utilizes notification resources to send custom messages at any time during the build to any recipient.
 
 **Usage**
 
@@ -782,17 +782,19 @@ The options can be specified as part of the command, or defined as environment v
 
 command line options:
 
-- `--username`: Shows in the heading of the Slack message.  Defaults to "Shippable".
-- `--recipient`: A single target for the notification. Slack only. Should begin with `#` or `@`. If not specified, will default to the array of recipients defined in the notification resource.
-- `--pretext`: A string that becomes the first part of the Slack message.  It defaults to the current date/time.
-- `--text`: The main section to display a message.  It defaults to a link to the current job.
-- `--color`: Defines the color to the left of the text section on Slack.  Defaults to "#65cea7" (Shippable success).
-- `--icon_url`: Defaults to Shippable's aye-aye icon if not specified.
-- `--payload`: If specified, must be a path to a valid json file.  This json directly becomes the POST body in the request to Slack API or the webhook endpoint.  This parameter overrides all others.  In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages).  For webhook payloads, the only requirement is that it be valid json.
+- `--username`: Shows in the heading of the Slack message for Slack notifications and is the user sending the message in IRC. Defaults to "Shippable" for Slack and "Shippable-$BUILD_NUMBER" for IRC.
+- `--password`: The password to connect to an IRC server. Only supported for IRC notifications.
+- `--recipient`: A single target for the notification. Slack and IRC only. Slack recipients should begin with `#` or `@` and IRC recipients are `server#channel` (for example, `irc.freenode.net#my-channel`). If not specified, will default to the array of recipients defined in the notification resource.
+- `--pretext`: A string that becomes the first part of the Slack message. It defaults to the current date/time. Not supported for IRC notifications.
+- `--text`: The main section to display a message. It defaults to a link to the current job.
+- `--color`: Defines the color to the left of the text section on Slack. Defaults to "#65cea7" (Shippable success). Not supported for IRC notifications.
+- `--icon_url`: Defaults to Shippable's aye-aye icon if not specified. Not supported in IRC notifications.
+- `--payload`: If specified, must be a path to a valid json file. This json directly becomes the POST body in the request to Slack API or the webhook endpoint. This parameter overrides all others. In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages). For webhook payloads, the only requirement is that it be valid json.
 
 environment options:
 
 - `NOTIFY_USERNAME` (--username)
+- `NOTIFY_PASSWORD` (--password)
 - `NOTIFY_RECIPIENT` (--recipient)
 - `NOTIFY_PRETEXT` (--pretext)
 - `NOTIFY_TEXT` (--text)
@@ -802,7 +804,7 @@ environment options:
 
 The command line arguments take priority over the environment variables.
 
-Though many of these options are specific to Slack, they can be used for webhook notifications as well.  When these options are used in webhook notifications, the payload becomes an object of simple name/value pairs.  See the [notification resource documentation](/platform/workflow/resource/notification) for more information.
+Though many of these options are specific to Slack, they can be used for webhook notifications as well. When these options are used in webhook notifications, the payload becomes an object of simple name/value pairs. See the [notification resource documentation](/platform/workflow/resource/notification) for more information.
 
 **Examples**
 
@@ -820,6 +822,16 @@ The default payload will be sent only to `@johndoe`
 shipctl notify myWebhookNotifier --payload=`pwd`/successPayload.json
 ```
 Sends a custom payload, defined inside the json file, to the endpoint defined in the integration attached to myWebhookNotifier
+
+```
+shipctl notify myIRCNotifier --username=myUser
+```
+Sends the default IRC message to the recipient configured in myIRCNotifier as myUsername.
+
+```
+shipctl notify myIRCNotifier --text="My IRC message for build $BUILD_NUMBER."
+```
+Sends the specified message to IRC as the default user (`Shippable-$BUILD_NUMBER`).
 
 
 ### replace

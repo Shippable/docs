@@ -61,8 +61,7 @@ resources:
 	        versionTemplate:
 	          method: irc
 	          recipients:
-	            - "#beta"
-	            - "@botnot"
+	            - "irc.freenode.net#beta"
 
 	* For Slack
 
@@ -116,8 +115,7 @@ resources:
 	        pointer:
 	          method: irc
 	          recipients:
-	            - "#beta"
-	            - "@botnot"
+	            - "irc.freenode.net#beta"
 
 	* For Slack
 
@@ -141,7 +139,7 @@ This resource can be used as a `NOTIFY` for all job types.  For more information
 ## Usage in shipctl
 Instead of including a notification resource as a `NOTIFY` step in one or more of your jobs, you can include it as an `IN` step, and then use [shipctl notify](/platform/tutorial/workflow/using-shipctl/#notify) to utilize it to send custom notifications throughout the build.
 
-At this time, `shipctl notify` only supports notification resources that utilize "Slack" or "webhook" type integrations, and is not currently available for Windows jobs.
+At this time, `shipctl notify` only supports notification resources that utilize "Slack" or "webhook" type integrations or have `method: irc` in the resource `versionTemplate` or `pointer`.
 
 ### Slack
 By default, `shipctl notify` will send a simple Slack message payload to the configured recipients.  This payload includes the current date/time and a link back to the current job on Shippable.  Each component of the payload can be individually customized.  For example, options like `--username` or `--icon-url` can be changed to show the name and icon of your own organization rather than Shippable.  The payload will be sent for each recipient defined in the resource.  However, the resource settings can be overridden by using the `--recipient` option, which accepts a single recipient.
@@ -153,7 +151,7 @@ For example:
 		shipctl notify mySlackNotifier --recipient="#support" --color="#FF3333" --text="goals are not properly defined"
 	fi
 ```
-This gives you much more flexibility in how and when your notifications are sent, as well as who recieves them under which conditions.
+This gives you much more flexibility in how and when your notifications are sent, as well as who receives them under which conditions.
 
 ### Webhook
 By default, `shiptcl notify` commands that target a resource with a webhook integration will send a default payload to the endpoint defined in the integration.  It is recommended to use the `--payload` option to specify your own customized payload.  This will allow you to configure your build to communicate successfully with any external service that accepts webhooks.
@@ -168,6 +166,21 @@ For example:
 	fi
 ```
 Different payloads can be sent under different conditions, and can be filled in using values from the environment.
+
+This gives you much more flexibility in how and when your notifications are sent, as well as who receives them under which conditions.
+
+### IRC
+By default, `shipctl notify` will send a simple message payload to the configured channels.  This includes a link back to the current job on Shippable.  The content can be customized.  For example, options like `--username` or `--text` can be changed to configure the nickname used to send the message and the message contents.  The payload will be sent for each recipient defined in the resource.  However, the resource settings can be overridden by using the `--recipient` option, which accepts a single recipient.
+
+For example:
+```
+- >
+	if [ -z "$goals" ]; then
+		shipctl notify myIRCNotifier --recipient="irc.freenode.net#support" --text="goals are not properly defined"
+	fi
+```
+
+This gives you much more flexibility in how and when your notifications are sent, as well as who receives them under which conditions.
 
 ## Default Environment Variables
 Whenever a `notification` resource is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.

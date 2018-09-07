@@ -164,7 +164,7 @@ For `cliConfig` resources, you should make sure that your policy allows you to p
     ]
 }
 ```
-These settings come directly from a default AWS policay called "AmazonEC2ContainerRegistryPowerUser", which is described as "Provides full access to Amazon EC2 Container Registry repositories, but does not allow repository deletion or policy changes". A policy like this should allow any typical action you'd like to take for ECR.
+These settings come directly from a default AWS policy called "AmazonEC2ContainerRegistryPowerUser", which is described as "Provides full access to Amazon EC2 Container Registry repositories, but does not allow repository deletion or policy changes". A policy like this should allow any typical action you'd like to take for ECR.
 
 ## Default Environment Variables
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a job that can execute user defined scripts, a set of environment variables are configured by the platform that may be useful to set the context before user defined scripts execute as part of the job. These variables are available when a resource with this integration type is used.
