@@ -16,4 +16,4 @@ This view displays the status and history of all execution runs of [runCI](/plat
 
 * Click on the Project you want.
 
-<img src="/images/platform/visibility/project-dash-view.jpg" alt="Project view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/project-dash-view-2.png" alt="Project view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

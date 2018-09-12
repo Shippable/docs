@@ -19,7 +19,7 @@ To get here:
 * On the Subscription page, click on the **Eye** icon to switch between Grid and SPOG views.
 
 **Grid View**
-<img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-dash-view-2.png" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 **SPOG View**
 <img src="/images/platform/visibility/subscription-dash-spog-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>

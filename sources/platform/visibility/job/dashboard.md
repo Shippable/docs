@@ -18,7 +18,7 @@ To get here:
 
 * On your Subscription dashboard, look for the Job name in the **Name column** and click on it.
 
-<img src="/images/platform/visibility/jobs-view-grid.jpg" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/jobs-view-grid-2.png" alt="Job view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Your Job Dashboard displays the YML config for the job from [shippable.yml](/platform/workflow/config).
 
