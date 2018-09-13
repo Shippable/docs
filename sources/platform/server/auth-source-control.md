@@ -190,15 +190,12 @@ The following steps configure Gerrit as an authorization provider for your Shipp
 * Select **GERRIT**.
 * Enter SCM **name** for Gerrit. SCM name is an optional field.
 * Enter your Gerrit **URL**.
-
-### Configure Shippable to trigger builds automatically
- * Create new user with username `shippable`(changeable) on your Gerrit SCM for for allowing Shippable to access event-streams.
- * Enter your Gerrit SCM instance's **SSH port**. Default is 29418.
- * Copy `Public Key` from admiral UI and add this to `shippable`'s SSH keys.
+* To automatically trigger builds on Gerrit events, Shippable needs SSH access to your Gerrit server with privileges to run the `gerrit stream-events` command. Create a user on Gerrit with this privilege and enter the user name in Admiral.
+* Enter your Gerrit SCM instance's SSH port. The default is usually 29418.
+* Copy `Public Key` from admiral UI and add this to the Gerrit user you created above.
+* Please note that you will need to click on **Apply** for your changes to be effective.
 
 <img src="/images/platform/server/gerrit.png" alt="Configuring Gerrit for Shippable Server auth">
-
-* Please note that you will need to click on **Apply** for your changes to be effective.
 
 If you came to this page to configure Gerrit while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
