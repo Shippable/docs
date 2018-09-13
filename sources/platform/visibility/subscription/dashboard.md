@@ -16,12 +16,12 @@ To get here:
 
 <img src="/images/getting-started/account-settings.png" alt="Add Integration">
 
-* On the Subscription page, click on the **Eye** icon to switch between Grid and SPOG views.
+* On the Subscription page, you can switch between the various views provided as tabs.
 
 **Grid View**
-<img src="/images/platform/visibility/subscription-dash-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-dash-view.png" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 **SPOG View**
-<img src="/images/platform/visibility/subscription-dash-spog-view.jpg" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/subscription-dash-spog-view.png" alt="Subscription view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Read more on [SPOG view](/platform/visibility/single-pane-of-glass-spog/).
