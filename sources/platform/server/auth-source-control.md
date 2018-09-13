@@ -16,6 +16,7 @@ Shippable Server supports the following source control providers:
 - GitHub
 - Bitbucket Cloud
 - Gitlab .com, CE, and EE
+- Gerrit
 
 The following sections will show how to configure your Shippable Server instance to connect to supported source control providers for user authorization. All configuration is available in Admiral, the Shippable Server Installer, under **Control plane -> AUTHORIZATION AND SOURCE CONTROL MANAGEMENT (SCM) PROVIDERS** panel.
 
@@ -181,6 +182,25 @@ The following steps configure Gitlab as an authorization provider for your Shipp
 If you came to this page to configure Gitlab while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
 
 If you already have a working Shippable Server instance and just added Gitlab auth, you should be able to sign in with your Gitlab credentials at this time.  
+
+## Gerrit
+
+The following steps configure Gerrit as an authorization provider for your Shippable Server instance:
+
+* Select **GERRIT**.
+* Enter SCM **name** for Gerrit. SCM name is an optional field.
+* Enter your Gerrit **URL**.
+* To automatically trigger builds on Gerrit events, Shippable needs SSH access to your Gerrit server with privileges to run the `gerrit stream-events` command. Create a user on Gerrit with this privilege and enter the user name in Admiral.
+* Enter your Gerrit SCM instance's SSH port. The default is usually 29418.
+* Copy `Public Key` from admiral UI and add this to the Gerrit user you created above.
+* Please note that you will need to click on **Apply** for your changes to be effective.
+
+<img src="/images/platform/server/gerrit.png" alt="Configuring Gerrit for Shippable Server auth">
+
+If you came to this page to configure Gerrit while installing Shippable server for the first time, please go back to the installation document to follow the remaining steps.
+
+If you already have a working Shippable Server instance and just added Gerrit auth, you should be able to sign in with your Gerrit credentials at this time.  
+
 
 ### Using self-signed SSL certifcates with enterprise SCM installations
 
