@@ -10,10 +10,10 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 If you would like views that are subset of the Subscriptions,Jobs or Projects, the platform provides ability to create custom views. You can create as many views you need and objects can be duplicated across these views
 
 **Grid View**
-<img src="/images/platform/visibility/account-custom-view.jpg" alt="Custom grid view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/account-custom-view.png" alt="Custom grid view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 **SPOG View**
-<img src="/images/platform/visibility/account-custom-spog-view.jpg" alt="Custom spog view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/account-custom-spog-view.png" alt="Custom spog view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 **Add/Edit Custom View**
 You can create a custom view by clicking on `+` on the right hand corner of the default home view and then adding the objects that you would like to be a part of this view

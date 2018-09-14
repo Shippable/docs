@@ -14,6 +14,6 @@ This is the place where you can get the project specific URLs to put badges on y
 
 <img src="/images/getting-started/account-settings.png" alt="Left Navbar">
 
-* Click on the project you want and then on the Project page, click on the **Badges** icon to open Settings.
+* Click on the project you want and then on the Project page, click on the **Badges** tab.
 
-<img src="/images/platform/visibility/project-badges.jpg" alt="Project view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/project-badges.png" alt="Project view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
