@@ -45,6 +45,10 @@ You can configure different options and settings for your project on this page. 
 
 * **Types to Display**: Select whether you want to see only status for jobs triggered by Commits, or Commits and Pull Requests on the [Home](/platform/visibility/account/default-view/) and [Subscription](/platform/visibility/subscription/dashboard/) Dashboards
 
+* **Show ENVs in grid view**: Enter list of environment variable matching keys in this field separated by comma which you want to see in subscription, custom and project dashboard's grid view
+
+<img src="/images/platform/visibility/project-settings-envs-in-grid.png" alt="Project Settings for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
 ## Reports Configuration
 
 * **Consolidate Reports**: If you are using a [matrix build](/ci/matrix-builds/) to parallelize your tests, turning this **ON** will calculate test and coverage results across all jobs
