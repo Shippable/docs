@@ -37,13 +37,6 @@ You can view all the currently active node pools in your Subscription by followi
 <img src="/images/platform/management/subscription-node-pools-list.png" alt="Subscription Node Pools view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 
-* The header for each Node Pool provides useful information about it. This
-  includes: Whether the node pool is set to default for the subscription,
-  operating system, architecture, name of the node pool, version of Shippable
-  agent running on the nodes of the node pool and the type of nodes in the node
-  pool: BYON or On-Demand
-<img src="/images/platform/management/subscription-node-pools-header.png" alt="Subscription Node Pools view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
 ## Managing node pools
 
 ### Creating a node pool
