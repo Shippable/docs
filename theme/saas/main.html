@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=1200">
   <!-- <title>{% if meta %}{{ meta.page_main_title|join('') }} - {% elif page_main_title %}{{ page_main_title }} - {% endif %}{{ site_name }}</title>
   <description>{% if meta %}{{ meta.page_description|join('') }} - {% elif page_description %}{{ page_description }} - {% endif %}{{ site_name }}</description> -->
-  <meta name="description" content={{page.meta.page_description}}>
+  <meta name="description" content="{{page.meta.page_description|join('')}}">
   <title>{{page.title}}</title>
   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/ionicons/css/ionicons.min.css" rel="stylesheet">
