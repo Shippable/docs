@@ -17,13 +17,10 @@ Each job in this view will update colors in real time based on the status of the
 - **Yellow** for unstable CI jobs
 - **Pink** for inconsistent jobs
 
-<img src="/images/getting-started/spog.png" alt="SPOG: Single pane of glass">
-
 To view the SPOG, do the following:
 
 - Navigate to your subscription dashboard.
-- Click on the `eye icon` with the tooltip `Views`.
-- Click on `Show SPOG View`.
+- Click on 'SPOG' tab.
 
 <img src="/images/getting-started/view-spog.png" alt="SPOG: Single pane of glass">
 

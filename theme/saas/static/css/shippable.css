@@ -645,3 +645,11 @@ pre code {
 pre {
   background-color: #f8f8f8;
 }
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -75px;
+  height: 75px;
+  visibility: hidden;
+}
