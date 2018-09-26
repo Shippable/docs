@@ -83,7 +83,7 @@ Each of the language images is built from the respective base OS version of the 
 
 | Compiler Version | OS     |Machine Image |
 |------------------|-----------|-----------
-|clang 6.0.1       |- Ubuntu 14.04 <br>- Ubuntu 16.04 |[v6.7.4](/platform/runtime/machine-image/ami-v674/) and [v6.9.4](/platform/runtime/machine-image/ami-v694/)
+|clang 6.0.1       |- Ubuntu 14.04 <br>- Ubuntu 16.04 |[v6.7.4](/platform/runtime/machine-image/ami-v674/) to [v6.9.4](/platform/runtime/machine-image/ami-v694/)
 |clang 6.0.0       |- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654 ) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654 ) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654 ) to [v6.9.4](/platform/runtime/machine-image/ami-v694/)
 |clang 5.0.1       |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)<br>-  | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/) <br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br> [v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/) |
 |clang 5.0.0       |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.10.4](/platform/runtime/machine-image/ami-v5104/) |
