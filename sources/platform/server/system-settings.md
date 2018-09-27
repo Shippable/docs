@@ -19,6 +19,6 @@ The **Account sync frequency** is the interval at which every user account is sy
 
 **Ignore TLS Errors** allows you to configure your Shippable Server to ignore all TLS errors. Do **not** enable this unless you need to work with [self-signed SSL certificates](/platform/server/selfsigned-certificates/) in a trusted network.
 
-**Automatically synchronize SCM** allows you to control whether Shippable will automatically synchronize reposistory lists and permissions from the configured SCM providers. This automatic synchronization may not be desirable if your SCM has a very large number of repositories. If you turn this off, each Shippable user can manually add the repositories they would like to see on Shippable through their Account Profile page.
+**Automatically synchronize SCM** allows you to control whether Shippable will automatically synchronize repository lists and permissions from the configured SCM providers. This automatic synchronization may not be desirable if your SCM has a very large number of repositories. If you turn this off, each Shippable user can [manually add the repositories](/platform/management/account/add-projects-manually/) they would like to see on Shippable through their Account Profile page.
 
 **Manage System Superusers** allows you to configure the user accounts that will have superuser privileges. Follow [these steps](/platform/server/superuser/) to configure superusers.

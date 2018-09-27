@@ -8,7 +8,7 @@ page_description: gitRepo resource reference
 # gitRepo
 `gitRepo` is used to connect DevOps Assembly Lines to source control repository. Adding it creates a webhook to the repo so that future commits will automatically create a new version with the webhook payload.
 
-When a webhook is received, jobs that have this resource as an `IN` will usually be triggered.  Jobs will not be triggered for commit webhooks determined to have updated any **shippable.yml**, `shippable.resources.yml`, `shippable.jobs.yml` or `shippable.triggers.yml` files.
+When a webhook is received, jobs that have this resource as an `IN` will usually be triggered.  Jobs will not be triggered for commit webhooks determined to have updated any **shippable.yml**, `shippable.resources.yml`, `shippable.jobs.yml` or `shippable.triggers.yml` files. For Gerrit gitRepo resources, jobs will always be triggered on any change.
 
 You can create a `gitRepo` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
@@ -60,13 +60,14 @@ resources:
             buildOnPullRequestClose:  <Boolean>
             buildOnRelease:           <Boolean>
             buildOnTagPush:           <Boolean>
+            buildOnComment:           <regular expression>
             depth:                    <Positive Integer>
             gitConfig:
               - <git config>
               - <git config>
 
 * Detailed explation of the versionTemplate properties:
-	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**
+	* `sourceName` -- (required) is the fully qualified name of the repository in the format **org/repo**. For Gerrit projects, they should be manually added before they can be used as gitRepo resources.  
     * `branch` -- (optional) specifies specific branch name that this resource represents. If not set, all branches trigger a new version. Cannot be set if `branches` property is used
     * `branches` -- (optional) works like the `branch` but allows to use it for a collection of branches. Cannot be used if `branch` is used. Wildcards can used in names, e.g., feat-*
     	* `except` -- (optional) Can be used to exclude a collection of branches
@@ -79,6 +80,7 @@ resources:
     * `buildOnPullRequestClose` -- (default is false) used to control whether the resource will be updated for closing a pull request webhook
     * `buildOnRelease` -- (default is false) used to control whether the resource will be updated for release webhooks    
     * `buildOnTagPush` -- (default is false) used to control whether the resource will be updated for tag webhooks
+    * `buildOnComment` -- (optional). This is only supported for Gerrit. Comments on Gerrit changes that match the regular expression will update the resource. Comments on merged or abandoned changes will not trigger any builds.
     * `depth` -- (optional) used to set the depth at which the repo is (shallow)cloned/fetched
     * `gitConfig` -- (optional) used to set the git configs globally before the repo is cloned
 

@@ -16,8 +16,9 @@ You can configure different options and settings for your project on this page. 
 
 * Click on the project you want and then on the Project page, click on the **Spanner** icon to open Settings.
 
+<a name="webhookConfig"></a>
 ## Webhook config
-<img src="/images/platform/visibility/project-settings-1.jpg" alt="Project Settings for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/project-settings-1.png" alt="Project Settings for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 * **Process Webhooks**: Turns ON or OFF automatic processing of your source control webhooks on this repository. If turned **OFF**, builds and jobs will not be triggered automatically for any changes to the repository. You can still run manual builds.
 
@@ -36,6 +37,8 @@ You can configure different options and settings for your project on this page. 
 * **Tags**: If set to **ON**, tag create event on the source control repository will trigger your CI job
 
 * **Release**: If set to **ON**, release create event on the source control repository will trigger your CI job
+
+* **Comments**: This is only supported for Gerrit. If a regular expression is provided then comments on Gerrit changes that match the regular expression will trigger a build on Shippable. Comments on merged or abandoned changes will not trigger any builds.
 
 ## View Settings
 
