@@ -105,4 +105,161 @@ A brief overview of each section of the yml is provided in this table. For a det
 | [**integrations:**](/platform/integration/overview/)       | no default                                                                                           | Wrapper for several subsections like `notifications`, `hub`,  and `keys`. This overall section lets you specify what third party services you want to interact with a part of your build.                                                                                                                                                                           |
 |&nbsp;&nbsp;&nbsp;&nbsp;[notifications:](send-notifications/)     | Email notifications sent to last  committer and author on build  failure or status change to success | Used to send Slack, Hipchat, IRC notifications as well as to customize default email notification settings. This section can also be used to trigger a custom webhook or to trigger another Shippable project at various points during your CI workflow. [Read more](send-notifications/)                                                                                                           |
 |&nbsp;&nbsp;&nbsp;&nbsp;[hub:](push-artifacts/)            | no default                                                                                           | Include this section if you want to interact with any Docker registry to pull a private image or push an image. [Read more](push-artifacts/)                                                                                                                                                                                                                                                    |
-|&nbsp;&nbsp;&nbsp;&nbsp;[keys:](#keys)           | no default                                                                                           | Include this section if you need to use SSH or PEM keys to interact with services that are not natively supported on Shippable. [Read more](/ci/ssh-keys/)                                                                                                                                                                                                                                    |
+|&nbsp;&nbsp;&nbsp;&nbsp;[keys:](#keys)           | no default                                                                                           | Include this section if you need to use SSH or PEM keys to interact with services that are not natively supported on Shippable. [Read more](/ci/ssh-keys/)                                                                                                                                                                       |
+
+## YML templates
+If some common scripts need to be used in multiple sections of your CI job then instead of writing them in all the sections repetitively you can define a template once and use this at all the places and keep your **shippable.yml** file clean and small. These templates are basically yml anchors, to know more about yml anchors and how to use them please click [here](http://yaml.org/spec/1.2/spec.html#id2765878).
+
+Below is a sample yml using templates defined in the shippable.yml.
+
+```
+templates: &template-script
+  - echo "common-script 1"
+  - echo "common-script 2"
+  - echo "common-script 3"
+
+language: node_js
+build:
+  pre_ci:
+    - echo "hello world!"
+    - *template-script
+  ci:
+    - echo "hello world!"
+    - *template-script
+  post_ci:
+    - echo "hello world!"
+    - *template-script
+  on_success:
+    - echo "hello world!"
+    - *template-script
+```
+
+## shippable.templates.yml
+Defining separate templates for each of the files might be an overhead if you want to use some common templates in more than one file. You can avoid this by creating a separate `shippable.templates.yml` in the root directory of your project and define all your templates in this file and use them in your yml. This helps significantly in reducing the number of lines in your yml and also makes your ymls more neat and clean.
+
+Below is a sample yml using templates defined in a separate file.
+
+* `shippable.templates.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+templates3: &template-script-3
+  - echo "common-script 5"
+  - echo "common-script 6"
+
+```
+
+* `shippable.yml`
+
+```yaml
+language: node_js
+build:
+  pre_ci:
+    - echo "hello world!"
+    - *template-script-1
+  ci:
+    - echo "hello world!"
+    - *template-script-2
+  post_ci:
+    - echo "hello world!"
+    - *template-script-3
+  on_success:
+    - echo "hello world!"
+    - *template-script-1
+```
+
+There might be some cases where you need to use some common templates in more than one projects. In this case, instead of defining these templates in each of the projects you can rather keep them in some **public** repo and then mention their raw file path in `shippable.templates.yml` under `externalReferences` section, and then use templates defined in this file in your jobs.
+
+Below is an example showing how you can import external templates files and use the templates defined in those files in your jobs.
+
+* external template file `template1.yml`
+
+```yaml
+
+templates1: &template-script-1
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates2: &template-script-2
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* external templates file `template2.yml`
+
+```yaml
+
+templates3: &template-script-3
+  - echo "common-script 5"
+  - echo "common-script 6"
+
+
+templates4: &template-script-4
+  - echo "common-script 7"
+  - echo "common-script 8"
+
+```
+
+* `shippable.templates.yml`
+
+```yaml
+
+externalReferences:
+  - https://github.com/sampleTest/sample_templates/raw/master/template1.yml
+  - https://github.com/sampleTest/sample_templates/raw/master/template2.yml
+
+templates5: &template-script-5
+  - echo "common-script 1"
+  - echo "common-script 2"
+
+templates6: &template-script-6
+  - echo "common-script 3"
+  - echo "common-script 4"
+
+```
+
+* `shippable.yml`
+
+```yaml
+language: node_js
+build:
+  pre_ci:
+    - echo "hello world!"
+    - *template-script-1
+  ci:
+    - echo "hello world!"
+    - *template-script-2
+  post_ci:
+    - echo "hello world!"
+    - *template-script-3
+    - *template-script-4
+  on_success:
+    - echo "hello world!"
+    - *template-script-5
+    - *template-script-6
+
+```
+
+
+**Note**:
+
+* YML templates should be given in a single line script only. Passing template in a multi-line script wont work.
+
+```
+  ci:
+    - |
+      echo "This is job A"
+      *template-script          # this is not allowed
+      echo "some more scripts"
+```
+
+* Currently we support `externalReferences` only from a public repo, so please make sure your external templates file are publically accessible.
