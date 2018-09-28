@@ -209,6 +209,38 @@ shipctl refresh_file_to_state <filename>
 shipctl refresh_file_to_state "config.json"
 ```
 
+### replicate
+
+**Description**
+
+This command takes an `IN` resource and an `OUT` resource as input, and makes the second an exact copy of the first. The resources must both be type `state`. This allows you to transfer state data across jobs without having to manually copy each individual file and value. For state resources, information can be stored in metadata or directly in files. Metadata is modified when you utilize commands like `shipctl put_resource_state` to store key-value pairs. Files are typically managed using their own set of commands such as `shipctl copy_file_to_resource_state`. By default, the replicate command will copy both the files and the metadata settings of the state resource.
+
+Note: Windows Server is not yet supported.
+
+**Usage**
+
+```
+shipctl replicate <IN resource> <OUT resource> <options>
+```
+
+- `IN resource` is the name of the state resource that you're copying from. It must be listed as an `IN` on the job.
+- `OUT resource` is the name of the state resource that will receive the replicated data from the `IN resource`. It must be listed as an `OUT` on the job. Any pre-existing files or key-value pairs in this resource will be replaced.
+- `--files-only` tells shipctl to only replicate the files from the `IN` resource.  The `OUT` resource will keep its original metadata.
+- `--metadata-only` tells shipctl to only replicate the metadata from the `IN` resource.  The `OUT` resource will keep its original files.
+
+**Example**
+
+```
+shipctl replicate incomingState outgoingState
+```
+The above command will copy all files and key/value pairs from a state resource named `incomingState` to a state resource named `outgoingState`.
+
+```
+shipctl replicate stateA stateB --files-only
+```
+The above command will only copy files from a state resource named `stateA` to a state resource named `stateB`.
+
+
 ## Resource/Job information
 
 The methods in this section apply to both jobs and resources, even though the names might suggest they only work with resources.
@@ -917,6 +949,26 @@ MY_UPPERCASE="$(shipctl to_uppercase "foo!@#")"
 ```
 
 Output of the above statement would be `FOO!@#`
+
+### jdk set
+
+**Description**
+
+Used to change between Java versions on demand. Note that this command should be invoked with `source` in order to properly set all of the necessary environment variables.
+
+**Usage**
+
+```
+source shipctl jdk set <version>
+```
+
+**Example**
+
+```
+source shipctl jdk set oraclejdk10
+java -version
+mvn --version
+```
 
 ## Deprecated commands
 
