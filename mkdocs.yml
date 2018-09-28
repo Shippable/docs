@@ -357,6 +357,7 @@ pages:
       - Account:
         - Set account email: platform/management/account/set-email.md
         - Sync your account: platform/management/account/sync.md
+        - Manually Added Repositories(Shippable Server): platform/management/account/add-projects-manually.md
         - Manage git identities: platform/management/account/git-identities.md
         - Manage integrations: platform/management/account/integrations.md
         - Manage credit cards: platform/management/account/manage-payment-methods.md
