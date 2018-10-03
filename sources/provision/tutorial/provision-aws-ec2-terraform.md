@@ -36,6 +36,7 @@ To jump into this tutorial, you will need to familiarize yourself with a few pla
 * [Integrations](/platform/integration/overview/)
     * [AWS](/platform/integration/aws-keys)
     * [Github](/platform/integration/github)
+    * [SSH](/platform/integration/sshKey)
 * [Resources](/platform/workflow/resource/overview/)
     * [gitRepo](/platform/workflow/resource/gitrepo)
     * [integration](/platform/workflow/resource/integration)
@@ -80,6 +81,12 @@ Detailed steps on how to add a Github Integration are [here](/platform/integrati
 
 > Note: You might already have this if you have done any of our other tutorials. If so, skip this step.
 
+#####1.c Add SSH Key Integration
+
+To be able to access the EC2 machine and use it, we need to add the `drship_ssh` integration.
+
+Detailed steps on how to add an SSH Key Integration are [here](/platform/integration/sshKey/#creating-an-account-integration). Make sure you name the integration `drship_ssh` since that is the name we're using in our sample automation scripts.
+
 ####2. Author Assembly Line configuration
 
 The platform is built with "Everything as Code" philosophy, so all configuration is in a YAML-based file called **shippable.yml**, which is parsed to create your Assembly Line workflow.
@@ -121,6 +128,11 @@ resources:
     versionTemplate:
       params:
         SEED: "initial_version"
+
+# SSH keys for accessing the machine
+  - name: aws_ec2_tf_ssh
+    type: integration
+    integration: "drship_ssh"
 ```
 
 ######i. gitRepo resource named `aws_ec2_tf_repo`
@@ -149,12 +161,18 @@ We store information like **ec2_ins_0_ip**, which is created during the executio
 
 Detailed info about `params` resource is [here](/platform/workflow/resource/params).
 
+#####v. integration resource named `aws_ec2_tf_ssh`
+
+SSH key pair that could be used to access the EC2 machine is stored in this integration.
+
+To let Terraform scripts use the public key in the configuration of the EC2 machine, we will export `PUBLIC_SSH_KEY` stored in this resource as environment variable at runtime.
+
 #####2c. Add `jobs` section of the config
 
 A job is an execution unit of the Assembly Line. Our job has to perform four tasks:
 
 * Replace wildcards needed by the Terraform scripts
-* Export `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables
+* Export `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `PUBLIC_SSH_KEY` as environment variables
 * Run script
 * Output `instance_ip` into the `params` resource to make it available for downstream jobs
 
@@ -171,6 +189,8 @@ jobs:
         switch: off
       - IN: aws_ec2_tf_creds
         switch: off
+      - IN: aws_ec2_tf_ssh
+        switch: off
       - TASK:
           name: prov_ec2
           runtime:
@@ -178,15 +198,16 @@ jobs:
               env:
                 - inst_type: "t2.micro"
                 - inst_ami: "ami-43a15f3e"
-                - aws_key_name: "dr_us_east_1"
+                - aws_key_name: "dr_us_east_1_tf"
           script:
             - pushd $(shipctl get_resource_state "aws_ec2_tf_repo")
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_tf_creds "accessKey")
             - export AWS_SECRET_ACCESS_KEY=$(shipctl get_integration_resource_field aws_ec2_tf_creds "secretKey")
+            - export PUBLIC_SSH_KEY=$(shipctl get_integration_resource_field aws_ec2_tf_ssh "publicKey")
             - shipctl copy_file_from_resource_state aws_ec2_tf_state terraform.tfstate .
             - shipctl replace terraform.tfvars
-            - terraform plan -var-file=terraform.tfvars
-            - terraform apply -var-file=terraform.tfvars
+            - terraform init
+            - terraform apply -auto-approve -var-file=terraform.tfvars
       - OUT: aws_ec2_tf_info
         overwrite: true
       - OUT: aws_ec2_tf_state
@@ -205,6 +226,7 @@ jobs:
     * Terraform script files are version controlled in a repo represented by `aws_ec2_tf_repo`.
     * Credentials to connect to AWS are in `aws_ec2_tf_creds`. This resource has `switch: off` flag, so any changes to it will not trigger this job automatically
     * `aws_vpc_tf_info` is a **params** resource that comes from another tutorial [which explains how to provision a VPC](/provision/tutorial/provision-aws-vpc-terraform) and contains the `vpc_region`, `vpc_public_sn_id` and `vpc_public_sg_id`, which are required to provision your instance. If you already have a VPC and just want to use this tutorial to provision an instance, just delete this resource and hardcode the values in the **TASK.runtime.options.env** section.
+    * SSH Key used to connect to the EC2 machine is stored in `aws_ec2_tf_ssh`.
 
 * The `TASK` section contains the actual code that is executed when the job runs. We have just one task named `prov_ec2` which does the following:
   * First, we define environment variables required by the scripts-
@@ -295,7 +317,7 @@ jobs:
               env:
                 - inst_type: "t2.micro"
                 - inst_ami: "ami-43a15f3e"
-                - aws_key_name: "dr_us_east_1"
+                - aws_key_name: "dr_us_east_1_tf"
           script:
             - pushd $(shipctl get_resource_state "aws_ec2_tf_repo")
             - export AWS_ACCESS_KEY_ID=$(shipctl get_integration_resource_field aws_ec2_tf_creds "accessKey")
