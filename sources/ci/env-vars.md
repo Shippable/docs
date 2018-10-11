@@ -120,6 +120,7 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |RELEASED_AT | The timestamp when the release was published. This env variable is currently supported for GitHub only.|
 |RELEASE_NAME | The name of the release webhook. This env variable is currently supported for GitHub only.|
 
+* Gerrit specific common envs are [documented here](/platform/tutorial/workflow/gerrit-env-vars/).
 
 
 ### Travis compatible variables
