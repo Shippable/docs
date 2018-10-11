@@ -72,9 +72,10 @@ matrix:
   exclude:
     - rvm: 1.9.2
       gemfile: gemfiles/Gemfile.rails-3.0.x
+      nodePool: default_nodePool
 ```
 
-The snippet above excludes the job for the combination of `runtime 1.9.2` and `gemfiles/Gemfile.rails-3.0.x` parameters from the build matrix.
+The snippet above excludes the job running on `default_nodePool` for the combination of `runtime 1.9.2` and `gemfiles/Gemfile.rails-3.0.x` parameters from the build matrix. If no `nodePool` tag is specified and [multiple node pools](runtime-config/) are used to run the build, all the jobs runnin on all the node pools matching the `rvm` & `gemfile` config above will be excluded.
 
 ###Including jobs
 
@@ -86,8 +87,9 @@ matrix:
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=false
+      nodePool: default_nodePool
 ```
-This adds a particular job to the build matrix with the specified parameters.
+This adds a particular job to the build matrix with the specified parameters on the default_nodePool. If [multiple node pools](runtime-config/) are configured in the yml and `nodePool` tag is not specified, then the included job will run only on the first node pool.
 
 You can use this method to create a build matrix containing only specific combinations. Consider the example bellow:
 
@@ -111,7 +113,10 @@ Allowed failures are items in your build matrix that are allowed to fail without
 matrix:
   allow_failures:
     - rvm: 1.9.3
+      nodePool: default_nodePool
 ```
+
+If no `nodePool` tag is specified and [multiple node pools](runtime-config/) are configured, then all the jobs matching the above config will be allowed to fail on all the node pools.
 
 ### Rerunning unsuccessful items
 

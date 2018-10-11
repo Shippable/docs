@@ -106,6 +106,7 @@ pages:
         - Managing roles and permissions: ci/permissions.md
         - Using shallow clone: ci/shallow-clone.md
         - Using git config: ci/set-git-config.md
+        - Using multiple nodePools: ci/runtime-config.md
       - Language guide:
         - Overview: ci/supported-languages.md
         - Node.js: ci/nodejs-continuous-integration.md
