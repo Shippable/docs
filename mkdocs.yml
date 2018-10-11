@@ -389,7 +389,6 @@ pages:
         - Setting environment variables in jobs: platform/tutorial/workflow/set-env-vars-in-job.md
         - Sending pull request status to source control: platform/tutorial/workflow/sending-status-to-scm.md
         - shipctl utility reference: platform/tutorial/workflow/using-shipctl.md
-        - Gerrit specific ENVs: platform/tutorial/workflow/gerrit-env-vars.md
         - runSh Usecases: platform/tutorial/workflow/using-runSh.md
         - Run job directly on node: platform/tutorial/workflow/run-job-on-node.md
         - Run job on a specific node pool: platform/tutorial/workflow/run-job-on-specific-node-pool.md

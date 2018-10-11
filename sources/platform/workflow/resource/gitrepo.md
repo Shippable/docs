@@ -198,7 +198,35 @@ Whenever `gitRepo` is used as an `IN` or `OUT` for a `runSh` or `runCI` job, a s
 | `<NAME>`\_IS_PULL\_REQUEST                | Set to `TRUE` if the version in context is a git open pull request based build. |
 | `<NAME>`\_IS_PULL\_REQUEST\_CLOSE         | Set to `TRUE` if the version in context is a git closed pull request based build. Supported only if the integration is of GitHub or Bitbucket or Gitlab.|
 
-* Gerrit specific common envs are [documented here](/platform/tutorial/workflow/gerrit-env-vars/).
+### Gerrit specific variables
+
+For Gerrit gitRepo resources a set of environment variables are automatically made available that you can use in your scripts.
+
+| Environment variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| `<NAME>`_GERRIT_PROJECT 								| The name of the gerrit gitRepo project |
+| `<NAME>`_GERRIT_REST_URL 								| Gerrit REST api endpoint |
+| `<NAME>`_GERRIT_HOST 								| Gerrit server hostname |
+| `<NAME>`_GERRIT_PORT 								| Gerrit server SSH port |
+| `<NAME>`_GERRIT_BRANCH 								| The current branch of the project |
+| `<NAME>`_GERRIT_EVENT_TYPE 								| The name of the event which triggered the build |
+| `<NAME>`_GERRIT_CHANGE_ID 								| The change-Id of the change |
+| `<NAME>`_GERRIT_CHANGE_URL 								| The canonical URL of the change |
+| `<NAME>`_GERRIT_CHANGE_NUMBER 								| The change number |
+| `<NAME>`_GERRIT_CHANGE_SUBJECT 								| The description of change |
+| `<NAME>`_GERRIT_CHANGE_COMMIT_MESSAGE 								| The commit message for the change’s current patch set |
+| `<NAME>`_GERRIT_REFSPEC 								| The git reference at the revision of current patch set |
+| `<NAME>`_GERRIT_PATCHSET_NUMBER 								| The patchset number |
+| `<NAME>`_GERRIT_PATCHSET_REVISION 							| Git commit for current patchset |
+| `<NAME>`_GERRIT_CHANGE_OWNER_NAME 								| The name of the change owner |
+| `<NAME>`_GERRIT_CHANGE_OWNER_EMAIL 								| The name of the change owner |
+| `<NAME>`_GERRIT_CHANGE_OWNER 								| The name and email of the change owner |
+| `<NAME>`_GERRIT_PATCHSET_UPLOADER_NAME 								| The name of the patchset uploader |
+| `<NAME>`_GERRIT_PATCHSET_UPLOADER_EMAIL 								| The email of the patchset uploader |
+| `<NAME>`_GERRIT_PATCHSET_UPLOADER 								| The name and email of the patchset uploader |
+| `<NAME>`_GERRIT_CHANGE_UPLOADER_NAME 								| The name of the change uploader |
+| `<NAME>`_GERRIT_CHANGE_UPLOADER_EMAIL 								| The email of the change uploader |
+| `<NAME>`_GERRIT_CHANGE_UPLOADER 								| The name and email of the change uploader |
 
 
 ## Shippable Utility Functions
