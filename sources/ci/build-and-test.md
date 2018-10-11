@@ -13,7 +13,7 @@ The following sections of your **shippable.yml** will contain the bulk of your C
 -  The `post_ci` section includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry.
 -  The `on_success` includes commands you want to execute only if your CI workflow passes, i.e. the `ci` section exits with 0.
 -  The `on_failure` includes commands you want to execute only if your CI workflow fails, i.e. the `ci` section does not exit with a 0.
--  The `always` includes commands you want to execute irrespective of CI workflow passes or fails.
+-  The `always` section includes commands that you want to execute whether the CI workflow passes or fails.
 
 <br>
 All commands in these sections are executed sequentially inside your build container in the order they appear in your yml.
@@ -107,7 +107,7 @@ build:
 - This section is also not executed if the build fails because code coverage does not meet the minimum threshold value.
 ## always
 
-The `always` section is provided for any actions you want to take irrespective of your CI succeeds or fails. The commands in this section are executed no matter whether `ci` sections exits with 0 or not.
+The always section is provided for any actions you want to take whether your CI succeeds or fails. These commands will run even if your ci section exits with an error.
 
 For example, you can execute a script with the following yml snippet:
 
