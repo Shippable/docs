@@ -121,6 +121,9 @@ build:
   on_failure:
     - command1
     - command2
+  always:
+    - command1
+    - command2
   cache: <boolean>
   cache_dir_list:
     - dir1
@@ -243,6 +246,7 @@ integrations:
 	* `post_ci` -- includes commands that are not really a part of your core CI workflow but should be run after CI finishes. A good example is pushing artifacts to S3 or a Docker registry. [Read more](/ci/build-and-test/).
 	* `on_success` -- includes commands you want to execute only if your CI workflow passes, i.e. the ci section exits with 0. [Read more](/ci/build-and-test/).
 	* `on_failure` -- includes commands you want to execute only if your CI workflow fails, i.e. the ci section does not exit with 0. [Read more](/ci/build-and-test/).
+  * `always ` -- includes commands you want to execute irrespective of CI workflow passes or fails. [Read more](/ci/build-and-test/).
 	* `cache` -- Boolean value, used to turn on caching. If set to true, the build directory SHIPPABLE_BUILD_DIR is cached. To cache specific folders, you can use the tag cache_dir_list. [Read more](/ci/caching/).
 	* `cache_dir_list` -- Used to specify a list of folders that you want to cache between builds. [Read more](/ci/caching/).
 
