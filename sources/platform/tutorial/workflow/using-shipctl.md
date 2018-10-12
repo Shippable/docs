@@ -213,9 +213,7 @@ shipctl refresh_file_to_state "config.json"
 
 **Description**
 
-This command takes an `IN` resource and an `OUT` resource as input, and makes the second an exact copy of the first. The resources must both be type `state`. This allows you to transfer state data across jobs without having to manually copy each individual file and value. For state resources, information can be stored in metadata or directly in files. Metadata is modified when you utilize commands like `shipctl put_resource_state` to store key-value pairs. Files are typically managed using their own set of commands such as `shipctl copy_file_to_resource_state`. By default, the replicate command will copy both the files and the metadata settings of the state resource.
-
-Note: Windows Server is not yet supported.
+This command takes an `IN` resource and an `OUT` resource as input, and makes the second an exact copy of the first. The resources must be the same type. This allows you to transfer data across jobs without having to manually copy each individual file and value. Information can be stored in the resource metadata or directly in files. Metadata is modified when you utilize commands like `shipctl put_resource_state` to store key-value pairs. Files are typically managed using their own set of commands such as `shipctl copy_file_to_resource_state`. Files can only be stored in `state` type resources or in the job itself.  By default, the replicate command will copy both the files and the metadata of the `IN` resource.
 
 **Usage**
 
@@ -223,22 +221,28 @@ Note: Windows Server is not yet supported.
 shipctl replicate <IN resource> <OUT resource> <options>
 ```
 
-- `IN resource` is the name of the state resource that you're copying from. It must be listed as an `IN` on the job.
-- `OUT resource` is the name of the state resource that will receive the replicated data from the `IN resource`. It must be listed as an `OUT` on the job. Any pre-existing files or key-value pairs in this resource will be replaced.
-- `--files-only` tells shipctl to only replicate the files from the `IN` resource.  The `OUT` resource will keep its original metadata.
-- `--metadata-only` tells shipctl to only replicate the metadata from the `IN` resource.  The `OUT` resource will keep its original files.
+- `IN resource` is the name of the resource that you're copying from. It must be listed as an `IN` on the job.
+- `OUT resource` is the name of the resource that will receive the replicated data from the `IN resource`. It can be a resource that is listed as an `OUT` on the job, or it can be the job itself by specifying `$JOB_NAME` as the second argument. Any pre-existing files or key-value pairs in the `OUT` resource will be replaced.
+- `--files-only` (`-files_only` in Windows) tells shipctl to only replicate the files from the `IN` resource.  The `OUT` resource will keep its original metadata.
+- `--metadata-only` (`-metadata_only` in Windows) tells shipctl to only replicate the metadata from the `IN` resource.  The `OUT` resource will keep its original files.  This flag is automatically set if the `IN` and `OUT` resources are each repository types like `gitRepo`.
+- `--webhook-data-only` (`-webhook_data_only` in Windows) tells shipctl to only replicate certain pieces of metadata, including `shaData`, `webhookRequestBody`, and `webhookRequestPayload`.  This can be used to conveniently copy repository data without changing the `TO` resource's branch settings. This flag only impacts `IN` resources that are repository types (`gitRepo`, `ciRepo`, and `syncRepo`).
 
 **Example**
 
 ```
-shipctl replicate incomingState outgoingState
+shipctl replicate devParams betaParams
 ```
-The above command will copy all files and key/value pairs from a state resource named `incomingState` to a state resource named `outgoingState`.
+The above command will copy all key/value pairs from a resource named `devParams` to a resource named `betaParams`.
 
 ```
 shipctl replicate stateA stateB --files-only
 ```
 The above command will only copy files from a state resource named `stateA` to a state resource named `stateB`.
+
+```
+shipctl replicate stateA $env:JOB_NAME -metadata_only
+```
+The above command will copy metadata from `stateA` into the current job.  This example utilizes the PowerShell script notation required for Windows Server 2016 nodes.
 
 
 ## Resource/Job information
