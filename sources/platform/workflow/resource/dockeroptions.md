@@ -127,14 +127,11 @@ Top level docker options: There are two top levels for Amazon ECS, i.e., `servic
     type: dockerOptions
     versionTemplate:
       service:
-        loadBalancers: [
-          {
-              "targetGroupArn": "",
-              "loadBalancerName": "",
-              "containerName": "",
-              "containerPort": 0
-          }
-        ]
+        loadBalancers:
+          - targetGroupArn: <string>
+            loadBalancerName: <string>
+            containerName: <string>
+            containerPort: <number>
         desiredCount: <number>
         clientToken: <string>
         role: <string>
@@ -146,6 +143,7 @@ Top level docker options: There are two top levels for Amazon ECS, i.e., `servic
            type: <string>
          - field: <string>
            type: <string>
+        schedulingStrategy: <string>
       taskDefinition:
         family: <string>
         taskRoleArn: <string>
@@ -615,14 +613,11 @@ Top level docker options: There are two top levels for Amazon ECS, i.e., `servic
     type: dockerOptions
     version:
       service:
-        loadBalancers: [
-          {
-              "targetGroupArn": "",
-              "loadBalancerName": "",
-              "containerName": "",
-              "containerPort": <number that matches a port in your task definition>
-          }
-        ]    
+        loadBalancers:
+          - targetGroupArn: <string>
+            loadBalancerName: <string>
+            containerName: <string>
+            containerPort: <number that matches a port in your task definition>
         desiredCount: <number>
         clientToken: <string>
         role: <string>

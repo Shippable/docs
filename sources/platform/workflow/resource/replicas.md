@@ -6,7 +6,7 @@ page_title: replicas resource reference
 page_description: replicas resource reference
 
 # replicas
-`replicas` is a resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers
+`replicas` is a resource that holds the number of instances of the container to deploy. It is used specifically to deploy Docker containers.
 
 You can create a `replicas` resource by [adding](/platform/tutorial/workflow/crud-resource#adding) it to **shippable.yml**.
 
@@ -44,7 +44,7 @@ resources:
             metricAlarms:        <array>
 
 
-      **`count`** -- Required. The number of containers to run.
+      **`count`** -- Required. The number of containers to run.  This will be ignored when deploying to Amazon ECS with `schedulingStrategy` set to `DAEMON`.
 
       **`minReplicas`** -- Optional. The minimum number of replicas in the scalable target.  If this is defined, `maxReplicas` is required.
 
