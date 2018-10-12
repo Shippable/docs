@@ -120,7 +120,35 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |RELEASED_AT | The timestamp when the release was published. This env variable is currently supported for GitHub only.|
 |RELEASE_NAME | The name of the release webhook. This env variable is currently supported for GitHub only.|
 
+### Gerrit specific variables
 
+When a Gerrit CI build is triggered a set of environment variables are automatically made available that you can use in your scripts.
+
+| Env variable						| Description                         |
+| ------------- 								|------------------------------------ |
+| GERRIT_PROJECT 								| The name of the gerrit project |
+| GERRIT_REST_URL 								| Gerrit REST api endpoint |
+| GERRIT_HOST 								| Gerrit server hostname |
+| GERRIT_PORT 								| Gerrit server SSH port |
+| GERRIT_BRANCH 								| The current branch of the project |
+| GERRIT_EVENT_TYPE 								| The name of the event which triggered the build |
+| GERRIT_CHANGE_ID 								| The change-Id of the change |
+| GERRIT_CHANGE_URL 								| The canonical URL of the change |
+| GERRIT_CHANGE_NUMBER 								| The change number |
+| GERRIT_CHANGE_SUBJECT 								| The description of change |
+| GERRIT_CHANGE_COMMIT_MESSAGE 								| The commit message for the change’s current patch set |
+| GERRIT_REFSPEC 								| The git reference at the revision of current patch set |
+| GERRIT_PATCHSET_NUMBER 								| The patchset number |
+| GERRIT_PATCHSET_REVISION 							| Git commit for current patchset |
+| GERRIT_CHANGE_OWNER_NAME 								| The name of the change owner |
+| GERRIT_CHANGE_OWNER_EMAIL 								| The name of the change owner |
+| GERRIT_CHANGE_OWNER 								| The name and email of the change owner |
+| GERRIT_PATCHSET_UPLOADER_NAME 								| The name of the patchset uploader |
+| GERRIT_PATCHSET_UPLOADER_EMAIL 								| The email of the patchset uploader |
+| GERRIT_PATCHSET_UPLOADER 								| The name and email of the patchset uploader |
+| GERRIT_CHANGE_UPLOADER_NAME 								| The name of the change uploader |
+| GERRIT_CHANGE_UPLOADER_EMAIL 								| The email of the change uploader |
+| GERRIT_CHANGE_UPLOADER 								| The name and email of the change uploader |
 
 ### Travis compatible variables
 We support several environment variables to help customers migrating from Travis CI. These are listed below:
