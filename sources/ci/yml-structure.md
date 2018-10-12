@@ -20,9 +20,8 @@ language:
 node_js:      # language runtime
   - #language version
 
-# Optional: select the node pool you want to run this job on,if different from default
+# Optional: select the node pool or node pools you want to run this job on,if different from default
 runtime:
-  nodePool: <node pool name>
 
 services:
   - #any supported service
@@ -89,7 +88,7 @@ A brief overview of each section of the yml is provided in this table. For a det
 | **yml tag**           |** default behavior without tag**                                                                         | **Description of usage**                                                                                                                                                                                                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [**language:**](set-language/)           | language gets set to ruby                                                                            | Set to the language your project is written in. e.g. node_js. [Read more](set-language/)                                                                                                                                                                                                                                                                                                        |
-| [**runtime:**](set-language/)            | depends on language                                                                                  | Set to the language runtime version(s) you want to build against. [Read more](set-language/)                                                                                                                                                                                                                                                                                                  |
+| [**runtime:**](runtime-config/)            | depends on the default nodePool specified in subscription nodePools section | Set to the nodePool(s) you want to run the build against. [Read more](runtime-config/) |
 | [**depth:**](shallow-clone/) | no default | Set to a positive integer for the repository to be shallow cloned. [Read more](shallow-clone/) |
 | [**gitConfig:**](set-git-config/) | no default | Set to the list of git configs that are to be set globally before the repo is cloned. [Read more](set-git-config/) |
 | [**services:**](services-overview/)           | no services are available                                                                            | Specify the services you need for your CI workflow, e.g. postgres, mysql, etc. [Read more](services-overview/)                                                                                                                                                                                                                                                                                     |
