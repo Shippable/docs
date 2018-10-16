@@ -312,7 +312,8 @@ pages:
         - Language versions: platform/runtime/machine-image/language-versions.md
         - CLI versions: platform/runtime/machine-image/cli-versions.md
         - Services versions: platform/runtime/machine-image/services-versions.md
-        - AMI v6.9.4 (latest): platform/runtime/machine-image/ami-v694.md
+        - AMI v6.10.4 (latest): platform/runtime/machine-image/ami-v6104.md
+        - AMI v6.9.4: platform/runtime/machine-image/ami-v694.md
         - AMI v6.8.4: platform/runtime/machine-image/ami-v684.md
         - AMI v6.7.4: platform/runtime/machine-image/ami-v674.md
         - AMI v6.6.4: platform/runtime/machine-image/ami-v664.md
