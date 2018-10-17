@@ -203,6 +203,7 @@ pages:
       - Services: platform/server/services.md
       - Integrations: platform/server/integrations.md
       - Manage admins: platform/server/superuser.md
+      - APIs: platform/server/apis.md
   - IT Ops:
     - Overview: provision/why-infrastructure-provisioning.md
     - Tutorials index: provision/tutorials.md
