@@ -123,7 +123,7 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 |3.2.2  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |3.1.1  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
-Note: Neo4j is not supported on v6.8.4 and v6.10.4 images because it is incompatible with Java 10 and Java 11. You can use openjdk8 on an earlier machine image if you need these versions of Neo4j.
+Note: Neo4j is not supported on v6.8.4 to v6.10.4 images because it is incompatible with Java 10 and Java 11. You can use openjdk8 on an earlier machine image if you need these versions of Neo4j.
 
 ## Postgres
 
