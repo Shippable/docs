@@ -42,7 +42,7 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 
 | Version  |                OS                | Machine Images       
 |----------|----------------------------------|------
-| 2.1.2    | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/) and later
+| 2.2.0    | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/) and later
 | 2.1.2    | - CentOS 7  |[v6.7.4](/platform/runtime/machine-image/ami-v674/)
 | 2.1.1    | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) <br>[v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later<br> [v5.10.4](/platform/runtime/machine-image/ami-v5104/) and later
 | 1.6.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.3.2](/platform/runtime/machine-image/ami-v532/) to [v5.8.2](/platform/runtime/machine-image/ami-v582/)
