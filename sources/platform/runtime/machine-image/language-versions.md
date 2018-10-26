@@ -344,7 +344,7 @@ The following images are available when you configure `language: python` in your
 	|3.3.6           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.7.3](/platform/runtime/machine-image/ami-v573/) and earlier |
 	|3.2.6           |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/)
 	|2.7.15          |- CentOS 7   | [v6.9.4](/platform/runtime/machine-image/ami-v694/) and [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
-	|2.7.14          |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.9.4](/platform/runtime/machine-image/ami-v694/)
+	|2.7.14          |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.9.4](/platform/runtime/machine-image/ami-v694/) and [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 	|2.7.12          |- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64)|[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/)<br> [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 	|2.7.6           |- Ubuntu 14.04                    | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|2.7.5           |- CentOS 7                        | [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.8.4](/platform/runtime/machine-image/ami-v684/)
