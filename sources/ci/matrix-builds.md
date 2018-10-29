@@ -89,7 +89,9 @@ matrix:
       env: ISOLATED=false
       nodePool: default_nodePool
 ```
-This adds a particular job to the build matrix with the specified parameters on the default_nodePool. If [multiple node pools](runtime-config/) are configured in the yml and `nodePool` tag is not specified, then the included job will run only on the first node pool.
+This adds a particular job to the build matrix with the specified parameters on the default_nodePool. If [multiple node pools](runtime-config/) are configured in the yml and `nodePool` tag is not specified, then the included job will run only on the first node pool. The build section is inherited from the build section for that particular node pool. Say, the `pre_ci_boot` section for a node pool `foo` is configured to use image `bar`. The matrix include job which runs on `foo` node pool will run on the `bar` image.
+
+If no runtime is specified, then the included job will run on the default node pool. The matrix include job can be configured such that a build can be run on a node pool not specified in the runtime section.
 
 You can use this method to create a build matrix containing only specific combinations. Consider the example bellow:
 
@@ -102,8 +104,12 @@ matrix:
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=true
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile.rails-3.0.x
+      env: ISOLATED=true
+      nodePool: Arm64
 ```
-This creates a build matrix with 2 jobs with the specified parameters.
+This creates a build matrix with 3 jobs with the specified parameters. The first 2 jobs will run on the default subscription node pool if no `runtime` section is specified or run on the first node pool if the runtime section is specified. The third job will run only on the Arm64 node pool.
 
 ### Allowing failures
 
