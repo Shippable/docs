@@ -32,6 +32,14 @@ gitConfig:
   - #git config 1
   - #git config 2
 
+vote:
+  on_success:
+    Verified: 1
+    Code-Review: 2
+  on_failure:
+    Verified: -1
+    Code-Review: -2
+
 env:
   - #env1=foo
   - #env2=bar
@@ -91,6 +99,7 @@ A brief overview of each section of the yml is provided in this table. For a det
 | [**runtime:**](runtime-config/)            | depends on the default nodePool specified in subscription nodePools section | Set to the nodePool(s) you want to run the build against. [Read more](runtime-config/) |
 | [**depth:**](shallow-clone/) | no default | Set to a positive integer for the repository to be shallow cloned. [Read more](shallow-clone/) |
 | [**gitConfig:**](set-git-config/) | no default | Set to the list of git configs that are to be set globally before the repo is cloned. [Read more](set-git-config/) |
+| [**vote:**](set-vote/) | default `Verified` label set | Set the labels and values to be set for Gerrit projects once the build completes. [Read more](set-vote/) |
 | [**services:**](services-overview/)           | no services are available                                                                            | Specify the services you need for your CI workflow, e.g. postgres, mysql, etc. [Read more](services-overview/)                                                                                                                                                                                                                                                                                     |
 | [**env:**](env-vars/)                | Only standard environment variables are available during your CI workflow                            | Set custom environment variables for your builds. , including  `secure` variables, i.e. encrypted variables  used to store sensitive information. [Read more](env-vars/)                                                                                                                                                                                                                    |
 | [**matrix:**](matrix-builds/)             | no default                                                                                           | Used to include or exclude only specific combination(s) from a build matrix. This is only relevant  if you  are triggering matrix builds, i.e. running several builds per trigger.  [Read more](matrix-builds/)                                                                                                                                                                                |

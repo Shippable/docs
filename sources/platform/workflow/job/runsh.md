@@ -45,6 +45,13 @@ jobs:
         versionNumber:    <number of the version you want to pin>
       - IN:           <gitRepo resource>
         showBuildStatus:  true
+        vote:
+          on_success:
+            Verified: 1
+            Code-Review: 2
+          on_failure:
+            Verified: -1
+            Code-Review: -2
       - IN:           <cliConfig with scope support>
         scopes:
           - scope     <scope that you want configured>
@@ -163,6 +170,23 @@ A description of the job YML structure and the tags available is in the [jobs se
     * `showBuildStatus` -- Optional, defaults to false. If set to true, build status will be set on the gitRepo depending on how the gitRepo
     resource is configured. For example if `buildOnCommit:false` and `buildOnPullRequest:true`, then status will be updated
     on the gitRepo for pull requests only.
+    * `vote` -- Optional. Should be used with `showBuildStatus` for Gerrit runSh jobs. If set to `false`, default voting is disabled. Jobs can also be configured to set custom labels and values on a change once the build completes. Defaults to
+
+```
+vote:
+  on_success:
+    Verified: 1
+  on_failure:
+    Verified: -1
+  on_timeout:
+    Verified: -1
+  on_unstable:
+    Verified: -1
+  on_cancelled:
+    Verified: 0
+  on_skipped:
+    Verified: 0
+```
 
 * **`on_success `** -- Optional, and both `script` and `NOTIFY` types can be used.
 
