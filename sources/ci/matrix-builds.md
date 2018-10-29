@@ -89,11 +89,7 @@ matrix:
       env: ISOLATED=false
       nodePool: default_nodePool
 ```
-This adds a particular job to the build matrix with the specified parameters on the default_nodePool. If [multiple node pools](runtime-config/) are configured in the yml and `nodePool` tag is not specified, then the included job will run only on the first node pool. The build section is inherited from the build section for that particular node pool. Say, the `pre_ci_boot` section for a node pool `foo` is configured to use image `bar`. The matrix include job which runs on `foo` node pool will run on the `bar` image.
-
-If no runtime is specified, then the included job will run on the default node pool. The matrix include job can be configured such that a build can be run on a node pool not specified in the runtime section.
-
-You can use this method to create a build matrix containing only specific combinations. Consider the example bellow:
+This adds a particular job to the build matrix with the specified parameters on the default_nodePool. You can use this method to create a build matrix containing only specific combinations. Consider the example below:
 
 ```
 matrix:
@@ -104,12 +100,88 @@ matrix:
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=true
-    - rvm: 2.0.0
-      gemfile: gemfiles/Gemfile.rails-3.0.x
-      env: ISOLATED=true
-      nodePool: Arm64
 ```
-This creates a build matrix with 3 jobs with the specified parameters. The first 2 jobs will run on the default subscription node pool if no `runtime` section is specified or run on the first node pool if the runtime section is specified. The third job will run only on the Arm64 node pool.
+This creates a build matrix with 2 jobs with the specified parameters.
+
+If no runtime is specified, then the included job will run on the default node pool. The matrix include job can be configured such that a build can be run on a node pool not specified in the runtime section.
+
+Consider a subscription with default node pool as `default_nodePool`.
+```
+language: java
+
+matrix:
+  include:
+    - jdk: openjdk8
+      env: ARCH=x86_64
+    - jdk: openjdk8
+      env: ARCH=aarch64
+      nodePool: Arm64
+
+build:
+  ci:
+    - mvn clean deploy
+```
+The above yml will create 2 jobs. Since no `runtime` section is specified, the first of the `matrix include` jobs will run on the subscription's default node pool, `default_nodePool`. The next 2 job will run on `Arm64` node pool.
+
+If runtime section is specified, then the matrix include jobs will run on the the node pool specified in the runtime section. In case the matrix job needs to run on node pool which is different than the node pool specified in the runtime section, then the name of that node pool must be specified in the `matrix include`'s `nodePool` section.
+
+Consider a subscription with default node pool as `default_nodePool`.
+```
+language: java
+
+jdk: openjdk8
+
+runtime:
+  nodePool: centos7
+
+matrix:
+  include:
+    - jdk: openjdk8
+      env: ARCH=x86_64
+    - jdk: openjdk8
+      env: ARCH=aarch64
+      nodePool: Arm32
+
+build:
+  ci:
+    - mvn clean deploy
+```
+The above yml will create 3 jobs. Adding a `runtime` section will create a matrix job. So, theThe first job will run on the `centos7` node pool. The first of the `matrix include` job will also run on the `centos7` node pool, with environment variable `ARCH=x86_64` set, since `nodePool` section in not explicitly specified. The next `matrix include` job will run on the `Arm32` node pool.
+
+If [multiple node pools](runtime-config/) are configured in the yml and `nodePool` tag is not specified in the `matrix include` section, then the included job will run only on the first node pool. The build section is inherited from the build section for that particular node pool. Say, the `pre_ci_boot` section for a node pool `foo` is configured to use image `bar`. The matrix include job which runs on `foo` node pool will run on the `bar` image.
+
+```
+language: java
+
+jdk:
+  - openjdk8
+
+runtime:
+  - nodePool: default_nodePool
+  - nodePool: Arm64
+    build:
+      pre_ci_boot:
+        image_name: custom_java_image
+        image_tag: dev
+        pull: true
+
+matrix:
+  include:
+    - jdk: openjdk8
+      env: foo=bar
+    - jdk: openjdk8
+      env: foo=baz
+      nodePool: Arm64
+    - jdk: openjdk8
+      env: foo=bar
+      nodePool: Arm32
+
+build:
+  ci:
+    - mvn clean deploy
+```
+
+This creates a matrix of 5 jobs. The first 2 jobs are created because of the multiple nodePools specified in the `runtime` section, `default_nodePool` & `Arm64`. 3 jobs are added from the matrix include section. Here, the first job will run on `default_nodePool`, since no `nodePool` is specified in the matrix include section for that job. The second job will run on `Arm64` node pool, with the build running on the `custom_java_image:dev` docker image. The third job will run on the `Arm32` node pool.
 
 ### Allowing failures
 
