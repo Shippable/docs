@@ -5,7 +5,7 @@ page_title: Shippable Server | Configure dedicated APIs
 page_description: Configure multiple APIs through Admiral UI
 page_keywords: install, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc, APIs, internal, console, public
 
-# APIs
+# Configure dedicated APIs
 
 The **Control plane->API** section of the Admiral UI offers a way to configure three types of APIs:
 
