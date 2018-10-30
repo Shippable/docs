@@ -107,6 +107,7 @@ pages:
         - Using shallow clone: ci/shallow-clone.md
         - Using git config: ci/set-git-config.md
         - Using multiple nodePools: ci/runtime-config.md
+        - Using vote: ci/set-vote.md
       - Language guide:
         - Overview: ci/supported-languages.md
         - Node.js: ci/nodejs-continuous-integration.md
