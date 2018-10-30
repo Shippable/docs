@@ -112,6 +112,8 @@ Standard variables are pre-populated by Shippable and are available to you for e
 |SHIPPABLE_SUBMODULE_ENABLED | Whether or not submodules in the repository will be updated. |
 |SHIPPABLE_VE_DIR		 | "\$HOME/build_ve/python/2.7"|
 |SHIPPABLE_WWW_URL   | Direct URL link to the shippable main application website.|
+|SHIPPABLE_NODE_ARCHITECTURE | Architecture of the node that runs the build. |
+|SHIPPABLE_NODE_OPERATING_SYSTEM | Operating system of the node that runs the build. |
 |SUBSCRIPTION_ID | ID of the Subscription. |
 |IS_GIT_TAG | Set to **true** if the build is triggered by a git tag push webhook. If not, this will be set to **false**. |
 |GIT_TAG_NAME | The git tag name if the build is triggered by a git tag push webhook or a release webhook. |
