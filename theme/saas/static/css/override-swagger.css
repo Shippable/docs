@@ -124,6 +124,10 @@ div.swagger-ui-wrap div.info h2 {
   border-bottom: 0px !important
 }
 
+div.swagger-ui-wrap label {
+  text-transform: none !important;
+}
+
 div.swagger-ui-wrap div.info h2 a {
   text-decoration: none !important;
 }
@@ -169,4 +173,3 @@ div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.opera
 div.swagger-ui-wrap div.container ul#resources ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a {
   background: #006cd1 !important;
 }
-
