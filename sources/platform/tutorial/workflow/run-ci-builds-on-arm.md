@@ -98,7 +98,5 @@ You could also use multiple node node pools using instructions provided [here](h
 
 - How do I use Docker commands on shared node pools ?
 
-Shippable shared node pools use [Docker in docker](https://hub.docker.com/_/docker/) to keep a clear separation between build containers of different users. This means each build will get access to a dedicated docker-in-docker container. Any Docker commands
-that are executed in the build will be executed inside that dedicated container and when the build finishes, that container,
-along with the build container, are destroyed.
+Yes, all Docker commands are supported for builds running on shared node pools. Shared node pools use [Docker in docker](https://hub.docker.com/_/docker/) to keep a clear separation between build containers of different users. This means each build will get access to a dedicated docker-in-docker container. Any Docker commands that are executed in the build will be executed inside that dedicated container and when the build finishes, that container, along with the build container, are destroyed.
 
