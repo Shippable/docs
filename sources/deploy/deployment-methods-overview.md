@@ -139,7 +139,7 @@ jobs:
 <a name="parallel"></a>
 ## Deploying multiple containers in parallel
 
-If your **deploy** job is deploying multiple manifests, it deploys them serially by default. This can take a long time, especially for a large number of manifests.
+If your **deploy** job is deploying multiple manifests, it deploys them serially, in the order the inputs are listed in `steps`, by default. This can take a long time, especially for a large number of manifests.
 
 You can greatly speed up deployments for multiple manifests by configuring deployments to be kicked off in parallel.
 
