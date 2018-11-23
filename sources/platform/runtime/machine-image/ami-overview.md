@@ -28,7 +28,7 @@ You can click on any image below to see what is pre-installed:
 
 | Machine Image | Release date     |
 |---------------|-------------------|
-| [v6.10.4](ami-v6114/) (latest)    | Nov 30, 2018 |
+| [v6.11.4](ami-v6114/) (latest)    | Nov 30, 2018 |
 | [v6.10.4](ami-v6104/)    | Oct 31, 2018 |
 | [v6.9.4](ami-v694/)      | Sep 28, 2018 |
 | [v6.8.4](ami-v684/)      | Aug 31, 2018 |
