@@ -34,7 +34,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)|
 | 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
-Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra is not supported on v6.8.4 to v6.10.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra.
+Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra is not supported on v6.8.4 to v6.11.4 images because it is incompatible with Java 10. You can use openjdk8 on an earlier machine image if you need these versions of Cassandra.
 
 
 ## CouchDB
@@ -54,11 +54,12 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 
 | Version|              OS            | Machine Images       
 |-------|----------------------------|---------------------
+|6.4.3  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |6.4.2  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |6.4.0  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.9.4](/platform/runtime/machine-image/ami-v694/)
 |6.3.2  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |6.3.1  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  | [v6.7.4](/platform/runtime/machine-image/ami-v674/)
-|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
+|6.2.4  | -  CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) | [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)<br> [v6.5.4](/platform/runtime/machine-image/ami-v654/) to [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |6.2.3  | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 |6.1.1  | - CentOS 7<br> - Ubuntu 14.04<br>- Ubuntu 16.04<br> - Ubuntu 16.04(aarch64) |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) to [v6.3.4](/platform/runtime/machine-image/ami-v634/) <br> [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later                
 |5.6.2  | - Ubuntu 14.04<br>- Ubuntu 16.04               |[v5.10.4](/platform/runtime/machine-image/ami-v5104/)
@@ -70,6 +71,7 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 
 | Version  |     OS   | Machine Images         
 |----------|----------|-----------------
+|1.5.12     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) |[v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |1.5.11     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) |[v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |1.5.10     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) |[v6.9.4](/platform/runtime/machine-image/ami-v694/)
 |1.5.9     |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.7.4](/platform/runtime/machine-image/ami-v674/) and [v6.8.4](/platform/runtime/machine-image/ami-v684/)
@@ -85,7 +87,7 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 
 | Version  |  OS     | Machine Images
 |----------|---------|-------------------
-|4.0.3 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.10.4](/platform/runtime/machine-image/ami-v6104/)
+|4.0.3 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.10.4](/platform/runtime/machine-image/ami-v6104/) and [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |4.0.2 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.9.4](/platform/runtime/machine-image/ami-v694/)
 |4.0.1 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |4.0.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64) |[v6.7.4](/platform/runtime/machine-image/ami-v674/)
@@ -100,6 +102,7 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 
 | Version  |  OS  | Machine Images
 |----------|---------| ------
+|5.7.24| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 |[v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |5.7.23| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.8.4](/platform/runtime/machine-image/ami-v684/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |5.7.22| - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.4.4](/platform/runtime/machine-image/ami-v644/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/) <br>[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |5.7.21|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 | [v6.2.4](/platform/runtime/machine-image/ami-v624/) and [v6.3.4](/platform/runtime/machine-image/ami-v634/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)<br>[v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -123,12 +126,13 @@ Note: Cassandra versions 3.6 - 3.11 are incompatible with Oracle Java. Cassandra
 |3.2.2  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |3.1.1  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
-Note: Neo4j is not supported on v6.8.4 to v6.10.4 images because it is incompatible with Java 10 and Java 11. You can use openjdk8 on an earlier machine image if you need these versions of Neo4j.
+Note: Neo4j is not supported on v6.8.4 to v6.11.4 images because it is incompatible with Java 10 and Java 11. You can use openjdk8 on an earlier machine image if you need these versions of Neo4j.
 
 ## Postgres
 
 | Version  |    OS    |   Machine Images
 |----------|---------|------------
+|10.6 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |10.5 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |10.4 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |10.3 |- CentOS 7<br>- Ubuntu 14.04 |[v6.4.4](/platform/runtime/machine-image/ami-v644/)
@@ -153,6 +157,7 @@ Note: Neo4j is not supported on v6.8.4 to v6.10.4 images because it is incompati
 
 | Version  |  OS  | Machine Images
 |----------|---------|--------
+| 5.0.0 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 | 4.0.11 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.8.4](/platform/runtime/machine-image/ami-v684/) and [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 4.0.10 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) |  [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |4.0.9 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  <br>-  Ubuntu 16.04(aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
@@ -180,6 +185,7 @@ Note: Neo4j is not supported on v6.8.4 to v6.10.4 images because it is incompati
 
 | Version  |  OS    | Machine Images
 |----------|---------|-------
+|3.141.5 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)| [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 |3.14.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.8.4](/platform/runtime/machine-image/ami-v684/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |3.13.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |3.11.0 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04 <br>- Ubuntu 16.04(aarch64)|[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/)
