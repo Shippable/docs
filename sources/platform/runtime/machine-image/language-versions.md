@@ -38,7 +38,7 @@ The following images are available when you configure `language: clojure` in you
 * Ubuntu 16.04: u14cloall
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16cloall/)
 	* [Github](https://github.com/dry-dock/u16cloall)
-* CentOs 7: c7cloall
+* CentOS 7: c7cloall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7cloall/)
 	* [Github](https://github.com/dry-dock/c7cloall)
 
@@ -68,7 +68,7 @@ Each of the language images is built from the respective base OS version of the 
 * Ubuntu 16.04(aarch64): u16cppall
 	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cpp/)
 	* [Github](https://github.com/dry-dock/aarch64_u16cppall)
-* CentOs 7: c7cppall
+* CentOS 7: c7cppall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/)
 	* [Github](https://github.com/dry-dock/c7cppall)
 
@@ -125,7 +125,7 @@ The following images are available when you configure `language: go` in your [sh
 * Ubuntu 16.04: u16golall
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16golall/)
 	* [Github](https://github.com/dry-dock/u16golall)
-* CentOs 7: c7golall
+* CentOS 7: c7golall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7golall/)
 	* [Github](https://github.com/dry-dock/c7golall)
 
@@ -174,7 +174,7 @@ The following images are available when you configure `language: java` in your [
 * Ubuntu 16.04(aarch64): u16javall
 	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16javall/)
 	* [Github](https://github.com/dry-dock/aarch64_u16javall)
-* CentOs 7: c7javall
+* CentOS 7: c7javall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7javall/)
 	* [Github](https://github.com/dry-dock/c7javall)
 
@@ -211,7 +211,7 @@ The following images are available when you configure `language: nodejs` in your
 * Ubuntu 16.04(aarch64): u16nodall
 	* [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16nodall/)
 	* [Github](https://github.com/dry-dock/aarch64_u16nodall)
-* CentOs 7: c7nodall
+* CentOS 7: c7nodall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7nodall/)
 	* [Github](https://github.com/dry-dock/c7nodall)
 
@@ -283,7 +283,7 @@ The following images are available when you configure `language: php` in your [s
 * Ubuntu 16.04: u16phpall
 	* [Docker Hub](https://hub.docker.com/r/drydock/u16phpall/)
 	* [Github](https://github.com/dry-dock/u16phpall)
-* CentOs 7: c7phpall
+* CentOS 7: c7phpall
 	* [Docker Hub](https://hub.docker.com/r/drydock/c7phpall/)
 	* [Github](https://github.com/dry-dock/c7phpall)
 
