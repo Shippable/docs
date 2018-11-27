@@ -36,7 +36,7 @@ you can assign your runSh jobs to a specific Node pool.
 ##4. Initialize your BYON node
 
 * Navigate to the Nodes setting page for your subscription by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#view-nodes).
-* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).   
+* Initialize your BYON node by following the steps documented [here](/platform/tutorial/runtime/manage-byon-nodes/#add-node).
 
 ##5. Define CI jobs and resources.
 
@@ -66,8 +66,8 @@ resources:
       buildOnRelease:           false
       buildOnTagPush:           false
 ```
-* We now define a [runSh job](/platform/workflow/job/runsh/#runsh) in shippable.yml.  This job lets you run any
-build script in your gitRepo or a windows shell command. You can also specify a custom docker image to the runsh
+* We now define a [runSh job](/platform/workflow/job/runsh/#runsh) in shippable.yml. This job lets you run any
+build script in your gitRepo or a macOS shell command. You can also specify a custom docker image to the runsh
 job which has your build tool chain already preinstalled. Using shell commands in the runSh job, you can also install any tools or utilities you need during run time.
 
 
