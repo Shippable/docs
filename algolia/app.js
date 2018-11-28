@@ -143,9 +143,11 @@ function parseDocsYml() {
                     console.log('failed');
 
                 var json = JSON.stringify(searchJSON);
-                console.log(json);
+                //console.log(json);
 
-                fs.writeFile('index.json', json);
+                fs.writeFile('index.json', json, function() {
+                    // Do nothing
+                });
             }
         );
     });
