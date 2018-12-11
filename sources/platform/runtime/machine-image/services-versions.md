@@ -157,7 +157,7 @@ Note: Neo4j is not supported on v6.8.4 to v6.11.4 images because it is incompati
 
 | Version  |  OS  | Machine Images
 |----------|---------|--------
-| 5.0.0 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
+| 5.0.2 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.11.4](/platform/runtime/machine-image/ami-v6114/)
 | 4.0.11 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) | [v6.8.4](/platform/runtime/machine-image/ami-v684/) and [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 4.0.10 | - CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>-  Ubuntu 16.04(aarch64) |  [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)<br>[v6.6.4](/platform/runtime/machine-image/ami-v664/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
 |4.0.9 |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  <br>-  Ubuntu 16.04(aarch64) | [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.6.4](/platform/runtime/machine-image/ami-v664/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.4.4](/platform/runtime/machine-image/ami-v644/) and [v6.5.4](/platform/runtime/machine-image/ami-v654/) <br> [v6.5.4](/platform/runtime/machine-image/ami-v654/)
