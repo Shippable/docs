@@ -42,7 +42,7 @@ Please refer to the [Ansible CLI page](http://docs.ansible.com/ansible/latest/co
 
 | Version  |  OS | Machine Images
 |----------|---------|-------|
-| 1.16.60   | - Windows 16 | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
+| 1.16.67   | - Windows 16 | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 1.16.43 | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch32) <br>- Ubuntu 16.04 (aarch64)  | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 1.16.39   | - Windows 16 | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 1.16.24 | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br>- Ubuntu 16.04 (aarch32) <br>- Ubuntu 16.04 (aarch64)  | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
@@ -122,7 +122,7 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 
 | Version  | OS | Machine Images
 |----------|---------|------|
-| 225.0.0  |  - Windows 16 |[v6.12.4](/platform/runtime/machine-image/ami-v6124/)
+| 226.0.0  |  - Windows 16 |[v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 222.0.0  |  - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04 (aarch32) <br>- Ubuntu 16.04 (aarch64)  | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 221.0.0  |  - Windows 16 |[v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 218.0.0  |  - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04 (aarch32) <br>- Ubuntu 16.04 (aarch64)  | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
