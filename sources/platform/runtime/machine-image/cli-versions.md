@@ -85,9 +85,10 @@ Please refer to the [AWS Elastic Beanstalk page](http://docs.aws.amazon.com/elas
 
 | Version  | OS   | Machine Images
 |----------|---------|---------|
+| 2.0.52    | - Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 2.0.51    | - windows 16  | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 | 2.0.50    | - CentOS 7  | [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
-| 2.0.49    | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)<br> [v6.10.4](/platform/runtime/machine-image/ami-v6104/) and [v6.12.4](/platform/runtime/machine-image/ami-v6124/) <br>[v6.10.4](/platform/runtime/machine-image/ami-v6104/) and [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
+| 2.0.49    | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04 | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 2.0.47    | - windows 16  | [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 | 2.0.46    | - windows 16  | [v6.9.4](/platform/runtime/machine-image/ami-v694/)
 | 2.0.45    | - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04  <br> | [v6.9.4](/platform/runtime/machine-image/ami-v694/)
