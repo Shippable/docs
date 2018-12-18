@@ -61,7 +61,7 @@ To view your current plan:
     * XL is a build node with 4 cores and 15GB RAM
     * 2XL is a build node with 8 cores and 30GB RAM
 
-* Check the **cache** checkbox if you want to enable node caching for on-demand nodes. If you are pulling or building Docker images as part of your workflow, this is highly recommended to speed up your builds. More on [node caching here](/platform/runtime/caching/#node-caching).
+* Check the **cache** checkbox if you want to enable node caching for on-demand nodes. If you are pulling or building Docker images as part of your workflow, this is highly recommended to speed up your builds. Please note that machine image versions that come with Docker 18.03 are currently known to be incompatible with node caching. You must use [machine image version 6.9.4](platform/runtime/machine-image/ami-v694) or earlier for node caching to be effective. More on [node caching here](/platform/runtime/caching/#node-caching).
 
 * To buy more parallel capacity, adjust the number in the **Quantity** column to the capacity you need for each SKU. This will allow you to run multiple jobs in parallel.
 
@@ -94,6 +94,8 @@ Please note that any changes due to your plan downgrade will be effective immedi
 Your new price will be reflected in your next invoice.
 
 ### Enabling node cache
+
+**Note:** Machine image versions that come with Docker 18.03 are currently known to be incompatible with node caching. You must use [machine image version 6.9.4](platform/runtime/machine-image/ami-v694) or earlier for node caching to be effective.
 
 You can upgrade your on-demand nodes to have `cache` addon. To know more about caching [click here](/platform/runtime/caching).
 
