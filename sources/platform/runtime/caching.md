@@ -14,6 +14,9 @@ Shippable currently supports two types of caching:
 * Artifact caching, where you can cache large dependencies that take a long time to install at runtime
 
 ## Node caching
+**Note**: Docker 18.03 is known to cause issues when node caching is turned on.
+If you plan on using node caching, please use [machine image version 6.9.4](/platform/runtime/machine-image/ami-v694/)
+or earlier.
 
 ### How node caching works
 
