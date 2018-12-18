@@ -221,7 +221,8 @@ The following versions are supported in each Machine Image:
 |  Node JS Version   | OS    |    Machine Image |
 |-----------|-----------|-----------
 |11.1.0 (npm 6.4.1)|- CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) |  [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
-|10.13.0 (npm 6.4.1)**default**|- CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) |  [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
+|10.14.0 (npm 6.4.1)**default**|- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) |  [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
+|10.13.0 (npm 6.4.1)**default**|- CentOS 7  |  [v6.12.4](/platform/runtime/machine-image/ami-v6124/)
 |10.12.0 (npm 6.4.1)|- CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.9.4](/platform/runtime/machine-image/ami-v694/) and [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |10.9.0 (npm 6.4.0)|- CentOS 7 <br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.8.4](/platform/runtime/machine-image/ami-v684/)
 |10.6.0 (npm 5.6.0)|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) | [v6.7.4](/platform/runtime/machine-image/ami-v674/)
