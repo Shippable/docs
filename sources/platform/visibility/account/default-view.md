@@ -9,4 +9,4 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # Account Default View
 This view is the status of all CI Projects and Jobs across all Organizations that you have access to. It gives your the latest status as well as any Job that is currently queued or processing.
 
-<img src="/images/platform/visibility/account-dash-view.jpg" alt="Default dashboard view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/account-dash-view.png" alt="Default dashboard view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
