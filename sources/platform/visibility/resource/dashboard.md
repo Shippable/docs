@@ -18,7 +18,7 @@ To get here:
 
 * On your Subscription dashboard, scroll down to the Resources list and look for the Resource name in the **Name column** and click on it. If you cannot see the Resources list, click on the **Eye** icon on your Subscription dashboard and make sure the **View resources** option is enabled.
 
-<img src="/images/platform/visibility/resource-view-grid.jpg" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="/images/platform/visibility/resource-view-grid.png" alt="Resource view for Shippable DevOps Assembly Lines" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 Your Resource Dashboard displays the YML config for the resource from your [shippable.yml](/platform/workflow/config).
 
