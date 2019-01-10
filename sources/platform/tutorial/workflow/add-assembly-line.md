@@ -31,7 +31,7 @@ The name of the `syncRepo` is the name of the repository with the name of the br
 <img width="30%" height="30%" src="/images/platform/resources/syncRepo/list-subscriptions.png" alt="List of subscriptions">
 
 * On the top-right corner, click on the `+` icon(`Enable Projects or Add syncRepo`).
-* On the **Enable** page, in the **ENABLE CI PROJECTS AND SYNC REPOSITORY** section, click on `+` button in the **Add Assembly Line** column of the repository where your config is stored. This will open a modal window.
+* On the **Enable** page, in the **Enable CI project or Manage Assembly Line** section, click on `+` button in the **Manage Assembly Line** column of the repository where your config is stored. This will open a modal window.
 
 <img src="/images/platform/tutorial/workflow/add-syncRepo.png" alt="Add a syncRepo">
 
@@ -65,9 +65,9 @@ To change the `syncRepo` name and Subscription integration used:
 
 * Click on the `+` button on your Subscription page. Search for the repository containing your Assembly Line config and click on the name of the **syncRepo** you want to edit.
 
-* Click on **Edit** in the popup:
+* Select **Edit** from the dropdown:
 
-<img src="/images/platform/tutorial/workflow/syncRepo-info.png" alt="Info of syncRepo">
+<img src="/images/platform/tutorial/workflow/syncRepo-menu.png" alt="Info of syncRepo">
 
 * You can now add/change the subscription integration used by the **syncRepo**.
 
