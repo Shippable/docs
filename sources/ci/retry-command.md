@@ -17,7 +17,7 @@ To avoid this, you can use `shippable_retry` in the yml to try the command up to
 also use it for any custom installation from external resources. See examples below for some typical uses of this command.
 
 
-## Retrying npm commands
+## Retrying apt-get commands
 
 ```
 build:
@@ -26,7 +26,7 @@ build:
     - shippable_retry sudo apt-get install something
 ```
 
-##Retrying pip commands
+## Retrying pip commands
 
 ```
 build:
@@ -34,7 +34,7 @@ build:
     - shippable_retry pip install
 ```
 
-##Retrying docker commands
+## Retrying docker commands
 
 ```
 build:
