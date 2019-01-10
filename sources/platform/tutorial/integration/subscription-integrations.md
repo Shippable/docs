@@ -88,7 +88,7 @@ To view Subscription integrations:
 
 - You will see a list of your Subscription integrations. Shared and account integrations are distinguished by icons as shown below:
 
-<img src="/images/platform/tutorial/integrations/subscription-integrations-list.png" alt="Subscription integrations">
+<img src="/images/platform/tutorial/integrations/subscription-integrations-list.jpg" alt="Subscription integrations">
 
 <a name="view-account-integrations"></a>
 ### Account integrations dashboard
