@@ -35,13 +35,14 @@ The Key-value integration can be used in the following [resources](/platform/wor
 
 When you create a resource with this integration, and use it as an `IN` or `OUT` for a `runSh` or `runCI` job, a set of environment variables is automatically made available that you can use in your scripts.
 
-`<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. Any numbers at the beginning of the name are also removed to create a valid variable. For example, `my-key-1` will be converted to `MYKEY1`, and `my_key_1` will be converted to `MY_KEY_1`.
+`<NAME>` is the the friendly name of the resource with all letters capitalized and all characters that are not letters, numbers or underscores removed. Any numbers at the beginning of the name are also removed to create a valid variable. For example, `my-integration-resource` will be converted to `MYINTEGRATIONRESOURCE`, and `my_integration_resource` will be converted to `MY_INTEGRATION_RESOURCE`.
 
 | Environment variable						| Description                         |
 | ------------- 								|------------------------------------ |
 | `<NAME>`\_INTEGRATION\_NAME   			| Name supplied in the integration |
 | MY_KEY_1											| Name of the First Key defined and will have value set |
 | MY_KEY_N											| Name of the Nth Key defined and will have value set |
+| `<NAME>`\_INTEGRATION\_MY_KEY_1	| The value for the key `MY_KEY_1` or `my_key_1` in the integration |
 
 ### Shippable Utility Functions
 The platform also provides a command line utility called [`shipctl`](/platform/tutorial/workflow/using-shipctl/) that can be used to retrieve the values of these environment variables.
@@ -50,10 +51,10 @@ The specific function that can be used in the jobs yml is: `shipctl get_integrat
 
 Here is a table that provides the mapping from the environment variable to the field name.
 
-| Environment variable						| Field Name        |
-| ------			 							|----------------- |
-| MY_KEY_1											| keyValue_key_1 |
-| MY_KEY_N											| keyValue_key_N |
+| Environment variable			         			| Field Name|
+| -----------------------------------------|--------- |
+| `<RESOURCE_NAME>`\_INTEGRATION\_MY_KEY_1 | my_key_1 |
+| `<RESOURCE_NAME>`\_INTEGRATION\_MY_KEY_N | MY_KEY_N |
 
 More information on other utility functions is [documented here](/platform/tutorial/workflow/using-shipctl).
 
