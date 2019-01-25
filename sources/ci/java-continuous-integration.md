@@ -75,6 +75,36 @@ If the default image does not satisfy your requirements, you can do one of three
 ###Setting environment variables
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
 
+### Gradle and Ant compatibility
+
+Starting with [v7.1.4](/platform/runtime/machine-image/ami-v714/), the Java drydock images use [sdkman](https://sdkman.io/usage) to support multiple versions of Gradle and Ant. By default, these images use Gradle 5 and Ant 1.10, which are incompatible with JDK 7. If you need to use Gradle or Ant on the latest images with JDK 7, you must switch to a compatible version of Gradle or Ant in your build using sdkman as shown below:
+
+Using openjdk7 with ant-
+
+```
+language: java
+
+jdk: openjdk7
+
+build:
+  ci:
+    - sdk use ant 1.9.9
+
+```
+Using openjdk7 with gradle -
+
+```
+language: java
+
+jdk: openjdk7
+
+build:
+  ci:
+    - sdk use gradle 4.10.3
+
+```
+Please review [machine images](/platform/runtime/machine-image/ami-overview/) to know exactly what versions of Gradle and Ant are available in the image you are using.
+
 <a name="build-test"></a>
 ## Configuring build and test commands
 The `ci` section should contain all build and test commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -206,6 +236,7 @@ build:
     - mvn install  
     - cp -r target/site/jacoco/my.package.name/source-file-name.java.html shippable/codecoverage
 ```
+
 
 This will allow Shippable to use additional metadata about your tests to produce more detailed reports.
 
