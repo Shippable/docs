@@ -87,8 +87,8 @@ language: java
 jdk: openjdk7
 
 build:
-ci:
-  - sdk use ant 1.9.9
+  ci:
+    - sdk use ant 1.9.9
 
 ```
 Using openjdk7 with gradle -
@@ -99,8 +99,8 @@ language: java
 jdk: openjdk7
 
 build:
-ci:
-  - sdk use gradle 4.10.3
+  ci:
+    - sdk use gradle 4.10.3
 
 ```
 
