@@ -77,7 +77,7 @@ You can define any custom environment variables in the `env` section of your yml
 
 ### Using desired version of modules
 
-In Shippable's [v7.1.4](/platform/runtime/machine-image/ami-v714/) release, Gradle 5.1 & Ant 1.10.1 are installed. These versions are not supported on openjdk7. To use Ant & Gradle in openjdk7, you can use `sdk` command to switch `Gradle` & `Ant` versions to 4.10.3 and 1.9.9 which are pre-installed on the image and compatible with openjdk7.
+Starting with [v7.1.4](/platform/runtime/machine-image/ami-v714/), the Java drydock images use [sdkman](https://sdkman.io/usage) to support multiple versions of Gradle and Ant. By default, these images use Gradle 5 and Ant 1.10, which are incompatible with JDK 7. If you need to use Gradle or Ant on the latest images with JDK 7, you must switch to a compatible version of `Gradle` or `Ant` in your build using sdkman as shown below:
 
 Using openjdk7 with ant-
 
