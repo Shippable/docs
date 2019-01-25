@@ -76,7 +76,8 @@ If the default image does not satisfy your requirements, you can do one of three
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
 
 ### Using desired version of modules
-In Shippable's [v7.1.4](http://docs.shippable.com/platform/runtime/machine-image/ami-v714/)  release, Gradle 4.10.3 & Ant 1.9.9 are installed. These versions not supported  work on OpenJdk7. To use Ant & Gradle in OpenJdk7, you can use `sdk` command to switch `Gradle` & `Ant` versions to 4.10.3 and 1.9.9 which are pre-installed on this image and are compatible with OpenJdk7
+
+In Shippable's [v7.1.4](/platform/runtime/machine-image/ami-v714/) release, Gradle 5.1 & Ant 1.10.1 are installed. These versions are not supported on openjdk7. To use Ant & Gradle in openjdk7, you can use `sdk` command to switch `Gradle` & `Ant` versions to 4.10.3 and 1.9.9 which are pre-installed on the image and compatible with openjdk7.
 
 Using openjdk7 with ant-
 
@@ -85,21 +86,23 @@ language: java
 
 jdk: openjdk7
 
+build:
 ci:
   - sdk use ant 1.9.9
 
-  ```
+```
 Using openjdk7 with gradle -
 
-  ```
-  language: java
+```
+language: java
 
 jdk: openjdk7
 
+build:
 ci:
   - sdk use gradle 4.10.3
 
-  ```
+```
 
 <a name="build-test"></a>
 ## Configuring build and test commands
