@@ -75,6 +75,32 @@ If the default image does not satisfy your requirements, you can do one of three
 ###Setting environment variables
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
 
+### Using desired version of modules
+In Shippable's [v7.1.4](http://docs.shippable.com/platform/runtime/machine-image/ami-v714/)  release, Gradle 4.10.3 & Ant 1.9.9 are installed. These versions not supported  work on OpenJdk7. To use Ant & Gradle in OpenJdk7, you can use `sdk` command to switch `Gradle` & `Ant` versions to 4.10.3 and 1.9.9 which are pre-installed on this image and are compatible with OpenJdk7
+
+Using openjdk7 with ant-
+
+```
+language: java
+
+jdk: openjdk7
+
+ci:
+  - sdk use ant 1.9.9
+
+  ```
+Using openjdk7 with gradle -
+
+  ```
+  language: java
+
+jdk: openjdk7
+
+ci:
+  - sdk use gradle 4.10.3
+
+  ```
+
 <a name="build-test"></a>
 ## Configuring build and test commands
 The `ci` section should contain all build and test commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -206,6 +232,7 @@ build:
     - mvn install  
     - cp -r target/site/jacoco/my.package.name/source-file-name.java.html shippable/codecoverage
 ```
+
 
 This will allow Shippable to use additional metadata about your tests to produce more detailed reports.
 
