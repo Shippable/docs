@@ -75,7 +75,7 @@ If the default image does not satisfy your requirements, you can do one of three
 ###Setting environment variables
 You can define any custom environment variables in the `env` section of your yml. Please read the [docs on Environment variables](env-vars/) for more information.
 
-### Using desired version of modules
+### Gradle and Ant compatibility
 
 Starting with [v7.1.4](/platform/runtime/machine-image/ami-v714/), the Java drydock images use [sdkman](https://sdkman.io/usage) to support multiple versions of Gradle and Ant. By default, these images use Gradle 5 and Ant 1.10, which are incompatible with JDK 7. If you need to use Gradle or Ant on the latest images with JDK 7, you must switch to a compatible version of Gradle or Ant in your build using sdkman as shown below:
 
@@ -103,6 +103,7 @@ build:
     - sdk use gradle 4.10.3
 
 ```
+Please review [machine images](/platform/runtime/machine-image/ami-overview/) to know exactly what versions of Gradle and Ant are available in the image you are using.
 
 <a name="build-test"></a>
 ## Configuring build and test commands
