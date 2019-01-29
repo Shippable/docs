@@ -21,15 +21,23 @@ Here is the information you need to create this integration:
 
 ## Usage in CI
 
-You can use a Key-value integration with CI by adding it as an `IN` to the `runCI` job or by adding it to your **shippable.yml** as described [here](/platform/tutorial/integration/howto-use-key-value-in-runci/).
+You can use a Key-value integration with CI by adding it as an integration resource `IN` to the `runCI` job or by adding it to your **shippable.yml** as follows:
 
-You can also set key-value pairs as [environment variables in CI](/ci/env-vars/#usrEnv).
+```
+integrations:  # this section can contain several different types of integrations
+  generic:     # k/v pair should be under the 'generic' header
+    - integrationName: my-key-value-integration # whatever name you chose for your integration
+```
+
+You can also set Key-value pairs directly as [environment variables in CI](/ci/env-vars/#usrEnv) instead of using an integration.
 
 ## Usage in Assembly Lines
 
 The Key-value integration can be used in the following [resources](/platform/workflow/resource/overview/):
 
 * [integration](/platform/workflow/resource/integration)
+
+It can also be added directly to the `integrations` section of a `runSh` job as shown in the [runSh yml](/platform/workflow/job/runsh).
 
 ### Default Env Vars
 
