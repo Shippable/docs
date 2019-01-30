@@ -127,7 +127,7 @@ Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/r
 
 ## Google Cloud Platform
 
-| Version  | OS | Machine Image
+| Version  | OS | Machine Images
 |----------|---------|------|
 | 230.0.0  |  - Windows 16 |[v7.1.4](/platform/runtime/machine-image/ami-v714/)
 | 228.0.0  |  - CentOS 7 <br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04 (aarch32) <br>- Ubuntu 16.04 (aarch64)  | [v7.1.4](/platform/runtime/machine-image/ami-v714/)
