@@ -202,7 +202,6 @@ The following images are available when you configure `language: java` in your [
 |oraclejdk8 | - CentOS 7<br>- Ubuntu 14.04 <br>- Ubuntu 16.04<br>- Ubuntu 16.04(aarch64) |[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later <br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later<br> [v5.3.2](/platform/runtime/machine-image/ami-v532/) and later<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
 |oraclejdk7 | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.5.1](/platform/runtime/machine-image/ami-v551/) and earlier |
 
-  Note: "Please [read this](/ci/java-continuous-integration/) if you need to use Gradle or Ant on JDK 7 with this image"
 
 ## Node.js
 

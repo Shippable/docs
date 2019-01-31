@@ -163,6 +163,8 @@ Cassandra and Neo4j are not supported on v7.1.4 images because they are incompat
    | Ubuntu 14.04 | drydock/u14javall:v7.1.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14javall/)<br>- [GitHub](https://github.com/dry-dock/u14javall) | - openjdk7<br>- openjdk8<br>- openjdk10<br>- openjdk11<br>- oraclejdk8<br>- oraclejdk11  | - [Common components](#common-714)<br>- Node 10.15.0<br>- Ruby 2.6.0 <br>- Gradle 5.1 <br>- Maven 3.6.0 <br>- Apache-ant 1.10.1<br>- Android-sdk 26.0.1 (to be used with openjdk11/oraclejdk11) |
    | CentOS 7 | drydock/c7javall:v7.1.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7javall/)<br>- [GitHub](https://github.com/dry-dock/c7javall) | - openjdk7<br>- openjdk8<br>- openjdk10<br>- openjdk11<br>- oraclejdk8<br>- oraclejdk11  | - [Common components](#common-714)<br>- Node 10.15.0 <br>- Ruby 2.6.0 <br>- Gradle 5.1 <br>- Maven 3.6.0 <br>- Apache-ant 1.10.1 <br>- Android-sdk 26.0.1 (to be used with openjdk11/oraclejdk11) |
 
+  Note: "Please [read this](/ci/java-continuous-integration/) if you need to use Gradle or Ant on JDK 7 with this image" 
+
   ---
 
   <a name="nod-714"></a>
