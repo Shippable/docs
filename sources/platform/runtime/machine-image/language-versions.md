@@ -165,7 +165,7 @@ The following images are available when you configure `language: go` in your [sh
 	|1.2         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|1.1         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
-	Note : Golang builds on Shippable using `gvm` which will take care of installing any version of golang provided to it, or it will use the one already installed on the machine.
+	Note : Shippable uses `gvm` to manage multiple versions of Go in this image. If your build is configured to use a version of Go that is not already present in the image, `gvm` will attempt to install it at runtime.
 
 ## Java
 
@@ -284,7 +284,7 @@ The following versions are supported in each Machine Image:
 Note: For CI, we support npm 5.6.0 for nodejs LTS releases - v4.8.7, v6.11.5, v8.9.4. For other node versions,
 we use default npm that comes bundled with nodejs installation.
 
-Note : Nodejs builds on Shippable using `nvm` which will take care of installing any version of Nodejs provided to it, or it will use the one already installed on the machine.
+Note : Shippable uses `nvm` to manage multiple versions of Nodejs in this image. If your build is configured to use a version of Nodejs that is not already present in the image, `nvm` will attempt to install it at runtime.
 
 ## PHP
 
@@ -439,7 +439,7 @@ The following images are available when you configure `language: ruby` in your [
 |1.9.3         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |1.8.7         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
-Note : Ruby builds on Shippable using `rvm` which will take care of installing any version of ruby provided to it, or it will use the one already installed on the machine.
+Note : Shippable uses `rvm` to manage multiple versions of Ruby in this image. If your build is configured to use a version of Ruby that is not already present in the image, `rvm` will attempt to install it at runtime.
 
 ## Jruby
 
