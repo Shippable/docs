@@ -392,7 +392,7 @@ The following images are available when you configure `language: python` in your
 	|pypy2-v4.0.1    |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|pypy3-v2.4.0    |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
-Note : Shippable uses `virtualenv` to switch python versions. Since virtuanenv does not install python version(s) if its not present, the build might fail.
+Note : Shippable uses `virtualenv` to manage multiple versions of python in this image. Virtualenv does not install python versions on-demand. As a result, your build will fail if it is configured to use a version of python that is not already available in this image.
 
 ## Ruby
 
