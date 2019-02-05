@@ -210,9 +210,9 @@ Cassandra and Neo4j are not supported on v7.1.4 images because they are incompat
 
   | OS           | Image                    | Link                                                                                                          | Language versions                                              | Additional packages                                                    |
   |--------------|--------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------|
-  | Ubuntu 16.04 | drydock/u16ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/),<br>- [GitHub](https://github.com/dry-dock/u16ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 2.6.0<br>- Java 11<br>- Node 10.15.0  |
-  | Ubuntu 14.04 | drydock/u14ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 2.6.0<br>- Java 11<br>- Node 10.15.0 |
-  | CentOS 7 | drydock/c7ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/c7ruball/),<br>- [GitHub](https://github.com/dry-dock/c7ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 2.6.0<br>- Java 11<br>- Node 10.15.0 |
+  | Ubuntu 16.04 | drydock/u16ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u16ruball/),<br>- [GitHub](https://github.com/dry-dock/u16ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 1.29.7<br>- Java 11<br>- Node 10.15.0  |
+  | Ubuntu 14.04 | drydock/u14ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/u14ruball/),<br>- [GitHub](https://github.com/dry-dock/u14ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 1.29.7<br>- Java 11<br>- Node 10.15.0 |
+  | CentOS 7 | drydock/c7ruball:v7.1.4 | <br>- [Docker Hub](https://hub.docker.com/r/drydock/c7ruball/),<br>- [GitHub](https://github.com/dry-dock/c7ruball) |- 2.3.8<br>- 2.4.5<br>- 2.5.3<br>- 2.6.0<br>- jruby-9.2.5.0 | - [Common components](#common-714)<br>- rvm 1.29.7<br>- Java 11<br>- Node 10.15.0 |
 
  ---
 
