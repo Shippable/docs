@@ -165,6 +165,8 @@ The following images are available when you configure `language: go` in your [sh
 	|1.2         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|1.1         |  - Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
+	Note : Shippable uses `gvm` to manage multiple versions of Go in this image. If your build is configured to use a version of Go that is not already present in the image, `gvm` will attempt to install it at runtime.
+
 ## Java
 
 The following images are available when you configure `language: java` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
@@ -282,6 +284,8 @@ The following versions are supported in each Machine Image:
 Note: For CI, we support npm 5.6.0 for nodejs LTS releases - v4.8.7, v6.11.5, v8.9.4. For other node versions,
 we use default npm that comes bundled with nodejs installation.
 
+Note : Shippable uses `nvm` to manage multiple versions of Nodejs in this image. If your build is configured to use a version of Nodejs that is not already present in the image, `nvm` will attempt to install it at runtime.
+
 ## PHP
 
 The following images are available when you configure `language: php` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
@@ -388,6 +392,8 @@ The following images are available when you configure `language: python` in your
 	|pypy2-v4.0.1    |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 	|pypy3-v2.4.0    |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier |
 
+Note : Shippable uses `virtualenv` to manage multiple versions of python in this image. Virtualenv does not install python versions on-demand. As a result, your build will fail if it is configured to use a version of python that is not already available in this image.
+
 ## Ruby
 
 The following images are available when you configure `language: ruby` in your [shippable.yml](/ci/yml-structure/) for a [runCI job](/platform/workflow/job/runci), we automatically use a default language image for your build. The specific language image chosen depends on the Machine Image selected for your subscription.
@@ -432,6 +438,8 @@ The following images are available when you configure `language: ruby` in your [
 |2.0.0         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |1.9.3         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 |1.8.7         |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
+
+Note : Shippable uses `rvm` to manage multiple versions of Ruby in this image. If your build is configured to use a version of Ruby that is not already present in the image, `rvm` will attempt to install it at runtime.
 
 ## Jruby
 
