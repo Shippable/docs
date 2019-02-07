@@ -10,9 +10,9 @@ page_keywords: email, Continuous Integration, Continuous Deployment, CI/CD, test
 
 <img src="/images/ci/email-success.png" alt="Success email">
 
-By default, we send email notifications to the last committer and project owner when a build fails, or the status changes from failed to passed.
+By default, we send email notifications to the last committer and author when a build fails, or the status changes from failed to passed.
 
-We get your email address from your source control management system (GitHub/Bitbucket). To change the email address we send notifications to, you should [change your account email.](/platform/management/account/set-email/)
+We get your email address from your source control management system (GitHub/Bitbucket). To change the email address to which we send non-build notifications, you should [change your account email.](/platform/management/account/set-email/)
 
 To customize email notifications, you'll need to configure options in the **shippable.yml** file.
 
@@ -36,8 +36,8 @@ Use the descriptions of each field below to modify the `yml` above and tailor it
 
 - `integrationName` value is always `email` since it is not configured in the UI - 'Account Settings' and 'Subscription' settings.
 - `type` is `email`.
-- `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)' email address that we get from your source control management system (GitHub/Bitbucket). NOTE: We do not use the email address specified in your 'Account Settings' for notifications.
-     - To specify 'last committer' and 'project owner(s)' as part of this list, you can use --last_committer and --owners.
+- `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'last author' email address that we get from your source control management system (GitHub/Bitbucket/GitLab). NOTE: We do not use the email address specified in your 'Account Settings' for notifications.
+     - To specify 'last committer' and 'last author' as part of this list, you can use --last_committer and --last_author.
      - For single recipient, use the format `recipients: example@org.com`
 
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
