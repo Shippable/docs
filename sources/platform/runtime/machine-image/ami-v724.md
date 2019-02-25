@@ -13,7 +13,7 @@ page_keywords: CI/CD, shippable CI/CD, documentation, shippable, config, yml, AM
 **Note**: This machine image version uses Docker 18.03 which is known to be
 incompatible with [node caching](/platform/runtime/caching/#node-caching).
 Please turn off caching if you want to use this machine image. Alternatively,
-you can use machine image version 7.2.4 or below which come with an earlier
+you can use machine image version 6.9.4 or below which come with an earlier
 version of Docker.
 
 **What is installed on the machine image?**
