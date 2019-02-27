@@ -57,7 +57,7 @@ version of Docker.
 ## w16 sku
 * Host Operating System: Windows Server 2016 Datacenter Edition (Version 1607)
 * Build Container Operating System: Windows Server Core 2016 v10.0.14393.1884
-* Docker Server Version: 18.03.1-ce
+* Docker Server Version: 18.09.1-ce
 * Shippable Official w16 Docker Images with TAG: `v7.2.4`
 
 ## Shippable Official Docker Images

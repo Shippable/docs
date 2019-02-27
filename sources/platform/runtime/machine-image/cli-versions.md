@@ -127,7 +127,7 @@ Please refer to the [Azure CLI Reference page](https://docs.microsoft.com/en-us/
 | 17.10.0-ce | - Windows 16| [v6.5.4](/platform/runtime/machine-image/ami-v654/) to [v6.9.4](/platform/runtime/machine-image/ami-v694/)
 | 17.06.0-ce | - Windows 16 | [v6.4.4](/platform/runtime/machine-image/ami-v644/)
 
-Note:- For other platforms, Docker version is getting mounted from host. For more information about docker version on other platforms, please refer to latest [machine image](/platform/runtime/machine-image/ami-v724/)
+Note:- Platforms other than Windows the Docker binary is mounted from the host.The version of Docker that will be available to your build depends on the runtime version configured on your node pool. Please refer [to](/platform/runtime/machine-image/ami-v724/) for more information.
 
 Please refer to the [Docker CLI Reference page](https://docs.docker.com/engine/reference/commandline/docker/) for help with CLI commands.
 
