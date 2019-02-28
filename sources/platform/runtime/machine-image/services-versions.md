@@ -35,7 +35,7 @@ This page lists the versions of Services available for each supported [OS](/plat
 |3.11.2|- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v6.7.4](/platform/runtime/machine-image/ami-v674/)|
 | 3.11 |- Ubuntu 14.04<br>- Ubuntu 16.04 | [v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.1.4](/platform/runtime/machine-image/ami-v614/)<br>[v5.7.3](/platform/runtime/machine-image/ami-v573/) to [v6.4.4](/platform/runtime/machine-image/ami-v644/)|
 
-Note: Cassandra is only supported in the [Java](link to java image doc) images because they require JDK 8.
+Note: Cassandra is only supported in the [Java](/platform/runtime/machine-image/language-versions/#java) images because they require JDK 8.
 
 
 ## CouchDB
@@ -134,7 +134,7 @@ Note: Cassandra is only supported in the [Java](link to java image doc) images b
 |3.2.2  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.7.3](/platform/runtime/machine-image/ami-v573/)
 |3.1.1  | - Ubuntu 14.04<br>- Ubuntu 16.04|[v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier
 
-Note: Neo4j is only supported in the [Java](link to java image doc) images because they require JDK 8.
+Note: Neo4j is only supported in the [Java](/platform/runtime/machine-image/language-versions/#java) images because they require JDK 8.
 
 ## Postgres
 

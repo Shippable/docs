@@ -101,7 +101,7 @@ We have the following base images, one for each supported OS version.
 
 ### Note
 
-Cassandra and Neo4j are only supported in the [Java](link to java image doc) images because they require JDK 8.
+Cassandra and Neo4j are only supported in the [Java](/platform/runtime/machine-image/language-versions/#java) images because they require JDK 8.
 
 ---
 
