@@ -101,7 +101,7 @@ We have the following base images, one for each supported OS version.
 
 ### Note
 
-Cassandra and Neo4j are not supported on v7.2.4 images because they are incompatible with Java 10 and Java 11 . You can use openjdk8 on an java image if you need these versions of Cassandra and neo4j.
+Cassandra and Neo4j are only supported in the [Java](link to java image doc) images because they require JDK 8.
 
 ---
 
