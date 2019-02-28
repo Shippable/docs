@@ -126,7 +126,7 @@ Cassandra and Neo4j are only supported in the [Java](/platform/runtime/machine-i
    | Ubuntu 16.04 | drydock/u16cppall:v7.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/u16cppall) | - gcc 8.1.0<br>- clang 7.0.1 | - [Common components](#common-724)<br>- Java 11<br>- Node 10.15.1<br>- Ruby 2.6.1 |
    | Ubuntu 14.04 | drydock/u14cppall:v7.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/u14cppall/),<br>- [GitHub](https://github.com/dry-dock/u14cppall) | - gcc 8.1.0<br>- clang 7.0.1 | - [Common components](#common-724)<br>- Java 11<br>- Node 10.15.1<br>- Ruby 2.6.1  |
    | Ubuntu 16.04 | drydockaarch64/u16cppall:v7.2.4 | - [Docker Hub](https://hub.docker.com/r/drydockaarch64/u16cppall/),<br>- [GitHub](https://github.com/dry-dock/aarch64_u16cppall) | - gcc 8.1.0<br>- clang 7.0.1 | - [Common components](#common-724)<br>- Java 11<br>- Node 10.15.1<br>- Ruby 2.6.1  
-   | CentOS 7 | drydock/c7cppall:v7.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 8.2.1<br>- clang 5.0.1 | - [Common components](#common-724)<br>- Java 11<br>- Node 10.15.1<br>- Ruby 2.6.1   |
+   | CentOS 7 | drydock/c7cppall:v7.2.4 | - [Docker Hub](https://hub.docker.com/r/drydock/c7cppall/),<br>- [GitHub](https://github.com/dry-dock/c7cppall) | - gcc 8.2.1<br>- clang 6.0.1 | - [Common components](#common-724)<br>- Java 11<br>- Node 10.15.1<br>- Ruby 2.6.1   |
 
  ---
 

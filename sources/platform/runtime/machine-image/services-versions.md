@@ -140,7 +140,8 @@ Note: Neo4j is only supported in the [Java](/platform/runtime/machine-image/lang
 
 | Version  |    OS    |   Machine Images
 |----------|---------|------------
-|11.1   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  | [v7.2.4](/platform/runtime/machine-image/ami-v724/)
+|11.2   |- CentOS 7  | [v7.2.4](/platform/runtime/machine-image/ami-v724/)
+|11.1   |- Ubuntu 14.04<br>- Ubuntu 16.04  | [v7.2.4](/platform/runtime/machine-image/ami-v724/)
 |10.6   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  | [v6.12.4](/platform/runtime/machine-image/ami-v6124/) and [v7.1.4](/platform/runtime/machine-image/ami-v714/)
 |10.5   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.8.4](/platform/runtime/machine-image/ami-v684/) to [v6.10.4](/platform/runtime/machine-image/ami-v6104/)
 |10.4   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04  |[v6.5.4](/platform/runtime/machine-image/ami-v654/) and [v6.7.4](/platform/runtime/machine-image/ami-v674/)
@@ -209,7 +210,8 @@ Note: Neo4j is only supported in the [Java](/platform/runtime/machine-image/lang
 
 | Version  |  OS    | Machine Images
 |----------|---------|-------
-| 3.22.0   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.2.4](/platform/runtime/machine-image/ami-v624/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later
+| 3.27.1   |- CentOS 7 | [v7.2.4](/platform/runtime/machine-image/ami-v724/)
+| 3.22.0   |- CentOS 7<br>- Ubuntu 14.04<br>- Ubuntu 16.04| [v6.2.4](/platform/runtime/machine-image/ami-v624/) to [v7.1.4](/platform/runtime/machine-image/ami-v714/)<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later<br>[v6.1.4](/platform/runtime/machine-image/ami-v614/) and later
 |3.20.1    | - Ubuntu 14.04<br>- Ubuntu 16.04 |  [v5.10.4](/platform/runtime/machine-image/ami-v5104/)                   
 | 3.19.3   | - Ubuntu 14.04<br>- Ubuntu 16.04 |[v5.7.3](/platform/runtime/machine-image/ami-v573/) and [v5.8.2](/platform/runtime/machine-image/ami-v582/)
 | 3.11.0   |- Ubuntu 16.04<br>- Ubuntu 16.04(aarch 64) | [v5.6.1](/platform/runtime/machine-image/ami-v561/) and earlier<br>[v6.2.4](/platform/runtime/machine-image/ami-v624/) and later
