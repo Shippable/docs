@@ -8,6 +8,7 @@ page_description: notification resource reference
 # notification
 `notification` resource is used to connect DevOps Assembly Lines to notification providers of your choice. These are providers we currently support:
 
+* Airbrake
 * Email
 * Hipchat
 * IRC
@@ -47,7 +48,14 @@ resources:
 	- IRC - No integration required
 	- [Slack](/platform/integration/slackKey)
 
-* **`versionTemplate`** -- is an object that contains provider specific properties
+* **`versionTemplate`** -- is an object that contains provider specific properties	
+	* For Airbrake,
+
+	        integration: <airbrake integration name>
+	        versionTemplate:  # optional
+	          recipients:
+	            - "12345"  # only one Project ID is allowed
+
 	* For email,
 
 	        versionTemplate:
@@ -96,12 +104,20 @@ resources:
 * **`type`** -- is set to `notification`
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported providers are:
+	- [Airbrake](/platform/integration/airBrakeKey)
 	- Email - No integration required
 	- [HipChat](/platform/integration/hipchatKey)
 	- IRC - No integration required
 	- [Slack](/platform/integration/slackKey)
 
 * **`pointer`** -- is an object that contains provider specific properties
+	* For Airbrake
+
+	        integration: <airbrake integration name>
+	        pointer:
+	          recipients:
+	            - "12345"  # only one Project ID is allowed
+
 	* For email,
 
 	        pointer:
@@ -140,6 +156,15 @@ This resource can be used as a `NOTIFY` for all job types.  For more information
 Instead of including a notification resource as a `NOTIFY` step in one or more of your jobs, you can include it as an `IN` step, and then use [shipctl notify](/platform/tutorial/workflow/using-shipctl/#notify) to utilize it to send custom notifications throughout the build.
 
 At this time, `shipctl notify` only supports notification resources that utilize "Slack" or "webhook" type integrations or have `method: irc` in the resource `versionTemplate` or `pointer`.
+
+### Airbrake
+`shipctl notify` could be used with an Airbrake integration to post new deploys in Airbrake. Currently only one Airbrake project ID could be mentioned in the `recipients` section. If given more, only the first one will be used by `shipctl notify`. If there are no `recipients` section present in the resource, it could be given directly in `shipctl notify` using `--project-id` option.
+
+For example:
+```
+- >
+	shipctl notify myAirbrakeNotifier --project-id="12345" --type="deploy"  --environment="prod" --username="admin" --repository="$REPO" --revision="$COMMIT" --version="v4" --email="$EMAIL"
+```
 
 ### Slack
 By default, `shipctl notify` will send a simple Slack message payload to the configured recipients.  This payload includes the current date/time and a link back to the current job on Shippable.  Each component of the payload can be individually customized.  For example, options like `--username` or `--icon-url` can be changed to show the name and icon of your own organization rather than Shippable.  The payload will be sent for each recipient defined in the resource.  However, the resource settings can be overridden by using the `--recipient` option, which accepts a single recipient.
