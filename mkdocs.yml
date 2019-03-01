@@ -274,6 +274,7 @@ pages:
         - rSync: platform/workflow/job/rsync.md
       - Integrations:
         - Overview: platform/integration/overview.md
+        - Airbrake: platform/integration/airBrakeKey.md
         - AWS IAM: platform/integration/aws-iam.md
         - AWS Keys: platform/integration/aws-keys.md
         - Azure: platform/integration/azure-keys.md
