@@ -819,7 +819,7 @@ The options can be specified as part of the command, or defined as environment v
 
 command line options:
 
-- `--username`: Shows in the heading of the Slack message for Slack notifications and is the user sending the message in IRC. Defaults to "Shippable" for Slack and "Shippable-$BUILD_NUMBER" for IRC.
+- `--username`: Shows in the heading of the Slack message for Slack notifications and is the user sending the message in IRC. Defaults to "Shippable" for Slack and "Shippable-$BUILD_NUMBER" for IRC. Username value to be used while posting an Airbrake deploy.
 - `--password`: The password to connect to an IRC server. Only supported for IRC notifications.
 - `--recipient`: A single target for the notification. Slack and IRC only. Slack recipients should begin with `#` or `@` and IRC recipients are `server#channel` (for example, `irc.freenode.net#my-channel`). If not specified, will default to the array of recipients defined in the notification resource.
 - `--pretext`: A string that becomes the first part of the Slack message. It defaults to the current date/time. Not supported for IRC notifications.
@@ -827,6 +827,13 @@ command line options:
 - `--color`: Defines the color to the left of the text section on Slack. Defaults to "#65cea7" (Shippable success). Not supported for IRC notifications.
 - `--icon_url`: Defaults to Shippable's aye-aye icon if not specified. Not supported in IRC notifications.
 - `--payload`: If specified, must be a path to a valid json file. This json directly becomes the POST body in the request to Slack API or the webhook endpoint. This parameter overrides all others. In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages). For webhook payloads, the only requirement is that it be valid json.
+- `--type`: Type of object to be posted in case of Airbrake notification. Only allowed value for now is `deploy`.
+- `--project-id`: Airbrake Project ID
+- `--environment`: Enironment value to be used while posting an Airbrake deploy.
+- `--revision`: Revision value to be used while posting an Airbrake deploy.
+- `--repository`: Repository value to be used while posting an Airbrake deploy.
+- `--email`: Email value to be used while posting an Airbrake deploy.
+- `--version`: Version value to be used while posting an Airbrake deploy.
 
 environment options:
 
@@ -838,6 +845,13 @@ environment options:
 - `NOTIFY_COLOR` (--color)
 - `NOTIFY_ICON_URL` (--icon-url)
 - `NOTIFY_PAYLOAD` (--payload)
+- `NOTIFY_TYPE` (--type)
+- `NOTIFY_PROJECT_ID` (--project-id)
+- `NOTIFY_ENVIRONMENT` (--environment)
+- `NOTIFY_REVISION` (--revision)
+- `NOTIFY_REPOSITORY` (--repository)
+- `NOTIFY_EMAIL` (--email)
+- `NOTIFY_VERSION` (--version)
 
 The command line arguments take priority over the environment variables.
 
@@ -870,6 +884,11 @@ shipctl notify myIRCNotifier --text="My IRC message for build $BUILD_NUMBER."
 ```
 Sends the specified message to IRC as the default user (`Shippable-$BUILD_NUMBER`).
 
+```
+shipctl notify myAirbrakeNotifier --project-id="12345" --type="deploy"  --environment="prod" --username="admin" --repository="$REPO" --revision="$COMMIT" --version="v4" --email="$EMAIL"
+```
+
+Posts a deploy object in Airbrake containing the passed in values.
 
 ### replace
 
