@@ -158,7 +158,7 @@ Instead of including a notification resource as a `NOTIFY` step in one or more o
 At this time, `shipctl notify` only supports notification resources that utilize "Slack" or "webhook" type integrations or have `method: irc` in the resource `versionTemplate` or `pointer`.
 
 ### Airbrake
-`shipctl notify` could be used with an Airbrake integration to post new deploys in Airbrake. Currently only one Airbrake project ID could be mentioned in the `recipients` section. If given more, only the first one will be used by `shipctl notify`. If there are no `recipients` section present in the resource, it could be given directly in `shipctl notify` using `--project-id` option.
+`shipctl notify` can be used with an Airbrake integration to post new deploys to Airbrake. Currently only one Airbrake project ID is supported in the `recipients` section. If more are specified, only the first one will be used by `shipctl notify`. The project ID can also be passed directly to  `shipctl notify` using the `--project-id` option.
 
 For example:
 ```
