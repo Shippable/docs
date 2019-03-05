@@ -43,6 +43,7 @@ resources:
 * **`type`** -- is set to `notification`
 
 * **`integration`** -- name of the subscription integration, i.e. the name of your integration at `https://app.shippable.com/subs/[github or bitbucket]/[Subscription name]/integrations`. Currently supported providers are:
+	- [Airbrake](/platform/integration/airBrakeKey)
 	- Email - No integration required
 	- [HipChat](/platform/integration/hipchatKey)
 	- IRC - No integration required
