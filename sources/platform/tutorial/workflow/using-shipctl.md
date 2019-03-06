@@ -819,7 +819,7 @@ The options can be specified as part of the command, or defined as environment v
 
 command line options:
 
-- `--username`: Shows in the heading of the Slack message for Slack notifications and is the user sending the message in IRC. Defaults to "Shippable" for Slack and "Shippable-$BUILD_NUMBER" for IRC. Username value to be used while posting an Airbrake deploy.
+- `--username`: Shows in the heading of the Slack message for Slack notifications, is the user sending the message in IRC, and is the user recording the deployment in NewRelic. Defaults to "Shippable" for Slack, "Shippable-$BUILD_NUMBER" for IRC, and "Shippable" for NewRelic. Username value to be used while posting an Airbrake deploy.
 - `--password`: The password to connect to an IRC server. Only supported for IRC notifications.
 - `--recipient`: A single target for the notification. Slack and IRC only. Slack recipients should begin with `#` or `@` and IRC recipients are `server#channel` (for example, `irc.freenode.net#my-channel`). If not specified, will default to the array of recipients defined in the notification resource.
 - `--pretext`: A string that becomes the first part of the Slack message. It defaults to the current date/time. Not supported for IRC notifications.
@@ -827,13 +827,17 @@ command line options:
 - `--color`: Defines the color to the left of the text section on Slack. Defaults to "#65cea7" (Shippable success). Not supported for IRC notifications.
 - `--icon_url`: Defaults to Shippable's aye-aye icon if not specified. Not supported in IRC notifications.
 - `--payload`: If specified, must be a path to a valid json file. This json directly becomes the POST body in the request to Slack API or the webhook endpoint. This parameter overrides all others. In the case of Slack, the user is required to build the appropriately formatted json object according to the [Slack documentation](https://api.slack.com/docs/messages). For webhook payloads, the only requirement is that it be valid json.
-- `--type`: Type of object to be posted in case of Airbrake notification. Only allowed value for now is `deploy`.
+- `--type`: Type of object to be posted in case of Airbrake and NewRelic notification. Only allowed value for now is `deploy` in Airbrake and `deployment` in NewRelic.
 - `--project-id`: Airbrake Project ID
 - `--environment`: Enironment value to be used while posting an Airbrake deploy.
-- `--revision`: Revision value to be used while posting an Airbrake deploy.
+- `--revision`: Revision value to be used while posting an Airbrake deploy and recording deployments in NewRelic. `--revision` is mandatory in NewRelic deployments.
 - `--repository`: Repository value to be used while posting an Airbrake deploy.
 - `--email`: Email value to be used while posting an Airbrake deploy.
 - `--version`: Version value to be used while posting an Airbrake deploy.
+- `--changelog`: Changelog value to be used while recording a NewRelic deployment.
+- `--description`: Description value to be used while recording a NewRelic deployment.
+- `--appName`: Application Name value to be used for recording a deployment in NewRelic.
+- `--appId`: Application Id value to be used for recording a deployment in NewRelic. Either `--appName` or `--appId` is required.
 
 environment options:
 
@@ -852,6 +856,8 @@ environment options:
 - `NOTIFY_REPOSITORY` (--repository)
 - `NOTIFY_EMAIL` (--email)
 - `NOTIFY_VERSION` (--version)
+- `NOTIFY_CHANGELOG` (--changelog)
+- `NOTIFY_DESCRIPTION` (--description)
 
 The command line arguments take priority over the environment variables.
 
@@ -889,6 +895,12 @@ shipctl notify myAirbrakeNotifier --project-id="12345" --type="deploy"  --enviro
 ```
 
 Posts a deploy object in Airbrake containing the passed in values.
+
+```
+shipctl notify myNewRelicNotifier --type="deployment" --appName="app" --username="admin" --revision="$COMMIT" --changelog="$SHA" --description="Description"
+```
+
+Posts a deployment object in NewRelic containing the passed in values.
 
 ### replace
 
