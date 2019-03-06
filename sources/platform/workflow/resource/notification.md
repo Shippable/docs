@@ -48,6 +48,7 @@ resources:
 	- [HipChat](/platform/integration/hipchatKey)
 	- IRC - No integration required
 	- [Slack](/platform/integration/slackKey)
+	- [NewRelic](/platform/integration/newRelicKey)
 
 * **`versionTemplate`** -- is an object that contains provider specific properties	
 	* For Airbrake,
@@ -87,7 +88,6 @@ resources:
 	          recipients:
 	            - "#beta"
 	            - "@botnot"
-
 
 <a name="oldSyntax"></a>
 ### Old Syntax (forward compatible)
@@ -165,6 +165,14 @@ For example:
 ```
 - >
 	shipctl notify myAirbrakeNotifier --project-id="12345" --type="deploy"  --environment="prod" --username="admin" --repository="$REPO" --revision="$COMMIT" --version="v4" --email="$EMAIL"
+```
+
+### NewRelic
+`shipctl notify` can be used with an NewRelic integration to post new deployments to NewRelic. Either `--appName` or `--appId` should be present in the notify command.
+For example:
+```
+- >
+	shipctl notify myNewRelicNotifier --type="deployment" --appName="app" --username="admin" --revision="$COMMIT" --changelog="$SHA" --description="Description"
 ```
 
 ### Slack

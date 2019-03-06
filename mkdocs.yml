@@ -296,6 +296,7 @@ pages:
         - Joyent Triton: platform/integration/joyentTritonKey.md
         - Key-value: platform/integration/key-value.md
         - Kubernetes: platform/integration/kubernetes.md
+        - NewRelic: platform/integration/newRelicKey.md
         - Node Cluster: platform/integration/nodeCluster.md
         - PEM Keys: platform/integration/pemKey.md
         - Quay.io: platform/integration/quayLogin.md
