@@ -93,6 +93,7 @@ pages:
         - Skipping a build: ci/skip-builds.md
         - Using git submodules: ci/git-submodules.md
         - Retrying a command: ci/retry-command.md
+        - Running Tests in Parallel: ci/running-parallel-tests.md
         - Using SSH keys: ci/ssh-keys.md
         - Canceling builds: ci/cancel-builds.md
         - Customizing timeouts: ci/custom-timeouts.md
