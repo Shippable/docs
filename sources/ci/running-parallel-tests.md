@@ -9,13 +9,13 @@ page_keywords: tests, shippable docs, config, yml, parallel, split, distribute
 
 # Running Tests in Parallel
 
-If your project has a large number of tests, it will take more time to run all those tests on single node. To run these tests faster, you can run them in parallel by adding more nodes to your organization and splitting the tests between those nodes. Splitting your tests across all the nodes can be a bit tricky. You may end of up running all slow tests on one machine and all fast tests on another.
+If your project has a large number of tests, it will take more time to run all those tests on single node. To run these tests faster, you can run them in parallel by adding more nodes to your organization and splitting the tests between those nodes by using a matrix build. Splitting your tests across all the nodes in an efficient way can be a bit tricky, because you may end up running all of your slow tests on one machine and all fast tests on another.
 
-Shippable provides `split_tests` Shippable CLI command to intelligently split tests accros all nodes in such a way that all your tests will complete in as little time as possible.
+`shipctl` provides a `split_tests` command to intelligently split tests across your matrix jobs in such a way that all your tests will complete in as little time as possible. It does this by sorting your previous test results by time taken and distributing them across your matrix jobs in a round-robin fashion.
 
 ## Using the Shippable CLI to Split Tests
 
-Shippable CLI `split_tests` command gives you a list of test files to test in your current job.
+`shipctl split_tests` returns the list of test files that should be executed by the current matrix job.
 
 ```
 shipctl split_tests $TEST_PATH $TEST_FILES_NAME_REGEX $TEST_REPORTS_PATH
