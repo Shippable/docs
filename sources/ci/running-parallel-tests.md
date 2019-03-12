@@ -25,7 +25,15 @@ shipctl split_tests $TEST_PATH $TEST_FILES_NAME_REGEX $TEST_REPORTS_PATH
 * `TEST_FILES_NAME_REGEX:` regular expression to search tests files in TEST_PATH
 * `TEST_REPORTS_PATH:` path of the directory where test reports are created in your project
 
-You will need to cache your tests reports so that test results can be sorted and distributed based on previous test timings.
+The output of `split_tests` is an array of test file paths which you can pass to your test runner.
+```
+> shipctl split_tests $TEST_PATH $TEST_FILES_NAME_REGEX $TEST_REPORTS_PATH
+test/test_1.rb
+test/test_2.rb
+test/test_3.rb
+```
+
+You will need to cache your test report results so that test results can be sorted and distributed based on these cached test timings.
 Below shippable.yml shows how you can split tests for ruby:
 
 ```
@@ -58,10 +66,12 @@ build:
     - test_files=$(shipctl split_tests $TEST_PATH \*_test.rb /tmp/cache/$TEST_REPORTS_PATH)
     # run tests
     - bundle exec ruby -I.:test -e "ARGV.each{|f| require f}" ${test_files[@]}
-    # copy new test reports to cache directory
+    # copy new test reports to /tmp/cache directory
     - cp -ru $TEST_REPORTS_PATH/. /tmp/cache/$TEST_REPORTS_PATH/
 
+  # enable caching
   cache: true
+  # cache /tmp/cache directory to cache test reports
   cache_dir_list:
     - /tmp/cache
 ```
