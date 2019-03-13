@@ -1006,6 +1006,18 @@ java -version
 mvn --version
 ```
 
+### split_tests
+
+**Description**
+
+Used to distribute tests across multiple nodes intelligently. See the [run tests in parallel documentation](/ci/running-parallel-tests.md) for more information.
+
+**Usage**
+
+```
+shipctl split_tests <test_path> <test_files_name_regex> <test_reports_path>
+```
+
 ## Deprecated commands
 
 Following commands are deprecated and have alternate implementations introduced as of Shippable v5.11.1
