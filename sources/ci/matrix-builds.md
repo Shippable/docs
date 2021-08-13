@@ -176,7 +176,7 @@ matrix:
       env: foo=bar
       nodePool: Arm32
 
-build:
+build: 
   ci:
     - mvn clean deploy
 ```
