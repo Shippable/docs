@@ -50,7 +50,7 @@ Your sample project already has a config file **shippable.yml** at the root of t
 <img src="/images/getting-started/basic-node-console.png" alt="Console for basic-node sample">
 
 ###6. View tests and code coverage
-
+ 
 You can click on the **Tests** or **Code coverage** tabs on your build results page to see your Test report and Code coverage report.
 
 <img src="/images/getting-started/view-test-report.png" alt="Add Integration">
