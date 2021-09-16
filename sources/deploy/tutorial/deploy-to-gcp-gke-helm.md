@@ -71,7 +71,7 @@ helm init --service-account tiller --upgrade
 
 * If you don't want to create your own charts, you can use our sample repository at [https://github.com/devops-recipes/cd_gke_helm](https://github.com/devops-recipes/cd_gke_helm).
 
-* If you're using our [appDeploy.yaml](https://github.com/devops-recipes/cd_gke_helm/blob/master/helmCharts/app/templates/appDeploy.yaml) is shown below.
+* If you're using our sample application, the deployment chart [appDeploy.yaml](https://github.com/devops-recipes/cd_gke_helm/blob/master/helmCharts/app/templates/appDeploy.yaml) is shown below.
 
 ```
 apiVersion: apps/v1beta1
